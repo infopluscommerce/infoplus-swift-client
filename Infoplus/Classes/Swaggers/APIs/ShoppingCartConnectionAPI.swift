@@ -33,28 +33,28 @@ public class ShoppingCartConnectionAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
+     - examples: [{example={
   "orderSourceId" : 123,
-  "syncInventory" : true,
-  "syncInventoryLevelsLastRunTime" : "2000-01-23T04:56:07.000+0000",
-  "clientId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "syncOrders" : true,
   "infoplusSKUFieldToMap" : "aeiou",
-  "integrationPartnerId" : 123,
   "accessToken" : "aeiou",
-  "nonce" : "aeiou",
   "connectionType" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "accessCode" : "aeiou",
+  "clientId" : 123,
+  "shoppingCartSKUFieldToMap" : "aeiou",
+  "syncInventory" : true,
+  "id" : 123,
+  "syncInventoryLevelsLastRunTime" : "2000-01-23T04:56:07.000+0000",
+  "nonce" : "aeiou",
+  "name" : "aeiou",
+  "itemFilterId" : 123,
+  "lobId" : 123,
+  "integrationPartnerId" : 123,
   "syncTrackingData" : true,
   "shoppingCartStoreURL" : "aeiou",
-  "accessCode" : "aeiou",
-  "name" : "aeiou",
-  "shoppingCartSKUFieldToMap" : "aeiou",
-  "id" : 123,
-  "itemFilterId" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
-}}]
+  "syncOrders" : true
+}, contentType=application/json}]
      
      - parameter body: (body) ShoppingCartConnection to be inserted. 
 
@@ -138,28 +138,28 @@ public class ShoppingCartConnectionAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
+     - examples: [{example=[ {
   "orderSourceId" : 123,
-  "syncInventory" : true,
-  "syncInventoryLevelsLastRunTime" : "2000-01-23T04:56:07.000+0000",
-  "clientId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "syncOrders" : true,
   "infoplusSKUFieldToMap" : "aeiou",
-  "integrationPartnerId" : 123,
   "accessToken" : "aeiou",
-  "nonce" : "aeiou",
   "connectionType" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "accessCode" : "aeiou",
+  "clientId" : 123,
+  "shoppingCartSKUFieldToMap" : "aeiou",
+  "syncInventory" : true,
+  "id" : 123,
+  "syncInventoryLevelsLastRunTime" : "2000-01-23T04:56:07.000+0000",
+  "nonce" : "aeiou",
+  "name" : "aeiou",
+  "itemFilterId" : 123,
+  "lobId" : 123,
+  "integrationPartnerId" : 123,
   "syncTrackingData" : true,
   "shoppingCartStoreURL" : "aeiou",
-  "accessCode" : "aeiou",
-  "name" : "aeiou",
-  "shoppingCartSKUFieldToMap" : "aeiou",
-  "id" : 123,
-  "itemFilterId" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
-} ]}]
+  "syncOrders" : true
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -208,28 +208,28 @@ public class ShoppingCartConnectionAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
+     - examples: [{example={
   "orderSourceId" : 123,
-  "syncInventory" : true,
-  "syncInventoryLevelsLastRunTime" : "2000-01-23T04:56:07.000+0000",
-  "clientId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "syncOrders" : true,
   "infoplusSKUFieldToMap" : "aeiou",
-  "integrationPartnerId" : 123,
   "accessToken" : "aeiou",
-  "nonce" : "aeiou",
   "connectionType" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "accessCode" : "aeiou",
+  "clientId" : 123,
+  "shoppingCartSKUFieldToMap" : "aeiou",
+  "syncInventory" : true,
+  "id" : 123,
+  "syncInventoryLevelsLastRunTime" : "2000-01-23T04:56:07.000+0000",
+  "nonce" : "aeiou",
+  "name" : "aeiou",
+  "itemFilterId" : 123,
+  "lobId" : 123,
+  "integrationPartnerId" : 123,
   "syncTrackingData" : true,
   "shoppingCartStoreURL" : "aeiou",
-  "accessCode" : "aeiou",
-  "name" : "aeiou",
-  "shoppingCartSKUFieldToMap" : "aeiou",
-  "id" : 123,
-  "itemFilterId" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
-}}]
+  "syncOrders" : true
+}, contentType=application/json}]
      
      - parameter shoppingCartConnectionId: (path) Id of the shoppingCartConnection to be returned. 
 

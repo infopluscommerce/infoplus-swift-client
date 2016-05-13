@@ -33,14 +33,14 @@ public class BuildingAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
+     - examples: [{example={
+  "id" : 123,
   "address" : "aeiou",
+  "name" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "warehouseId" : 123,
-  "name" : "aeiou",
-  "id" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+}, contentType=application/json}]
      
      - parameter body: (body) Building to be inserted. 
 
@@ -124,14 +124,14 @@ public class BuildingAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
+     - examples: [{example=[ {
+  "id" : 123,
   "address" : "aeiou",
+  "name" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "warehouseId" : 123,
-  "name" : "aeiou",
-  "id" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000"
-} ]}]
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -180,14 +180,14 @@ public class BuildingAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
+     - examples: [{example={
+  "id" : 123,
   "address" : "aeiou",
+  "name" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "warehouseId" : 123,
-  "name" : "aeiou",
-  "id" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+}, contentType=application/json}]
      
      - parameter buildingId: (path) Id of the building to be returned. 
 

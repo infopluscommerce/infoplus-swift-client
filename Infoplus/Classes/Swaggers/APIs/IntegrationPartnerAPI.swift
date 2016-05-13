@@ -33,10 +33,10 @@ public class IntegrationPartnerAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
+     - examples: [{example={
   "id" : 123,
   "label" : "aeiou"
-}}]
+}, contentType=application/json}]
      
      - parameter integrationPartnerId: (path) Id of integrationPartner to be returned. 
 
@@ -80,10 +80,10 @@ public class IntegrationPartnerAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
+     - examples: [{example=[ {
   "id" : 123,
   "label" : "aeiou"
-} ]}]
+} ], contentType=application/json}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)

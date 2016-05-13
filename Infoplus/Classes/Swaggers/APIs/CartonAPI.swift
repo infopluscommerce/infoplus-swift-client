@@ -33,14 +33,14 @@ public class CartonAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "cartonNo" : 123,
-  "cartonTypeId" : 123,
-  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+     - examples: [{example={
   "id" : 123,
+  "cartonTypeId" : 123,
+  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "cartonNo" : 123,
+  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
   "cartonLPN" : "aeiou"
-}}]
+}, contentType=application/json}]
      
      - parameter body: (body) Carton to be inserted. 
 
@@ -124,14 +124,14 @@ public class CartonAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "cartonNo" : 123,
-  "cartonTypeId" : 123,
-  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+     - examples: [{example=[ {
   "id" : 123,
+  "cartonTypeId" : 123,
+  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "cartonNo" : 123,
+  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
   "cartonLPN" : "aeiou"
-} ]}]
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -180,14 +180,14 @@ public class CartonAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "cartonNo" : 123,
-  "cartonTypeId" : 123,
-  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+     - examples: [{example={
   "id" : 123,
+  "cartonTypeId" : 123,
+  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "cartonNo" : 123,
+  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
   "cartonLPN" : "aeiou"
-}}]
+}, contentType=application/json}]
      
      - parameter cartonId: (path) Id of the carton to be returned. 
 

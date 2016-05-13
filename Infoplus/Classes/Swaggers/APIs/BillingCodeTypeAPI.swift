@@ -33,16 +33,16 @@ public class BillingCodeTypeAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "billingCode" : "aeiou",
-  "clientId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "name" : "aeiou",
-  "description" : "aeiou",
-  "id" : 123,
+     - examples: [{example={
   "isActive" : true,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+  "id" : 123,
+  "description" : "aeiou",
+  "name" : "aeiou",
+  "billingCode" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "clientId" : 123
+}, contentType=application/json}]
      
      - parameter body: (body) BillingCodeType to be inserted. 
 
@@ -126,16 +126,16 @@ public class BillingCodeTypeAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "billingCode" : "aeiou",
-  "clientId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "name" : "aeiou",
-  "description" : "aeiou",
-  "id" : 123,
+     - examples: [{example=[ {
   "isActive" : true,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-} ]}]
+  "id" : 123,
+  "description" : "aeiou",
+  "name" : "aeiou",
+  "billingCode" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "clientId" : 123
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -184,16 +184,16 @@ public class BillingCodeTypeAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "billingCode" : "aeiou",
-  "clientId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "name" : "aeiou",
-  "description" : "aeiou",
-  "id" : 123,
+     - examples: [{example={
   "isActive" : true,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+  "id" : 123,
+  "description" : "aeiou",
+  "name" : "aeiou",
+  "billingCode" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "clientId" : 123
+}, contentType=application/json}]
      
      - parameter billingCodeTypeId: (path) Id of the billingCodeType to be returned. 
 

@@ -36,16 +36,16 @@ public class ReplenishmentAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "replenishmentProcess" : 123,
+     - examples: [{example=[ {
+  "id" : 123,
+  "pickFaceAssignment" : 123,
+  "locationId" : 123,
   "quantity" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "locationId" : 123,
-  "pickFaceAssignment" : 123,
-  "id" : 123,
   "sku" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-} ]}]
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "replenishmentProcess" : 123
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -94,16 +94,16 @@ public class ReplenishmentAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "replenishmentProcess" : 123,
+     - examples: [{example={
+  "id" : 123,
+  "pickFaceAssignment" : 123,
+  "locationId" : 123,
   "quantity" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "locationId" : 123,
-  "pickFaceAssignment" : 123,
-  "id" : 123,
   "sku" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "replenishmentProcess" : 123
+}, contentType=application/json}]
      
      - parameter replenishmentId: (path) Id of the replenishment to be returned. 
 

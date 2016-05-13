@@ -33,17 +33,17 @@ public class BillingCodeAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "date" : "2000-01-23T04:56:07.000+0000",
-  "note" : "aeiou",
-  "quantity" : 123,
-  "billingCodeType" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+     - examples: [{example={
   "id" : 123,
+  "billingCodeTypeId" : 123,
   "userId" : 123,
+  "lobId" : 123,
+  "quantity" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "date" : "2000-01-23T04:56:07.000+0000",
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
-}}]
+  "note" : "aeiou"
+}, contentType=application/json}]
      
      - parameter body: (body) BillingCode to be inserted. 
 
@@ -127,17 +127,17 @@ public class BillingCodeAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "date" : "2000-01-23T04:56:07.000+0000",
-  "note" : "aeiou",
-  "quantity" : 123,
-  "billingCodeType" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+     - examples: [{example=[ {
   "id" : 123,
+  "billingCodeTypeId" : 123,
   "userId" : 123,
+  "lobId" : 123,
+  "quantity" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "date" : "2000-01-23T04:56:07.000+0000",
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
-} ]}]
+  "note" : "aeiou"
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -186,17 +186,17 @@ public class BillingCodeAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "date" : "2000-01-23T04:56:07.000+0000",
-  "note" : "aeiou",
-  "quantity" : 123,
-  "billingCodeType" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+     - examples: [{example={
   "id" : 123,
+  "billingCodeTypeId" : 123,
   "userId" : 123,
+  "lobId" : 123,
+  "quantity" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "date" : "2000-01-23T04:56:07.000+0000",
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
-}}]
+  "note" : "aeiou"
+}, contentType=application/json}]
      
      - parameter billingCodeId: (path) Id of the billingCode to be returned. 
 

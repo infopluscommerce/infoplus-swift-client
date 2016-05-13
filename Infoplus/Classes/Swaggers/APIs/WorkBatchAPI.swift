@@ -36,12 +36,12 @@ public class WorkBatchAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
+     - examples: [{example=[ {
+  "id" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "warehouseId" : 123,
-  "id" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000"
-} ]}]
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -90,12 +90,12 @@ public class WorkBatchAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
+     - examples: [{example={
+  "id" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "warehouseId" : 123,
-  "id" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+}, contentType=application/json}]
      
      - parameter workBatchId: (path) Id of the workBatch to be returned. 
 

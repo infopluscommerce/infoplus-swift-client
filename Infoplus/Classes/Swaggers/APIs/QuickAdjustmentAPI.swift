@@ -33,18 +33,18 @@ public class QuickAdjustmentAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "adjustmentCode" : "aeiou",
-  "totalQuantity" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "locationId" : 123,
-  "id" : 123,
+     - examples: [{example={
   "message" : "aeiou",
+  "id" : 123,
+  "totalQuantity" : 123,
+  "status" : "aeiou",
+  "locationId" : 123,
+  "warehouseId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "sku" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "status" : "aeiou"
-}}]
+  "adjustmentCode" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}, contentType=application/json}]
      
      - parameter body: (body) QuickAdjustment to be inserted. 
 
@@ -128,18 +128,18 @@ public class QuickAdjustmentAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "adjustmentCode" : "aeiou",
-  "totalQuantity" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "locationId" : 123,
-  "id" : 123,
+     - examples: [{example=[ {
   "message" : "aeiou",
+  "id" : 123,
+  "totalQuantity" : 123,
+  "status" : "aeiou",
+  "locationId" : 123,
+  "warehouseId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "sku" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "status" : "aeiou"
-} ]}]
+  "adjustmentCode" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -188,18 +188,18 @@ public class QuickAdjustmentAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "adjustmentCode" : "aeiou",
-  "totalQuantity" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "locationId" : 123,
-  "id" : 123,
+     - examples: [{example={
   "message" : "aeiou",
+  "id" : 123,
+  "totalQuantity" : 123,
+  "status" : "aeiou",
+  "locationId" : 123,
+  "warehouseId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "sku" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "status" : "aeiou"
-}}]
+  "adjustmentCode" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}, contentType=application/json}]
      
      - parameter quickAdjustmentId: (path) Id of the quickAdjustment to be returned. 
 

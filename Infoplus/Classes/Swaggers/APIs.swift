@@ -7,7 +7,7 @@
 import Foundation
 
 public class InfoplusAPI {
-    public static var basePath = "https://kingsrook.localhost-testsubdomain1.infopluswms.com:8443/infoplus-wms/api/v1.0"
+    public static var basePath = "https://kingsrook.localhost-testsubdomain1.infopluswms.com:8443/infoplus-wms/api"
     public static var credential: NSURLCredential?
     public static var customHeaders: [String:String] = [:]  
     static var requestBuilderFactory: RequestBuilderFactory = AlamofireRequestBuilderFactory()

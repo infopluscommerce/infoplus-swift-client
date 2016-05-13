@@ -36,15 +36,15 @@ public class ReplenishmentProcessAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "estimatedWork" : 123,
+     - examples: [{example=[ {
   "id" : 123,
+  "estimatedWork" : 123,
   "replenishmentPlanId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "status" : "aeiou"
-} ]}]
+  "status" : "aeiou",
+  "warehouseId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -93,15 +93,15 @@ public class ReplenishmentProcessAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "estimatedWork" : 123,
+     - examples: [{example={
   "id" : 123,
+  "estimatedWork" : 123,
   "replenishmentPlanId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "status" : "aeiou"
-}}]
+  "status" : "aeiou",
+  "warehouseId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}, contentType=application/json}]
      
      - parameter replenishmentProcessId: (path) Id of the replenishmentProcess to be returned. 
 

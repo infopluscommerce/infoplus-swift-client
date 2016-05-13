@@ -36,16 +36,16 @@ public class BusinessTransactionAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
+     - examples: [{example=[ {
+  "messageBody" : "aeiou",
+  "id" : 123,
+  "status" : "aeiou",
+  "lobId" : 123,
   "queueName" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "messageBody" : "aeiou",
   "serverName" : "aeiou",
-  "id" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123,
-  "status" : "aeiou"
-} ]}]
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -94,16 +94,16 @@ public class BusinessTransactionAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
+     - examples: [{example={
+  "messageBody" : "aeiou",
+  "id" : 123,
+  "status" : "aeiou",
+  "lobId" : 123,
   "queueName" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "messageBody" : "aeiou",
   "serverName" : "aeiou",
-  "id" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123,
-  "status" : "aeiou"
-}}]
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}, contentType=application/json}]
      
      - parameter businessTransactionId: (path) Id of the businessTransaction to be returned. 
 

@@ -33,26 +33,26 @@ public class LocationAddressSchemeAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "formatString" : "aeiou",
-  "clientId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "locationNamingScheme" : "aeiou",
-  "bayNumberZeroPadded" : true,
-  "aisleNumberZeroPadded" : true,
-  "locationNumberZeroPadded" : true,
+     - examples: [{example={
   "levelNumberZeroPadded" : true,
-  "levelNumberMinimumNumberOfDigits" : 123,
+  "bayNumberZeroPadded" : true,
   "bayNumberMinimumNumberOfDigits" : 123,
-  "name" : "aeiou",
-  "levelNamingScheme" : "aeiou",
-  "bayNamingScheme" : "aeiou",
-  "id" : 123,
   "aisleNamingScheme" : "aeiou",
-  "locationNumberMinimumNumberOfDigits" : 123,
+  "locationNamingScheme" : "aeiou",
+  "locationNumberZeroPadded" : true,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "clientId" : 123,
+  "aisleNumberZeroPadded" : true,
+  "levelNamingScheme" : "aeiou",
+  "levelNumberMinimumNumberOfDigits" : 123,
+  "id" : 123,
+  "formatString" : "aeiou",
   "aisleNumberMinimumNumberOfDigits" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+  "bayNamingScheme" : "aeiou",
+  "name" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "locationNumberMinimumNumberOfDigits" : 123
+}, contentType=application/json}]
      
      - parameter body: (body) LocationAddressScheme to be inserted. 
 
@@ -136,26 +136,26 @@ public class LocationAddressSchemeAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "formatString" : "aeiou",
-  "clientId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "locationNamingScheme" : "aeiou",
-  "bayNumberZeroPadded" : true,
-  "aisleNumberZeroPadded" : true,
-  "locationNumberZeroPadded" : true,
+     - examples: [{example=[ {
   "levelNumberZeroPadded" : true,
-  "levelNumberMinimumNumberOfDigits" : 123,
+  "bayNumberZeroPadded" : true,
   "bayNumberMinimumNumberOfDigits" : 123,
-  "name" : "aeiou",
-  "levelNamingScheme" : "aeiou",
-  "bayNamingScheme" : "aeiou",
-  "id" : 123,
   "aisleNamingScheme" : "aeiou",
-  "locationNumberMinimumNumberOfDigits" : 123,
+  "locationNamingScheme" : "aeiou",
+  "locationNumberZeroPadded" : true,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "clientId" : 123,
+  "aisleNumberZeroPadded" : true,
+  "levelNamingScheme" : "aeiou",
+  "levelNumberMinimumNumberOfDigits" : 123,
+  "id" : 123,
+  "formatString" : "aeiou",
   "aisleNumberMinimumNumberOfDigits" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-} ]}]
+  "bayNamingScheme" : "aeiou",
+  "name" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "locationNumberMinimumNumberOfDigits" : 123
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -204,26 +204,26 @@ public class LocationAddressSchemeAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "formatString" : "aeiou",
-  "clientId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "locationNamingScheme" : "aeiou",
-  "bayNumberZeroPadded" : true,
-  "aisleNumberZeroPadded" : true,
-  "locationNumberZeroPadded" : true,
+     - examples: [{example={
   "levelNumberZeroPadded" : true,
-  "levelNumberMinimumNumberOfDigits" : 123,
+  "bayNumberZeroPadded" : true,
   "bayNumberMinimumNumberOfDigits" : 123,
-  "name" : "aeiou",
-  "levelNamingScheme" : "aeiou",
-  "bayNamingScheme" : "aeiou",
-  "id" : 123,
   "aisleNamingScheme" : "aeiou",
-  "locationNumberMinimumNumberOfDigits" : 123,
+  "locationNamingScheme" : "aeiou",
+  "locationNumberZeroPadded" : true,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "clientId" : 123,
+  "aisleNumberZeroPadded" : true,
+  "levelNamingScheme" : "aeiou",
+  "levelNumberMinimumNumberOfDigits" : 123,
+  "id" : 123,
+  "formatString" : "aeiou",
   "aisleNumberMinimumNumberOfDigits" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+  "bayNamingScheme" : "aeiou",
+  "name" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "locationNumberMinimumNumberOfDigits" : 123
+}, contentType=application/json}]
      
      - parameter locationAddressSchemeId: (path) Id of the locationAddressScheme to be returned. 
 

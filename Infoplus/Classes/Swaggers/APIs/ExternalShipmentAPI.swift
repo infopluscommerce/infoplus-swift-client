@@ -33,25 +33,25 @@ public class ExternalShipmentAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "orderId" : 1.3579000000000001069366817318950779736042022705078125,
-  "freight" : 1.3579000000000001069366817318950779736042022705078125,
-  "parcelAccountId" : 123,
-  "dim3In" : 1.3579000000000001069366817318950779736042022705078125,
+     - examples: [{example={
   "dim1In" : 1.3579000000000001069366817318950779736042022705078125,
-  "dim2In" : 1.3579000000000001069366817318950779736042022705078125,
-  "residential" : true,
-  "dimWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "thirdPartyParcelAccountId" : 123,
   "trackingNo" : "aeiou",
-  "zone" : "aeiou",
+  "dimWeight" : 1.3579000000000001069366817318950779736042022705078125,
+  "status" : "aeiou",
+  "residential" : true,
+  "dim3In" : 1.3579000000000001069366817318950779736042022705078125,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "thirdPartyParcelAccountId" : 123,
   "id" : 123,
+  "dim2In" : 1.3579000000000001069366817318950779736042022705078125,
   "carrierId" : 123,
+  "freight" : 1.3579000000000001069366817318950779736042022705078125,
+  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "status" : "aeiou"
-}}]
+  "parcelAccountId" : 123,
+  "zone" : "aeiou",
+  "orderId" : 1.3579000000000001069366817318950779736042022705078125
+}, contentType=application/json}]
      
      - parameter body: (body) ExternalShipment to be inserted. 
 
@@ -135,25 +135,25 @@ public class ExternalShipmentAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "orderId" : 1.3579000000000001069366817318950779736042022705078125,
-  "freight" : 1.3579000000000001069366817318950779736042022705078125,
-  "parcelAccountId" : 123,
-  "dim3In" : 1.3579000000000001069366817318950779736042022705078125,
+     - examples: [{example=[ {
   "dim1In" : 1.3579000000000001069366817318950779736042022705078125,
-  "dim2In" : 1.3579000000000001069366817318950779736042022705078125,
-  "residential" : true,
-  "dimWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "thirdPartyParcelAccountId" : 123,
   "trackingNo" : "aeiou",
-  "zone" : "aeiou",
+  "dimWeight" : 1.3579000000000001069366817318950779736042022705078125,
+  "status" : "aeiou",
+  "residential" : true,
+  "dim3In" : 1.3579000000000001069366817318950779736042022705078125,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "thirdPartyParcelAccountId" : 123,
   "id" : 123,
+  "dim2In" : 1.3579000000000001069366817318950779736042022705078125,
   "carrierId" : 123,
+  "freight" : 1.3579000000000001069366817318950779736042022705078125,
+  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "status" : "aeiou"
-} ]}]
+  "parcelAccountId" : 123,
+  "zone" : "aeiou",
+  "orderId" : 1.3579000000000001069366817318950779736042022705078125
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -202,25 +202,25 @@ public class ExternalShipmentAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "orderId" : 1.3579000000000001069366817318950779736042022705078125,
-  "freight" : 1.3579000000000001069366817318950779736042022705078125,
-  "parcelAccountId" : 123,
-  "dim3In" : 1.3579000000000001069366817318950779736042022705078125,
+     - examples: [{example={
   "dim1In" : 1.3579000000000001069366817318950779736042022705078125,
-  "dim2In" : 1.3579000000000001069366817318950779736042022705078125,
-  "residential" : true,
-  "dimWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "thirdPartyParcelAccountId" : 123,
   "trackingNo" : "aeiou",
-  "zone" : "aeiou",
+  "dimWeight" : 1.3579000000000001069366817318950779736042022705078125,
+  "status" : "aeiou",
+  "residential" : true,
+  "dim3In" : 1.3579000000000001069366817318950779736042022705078125,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "thirdPartyParcelAccountId" : 123,
   "id" : 123,
+  "dim2In" : 1.3579000000000001069366817318950779736042022705078125,
   "carrierId" : 123,
+  "freight" : 1.3579000000000001069366817318950779736042022705078125,
+  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "status" : "aeiou"
-}}]
+  "parcelAccountId" : 123,
+  "zone" : "aeiou",
+  "orderId" : 1.3579000000000001069366817318950779736042022705078125
+}, contentType=application/json}]
      
      - parameter externalShipmentId: (path) Id of the externalShipment to be returned. 
 

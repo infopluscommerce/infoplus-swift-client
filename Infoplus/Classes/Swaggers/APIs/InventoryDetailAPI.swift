@@ -36,19 +36,20 @@ public class InventoryDetailAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "unitsPerWrap" : 123,
-  "quantity" : 123,
-  "poNo" : "aeiou",
-  "revisionDate" : "aeiou",
-  "distributionDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseLocationId" : 123,
-  "productionLot" : "aeiou",
+     - examples: [{example=[ {
   "id" : 123,
-  "sku" : "aeiou",
+  "poNo" : "aeiou",
+  "productionLot" : "aeiou",
+  "lobId" : 123,
+  "unitsPerWrap" : 123,
+  "distributionDate" : "2000-01-23T04:56:07.000+0000",
+  "quantity" : 123,
+  "revisionDate" : "aeiou",
   "unitsPerCase" : 123,
-  "lobId" : 123
-} ]}]
+  "sku" : "aeiou",
+  "oldestReceiptDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseLocationId" : 123
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -97,19 +98,20 @@ public class InventoryDetailAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "unitsPerWrap" : 123,
-  "quantity" : 123,
-  "poNo" : "aeiou",
-  "revisionDate" : "aeiou",
-  "distributionDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseLocationId" : 123,
-  "productionLot" : "aeiou",
+     - examples: [{example={
   "id" : 123,
-  "sku" : "aeiou",
+  "poNo" : "aeiou",
+  "productionLot" : "aeiou",
+  "lobId" : 123,
+  "unitsPerWrap" : 123,
+  "distributionDate" : "2000-01-23T04:56:07.000+0000",
+  "quantity" : 123,
+  "revisionDate" : "aeiou",
   "unitsPerCase" : 123,
-  "lobId" : 123
-}}]
+  "sku" : "aeiou",
+  "oldestReceiptDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseLocationId" : 123
+}, contentType=application/json}]
      
      - parameter inventoryDetailId: (path) Id of the inventoryDetail to be returned. 
 

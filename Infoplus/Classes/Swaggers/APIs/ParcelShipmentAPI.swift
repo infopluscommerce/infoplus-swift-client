@@ -36,37 +36,37 @@ public class ParcelShipmentAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "retailFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "estimatedZone" : "aeiou",
-  "carrierServiceId" : 123,
-  "numberOfCartons" : 123,
-  "deliveredDate" : "2000-01-23T04:56:07.000+0000",
-  "cartonNo" : 123,
-  "parcelAccountNo" : "aeiou",
-  "thirdPartyParcelAccountNo" : "aeiou",
-  "licensePlateNumber" : "aeiou",
-  "id" : 123,
-  "manifestId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123,
-  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "shipDate" : "2000-01-23T04:56:07.000+0000",
-  "dim3In" : 1.3579000000000001069366817318950779736042022705078125,
+     - examples: [{example=[ {
   "dim1In" : 1.3579000000000001069366817318950779736042022705078125,
-  "billingOption" : "aeiou",
-  "chargedFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "dim2In" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipped" : true,
-  "residential" : true,
-  "dimWeight" : 1.3579000000000001069366817318950779736042022705078125,
   "trackingNo" : "aeiou",
+  "residential" : true,
+  "shipDate" : "2000-01-23T04:56:07.000+0000",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "id" : 123,
+  "carrierServiceId" : 123,
+  "chargedFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
+  "shipped" : true,
+  "manifestId" : 123,
+  "licensePlateNumber" : "aeiou",
+  "lobId" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "retailFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
+  "dimWeight" : 1.3579000000000001069366817318950779736042022705078125,
+  "billingOption" : "aeiou",
+  "status" : "aeiou",
+  "cartonNo" : 123,
+  "numberOfCartons" : 123,
+  "dim3In" : 1.3579000000000001069366817318950779736042022705078125,
+  "parcelAccountNo" : "aeiou",
   "warehouseId" : 123,
-  "publishedFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "status" : "aeiou"
-} ]}]
+  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "dim2In" : 1.3579000000000001069366817318950779736042022705078125,
+  "estimatedZone" : "aeiou",
+  "deliveredDate" : "2000-01-23T04:56:07.000+0000",
+  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
+  "thirdPartyParcelAccountNo" : "aeiou",
+  "publishedFreightAmount" : 1.3579000000000001069366817318950779736042022705078125
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -115,37 +115,37 @@ public class ParcelShipmentAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "retailFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "estimatedZone" : "aeiou",
-  "carrierServiceId" : 123,
-  "numberOfCartons" : 123,
-  "deliveredDate" : "2000-01-23T04:56:07.000+0000",
-  "cartonNo" : 123,
-  "parcelAccountNo" : "aeiou",
-  "thirdPartyParcelAccountNo" : "aeiou",
-  "licensePlateNumber" : "aeiou",
-  "id" : 123,
-  "manifestId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123,
-  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "shipDate" : "2000-01-23T04:56:07.000+0000",
-  "dim3In" : 1.3579000000000001069366817318950779736042022705078125,
+     - examples: [{example={
   "dim1In" : 1.3579000000000001069366817318950779736042022705078125,
-  "billingOption" : "aeiou",
-  "chargedFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "dim2In" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipped" : true,
-  "residential" : true,
-  "dimWeight" : 1.3579000000000001069366817318950779736042022705078125,
   "trackingNo" : "aeiou",
+  "residential" : true,
+  "shipDate" : "2000-01-23T04:56:07.000+0000",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "id" : 123,
+  "carrierServiceId" : 123,
+  "chargedFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
+  "shipped" : true,
+  "manifestId" : 123,
+  "licensePlateNumber" : "aeiou",
+  "lobId" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "retailFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
+  "dimWeight" : 1.3579000000000001069366817318950779736042022705078125,
+  "billingOption" : "aeiou",
+  "status" : "aeiou",
+  "cartonNo" : 123,
+  "numberOfCartons" : 123,
+  "dim3In" : 1.3579000000000001069366817318950779736042022705078125,
+  "parcelAccountNo" : "aeiou",
   "warehouseId" : 123,
-  "publishedFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "status" : "aeiou"
-}}]
+  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "dim2In" : 1.3579000000000001069366817318950779736042022705078125,
+  "estimatedZone" : "aeiou",
+  "deliveredDate" : "2000-01-23T04:56:07.000+0000",
+  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
+  "thirdPartyParcelAccountNo" : "aeiou",
+  "publishedFreightAmount" : 1.3579000000000001069366817318950779736042022705078125
+}, contentType=application/json}]
      
      - parameter parcelShipmentId: (path) Id of the parcelShipment to be returned. 
 

@@ -33,19 +33,19 @@ public class ZoneAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "address" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "isFoodGrade" : true,
-  "name" : "aeiou",
-  "isSecure" : true,
-  "isRefrigerated" : true,
+     - examples: [{example={
   "id" : 123,
   "isClimateControlled" : true,
+  "isRefrigerated" : true,
+  "address" : "aeiou",
+  "name" : "aeiou",
   "isFrozen" : true,
+  "isSecure" : true,
+  "isFoodGrade" : true,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+}, contentType=application/json}]
      
      - parameter body: (body) Zone to be inserted. 
 
@@ -129,19 +129,19 @@ public class ZoneAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "address" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "isFoodGrade" : true,
-  "name" : "aeiou",
-  "isSecure" : true,
-  "isRefrigerated" : true,
+     - examples: [{example=[ {
   "id" : 123,
   "isClimateControlled" : true,
+  "isRefrigerated" : true,
+  "address" : "aeiou",
+  "name" : "aeiou",
   "isFrozen" : true,
+  "isSecure" : true,
+  "isFoodGrade" : true,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000"
-} ]}]
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -190,19 +190,19 @@ public class ZoneAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "address" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "isFoodGrade" : true,
-  "name" : "aeiou",
-  "isSecure" : true,
-  "isRefrigerated" : true,
+     - examples: [{example={
   "id" : 123,
   "isClimateControlled" : true,
+  "isRefrigerated" : true,
+  "address" : "aeiou",
+  "name" : "aeiou",
   "isFrozen" : true,
+  "isSecure" : true,
+  "isFoodGrade" : true,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+}, contentType=application/json}]
      
      - parameter zoneId: (path) Id of the zone to be returned. 
 

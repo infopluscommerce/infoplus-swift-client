@@ -33,12 +33,12 @@ public class OrderLine: JSONEncodable {
     public var itemWeight: Double?
     public var weightPerWrap: Double?
     public var sector: String?
-    public var accountCode: String?
-    public var lowStockContact: String?
-    public var majorGroup: String?
-    public var subGroup: String?
-    public var productionCode: String?
-    public var summaryCode: String?
+    public var itemAccountCodeId: Int?
+    public var itemLegacyLowStockContactId: Int?
+    public var itemMajorGroupId: Int?
+    public var itemSubGroupId: Int?
+    public var itemProductCodeId: Int?
+    public var itemSummaryCodeId: Int?
     
 
     public init() {}
@@ -69,12 +69,12 @@ public class OrderLine: JSONEncodable {
         nillableDictionary["itemWeight"] = self.itemWeight
         nillableDictionary["weightPerWrap"] = self.weightPerWrap
         nillableDictionary["sector"] = self.sector
-        nillableDictionary["accountCode"] = self.accountCode
-        nillableDictionary["lowStockContact"] = self.lowStockContact
-        nillableDictionary["majorGroup"] = self.majorGroup
-        nillableDictionary["subGroup"] = self.subGroup
-        nillableDictionary["productionCode"] = self.productionCode
-        nillableDictionary["summaryCode"] = self.summaryCode
+        nillableDictionary["itemAccountCodeId"] = self.itemAccountCodeId
+        nillableDictionary["itemLegacyLowStockContactId"] = self.itemLegacyLowStockContactId
+        nillableDictionary["itemMajorGroupId"] = self.itemMajorGroupId
+        nillableDictionary["itemSubGroupId"] = self.itemSubGroupId
+        nillableDictionary["itemProductCodeId"] = self.itemProductCodeId
+        nillableDictionary["itemSummaryCodeId"] = self.itemSummaryCodeId
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

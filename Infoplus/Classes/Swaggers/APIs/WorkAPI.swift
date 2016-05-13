@@ -36,22 +36,23 @@ public class WorkAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "destinationWarehouseId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "destinationBuildingId" : 123,
-  "destinationLocation" : "aeiou",
-  "type" : "aeiou",
-  "userId" : 123,
-  "sourceWarehouseId" : 123,
+     - examples: [{example=[ {
+  "priorityCode" : 123,
   "workBatchId" : 123,
   "sourceBuildingId" : 123,
-  "sourceLocation" : "aeiou",
-  "priorityCode" : 123,
+  "status" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "destinationBuildingId" : 123,
+  "type" : "aeiou",
   "id" : 123,
+  "sourceLocation" : "aeiou",
+  "userId" : 123,
+  "lobId" : 123,
+  "sourceWarehouseId" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "status" : "aeiou"
-} ]}]
+  "destinationLocation" : "aeiou",
+  "destinationWarehouseId" : 123
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -100,22 +101,23 @@ public class WorkAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "destinationWarehouseId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "destinationBuildingId" : 123,
-  "destinationLocation" : "aeiou",
-  "type" : "aeiou",
-  "userId" : 123,
-  "sourceWarehouseId" : 123,
+     - examples: [{example={
+  "priorityCode" : 123,
   "workBatchId" : 123,
   "sourceBuildingId" : 123,
-  "sourceLocation" : "aeiou",
-  "priorityCode" : 123,
+  "status" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "destinationBuildingId" : 123,
+  "type" : "aeiou",
   "id" : 123,
+  "sourceLocation" : "aeiou",
+  "userId" : 123,
+  "lobId" : 123,
+  "sourceWarehouseId" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "status" : "aeiou"
-}}]
+  "destinationLocation" : "aeiou",
+  "destinationWarehouseId" : 123
+}, contentType=application/json}]
      
      - parameter workId: (path) Id of the work to be returned. 
 

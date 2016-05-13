@@ -33,10 +33,10 @@ public class ServiceTypeAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "serviceType" : "aeiou",
-  "label" : "aeiou"
-}}]
+     - examples: [{example={
+  "label" : "aeiou",
+  "serviceType" : "aeiou"
+}, contentType=application/json}]
      
      - parameter serviceTypeId: (path) Id of serviceType to be returned. 
 
@@ -80,10 +80,10 @@ public class ServiceTypeAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "serviceType" : "aeiou",
-  "label" : "aeiou"
-} ]}]
+     - examples: [{example=[ {
+  "label" : "aeiou",
+  "serviceType" : "aeiou"
+} ], contentType=application/json}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)

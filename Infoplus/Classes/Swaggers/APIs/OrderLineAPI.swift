@@ -36,37 +36,37 @@ public class OrderLineAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "distributionCode" : "aeiou",
+     - examples: [{example=[ {
   "ncExtendedSell" : 1.3579000000000001069366817318950779736042022705078125,
-  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-  "revDate" : "aeiou",
-  "productionCode" : "aeiou",
-  "backorderQty" : 123,
-  "orderSourceSKU" : "aeiou",
-  "extendedCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "id" : 123,
-  "sku" : "aeiou",
   "sector" : "aeiou",
-  "itemWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "lobId" : 123,
-  "shippedQty" : 123,
-  "accountCode" : "aeiou",
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "subGroup" : "aeiou",
-  "lowStockContact" : "aeiou",
-  "extendedSell" : 1.3579000000000001069366817318950779736042022705078125,
-  "upc" : "aeiou",
   "orderedQty" : 123,
-  "summaryCode" : "aeiou",
-  "majorGroup" : "aeiou",
+  "revDate" : "aeiou",
+  "id" : 123,
+  "itemLegacyLowStockContactId" : 123,
   "vendorSKU" : "aeiou",
+  "itemMajorGroupId" : 123,
   "unitCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "poNoId" : 123,
-  "unitSell" : 1.3579000000000001069366817318950779736042022705078125,
+  "lobId" : 123,
+  "extendedCost" : 1.3579000000000001069366817318950779736042022705078125,
+  "extendedSell" : 1.3579000000000001069366817318950779736042022705078125,
   "allowedQty" : 123,
+  "poNoId" : 123,
+  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+  "sku" : "aeiou",
+  "distributionCode" : "aeiou",
+  "upc" : "aeiou",
+  "itemWeight" : 1.3579000000000001069366817318950779736042022705078125,
+  "itemSummaryCodeId" : 123,
+  "shippedQty" : 123,
+  "unitSell" : 1.3579000000000001069366817318950779736042022705078125,
+  "itemSubGroupId" : 123,
+  "itemProductCodeId" : 123,
+  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "backorderQty" : 123,
+  "itemAccountCodeId" : 123,
+  "orderSourceSKU" : "aeiou",
   "chargeCode" : "aeiou"
-} ]}]
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -115,37 +115,37 @@ public class OrderLineAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "distributionCode" : "aeiou",
+     - examples: [{example={
   "ncExtendedSell" : 1.3579000000000001069366817318950779736042022705078125,
-  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-  "revDate" : "aeiou",
-  "productionCode" : "aeiou",
-  "backorderQty" : 123,
-  "orderSourceSKU" : "aeiou",
-  "extendedCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "id" : 123,
-  "sku" : "aeiou",
   "sector" : "aeiou",
-  "itemWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "lobId" : 123,
-  "shippedQty" : 123,
-  "accountCode" : "aeiou",
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "subGroup" : "aeiou",
-  "lowStockContact" : "aeiou",
-  "extendedSell" : 1.3579000000000001069366817318950779736042022705078125,
-  "upc" : "aeiou",
   "orderedQty" : 123,
-  "summaryCode" : "aeiou",
-  "majorGroup" : "aeiou",
+  "revDate" : "aeiou",
+  "id" : 123,
+  "itemLegacyLowStockContactId" : 123,
   "vendorSKU" : "aeiou",
+  "itemMajorGroupId" : 123,
   "unitCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "poNoId" : 123,
-  "unitSell" : 1.3579000000000001069366817318950779736042022705078125,
+  "lobId" : 123,
+  "extendedCost" : 1.3579000000000001069366817318950779736042022705078125,
+  "extendedSell" : 1.3579000000000001069366817318950779736042022705078125,
   "allowedQty" : 123,
+  "poNoId" : 123,
+  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+  "sku" : "aeiou",
+  "distributionCode" : "aeiou",
+  "upc" : "aeiou",
+  "itemWeight" : 1.3579000000000001069366817318950779736042022705078125,
+  "itemSummaryCodeId" : 123,
+  "shippedQty" : 123,
+  "unitSell" : 1.3579000000000001069366817318950779736042022705078125,
+  "itemSubGroupId" : 123,
+  "itemProductCodeId" : 123,
+  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "backorderQty" : 123,
+  "itemAccountCodeId" : 123,
+  "orderSourceSKU" : "aeiou",
   "chargeCode" : "aeiou"
-}}]
+}, contentType=application/json}]
      
      - parameter orderLineId: (path) Id of the orderLine to be returned. 
 

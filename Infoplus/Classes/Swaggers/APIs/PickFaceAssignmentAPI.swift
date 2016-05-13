@@ -33,16 +33,16 @@ public class PickFaceAssignmentAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
+     - examples: [{example={
+  "id" : 123,
   "replenishmentPoint" : 123,
+  "locationId" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "warehouseId" : 123,
-  "maxQuantity" : 123,
-  "locationId" : 123,
-  "id" : 123,
   "sku" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "maxQuantity" : 123
+}, contentType=application/json}]
      
      - parameter body: (body) PickFaceAssignment to be inserted. 
 
@@ -126,16 +126,16 @@ public class PickFaceAssignmentAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
+     - examples: [{example=[ {
+  "id" : 123,
   "replenishmentPoint" : 123,
+  "locationId" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "warehouseId" : 123,
-  "maxQuantity" : 123,
-  "locationId" : 123,
-  "id" : 123,
   "sku" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-} ]}]
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "maxQuantity" : 123
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -184,16 +184,16 @@ public class PickFaceAssignmentAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
+     - examples: [{example={
+  "id" : 123,
   "replenishmentPoint" : 123,
+  "locationId" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "warehouseId" : 123,
-  "maxQuantity" : 123,
-  "locationId" : 123,
-  "id" : 123,
   "sku" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "maxQuantity" : 123
+}, contentType=application/json}]
      
      - parameter pickFaceAssignmentId: (path) Id of the pickFaceAssignment to be returned. 
 

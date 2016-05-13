@@ -18,6 +18,7 @@ public class InventoryDetail: JSONEncodable {
     public var unitsPerWrap: Int?
     public var revisionDate: String?
     public var productionLot: String?
+    public var oldestReceiptDate: NSDate?
     public var lobId: Int?
     public var poNo: String?
     public var sku: String?
@@ -36,6 +37,7 @@ public class InventoryDetail: JSONEncodable {
         nillableDictionary["unitsPerWrap"] = self.unitsPerWrap
         nillableDictionary["revisionDate"] = self.revisionDate
         nillableDictionary["productionLot"] = self.productionLot
+        nillableDictionary["oldestReceiptDate"] = self.oldestReceiptDate?.encodeToJSON()
         nillableDictionary["lobId"] = self.lobId
         nillableDictionary["poNo"] = self.poNo
         nillableDictionary["sku"] = self.sku

@@ -33,10 +33,10 @@ public class UserAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "label" : "aeiou",
-  "userId" : 123
-}}]
+     - examples: [{example={
+  "userId" : 123,
+  "label" : "aeiou"
+}, contentType=application/json}]
      
      - parameter userId: (path) Id of user to be returned. 
 
@@ -80,10 +80,10 @@ public class UserAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "label" : "aeiou",
-  "userId" : 123
-} ]}]
+     - examples: [{example=[ {
+  "userId" : 123,
+  "label" : "aeiou"
+} ], contentType=application/json}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)

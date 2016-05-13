@@ -33,20 +33,20 @@ public class OrderSourceAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
+     - examples: [{example={
+  "id" : 123,
+  "packingSlipId" : 123,
+  "requireGS1128Label" : true,
+  "requireCartonizedASN" : true,
+  "orderConfirmationEmailId" : 123,
+  "name" : "aeiou",
+  "lobId" : 123,
   "shippingNotes" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "packingNotes" : "aeiou",
-  "packingSlipId" : 123,
-  "requireCartonizedASN" : true,
-  "name" : "aeiou",
-  "orderConfirmationEmailId" : 123,
-  "id" : 123,
-  "requireGS1128Label" : true,
   "shipmentConfirmationEmailId" : 123,
-  "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "packingNotes" : "aeiou"
+}, contentType=application/json}]
      
      - parameter body: (body) OrderSource to be inserted. 
 
@@ -130,20 +130,20 @@ public class OrderSourceAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
+     - examples: [{example=[ {
+  "id" : 123,
+  "packingSlipId" : 123,
+  "requireGS1128Label" : true,
+  "requireCartonizedASN" : true,
+  "orderConfirmationEmailId" : 123,
+  "name" : "aeiou",
+  "lobId" : 123,
   "shippingNotes" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "packingNotes" : "aeiou",
-  "packingSlipId" : 123,
-  "requireCartonizedASN" : true,
-  "name" : "aeiou",
-  "orderConfirmationEmailId" : 123,
-  "id" : 123,
-  "requireGS1128Label" : true,
   "shipmentConfirmationEmailId" : 123,
-  "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-} ]}]
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "packingNotes" : "aeiou"
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -192,20 +192,20 @@ public class OrderSourceAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
+     - examples: [{example={
+  "id" : 123,
+  "packingSlipId" : 123,
+  "requireGS1128Label" : true,
+  "requireCartonizedASN" : true,
+  "orderConfirmationEmailId" : 123,
+  "name" : "aeiou",
+  "lobId" : 123,
   "shippingNotes" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "packingNotes" : "aeiou",
-  "packingSlipId" : 123,
-  "requireCartonizedASN" : true,
-  "name" : "aeiou",
-  "orderConfirmationEmailId" : 123,
-  "id" : 123,
-  "requireGS1128Label" : true,
   "shipmentConfirmationEmailId" : 123,
-  "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "packingNotes" : "aeiou"
+}, contentType=application/json}]
      
      - parameter orderSourceId: (path) Id of the orderSource to be returned. 
 

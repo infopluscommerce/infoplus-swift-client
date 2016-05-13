@@ -17,7 +17,7 @@ public class JobTime: JSONEncodable {
     public var date: NSDate?
     public var userId: Int?
     public var lobId: Int?
-    public var jobType: String?
+    public var jobTypeId: Int?
     public var note: String?
     
 
@@ -33,7 +33,7 @@ public class JobTime: JSONEncodable {
         nillableDictionary["date"] = self.date?.encodeToJSON()
         nillableDictionary["userId"] = self.userId
         nillableDictionary["lobId"] = self.lobId
-        nillableDictionary["jobType"] = self.jobType
+        nillableDictionary["jobTypeId"] = self.jobTypeId
         nillableDictionary["note"] = self.note
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

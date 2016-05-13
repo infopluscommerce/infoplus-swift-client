@@ -77,15 +77,15 @@ public class ReceivingProcessAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "receivingWorksheetId" : 123,
+     - examples: [{example=[ {
+  "id" : 123,
   "workBatchId" : 123,
+  "receivingWorksheetId" : 123,
+  "status" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "warehouseId" : 123,
-  "id" : 123,
-  "status" : "aeiou",
   "createDate" : "2000-01-23T04:56:07.000+0000"
-} ]}]
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -134,15 +134,15 @@ public class ReceivingProcessAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "receivingWorksheetId" : 123,
+     - examples: [{example={
+  "id" : 123,
   "workBatchId" : 123,
+  "receivingWorksheetId" : 123,
+  "status" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "warehouseId" : 123,
-  "id" : 123,
-  "status" : "aeiou",
   "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+}, contentType=application/json}]
      
      - parameter receivingProcessId: (path) Id of the receivingProcess to be returned. 
 

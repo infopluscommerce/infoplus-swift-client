@@ -33,14 +33,14 @@ public class OrderSourceReservationAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
+     - examples: [{example={
   "orderSourceId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "reservedQuantity" : 123,
   "id" : 123,
+  "reservedQuantity" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "sku" : "aeiou",
   "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+}, contentType=application/json}]
      
      - parameter body: (body) OrderSourceReservation to be inserted. 
 
@@ -124,14 +124,14 @@ public class OrderSourceReservationAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
+     - examples: [{example=[ {
   "orderSourceId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "reservedQuantity" : 123,
   "id" : 123,
+  "reservedQuantity" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "sku" : "aeiou",
   "createDate" : "2000-01-23T04:56:07.000+0000"
-} ]}]
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -180,14 +180,14 @@ public class OrderSourceReservationAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
+     - examples: [{example={
   "orderSourceId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "reservedQuantity" : 123,
   "id" : 123,
+  "reservedQuantity" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "sku" : "aeiou",
   "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+}, contentType=application/json}]
      
      - parameter orderSourceReservationId: (path) Id of the orderSourceReservation to be returned. 
 

@@ -33,27 +33,27 @@ public class LocationAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "address" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "level" : 123,
-  "allowItemMixing" : true,
-  "origin" : 123,
-  "buildingId" : 123,
-  "aisleId" : 123,
-  "number" : 123,
-  "footprintId" : 123,
-  "warehouseId" : 123,
-  "billingTypeId" : 123,
-  "zoneId" : 123,
-  "online" : true,
+     - examples: [{example={
   "priorityCode" : 123,
-  "id" : 123,
-  "bay" : 123,
+  "allowItemMixing" : true,
   "behaviorType" : "aeiou",
+  "origin" : 123,
+  "number" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
+  "online" : true,
+  "zoneId" : 123,
+  "id" : 123,
+  "level" : 123,
+  "bay" : 123,
+  "address" : "aeiou",
+  "aisleId" : 123,
   "addressSchemeId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+  "footprintId" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "billingTypeId" : 123,
+  "buildingId" : 123
+}, contentType=application/json}]
      
      - parameter body: (body) Location to be inserted. 
 
@@ -137,27 +137,27 @@ public class LocationAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "address" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "level" : 123,
-  "allowItemMixing" : true,
-  "origin" : 123,
-  "buildingId" : 123,
-  "aisleId" : 123,
-  "number" : 123,
-  "footprintId" : 123,
-  "warehouseId" : 123,
-  "billingTypeId" : 123,
-  "zoneId" : 123,
-  "online" : true,
+     - examples: [{example=[ {
   "priorityCode" : 123,
-  "id" : 123,
-  "bay" : 123,
+  "allowItemMixing" : true,
   "behaviorType" : "aeiou",
+  "origin" : 123,
+  "number" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
+  "online" : true,
+  "zoneId" : 123,
+  "id" : 123,
+  "level" : 123,
+  "bay" : 123,
+  "address" : "aeiou",
+  "aisleId" : 123,
   "addressSchemeId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-} ]}]
+  "footprintId" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "billingTypeId" : 123,
+  "buildingId" : 123
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -206,27 +206,27 @@ public class LocationAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "address" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "level" : 123,
-  "allowItemMixing" : true,
-  "origin" : 123,
-  "buildingId" : 123,
-  "aisleId" : 123,
-  "number" : 123,
-  "footprintId" : 123,
-  "warehouseId" : 123,
-  "billingTypeId" : 123,
-  "zoneId" : 123,
-  "online" : true,
+     - examples: [{example={
   "priorityCode" : 123,
-  "id" : 123,
-  "bay" : 123,
+  "allowItemMixing" : true,
   "behaviorType" : "aeiou",
+  "origin" : 123,
+  "number" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
+  "online" : true,
+  "zoneId" : 123,
+  "id" : 123,
+  "level" : 123,
+  "bay" : 123,
+  "address" : "aeiou",
+  "aisleId" : 123,
   "addressSchemeId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+  "footprintId" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "billingTypeId" : 123,
+  "buildingId" : 123
+}, contentType=application/json}]
      
      - parameter locationId: (path) Id of the location to be returned. 
 

@@ -33,26 +33,26 @@ public class ThirdPartyParcelAccountAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "country" : "aeiou",
-  "zipCode" : "aeiou",
-  "street3" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "accountName" : "aeiou",
-  "city" : "aeiou",
-  "active" : "aeiou",
-  "billingCompany" : "aeiou",
-  "carrier" : "aeiou",
-  "phone" : "aeiou",
-  "accountNo" : "aeiou",
-  "attention" : "aeiou",
-  "street1" : "aeiou",
-  "id" : 123,
+     - examples: [{example={
   "street2" : "aeiou",
+  "street1" : "aeiou",
+  "phone" : "aeiou",
+  "billingCompany" : "aeiou",
   "state" : "aeiou",
+  "accountNo" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "country" : "aeiou",
+  "city" : "aeiou",
+  "id" : 123,
+  "accountName" : "aeiou",
+  "zipCode" : "aeiou",
   "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+  "active" : "aeiou",
+  "carrier" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "attention" : "aeiou",
+  "street3" : "aeiou"
+}, contentType=application/json}]
      
      - parameter body: (body) ThirdPartyParcelAccount to be inserted. 
 
@@ -136,26 +136,26 @@ public class ThirdPartyParcelAccountAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "country" : "aeiou",
-  "zipCode" : "aeiou",
-  "street3" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "accountName" : "aeiou",
-  "city" : "aeiou",
-  "active" : "aeiou",
-  "billingCompany" : "aeiou",
-  "carrier" : "aeiou",
-  "phone" : "aeiou",
-  "accountNo" : "aeiou",
-  "attention" : "aeiou",
-  "street1" : "aeiou",
-  "id" : 123,
+     - examples: [{example=[ {
   "street2" : "aeiou",
+  "street1" : "aeiou",
+  "phone" : "aeiou",
+  "billingCompany" : "aeiou",
   "state" : "aeiou",
+  "accountNo" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "country" : "aeiou",
+  "city" : "aeiou",
+  "id" : 123,
+  "accountName" : "aeiou",
+  "zipCode" : "aeiou",
   "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-} ]}]
+  "active" : "aeiou",
+  "carrier" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "attention" : "aeiou",
+  "street3" : "aeiou"
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -204,26 +204,26 @@ public class ThirdPartyParcelAccountAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "country" : "aeiou",
-  "zipCode" : "aeiou",
-  "street3" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "accountName" : "aeiou",
-  "city" : "aeiou",
-  "active" : "aeiou",
-  "billingCompany" : "aeiou",
-  "carrier" : "aeiou",
-  "phone" : "aeiou",
-  "accountNo" : "aeiou",
-  "attention" : "aeiou",
-  "street1" : "aeiou",
-  "id" : 123,
+     - examples: [{example={
   "street2" : "aeiou",
+  "street1" : "aeiou",
+  "phone" : "aeiou",
+  "billingCompany" : "aeiou",
   "state" : "aeiou",
+  "accountNo" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "country" : "aeiou",
+  "city" : "aeiou",
+  "id" : 123,
+  "accountName" : "aeiou",
+  "zipCode" : "aeiou",
   "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+  "active" : "aeiou",
+  "carrier" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "attention" : "aeiou",
+  "street3" : "aeiou"
+}, contentType=application/json}]
      
      - parameter thirdPartyParcelAccountId: (path) Id of the thirdPartyParcelAccount to be returned. 
 

@@ -33,36 +33,36 @@ public class FulfillmentPlanAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "pickListLayout" : "aeiou",
-  "createPickWork" : true,
-  "pickingRule" : "aeiou",
-  "pickSummaryLayout" : "aeiou",
-  "pickListSort" : "aeiou",
-  "description" : "aeiou",
-  "createPickSummary" : true,
-  "locationSmartFilterId" : 123,
-  "pickSummaryFormat" : "aeiou",
-  "cartonizeOrders" : true,
-  "pickSortRule" : "aeiou",
-  "layoutRule" : "aeiou",
-  "id" : 123,
-  "pickListFormat" : "aeiou",
-  "pickListGroup" : "aeiou",
-  "createPickList" : true,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "maximumNumberOfOrders" : 123,
-  "createOrderAssemblyGuide" : true,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "createPackingSlip" : true,
-  "pickSummarySort" : "aeiou",
+     - examples: [{example={
   "preGenerateParcelLabels" : true,
-  "warehouseId" : 123,
+  "pickSummarySort" : "aeiou",
+  "pickSortRule" : "aeiou",
+  "cartonizeOrders" : true,
+  "pickListSort" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "id" : 123,
+  "layoutRule" : "aeiou",
+  "createPickWork" : true,
+  "locationSmartFilterId" : 123,
+  "pickListLayout" : "aeiou",
+  "maximumNumberOfOrders" : 123,
+  "orderSmartFilterId" : 123,
+  "description" : "aeiou",
   "name" : "aeiou",
+  "pickListFormat" : "aeiou",
+  "pickSummaryLayout" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "pickListGroup" : "aeiou",
+  "createPickSummary" : true,
+  "pickSummaryFormat" : "aeiou",
+  "createPackingSlip" : true,
+  "warehouseId" : 123,
   "overridePackingSlipTemplateId" : 123,
+  "pickingRule" : "aeiou",
+  "createPickList" : true,
   "autoShipCasebreakCartons" : true,
-  "orderSmartFilterId" : 123
-}}]
+  "createOrderAssemblyGuide" : true
+}, contentType=application/json}]
      
      - parameter body: (body) FulfillmentPlan to be inserted. 
 
@@ -146,36 +146,36 @@ public class FulfillmentPlanAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "pickListLayout" : "aeiou",
-  "createPickWork" : true,
-  "pickingRule" : "aeiou",
-  "pickSummaryLayout" : "aeiou",
-  "pickListSort" : "aeiou",
-  "description" : "aeiou",
-  "createPickSummary" : true,
-  "locationSmartFilterId" : 123,
-  "pickSummaryFormat" : "aeiou",
-  "cartonizeOrders" : true,
-  "pickSortRule" : "aeiou",
-  "layoutRule" : "aeiou",
-  "id" : 123,
-  "pickListFormat" : "aeiou",
-  "pickListGroup" : "aeiou",
-  "createPickList" : true,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "maximumNumberOfOrders" : 123,
-  "createOrderAssemblyGuide" : true,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "createPackingSlip" : true,
-  "pickSummarySort" : "aeiou",
+     - examples: [{example=[ {
   "preGenerateParcelLabels" : true,
-  "warehouseId" : 123,
+  "pickSummarySort" : "aeiou",
+  "pickSortRule" : "aeiou",
+  "cartonizeOrders" : true,
+  "pickListSort" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "id" : 123,
+  "layoutRule" : "aeiou",
+  "createPickWork" : true,
+  "locationSmartFilterId" : 123,
+  "pickListLayout" : "aeiou",
+  "maximumNumberOfOrders" : 123,
+  "orderSmartFilterId" : 123,
+  "description" : "aeiou",
   "name" : "aeiou",
+  "pickListFormat" : "aeiou",
+  "pickSummaryLayout" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "pickListGroup" : "aeiou",
+  "createPickSummary" : true,
+  "pickSummaryFormat" : "aeiou",
+  "createPackingSlip" : true,
+  "warehouseId" : 123,
   "overridePackingSlipTemplateId" : 123,
+  "pickingRule" : "aeiou",
+  "createPickList" : true,
   "autoShipCasebreakCartons" : true,
-  "orderSmartFilterId" : 123
-} ]}]
+  "createOrderAssemblyGuide" : true
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -224,36 +224,36 @@ public class FulfillmentPlanAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "pickListLayout" : "aeiou",
-  "createPickWork" : true,
-  "pickingRule" : "aeiou",
-  "pickSummaryLayout" : "aeiou",
-  "pickListSort" : "aeiou",
-  "description" : "aeiou",
-  "createPickSummary" : true,
-  "locationSmartFilterId" : 123,
-  "pickSummaryFormat" : "aeiou",
-  "cartonizeOrders" : true,
-  "pickSortRule" : "aeiou",
-  "layoutRule" : "aeiou",
-  "id" : 123,
-  "pickListFormat" : "aeiou",
-  "pickListGroup" : "aeiou",
-  "createPickList" : true,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "maximumNumberOfOrders" : 123,
-  "createOrderAssemblyGuide" : true,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "createPackingSlip" : true,
-  "pickSummarySort" : "aeiou",
+     - examples: [{example={
   "preGenerateParcelLabels" : true,
-  "warehouseId" : 123,
+  "pickSummarySort" : "aeiou",
+  "pickSortRule" : "aeiou",
+  "cartonizeOrders" : true,
+  "pickListSort" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "id" : 123,
+  "layoutRule" : "aeiou",
+  "createPickWork" : true,
+  "locationSmartFilterId" : 123,
+  "pickListLayout" : "aeiou",
+  "maximumNumberOfOrders" : 123,
+  "orderSmartFilterId" : 123,
+  "description" : "aeiou",
   "name" : "aeiou",
+  "pickListFormat" : "aeiou",
+  "pickSummaryLayout" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "pickListGroup" : "aeiou",
+  "createPickSummary" : true,
+  "pickSummaryFormat" : "aeiou",
+  "createPackingSlip" : true,
+  "warehouseId" : 123,
   "overridePackingSlipTemplateId" : 123,
+  "pickingRule" : "aeiou",
+  "createPickList" : true,
   "autoShipCasebreakCartons" : true,
-  "orderSmartFilterId" : 123
-}}]
+  "createOrderAssemblyGuide" : true
+}, contentType=application/json}]
      
      - parameter fulfillmentPlanId: (path) Id of the fulfillmentPlan to be returned. 
 

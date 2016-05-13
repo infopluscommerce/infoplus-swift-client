@@ -36,21 +36,21 @@ public class LoggedTimeAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+     - examples: [{example=[ {
+  "id" : 123,
+  "duration" : 123,
+  "appId" : 123,
+  "client" : 123,
   "start" : "2000-01-23T04:56:07.000+0000",
   "description" : "aeiou",
   "userId" : 123,
-  "duration" : 123,
-  "loggedTimeType" : "aeiou",
+  "lobId" : 123,
+  "loggedTimeTypeId" : 123,
   "warehouseId" : 123,
-  "appId" : 123,
-  "client" : 123,
-  "end" : "2000-01-23T04:56:07.000+0000",
-  "id" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
-} ]}]
+  "end" : "2000-01-23T04:56:07.000+0000"
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -99,21 +99,21 @@ public class LoggedTimeAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+     - examples: [{example={
+  "id" : 123,
+  "duration" : 123,
+  "appId" : 123,
+  "client" : 123,
   "start" : "2000-01-23T04:56:07.000+0000",
   "description" : "aeiou",
   "userId" : 123,
-  "duration" : 123,
-  "loggedTimeType" : "aeiou",
+  "lobId" : 123,
+  "loggedTimeTypeId" : 123,
   "warehouseId" : 123,
-  "appId" : 123,
-  "client" : 123,
-  "end" : "2000-01-23T04:56:07.000+0000",
-  "id" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
-}}]
+  "end" : "2000-01-23T04:56:07.000+0000"
+}, contentType=application/json}]
      
      - parameter loggedTimeId: (path) Id of the loggedTime to be returned. 
 

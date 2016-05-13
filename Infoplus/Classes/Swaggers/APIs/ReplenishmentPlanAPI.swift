@@ -33,14 +33,14 @@ public class ReplenishmentPlanAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "name" : "aeiou",
+     - examples: [{example={
   "id" : 123,
   "pickFaceAssignmentSmartFilterId" : 123,
+  "name" : "aeiou",
+  "warehouseId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+}, contentType=application/json}]
      
      - parameter body: (body) ReplenishmentPlan to be inserted. 
 
@@ -124,14 +124,14 @@ public class ReplenishmentPlanAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "name" : "aeiou",
+     - examples: [{example=[ {
   "id" : 123,
   "pickFaceAssignmentSmartFilterId" : 123,
+  "name" : "aeiou",
+  "warehouseId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "createDate" : "2000-01-23T04:56:07.000+0000"
-} ]}]
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -180,14 +180,14 @@ public class ReplenishmentPlanAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "name" : "aeiou",
+     - examples: [{example={
   "id" : 123,
   "pickFaceAssignmentSmartFilterId" : 123,
+  "name" : "aeiou",
+  "warehouseId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+}, contentType=application/json}]
      
      - parameter replenishmentPlanId: (path) Id of the replenishmentPlan to be returned. 
 

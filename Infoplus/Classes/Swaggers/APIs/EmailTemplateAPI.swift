@@ -33,17 +33,17 @@ public class EmailTemplateAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "emailTemplateType" : "aeiou",
+     - examples: [{example={
+  "id" : 123,
+  "name" : "aeiou",
+  "fromAddress" : "aeiou",
+  "lobId" : 123,
   "subjectText" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "name" : "aeiou",
   "fromName" : "aeiou",
-  "fromAddress" : "aeiou",
-  "id" : 123,
-  "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "emailTemplateType" : "aeiou"
+}, contentType=application/json}]
      
      - parameter body: (body) EmailTemplate to be inserted. 
 
@@ -127,17 +127,17 @@ public class EmailTemplateAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "emailTemplateType" : "aeiou",
+     - examples: [{example=[ {
+  "id" : 123,
+  "name" : "aeiou",
+  "fromAddress" : "aeiou",
+  "lobId" : 123,
   "subjectText" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "name" : "aeiou",
   "fromName" : "aeiou",
-  "fromAddress" : "aeiou",
-  "id" : 123,
-  "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-} ]}]
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "emailTemplateType" : "aeiou"
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -186,17 +186,17 @@ public class EmailTemplateAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "emailTemplateType" : "aeiou",
+     - examples: [{example={
+  "id" : 123,
+  "name" : "aeiou",
+  "fromAddress" : "aeiou",
+  "lobId" : 123,
   "subjectText" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "name" : "aeiou",
   "fromName" : "aeiou",
-  "fromAddress" : "aeiou",
-  "id" : 123,
-  "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "emailTemplateType" : "aeiou"
+}, contentType=application/json}]
      
      - parameter emailTemplateId: (path) Id of the emailTemplate to be returned. 
 

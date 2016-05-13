@@ -33,20 +33,20 @@ public class CartonContentAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "cartonNoId" : 123,
-  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "quantity" : 123,
-  "toteId" : "aeiou",
-  "lineItemId" : 123,
-  "quantityScanned" : 123,
-  "location" : "aeiou",
+     - examples: [{example={
   "id" : 123,
-  "completed" : "2000-01-23T04:56:07.000+0000",
+  "cartonNoId" : 123,
+  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "status" : "aeiou",
+  "toteId" : "aeiou",
+  "location" : "aeiou",
+  "quantity" : 123,
+  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
+  "lineItemId" : 123,
   "pickerId" : "aeiou",
-  "status" : "aeiou"
-}}]
+  "quantityScanned" : 123,
+  "completed" : "2000-01-23T04:56:07.000+0000"
+}, contentType=application/json}]
      
      - parameter body: (body) CartonContent to be inserted. 
 
@@ -130,20 +130,20 @@ public class CartonContentAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "cartonNoId" : 123,
-  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "quantity" : 123,
-  "toteId" : "aeiou",
-  "lineItemId" : 123,
-  "quantityScanned" : 123,
-  "location" : "aeiou",
+     - examples: [{example=[ {
   "id" : 123,
-  "completed" : "2000-01-23T04:56:07.000+0000",
+  "cartonNoId" : 123,
+  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "status" : "aeiou",
+  "toteId" : "aeiou",
+  "location" : "aeiou",
+  "quantity" : 123,
+  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
+  "lineItemId" : 123,
   "pickerId" : "aeiou",
-  "status" : "aeiou"
-} ]}]
+  "quantityScanned" : 123,
+  "completed" : "2000-01-23T04:56:07.000+0000"
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -192,20 +192,20 @@ public class CartonContentAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "cartonNoId" : 123,
-  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "quantity" : 123,
-  "toteId" : "aeiou",
-  "lineItemId" : 123,
-  "quantityScanned" : 123,
-  "location" : "aeiou",
+     - examples: [{example={
   "id" : 123,
-  "completed" : "2000-01-23T04:56:07.000+0000",
+  "cartonNoId" : 123,
+  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "status" : "aeiou",
+  "toteId" : "aeiou",
+  "location" : "aeiou",
+  "quantity" : 123,
+  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
+  "lineItemId" : 123,
   "pickerId" : "aeiou",
-  "status" : "aeiou"
-}}]
+  "quantityScanned" : 123,
+  "completed" : "2000-01-23T04:56:07.000+0000"
+}, contentType=application/json}]
      
      - parameter cartonContentId: (path) Id of the cartonContent to be returned. 
 

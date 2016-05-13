@@ -36,21 +36,21 @@ public class InventoryAdjustmentAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "note" : "aeiou",
-  "adjustmentDate" : "2000-01-23T04:56:07.000+0000",
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "adjustmentCode" : "aeiou",
-  "printed" : "aeiou",
+     - examples: [{example=[ {
   "authorizedBy" : "aeiou",
-  "qty" : 123,
-  "location" : "aeiou",
   "id" : 123,
-  "poNoId" : 123,
-  "adjustmentTime" : "aeiou",
   "lob" : 123,
-  "skuId" : 123
-} ]}]
+  "poNoId" : 123,
+  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "location" : "aeiou",
+  "skuId" : 123,
+  "printed" : "aeiou",
+  "adjustmentDate" : "2000-01-23T04:56:07.000+0000",
+  "qty" : 123,
+  "adjustmentCode" : "aeiou",
+  "note" : "aeiou",
+  "adjustmentTime" : "aeiou"
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -99,21 +99,21 @@ public class InventoryAdjustmentAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "note" : "aeiou",
-  "adjustmentDate" : "2000-01-23T04:56:07.000+0000",
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "adjustmentCode" : "aeiou",
-  "printed" : "aeiou",
+     - examples: [{example={
   "authorizedBy" : "aeiou",
-  "qty" : 123,
-  "location" : "aeiou",
   "id" : 123,
-  "poNoId" : 123,
-  "adjustmentTime" : "aeiou",
   "lob" : 123,
-  "skuId" : 123
-}}]
+  "poNoId" : 123,
+  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "location" : "aeiou",
+  "skuId" : 123,
+  "printed" : "aeiou",
+  "adjustmentDate" : "2000-01-23T04:56:07.000+0000",
+  "qty" : 123,
+  "adjustmentCode" : "aeiou",
+  "note" : "aeiou",
+  "adjustmentTime" : "aeiou"
+}, contentType=application/json}]
      
      - parameter inventoryAdjustmentId: (path) Id of the inventoryAdjustment to be returned. 
 

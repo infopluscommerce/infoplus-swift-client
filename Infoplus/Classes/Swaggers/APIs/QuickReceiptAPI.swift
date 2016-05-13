@@ -33,36 +33,36 @@ public class QuickReceiptAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-  "revisionDate" : "aeiou",
-  "origin" : "aeiou",
-  "vendorId" : 123,
-  "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
-  "unitsPerCase" : 123,
-  "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "cartonLength" : 1.3579000000000001069366817318950779736042022705078125,
+     - examples: [{example={
   "wrapCode" : "aeiou",
   "locationId" : 123,
-  "unitCode" : "aeiou",
-  "id" : 123,
-  "sku" : "aeiou",
-  "pricingPer" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123,
   "unitsPerWrap" : 123,
-  "quantity" : 123,
-  "cost" : 1.3579000000000001069366817318950779736042022705078125,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "casesPerPallet" : 123,
+  "cartonLength" : 1.3579000000000001069366817318950779736042022705078125,
+  "id" : 123,
+  "pricingPer" : "aeiou",
   "sell" : 1.3579000000000001069366817318950779736042022705078125,
-  "productionLot" : "aeiou",
+  "lobId" : 123,
+  "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
   "carrier" : "aeiou",
-  "createdBy" : 123,
+  "quantity" : 123,
+  "unitsPerCase" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "unitCode" : "aeiou",
+  "casesPerPallet" : 123,
+  "productionLot" : "aeiou",
+  "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
+  "status" : "aeiou",
+  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+  "origin" : "aeiou",
   "warehouseId" : 123,
+  "revisionDate" : "aeiou",
+  "sku" : "aeiou",
+  "vendorId" : 123,
+  "cost" : 1.3579000000000001069366817318950779736042022705078125,
   "cartonHeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "status" : "aeiou"
-}}]
+  "createdBy" : 123
+}, contentType=application/json}]
      
      - parameter body: (body) QuickReceipt to be inserted. 
 
@@ -146,36 +146,36 @@ public class QuickReceiptAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-  "revisionDate" : "aeiou",
-  "origin" : "aeiou",
-  "vendorId" : 123,
-  "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
-  "unitsPerCase" : 123,
-  "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "cartonLength" : 1.3579000000000001069366817318950779736042022705078125,
+     - examples: [{example=[ {
   "wrapCode" : "aeiou",
   "locationId" : 123,
-  "unitCode" : "aeiou",
-  "id" : 123,
-  "sku" : "aeiou",
-  "pricingPer" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123,
   "unitsPerWrap" : 123,
-  "quantity" : 123,
-  "cost" : 1.3579000000000001069366817318950779736042022705078125,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "casesPerPallet" : 123,
+  "cartonLength" : 1.3579000000000001069366817318950779736042022705078125,
+  "id" : 123,
+  "pricingPer" : "aeiou",
   "sell" : 1.3579000000000001069366817318950779736042022705078125,
-  "productionLot" : "aeiou",
+  "lobId" : 123,
+  "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
   "carrier" : "aeiou",
-  "createdBy" : 123,
+  "quantity" : 123,
+  "unitsPerCase" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "unitCode" : "aeiou",
+  "casesPerPallet" : 123,
+  "productionLot" : "aeiou",
+  "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
+  "status" : "aeiou",
+  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+  "origin" : "aeiou",
   "warehouseId" : 123,
+  "revisionDate" : "aeiou",
+  "sku" : "aeiou",
+  "vendorId" : 123,
+  "cost" : 1.3579000000000001069366817318950779736042022705078125,
   "cartonHeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "status" : "aeiou"
-} ]}]
+  "createdBy" : 123
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -224,36 +224,36 @@ public class QuickReceiptAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-  "revisionDate" : "aeiou",
-  "origin" : "aeiou",
-  "vendorId" : 123,
-  "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
-  "unitsPerCase" : 123,
-  "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "cartonLength" : 1.3579000000000001069366817318950779736042022705078125,
+     - examples: [{example={
   "wrapCode" : "aeiou",
   "locationId" : 123,
-  "unitCode" : "aeiou",
-  "id" : 123,
-  "sku" : "aeiou",
-  "pricingPer" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123,
   "unitsPerWrap" : 123,
-  "quantity" : 123,
-  "cost" : 1.3579000000000001069366817318950779736042022705078125,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "casesPerPallet" : 123,
+  "cartonLength" : 1.3579000000000001069366817318950779736042022705078125,
+  "id" : 123,
+  "pricingPer" : "aeiou",
   "sell" : 1.3579000000000001069366817318950779736042022705078125,
-  "productionLot" : "aeiou",
+  "lobId" : 123,
+  "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
   "carrier" : "aeiou",
-  "createdBy" : 123,
+  "quantity" : 123,
+  "unitsPerCase" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "unitCode" : "aeiou",
+  "casesPerPallet" : 123,
+  "productionLot" : "aeiou",
+  "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
+  "status" : "aeiou",
+  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+  "origin" : "aeiou",
   "warehouseId" : 123,
+  "revisionDate" : "aeiou",
+  "sku" : "aeiou",
+  "vendorId" : 123,
+  "cost" : 1.3579000000000001069366817318950779736042022705078125,
   "cartonHeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "status" : "aeiou"
-}}]
+  "createdBy" : 123
+}, contentType=application/json}]
      
      - parameter quickReceiptId: (path) Id of the quickReceipt to be returned. 
 

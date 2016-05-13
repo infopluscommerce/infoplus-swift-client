@@ -21,7 +21,7 @@ public class LoggedTime: JSONEncodable {
     public var userId: Int?
     public var lobId: Int?
     public var warehouseId: Int?
-    public var loggedTimeType: String?
+    public var loggedTimeTypeId: Int?
     public var appId: Int?
     
 
@@ -41,7 +41,7 @@ public class LoggedTime: JSONEncodable {
         nillableDictionary["userId"] = self.userId
         nillableDictionary["lobId"] = self.lobId
         nillableDictionary["warehouseId"] = self.warehouseId
-        nillableDictionary["loggedTimeType"] = self.loggedTimeType
+        nillableDictionary["loggedTimeTypeId"] = self.loggedTimeTypeId
         nillableDictionary["appId"] = self.appId
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

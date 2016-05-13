@@ -17,7 +17,7 @@ public class BillingCode: JSONEncodable {
     public var date: NSDate?
     public var userId: Int?
     public var lobId: Int?
-    public var billingCodeType: String?
+    public var billingCodeTypeId: Int?
     public var note: String?
     
 
@@ -33,7 +33,7 @@ public class BillingCode: JSONEncodable {
         nillableDictionary["date"] = self.date?.encodeToJSON()
         nillableDictionary["userId"] = self.userId
         nillableDictionary["lobId"] = self.lobId
-        nillableDictionary["billingCodeType"] = self.billingCodeType
+        nillableDictionary["billingCodeTypeId"] = self.billingCodeTypeId
         nillableDictionary["note"] = self.note
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

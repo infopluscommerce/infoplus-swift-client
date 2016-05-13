@@ -33,49 +33,49 @@ public class ReceivingWorksheetAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "notes" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+     - examples: [{example={
   "onTheDock" : true,
-  "vendorId" : 123,
+  "workBatchId" : 123,
+  "poNoId" : 123,
+  "status" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
   "serviceLevel" : "aeiou",
+  "vendorId" : 123,
+  "id" : 123,
+  "autoCommit" : true,
+  "createdBy" : 123,
+  "lobId" : 123,
+  "carrier" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "notes" : "aeiou",
+  "worksheetName" : "aeiou",
   "lineItems" : [ {
-    "unitsPerWrap" : 123,
-    "unreceivedQty" : 123,
-    "quantity" : 123,
-    "prevReceivedQty" : 123,
-    "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-    "revisionDate" : "aeiou",
-    "casesPerPallet" : 123,
-    "origin" : "aeiou",
-    "weightPerCase" : 1.3579000000000001069366817318950779736042022705078125,
-    "productionLot" : "aeiou",
     "orderedQty" : 123,
-    "fullDescription" : "aeiou",
+    "casesPerPallet" : 123,
+    "productionLot" : "aeiou",
     "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
-    "unitsPerCase" : 123,
+    "wrapCode" : "aeiou",
     "putAwayPlans" : [ {
       "quantity" : 123
     } ],
+    "origin" : "aeiou",
+    "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+    "unitsPerWrap" : 123,
+    "revisionDate" : "aeiou",
+    "sku" : "aeiou",
     "cartonLength" : 1.3579000000000001069366817318950779736042022705078125,
-    "receivingQty" : 123,
-    "wrapCode" : "aeiou",
-    "unitCode" : "aeiou",
     "cartonHeight" : 1.3579000000000001069366817318950779736042022705078125,
-    "sku" : "aeiou"
-  } ],
-  "carrier" : "aeiou",
-  "workBatchId" : 123,
-  "warehouseId" : 123,
-  "createdBy" : 123,
-  "id" : 123,
-  "poNoId" : 123,
-  "autoCommit" : true,
-  "worksheetName" : "aeiou",
-  "lobId" : 123,
-  "status" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+    "fullDescription" : "aeiou",
+    "weightPerCase" : 1.3579000000000001069366817318950779736042022705078125,
+    "unreceivedQty" : 123,
+    "quantity" : 123,
+    "receivingQty" : 123,
+    "unitsPerCase" : 123,
+    "prevReceivedQty" : 123,
+    "unitCode" : "aeiou"
+  } ]
+}, contentType=application/json}]
      
      - parameter body: (body) ReceivingWorksheet to be inserted. 
 
@@ -159,49 +159,49 @@ public class ReceivingWorksheetAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "notes" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+     - examples: [{example=[ {
   "onTheDock" : true,
-  "vendorId" : 123,
+  "workBatchId" : 123,
+  "poNoId" : 123,
+  "status" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
   "serviceLevel" : "aeiou",
+  "vendorId" : 123,
+  "id" : 123,
+  "autoCommit" : true,
+  "createdBy" : 123,
+  "lobId" : 123,
+  "carrier" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "notes" : "aeiou",
+  "worksheetName" : "aeiou",
   "lineItems" : [ {
-    "unitsPerWrap" : 123,
-    "unreceivedQty" : 123,
-    "quantity" : 123,
-    "prevReceivedQty" : 123,
-    "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-    "revisionDate" : "aeiou",
-    "casesPerPallet" : 123,
-    "origin" : "aeiou",
-    "weightPerCase" : 1.3579000000000001069366817318950779736042022705078125,
-    "productionLot" : "aeiou",
     "orderedQty" : 123,
-    "fullDescription" : "aeiou",
+    "casesPerPallet" : 123,
+    "productionLot" : "aeiou",
     "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
-    "unitsPerCase" : 123,
+    "wrapCode" : "aeiou",
     "putAwayPlans" : [ {
       "quantity" : 123
     } ],
+    "origin" : "aeiou",
+    "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+    "unitsPerWrap" : 123,
+    "revisionDate" : "aeiou",
+    "sku" : "aeiou",
     "cartonLength" : 1.3579000000000001069366817318950779736042022705078125,
-    "receivingQty" : 123,
-    "wrapCode" : "aeiou",
-    "unitCode" : "aeiou",
     "cartonHeight" : 1.3579000000000001069366817318950779736042022705078125,
-    "sku" : "aeiou"
-  } ],
-  "carrier" : "aeiou",
-  "workBatchId" : 123,
-  "warehouseId" : 123,
-  "createdBy" : 123,
-  "id" : 123,
-  "poNoId" : 123,
-  "autoCommit" : true,
-  "worksheetName" : "aeiou",
-  "lobId" : 123,
-  "status" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-} ]}]
+    "fullDescription" : "aeiou",
+    "weightPerCase" : 1.3579000000000001069366817318950779736042022705078125,
+    "unreceivedQty" : 123,
+    "quantity" : 123,
+    "receivingQty" : 123,
+    "unitsPerCase" : 123,
+    "prevReceivedQty" : 123,
+    "unitCode" : "aeiou"
+  } ]
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -250,49 +250,49 @@ public class ReceivingWorksheetAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "notes" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+     - examples: [{example={
   "onTheDock" : true,
-  "vendorId" : 123,
+  "workBatchId" : 123,
+  "poNoId" : 123,
+  "status" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
   "serviceLevel" : "aeiou",
+  "vendorId" : 123,
+  "id" : 123,
+  "autoCommit" : true,
+  "createdBy" : 123,
+  "lobId" : 123,
+  "carrier" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "notes" : "aeiou",
+  "worksheetName" : "aeiou",
   "lineItems" : [ {
-    "unitsPerWrap" : 123,
-    "unreceivedQty" : 123,
-    "quantity" : 123,
-    "prevReceivedQty" : 123,
-    "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-    "revisionDate" : "aeiou",
-    "casesPerPallet" : 123,
-    "origin" : "aeiou",
-    "weightPerCase" : 1.3579000000000001069366817318950779736042022705078125,
-    "productionLot" : "aeiou",
     "orderedQty" : 123,
-    "fullDescription" : "aeiou",
+    "casesPerPallet" : 123,
+    "productionLot" : "aeiou",
     "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
-    "unitsPerCase" : 123,
+    "wrapCode" : "aeiou",
     "putAwayPlans" : [ {
       "quantity" : 123
     } ],
+    "origin" : "aeiou",
+    "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+    "unitsPerWrap" : 123,
+    "revisionDate" : "aeiou",
+    "sku" : "aeiou",
     "cartonLength" : 1.3579000000000001069366817318950779736042022705078125,
-    "receivingQty" : 123,
-    "wrapCode" : "aeiou",
-    "unitCode" : "aeiou",
     "cartonHeight" : 1.3579000000000001069366817318950779736042022705078125,
-    "sku" : "aeiou"
-  } ],
-  "carrier" : "aeiou",
-  "workBatchId" : 123,
-  "warehouseId" : 123,
-  "createdBy" : 123,
-  "id" : 123,
-  "poNoId" : 123,
-  "autoCommit" : true,
-  "worksheetName" : "aeiou",
-  "lobId" : 123,
-  "status" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+    "fullDescription" : "aeiou",
+    "weightPerCase" : 1.3579000000000001069366817318950779736042022705078125,
+    "unreceivedQty" : 123,
+    "quantity" : 123,
+    "receivingQty" : 123,
+    "unitsPerCase" : 123,
+    "prevReceivedQty" : 123,
+    "unitCode" : "aeiou"
+  } ]
+}, contentType=application/json}]
      
      - parameter receivingWorksheetId: (path) Id of the receivingWorksheet to be returned. 
 

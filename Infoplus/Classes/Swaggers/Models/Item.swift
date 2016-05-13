@@ -11,15 +11,15 @@ import Foundation
 public class Item: JSONEncodable {
 
     public var id: Int?
-    public var accountCode: String?
+    public var accountCodeId: Int?
     public var lowStockContactId: Int?
-    public var legacyLowStockContact: String?
-    public var lowStockCode: String?
-    public var majorGroup: String?
-    public var subGroup: String?
-    public var productionCode: String?
-    public var summaryCode: String?
-    public var buyer: String?
+    public var legacyLowLevelContactId: Int?
+    public var lowStockCodeId: Int?
+    public var majorGroupId: Int?
+    public var subGroupId: Int?
+    public var productCodeId: Int?
+    public var summaryCodeId: Int?
+    public var buyerId: Int?
     public var lobId: Int?
     public var sku: String?
     public var vendorSKU: String?
@@ -79,15 +79,15 @@ public class Item: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["id"] = self.id
-        nillableDictionary["accountCode"] = self.accountCode
+        nillableDictionary["accountCodeId"] = self.accountCodeId
         nillableDictionary["lowStockContactId"] = self.lowStockContactId
-        nillableDictionary["legacyLowStockContact"] = self.legacyLowStockContact
-        nillableDictionary["lowStockCode"] = self.lowStockCode
-        nillableDictionary["majorGroup"] = self.majorGroup
-        nillableDictionary["subGroup"] = self.subGroup
-        nillableDictionary["productionCode"] = self.productionCode
-        nillableDictionary["summaryCode"] = self.summaryCode
-        nillableDictionary["buyer"] = self.buyer
+        nillableDictionary["legacyLowLevelContactId"] = self.legacyLowLevelContactId
+        nillableDictionary["lowStockCodeId"] = self.lowStockCodeId
+        nillableDictionary["majorGroupId"] = self.majorGroupId
+        nillableDictionary["subGroupId"] = self.subGroupId
+        nillableDictionary["productCodeId"] = self.productCodeId
+        nillableDictionary["summaryCodeId"] = self.summaryCodeId
+        nillableDictionary["buyerId"] = self.buyerId
         nillableDictionary["lobId"] = self.lobId
         nillableDictionary["sku"] = self.sku
         nillableDictionary["vendorSKU"] = self.vendorSKU

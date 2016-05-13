@@ -33,23 +33,23 @@ public class OverrideReturnAddressAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "zip" : "aeiou",
+     - examples: [{example={
   "orderSourceId" : 123,
-  "country" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "city" : "aeiou",
-  "warehouseId" : 123,
+  "street2" : "aeiou",
+  "zip" : "aeiou",
   "phone" : "aeiou",
   "street" : "aeiou",
-  "name" : "aeiou",
-  "attention" : "aeiou",
-  "id" : 123,
-  "street2" : "aeiou",
   "state" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
+  "country" : "aeiou",
+  "city" : "aeiou",
+  "id" : 123,
+  "name" : "aeiou",
+  "lobId" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
-}}]
+  "attention" : "aeiou"
+}, contentType=application/json}]
      
      - parameter body: (body) OverrideReturnAddress to be inserted. 
 
@@ -133,23 +133,23 @@ public class OverrideReturnAddressAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "zip" : "aeiou",
+     - examples: [{example=[ {
   "orderSourceId" : 123,
-  "country" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "city" : "aeiou",
-  "warehouseId" : 123,
+  "street2" : "aeiou",
+  "zip" : "aeiou",
   "phone" : "aeiou",
   "street" : "aeiou",
-  "name" : "aeiou",
-  "attention" : "aeiou",
-  "id" : 123,
-  "street2" : "aeiou",
   "state" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
+  "country" : "aeiou",
+  "city" : "aeiou",
+  "id" : 123,
+  "name" : "aeiou",
+  "lobId" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
-} ]}]
+  "attention" : "aeiou"
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -198,23 +198,23 @@ public class OverrideReturnAddressAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "zip" : "aeiou",
+     - examples: [{example={
   "orderSourceId" : 123,
-  "country" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "city" : "aeiou",
-  "warehouseId" : 123,
+  "street2" : "aeiou",
+  "zip" : "aeiou",
   "phone" : "aeiou",
   "street" : "aeiou",
-  "name" : "aeiou",
-  "attention" : "aeiou",
-  "id" : 123,
-  "street2" : "aeiou",
   "state" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
+  "country" : "aeiou",
+  "city" : "aeiou",
+  "id" : 123,
+  "name" : "aeiou",
+  "lobId" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
-}}]
+  "attention" : "aeiou"
+}, contentType=application/json}]
      
      - parameter overrideReturnAddressId: (path) Id of the overrideReturnAddress to be returned. 
 

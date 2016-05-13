@@ -36,13 +36,13 @@ public class ProductionLotAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "quantity" : 123,
-  "productionLot" : "aeiou",
+     - examples: [{example=[ {
   "id" : 123,
-  "sku" : "aeiou",
-  "lobId" : 123
-} ]}]
+  "productionLot" : "aeiou",
+  "lobId" : 123,
+  "quantity" : 123,
+  "sku" : "aeiou"
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -91,13 +91,13 @@ public class ProductionLotAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "quantity" : 123,
-  "productionLot" : "aeiou",
+     - examples: [{example={
   "id" : 123,
-  "sku" : "aeiou",
-  "lobId" : 123
-}}]
+  "productionLot" : "aeiou",
+  "lobId" : 123,
+  "quantity" : 123,
+  "sku" : "aeiou"
+}, contentType=application/json}]
      
      - parameter productionLotId: (path) Id of the productionLot to be returned. 
 

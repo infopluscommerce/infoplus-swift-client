@@ -23,6 +23,7 @@ public class Work: JSONEncodable {
     public var priorityCode: Int?
     public var status: String?
     public var userId: Int?
+    public var lobId: Int?
     public var workBatchId: Int?
     
 
@@ -44,6 +45,7 @@ public class Work: JSONEncodable {
         nillableDictionary["priorityCode"] = self.priorityCode
         nillableDictionary["status"] = self.status
         nillableDictionary["userId"] = self.userId
+        nillableDictionary["lobId"] = self.lobId
         nillableDictionary["workBatchId"] = self.workBatchId
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

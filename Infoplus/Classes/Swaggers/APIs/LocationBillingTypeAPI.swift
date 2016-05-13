@@ -33,13 +33,13 @@ public class LocationBillingTypeAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "clientId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "name" : "aeiou",
+     - examples: [{example={
   "id" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+  "name" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "clientId" : 123
+}, contentType=application/json}]
      
      - parameter body: (body) LocationBillingType to be inserted. 
 
@@ -123,13 +123,13 @@ public class LocationBillingTypeAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "clientId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "name" : "aeiou",
+     - examples: [{example=[ {
   "id" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-} ]}]
+  "name" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "clientId" : 123
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -178,13 +178,13 @@ public class LocationBillingTypeAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "clientId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "name" : "aeiou",
+     - examples: [{example={
   "id" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+  "name" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "clientId" : 123
+}, contentType=application/json}]
      
      - parameter locationBillingTypeId: (path) Id of the locationBillingType to be returned. 
 

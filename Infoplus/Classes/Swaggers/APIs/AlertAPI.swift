@@ -36,18 +36,18 @@ public class AlertAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+     - examples: [{example=[ {
+  "message" : "aeiou",
+  "id" : 123,
+  "expirationDate" : "2000-01-23T04:56:07.000+0000",
+  "linkText" : "aeiou",
   "level" : "aeiou",
   "link" : "aeiou",
-  "linkText" : "aeiou",
-  "id" : 123,
-  "type" : "aeiou",
-  "message" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "expirationDate" : "2000-01-23T04:56:07.000+0000",
+  "type" : "aeiou",
   "acknowledgeDate" : "2000-01-23T04:56:07.000+0000"
-} ]}]
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -96,18 +96,18 @@ public class AlertAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+     - examples: [{example={
+  "message" : "aeiou",
+  "id" : 123,
+  "expirationDate" : "2000-01-23T04:56:07.000+0000",
+  "linkText" : "aeiou",
   "level" : "aeiou",
   "link" : "aeiou",
-  "linkText" : "aeiou",
-  "id" : 123,
-  "type" : "aeiou",
-  "message" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "expirationDate" : "2000-01-23T04:56:07.000+0000",
+  "type" : "aeiou",
   "acknowledgeDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+}, contentType=application/json}]
      
      - parameter alertId: (path) Id of the alert to be returned. 
 

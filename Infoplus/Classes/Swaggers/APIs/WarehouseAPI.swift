@@ -36,25 +36,25 @@ public class WarehouseAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "zip" : "aeiou",
-  "country" : "aeiou",
-  "address" : "aeiou",
-  "street3" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "city" : "aeiou",
-  "phone" : "aeiou",
-  "lpnPrefix" : "aeiou",
-  "name" : "aeiou",
-  "client" : 123,
-  "company" : "aeiou",
-  "street1" : "aeiou",
-  "id" : 123,
-  "street2" : "aeiou",
-  "state" : "aeiou",
+     - examples: [{example=[ {
   "locationBarcodePrefix" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-} ]}]
+  "street2" : "aeiou",
+  "street1" : "aeiou",
+  "zip" : "aeiou",
+  "phone" : "aeiou",
+  "client" : 123,
+  "state" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "lpnPrefix" : "aeiou",
+  "city" : "aeiou",
+  "country" : "aeiou",
+  "id" : 123,
+  "address" : "aeiou",
+  "name" : "aeiou",
+  "company" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "street3" : "aeiou"
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -103,25 +103,25 @@ public class WarehouseAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "zip" : "aeiou",
-  "country" : "aeiou",
-  "address" : "aeiou",
-  "street3" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "city" : "aeiou",
-  "phone" : "aeiou",
-  "lpnPrefix" : "aeiou",
-  "name" : "aeiou",
-  "client" : 123,
-  "company" : "aeiou",
-  "street1" : "aeiou",
-  "id" : 123,
-  "street2" : "aeiou",
-  "state" : "aeiou",
+     - examples: [{example={
   "locationBarcodePrefix" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+  "street2" : "aeiou",
+  "street1" : "aeiou",
+  "zip" : "aeiou",
+  "phone" : "aeiou",
+  "client" : 123,
+  "state" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "lpnPrefix" : "aeiou",
+  "city" : "aeiou",
+  "country" : "aeiou",
+  "id" : 123,
+  "address" : "aeiou",
+  "name" : "aeiou",
+  "company" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "street3" : "aeiou"
+}, contentType=application/json}]
      
      - parameter warehouseId: (path) Id of the warehouse to be returned. 
 

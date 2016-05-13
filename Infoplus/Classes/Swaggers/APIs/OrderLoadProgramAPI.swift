@@ -35,10 +35,10 @@ public class OrderLoadProgramAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
+     - examples: [{example=[ {
   "id" : 123,
   "label" : "aeiou"
-} ]}]
+} ], contentType=application/json}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -85,10 +85,10 @@ public class OrderLoadProgramAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
+     - examples: [{example={
   "id" : 123,
   "label" : "aeiou"
-}}]
+}, contentType=application/json}]
      
      - parameter orderLoadProgramId: (path) Id of orderLoadProgram to be returned. 
 

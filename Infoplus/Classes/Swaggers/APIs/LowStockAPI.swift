@@ -36,17 +36,17 @@ public class LowStockAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "isDelayed" : true,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "printFlag" : "aeiou",
-  "lowStockMessage" : "aeiou",
+     - examples: [{example=[ {
   "id" : 123,
+  "printFlag" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "lowStockMessage" : "aeiou",
+  "warehouseId" : 123,
   "sku" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
   "lowLevelDate" : "2000-01-23T04:56:07.000+0000",
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-} ]}]
+  "isDelayed" : true
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -95,17 +95,17 @@ public class LowStockAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "isDelayed" : true,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "printFlag" : "aeiou",
-  "lowStockMessage" : "aeiou",
+     - examples: [{example={
   "id" : 123,
+  "printFlag" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "lowStockMessage" : "aeiou",
+  "warehouseId" : 123,
   "sku" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
   "lowLevelDate" : "2000-01-23T04:56:07.000+0000",
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}}]
+  "isDelayed" : true
+}, contentType=application/json}]
      
      - parameter lowStockId: (path) Id of the lowStock to be returned. 
 

@@ -33,56 +33,56 @@ public class CustomerAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "street3Province" : "aeiou",
-  "zipCode" : "aeiou",
-  "country" : "aeiou",
+     - examples: [{example={
+  "omsCustomerId" : 123,
+  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
+  "sector" : "aeiou",
+  "weightBreak" : 123,
+  "phone" : "aeiou",
+  "manager" : "aeiou",
+  "priceLevel" : "aeiou",
+  "residential" : "aeiou",
+  "street" : "aeiou",
+  "state" : "aeiou",
+  "customerNo" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "externalId" : "aeiou",
+  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
   "city" : "aeiou",
+  "id" : 123,
+  "division" : 123,
+  "area" : "aeiou",
+  "extrinsicNumber2" : 123,
+  "street3Province" : "aeiou",
+  "massLevel" : "aeiou",
+  "extrinsicNumber1" : 123,
+  "zipCode" : "aeiou",
+  "name" : "aeiou",
+  "lobId" : 123,
+  "openDate" : "2000-01-23T04:56:07.000+0000",
+  "attention" : "aeiou",
+  "street2" : "aeiou",
+  "cycleDate" : "2000-01-23T04:56:07.000+0000",
+  "customerType" : "aeiou",
+  "fax" : "aeiou",
+  "extrinsicText3" : "aeiou",
+  "extrinsicText2" : "aeiou",
+  "closeDate" : "2000-01-23T04:56:07.000+0000",
   "packageCarrierId" : 123,
+  "extrinsicText1" : "aeiou",
+  "csrBranch" : "aeiou",
+  "faxGone" : "aeiou",
+  "truckCarrierId" : 123,
+  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
+  "costCenter" : "aeiou",
+  "country" : "aeiou",
+  "pin" : "aeiou",
+  "alternateInventory" : 123,
+  "email" : "aeiou",
   "county" : "aeiou",
   "restrictionPercent" : 123,
-  "priceLevel" : "aeiou",
-  "omsCustomerId" : 123,
-  "massLevel" : "aeiou",
-  "division" : 123,
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "customerType" : "aeiou",
-  "alternateInventory" : 123,
-  "pin" : "aeiou",
-  "street" : "aeiou",
-  "id" : 123,
-  "street2" : "aeiou",
-  "state" : "aeiou",
-  "fax" : "aeiou",
-  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
-  "sector" : "aeiou",
-  "cycleDate" : "2000-01-23T04:56:07.000+0000",
-  "email" : "aeiou",
-  "bossBranch" : "aeiou",
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "lobId" : 123,
-  "area" : "aeiou",
-  "faxGone" : "aeiou",
-  "weightBreak" : 123,
-  "manager" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "costCenter" : "aeiou",
-  "externalId" : "aeiou",
-  "extrinsicNumber2" : 123,
-  "extrinsicNumber1" : 123,
-  "closeDate" : "2000-01-23T04:56:07.000+0000",
-  "extrinsicText1" : "aeiou",
-  "extrinsicText3" : "aeiou",
-  "residential" : "aeiou",
-  "extrinsicText2" : "aeiou",
-  "phone" : "aeiou",
-  "name" : "aeiou",
-  "attention" : "aeiou",
-  "truckCarrierId" : 123,
-  "openDate" : "2000-01-23T04:56:07.000+0000",
-  "csrBranch" : "aeiou",
-  "customerNo" : "aeiou"
-}}]
+  "bossBranch" : "aeiou"
+}, contentType=application/json}]
      
      - parameter body: (body) Customer to be inserted. 
 
@@ -142,6 +142,101 @@ public class CustomerAPI: APIBase {
 
     /**
      
+     Get a customer by Customer No
+     
+     - parameter lobId: (query) lobId of the customer to be returned. 
+     - parameter customerNo: (query) customerNo of the customer to be returned. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getByCustomerNo(lobId lobId: Int, customerNo: String, completion: ((data: Customer?, error: ErrorType?) -> Void)) {
+        getByCustomerNoWithRequestBuilder(lobId: lobId, customerNo: customerNo).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Get a customer by Customer No
+     
+     - GET /v1.0/customer/getByCustomerNo
+     - Returns the customer identified by the specified parameters.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{example={
+  "omsCustomerId" : 123,
+  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
+  "sector" : "aeiou",
+  "weightBreak" : 123,
+  "phone" : "aeiou",
+  "manager" : "aeiou",
+  "priceLevel" : "aeiou",
+  "residential" : "aeiou",
+  "street" : "aeiou",
+  "state" : "aeiou",
+  "customerNo" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "externalId" : "aeiou",
+  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
+  "city" : "aeiou",
+  "id" : 123,
+  "division" : 123,
+  "area" : "aeiou",
+  "extrinsicNumber2" : 123,
+  "street3Province" : "aeiou",
+  "massLevel" : "aeiou",
+  "extrinsicNumber1" : 123,
+  "zipCode" : "aeiou",
+  "name" : "aeiou",
+  "lobId" : 123,
+  "openDate" : "2000-01-23T04:56:07.000+0000",
+  "attention" : "aeiou",
+  "street2" : "aeiou",
+  "cycleDate" : "2000-01-23T04:56:07.000+0000",
+  "customerType" : "aeiou",
+  "fax" : "aeiou",
+  "extrinsicText3" : "aeiou",
+  "extrinsicText2" : "aeiou",
+  "closeDate" : "2000-01-23T04:56:07.000+0000",
+  "packageCarrierId" : 123,
+  "extrinsicText1" : "aeiou",
+  "csrBranch" : "aeiou",
+  "faxGone" : "aeiou",
+  "truckCarrierId" : 123,
+  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
+  "costCenter" : "aeiou",
+  "country" : "aeiou",
+  "pin" : "aeiou",
+  "alternateInventory" : 123,
+  "email" : "aeiou",
+  "county" : "aeiou",
+  "restrictionPercent" : 123,
+  "bossBranch" : "aeiou"
+}, contentType=application/json}]
+     
+     - parameter lobId: (query) lobId of the customer to be returned. 
+     - parameter customerNo: (query) customerNo of the customer to be returned. 
+
+     - returns: RequestBuilder<Customer> 
+     */
+    public class func getByCustomerNoWithRequestBuilder(lobId lobId: Int, customerNo: String) -> RequestBuilder<Customer> {
+        let path = "/v1.0/customer/getByCustomerNo"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "lobId": lobId,
+            "customerNo": customerNo
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Customer>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Search customers by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -166,56 +261,56 @@ public class CustomerAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example=[ {
-  "street3Province" : "aeiou",
-  "zipCode" : "aeiou",
-  "country" : "aeiou",
+     - examples: [{example=[ {
+  "omsCustomerId" : 123,
+  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
+  "sector" : "aeiou",
+  "weightBreak" : 123,
+  "phone" : "aeiou",
+  "manager" : "aeiou",
+  "priceLevel" : "aeiou",
+  "residential" : "aeiou",
+  "street" : "aeiou",
+  "state" : "aeiou",
+  "customerNo" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "externalId" : "aeiou",
+  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
   "city" : "aeiou",
+  "id" : 123,
+  "division" : 123,
+  "area" : "aeiou",
+  "extrinsicNumber2" : 123,
+  "street3Province" : "aeiou",
+  "massLevel" : "aeiou",
+  "extrinsicNumber1" : 123,
+  "zipCode" : "aeiou",
+  "name" : "aeiou",
+  "lobId" : 123,
+  "openDate" : "2000-01-23T04:56:07.000+0000",
+  "attention" : "aeiou",
+  "street2" : "aeiou",
+  "cycleDate" : "2000-01-23T04:56:07.000+0000",
+  "customerType" : "aeiou",
+  "fax" : "aeiou",
+  "extrinsicText3" : "aeiou",
+  "extrinsicText2" : "aeiou",
+  "closeDate" : "2000-01-23T04:56:07.000+0000",
   "packageCarrierId" : 123,
+  "extrinsicText1" : "aeiou",
+  "csrBranch" : "aeiou",
+  "faxGone" : "aeiou",
+  "truckCarrierId" : 123,
+  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
+  "costCenter" : "aeiou",
+  "country" : "aeiou",
+  "pin" : "aeiou",
+  "alternateInventory" : 123,
+  "email" : "aeiou",
   "county" : "aeiou",
   "restrictionPercent" : 123,
-  "priceLevel" : "aeiou",
-  "omsCustomerId" : 123,
-  "massLevel" : "aeiou",
-  "division" : 123,
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "customerType" : "aeiou",
-  "alternateInventory" : 123,
-  "pin" : "aeiou",
-  "street" : "aeiou",
-  "id" : 123,
-  "street2" : "aeiou",
-  "state" : "aeiou",
-  "fax" : "aeiou",
-  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
-  "sector" : "aeiou",
-  "cycleDate" : "2000-01-23T04:56:07.000+0000",
-  "email" : "aeiou",
-  "bossBranch" : "aeiou",
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "lobId" : 123,
-  "area" : "aeiou",
-  "faxGone" : "aeiou",
-  "weightBreak" : 123,
-  "manager" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "costCenter" : "aeiou",
-  "externalId" : "aeiou",
-  "extrinsicNumber2" : 123,
-  "extrinsicNumber1" : 123,
-  "closeDate" : "2000-01-23T04:56:07.000+0000",
-  "extrinsicText1" : "aeiou",
-  "extrinsicText3" : "aeiou",
-  "residential" : "aeiou",
-  "extrinsicText2" : "aeiou",
-  "phone" : "aeiou",
-  "name" : "aeiou",
-  "attention" : "aeiou",
-  "truckCarrierId" : 123,
-  "openDate" : "2000-01-23T04:56:07.000+0000",
-  "csrBranch" : "aeiou",
-  "customerNo" : "aeiou"
-} ]}]
+  "bossBranch" : "aeiou"
+} ], contentType=application/json}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -264,56 +359,56 @@ public class CustomerAPI: APIBase {
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{contentType=application/json, example={
-  "street3Province" : "aeiou",
-  "zipCode" : "aeiou",
-  "country" : "aeiou",
+     - examples: [{example={
+  "omsCustomerId" : 123,
+  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
+  "sector" : "aeiou",
+  "weightBreak" : 123,
+  "phone" : "aeiou",
+  "manager" : "aeiou",
+  "priceLevel" : "aeiou",
+  "residential" : "aeiou",
+  "street" : "aeiou",
+  "state" : "aeiou",
+  "customerNo" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "externalId" : "aeiou",
+  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
   "city" : "aeiou",
+  "id" : 123,
+  "division" : 123,
+  "area" : "aeiou",
+  "extrinsicNumber2" : 123,
+  "street3Province" : "aeiou",
+  "massLevel" : "aeiou",
+  "extrinsicNumber1" : 123,
+  "zipCode" : "aeiou",
+  "name" : "aeiou",
+  "lobId" : 123,
+  "openDate" : "2000-01-23T04:56:07.000+0000",
+  "attention" : "aeiou",
+  "street2" : "aeiou",
+  "cycleDate" : "2000-01-23T04:56:07.000+0000",
+  "customerType" : "aeiou",
+  "fax" : "aeiou",
+  "extrinsicText3" : "aeiou",
+  "extrinsicText2" : "aeiou",
+  "closeDate" : "2000-01-23T04:56:07.000+0000",
   "packageCarrierId" : 123,
+  "extrinsicText1" : "aeiou",
+  "csrBranch" : "aeiou",
+  "faxGone" : "aeiou",
+  "truckCarrierId" : 123,
+  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
+  "costCenter" : "aeiou",
+  "country" : "aeiou",
+  "pin" : "aeiou",
+  "alternateInventory" : 123,
+  "email" : "aeiou",
   "county" : "aeiou",
   "restrictionPercent" : 123,
-  "priceLevel" : "aeiou",
-  "omsCustomerId" : 123,
-  "massLevel" : "aeiou",
-  "division" : 123,
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "customerType" : "aeiou",
-  "alternateInventory" : 123,
-  "pin" : "aeiou",
-  "street" : "aeiou",
-  "id" : 123,
-  "street2" : "aeiou",
-  "state" : "aeiou",
-  "fax" : "aeiou",
-  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
-  "sector" : "aeiou",
-  "cycleDate" : "2000-01-23T04:56:07.000+0000",
-  "email" : "aeiou",
-  "bossBranch" : "aeiou",
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "lobId" : 123,
-  "area" : "aeiou",
-  "faxGone" : "aeiou",
-  "weightBreak" : 123,
-  "manager" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "costCenter" : "aeiou",
-  "externalId" : "aeiou",
-  "extrinsicNumber2" : 123,
-  "extrinsicNumber1" : 123,
-  "closeDate" : "2000-01-23T04:56:07.000+0000",
-  "extrinsicText1" : "aeiou",
-  "extrinsicText3" : "aeiou",
-  "residential" : "aeiou",
-  "extrinsicText2" : "aeiou",
-  "phone" : "aeiou",
-  "name" : "aeiou",
-  "attention" : "aeiou",
-  "truckCarrierId" : 123,
-  "openDate" : "2000-01-23T04:56:07.000+0000",
-  "csrBranch" : "aeiou",
-  "customerNo" : "aeiou"
-}}]
+  "bossBranch" : "aeiou"
+}, contentType=application/json}]
      
      - parameter customerId: (path) Id of the customer to be returned. 
 
@@ -330,101 +425,6 @@ public class CustomerAPI: APIBase {
         let requestBuilder: RequestBuilder<Customer>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get a customer by Customer No
-     
-     - parameter lobId: (query) lobId of the customer to be returned. 
-     - parameter customerNo: (query) customerNo of the customer to be returned. 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getCustomerBygetByCustomerNo(lobId lobId: Int, customerNo: String, completion: ((data: Customer?, error: ErrorType?) -> Void)) {
-        getCustomerBygetByCustomerNoWithRequestBuilder(lobId: lobId, customerNo: customerNo).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Get a customer by Customer No
-     
-     - GET /v1.0/customer/getByCustomerNo
-     - Returns the customer identified by the specified parameters.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     - examples: [{contentType=application/json, example={
-  "street3Province" : "aeiou",
-  "zipCode" : "aeiou",
-  "country" : "aeiou",
-  "city" : "aeiou",
-  "packageCarrierId" : 123,
-  "county" : "aeiou",
-  "restrictionPercent" : 123,
-  "priceLevel" : "aeiou",
-  "omsCustomerId" : 123,
-  "massLevel" : "aeiou",
-  "division" : 123,
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "customerType" : "aeiou",
-  "alternateInventory" : 123,
-  "pin" : "aeiou",
-  "street" : "aeiou",
-  "id" : 123,
-  "street2" : "aeiou",
-  "state" : "aeiou",
-  "fax" : "aeiou",
-  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
-  "sector" : "aeiou",
-  "cycleDate" : "2000-01-23T04:56:07.000+0000",
-  "email" : "aeiou",
-  "bossBranch" : "aeiou",
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "lobId" : 123,
-  "area" : "aeiou",
-  "faxGone" : "aeiou",
-  "weightBreak" : 123,
-  "manager" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "costCenter" : "aeiou",
-  "externalId" : "aeiou",
-  "extrinsicNumber2" : 123,
-  "extrinsicNumber1" : 123,
-  "closeDate" : "2000-01-23T04:56:07.000+0000",
-  "extrinsicText1" : "aeiou",
-  "extrinsicText3" : "aeiou",
-  "residential" : "aeiou",
-  "extrinsicText2" : "aeiou",
-  "phone" : "aeiou",
-  "name" : "aeiou",
-  "attention" : "aeiou",
-  "truckCarrierId" : 123,
-  "openDate" : "2000-01-23T04:56:07.000+0000",
-  "csrBranch" : "aeiou",
-  "customerNo" : "aeiou"
-}}]
-     
-     - parameter lobId: (query) lobId of the customer to be returned. 
-     - parameter customerNo: (query) customerNo of the customer to be returned. 
-
-     - returns: RequestBuilder<Customer> 
-     */
-    public class func getCustomerBygetByCustomerNoWithRequestBuilder(lobId lobId: Int, customerNo: String) -> RequestBuilder<Customer> {
-        let path = "/v1.0/customer/getByCustomerNo"
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "lobId": lobId,
-            "customerNo": customerNo
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Customer>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
 
     /**
