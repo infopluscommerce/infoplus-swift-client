@@ -14,7 +14,7 @@ The Resources listed below will provide all the information you need to integrat
 ### Developer's Home Page
 https://www.infopluscommerce.com/developers/
 * This site gives you an overview of the Infoplus API. 
-* Check it out to get a general understanding of the API and for quick steps on getting started. 
+* Get a general understanding of the API and quick steps on getting started. 
 
 ### Infoplus API Reference Site
 http://developers.infopluscommerce.com/
