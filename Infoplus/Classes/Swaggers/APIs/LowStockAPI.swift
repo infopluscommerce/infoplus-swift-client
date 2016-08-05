@@ -31,22 +31,25 @@ public class LowStockAPI: APIBase {
      
      Search lowStocks by filter
      
-     - GET /v1.0/lowStock/search
+     - GET /beta/lowStock/search
      - Returns the list of lowStocks that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "id" : 123,
-  "printFlag" : "aeiou",
+     - examples: [{contentType=application/json, example=[ {
+  "isDelayed" : true,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "lowStockMessage" : "aeiou",
   "warehouseId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "printFlag" : "aeiou",
+  "lowStockMessage" : "aeiou",
+  "id" : 123,
   "sku" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
   "lowLevelDate" : "2000-01-23T04:56:07.000+0000",
-  "isDelayed" : true
-} ], contentType=application/json}]
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -56,7 +59,7 @@ public class LowStockAPI: APIBase {
      - returns: RequestBuilder<[LowStock]> 
      */
     public class func getLowStockByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[LowStock]> {
-        let path = "/v1.0/lowStock/search"
+        let path = "/beta/lowStock/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -90,29 +93,32 @@ public class LowStockAPI: APIBase {
      
      Get a lowStock by id
      
-     - GET /v1.0/lowStock/{lowStockId}
+     - GET /beta/lowStock/{lowStockId}
      - Returns the lowStock identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "id" : 123,
-  "printFlag" : "aeiou",
+     - examples: [{contentType=application/json, example={
+  "isDelayed" : true,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "lowStockMessage" : "aeiou",
   "warehouseId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "printFlag" : "aeiou",
+  "lowStockMessage" : "aeiou",
+  "id" : 123,
   "sku" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
   "lowLevelDate" : "2000-01-23T04:56:07.000+0000",
-  "isDelayed" : true
-}, contentType=application/json}]
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
      
      - parameter lowStockId: (path) Id of the lowStock to be returned. 
 
      - returns: RequestBuilder<LowStock> 
      */
     public class func getLowStockByIdWithRequestBuilder(lowStockId lowStockId: Int) -> RequestBuilder<LowStock> {
-        var path = "/v1.0/lowStock/{lowStockId}"
+        var path = "/beta/lowStock/{lowStockId}"
         path = path.stringByReplacingOccurrencesOfString("{lowStockId}", withString: "\(lowStockId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         

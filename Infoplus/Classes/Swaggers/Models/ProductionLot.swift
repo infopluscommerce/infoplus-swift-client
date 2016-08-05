@@ -14,6 +14,7 @@ public class ProductionLot: JSONEncodable {
     public var lobId: Int?
     public var productionLot: String?
     public var quantity: Int?
+    public var customFields: [String:AnyObject]?
     public var sku: String?
     
 
@@ -26,6 +27,7 @@ public class ProductionLot: JSONEncodable {
         nillableDictionary["lobId"] = self.lobId
         nillableDictionary["productionLot"] = self.productionLot
         nillableDictionary["quantity"] = self.quantity
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         nillableDictionary["sku"] = self.sku
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

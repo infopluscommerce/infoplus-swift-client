@@ -20,6 +20,7 @@ public class Alert: JSONEncodable {
     public var modifyDate: NSDate?
     public var expirationDate: NSDate?
     public var acknowledgeDate: NSDate?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -37,6 +38,7 @@ public class Alert: JSONEncodable {
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["expirationDate"] = self.expirationDate?.encodeToJSON()
         nillableDictionary["acknowledgeDate"] = self.acknowledgeDate?.encodeToJSON()
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

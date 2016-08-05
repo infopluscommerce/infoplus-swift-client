@@ -31,20 +31,24 @@ public class ReplenishmentProcessAPI: APIBase {
      
      Search replenishmentProcesses by filter
      
-     - GET /v1.0/replenishmentProcess/search
+     - GET /beta/replenishmentProcess/search
      - Returns the list of replenishmentProcesses that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "id" : 123,
-  "estimatedWork" : 123,
-  "replenishmentPlanId" : 123,
-  "status" : "aeiou",
-  "warehouseId" : 123,
+     - examples: [{contentType=application/json, example=[ {
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-} ], contentType=application/json}]
+  "workBatchId" : 123,
+  "warehouseId" : 123,
+  "estimatedWork" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "id" : 123,
+  "replenishmentPlanId" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "status" : "aeiou"
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -54,7 +58,7 @@ public class ReplenishmentProcessAPI: APIBase {
      - returns: RequestBuilder<[ReplenishmentProcess]> 
      */
     public class func getReplenishmentProcessByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ReplenishmentProcess]> {
-        let path = "/v1.0/replenishmentProcess/search"
+        let path = "/beta/replenishmentProcess/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -88,27 +92,31 @@ public class ReplenishmentProcessAPI: APIBase {
      
      Get a replenishmentProcess by id
      
-     - GET /v1.0/replenishmentProcess/{replenishmentProcessId}
+     - GET /beta/replenishmentProcess/{replenishmentProcessId}
      - Returns the replenishmentProcess identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "id" : 123,
-  "estimatedWork" : 123,
-  "replenishmentPlanId" : 123,
-  "status" : "aeiou",
-  "warehouseId" : 123,
+     - examples: [{contentType=application/json, example={
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}, contentType=application/json}]
+  "workBatchId" : 123,
+  "warehouseId" : 123,
+  "estimatedWork" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "id" : 123,
+  "replenishmentPlanId" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "status" : "aeiou"
+}}]
      
      - parameter replenishmentProcessId: (path) Id of the replenishmentProcess to be returned. 
 
      - returns: RequestBuilder<ReplenishmentProcess> 
      */
     public class func getReplenishmentProcessByIdWithRequestBuilder(replenishmentProcessId replenishmentProcessId: Int) -> RequestBuilder<ReplenishmentProcess> {
-        var path = "/v1.0/replenishmentProcess/{replenishmentProcessId}"
+        var path = "/beta/replenishmentProcess/{replenishmentProcessId}"
         path = path.stringByReplacingOccurrencesOfString("{replenishmentProcessId}", withString: "\(replenishmentProcessId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -118,6 +126,45 @@ public class ReplenishmentProcessAPI: APIBase {
         let requestBuilder: RequestBuilder<ReplenishmentProcess>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a replenishmentProcess custom fields
+     
+     - parameter body: (body) ReplenishmentProcess to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateReplenishmentProcessCustomFields(body body: ReplenishmentProcess, completion: ((error: ErrorType?) -> Void)) {
+        updateReplenishmentProcessCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a replenishmentProcess custom fields
+     
+     - PUT /beta/replenishmentProcess/customFields
+     - Updates an existing replenishmentProcess custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) ReplenishmentProcess to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateReplenishmentProcessCustomFieldsWithRequestBuilder(body body: ReplenishmentProcess) -> RequestBuilder<Void> {
+        let path = "/beta/replenishmentProcess/customFields"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }

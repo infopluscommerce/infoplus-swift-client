@@ -28,137 +28,144 @@ public class OrderAPI: APIBase {
      
      Create an order
      
-     - POST /v1.0/order
+     - POST /beta/order
      - Inserts a new order using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "total" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderSourceId" : 123,
-  "authorizedBy" : "aeiou",
-  "firstShipDate" : "2000-01-23T04:56:07.000+0000",
-  "priceLevel" : "aeiou",
-  "omsOrderNo" : 123,
-  "alternateUsage" : "aeiou",
-  "shipToCompany" : "aeiou",
-  "orderConfirmationEmailTemplateId" : 123,
-  "billToStreet" : "aeiou",
-  "billToCountry" : "aeiou",
-  "shipDate" : "2000-01-23T04:56:07.000+0000",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "customerPONo" : "aeiou",
-  "carrierId" : 123,
-  "shipBy" : "2000-01-23T04:56:07.000+0000",
-  "shipToCountry" : "aeiou",
-  "estimatedWeightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToStreet3" : "aeiou",
-  "customerOrderNo" : "aeiou",
-  "shipToStreet2" : "aeiou",
-  "balanceDue" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToState" : "aeiou",
-  "orderLoadProgramId" : 123,
-  "status" : "aeiou",
-  "shipToCity" : "aeiou",
-  "orderMessage" : "aeiou",
-  "orderDate" : "2000-01-23T04:56:07.000+0000",
-  "numberOfCartons" : 123,
-  "warehouseId" : 123,
-  "subtotal" : 1.3579000000000001069366817318950779736042022705078125,
-  "alcoholOrderType" : "aeiou",
-  "shippingCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "completionStatus" : "aeiou",
-  "billToEmail" : "aeiou",
-  "tax" : 1.3579000000000001069366817318950779736042022705078125,
-  "enteredBy" : "aeiou",
-  "legacyRestrictionType" : "aeiou",
-  "integrationPartnerId" : 123,
-  "totalPaid" : 1.3579000000000001069366817318950779736042022705078125,
-  "billToCity" : "aeiou",
-  "stopBackOrders" : "aeiou",
-  "shipToEmail" : "aeiou",
-  "billToStreet3" : "aeiou",
-  "shipmentConfirmationEmailTemplateId" : 123,
-  "billToStreet2" : "aeiou",
-  "authorizationAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "serviceTypeId" : "aeiou",
-  "distributionCharges" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToPhone" : "aeiou",
-  "customerNo" : "aeiou",
-  "mediaCode" : "aeiou",
+     - examples: [{contentType=application/json, example={
   "totalQty" : 123,
-  "needByDate" : "2000-01-23T04:56:07.000+0000",
-  "numberOfLineItems" : 123,
+  "orderConfirmationEmailTemplateId" : 123,
+  "billToState" : "aeiou",
+  "fulfillmentProcessId" : 123,
+  "integrationPartnerId" : 123,
+  "omsCustomerId" : 123,
+  "priceLevel" : "aeiou",
+  "shipToStreet" : "aeiou",
+  "billToCity" : "aeiou",
   "division" : 123,
-  "batchNo" : "aeiou",
-  "deliverOnDate" : "2000-01-23T04:56:07.000+0000",
-  "numberOfPallets" : 123,
-  "lobId" : 123,
-  "shipCode" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "holdCode" : "aeiou",
   "lineItems" : [ {
-    "ncExtendedSell" : 1.3579000000000001069366817318950779736042022705078125,
-    "sector" : "aeiou",
-    "orderedQty" : 123,
-    "revDate" : "aeiou",
-    "id" : 123,
-    "itemLegacyLowStockContactId" : 123,
-    "vendorSKU" : "aeiou",
-    "itemMajorGroupId" : 123,
-    "unitCost" : 1.3579000000000001069366817318950779736042022705078125,
-    "lobId" : 123,
-    "extendedCost" : 1.3579000000000001069366817318950779736042022705078125,
-    "extendedSell" : 1.3579000000000001069366817318950779736042022705078125,
-    "allowedQty" : 123,
-    "poNoId" : 123,
-    "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-    "sku" : "aeiou",
-    "distributionCode" : "aeiou",
-    "upc" : "aeiou",
-    "itemWeight" : 1.3579000000000001069366817318950779736042022705078125,
-    "itemSummaryCodeId" : 123,
-    "shippedQty" : 123,
-    "unitSell" : 1.3579000000000001069366817318950779736042022705078125,
     "itemSubGroupId" : 123,
-    "itemProductCodeId" : 123,
-    "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+    "distributionCode" : "aeiou",
+    "itemMajorGroupId" : 123,
+    "ncExtendedSell" : 1.3579000000000001069366817318950779736042022705078125,
+    "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "itemLegacyLowStockContactId" : 123,
+    "revDate" : "aeiou",
     "backorderQty" : 123,
-    "itemAccountCodeId" : 123,
     "orderSourceSKU" : "aeiou",
+    "extendedCost" : 1.3579000000000001069366817318950779736042022705078125,
+    "id" : 123,
+    "sku" : "aeiou",
+    "sector" : "aeiou",
+    "itemAccountCodeId" : 123,
+    "itemProductCodeId" : 123,
+    "itemWeight" : 1.3579000000000001069366817318950779736042022705078125,
+    "lobId" : 123,
+    "shippedQty" : 123,
+    "itemSummaryCodeId" : 123,
+    "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+    "extendedSell" : 1.3579000000000001069366817318950779736042022705078125,
+    "upc" : "aeiou",
+    "productionLot" : "aeiou",
+    "orderedQty" : 123,
+    "vendorSKU" : "aeiou",
+    "unitCost" : 1.3579000000000001069366817318950779736042022705078125,
+    "poNoId" : 123,
+    "unitSell" : 1.3579000000000001069366817318950779736042022705078125,
+    "allowedQty" : 123,
     "chargeCode" : "aeiou"
   } ],
-  "billToState" : "aeiou",
-  "priorityCode" : 123,
-  "orderReason" : 123,
-  "giftMessage" : "aeiou",
-  "shipToStreet" : "aeiou",
-  "shipToAttention" : "aeiou",
-  "packingSlipTemplateId" : 123,
-  "billToCompany" : "aeiou",
+  "shipToCity" : "aeiou",
   "billToZip" : "aeiou",
+  "orderReason" : 123,
+  "shipToEmail" : "aeiou",
+  "shipBy" : "2000-01-23T04:56:07.000+0000",
+  "shippingCharge" : 1.3579000000000001069366817318950779736042022705078125,
+  "billToStreet" : "aeiou",
   "distributionChannel" : "aeiou",
-  "fulfillmentProcessId" : 123,
-  "shipVia" : "aeiou",
-  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
-  "costCenter" : "aeiou",
+  "shipToState" : "aeiou",
+  "lobId" : 123,
+  "orderSourceId" : 123,
+  "batchNo" : "aeiou",
+  "shipToStreet2" : "aeiou",
   "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "lastShipDate" : "2000-01-23T04:56:07.000+0000",
-  "shipToZip" : "aeiou",
-  "freight" : 1.3579000000000001069366817318950779736042022705078125,
-  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "omsOrderId" : 123,
+  "shipToStreet3" : "aeiou",
+  "billToEmail" : "aeiou",
+  "giftMessage" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "totalPaid" : 1.3579000000000001069366817318950779736042022705078125,
+  "costCenter" : "aeiou",
+  "tax" : 1.3579000000000001069366817318950779736042022705078125,
+  "shipDate" : "2000-01-23T04:56:07.000+0000",
+  "orderMessage" : "aeiou",
+  "firstShipDate" : "2000-01-23T04:56:07.000+0000",
+  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
+  "warehouseId" : 123,
   "billToAttention" : "aeiou",
+  "subtotal" : 1.3579000000000001069366817318950779736042022705078125,
+  "billToCountry" : "aeiou",
+  "billToPhone" : "aeiou",
+  "orderDate" : "2000-01-23T04:56:07.000+0000",
+  "status" : "aeiou",
+  "alternateUsage" : "aeiou",
+  "numberOfLineItems" : 123,
+  "authorizationAmount" : 1.3579000000000001069366817318950779736042022705078125,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "freight" : 1.3579000000000001069366817318950779736042022705078125,
+  "billToCompany" : "aeiou",
+  "shipmentConfirmationEmailTemplateId" : 123,
+  "stopBackOrders" : "aeiou",
   "parcelAccountId" : 123,
-  "billToPhone" : "aeiou"
-}, contentType=application/json}]
+  "shipToCompany" : "aeiou",
+  "numberOfCartons" : 123,
+  "enteredBy" : "aeiou",
+  "shipVia" : "aeiou",
+  "shipToZip" : "aeiou",
+  "total" : 1.3579000000000001069366817318950779736042022705078125,
+  "serviceTypeId" : "aeiou",
+  "customerPONo" : "aeiou",
+  "lastShipDate" : "2000-01-23T04:56:07.000+0000",
+  "shipToAttention" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "distributionCharges" : 1.3579000000000001069366817318950779736042022705078125,
+  "numberOfPallets" : 123,
+  "legacyRestrictionType" : "aeiou",
+  "estimatedWeightLbs" : 1.3579000000000001069366817318950779736042022705078125,
+  "shipToPhone" : "aeiou",
+  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
+  "shipToCountry" : "aeiou",
+  "balanceDue" : 1.3579000000000001069366817318950779736042022705078125,
+  "needByDate" : "2000-01-23T04:56:07.000+0000",
+  "orderLoadProgramId" : 123,
+  "alcoholOrderType" : "aeiou",
+  "billToStreet2" : "aeiou",
+  "billToStreet3" : "aeiou",
+  "shipCode" : "aeiou",
+  "omsOrderNo" : 123,
+  "authorizedBy" : "aeiou",
+  "holdCode" : "aeiou",
+  "deliverOnDate" : "2000-01-23T04:56:07.000+0000",
+  "priorityCode" : 123,
+  "completionStatus" : "aeiou",
+  "carrierId" : 123,
+  "customerOrderNo" : "aeiou",
+  "mediaCode" : "aeiou",
+  "customerNo" : "aeiou",
+  "packingSlipTemplateId" : 123
+}}]
      
      - parameter body: (body) Order to be inserted. 
 
      - returns: RequestBuilder<Order> 
      */
     public class func addOrderWithRequestBuilder(body body: Order) -> RequestBuilder<Order> {
-        let path = "/v1.0/order"
+        let path = "/beta/order"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -186,7 +193,7 @@ public class OrderAPI: APIBase {
      
      Delete an order
      
-     - DELETE /v1.0/order/{orderId}
+     - DELETE /beta/order/{orderId}
      - Deletes the order identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -197,7 +204,7 @@ public class OrderAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteOrderWithRequestBuilder(orderId orderId: Double) -> RequestBuilder<Void> {
-        var path = "/v1.0/order/{orderId}"
+        var path = "/beta/order/{orderId}"
         path = path.stringByReplacingOccurrencesOfString("{orderId}", withString: "\(orderId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -230,130 +237,137 @@ public class OrderAPI: APIBase {
      
      Search orders by filter
      
-     - GET /v1.0/order/search
+     - GET /beta/order/search
      - Returns the list of orders that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "total" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderSourceId" : 123,
-  "authorizedBy" : "aeiou",
-  "firstShipDate" : "2000-01-23T04:56:07.000+0000",
-  "priceLevel" : "aeiou",
-  "omsOrderNo" : 123,
-  "alternateUsage" : "aeiou",
-  "shipToCompany" : "aeiou",
-  "orderConfirmationEmailTemplateId" : 123,
-  "billToStreet" : "aeiou",
-  "billToCountry" : "aeiou",
-  "shipDate" : "2000-01-23T04:56:07.000+0000",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "customerPONo" : "aeiou",
-  "carrierId" : 123,
-  "shipBy" : "2000-01-23T04:56:07.000+0000",
-  "shipToCountry" : "aeiou",
-  "estimatedWeightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToStreet3" : "aeiou",
-  "customerOrderNo" : "aeiou",
-  "shipToStreet2" : "aeiou",
-  "balanceDue" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToState" : "aeiou",
-  "orderLoadProgramId" : 123,
-  "status" : "aeiou",
-  "shipToCity" : "aeiou",
-  "orderMessage" : "aeiou",
-  "orderDate" : "2000-01-23T04:56:07.000+0000",
-  "numberOfCartons" : 123,
-  "warehouseId" : 123,
-  "subtotal" : 1.3579000000000001069366817318950779736042022705078125,
-  "alcoholOrderType" : "aeiou",
-  "shippingCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "completionStatus" : "aeiou",
-  "billToEmail" : "aeiou",
-  "tax" : 1.3579000000000001069366817318950779736042022705078125,
-  "enteredBy" : "aeiou",
-  "legacyRestrictionType" : "aeiou",
-  "integrationPartnerId" : 123,
-  "totalPaid" : 1.3579000000000001069366817318950779736042022705078125,
-  "billToCity" : "aeiou",
-  "stopBackOrders" : "aeiou",
-  "shipToEmail" : "aeiou",
-  "billToStreet3" : "aeiou",
-  "shipmentConfirmationEmailTemplateId" : 123,
-  "billToStreet2" : "aeiou",
-  "authorizationAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "serviceTypeId" : "aeiou",
-  "distributionCharges" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToPhone" : "aeiou",
-  "customerNo" : "aeiou",
-  "mediaCode" : "aeiou",
+     - examples: [{contentType=application/json, example=[ {
   "totalQty" : 123,
-  "needByDate" : "2000-01-23T04:56:07.000+0000",
-  "numberOfLineItems" : 123,
+  "orderConfirmationEmailTemplateId" : 123,
+  "billToState" : "aeiou",
+  "fulfillmentProcessId" : 123,
+  "integrationPartnerId" : 123,
+  "omsCustomerId" : 123,
+  "priceLevel" : "aeiou",
+  "shipToStreet" : "aeiou",
+  "billToCity" : "aeiou",
   "division" : 123,
-  "batchNo" : "aeiou",
-  "deliverOnDate" : "2000-01-23T04:56:07.000+0000",
-  "numberOfPallets" : 123,
-  "lobId" : 123,
-  "shipCode" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "holdCode" : "aeiou",
   "lineItems" : [ {
-    "ncExtendedSell" : 1.3579000000000001069366817318950779736042022705078125,
-    "sector" : "aeiou",
-    "orderedQty" : 123,
-    "revDate" : "aeiou",
-    "id" : 123,
-    "itemLegacyLowStockContactId" : 123,
-    "vendorSKU" : "aeiou",
-    "itemMajorGroupId" : 123,
-    "unitCost" : 1.3579000000000001069366817318950779736042022705078125,
-    "lobId" : 123,
-    "extendedCost" : 1.3579000000000001069366817318950779736042022705078125,
-    "extendedSell" : 1.3579000000000001069366817318950779736042022705078125,
-    "allowedQty" : 123,
-    "poNoId" : 123,
-    "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-    "sku" : "aeiou",
-    "distributionCode" : "aeiou",
-    "upc" : "aeiou",
-    "itemWeight" : 1.3579000000000001069366817318950779736042022705078125,
-    "itemSummaryCodeId" : 123,
-    "shippedQty" : 123,
-    "unitSell" : 1.3579000000000001069366817318950779736042022705078125,
     "itemSubGroupId" : 123,
-    "itemProductCodeId" : 123,
-    "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+    "distributionCode" : "aeiou",
+    "itemMajorGroupId" : 123,
+    "ncExtendedSell" : 1.3579000000000001069366817318950779736042022705078125,
+    "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "itemLegacyLowStockContactId" : 123,
+    "revDate" : "aeiou",
     "backorderQty" : 123,
-    "itemAccountCodeId" : 123,
     "orderSourceSKU" : "aeiou",
+    "extendedCost" : 1.3579000000000001069366817318950779736042022705078125,
+    "id" : 123,
+    "sku" : "aeiou",
+    "sector" : "aeiou",
+    "itemAccountCodeId" : 123,
+    "itemProductCodeId" : 123,
+    "itemWeight" : 1.3579000000000001069366817318950779736042022705078125,
+    "lobId" : 123,
+    "shippedQty" : 123,
+    "itemSummaryCodeId" : 123,
+    "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+    "extendedSell" : 1.3579000000000001069366817318950779736042022705078125,
+    "upc" : "aeiou",
+    "productionLot" : "aeiou",
+    "orderedQty" : 123,
+    "vendorSKU" : "aeiou",
+    "unitCost" : 1.3579000000000001069366817318950779736042022705078125,
+    "poNoId" : 123,
+    "unitSell" : 1.3579000000000001069366817318950779736042022705078125,
+    "allowedQty" : 123,
     "chargeCode" : "aeiou"
   } ],
-  "billToState" : "aeiou",
-  "priorityCode" : 123,
-  "orderReason" : 123,
-  "giftMessage" : "aeiou",
-  "shipToStreet" : "aeiou",
-  "shipToAttention" : "aeiou",
-  "packingSlipTemplateId" : 123,
-  "billToCompany" : "aeiou",
+  "shipToCity" : "aeiou",
   "billToZip" : "aeiou",
+  "orderReason" : 123,
+  "shipToEmail" : "aeiou",
+  "shipBy" : "2000-01-23T04:56:07.000+0000",
+  "shippingCharge" : 1.3579000000000001069366817318950779736042022705078125,
+  "billToStreet" : "aeiou",
   "distributionChannel" : "aeiou",
-  "fulfillmentProcessId" : 123,
-  "shipVia" : "aeiou",
-  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
-  "costCenter" : "aeiou",
+  "shipToState" : "aeiou",
+  "lobId" : 123,
+  "orderSourceId" : 123,
+  "batchNo" : "aeiou",
+  "shipToStreet2" : "aeiou",
   "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "lastShipDate" : "2000-01-23T04:56:07.000+0000",
-  "shipToZip" : "aeiou",
-  "freight" : 1.3579000000000001069366817318950779736042022705078125,
-  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "omsOrderId" : 123,
+  "shipToStreet3" : "aeiou",
+  "billToEmail" : "aeiou",
+  "giftMessage" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "totalPaid" : 1.3579000000000001069366817318950779736042022705078125,
+  "costCenter" : "aeiou",
+  "tax" : 1.3579000000000001069366817318950779736042022705078125,
+  "shipDate" : "2000-01-23T04:56:07.000+0000",
+  "orderMessage" : "aeiou",
+  "firstShipDate" : "2000-01-23T04:56:07.000+0000",
+  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
+  "warehouseId" : 123,
   "billToAttention" : "aeiou",
+  "subtotal" : 1.3579000000000001069366817318950779736042022705078125,
+  "billToCountry" : "aeiou",
+  "billToPhone" : "aeiou",
+  "orderDate" : "2000-01-23T04:56:07.000+0000",
+  "status" : "aeiou",
+  "alternateUsage" : "aeiou",
+  "numberOfLineItems" : 123,
+  "authorizationAmount" : 1.3579000000000001069366817318950779736042022705078125,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "freight" : 1.3579000000000001069366817318950779736042022705078125,
+  "billToCompany" : "aeiou",
+  "shipmentConfirmationEmailTemplateId" : 123,
+  "stopBackOrders" : "aeiou",
   "parcelAccountId" : 123,
-  "billToPhone" : "aeiou"
-} ], contentType=application/json}]
+  "shipToCompany" : "aeiou",
+  "numberOfCartons" : 123,
+  "enteredBy" : "aeiou",
+  "shipVia" : "aeiou",
+  "shipToZip" : "aeiou",
+  "total" : 1.3579000000000001069366817318950779736042022705078125,
+  "serviceTypeId" : "aeiou",
+  "customerPONo" : "aeiou",
+  "lastShipDate" : "2000-01-23T04:56:07.000+0000",
+  "shipToAttention" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "distributionCharges" : 1.3579000000000001069366817318950779736042022705078125,
+  "numberOfPallets" : 123,
+  "legacyRestrictionType" : "aeiou",
+  "estimatedWeightLbs" : 1.3579000000000001069366817318950779736042022705078125,
+  "shipToPhone" : "aeiou",
+  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
+  "shipToCountry" : "aeiou",
+  "balanceDue" : 1.3579000000000001069366817318950779736042022705078125,
+  "needByDate" : "2000-01-23T04:56:07.000+0000",
+  "orderLoadProgramId" : 123,
+  "alcoholOrderType" : "aeiou",
+  "billToStreet2" : "aeiou",
+  "billToStreet3" : "aeiou",
+  "shipCode" : "aeiou",
+  "omsOrderNo" : 123,
+  "authorizedBy" : "aeiou",
+  "holdCode" : "aeiou",
+  "deliverOnDate" : "2000-01-23T04:56:07.000+0000",
+  "priorityCode" : 123,
+  "completionStatus" : "aeiou",
+  "carrierId" : 123,
+  "customerOrderNo" : "aeiou",
+  "mediaCode" : "aeiou",
+  "customerNo" : "aeiou",
+  "packingSlipTemplateId" : 123
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -363,7 +377,7 @@ public class OrderAPI: APIBase {
      - returns: RequestBuilder<[Order]> 
      */
     public class func getOrderByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Order]> {
-        let path = "/v1.0/order/search"
+        let path = "/beta/order/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -397,137 +411,144 @@ public class OrderAPI: APIBase {
      
      Get an order by id
      
-     - GET /v1.0/order/{orderId}
+     - GET /beta/order/{orderId}
      - Returns the order identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "total" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderSourceId" : 123,
-  "authorizedBy" : "aeiou",
-  "firstShipDate" : "2000-01-23T04:56:07.000+0000",
-  "priceLevel" : "aeiou",
-  "omsOrderNo" : 123,
-  "alternateUsage" : "aeiou",
-  "shipToCompany" : "aeiou",
-  "orderConfirmationEmailTemplateId" : 123,
-  "billToStreet" : "aeiou",
-  "billToCountry" : "aeiou",
-  "shipDate" : "2000-01-23T04:56:07.000+0000",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "customerPONo" : "aeiou",
-  "carrierId" : 123,
-  "shipBy" : "2000-01-23T04:56:07.000+0000",
-  "shipToCountry" : "aeiou",
-  "estimatedWeightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToStreet3" : "aeiou",
-  "customerOrderNo" : "aeiou",
-  "shipToStreet2" : "aeiou",
-  "balanceDue" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToState" : "aeiou",
-  "orderLoadProgramId" : 123,
-  "status" : "aeiou",
-  "shipToCity" : "aeiou",
-  "orderMessage" : "aeiou",
-  "orderDate" : "2000-01-23T04:56:07.000+0000",
-  "numberOfCartons" : 123,
-  "warehouseId" : 123,
-  "subtotal" : 1.3579000000000001069366817318950779736042022705078125,
-  "alcoholOrderType" : "aeiou",
-  "shippingCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "completionStatus" : "aeiou",
-  "billToEmail" : "aeiou",
-  "tax" : 1.3579000000000001069366817318950779736042022705078125,
-  "enteredBy" : "aeiou",
-  "legacyRestrictionType" : "aeiou",
-  "integrationPartnerId" : 123,
-  "totalPaid" : 1.3579000000000001069366817318950779736042022705078125,
-  "billToCity" : "aeiou",
-  "stopBackOrders" : "aeiou",
-  "shipToEmail" : "aeiou",
-  "billToStreet3" : "aeiou",
-  "shipmentConfirmationEmailTemplateId" : 123,
-  "billToStreet2" : "aeiou",
-  "authorizationAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "serviceTypeId" : "aeiou",
-  "distributionCharges" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToPhone" : "aeiou",
-  "customerNo" : "aeiou",
-  "mediaCode" : "aeiou",
+     - examples: [{contentType=application/json, example={
   "totalQty" : 123,
-  "needByDate" : "2000-01-23T04:56:07.000+0000",
-  "numberOfLineItems" : 123,
+  "orderConfirmationEmailTemplateId" : 123,
+  "billToState" : "aeiou",
+  "fulfillmentProcessId" : 123,
+  "integrationPartnerId" : 123,
+  "omsCustomerId" : 123,
+  "priceLevel" : "aeiou",
+  "shipToStreet" : "aeiou",
+  "billToCity" : "aeiou",
   "division" : 123,
-  "batchNo" : "aeiou",
-  "deliverOnDate" : "2000-01-23T04:56:07.000+0000",
-  "numberOfPallets" : 123,
-  "lobId" : 123,
-  "shipCode" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "holdCode" : "aeiou",
   "lineItems" : [ {
-    "ncExtendedSell" : 1.3579000000000001069366817318950779736042022705078125,
-    "sector" : "aeiou",
-    "orderedQty" : 123,
-    "revDate" : "aeiou",
-    "id" : 123,
-    "itemLegacyLowStockContactId" : 123,
-    "vendorSKU" : "aeiou",
-    "itemMajorGroupId" : 123,
-    "unitCost" : 1.3579000000000001069366817318950779736042022705078125,
-    "lobId" : 123,
-    "extendedCost" : 1.3579000000000001069366817318950779736042022705078125,
-    "extendedSell" : 1.3579000000000001069366817318950779736042022705078125,
-    "allowedQty" : 123,
-    "poNoId" : 123,
-    "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-    "sku" : "aeiou",
-    "distributionCode" : "aeiou",
-    "upc" : "aeiou",
-    "itemWeight" : 1.3579000000000001069366817318950779736042022705078125,
-    "itemSummaryCodeId" : 123,
-    "shippedQty" : 123,
-    "unitSell" : 1.3579000000000001069366817318950779736042022705078125,
     "itemSubGroupId" : 123,
-    "itemProductCodeId" : 123,
-    "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+    "distributionCode" : "aeiou",
+    "itemMajorGroupId" : 123,
+    "ncExtendedSell" : 1.3579000000000001069366817318950779736042022705078125,
+    "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "itemLegacyLowStockContactId" : 123,
+    "revDate" : "aeiou",
     "backorderQty" : 123,
-    "itemAccountCodeId" : 123,
     "orderSourceSKU" : "aeiou",
+    "extendedCost" : 1.3579000000000001069366817318950779736042022705078125,
+    "id" : 123,
+    "sku" : "aeiou",
+    "sector" : "aeiou",
+    "itemAccountCodeId" : 123,
+    "itemProductCodeId" : 123,
+    "itemWeight" : 1.3579000000000001069366817318950779736042022705078125,
+    "lobId" : 123,
+    "shippedQty" : 123,
+    "itemSummaryCodeId" : 123,
+    "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+    "extendedSell" : 1.3579000000000001069366817318950779736042022705078125,
+    "upc" : "aeiou",
+    "productionLot" : "aeiou",
+    "orderedQty" : 123,
+    "vendorSKU" : "aeiou",
+    "unitCost" : 1.3579000000000001069366817318950779736042022705078125,
+    "poNoId" : 123,
+    "unitSell" : 1.3579000000000001069366817318950779736042022705078125,
+    "allowedQty" : 123,
     "chargeCode" : "aeiou"
   } ],
-  "billToState" : "aeiou",
-  "priorityCode" : 123,
-  "orderReason" : 123,
-  "giftMessage" : "aeiou",
-  "shipToStreet" : "aeiou",
-  "shipToAttention" : "aeiou",
-  "packingSlipTemplateId" : 123,
-  "billToCompany" : "aeiou",
+  "shipToCity" : "aeiou",
   "billToZip" : "aeiou",
+  "orderReason" : 123,
+  "shipToEmail" : "aeiou",
+  "shipBy" : "2000-01-23T04:56:07.000+0000",
+  "shippingCharge" : 1.3579000000000001069366817318950779736042022705078125,
+  "billToStreet" : "aeiou",
   "distributionChannel" : "aeiou",
-  "fulfillmentProcessId" : 123,
-  "shipVia" : "aeiou",
-  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
-  "costCenter" : "aeiou",
+  "shipToState" : "aeiou",
+  "lobId" : 123,
+  "orderSourceId" : 123,
+  "batchNo" : "aeiou",
+  "shipToStreet2" : "aeiou",
   "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "lastShipDate" : "2000-01-23T04:56:07.000+0000",
-  "shipToZip" : "aeiou",
-  "freight" : 1.3579000000000001069366817318950779736042022705078125,
-  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "omsOrderId" : 123,
+  "shipToStreet3" : "aeiou",
+  "billToEmail" : "aeiou",
+  "giftMessage" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "totalPaid" : 1.3579000000000001069366817318950779736042022705078125,
+  "costCenter" : "aeiou",
+  "tax" : 1.3579000000000001069366817318950779736042022705078125,
+  "shipDate" : "2000-01-23T04:56:07.000+0000",
+  "orderMessage" : "aeiou",
+  "firstShipDate" : "2000-01-23T04:56:07.000+0000",
+  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
+  "warehouseId" : 123,
   "billToAttention" : "aeiou",
+  "subtotal" : 1.3579000000000001069366817318950779736042022705078125,
+  "billToCountry" : "aeiou",
+  "billToPhone" : "aeiou",
+  "orderDate" : "2000-01-23T04:56:07.000+0000",
+  "status" : "aeiou",
+  "alternateUsage" : "aeiou",
+  "numberOfLineItems" : 123,
+  "authorizationAmount" : 1.3579000000000001069366817318950779736042022705078125,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "freight" : 1.3579000000000001069366817318950779736042022705078125,
+  "billToCompany" : "aeiou",
+  "shipmentConfirmationEmailTemplateId" : 123,
+  "stopBackOrders" : "aeiou",
   "parcelAccountId" : 123,
-  "billToPhone" : "aeiou"
-}, contentType=application/json}]
+  "shipToCompany" : "aeiou",
+  "numberOfCartons" : 123,
+  "enteredBy" : "aeiou",
+  "shipVia" : "aeiou",
+  "shipToZip" : "aeiou",
+  "total" : 1.3579000000000001069366817318950779736042022705078125,
+  "serviceTypeId" : "aeiou",
+  "customerPONo" : "aeiou",
+  "lastShipDate" : "2000-01-23T04:56:07.000+0000",
+  "shipToAttention" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "distributionCharges" : 1.3579000000000001069366817318950779736042022705078125,
+  "numberOfPallets" : 123,
+  "legacyRestrictionType" : "aeiou",
+  "estimatedWeightLbs" : 1.3579000000000001069366817318950779736042022705078125,
+  "shipToPhone" : "aeiou",
+  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
+  "shipToCountry" : "aeiou",
+  "balanceDue" : 1.3579000000000001069366817318950779736042022705078125,
+  "needByDate" : "2000-01-23T04:56:07.000+0000",
+  "orderLoadProgramId" : 123,
+  "alcoholOrderType" : "aeiou",
+  "billToStreet2" : "aeiou",
+  "billToStreet3" : "aeiou",
+  "shipCode" : "aeiou",
+  "omsOrderNo" : 123,
+  "authorizedBy" : "aeiou",
+  "holdCode" : "aeiou",
+  "deliverOnDate" : "2000-01-23T04:56:07.000+0000",
+  "priorityCode" : 123,
+  "completionStatus" : "aeiou",
+  "carrierId" : 123,
+  "customerOrderNo" : "aeiou",
+  "mediaCode" : "aeiou",
+  "customerNo" : "aeiou",
+  "packingSlipTemplateId" : 123
+}}]
      
      - parameter orderId: (path) Id of the order to be returned. 
 
      - returns: RequestBuilder<Order> 
      */
     public class func getOrderByIdWithRequestBuilder(orderId orderId: Double) -> RequestBuilder<Order> {
-        var path = "/v1.0/order/{orderId}"
+        var path = "/beta/order/{orderId}"
         path = path.stringByReplacingOccurrencesOfString("{orderId}", withString: "\(orderId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -557,7 +578,7 @@ public class OrderAPI: APIBase {
      
      Update an order
      
-     - PUT /v1.0/order
+     - PUT /beta/order
      - Updates an existing order using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -568,7 +589,46 @@ public class OrderAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateOrderWithRequestBuilder(body body: Order) -> RequestBuilder<Void> {
-        let path = "/v1.0/order"
+        let path = "/beta/order"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update an order custom fields
+     
+     - parameter body: (body) Order to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateOrderCustomFields(body body: Order, completion: ((error: ErrorType?) -> Void)) {
+        updateOrderCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update an order custom fields
+     
+     - PUT /beta/order/customFields
+     - Updates an existing order custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) Order to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateOrderCustomFieldsWithRequestBuilder(body body: Order) -> RequestBuilder<Void> {
+        let path = "/beta/order/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

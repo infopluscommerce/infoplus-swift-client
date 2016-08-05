@@ -28,68 +28,71 @@ public class CustomerAPI: APIBase {
      
      Create a customer
      
-     - POST /v1.0/customer
+     - POST /beta/customer
      - Inserts a new customer using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "omsCustomerId" : 123,
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "sector" : "aeiou",
-  "weightBreak" : 123,
-  "phone" : "aeiou",
-  "manager" : "aeiou",
-  "priceLevel" : "aeiou",
-  "residential" : "aeiou",
-  "street" : "aeiou",
-  "state" : "aeiou",
-  "customerNo" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "externalId" : "aeiou",
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "city" : "aeiou",
-  "id" : 123,
-  "division" : 123,
-  "area" : "aeiou",
-  "extrinsicNumber2" : 123,
-  "street3Province" : "aeiou",
-  "massLevel" : "aeiou",
-  "extrinsicNumber1" : 123,
+     - examples: [{contentType=application/json, example={
   "zipCode" : "aeiou",
-  "name" : "aeiou",
-  "lobId" : 123,
-  "openDate" : "2000-01-23T04:56:07.000+0000",
-  "attention" : "aeiou",
-  "street2" : "aeiou",
-  "cycleDate" : "2000-01-23T04:56:07.000+0000",
+  "country" : "aeiou",
+  "packageCarrierId" : 123,
+  "county" : "aeiou",
+  "priceLevel" : "aeiou",
+  "omsCustomerId" : 123,
+  "massLevel" : "aeiou",
+  "division" : 123,
   "customerType" : "aeiou",
+  "alternateInventory" : 123,
+  "pin" : "aeiou",
+  "id" : 123,
+  "state" : "aeiou",
   "fax" : "aeiou",
+  "sector" : "aeiou",
+  "bossBranch" : "aeiou",
+  "lobId" : 123,
+  "area" : "aeiou",
+  "faxGone" : "aeiou",
+  "weightBreak" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "costCenter" : "aeiou",
+  "extrinsicNumber2" : 123,
+  "extrinsicNumber1" : 123,
+  "extrinsicText1" : "aeiou",
   "extrinsicText3" : "aeiou",
   "extrinsicText2" : "aeiou",
-  "closeDate" : "2000-01-23T04:56:07.000+0000",
-  "packageCarrierId" : 123,
-  "extrinsicText1" : "aeiou",
-  "csrBranch" : "aeiou",
-  "faxGone" : "aeiou",
-  "truckCarrierId" : 123,
-  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
-  "costCenter" : "aeiou",
-  "country" : "aeiou",
-  "pin" : "aeiou",
-  "alternateInventory" : 123,
-  "email" : "aeiou",
-  "county" : "aeiou",
+  "phone" : "aeiou",
+  "name" : "aeiou",
+  "street3Province" : "aeiou",
+  "city" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
   "restrictionPercent" : 123,
-  "bossBranch" : "aeiou"
-}, contentType=application/json}]
+  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
+  "street" : "aeiou",
+  "street2" : "aeiou",
+  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
+  "cycleDate" : "2000-01-23T04:56:07.000+0000",
+  "email" : "aeiou",
+  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
+  "manager" : "aeiou",
+  "externalId" : "aeiou",
+  "closeDate" : "2000-01-23T04:56:07.000+0000",
+  "residential" : "aeiou",
+  "attention" : "aeiou",
+  "truckCarrierId" : 123,
+  "openDate" : "2000-01-23T04:56:07.000+0000",
+  "csrBranch" : "aeiou",
+  "customerNo" : "aeiou"
+}}]
      
      - parameter body: (body) Customer to be inserted. 
 
      - returns: RequestBuilder<Customer> 
      */
     public class func addCustomerWithRequestBuilder(body body: Customer) -> RequestBuilder<Customer> {
-        let path = "/v1.0/customer"
+        let path = "/beta/customer"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -117,7 +120,7 @@ public class CustomerAPI: APIBase {
      
      Delete a customer
      
-     - DELETE /v1.0/customer/{customerId}
+     - DELETE /beta/customer/{customerId}
      - Deletes the customer identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -128,7 +131,7 @@ public class CustomerAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteCustomerWithRequestBuilder(customerId customerId: Int) -> RequestBuilder<Void> {
-        var path = "/v1.0/customer/{customerId}"
+        var path = "/beta/customer/{customerId}"
         path = path.stringByReplacingOccurrencesOfString("{customerId}", withString: "\(customerId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -159,61 +162,64 @@ public class CustomerAPI: APIBase {
      
      Get a customer by Customer No
      
-     - GET /v1.0/customer/getByCustomerNo
+     - GET /beta/customer/getByCustomerNo
      - Returns the customer identified by the specified parameters.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "omsCustomerId" : 123,
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "sector" : "aeiou",
-  "weightBreak" : 123,
-  "phone" : "aeiou",
-  "manager" : "aeiou",
-  "priceLevel" : "aeiou",
-  "residential" : "aeiou",
-  "street" : "aeiou",
-  "state" : "aeiou",
-  "customerNo" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "externalId" : "aeiou",
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "city" : "aeiou",
-  "id" : 123,
-  "division" : 123,
-  "area" : "aeiou",
-  "extrinsicNumber2" : 123,
-  "street3Province" : "aeiou",
-  "massLevel" : "aeiou",
-  "extrinsicNumber1" : 123,
+     - examples: [{contentType=application/json, example={
   "zipCode" : "aeiou",
-  "name" : "aeiou",
-  "lobId" : 123,
-  "openDate" : "2000-01-23T04:56:07.000+0000",
-  "attention" : "aeiou",
-  "street2" : "aeiou",
-  "cycleDate" : "2000-01-23T04:56:07.000+0000",
+  "country" : "aeiou",
+  "packageCarrierId" : 123,
+  "county" : "aeiou",
+  "priceLevel" : "aeiou",
+  "omsCustomerId" : 123,
+  "massLevel" : "aeiou",
+  "division" : 123,
   "customerType" : "aeiou",
+  "alternateInventory" : 123,
+  "pin" : "aeiou",
+  "id" : 123,
+  "state" : "aeiou",
   "fax" : "aeiou",
+  "sector" : "aeiou",
+  "bossBranch" : "aeiou",
+  "lobId" : 123,
+  "area" : "aeiou",
+  "faxGone" : "aeiou",
+  "weightBreak" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "costCenter" : "aeiou",
+  "extrinsicNumber2" : 123,
+  "extrinsicNumber1" : 123,
+  "extrinsicText1" : "aeiou",
   "extrinsicText3" : "aeiou",
   "extrinsicText2" : "aeiou",
-  "closeDate" : "2000-01-23T04:56:07.000+0000",
-  "packageCarrierId" : 123,
-  "extrinsicText1" : "aeiou",
-  "csrBranch" : "aeiou",
-  "faxGone" : "aeiou",
-  "truckCarrierId" : 123,
-  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
-  "costCenter" : "aeiou",
-  "country" : "aeiou",
-  "pin" : "aeiou",
-  "alternateInventory" : 123,
-  "email" : "aeiou",
-  "county" : "aeiou",
+  "phone" : "aeiou",
+  "name" : "aeiou",
+  "street3Province" : "aeiou",
+  "city" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
   "restrictionPercent" : 123,
-  "bossBranch" : "aeiou"
-}, contentType=application/json}]
+  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
+  "street" : "aeiou",
+  "street2" : "aeiou",
+  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
+  "cycleDate" : "2000-01-23T04:56:07.000+0000",
+  "email" : "aeiou",
+  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
+  "manager" : "aeiou",
+  "externalId" : "aeiou",
+  "closeDate" : "2000-01-23T04:56:07.000+0000",
+  "residential" : "aeiou",
+  "attention" : "aeiou",
+  "truckCarrierId" : 123,
+  "openDate" : "2000-01-23T04:56:07.000+0000",
+  "csrBranch" : "aeiou",
+  "customerNo" : "aeiou"
+}}]
      
      - parameter lobId: (query) lobId of the customer to be returned. 
      - parameter customerNo: (query) customerNo of the customer to be returned. 
@@ -221,7 +227,7 @@ public class CustomerAPI: APIBase {
      - returns: RequestBuilder<Customer> 
      */
     public class func getByCustomerNoWithRequestBuilder(lobId lobId: Int, customerNo: String) -> RequestBuilder<Customer> {
-        let path = "/v1.0/customer/getByCustomerNo"
+        let path = "/beta/customer/getByCustomerNo"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -256,61 +262,64 @@ public class CustomerAPI: APIBase {
      
      Search customers by filter
      
-     - GET /v1.0/customer/search
+     - GET /beta/customer/search
      - Returns the list of customers that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "omsCustomerId" : 123,
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "sector" : "aeiou",
-  "weightBreak" : 123,
-  "phone" : "aeiou",
-  "manager" : "aeiou",
-  "priceLevel" : "aeiou",
-  "residential" : "aeiou",
-  "street" : "aeiou",
-  "state" : "aeiou",
-  "customerNo" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "externalId" : "aeiou",
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "city" : "aeiou",
-  "id" : 123,
-  "division" : 123,
-  "area" : "aeiou",
-  "extrinsicNumber2" : 123,
-  "street3Province" : "aeiou",
-  "massLevel" : "aeiou",
-  "extrinsicNumber1" : 123,
+     - examples: [{contentType=application/json, example=[ {
   "zipCode" : "aeiou",
-  "name" : "aeiou",
-  "lobId" : 123,
-  "openDate" : "2000-01-23T04:56:07.000+0000",
-  "attention" : "aeiou",
-  "street2" : "aeiou",
-  "cycleDate" : "2000-01-23T04:56:07.000+0000",
+  "country" : "aeiou",
+  "packageCarrierId" : 123,
+  "county" : "aeiou",
+  "priceLevel" : "aeiou",
+  "omsCustomerId" : 123,
+  "massLevel" : "aeiou",
+  "division" : 123,
   "customerType" : "aeiou",
+  "alternateInventory" : 123,
+  "pin" : "aeiou",
+  "id" : 123,
+  "state" : "aeiou",
   "fax" : "aeiou",
+  "sector" : "aeiou",
+  "bossBranch" : "aeiou",
+  "lobId" : 123,
+  "area" : "aeiou",
+  "faxGone" : "aeiou",
+  "weightBreak" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "costCenter" : "aeiou",
+  "extrinsicNumber2" : 123,
+  "extrinsicNumber1" : 123,
+  "extrinsicText1" : "aeiou",
   "extrinsicText3" : "aeiou",
   "extrinsicText2" : "aeiou",
-  "closeDate" : "2000-01-23T04:56:07.000+0000",
-  "packageCarrierId" : 123,
-  "extrinsicText1" : "aeiou",
-  "csrBranch" : "aeiou",
-  "faxGone" : "aeiou",
-  "truckCarrierId" : 123,
-  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
-  "costCenter" : "aeiou",
-  "country" : "aeiou",
-  "pin" : "aeiou",
-  "alternateInventory" : 123,
-  "email" : "aeiou",
-  "county" : "aeiou",
+  "phone" : "aeiou",
+  "name" : "aeiou",
+  "street3Province" : "aeiou",
+  "city" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
   "restrictionPercent" : 123,
-  "bossBranch" : "aeiou"
-} ], contentType=application/json}]
+  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
+  "street" : "aeiou",
+  "street2" : "aeiou",
+  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
+  "cycleDate" : "2000-01-23T04:56:07.000+0000",
+  "email" : "aeiou",
+  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
+  "manager" : "aeiou",
+  "externalId" : "aeiou",
+  "closeDate" : "2000-01-23T04:56:07.000+0000",
+  "residential" : "aeiou",
+  "attention" : "aeiou",
+  "truckCarrierId" : 123,
+  "openDate" : "2000-01-23T04:56:07.000+0000",
+  "csrBranch" : "aeiou",
+  "customerNo" : "aeiou"
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -320,7 +329,7 @@ public class CustomerAPI: APIBase {
      - returns: RequestBuilder<[Customer]> 
      */
     public class func getCustomerByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Customer]> {
-        let path = "/v1.0/customer/search"
+        let path = "/beta/customer/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -354,68 +363,71 @@ public class CustomerAPI: APIBase {
      
      Get a customer by id
      
-     - GET /v1.0/customer/{customerId}
+     - GET /beta/customer/{customerId}
      - Returns the customer identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "omsCustomerId" : 123,
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "sector" : "aeiou",
-  "weightBreak" : 123,
-  "phone" : "aeiou",
-  "manager" : "aeiou",
-  "priceLevel" : "aeiou",
-  "residential" : "aeiou",
-  "street" : "aeiou",
-  "state" : "aeiou",
-  "customerNo" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "externalId" : "aeiou",
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "city" : "aeiou",
-  "id" : 123,
-  "division" : 123,
-  "area" : "aeiou",
-  "extrinsicNumber2" : 123,
-  "street3Province" : "aeiou",
-  "massLevel" : "aeiou",
-  "extrinsicNumber1" : 123,
+     - examples: [{contentType=application/json, example={
   "zipCode" : "aeiou",
-  "name" : "aeiou",
-  "lobId" : 123,
-  "openDate" : "2000-01-23T04:56:07.000+0000",
-  "attention" : "aeiou",
-  "street2" : "aeiou",
-  "cycleDate" : "2000-01-23T04:56:07.000+0000",
+  "country" : "aeiou",
+  "packageCarrierId" : 123,
+  "county" : "aeiou",
+  "priceLevel" : "aeiou",
+  "omsCustomerId" : 123,
+  "massLevel" : "aeiou",
+  "division" : 123,
   "customerType" : "aeiou",
+  "alternateInventory" : 123,
+  "pin" : "aeiou",
+  "id" : 123,
+  "state" : "aeiou",
   "fax" : "aeiou",
+  "sector" : "aeiou",
+  "bossBranch" : "aeiou",
+  "lobId" : 123,
+  "area" : "aeiou",
+  "faxGone" : "aeiou",
+  "weightBreak" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "costCenter" : "aeiou",
+  "extrinsicNumber2" : 123,
+  "extrinsicNumber1" : 123,
+  "extrinsicText1" : "aeiou",
   "extrinsicText3" : "aeiou",
   "extrinsicText2" : "aeiou",
-  "closeDate" : "2000-01-23T04:56:07.000+0000",
-  "packageCarrierId" : 123,
-  "extrinsicText1" : "aeiou",
-  "csrBranch" : "aeiou",
-  "faxGone" : "aeiou",
-  "truckCarrierId" : 123,
-  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
-  "costCenter" : "aeiou",
-  "country" : "aeiou",
-  "pin" : "aeiou",
-  "alternateInventory" : 123,
-  "email" : "aeiou",
-  "county" : "aeiou",
+  "phone" : "aeiou",
+  "name" : "aeiou",
+  "street3Province" : "aeiou",
+  "city" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
   "restrictionPercent" : 123,
-  "bossBranch" : "aeiou"
-}, contentType=application/json}]
+  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
+  "street" : "aeiou",
+  "street2" : "aeiou",
+  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
+  "cycleDate" : "2000-01-23T04:56:07.000+0000",
+  "email" : "aeiou",
+  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
+  "manager" : "aeiou",
+  "externalId" : "aeiou",
+  "closeDate" : "2000-01-23T04:56:07.000+0000",
+  "residential" : "aeiou",
+  "attention" : "aeiou",
+  "truckCarrierId" : 123,
+  "openDate" : "2000-01-23T04:56:07.000+0000",
+  "csrBranch" : "aeiou",
+  "customerNo" : "aeiou"
+}}]
      
      - parameter customerId: (path) Id of the customer to be returned. 
 
      - returns: RequestBuilder<Customer> 
      */
     public class func getCustomerByIdWithRequestBuilder(customerId customerId: Int) -> RequestBuilder<Customer> {
-        var path = "/v1.0/customer/{customerId}"
+        var path = "/beta/customer/{customerId}"
         path = path.stringByReplacingOccurrencesOfString("{customerId}", withString: "\(customerId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -445,7 +457,7 @@ public class CustomerAPI: APIBase {
      
      Update a customer
      
-     - PUT /v1.0/customer
+     - PUT /beta/customer
      - Updates an existing customer using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -456,7 +468,46 @@ public class CustomerAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateCustomerWithRequestBuilder(body body: Customer) -> RequestBuilder<Void> {
-        let path = "/v1.0/customer"
+        let path = "/beta/customer"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a customer custom fields
+     
+     - parameter body: (body) Customer to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateCustomerCustomFields(body body: Customer, completion: ((error: ErrorType?) -> Void)) {
+        updateCustomerCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a customer custom fields
+     
+     - PUT /beta/customer/customFields
+     - Updates an existing customer custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) Customer to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateCustomerCustomFieldsWithRequestBuilder(body body: Customer) -> RequestBuilder<Void> {
+        let path = "/beta/customer/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

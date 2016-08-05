@@ -28,26 +28,29 @@ public class ReplenishmentPlanAPI: APIBase {
      
      Create a replenishmentPlan
      
-     - POST /v1.0/replenishmentPlan
+     - POST /beta/replenishmentPlan
      - Inserts a new replenishmentPlan using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
+     - examples: [{contentType=application/json, example={
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
   "id" : 123,
   "pickFaceAssignmentSmartFilterId" : 123,
-  "name" : "aeiou",
-  "warehouseId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "createDate" : "2000-01-23T04:56:07.000+0000"
-}, contentType=application/json}]
+}}]
      
      - parameter body: (body) ReplenishmentPlan to be inserted. 
 
      - returns: RequestBuilder<ReplenishmentPlan> 
      */
     public class func addReplenishmentPlanWithRequestBuilder(body body: ReplenishmentPlan) -> RequestBuilder<ReplenishmentPlan> {
-        let path = "/v1.0/replenishmentPlan"
+        let path = "/beta/replenishmentPlan"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -75,7 +78,7 @@ public class ReplenishmentPlanAPI: APIBase {
      
      Delete a replenishmentPlan
      
-     - DELETE /v1.0/replenishmentPlan/{replenishmentPlanId}
+     - DELETE /beta/replenishmentPlan/{replenishmentPlanId}
      - Deletes the replenishmentPlan identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -86,7 +89,7 @@ public class ReplenishmentPlanAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteReplenishmentPlanWithRequestBuilder(replenishmentPlanId replenishmentPlanId: Int) -> RequestBuilder<Void> {
-        var path = "/v1.0/replenishmentPlan/{replenishmentPlanId}"
+        var path = "/beta/replenishmentPlan/{replenishmentPlanId}"
         path = path.stringByReplacingOccurrencesOfString("{replenishmentPlanId}", withString: "\(replenishmentPlanId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -119,19 +122,22 @@ public class ReplenishmentPlanAPI: APIBase {
      
      Search replenishmentPlans by filter
      
-     - GET /v1.0/replenishmentPlan/search
+     - GET /beta/replenishmentPlan/search
      - Returns the list of replenishmentPlans that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
+     - examples: [{contentType=application/json, example=[ {
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
   "id" : 123,
   "pickFaceAssignmentSmartFilterId" : 123,
-  "name" : "aeiou",
-  "warehouseId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "createDate" : "2000-01-23T04:56:07.000+0000"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -141,7 +147,7 @@ public class ReplenishmentPlanAPI: APIBase {
      - returns: RequestBuilder<[ReplenishmentPlan]> 
      */
     public class func getReplenishmentPlanByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ReplenishmentPlan]> {
-        let path = "/v1.0/replenishmentPlan/search"
+        let path = "/beta/replenishmentPlan/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -175,26 +181,29 @@ public class ReplenishmentPlanAPI: APIBase {
      
      Get a replenishmentPlan by id
      
-     - GET /v1.0/replenishmentPlan/{replenishmentPlanId}
+     - GET /beta/replenishmentPlan/{replenishmentPlanId}
      - Returns the replenishmentPlan identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
+     - examples: [{contentType=application/json, example={
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
   "id" : 123,
   "pickFaceAssignmentSmartFilterId" : 123,
-  "name" : "aeiou",
-  "warehouseId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "createDate" : "2000-01-23T04:56:07.000+0000"
-}, contentType=application/json}]
+}}]
      
      - parameter replenishmentPlanId: (path) Id of the replenishmentPlan to be returned. 
 
      - returns: RequestBuilder<ReplenishmentPlan> 
      */
     public class func getReplenishmentPlanByIdWithRequestBuilder(replenishmentPlanId replenishmentPlanId: Int) -> RequestBuilder<ReplenishmentPlan> {
-        var path = "/v1.0/replenishmentPlan/{replenishmentPlanId}"
+        var path = "/beta/replenishmentPlan/{replenishmentPlanId}"
         path = path.stringByReplacingOccurrencesOfString("{replenishmentPlanId}", withString: "\(replenishmentPlanId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -224,7 +233,7 @@ public class ReplenishmentPlanAPI: APIBase {
      
      Update a replenishmentPlan
      
-     - PUT /v1.0/replenishmentPlan
+     - PUT /beta/replenishmentPlan
      - Updates an existing replenishmentPlan using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -235,7 +244,46 @@ public class ReplenishmentPlanAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateReplenishmentPlanWithRequestBuilder(body body: ReplenishmentPlan) -> RequestBuilder<Void> {
-        let path = "/v1.0/replenishmentPlan"
+        let path = "/beta/replenishmentPlan"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a replenishmentPlan custom fields
+     
+     - parameter body: (body) ReplenishmentPlan to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateReplenishmentPlanCustomFields(body body: ReplenishmentPlan, completion: ((error: ErrorType?) -> Void)) {
+        updateReplenishmentPlanCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a replenishmentPlan custom fields
+     
+     - PUT /beta/replenishmentPlan/customFields
+     - Updates an existing replenishmentPlan custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) ReplenishmentPlan to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateReplenishmentPlanCustomFieldsWithRequestBuilder(body body: ReplenishmentPlan) -> RequestBuilder<Void> {
+        let path = "/beta/replenishmentPlan/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

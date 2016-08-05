@@ -37,6 +37,9 @@ public class QuickReceipt: JSONEncodable {
     public var cost: Double?
     public var sell: Double?
     public var pricingPer: String?
+    public var generatedItemReceiptId: Int?
+    public var generatedASNId: Int?
+    public var customFields: [String:AnyObject]?
     public var sku: String?
     
 
@@ -72,6 +75,9 @@ public class QuickReceipt: JSONEncodable {
         nillableDictionary["cost"] = self.cost
         nillableDictionary["sell"] = self.sell
         nillableDictionary["pricingPer"] = self.pricingPer
+        nillableDictionary["generatedItemReceiptId"] = self.generatedItemReceiptId
+        nillableDictionary["generatedASNId"] = self.generatedASNId
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         nillableDictionary["sku"] = self.sku
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

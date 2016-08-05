@@ -28,35 +28,38 @@ public class OverrideReturnAddressAPI: APIBase {
      
      Create an overrideReturnAddress
      
-     - POST /v1.0/overrideReturnAddress
+     - POST /beta/overrideReturnAddress
      - Inserts a new overrideReturnAddress using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "orderSourceId" : 123,
-  "street2" : "aeiou",
+     - examples: [{contentType=application/json, example={
   "zip" : "aeiou",
+  "orderSourceId" : 123,
+  "country" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "city" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "warehouseId" : 123,
   "phone" : "aeiou",
   "street" : "aeiou",
-  "state" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "country" : "aeiou",
-  "city" : "aeiou",
-  "id" : 123,
   "name" : "aeiou",
-  "lobId" : 123,
+  "attention" : "aeiou",
+  "id" : 123,
+  "street2" : "aeiou",
+  "state" : "aeiou",
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "attention" : "aeiou"
-}, contentType=application/json}]
+  "lobId" : 123
+}}]
      
      - parameter body: (body) OverrideReturnAddress to be inserted. 
 
      - returns: RequestBuilder<OverrideReturnAddress> 
      */
     public class func addOverrideReturnAddressWithRequestBuilder(body body: OverrideReturnAddress) -> RequestBuilder<OverrideReturnAddress> {
-        let path = "/v1.0/overrideReturnAddress"
+        let path = "/beta/overrideReturnAddress"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -84,7 +87,7 @@ public class OverrideReturnAddressAPI: APIBase {
      
      Delete an overrideReturnAddress
      
-     - DELETE /v1.0/overrideReturnAddress/{overrideReturnAddressId}
+     - DELETE /beta/overrideReturnAddress/{overrideReturnAddressId}
      - Deletes the overrideReturnAddress identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -95,7 +98,7 @@ public class OverrideReturnAddressAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteOverrideReturnAddressWithRequestBuilder(overrideReturnAddressId overrideReturnAddressId: Int) -> RequestBuilder<Void> {
-        var path = "/v1.0/overrideReturnAddress/{overrideReturnAddressId}"
+        var path = "/beta/overrideReturnAddress/{overrideReturnAddressId}"
         path = path.stringByReplacingOccurrencesOfString("{overrideReturnAddressId}", withString: "\(overrideReturnAddressId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -128,28 +131,31 @@ public class OverrideReturnAddressAPI: APIBase {
      
      Search overrideReturnAddresses by filter
      
-     - GET /v1.0/overrideReturnAddress/search
+     - GET /beta/overrideReturnAddress/search
      - Returns the list of overrideReturnAddresses that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "orderSourceId" : 123,
-  "street2" : "aeiou",
+     - examples: [{contentType=application/json, example=[ {
   "zip" : "aeiou",
+  "orderSourceId" : 123,
+  "country" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "city" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "warehouseId" : 123,
   "phone" : "aeiou",
   "street" : "aeiou",
-  "state" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "country" : "aeiou",
-  "city" : "aeiou",
-  "id" : 123,
   "name" : "aeiou",
-  "lobId" : 123,
+  "attention" : "aeiou",
+  "id" : 123,
+  "street2" : "aeiou",
+  "state" : "aeiou",
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "attention" : "aeiou"
-} ], contentType=application/json}]
+  "lobId" : 123
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -159,7 +165,7 @@ public class OverrideReturnAddressAPI: APIBase {
      - returns: RequestBuilder<[OverrideReturnAddress]> 
      */
     public class func getOverrideReturnAddressByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[OverrideReturnAddress]> {
-        let path = "/v1.0/overrideReturnAddress/search"
+        let path = "/beta/overrideReturnAddress/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -193,35 +199,38 @@ public class OverrideReturnAddressAPI: APIBase {
      
      Get an overrideReturnAddress by id
      
-     - GET /v1.0/overrideReturnAddress/{overrideReturnAddressId}
+     - GET /beta/overrideReturnAddress/{overrideReturnAddressId}
      - Returns the overrideReturnAddress identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "orderSourceId" : 123,
-  "street2" : "aeiou",
+     - examples: [{contentType=application/json, example={
   "zip" : "aeiou",
+  "orderSourceId" : 123,
+  "country" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "city" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "warehouseId" : 123,
   "phone" : "aeiou",
   "street" : "aeiou",
-  "state" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "country" : "aeiou",
-  "city" : "aeiou",
-  "id" : 123,
   "name" : "aeiou",
-  "lobId" : 123,
+  "attention" : "aeiou",
+  "id" : 123,
+  "street2" : "aeiou",
+  "state" : "aeiou",
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "attention" : "aeiou"
-}, contentType=application/json}]
+  "lobId" : 123
+}}]
      
      - parameter overrideReturnAddressId: (path) Id of the overrideReturnAddress to be returned. 
 
      - returns: RequestBuilder<OverrideReturnAddress> 
      */
     public class func getOverrideReturnAddressByIdWithRequestBuilder(overrideReturnAddressId overrideReturnAddressId: Int) -> RequestBuilder<OverrideReturnAddress> {
-        var path = "/v1.0/overrideReturnAddress/{overrideReturnAddressId}"
+        var path = "/beta/overrideReturnAddress/{overrideReturnAddressId}"
         path = path.stringByReplacingOccurrencesOfString("{overrideReturnAddressId}", withString: "\(overrideReturnAddressId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -251,7 +260,7 @@ public class OverrideReturnAddressAPI: APIBase {
      
      Update an overrideReturnAddress
      
-     - PUT /v1.0/overrideReturnAddress
+     - PUT /beta/overrideReturnAddress
      - Updates an existing overrideReturnAddress using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -262,7 +271,46 @@ public class OverrideReturnAddressAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateOverrideReturnAddressWithRequestBuilder(body body: OverrideReturnAddress) -> RequestBuilder<Void> {
-        let path = "/v1.0/overrideReturnAddress"
+        let path = "/beta/overrideReturnAddress"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update an overrideReturnAddress custom fields
+     
+     - parameter body: (body) OverrideReturnAddress to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateOverrideReturnAddressCustomFields(body body: OverrideReturnAddress, completion: ((error: ErrorType?) -> Void)) {
+        updateOverrideReturnAddressCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update an overrideReturnAddress custom fields
+     
+     - PUT /beta/overrideReturnAddress/customFields
+     - Updates an existing overrideReturnAddress custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) OverrideReturnAddress to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateOverrideReturnAddressCustomFieldsWithRequestBuilder(body body: OverrideReturnAddress) -> RequestBuilder<Void> {
+        let path = "/beta/overrideReturnAddress/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

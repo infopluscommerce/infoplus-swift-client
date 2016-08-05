@@ -17,6 +17,8 @@ public class ReplenishmentProcess: JSONEncodable {
     public var replenishmentPlanId: Int?
     public var status: String?
     public var estimatedWork: Int?
+    public var workBatchId: Int?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -31,6 +33,8 @@ public class ReplenishmentProcess: JSONEncodable {
         nillableDictionary["replenishmentPlanId"] = self.replenishmentPlanId
         nillableDictionary["status"] = self.status
         nillableDictionary["estimatedWork"] = self.estimatedWork
+        nillableDictionary["workBatchId"] = self.workBatchId
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

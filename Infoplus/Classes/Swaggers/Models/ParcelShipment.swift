@@ -39,6 +39,7 @@ public class ParcelShipment: JSONEncodable {
     public var chargedFreightAmount: Double?
     public var publishedFreightAmount: Double?
     public var retailFreightAmount: Double?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -75,6 +76,7 @@ public class ParcelShipment: JSONEncodable {
         nillableDictionary["chargedFreightAmount"] = self.chargedFreightAmount
         nillableDictionary["publishedFreightAmount"] = self.publishedFreightAmount
         nillableDictionary["retailFreightAmount"] = self.retailFreightAmount
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

@@ -31,17 +31,20 @@ public class WorkBatchAPI: APIBase {
      
      Search workBatchs by filter
      
-     - GET /v1.0/workBatch/search
+     - GET /beta/workBatch/search
      - Returns the list of workBatchs that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "id" : 123,
+     - examples: [{contentType=application/json, example=[ {
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "warehouseId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "id" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -51,7 +54,7 @@ public class WorkBatchAPI: APIBase {
      - returns: RequestBuilder<[WorkBatch]> 
      */
     public class func getWorkBatchByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[WorkBatch]> {
-        let path = "/v1.0/workBatch/search"
+        let path = "/beta/workBatch/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -85,24 +88,27 @@ public class WorkBatchAPI: APIBase {
      
      Get a workBatch by id
      
-     - GET /v1.0/workBatch/{workBatchId}
+     - GET /beta/workBatch/{workBatchId}
      - Returns the workBatch identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "id" : 123,
+     - examples: [{contentType=application/json, example={
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "warehouseId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "id" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000"
-}, contentType=application/json}]
+}}]
      
      - parameter workBatchId: (path) Id of the workBatch to be returned. 
 
      - returns: RequestBuilder<WorkBatch> 
      */
     public class func getWorkBatchByIdWithRequestBuilder(workBatchId workBatchId: Int) -> RequestBuilder<WorkBatch> {
-        var path = "/v1.0/workBatch/{workBatchId}"
+        var path = "/beta/workBatch/{workBatchId}"
         path = path.stringByReplacingOccurrencesOfString("{workBatchId}", withString: "\(workBatchId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -112,6 +118,45 @@ public class WorkBatchAPI: APIBase {
         let requestBuilder: RequestBuilder<WorkBatch>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a workBatch custom fields
+     
+     - parameter body: (body) WorkBatch to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateWorkBatchCustomFields(body body: WorkBatch, completion: ((error: ErrorType?) -> Void)) {
+        updateWorkBatchCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a workBatch custom fields
+     
+     - PUT /beta/workBatch/customFields
+     - Updates an existing workBatch custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) WorkBatch to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateWorkBatchCustomFieldsWithRequestBuilder(body body: WorkBatch) -> RequestBuilder<Void> {
+        let path = "/beta/workBatch/customFields"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }

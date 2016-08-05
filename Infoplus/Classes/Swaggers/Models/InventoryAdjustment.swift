@@ -23,6 +23,7 @@ public class InventoryAdjustment: JSONEncodable {
     public var printed: String?
     public var orderNo: Double?
     public var adjustmentCode: String?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -43,6 +44,7 @@ public class InventoryAdjustment: JSONEncodable {
         nillableDictionary["printed"] = self.printed
         nillableDictionary["orderNo"] = self.orderNo
         nillableDictionary["adjustmentCode"] = self.adjustmentCode
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

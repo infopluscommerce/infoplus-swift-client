@@ -18,6 +18,7 @@ public class ParcelAccount: JSONEncodable {
     public var client: Int?
     public var name: String?
     public var manifestPartnerId: String?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -33,6 +34,7 @@ public class ParcelAccount: JSONEncodable {
         nillableDictionary["client"] = self.client
         nillableDictionary["name"] = self.name
         nillableDictionary["manifestPartnerId"] = self.manifestPartnerId
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

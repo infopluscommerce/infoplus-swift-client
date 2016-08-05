@@ -30,15 +30,15 @@ public class ItemBuyerAPI: APIBase {
      
      Search itemBuyers
      
-     - GET /v1.0/itemBuyer/search
+     - GET /beta/itemBuyer/search
      - Returns the list of itemBuyers that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
+     - examples: [{contentType=application/json, example=[ {
   "id" : 123,
   "label" : "aeiou"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -47,7 +47,7 @@ public class ItemBuyerAPI: APIBase {
      - returns: RequestBuilder<[ItemBuyer]> 
      */
     public class func getItemBuyerBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[ItemBuyer]> {
-        let path = "/v1.0/itemBuyer/search"
+        let path = "/beta/itemBuyer/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -80,22 +80,22 @@ public class ItemBuyerAPI: APIBase {
      
      Get an itemBuyer by id
      
-     - GET /v1.0/itemBuyer/{itemBuyerId}
+     - GET /beta/itemBuyer/{itemBuyerId}
      - Returns the itemBuyer identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
+     - examples: [{contentType=application/json, example={
   "id" : 123,
   "label" : "aeiou"
-}, contentType=application/json}]
+}}]
      
      - parameter itemBuyerId: (path) Id of itemBuyer to be returned. 
 
      - returns: RequestBuilder<ItemBuyer> 
      */
     public class func getTranslateBuyerByIdWithRequestBuilder(itemBuyerId itemBuyerId: String) -> RequestBuilder<ItemBuyer> {
-        var path = "/v1.0/itemBuyer/{itemBuyerId}"
+        var path = "/beta/itemBuyer/{itemBuyerId}"
         path = path.stringByReplacingOccurrencesOfString("{itemBuyerId}", withString: "\(itemBuyerId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         

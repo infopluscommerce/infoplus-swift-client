@@ -28,40 +28,43 @@ public class ShoppingCartConnectionAPI: APIBase {
      
      Create a shoppingCartConnection
      
-     - POST /v1.0/shoppingCartConnection
+     - POST /beta/shoppingCartConnection
      - Inserts a new shoppingCartConnection using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
+     - examples: [{contentType=application/json, example={
   "orderSourceId" : 123,
-  "infoplusSKUFieldToMap" : "aeiou",
-  "accessToken" : "aeiou",
-  "connectionType" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "accessCode" : "aeiou",
-  "clientId" : 123,
-  "shoppingCartSKUFieldToMap" : "aeiou",
   "syncInventory" : true,
-  "id" : 123,
   "syncInventoryLevelsLastRunTime" : "2000-01-23T04:56:07.000+0000",
-  "nonce" : "aeiou",
-  "name" : "aeiou",
-  "itemFilterId" : 123,
-  "lobId" : 123,
+  "clientId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "syncOrders" : true,
+  "infoplusSKUFieldToMap" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
   "integrationPartnerId" : 123,
+  "accessToken" : "aeiou",
+  "nonce" : "aeiou",
+  "connectionType" : "aeiou",
   "syncTrackingData" : true,
   "shoppingCartStoreURL" : "aeiou",
+  "accessCode" : "aeiou",
+  "name" : "aeiou",
+  "shoppingCartSKUFieldToMap" : "aeiou",
+  "id" : 123,
+  "itemFilterId" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "syncOrders" : true
-}, contentType=application/json}]
+  "lobId" : 123
+}}]
      
      - parameter body: (body) ShoppingCartConnection to be inserted. 
 
      - returns: RequestBuilder<ShoppingCartConnection> 
      */
     public class func addShoppingCartConnectionWithRequestBuilder(body body: ShoppingCartConnection) -> RequestBuilder<ShoppingCartConnection> {
-        let path = "/v1.0/shoppingCartConnection"
+        let path = "/beta/shoppingCartConnection"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -89,7 +92,7 @@ public class ShoppingCartConnectionAPI: APIBase {
      
      Delete a shoppingCartConnection
      
-     - DELETE /v1.0/shoppingCartConnection/{shoppingCartConnectionId}
+     - DELETE /beta/shoppingCartConnection/{shoppingCartConnectionId}
      - Deletes the shoppingCartConnection identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -100,7 +103,7 @@ public class ShoppingCartConnectionAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteShoppingCartConnectionWithRequestBuilder(shoppingCartConnectionId shoppingCartConnectionId: Int) -> RequestBuilder<Void> {
-        var path = "/v1.0/shoppingCartConnection/{shoppingCartConnectionId}"
+        var path = "/beta/shoppingCartConnection/{shoppingCartConnectionId}"
         path = path.stringByReplacingOccurrencesOfString("{shoppingCartConnectionId}", withString: "\(shoppingCartConnectionId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -133,33 +136,36 @@ public class ShoppingCartConnectionAPI: APIBase {
      
      Search shoppingCartConnections by filter
      
-     - GET /v1.0/shoppingCartConnection/search
+     - GET /beta/shoppingCartConnection/search
      - Returns the list of shoppingCartConnections that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
+     - examples: [{contentType=application/json, example=[ {
   "orderSourceId" : 123,
-  "infoplusSKUFieldToMap" : "aeiou",
-  "accessToken" : "aeiou",
-  "connectionType" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "accessCode" : "aeiou",
-  "clientId" : 123,
-  "shoppingCartSKUFieldToMap" : "aeiou",
   "syncInventory" : true,
-  "id" : 123,
   "syncInventoryLevelsLastRunTime" : "2000-01-23T04:56:07.000+0000",
-  "nonce" : "aeiou",
-  "name" : "aeiou",
-  "itemFilterId" : 123,
-  "lobId" : 123,
+  "clientId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "syncOrders" : true,
+  "infoplusSKUFieldToMap" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
   "integrationPartnerId" : 123,
+  "accessToken" : "aeiou",
+  "nonce" : "aeiou",
+  "connectionType" : "aeiou",
   "syncTrackingData" : true,
   "shoppingCartStoreURL" : "aeiou",
+  "accessCode" : "aeiou",
+  "name" : "aeiou",
+  "shoppingCartSKUFieldToMap" : "aeiou",
+  "id" : 123,
+  "itemFilterId" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "syncOrders" : true
-} ], contentType=application/json}]
+  "lobId" : 123
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -169,7 +175,7 @@ public class ShoppingCartConnectionAPI: APIBase {
      - returns: RequestBuilder<[ShoppingCartConnection]> 
      */
     public class func getShoppingCartConnectionByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ShoppingCartConnection]> {
-        let path = "/v1.0/shoppingCartConnection/search"
+        let path = "/beta/shoppingCartConnection/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -203,40 +209,43 @@ public class ShoppingCartConnectionAPI: APIBase {
      
      Get a shoppingCartConnection by id
      
-     - GET /v1.0/shoppingCartConnection/{shoppingCartConnectionId}
+     - GET /beta/shoppingCartConnection/{shoppingCartConnectionId}
      - Returns the shoppingCartConnection identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
+     - examples: [{contentType=application/json, example={
   "orderSourceId" : 123,
-  "infoplusSKUFieldToMap" : "aeiou",
-  "accessToken" : "aeiou",
-  "connectionType" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "accessCode" : "aeiou",
-  "clientId" : 123,
-  "shoppingCartSKUFieldToMap" : "aeiou",
   "syncInventory" : true,
-  "id" : 123,
   "syncInventoryLevelsLastRunTime" : "2000-01-23T04:56:07.000+0000",
-  "nonce" : "aeiou",
-  "name" : "aeiou",
-  "itemFilterId" : 123,
-  "lobId" : 123,
+  "clientId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "syncOrders" : true,
+  "infoplusSKUFieldToMap" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
   "integrationPartnerId" : 123,
+  "accessToken" : "aeiou",
+  "nonce" : "aeiou",
+  "connectionType" : "aeiou",
   "syncTrackingData" : true,
   "shoppingCartStoreURL" : "aeiou",
+  "accessCode" : "aeiou",
+  "name" : "aeiou",
+  "shoppingCartSKUFieldToMap" : "aeiou",
+  "id" : 123,
+  "itemFilterId" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "syncOrders" : true
-}, contentType=application/json}]
+  "lobId" : 123
+}}]
      
      - parameter shoppingCartConnectionId: (path) Id of the shoppingCartConnection to be returned. 
 
      - returns: RequestBuilder<ShoppingCartConnection> 
      */
     public class func getShoppingCartConnectionByIdWithRequestBuilder(shoppingCartConnectionId shoppingCartConnectionId: Int) -> RequestBuilder<ShoppingCartConnection> {
-        var path = "/v1.0/shoppingCartConnection/{shoppingCartConnectionId}"
+        var path = "/beta/shoppingCartConnection/{shoppingCartConnectionId}"
         path = path.stringByReplacingOccurrencesOfString("{shoppingCartConnectionId}", withString: "\(shoppingCartConnectionId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -266,7 +275,7 @@ public class ShoppingCartConnectionAPI: APIBase {
      
      Update a shoppingCartConnection
      
-     - PUT /v1.0/shoppingCartConnection
+     - PUT /beta/shoppingCartConnection
      - Updates an existing shoppingCartConnection using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -277,7 +286,46 @@ public class ShoppingCartConnectionAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateShoppingCartConnectionWithRequestBuilder(body body: ShoppingCartConnection) -> RequestBuilder<Void> {
-        let path = "/v1.0/shoppingCartConnection"
+        let path = "/beta/shoppingCartConnection"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a shoppingCartConnection custom fields
+     
+     - parameter body: (body) ShoppingCartConnection to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateShoppingCartConnectionCustomFields(body body: ShoppingCartConnection, completion: ((error: ErrorType?) -> Void)) {
+        updateShoppingCartConnectionCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a shoppingCartConnection custom fields
+     
+     - PUT /beta/shoppingCartConnection/customFields
+     - Updates an existing shoppingCartConnection custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) ShoppingCartConnection to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateShoppingCartConnectionCustomFieldsWithRequestBuilder(body body: ShoppingCartConnection) -> RequestBuilder<Void> {
+        let path = "/beta/shoppingCartConnection/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

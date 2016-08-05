@@ -28,22 +28,22 @@ public class UserAPI: APIBase {
      
      Get an user by id
      
-     - GET /v1.0/user/{userId}
+     - GET /beta/user/{userId}
      - Returns the user identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "userId" : 123,
-  "label" : "aeiou"
-}, contentType=application/json}]
+     - examples: [{contentType=application/json, example={
+  "label" : "aeiou",
+  "userId" : 123
+}}]
      
      - parameter userId: (path) Id of user to be returned. 
 
      - returns: RequestBuilder<User> 
      */
     public class func getUserByIdWithRequestBuilder(userId userId: String) -> RequestBuilder<User> {
-        var path = "/v1.0/user/{userId}"
+        var path = "/beta/user/{userId}"
         path = path.stringByReplacingOccurrencesOfString("{userId}", withString: "\(userId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -75,15 +75,15 @@ public class UserAPI: APIBase {
      
      Search users
      
-     - GET /v1.0/user/search
+     - GET /beta/user/search
      - Returns the list of users that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "userId" : 123,
-  "label" : "aeiou"
-} ], contentType=application/json}]
+     - examples: [{contentType=application/json, example=[ {
+  "label" : "aeiou",
+  "userId" : 123
+} ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -92,7 +92,7 @@ public class UserAPI: APIBase {
      - returns: RequestBuilder<[User]> 
      */
     public class func getUserBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[User]> {
-        let path = "/v1.0/user/search"
+        let path = "/beta/user/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [

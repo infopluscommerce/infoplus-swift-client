@@ -25,6 +25,7 @@ public class Work: JSONEncodable {
     public var userId: Int?
     public var lobId: Int?
     public var workBatchId: Int?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -47,6 +48,7 @@ public class Work: JSONEncodable {
         nillableDictionary["userId"] = self.userId
         nillableDictionary["lobId"] = self.lobId
         nillableDictionary["workBatchId"] = self.workBatchId
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

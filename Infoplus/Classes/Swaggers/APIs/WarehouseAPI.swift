@@ -31,30 +31,33 @@ public class WarehouseAPI: APIBase {
      
      Search warehouses by filter
      
-     - GET /v1.0/warehouse/search
+     - GET /beta/warehouse/search
      - Returns the list of warehouses that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "locationBarcodePrefix" : "aeiou",
-  "street2" : "aeiou",
-  "street1" : "aeiou",
+     - examples: [{contentType=application/json, example=[ {
   "zip" : "aeiou",
-  "phone" : "aeiou",
-  "client" : 123,
-  "state" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "lpnPrefix" : "aeiou",
-  "city" : "aeiou",
   "country" : "aeiou",
-  "id" : 123,
   "address" : "aeiou",
+  "street3" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "city" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "phone" : "aeiou",
+  "lpnPrefix" : "aeiou",
   "name" : "aeiou",
+  "client" : 123,
   "company" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "street3" : "aeiou"
-} ], contentType=application/json}]
+  "street1" : "aeiou",
+  "id" : 123,
+  "street2" : "aeiou",
+  "state" : "aeiou",
+  "locationBarcodePrefix" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -64,7 +67,7 @@ public class WarehouseAPI: APIBase {
      - returns: RequestBuilder<[Warehouse]> 
      */
     public class func getWarehouseByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Warehouse]> {
-        let path = "/v1.0/warehouse/search"
+        let path = "/beta/warehouse/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -98,37 +101,40 @@ public class WarehouseAPI: APIBase {
      
      Get a warehouse by id
      
-     - GET /v1.0/warehouse/{warehouseId}
+     - GET /beta/warehouse/{warehouseId}
      - Returns the warehouse identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "locationBarcodePrefix" : "aeiou",
-  "street2" : "aeiou",
-  "street1" : "aeiou",
+     - examples: [{contentType=application/json, example={
   "zip" : "aeiou",
-  "phone" : "aeiou",
-  "client" : 123,
-  "state" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "lpnPrefix" : "aeiou",
-  "city" : "aeiou",
   "country" : "aeiou",
-  "id" : 123,
   "address" : "aeiou",
+  "street3" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "city" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "phone" : "aeiou",
+  "lpnPrefix" : "aeiou",
   "name" : "aeiou",
+  "client" : 123,
   "company" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "street3" : "aeiou"
-}, contentType=application/json}]
+  "street1" : "aeiou",
+  "id" : 123,
+  "street2" : "aeiou",
+  "state" : "aeiou",
+  "locationBarcodePrefix" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
      
      - parameter warehouseId: (path) Id of the warehouse to be returned. 
 
      - returns: RequestBuilder<Warehouse> 
      */
     public class func getWarehouseByIdWithRequestBuilder(warehouseId warehouseId: Int) -> RequestBuilder<Warehouse> {
-        var path = "/v1.0/warehouse/{warehouseId}"
+        var path = "/beta/warehouse/{warehouseId}"
         path = path.stringByReplacingOccurrencesOfString("{warehouseId}", withString: "\(warehouseId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -158,7 +164,7 @@ public class WarehouseAPI: APIBase {
      
      Update a warehouse
      
-     - PUT /v1.0/warehouse
+     - PUT /beta/warehouse
      - Updates an existing warehouse using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -169,7 +175,46 @@ public class WarehouseAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateWarehouseWithRequestBuilder(body body: Warehouse) -> RequestBuilder<Void> {
-        let path = "/v1.0/warehouse"
+        let path = "/beta/warehouse"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a warehouse custom fields
+     
+     - parameter body: (body) Warehouse to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateWarehouseCustomFields(body body: Warehouse, completion: ((error: ErrorType?) -> Void)) {
+        updateWarehouseCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a warehouse custom fields
+     
+     - PUT /beta/warehouse/customFields
+     - Updates an existing warehouse custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) Warehouse to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateWarehouseCustomFieldsWithRequestBuilder(body body: Warehouse) -> RequestBuilder<Void> {
+        let path = "/beta/warehouse/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

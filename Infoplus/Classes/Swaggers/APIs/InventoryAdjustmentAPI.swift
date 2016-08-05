@@ -31,26 +31,29 @@ public class InventoryAdjustmentAPI: APIBase {
      
      Search inventoryAdjustments by filter
      
-     - GET /v1.0/inventoryAdjustment/search
+     - GET /beta/inventoryAdjustment/search
      - Returns the list of inventoryAdjustments that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "authorizedBy" : "aeiou",
-  "id" : 123,
-  "lob" : 123,
-  "poNoId" : 123,
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "location" : "aeiou",
-  "skuId" : 123,
-  "printed" : "aeiou",
-  "adjustmentDate" : "2000-01-23T04:56:07.000+0000",
-  "qty" : 123,
-  "adjustmentCode" : "aeiou",
+     - examples: [{contentType=application/json, example=[ {
   "note" : "aeiou",
-  "adjustmentTime" : "aeiou"
-} ], contentType=application/json}]
+  "adjustmentDate" : "2000-01-23T04:56:07.000+0000",
+  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "adjustmentCode" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "printed" : "aeiou",
+  "authorizedBy" : "aeiou",
+  "qty" : 123,
+  "location" : "aeiou",
+  "id" : 123,
+  "poNoId" : 123,
+  "adjustmentTime" : "aeiou",
+  "lob" : 123,
+  "skuId" : 123
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -60,7 +63,7 @@ public class InventoryAdjustmentAPI: APIBase {
      - returns: RequestBuilder<[InventoryAdjustment]> 
      */
     public class func getInventoryAdjustmentByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[InventoryAdjustment]> {
-        let path = "/v1.0/inventoryAdjustment/search"
+        let path = "/beta/inventoryAdjustment/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -94,33 +97,36 @@ public class InventoryAdjustmentAPI: APIBase {
      
      Get an inventoryAdjustment by id
      
-     - GET /v1.0/inventoryAdjustment/{inventoryAdjustmentId}
+     - GET /beta/inventoryAdjustment/{inventoryAdjustmentId}
      - Returns the inventoryAdjustment identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "authorizedBy" : "aeiou",
-  "id" : 123,
-  "lob" : 123,
-  "poNoId" : 123,
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "location" : "aeiou",
-  "skuId" : 123,
-  "printed" : "aeiou",
-  "adjustmentDate" : "2000-01-23T04:56:07.000+0000",
-  "qty" : 123,
-  "adjustmentCode" : "aeiou",
+     - examples: [{contentType=application/json, example={
   "note" : "aeiou",
-  "adjustmentTime" : "aeiou"
-}, contentType=application/json}]
+  "adjustmentDate" : "2000-01-23T04:56:07.000+0000",
+  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "adjustmentCode" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "printed" : "aeiou",
+  "authorizedBy" : "aeiou",
+  "qty" : 123,
+  "location" : "aeiou",
+  "id" : 123,
+  "poNoId" : 123,
+  "adjustmentTime" : "aeiou",
+  "lob" : 123,
+  "skuId" : 123
+}}]
      
      - parameter inventoryAdjustmentId: (path) Id of the inventoryAdjustment to be returned. 
 
      - returns: RequestBuilder<InventoryAdjustment> 
      */
     public class func getInventoryAdjustmentByIdWithRequestBuilder(inventoryAdjustmentId inventoryAdjustmentId: Int) -> RequestBuilder<InventoryAdjustment> {
-        var path = "/v1.0/inventoryAdjustment/{inventoryAdjustmentId}"
+        var path = "/beta/inventoryAdjustment/{inventoryAdjustmentId}"
         path = path.stringByReplacingOccurrencesOfString("{inventoryAdjustmentId}", withString: "\(inventoryAdjustmentId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -130,6 +136,45 @@ public class InventoryAdjustmentAPI: APIBase {
         let requestBuilder: RequestBuilder<InventoryAdjustment>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update an inventoryAdjustment custom fields
+     
+     - parameter body: (body) InventoryAdjustment to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateInventoryAdjustmentCustomFields(body body: InventoryAdjustment, completion: ((error: ErrorType?) -> Void)) {
+        updateInventoryAdjustmentCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update an inventoryAdjustment custom fields
+     
+     - PUT /beta/inventoryAdjustment/customFields
+     - Updates an existing inventoryAdjustment custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) InventoryAdjustment to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateInventoryAdjustmentCustomFieldsWithRequestBuilder(body body: InventoryAdjustment) -> RequestBuilder<Void> {
+        let path = "/beta/inventoryAdjustment/customFields"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }

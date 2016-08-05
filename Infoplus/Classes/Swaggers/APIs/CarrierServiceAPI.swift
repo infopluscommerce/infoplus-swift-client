@@ -28,22 +28,22 @@ public class CarrierServiceAPI: APIBase {
      
      Get a carrierService by id
      
-     - GET /v1.0/carrierService/{carrierServiceId}
+     - GET /beta/carrierService/{carrierServiceId}
      - Returns the carrierService identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
+     - examples: [{contentType=application/json, example={
   "id" : 123,
   "label" : "aeiou"
-}, contentType=application/json}]
+}}]
      
      - parameter carrierServiceId: (path) Id of carrierService to be returned. 
 
      - returns: RequestBuilder<CarrierService> 
      */
     public class func getCarrierServiceByIdWithRequestBuilder(carrierServiceId carrierServiceId: String) -> RequestBuilder<CarrierService> {
-        var path = "/v1.0/carrierService/{carrierServiceId}"
+        var path = "/beta/carrierService/{carrierServiceId}"
         path = path.stringByReplacingOccurrencesOfString("{carrierServiceId}", withString: "\(carrierServiceId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -75,15 +75,15 @@ public class CarrierServiceAPI: APIBase {
      
      Search carrierServices
      
-     - GET /v1.0/carrierService/search
+     - GET /beta/carrierService/search
      - Returns the list of carrierServices that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
+     - examples: [{contentType=application/json, example=[ {
   "id" : 123,
   "label" : "aeiou"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -92,7 +92,7 @@ public class CarrierServiceAPI: APIBase {
      - returns: RequestBuilder<[CarrierService]> 
      */
     public class func getCarrierServiceBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[CarrierService]> {
-        let path = "/v1.0/carrierService/search"
+        let path = "/beta/carrierService/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [

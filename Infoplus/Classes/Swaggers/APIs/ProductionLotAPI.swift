@@ -31,18 +31,21 @@ public class ProductionLotAPI: APIBase {
      
      Search productionLots by filter
      
-     - GET /v1.0/productionLot/search
+     - GET /beta/productionLot/search
      - Returns the list of productionLots that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "id" : 123,
-  "productionLot" : "aeiou",
-  "lobId" : 123,
+     - examples: [{contentType=application/json, example=[ {
   "quantity" : 123,
-  "sku" : "aeiou"
-} ], contentType=application/json}]
+  "customFields" : {
+    "key" : "{}"
+  },
+  "productionLot" : "aeiou",
+  "id" : 123,
+  "sku" : "aeiou",
+  "lobId" : 123
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -52,7 +55,7 @@ public class ProductionLotAPI: APIBase {
      - returns: RequestBuilder<[ProductionLot]> 
      */
     public class func getProductionLotByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ProductionLot]> {
-        let path = "/v1.0/productionLot/search"
+        let path = "/beta/productionLot/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -86,25 +89,28 @@ public class ProductionLotAPI: APIBase {
      
      Get a productionLot by id
      
-     - GET /v1.0/productionLot/{productionLotId}
+     - GET /beta/productionLot/{productionLotId}
      - Returns the productionLot identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "id" : 123,
-  "productionLot" : "aeiou",
-  "lobId" : 123,
+     - examples: [{contentType=application/json, example={
   "quantity" : 123,
-  "sku" : "aeiou"
-}, contentType=application/json}]
+  "customFields" : {
+    "key" : "{}"
+  },
+  "productionLot" : "aeiou",
+  "id" : 123,
+  "sku" : "aeiou",
+  "lobId" : 123
+}}]
      
      - parameter productionLotId: (path) Id of the productionLot to be returned. 
 
      - returns: RequestBuilder<ProductionLot> 
      */
     public class func getProductionLotByIdWithRequestBuilder(productionLotId productionLotId: Int) -> RequestBuilder<ProductionLot> {
-        var path = "/v1.0/productionLot/{productionLotId}"
+        var path = "/beta/productionLot/{productionLotId}"
         path = path.stringByReplacingOccurrencesOfString("{productionLotId}", withString: "\(productionLotId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -114,6 +120,45 @@ public class ProductionLotAPI: APIBase {
         let requestBuilder: RequestBuilder<ProductionLot>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a productionLot custom fields
+     
+     - parameter body: (body) ProductionLot to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateProductionLotCustomFields(body body: ProductionLot, completion: ((error: ErrorType?) -> Void)) {
+        updateProductionLotCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a productionLot custom fields
+     
+     - PUT /beta/productionLot/customFields
+     - Updates an existing productionLot custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) ProductionLot to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateProductionLotCustomFieldsWithRequestBuilder(body body: ProductionLot) -> RequestBuilder<Void> {
+        let path = "/beta/productionLot/customFields"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }

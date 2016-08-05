@@ -28,26 +28,29 @@ public class BuildingAPI: APIBase {
      
      Create a building
      
-     - POST /v1.0/building
+     - POST /beta/building
      - Inserts a new building using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "id" : 123,
+     - examples: [{contentType=application/json, example={
   "address" : "aeiou",
-  "name" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "warehouseId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
+  "id" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000"
-}, contentType=application/json}]
+}}]
      
      - parameter body: (body) Building to be inserted. 
 
      - returns: RequestBuilder<Building> 
      */
     public class func addBuildingWithRequestBuilder(body body: Building) -> RequestBuilder<Building> {
-        let path = "/v1.0/building"
+        let path = "/beta/building"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -75,7 +78,7 @@ public class BuildingAPI: APIBase {
      
      Delete a building
      
-     - DELETE /v1.0/building/{buildingId}
+     - DELETE /beta/building/{buildingId}
      - Deletes the building identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -86,7 +89,7 @@ public class BuildingAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteBuildingWithRequestBuilder(buildingId buildingId: Int) -> RequestBuilder<Void> {
-        var path = "/v1.0/building/{buildingId}"
+        var path = "/beta/building/{buildingId}"
         path = path.stringByReplacingOccurrencesOfString("{buildingId}", withString: "\(buildingId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -119,19 +122,22 @@ public class BuildingAPI: APIBase {
      
      Search buildings by filter
      
-     - GET /v1.0/building/search
+     - GET /beta/building/search
      - Returns the list of buildings that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "id" : 123,
+     - examples: [{contentType=application/json, example=[ {
   "address" : "aeiou",
-  "name" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "warehouseId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
+  "id" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -141,7 +147,7 @@ public class BuildingAPI: APIBase {
      - returns: RequestBuilder<[Building]> 
      */
     public class func getBuildingByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Building]> {
-        let path = "/v1.0/building/search"
+        let path = "/beta/building/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -175,26 +181,29 @@ public class BuildingAPI: APIBase {
      
      Get a building by id
      
-     - GET /v1.0/building/{buildingId}
+     - GET /beta/building/{buildingId}
      - Returns the building identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "id" : 123,
+     - examples: [{contentType=application/json, example={
   "address" : "aeiou",
-  "name" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "warehouseId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
+  "id" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000"
-}, contentType=application/json}]
+}}]
      
      - parameter buildingId: (path) Id of the building to be returned. 
 
      - returns: RequestBuilder<Building> 
      */
     public class func getBuildingByIdWithRequestBuilder(buildingId buildingId: Int) -> RequestBuilder<Building> {
-        var path = "/v1.0/building/{buildingId}"
+        var path = "/beta/building/{buildingId}"
         path = path.stringByReplacingOccurrencesOfString("{buildingId}", withString: "\(buildingId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -224,7 +233,7 @@ public class BuildingAPI: APIBase {
      
      Update a building
      
-     - PUT /v1.0/building
+     - PUT /beta/building
      - Updates an existing building using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -235,7 +244,46 @@ public class BuildingAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateBuildingWithRequestBuilder(body body: Building) -> RequestBuilder<Void> {
-        let path = "/v1.0/building"
+        let path = "/beta/building"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a building custom fields
+     
+     - parameter body: (body) Building to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateBuildingCustomFields(body body: Building, completion: ((error: ErrorType?) -> Void)) {
+        updateBuildingCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a building custom fields
+     
+     - PUT /beta/building/customFields
+     - Updates an existing building custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) Building to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateBuildingCustomFieldsWithRequestBuilder(body body: Building) -> RequestBuilder<Void> {
+        let path = "/beta/building/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

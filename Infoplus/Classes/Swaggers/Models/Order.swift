@@ -61,8 +61,8 @@ public class Order: JSONEncodable {
     public var integrationPartnerId: Int?
     public var numberOfLineItems: Int?
     public var modifyDate: NSDate?
-    public var omsOrderId: Int?
     public var omsOrderNo: Int?
+    public var omsCustomerId: Int?
     public var orderLoadProgramId: Int?
     public var orderMessage: String?
     public var orderReason: Int?
@@ -97,6 +97,7 @@ public class Order: JSONEncodable {
     public var totalQty: Int?
     public var weightLbs: Double?
     public var lineItems: [OrderLine]?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -155,8 +156,8 @@ public class Order: JSONEncodable {
         nillableDictionary["integrationPartnerId"] = self.integrationPartnerId
         nillableDictionary["numberOfLineItems"] = self.numberOfLineItems
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
-        nillableDictionary["omsOrderId"] = self.omsOrderId
         nillableDictionary["omsOrderNo"] = self.omsOrderNo
+        nillableDictionary["omsCustomerId"] = self.omsCustomerId
         nillableDictionary["orderLoadProgramId"] = self.orderLoadProgramId
         nillableDictionary["orderMessage"] = self.orderMessage
         nillableDictionary["orderReason"] = self.orderReason
@@ -191,6 +192,7 @@ public class Order: JSONEncodable {
         nillableDictionary["totalQty"] = self.totalQty
         nillableDictionary["weightLbs"] = self.weightLbs
         nillableDictionary["lineItems"] = self.lineItems?.encodeToJSON()
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

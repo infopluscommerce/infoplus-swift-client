@@ -30,15 +30,15 @@ public class ItemAccountCodeAPI: APIBase {
      
      Search itemAccountCodes
      
-     - GET /v1.0/itemAccountCode/search
+     - GET /beta/itemAccountCode/search
      - Returns the list of itemAccountCodes that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
+     - examples: [{contentType=application/json, example=[ {
   "id" : 123,
   "label" : "aeiou"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -47,7 +47,7 @@ public class ItemAccountCodeAPI: APIBase {
      - returns: RequestBuilder<[ItemAccountCode]> 
      */
     public class func getItemAccountCodeBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[ItemAccountCode]> {
-        let path = "/v1.0/itemAccountCode/search"
+        let path = "/beta/itemAccountCode/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -80,22 +80,22 @@ public class ItemAccountCodeAPI: APIBase {
      
      Get an itemAccountCode by id
      
-     - GET /v1.0/itemAccountCode/{itemAccountCodeId}
+     - GET /beta/itemAccountCode/{itemAccountCodeId}
      - Returns the itemAccountCode identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
+     - examples: [{contentType=application/json, example={
   "id" : 123,
   "label" : "aeiou"
-}, contentType=application/json}]
+}}]
      
      - parameter itemAccountCodeId: (path) Id of itemAccountCode to be returned. 
 
      - returns: RequestBuilder<ItemAccountCode> 
      */
     public class func getTranslateAccountCodeByIdWithRequestBuilder(itemAccountCodeId itemAccountCodeId: String) -> RequestBuilder<ItemAccountCode> {
-        var path = "/v1.0/itemAccountCode/{itemAccountCodeId}"
+        var path = "/beta/itemAccountCode/{itemAccountCodeId}"
         path = path.stringByReplacingOccurrencesOfString("{itemAccountCodeId}", withString: "\(itemAccountCodeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         

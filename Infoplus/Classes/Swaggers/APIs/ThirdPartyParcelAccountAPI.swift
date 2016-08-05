@@ -28,38 +28,41 @@ public class ThirdPartyParcelAccountAPI: APIBase {
      
      Create a thirdPartyParcelAccount
      
-     - POST /v1.0/thirdPartyParcelAccount
+     - POST /beta/thirdPartyParcelAccount
      - Inserts a new thirdPartyParcelAccount using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "street2" : "aeiou",
-  "street1" : "aeiou",
-  "phone" : "aeiou",
-  "billingCompany" : "aeiou",
-  "state" : "aeiou",
-  "accountNo" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+     - examples: [{contentType=application/json, example={
   "country" : "aeiou",
-  "city" : "aeiou",
-  "id" : 123,
-  "accountName" : "aeiou",
   "zipCode" : "aeiou",
-  "lobId" : 123,
+  "street3" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "accountName" : "aeiou",
+  "city" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
   "active" : "aeiou",
+  "billingCompany" : "aeiou",
   "carrier" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "phone" : "aeiou",
+  "accountNo" : "aeiou",
   "attention" : "aeiou",
-  "street3" : "aeiou"
-}, contentType=application/json}]
+  "street1" : "aeiou",
+  "id" : 123,
+  "street2" : "aeiou",
+  "state" : "aeiou",
+  "lobId" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
      
      - parameter body: (body) ThirdPartyParcelAccount to be inserted. 
 
      - returns: RequestBuilder<ThirdPartyParcelAccount> 
      */
     public class func addThirdPartyParcelAccountWithRequestBuilder(body body: ThirdPartyParcelAccount) -> RequestBuilder<ThirdPartyParcelAccount> {
-        let path = "/v1.0/thirdPartyParcelAccount"
+        let path = "/beta/thirdPartyParcelAccount"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -87,7 +90,7 @@ public class ThirdPartyParcelAccountAPI: APIBase {
      
      Delete a thirdPartyParcelAccount
      
-     - DELETE /v1.0/thirdPartyParcelAccount/{thirdPartyParcelAccountId}
+     - DELETE /beta/thirdPartyParcelAccount/{thirdPartyParcelAccountId}
      - Deletes the thirdPartyParcelAccount identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -98,7 +101,7 @@ public class ThirdPartyParcelAccountAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteThirdPartyParcelAccountWithRequestBuilder(thirdPartyParcelAccountId thirdPartyParcelAccountId: Int) -> RequestBuilder<Void> {
-        var path = "/v1.0/thirdPartyParcelAccount/{thirdPartyParcelAccountId}"
+        var path = "/beta/thirdPartyParcelAccount/{thirdPartyParcelAccountId}"
         path = path.stringByReplacingOccurrencesOfString("{thirdPartyParcelAccountId}", withString: "\(thirdPartyParcelAccountId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -131,31 +134,34 @@ public class ThirdPartyParcelAccountAPI: APIBase {
      
      Search thirdPartyParcelAccounts by filter
      
-     - GET /v1.0/thirdPartyParcelAccount/search
+     - GET /beta/thirdPartyParcelAccount/search
      - Returns the list of thirdPartyParcelAccounts that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "street2" : "aeiou",
-  "street1" : "aeiou",
-  "phone" : "aeiou",
-  "billingCompany" : "aeiou",
-  "state" : "aeiou",
-  "accountNo" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+     - examples: [{contentType=application/json, example=[ {
   "country" : "aeiou",
-  "city" : "aeiou",
-  "id" : 123,
-  "accountName" : "aeiou",
   "zipCode" : "aeiou",
-  "lobId" : 123,
+  "street3" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "accountName" : "aeiou",
+  "city" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
   "active" : "aeiou",
+  "billingCompany" : "aeiou",
   "carrier" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "phone" : "aeiou",
+  "accountNo" : "aeiou",
   "attention" : "aeiou",
-  "street3" : "aeiou"
-} ], contentType=application/json}]
+  "street1" : "aeiou",
+  "id" : 123,
+  "street2" : "aeiou",
+  "state" : "aeiou",
+  "lobId" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -165,7 +171,7 @@ public class ThirdPartyParcelAccountAPI: APIBase {
      - returns: RequestBuilder<[ThirdPartyParcelAccount]> 
      */
     public class func getThirdPartyParcelAccountByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ThirdPartyParcelAccount]> {
-        let path = "/v1.0/thirdPartyParcelAccount/search"
+        let path = "/beta/thirdPartyParcelAccount/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -199,38 +205,41 @@ public class ThirdPartyParcelAccountAPI: APIBase {
      
      Get a thirdPartyParcelAccount by id
      
-     - GET /v1.0/thirdPartyParcelAccount/{thirdPartyParcelAccountId}
+     - GET /beta/thirdPartyParcelAccount/{thirdPartyParcelAccountId}
      - Returns the thirdPartyParcelAccount identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "street2" : "aeiou",
-  "street1" : "aeiou",
-  "phone" : "aeiou",
-  "billingCompany" : "aeiou",
-  "state" : "aeiou",
-  "accountNo" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+     - examples: [{contentType=application/json, example={
   "country" : "aeiou",
-  "city" : "aeiou",
-  "id" : 123,
-  "accountName" : "aeiou",
   "zipCode" : "aeiou",
-  "lobId" : 123,
+  "street3" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "accountName" : "aeiou",
+  "city" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
   "active" : "aeiou",
+  "billingCompany" : "aeiou",
   "carrier" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "phone" : "aeiou",
+  "accountNo" : "aeiou",
   "attention" : "aeiou",
-  "street3" : "aeiou"
-}, contentType=application/json}]
+  "street1" : "aeiou",
+  "id" : 123,
+  "street2" : "aeiou",
+  "state" : "aeiou",
+  "lobId" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
      
      - parameter thirdPartyParcelAccountId: (path) Id of the thirdPartyParcelAccount to be returned. 
 
      - returns: RequestBuilder<ThirdPartyParcelAccount> 
      */
     public class func getThirdPartyParcelAccountByIdWithRequestBuilder(thirdPartyParcelAccountId thirdPartyParcelAccountId: Int) -> RequestBuilder<ThirdPartyParcelAccount> {
-        var path = "/v1.0/thirdPartyParcelAccount/{thirdPartyParcelAccountId}"
+        var path = "/beta/thirdPartyParcelAccount/{thirdPartyParcelAccountId}"
         path = path.stringByReplacingOccurrencesOfString("{thirdPartyParcelAccountId}", withString: "\(thirdPartyParcelAccountId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -260,7 +269,7 @@ public class ThirdPartyParcelAccountAPI: APIBase {
      
      Update a thirdPartyParcelAccount
      
-     - PUT /v1.0/thirdPartyParcelAccount
+     - PUT /beta/thirdPartyParcelAccount
      - Updates an existing thirdPartyParcelAccount using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -271,7 +280,46 @@ public class ThirdPartyParcelAccountAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateThirdPartyParcelAccountWithRequestBuilder(body body: ThirdPartyParcelAccount) -> RequestBuilder<Void> {
-        let path = "/v1.0/thirdPartyParcelAccount"
+        let path = "/beta/thirdPartyParcelAccount"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a thirdPartyParcelAccount custom fields
+     
+     - parameter body: (body) ThirdPartyParcelAccount to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateThirdPartyParcelAccountCustomFields(body body: ThirdPartyParcelAccount, completion: ((error: ErrorType?) -> Void)) {
+        updateThirdPartyParcelAccountCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a thirdPartyParcelAccount custom fields
+     
+     - PUT /beta/thirdPartyParcelAccount/customFields
+     - Updates an existing thirdPartyParcelAccount custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) ThirdPartyParcelAccount to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateThirdPartyParcelAccountCustomFieldsWithRequestBuilder(body body: ThirdPartyParcelAccount) -> RequestBuilder<Void> {
+        let path = "/beta/thirdPartyParcelAccount/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

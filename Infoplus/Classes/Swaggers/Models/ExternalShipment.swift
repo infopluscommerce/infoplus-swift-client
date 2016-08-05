@@ -27,6 +27,7 @@ public class ExternalShipment: JSONEncodable {
     public var residential: Bool?
     public var zone: String?
     public var status: String?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -51,6 +52,7 @@ public class ExternalShipment: JSONEncodable {
         nillableDictionary["residential"] = self.residential
         nillableDictionary["zone"] = self.zone
         nillableDictionary["status"] = self.status
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

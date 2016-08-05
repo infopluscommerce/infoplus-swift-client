@@ -28,22 +28,22 @@ public class LineOfBusinessAPI: APIBase {
      
      Get a lineOfBusiness by id
      
-     - GET /v1.0/lineOfBusiness/{lineOfBusinessId}
+     - GET /beta/lineOfBusiness/{lineOfBusinessId}
      - Returns the lineOfBusiness identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
+     - examples: [{contentType=application/json, example={
   "id" : 123,
   "label" : "aeiou"
-}, contentType=application/json}]
+}}]
      
      - parameter lineOfBusinessId: (path) Id of lineOfBusiness to be returned. 
 
      - returns: RequestBuilder<LineOfBusiness> 
      */
     public class func getLineOfBusinessByIdWithRequestBuilder(lineOfBusinessId lineOfBusinessId: String) -> RequestBuilder<LineOfBusiness> {
-        var path = "/v1.0/lineOfBusiness/{lineOfBusinessId}"
+        var path = "/beta/lineOfBusiness/{lineOfBusinessId}"
         path = path.stringByReplacingOccurrencesOfString("{lineOfBusinessId}", withString: "\(lineOfBusinessId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -75,15 +75,15 @@ public class LineOfBusinessAPI: APIBase {
      
      Search lineOfBusinesses
      
-     - GET /v1.0/lineOfBusiness/search
+     - GET /beta/lineOfBusiness/search
      - Returns the list of lineOfBusinesses that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
+     - examples: [{contentType=application/json, example=[ {
   "id" : 123,
   "label" : "aeiou"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -92,7 +92,7 @@ public class LineOfBusinessAPI: APIBase {
      - returns: RequestBuilder<[LineOfBusiness]> 
      */
     public class func getLineOfBusinessBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[LineOfBusiness]> {
-        let path = "/v1.0/lineOfBusiness/search"
+        let path = "/beta/lineOfBusiness/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [

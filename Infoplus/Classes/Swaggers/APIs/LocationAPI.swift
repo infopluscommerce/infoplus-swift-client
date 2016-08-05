@@ -28,39 +28,42 @@ public class LocationAPI: APIBase {
      
      Create a location
      
-     - POST /v1.0/location
+     - POST /beta/location
      - Inserts a new location using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "priorityCode" : 123,
-  "allowItemMixing" : true,
-  "behaviorType" : "aeiou",
-  "origin" : 123,
-  "number" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "online" : true,
-  "zoneId" : 123,
-  "id" : 123,
-  "level" : 123,
-  "bay" : 123,
+     - examples: [{contentType=application/json, example={
   "address" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "level" : 123,
+  "allowItemMixing" : true,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "origin" : 123,
+  "buildingId" : 123,
   "aisleId" : 123,
-  "addressSchemeId" : 123,
+  "number" : 123,
   "footprintId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
   "billingTypeId" : 123,
-  "buildingId" : 123
-}, contentType=application/json}]
+  "zoneId" : 123,
+  "online" : true,
+  "priorityCode" : 123,
+  "id" : 123,
+  "bay" : 123,
+  "behaviorType" : "aeiou",
+  "addressSchemeId" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
      
      - parameter body: (body) Location to be inserted. 
 
      - returns: RequestBuilder<Location> 
      */
     public class func addLocationWithRequestBuilder(body body: Location) -> RequestBuilder<Location> {
-        let path = "/v1.0/location"
+        let path = "/beta/location"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -88,7 +91,7 @@ public class LocationAPI: APIBase {
      
      Delete a location
      
-     - DELETE /v1.0/location/{locationId}
+     - DELETE /beta/location/{locationId}
      - Deletes the location identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -99,7 +102,7 @@ public class LocationAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteLocationWithRequestBuilder(locationId locationId: Int) -> RequestBuilder<Void> {
-        var path = "/v1.0/location/{locationId}"
+        var path = "/beta/location/{locationId}"
         path = path.stringByReplacingOccurrencesOfString("{locationId}", withString: "\(locationId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -132,32 +135,35 @@ public class LocationAPI: APIBase {
      
      Search locations by filter
      
-     - GET /v1.0/location/search
+     - GET /beta/location/search
      - Returns the list of locations that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "priorityCode" : 123,
-  "allowItemMixing" : true,
-  "behaviorType" : "aeiou",
-  "origin" : 123,
-  "number" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "online" : true,
-  "zoneId" : 123,
-  "id" : 123,
-  "level" : 123,
-  "bay" : 123,
+     - examples: [{contentType=application/json, example=[ {
   "address" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "level" : 123,
+  "allowItemMixing" : true,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "origin" : 123,
+  "buildingId" : 123,
   "aisleId" : 123,
-  "addressSchemeId" : 123,
+  "number" : 123,
   "footprintId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
   "billingTypeId" : 123,
-  "buildingId" : 123
-} ], contentType=application/json}]
+  "zoneId" : 123,
+  "online" : true,
+  "priorityCode" : 123,
+  "id" : 123,
+  "bay" : 123,
+  "behaviorType" : "aeiou",
+  "addressSchemeId" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -167,7 +173,7 @@ public class LocationAPI: APIBase {
      - returns: RequestBuilder<[Location]> 
      */
     public class func getLocationByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Location]> {
-        let path = "/v1.0/location/search"
+        let path = "/beta/location/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -201,39 +207,42 @@ public class LocationAPI: APIBase {
      
      Get a location by id
      
-     - GET /v1.0/location/{locationId}
+     - GET /beta/location/{locationId}
      - Returns the location identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "priorityCode" : 123,
-  "allowItemMixing" : true,
-  "behaviorType" : "aeiou",
-  "origin" : 123,
-  "number" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "online" : true,
-  "zoneId" : 123,
-  "id" : 123,
-  "level" : 123,
-  "bay" : 123,
+     - examples: [{contentType=application/json, example={
   "address" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "level" : 123,
+  "allowItemMixing" : true,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "origin" : 123,
+  "buildingId" : 123,
   "aisleId" : 123,
-  "addressSchemeId" : 123,
+  "number" : 123,
   "footprintId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
   "billingTypeId" : 123,
-  "buildingId" : 123
-}, contentType=application/json}]
+  "zoneId" : 123,
+  "online" : true,
+  "priorityCode" : 123,
+  "id" : 123,
+  "bay" : 123,
+  "behaviorType" : "aeiou",
+  "addressSchemeId" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
      
      - parameter locationId: (path) Id of the location to be returned. 
 
      - returns: RequestBuilder<Location> 
      */
     public class func getLocationByIdWithRequestBuilder(locationId locationId: Int) -> RequestBuilder<Location> {
-        var path = "/v1.0/location/{locationId}"
+        var path = "/beta/location/{locationId}"
         path = path.stringByReplacingOccurrencesOfString("{locationId}", withString: "\(locationId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -263,7 +272,7 @@ public class LocationAPI: APIBase {
      
      Update a location
      
-     - PUT /v1.0/location
+     - PUT /beta/location
      - Updates an existing location using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -274,7 +283,46 @@ public class LocationAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateLocationWithRequestBuilder(body body: Location) -> RequestBuilder<Void> {
-        let path = "/v1.0/location"
+        let path = "/beta/location"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a location custom fields
+     
+     - parameter body: (body) Location to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateLocationCustomFields(body body: Location, completion: ((error: ErrorType?) -> Void)) {
+        updateLocationCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a location custom fields
+     
+     - PUT /beta/location/customFields
+     - Updates an existing location custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) Location to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateLocationCustomFieldsWithRequestBuilder(body body: Location) -> RequestBuilder<Void> {
+        let path = "/beta/location/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

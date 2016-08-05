@@ -31,21 +31,24 @@ public class BusinessTransactionAPI: APIBase {
      
      Search businessTransactions by filter
      
-     - GET /v1.0/businessTransaction/search
+     - GET /beta/businessTransaction/search
      - Returns the list of businessTransactions that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "messageBody" : "aeiou",
-  "id" : 123,
-  "status" : "aeiou",
-  "lobId" : 123,
+     - examples: [{contentType=application/json, example=[ {
   "queueName" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "messageBody" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
   "serverName" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-} ], contentType=application/json}]
+  "id" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "lobId" : 123,
+  "status" : "aeiou"
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -55,7 +58,7 @@ public class BusinessTransactionAPI: APIBase {
      - returns: RequestBuilder<[BusinessTransaction]> 
      */
     public class func getBusinessTransactionByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[BusinessTransaction]> {
-        let path = "/v1.0/businessTransaction/search"
+        let path = "/beta/businessTransaction/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -89,28 +92,31 @@ public class BusinessTransactionAPI: APIBase {
      
      Get a businessTransaction by id
      
-     - GET /v1.0/businessTransaction/{businessTransactionId}
+     - GET /beta/businessTransaction/{businessTransactionId}
      - Returns the businessTransaction identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "messageBody" : "aeiou",
-  "id" : 123,
-  "status" : "aeiou",
-  "lobId" : 123,
+     - examples: [{contentType=application/json, example={
   "queueName" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "messageBody" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
   "serverName" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}, contentType=application/json}]
+  "id" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "lobId" : 123,
+  "status" : "aeiou"
+}}]
      
      - parameter businessTransactionId: (path) Id of the businessTransaction to be returned. 
 
      - returns: RequestBuilder<BusinessTransaction> 
      */
     public class func getBusinessTransactionByIdWithRequestBuilder(businessTransactionId businessTransactionId: Int) -> RequestBuilder<BusinessTransaction> {
-        var path = "/v1.0/businessTransaction/{businessTransactionId}"
+        var path = "/beta/businessTransaction/{businessTransactionId}"
         path = path.stringByReplacingOccurrencesOfString("{businessTransactionId}", withString: "\(businessTransactionId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -120,6 +126,45 @@ public class BusinessTransactionAPI: APIBase {
         let requestBuilder: RequestBuilder<BusinessTransaction>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a businessTransaction custom fields
+     
+     - parameter body: (body) BusinessTransaction to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateBusinessTransactionCustomFields(body body: BusinessTransaction, completion: ((error: ErrorType?) -> Void)) {
+        updateBusinessTransactionCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a businessTransaction custom fields
+     
+     - PUT /beta/businessTransaction/customFields
+     - Updates an existing businessTransaction custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) BusinessTransaction to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateBusinessTransactionCustomFieldsWithRequestBuilder(body body: BusinessTransaction) -> RequestBuilder<Void> {
+        let path = "/beta/businessTransaction/customFields"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }

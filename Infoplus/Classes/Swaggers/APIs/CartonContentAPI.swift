@@ -28,32 +28,35 @@ public class CartonContentAPI: APIBase {
      
      Create a cartonContent
      
-     - POST /v1.0/cartonContent
+     - POST /beta/cartonContent
      - Inserts a new cartonContent using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "id" : 123,
-  "cartonNoId" : 123,
+     - examples: [{contentType=application/json, example={
   "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "status" : "aeiou",
-  "toteId" : "aeiou",
-  "location" : "aeiou",
   "quantity" : 123,
-  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
+  "toteId" : "aeiou",
   "lineItemId" : 123,
-  "pickerId" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
   "quantityScanned" : 123,
-  "completed" : "2000-01-23T04:56:07.000+0000"
-}, contentType=application/json}]
+  "completed" : "2000-01-23T04:56:07.000+0000",
+  "cartonNoId" : 123,
+  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
+  "location" : "aeiou",
+  "id" : 123,
+  "pickerId" : "aeiou",
+  "status" : "aeiou"
+}}]
      
      - parameter body: (body) CartonContent to be inserted. 
 
      - returns: RequestBuilder<CartonContent> 
      */
     public class func addCartonContentWithRequestBuilder(body body: CartonContent) -> RequestBuilder<CartonContent> {
-        let path = "/v1.0/cartonContent"
+        let path = "/beta/cartonContent"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -81,7 +84,7 @@ public class CartonContentAPI: APIBase {
      
      Delete a cartonContent
      
-     - DELETE /v1.0/cartonContent/{cartonContentId}
+     - DELETE /beta/cartonContent/{cartonContentId}
      - Deletes the cartonContent identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -92,7 +95,7 @@ public class CartonContentAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteCartonContentWithRequestBuilder(cartonContentId cartonContentId: Int) -> RequestBuilder<Void> {
-        var path = "/v1.0/cartonContent/{cartonContentId}"
+        var path = "/beta/cartonContent/{cartonContentId}"
         path = path.stringByReplacingOccurrencesOfString("{cartonContentId}", withString: "\(cartonContentId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -125,25 +128,28 @@ public class CartonContentAPI: APIBase {
      
      Search cartonContents by filter
      
-     - GET /v1.0/cartonContent/search
+     - GET /beta/cartonContent/search
      - Returns the list of cartonContents that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "id" : 123,
-  "cartonNoId" : 123,
+     - examples: [{contentType=application/json, example=[ {
   "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "status" : "aeiou",
-  "toteId" : "aeiou",
-  "location" : "aeiou",
   "quantity" : 123,
-  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
+  "toteId" : "aeiou",
   "lineItemId" : 123,
-  "pickerId" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
   "quantityScanned" : 123,
-  "completed" : "2000-01-23T04:56:07.000+0000"
-} ], contentType=application/json}]
+  "completed" : "2000-01-23T04:56:07.000+0000",
+  "cartonNoId" : 123,
+  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
+  "location" : "aeiou",
+  "id" : 123,
+  "pickerId" : "aeiou",
+  "status" : "aeiou"
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -153,7 +159,7 @@ public class CartonContentAPI: APIBase {
      - returns: RequestBuilder<[CartonContent]> 
      */
     public class func getCartonContentByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[CartonContent]> {
-        let path = "/v1.0/cartonContent/search"
+        let path = "/beta/cartonContent/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -187,32 +193,35 @@ public class CartonContentAPI: APIBase {
      
      Get a cartonContent by id
      
-     - GET /v1.0/cartonContent/{cartonContentId}
+     - GET /beta/cartonContent/{cartonContentId}
      - Returns the cartonContent identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "id" : 123,
-  "cartonNoId" : 123,
+     - examples: [{contentType=application/json, example={
   "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "status" : "aeiou",
-  "toteId" : "aeiou",
-  "location" : "aeiou",
   "quantity" : 123,
-  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
+  "toteId" : "aeiou",
   "lineItemId" : 123,
-  "pickerId" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
   "quantityScanned" : 123,
-  "completed" : "2000-01-23T04:56:07.000+0000"
-}, contentType=application/json}]
+  "completed" : "2000-01-23T04:56:07.000+0000",
+  "cartonNoId" : 123,
+  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
+  "location" : "aeiou",
+  "id" : 123,
+  "pickerId" : "aeiou",
+  "status" : "aeiou"
+}}]
      
      - parameter cartonContentId: (path) Id of the cartonContent to be returned. 
 
      - returns: RequestBuilder<CartonContent> 
      */
     public class func getCartonContentByIdWithRequestBuilder(cartonContentId cartonContentId: Int) -> RequestBuilder<CartonContent> {
-        var path = "/v1.0/cartonContent/{cartonContentId}"
+        var path = "/beta/cartonContent/{cartonContentId}"
         path = path.stringByReplacingOccurrencesOfString("{cartonContentId}", withString: "\(cartonContentId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -242,7 +251,7 @@ public class CartonContentAPI: APIBase {
      
      Update a cartonContent
      
-     - PUT /v1.0/cartonContent
+     - PUT /beta/cartonContent
      - Updates an existing cartonContent using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -253,7 +262,46 @@ public class CartonContentAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateCartonContentWithRequestBuilder(body body: CartonContent) -> RequestBuilder<Void> {
-        let path = "/v1.0/cartonContent"
+        let path = "/beta/cartonContent"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a cartonContent custom fields
+     
+     - parameter body: (body) CartonContent to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateCartonContentCustomFields(body body: CartonContent, completion: ((error: ErrorType?) -> Void)) {
+        updateCartonContentCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a cartonContent custom fields
+     
+     - PUT /beta/cartonContent/customFields
+     - Updates an existing cartonContent custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) CartonContent to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateCartonContentCustomFieldsWithRequestBuilder(body body: CartonContent) -> RequestBuilder<Void> {
+        let path = "/beta/cartonContent/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

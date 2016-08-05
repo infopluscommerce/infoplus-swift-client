@@ -17,6 +17,7 @@ public class ReceivingWorksheet: JSONEncodable {
     public var vendorId: Int?
     public var status: String?
     public var serviceLevel: String?
+    public var receivingProcessId: Int?
     public var createdBy: Int?
     public var worksheetName: String?
     public var carrier: String?
@@ -27,6 +28,7 @@ public class ReceivingWorksheet: JSONEncodable {
     public var workBatchId: Int?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -41,6 +43,7 @@ public class ReceivingWorksheet: JSONEncodable {
         nillableDictionary["vendorId"] = self.vendorId
         nillableDictionary["status"] = self.status
         nillableDictionary["serviceLevel"] = self.serviceLevel
+        nillableDictionary["receivingProcessId"] = self.receivingProcessId
         nillableDictionary["createdBy"] = self.createdBy
         nillableDictionary["worksheetName"] = self.worksheetName
         nillableDictionary["carrier"] = self.carrier
@@ -51,6 +54,7 @@ public class ReceivingWorksheet: JSONEncodable {
         nillableDictionary["workBatchId"] = self.workBatchId
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

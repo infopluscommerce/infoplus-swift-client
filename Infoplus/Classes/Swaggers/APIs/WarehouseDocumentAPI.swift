@@ -31,20 +31,23 @@ public class WarehouseDocumentAPI: APIBase {
      
      Search warehouseDocuments by filter
      
-     - GET /v1.0/warehouseDocument/search
+     - GET /beta/warehouseDocument/search
      - Returns the list of warehouseDocuments that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "id" : 123,
-  "documentType" : "aeiou",
-  "description" : "aeiou",
-  "name" : "aeiou",
+     - examples: [{contentType=application/json, example=[ {
+  "clientId" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "clientId" : 123
-} ], contentType=application/json}]
+  "documentType" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
+  "description" : "aeiou",
+  "id" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -54,7 +57,7 @@ public class WarehouseDocumentAPI: APIBase {
      - returns: RequestBuilder<[WarehouseDocument]> 
      */
     public class func getWarehouseDocumentByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[WarehouseDocument]> {
-        let path = "/v1.0/warehouseDocument/search"
+        let path = "/beta/warehouseDocument/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -88,27 +91,30 @@ public class WarehouseDocumentAPI: APIBase {
      
      Get a warehouseDocument by id
      
-     - GET /v1.0/warehouseDocument/{warehouseDocumentId}
+     - GET /beta/warehouseDocument/{warehouseDocumentId}
      - Returns the warehouseDocument identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "id" : 123,
-  "documentType" : "aeiou",
-  "description" : "aeiou",
-  "name" : "aeiou",
+     - examples: [{contentType=application/json, example={
+  "clientId" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "clientId" : 123
-}, contentType=application/json}]
+  "documentType" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
+  "description" : "aeiou",
+  "id" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
      
      - parameter warehouseDocumentId: (path) Id of the warehouseDocument to be returned. 
 
      - returns: RequestBuilder<WarehouseDocument> 
      */
     public class func getWarehouseDocumentByIdWithRequestBuilder(warehouseDocumentId warehouseDocumentId: Int) -> RequestBuilder<WarehouseDocument> {
-        var path = "/v1.0/warehouseDocument/{warehouseDocumentId}"
+        var path = "/beta/warehouseDocument/{warehouseDocumentId}"
         path = path.stringByReplacingOccurrencesOfString("{warehouseDocumentId}", withString: "\(warehouseDocumentId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -118,6 +124,45 @@ public class WarehouseDocumentAPI: APIBase {
         let requestBuilder: RequestBuilder<WarehouseDocument>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a warehouseDocument custom fields
+     
+     - parameter body: (body) WarehouseDocument to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateWarehouseDocumentCustomFields(body body: WarehouseDocument, completion: ((error: ErrorType?) -> Void)) {
+        updateWarehouseDocumentCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a warehouseDocument custom fields
+     
+     - PUT /beta/warehouseDocument/customFields
+     - Updates an existing warehouseDocument custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) WarehouseDocument to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateWarehouseDocumentCustomFieldsWithRequestBuilder(body body: WarehouseDocument) -> RequestBuilder<Void> {
+        let path = "/beta/warehouseDocument/customFields"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }

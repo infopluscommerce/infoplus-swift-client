@@ -28,61 +28,71 @@ public class ReceivingWorksheetAPI: APIBase {
      
      Create a receivingWorksheet
      
-     - POST /v1.0/receivingWorksheet
+     - POST /beta/receivingWorksheet
      - Inserts a new receivingWorksheet using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "onTheDock" : true,
-  "workBatchId" : 123,
-  "poNoId" : 123,
-  "status" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "serviceLevel" : "aeiou",
-  "vendorId" : 123,
-  "id" : 123,
-  "autoCommit" : true,
-  "createdBy" : 123,
-  "lobId" : 123,
-  "carrier" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
+     - examples: [{contentType=application/json, example={
   "notes" : "aeiou",
-  "worksheetName" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "onTheDock" : true,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "vendorId" : 123,
+  "serviceLevel" : "aeiou",
   "lineItems" : [ {
-    "orderedQty" : 123,
-    "casesPerPallet" : 123,
-    "productionLot" : "aeiou",
-    "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
-    "wrapCode" : "aeiou",
-    "putAwayPlans" : [ {
-      "quantity" : 123
-    } ],
-    "origin" : "aeiou",
-    "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
     "unitsPerWrap" : 123,
-    "revisionDate" : "aeiou",
-    "sku" : "aeiou",
-    "cartonLength" : 1.3579000000000001069366817318950779736042022705078125,
-    "cartonHeight" : 1.3579000000000001069366817318950779736042022705078125,
-    "fullDescription" : "aeiou",
-    "weightPerCase" : 1.3579000000000001069366817318950779736042022705078125,
     "unreceivedQty" : 123,
     "quantity" : 123,
-    "receivingQty" : 123,
-    "unitsPerCase" : 123,
     "prevReceivedQty" : 123,
-    "unitCode" : "aeiou"
-  } ]
-}, contentType=application/json}]
+    "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+    "revisionDate" : "aeiou",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "casesPerPallet" : 123,
+    "origin" : "aeiou",
+    "weightPerCase" : 1.3579000000000001069366817318950779736042022705078125,
+    "productionLot" : "aeiou",
+    "orderedQty" : 123,
+    "fullDescription" : "aeiou",
+    "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
+    "unitsPerCase" : 123,
+    "putAwayPlans" : [ {
+      "quantity" : 123,
+      "customFields" : {
+        "key" : "{}"
+      }
+    } ],
+    "cartonLength" : 1.3579000000000001069366817318950779736042022705078125,
+    "receivingQty" : 123,
+    "wrapCode" : "aeiou",
+    "unitCode" : "aeiou",
+    "cartonHeight" : 1.3579000000000001069366817318950779736042022705078125,
+    "sku" : "aeiou"
+  } ],
+  "carrier" : "aeiou",
+  "workBatchId" : 123,
+  "warehouseId" : 123,
+  "createdBy" : 123,
+  "id" : 123,
+  "poNoId" : 123,
+  "receivingProcessId" : 123,
+  "autoCommit" : true,
+  "worksheetName" : "aeiou",
+  "lobId" : 123,
+  "status" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
      
      - parameter body: (body) ReceivingWorksheet to be inserted. 
 
      - returns: RequestBuilder<ReceivingWorksheet> 
      */
     public class func addReceivingWorksheetWithRequestBuilder(body body: ReceivingWorksheet) -> RequestBuilder<ReceivingWorksheet> {
-        let path = "/v1.0/receivingWorksheet"
+        let path = "/beta/receivingWorksheet"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -110,7 +120,7 @@ public class ReceivingWorksheetAPI: APIBase {
      
      Delete a receivingWorksheet
      
-     - DELETE /v1.0/receivingWorksheet/{receivingWorksheetId}
+     - DELETE /beta/receivingWorksheet/{receivingWorksheetId}
      - Deletes the receivingWorksheet identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -121,7 +131,7 @@ public class ReceivingWorksheetAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteReceivingWorksheetWithRequestBuilder(receivingWorksheetId receivingWorksheetId: Int) -> RequestBuilder<Void> {
-        var path = "/v1.0/receivingWorksheet/{receivingWorksheetId}"
+        var path = "/beta/receivingWorksheet/{receivingWorksheetId}"
         path = path.stringByReplacingOccurrencesOfString("{receivingWorksheetId}", withString: "\(receivingWorksheetId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -154,54 +164,64 @@ public class ReceivingWorksheetAPI: APIBase {
      
      Search receivingWorksheets by filter
      
-     - GET /v1.0/receivingWorksheet/search
+     - GET /beta/receivingWorksheet/search
      - Returns the list of receivingWorksheets that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "onTheDock" : true,
-  "workBatchId" : 123,
-  "poNoId" : 123,
-  "status" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "serviceLevel" : "aeiou",
-  "vendorId" : 123,
-  "id" : 123,
-  "autoCommit" : true,
-  "createdBy" : 123,
-  "lobId" : 123,
-  "carrier" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
+     - examples: [{contentType=application/json, example=[ {
   "notes" : "aeiou",
-  "worksheetName" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "onTheDock" : true,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "vendorId" : 123,
+  "serviceLevel" : "aeiou",
   "lineItems" : [ {
-    "orderedQty" : 123,
-    "casesPerPallet" : 123,
-    "productionLot" : "aeiou",
-    "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
-    "wrapCode" : "aeiou",
-    "putAwayPlans" : [ {
-      "quantity" : 123
-    } ],
-    "origin" : "aeiou",
-    "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
     "unitsPerWrap" : 123,
-    "revisionDate" : "aeiou",
-    "sku" : "aeiou",
-    "cartonLength" : 1.3579000000000001069366817318950779736042022705078125,
-    "cartonHeight" : 1.3579000000000001069366817318950779736042022705078125,
-    "fullDescription" : "aeiou",
-    "weightPerCase" : 1.3579000000000001069366817318950779736042022705078125,
     "unreceivedQty" : 123,
     "quantity" : 123,
-    "receivingQty" : 123,
-    "unitsPerCase" : 123,
     "prevReceivedQty" : 123,
-    "unitCode" : "aeiou"
-  } ]
-} ], contentType=application/json}]
+    "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+    "revisionDate" : "aeiou",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "casesPerPallet" : 123,
+    "origin" : "aeiou",
+    "weightPerCase" : 1.3579000000000001069366817318950779736042022705078125,
+    "productionLot" : "aeiou",
+    "orderedQty" : 123,
+    "fullDescription" : "aeiou",
+    "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
+    "unitsPerCase" : 123,
+    "putAwayPlans" : [ {
+      "quantity" : 123,
+      "customFields" : {
+        "key" : "{}"
+      }
+    } ],
+    "cartonLength" : 1.3579000000000001069366817318950779736042022705078125,
+    "receivingQty" : 123,
+    "wrapCode" : "aeiou",
+    "unitCode" : "aeiou",
+    "cartonHeight" : 1.3579000000000001069366817318950779736042022705078125,
+    "sku" : "aeiou"
+  } ],
+  "carrier" : "aeiou",
+  "workBatchId" : 123,
+  "warehouseId" : 123,
+  "createdBy" : 123,
+  "id" : 123,
+  "poNoId" : 123,
+  "receivingProcessId" : 123,
+  "autoCommit" : true,
+  "worksheetName" : "aeiou",
+  "lobId" : 123,
+  "status" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -211,7 +231,7 @@ public class ReceivingWorksheetAPI: APIBase {
      - returns: RequestBuilder<[ReceivingWorksheet]> 
      */
     public class func getReceivingWorksheetByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ReceivingWorksheet]> {
-        let path = "/v1.0/receivingWorksheet/search"
+        let path = "/beta/receivingWorksheet/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -245,61 +265,71 @@ public class ReceivingWorksheetAPI: APIBase {
      
      Get a receivingWorksheet by id
      
-     - GET /v1.0/receivingWorksheet/{receivingWorksheetId}
+     - GET /beta/receivingWorksheet/{receivingWorksheetId}
      - Returns the receivingWorksheet identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "onTheDock" : true,
-  "workBatchId" : 123,
-  "poNoId" : 123,
-  "status" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
-  "serviceLevel" : "aeiou",
-  "vendorId" : 123,
-  "id" : 123,
-  "autoCommit" : true,
-  "createdBy" : 123,
-  "lobId" : 123,
-  "carrier" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
+     - examples: [{contentType=application/json, example={
   "notes" : "aeiou",
-  "worksheetName" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "onTheDock" : true,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "vendorId" : 123,
+  "serviceLevel" : "aeiou",
   "lineItems" : [ {
-    "orderedQty" : 123,
-    "casesPerPallet" : 123,
-    "productionLot" : "aeiou",
-    "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
-    "wrapCode" : "aeiou",
-    "putAwayPlans" : [ {
-      "quantity" : 123
-    } ],
-    "origin" : "aeiou",
-    "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
     "unitsPerWrap" : 123,
-    "revisionDate" : "aeiou",
-    "sku" : "aeiou",
-    "cartonLength" : 1.3579000000000001069366817318950779736042022705078125,
-    "cartonHeight" : 1.3579000000000001069366817318950779736042022705078125,
-    "fullDescription" : "aeiou",
-    "weightPerCase" : 1.3579000000000001069366817318950779736042022705078125,
     "unreceivedQty" : 123,
     "quantity" : 123,
-    "receivingQty" : 123,
-    "unitsPerCase" : 123,
     "prevReceivedQty" : 123,
-    "unitCode" : "aeiou"
-  } ]
-}, contentType=application/json}]
+    "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+    "revisionDate" : "aeiou",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "casesPerPallet" : 123,
+    "origin" : "aeiou",
+    "weightPerCase" : 1.3579000000000001069366817318950779736042022705078125,
+    "productionLot" : "aeiou",
+    "orderedQty" : 123,
+    "fullDescription" : "aeiou",
+    "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
+    "unitsPerCase" : 123,
+    "putAwayPlans" : [ {
+      "quantity" : 123,
+      "customFields" : {
+        "key" : "{}"
+      }
+    } ],
+    "cartonLength" : 1.3579000000000001069366817318950779736042022705078125,
+    "receivingQty" : 123,
+    "wrapCode" : "aeiou",
+    "unitCode" : "aeiou",
+    "cartonHeight" : 1.3579000000000001069366817318950779736042022705078125,
+    "sku" : "aeiou"
+  } ],
+  "carrier" : "aeiou",
+  "workBatchId" : 123,
+  "warehouseId" : 123,
+  "createdBy" : 123,
+  "id" : 123,
+  "poNoId" : 123,
+  "receivingProcessId" : 123,
+  "autoCommit" : true,
+  "worksheetName" : "aeiou",
+  "lobId" : 123,
+  "status" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
      
      - parameter receivingWorksheetId: (path) Id of the receivingWorksheet to be returned. 
 
      - returns: RequestBuilder<ReceivingWorksheet> 
      */
     public class func getReceivingWorksheetByIdWithRequestBuilder(receivingWorksheetId receivingWorksheetId: Int) -> RequestBuilder<ReceivingWorksheet> {
-        var path = "/v1.0/receivingWorksheet/{receivingWorksheetId}"
+        var path = "/beta/receivingWorksheet/{receivingWorksheetId}"
         path = path.stringByReplacingOccurrencesOfString("{receivingWorksheetId}", withString: "\(receivingWorksheetId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -329,7 +359,7 @@ public class ReceivingWorksheetAPI: APIBase {
      
      Update a receivingWorksheet
      
-     - PUT /v1.0/receivingWorksheet
+     - PUT /beta/receivingWorksheet
      - Updates an existing receivingWorksheet using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -340,7 +370,46 @@ public class ReceivingWorksheetAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateReceivingWorksheetWithRequestBuilder(body body: ReceivingWorksheet) -> RequestBuilder<Void> {
-        let path = "/v1.0/receivingWorksheet"
+        let path = "/beta/receivingWorksheet"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a receivingWorksheet custom fields
+     
+     - parameter body: (body) ReceivingWorksheet to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateReceivingWorksheetCustomFields(body body: ReceivingWorksheet, completion: ((error: ErrorType?) -> Void)) {
+        updateReceivingWorksheetCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a receivingWorksheet custom fields
+     
+     - PUT /beta/receivingWorksheet/customFields
+     - Updates an existing receivingWorksheet custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) ReceivingWorksheet to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateReceivingWorksheetCustomFieldsWithRequestBuilder(body body: ReceivingWorksheet) -> RequestBuilder<Void> {
+        let path = "/beta/receivingWorksheet/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

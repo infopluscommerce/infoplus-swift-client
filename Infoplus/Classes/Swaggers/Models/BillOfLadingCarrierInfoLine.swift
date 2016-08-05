@@ -20,6 +20,7 @@ public class BillOfLadingCarrierInfoLine: JSONEncodable {
     public var commodityDescription: String?
     public var nfmcNo: String?
     public var carrierClass: String?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -37,6 +38,7 @@ public class BillOfLadingCarrierInfoLine: JSONEncodable {
         nillableDictionary["commodityDescription"] = self.commodityDescription
         nillableDictionary["nfmcNo"] = self.nfmcNo
         nillableDictionary["carrierClass"] = self.carrierClass
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

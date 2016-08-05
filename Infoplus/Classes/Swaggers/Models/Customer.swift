@@ -58,6 +58,7 @@ public class Customer: JSONEncodable {
     public var extrinsicDecimal2: Double?
     public var modifyDate: NSDate?
     public var omsCustomerId: Int?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -113,6 +114,7 @@ public class Customer: JSONEncodable {
         nillableDictionary["extrinsicDecimal2"] = self.extrinsicDecimal2
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["omsCustomerId"] = self.omsCustomerId
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

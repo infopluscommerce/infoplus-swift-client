@@ -28,22 +28,22 @@ public class IntegrationPartnerAPI: APIBase {
      
      Get an integrationPartner by id
      
-     - GET /v1.0/integrationPartner/{integrationPartnerId}
+     - GET /beta/integrationPartner/{integrationPartnerId}
      - Returns the integrationPartner identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
+     - examples: [{contentType=application/json, example={
   "id" : 123,
   "label" : "aeiou"
-}, contentType=application/json}]
+}}]
      
      - parameter integrationPartnerId: (path) Id of integrationPartner to be returned. 
 
      - returns: RequestBuilder<IntegrationPartner> 
      */
     public class func getIntegrationPartnerByIdWithRequestBuilder(integrationPartnerId integrationPartnerId: String) -> RequestBuilder<IntegrationPartner> {
-        var path = "/v1.0/integrationPartner/{integrationPartnerId}"
+        var path = "/beta/integrationPartner/{integrationPartnerId}"
         path = path.stringByReplacingOccurrencesOfString("{integrationPartnerId}", withString: "\(integrationPartnerId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -75,15 +75,15 @@ public class IntegrationPartnerAPI: APIBase {
      
      Search integrationPartners
      
-     - GET /v1.0/integrationPartner/search
+     - GET /beta/integrationPartner/search
      - Returns the list of integrationPartners that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
+     - examples: [{contentType=application/json, example=[ {
   "id" : 123,
   "label" : "aeiou"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -92,7 +92,7 @@ public class IntegrationPartnerAPI: APIBase {
      - returns: RequestBuilder<[IntegrationPartner]> 
      */
     public class func getIntegrationPartnerBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[IntegrationPartner]> {
-        let path = "/v1.0/integrationPartner/search"
+        let path = "/beta/integrationPartner/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [

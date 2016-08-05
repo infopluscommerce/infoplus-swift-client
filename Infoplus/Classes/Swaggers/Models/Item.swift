@@ -70,7 +70,9 @@ public class Item: JSONEncodable {
     public var forwardItemMixingRule: String?
     public var storageItemMixingRule: String?
     public var allocationRule: String?
+    public var barcodeField: String?
     public var hazmat: String?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -138,7 +140,9 @@ public class Item: JSONEncodable {
         nillableDictionary["forwardItemMixingRule"] = self.forwardItemMixingRule
         nillableDictionary["storageItemMixingRule"] = self.storageItemMixingRule
         nillableDictionary["allocationRule"] = self.allocationRule
+        nillableDictionary["barcodeField"] = self.barcodeField
         nillableDictionary["hazmat"] = self.hazmat
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

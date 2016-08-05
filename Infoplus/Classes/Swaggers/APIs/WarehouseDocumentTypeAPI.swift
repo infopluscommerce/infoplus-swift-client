@@ -31,17 +31,20 @@ public class WarehouseDocumentTypeAPI: APIBase {
      
      Search warehouseDocumentTypes by filter
      
-     - GET /v1.0/warehouseDocumentType/search
+     - GET /beta/warehouseDocumentType/search
      - Returns the list of warehouseDocumentTypes that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "id" : 123,
-  "name" : "aeiou",
+     - examples: [{contentType=application/json, example=[ {
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
+  "id" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -51,7 +54,7 @@ public class WarehouseDocumentTypeAPI: APIBase {
      - returns: RequestBuilder<[WarehouseDocumentType]> 
      */
     public class func getWarehouseDocumentTypeByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[WarehouseDocumentType]> {
-        let path = "/v1.0/warehouseDocumentType/search"
+        let path = "/beta/warehouseDocumentType/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -85,24 +88,27 @@ public class WarehouseDocumentTypeAPI: APIBase {
      
      Get a warehouseDocumentType by id
      
-     - GET /v1.0/warehouseDocumentType/{warehouseDocumentTypeId}
+     - GET /beta/warehouseDocumentType/{warehouseDocumentTypeId}
      - Returns the warehouseDocumentType identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "id" : 123,
-  "name" : "aeiou",
+     - examples: [{contentType=application/json, example={
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
+  "id" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000"
-}, contentType=application/json}]
+}}]
      
      - parameter warehouseDocumentTypeId: (path) Id of the warehouseDocumentType to be returned. 
 
      - returns: RequestBuilder<WarehouseDocumentType> 
      */
     public class func getWarehouseDocumentTypeByIdWithRequestBuilder(warehouseDocumentTypeId warehouseDocumentTypeId: Int) -> RequestBuilder<WarehouseDocumentType> {
-        var path = "/v1.0/warehouseDocumentType/{warehouseDocumentTypeId}"
+        var path = "/beta/warehouseDocumentType/{warehouseDocumentTypeId}"
         path = path.stringByReplacingOccurrencesOfString("{warehouseDocumentTypeId}", withString: "\(warehouseDocumentTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         

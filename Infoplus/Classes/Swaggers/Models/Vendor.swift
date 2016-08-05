@@ -52,6 +52,7 @@ public class Vendor: JSONEncodable {
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var inactive: String?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -101,6 +102,7 @@ public class Vendor: JSONEncodable {
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["inactive"] = self.inactive
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

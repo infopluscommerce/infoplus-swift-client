@@ -28,32 +28,35 @@ public class CartonTypeAPI: APIBase {
      
      Create a cartonType
      
-     - POST /v1.0/cartonType
+     - POST /beta/cartonType
      - Inserts a new cartonType using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "isActive" : true,
-  "id" : 123,
-  "heightIn" : 1.3579000000000001069366817318950779736042022705078125,
-  "innerWidthIn" : 1.3579000000000001069366817318950779736042022705078125,
-  "name" : "aeiou",
-  "lobId" : 123,
-  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "innerHeightIn" : 1.3579000000000001069366817318950779736042022705078125,
-  "widthIn" : 1.3579000000000001069366817318950779736042022705078125,
-  "innerLengthIn" : 1.3579000000000001069366817318950779736042022705078125,
+     - examples: [{contentType=application/json, example={
   "lengthIn" : 1.3579000000000001069366817318950779736042022705078125,
-  "abbreviation" : "aeiou"
-}, contentType=application/json}]
+  "widthIn" : 1.3579000000000001069366817318950779736042022705078125,
+  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "abbreviation" : "aeiou",
+  "isActive" : true,
+  "innerWidthIn" : 1.3579000000000001069366817318950779736042022705078125,
+  "innerLengthIn" : 1.3579000000000001069366817318950779736042022705078125,
+  "heightIn" : 1.3579000000000001069366817318950779736042022705078125,
+  "name" : "aeiou",
+  "id" : 123,
+  "innerHeightIn" : 1.3579000000000001069366817318950779736042022705078125,
+  "lobId" : 123
+}}]
      
      - parameter body: (body) CartonType to be inserted. 
 
      - returns: RequestBuilder<CartonType> 
      */
     public class func addCartonTypeWithRequestBuilder(body body: CartonType) -> RequestBuilder<CartonType> {
-        let path = "/v1.0/cartonType"
+        let path = "/beta/cartonType"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -81,7 +84,7 @@ public class CartonTypeAPI: APIBase {
      
      Delete a cartonType
      
-     - DELETE /v1.0/cartonType/{cartonTypeId}
+     - DELETE /beta/cartonType/{cartonTypeId}
      - Deletes the cartonType identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -92,7 +95,7 @@ public class CartonTypeAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteCartonTypeWithRequestBuilder(cartonTypeId cartonTypeId: Int) -> RequestBuilder<Void> {
-        var path = "/v1.0/cartonType/{cartonTypeId}"
+        var path = "/beta/cartonType/{cartonTypeId}"
         path = path.stringByReplacingOccurrencesOfString("{cartonTypeId}", withString: "\(cartonTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -125,25 +128,28 @@ public class CartonTypeAPI: APIBase {
      
      Search cartonTypes by filter
      
-     - GET /v1.0/cartonType/search
+     - GET /beta/cartonType/search
      - Returns the list of cartonTypes that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "isActive" : true,
-  "id" : 123,
-  "heightIn" : 1.3579000000000001069366817318950779736042022705078125,
-  "innerWidthIn" : 1.3579000000000001069366817318950779736042022705078125,
-  "name" : "aeiou",
-  "lobId" : 123,
-  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "innerHeightIn" : 1.3579000000000001069366817318950779736042022705078125,
-  "widthIn" : 1.3579000000000001069366817318950779736042022705078125,
-  "innerLengthIn" : 1.3579000000000001069366817318950779736042022705078125,
+     - examples: [{contentType=application/json, example=[ {
   "lengthIn" : 1.3579000000000001069366817318950779736042022705078125,
-  "abbreviation" : "aeiou"
-} ], contentType=application/json}]
+  "widthIn" : 1.3579000000000001069366817318950779736042022705078125,
+  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "abbreviation" : "aeiou",
+  "isActive" : true,
+  "innerWidthIn" : 1.3579000000000001069366817318950779736042022705078125,
+  "innerLengthIn" : 1.3579000000000001069366817318950779736042022705078125,
+  "heightIn" : 1.3579000000000001069366817318950779736042022705078125,
+  "name" : "aeiou",
+  "id" : 123,
+  "innerHeightIn" : 1.3579000000000001069366817318950779736042022705078125,
+  "lobId" : 123
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -153,7 +159,7 @@ public class CartonTypeAPI: APIBase {
      - returns: RequestBuilder<[CartonType]> 
      */
     public class func getCartonTypeByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[CartonType]> {
-        let path = "/v1.0/cartonType/search"
+        let path = "/beta/cartonType/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -187,32 +193,35 @@ public class CartonTypeAPI: APIBase {
      
      Get a cartonType by id
      
-     - GET /v1.0/cartonType/{cartonTypeId}
+     - GET /beta/cartonType/{cartonTypeId}
      - Returns the cartonType identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "isActive" : true,
-  "id" : 123,
-  "heightIn" : 1.3579000000000001069366817318950779736042022705078125,
-  "innerWidthIn" : 1.3579000000000001069366817318950779736042022705078125,
-  "name" : "aeiou",
-  "lobId" : 123,
-  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "innerHeightIn" : 1.3579000000000001069366817318950779736042022705078125,
-  "widthIn" : 1.3579000000000001069366817318950779736042022705078125,
-  "innerLengthIn" : 1.3579000000000001069366817318950779736042022705078125,
+     - examples: [{contentType=application/json, example={
   "lengthIn" : 1.3579000000000001069366817318950779736042022705078125,
-  "abbreviation" : "aeiou"
-}, contentType=application/json}]
+  "widthIn" : 1.3579000000000001069366817318950779736042022705078125,
+  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "abbreviation" : "aeiou",
+  "isActive" : true,
+  "innerWidthIn" : 1.3579000000000001069366817318950779736042022705078125,
+  "innerLengthIn" : 1.3579000000000001069366817318950779736042022705078125,
+  "heightIn" : 1.3579000000000001069366817318950779736042022705078125,
+  "name" : "aeiou",
+  "id" : 123,
+  "innerHeightIn" : 1.3579000000000001069366817318950779736042022705078125,
+  "lobId" : 123
+}}]
      
      - parameter cartonTypeId: (path) Id of the cartonType to be returned. 
 
      - returns: RequestBuilder<CartonType> 
      */
     public class func getCartonTypeByIdWithRequestBuilder(cartonTypeId cartonTypeId: Int) -> RequestBuilder<CartonType> {
-        var path = "/v1.0/cartonType/{cartonTypeId}"
+        var path = "/beta/cartonType/{cartonTypeId}"
         path = path.stringByReplacingOccurrencesOfString("{cartonTypeId}", withString: "\(cartonTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -242,7 +251,7 @@ public class CartonTypeAPI: APIBase {
      
      Update a cartonType
      
-     - PUT /v1.0/cartonType
+     - PUT /beta/cartonType
      - Updates an existing cartonType using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -253,7 +262,46 @@ public class CartonTypeAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateCartonTypeWithRequestBuilder(body body: CartonType) -> RequestBuilder<Void> {
-        let path = "/v1.0/cartonType"
+        let path = "/beta/cartonType"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a cartonType custom fields
+     
+     - parameter body: (body) CartonType to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateCartonTypeCustomFields(body body: CartonType, completion: ((error: ErrorType?) -> Void)) {
+        updateCartonTypeCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a cartonType custom fields
+     
+     - PUT /beta/cartonType/customFields
+     - Updates an existing cartonType custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) CartonType to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateCartonTypeCustomFieldsWithRequestBuilder(body body: CartonType) -> RequestBuilder<Void> {
+        let path = "/beta/cartonType/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

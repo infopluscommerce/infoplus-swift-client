@@ -22,6 +22,7 @@ public class CartonType: JSONEncodable {
     public var weightLbs: Double?
     public var lobId: Int?
     public var isActive: Bool?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -41,6 +42,7 @@ public class CartonType: JSONEncodable {
         nillableDictionary["weightLbs"] = self.weightLbs
         nillableDictionary["lobId"] = self.lobId
         nillableDictionary["isActive"] = self.isActive
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

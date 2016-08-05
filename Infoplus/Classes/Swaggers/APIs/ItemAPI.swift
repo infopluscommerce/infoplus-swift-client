@@ -28,81 +28,85 @@ public class ItemAPI: APIBase {
      
      Create an item
      
-     - POST /v1.0/item
+     - POST /beta/item
      - Inserts a new item using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "sector" : "aeiou",
-  "wrapCode" : "aeiou",
-  "majorGroupId" : 123,
-  "additionalDescription" : "aeiou",
-  "outsideVendor" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "seasonalItem" : "aeiou",
-  "serialCode" : "aeiou",
-  "hazmat" : "aeiou",
-  "vendorSKU" : "aeiou",
-  "podRevDate" : "aeiou",
-  "voidDate" : "2000-01-23T04:56:07.000+0000",
-  "extrinsicNumber2" : 123,
-  "summaryCodeId" : 123,
-  "listPrice" : 1.3579000000000001069366817318950779736042022705078125,
-  "extrinsicNumber1" : 123,
-  "storageItemMixingRule" : "aeiou",
-  "unitCode" : "aeiou",
-  "forwardItemMixingRule" : "aeiou",
-  "lotControlFlag" : "aeiou",
-  "status" : "aeiou",
-  "absoluteMax" : "aeiou",
+     - examples: [{contentType=application/json, example={
   "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
   "storageLotMixingRule" : "aeiou",
-  "casebreakEnabled" : "aeiou",
-  "sku" : "aeiou",
-  "maxInterim" : 123,
-  "podOrderSuffix" : 123,
-  "overallFixedReorderPoint" : 123,
-  "accountCodeId" : 123,
-  "maxCycle" : 123,
-  "criticalAmount" : 123,
-  "allocationRule" : "aeiou",
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "productCodeId" : 123,
-  "secure" : "aeiou",
-  "unitsPerWrap" : 123,
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "id" : 123,
-  "packingSlipDescription" : "aeiou",
-  "lobId" : 123,
-  "overallLeadTime" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "extrinsicText3" : "aeiou",
-  "numericSortOrder" : 123,
-  "extrinsicText2" : "aeiou",
-  "extrinsicText1" : "aeiou",
-  "lowStockCodeId" : 123,
-  "legacyLowLevelContactId" : 123,
-  "upc" : "aeiou",
-  "lowStockContactId" : 123,
   "buyerId" : 123,
-  "backorder" : "aeiou",
+  "secure" : "aeiou",
+  "voidDate" : "2000-01-23T04:56:07.000+0000",
+  "lowStockContactId" : 123,
   "forwardLotMixingRule" : "aeiou",
-  "requiresProductionLot" : "aeiou",
-  "itemDescription" : "aeiou",
-  "subGroupId" : 123,
-  "chargeCode" : "aeiou",
-  "compCode" : 123,
+  "barcodeField" : "aeiou",
+  "absoluteMax" : "aeiou",
+  "criticalAmount" : 123,
+  "podRevDate" : "aeiou",
+  "unitCode" : "aeiou",
+  "hazmat" : "aeiou",
   "commodityCode" : "aeiou",
-  "pickNo" : "aeiou"
-}, contentType=application/json}]
+  "id" : 123,
+  "itemDescription" : "aeiou",
+  "sku" : "aeiou",
+  "sector" : "aeiou",
+  "lobId" : 123,
+  "productCodeId" : 123,
+  "packingSlipDescription" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "maxCycle" : 123,
+  "upc" : "aeiou",
+  "allocationRule" : "aeiou",
+  "extrinsicNumber2" : 123,
+  "compCode" : 123,
+  "extrinsicNumber1" : 123,
+  "forwardItemMixingRule" : "aeiou",
+  "extrinsicText1" : "aeiou",
+  "storageItemMixingRule" : "aeiou",
+  "backorder" : "aeiou",
+  "outsideVendor" : 123,
+  "extrinsicText3" : "aeiou",
+  "extrinsicText2" : "aeiou",
+  "subGroupId" : 123,
+  "overallLeadTime" : 123,
+  "chargeCode" : "aeiou",
+  "status" : "aeiou",
+  "legacyLowLevelContactId" : 123,
+  "overallFixedReorderPoint" : 123,
+  "seasonalItem" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "serialCode" : "aeiou",
+  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
+  "maxInterim" : 123,
+  "wrapCode" : "aeiou",
+  "additionalDescription" : "aeiou",
+  "lowStockCodeId" : 123,
+  "pickNo" : "aeiou",
+  "majorGroupId" : 123,
+  "lotControlFlag" : "aeiou",
+  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "unitsPerWrap" : 123,
+  "podOrderSuffix" : 123,
+  "accountCodeId" : 123,
+  "vendorSKU" : "aeiou",
+  "requiresProductionLot" : "aeiou",
+  "casebreakEnabled" : "aeiou",
+  "summaryCodeId" : 123,
+  "numericSortOrder" : 123,
+  "listPrice" : 1.3579000000000001069366817318950779736042022705078125
+}}]
      
      - parameter body: (body) Item to be inserted. 
 
      - returns: RequestBuilder<Item> 
      */
     public class func addItemWithRequestBuilder(body body: Item) -> RequestBuilder<Item> {
-        let path = "/v1.0/item"
+        let path = "/beta/item"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -130,7 +134,7 @@ public class ItemAPI: APIBase {
      
      Delete an item
      
-     - DELETE /v1.0/item/{itemId}
+     - DELETE /beta/item/{itemId}
      - Deletes the item identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -141,7 +145,7 @@ public class ItemAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteItemWithRequestBuilder(itemId itemId: Int) -> RequestBuilder<Void> {
-        var path = "/v1.0/item/{itemId}"
+        var path = "/beta/item/{itemId}"
         path = path.stringByReplacingOccurrencesOfString("{itemId}", withString: "\(itemId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -172,74 +176,78 @@ public class ItemAPI: APIBase {
      
      Get an item by SKU
      
-     - GET /v1.0/item/getBySKU
+     - GET /beta/item/getBySKU
      - Returns the item identified by the specified parameters.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "sector" : "aeiou",
-  "wrapCode" : "aeiou",
-  "majorGroupId" : 123,
-  "additionalDescription" : "aeiou",
-  "outsideVendor" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "seasonalItem" : "aeiou",
-  "serialCode" : "aeiou",
-  "hazmat" : "aeiou",
-  "vendorSKU" : "aeiou",
-  "podRevDate" : "aeiou",
-  "voidDate" : "2000-01-23T04:56:07.000+0000",
-  "extrinsicNumber2" : 123,
-  "summaryCodeId" : 123,
-  "listPrice" : 1.3579000000000001069366817318950779736042022705078125,
-  "extrinsicNumber1" : 123,
-  "storageItemMixingRule" : "aeiou",
-  "unitCode" : "aeiou",
-  "forwardItemMixingRule" : "aeiou",
-  "lotControlFlag" : "aeiou",
-  "status" : "aeiou",
-  "absoluteMax" : "aeiou",
+     - examples: [{contentType=application/json, example={
   "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
   "storageLotMixingRule" : "aeiou",
-  "casebreakEnabled" : "aeiou",
-  "sku" : "aeiou",
-  "maxInterim" : 123,
-  "podOrderSuffix" : 123,
-  "overallFixedReorderPoint" : 123,
-  "accountCodeId" : 123,
-  "maxCycle" : 123,
-  "criticalAmount" : 123,
-  "allocationRule" : "aeiou",
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "productCodeId" : 123,
-  "secure" : "aeiou",
-  "unitsPerWrap" : 123,
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "id" : 123,
-  "packingSlipDescription" : "aeiou",
-  "lobId" : 123,
-  "overallLeadTime" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "extrinsicText3" : "aeiou",
-  "numericSortOrder" : 123,
-  "extrinsicText2" : "aeiou",
-  "extrinsicText1" : "aeiou",
-  "lowStockCodeId" : 123,
-  "legacyLowLevelContactId" : 123,
-  "upc" : "aeiou",
-  "lowStockContactId" : 123,
   "buyerId" : 123,
-  "backorder" : "aeiou",
+  "secure" : "aeiou",
+  "voidDate" : "2000-01-23T04:56:07.000+0000",
+  "lowStockContactId" : 123,
   "forwardLotMixingRule" : "aeiou",
-  "requiresProductionLot" : "aeiou",
-  "itemDescription" : "aeiou",
-  "subGroupId" : 123,
-  "chargeCode" : "aeiou",
-  "compCode" : 123,
+  "barcodeField" : "aeiou",
+  "absoluteMax" : "aeiou",
+  "criticalAmount" : 123,
+  "podRevDate" : "aeiou",
+  "unitCode" : "aeiou",
+  "hazmat" : "aeiou",
   "commodityCode" : "aeiou",
-  "pickNo" : "aeiou"
-}, contentType=application/json}]
+  "id" : 123,
+  "itemDescription" : "aeiou",
+  "sku" : "aeiou",
+  "sector" : "aeiou",
+  "lobId" : 123,
+  "productCodeId" : 123,
+  "packingSlipDescription" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "maxCycle" : 123,
+  "upc" : "aeiou",
+  "allocationRule" : "aeiou",
+  "extrinsicNumber2" : 123,
+  "compCode" : 123,
+  "extrinsicNumber1" : 123,
+  "forwardItemMixingRule" : "aeiou",
+  "extrinsicText1" : "aeiou",
+  "storageItemMixingRule" : "aeiou",
+  "backorder" : "aeiou",
+  "outsideVendor" : 123,
+  "extrinsicText3" : "aeiou",
+  "extrinsicText2" : "aeiou",
+  "subGroupId" : 123,
+  "overallLeadTime" : 123,
+  "chargeCode" : "aeiou",
+  "status" : "aeiou",
+  "legacyLowLevelContactId" : 123,
+  "overallFixedReorderPoint" : 123,
+  "seasonalItem" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "serialCode" : "aeiou",
+  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
+  "maxInterim" : 123,
+  "wrapCode" : "aeiou",
+  "additionalDescription" : "aeiou",
+  "lowStockCodeId" : 123,
+  "pickNo" : "aeiou",
+  "majorGroupId" : 123,
+  "lotControlFlag" : "aeiou",
+  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "unitsPerWrap" : 123,
+  "podOrderSuffix" : 123,
+  "accountCodeId" : 123,
+  "vendorSKU" : "aeiou",
+  "requiresProductionLot" : "aeiou",
+  "casebreakEnabled" : "aeiou",
+  "summaryCodeId" : 123,
+  "numericSortOrder" : 123,
+  "listPrice" : 1.3579000000000001069366817318950779736042022705078125
+}}]
      
      - parameter lobId: (query) lobId of the item to be returned. 
      - parameter sku: (query) sku of the item to be returned. 
@@ -247,7 +255,7 @@ public class ItemAPI: APIBase {
      - returns: RequestBuilder<Item> 
      */
     public class func getBySKUWithRequestBuilder(lobId lobId: Int, sku: String) -> RequestBuilder<Item> {
-        let path = "/v1.0/item/getBySKU"
+        let path = "/beta/item/getBySKU"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -282,74 +290,78 @@ public class ItemAPI: APIBase {
      
      Search items by filter
      
-     - GET /v1.0/item/search
+     - GET /beta/item/search
      - Returns the list of items that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "sector" : "aeiou",
-  "wrapCode" : "aeiou",
-  "majorGroupId" : 123,
-  "additionalDescription" : "aeiou",
-  "outsideVendor" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "seasonalItem" : "aeiou",
-  "serialCode" : "aeiou",
-  "hazmat" : "aeiou",
-  "vendorSKU" : "aeiou",
-  "podRevDate" : "aeiou",
-  "voidDate" : "2000-01-23T04:56:07.000+0000",
-  "extrinsicNumber2" : 123,
-  "summaryCodeId" : 123,
-  "listPrice" : 1.3579000000000001069366817318950779736042022705078125,
-  "extrinsicNumber1" : 123,
-  "storageItemMixingRule" : "aeiou",
-  "unitCode" : "aeiou",
-  "forwardItemMixingRule" : "aeiou",
-  "lotControlFlag" : "aeiou",
-  "status" : "aeiou",
-  "absoluteMax" : "aeiou",
+     - examples: [{contentType=application/json, example=[ {
   "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
   "storageLotMixingRule" : "aeiou",
-  "casebreakEnabled" : "aeiou",
-  "sku" : "aeiou",
-  "maxInterim" : 123,
-  "podOrderSuffix" : 123,
-  "overallFixedReorderPoint" : 123,
-  "accountCodeId" : 123,
-  "maxCycle" : 123,
-  "criticalAmount" : 123,
-  "allocationRule" : "aeiou",
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "productCodeId" : 123,
-  "secure" : "aeiou",
-  "unitsPerWrap" : 123,
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "id" : 123,
-  "packingSlipDescription" : "aeiou",
-  "lobId" : 123,
-  "overallLeadTime" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "extrinsicText3" : "aeiou",
-  "numericSortOrder" : 123,
-  "extrinsicText2" : "aeiou",
-  "extrinsicText1" : "aeiou",
-  "lowStockCodeId" : 123,
-  "legacyLowLevelContactId" : 123,
-  "upc" : "aeiou",
-  "lowStockContactId" : 123,
   "buyerId" : 123,
-  "backorder" : "aeiou",
+  "secure" : "aeiou",
+  "voidDate" : "2000-01-23T04:56:07.000+0000",
+  "lowStockContactId" : 123,
   "forwardLotMixingRule" : "aeiou",
-  "requiresProductionLot" : "aeiou",
-  "itemDescription" : "aeiou",
-  "subGroupId" : 123,
-  "chargeCode" : "aeiou",
-  "compCode" : 123,
+  "barcodeField" : "aeiou",
+  "absoluteMax" : "aeiou",
+  "criticalAmount" : 123,
+  "podRevDate" : "aeiou",
+  "unitCode" : "aeiou",
+  "hazmat" : "aeiou",
   "commodityCode" : "aeiou",
-  "pickNo" : "aeiou"
-} ], contentType=application/json}]
+  "id" : 123,
+  "itemDescription" : "aeiou",
+  "sku" : "aeiou",
+  "sector" : "aeiou",
+  "lobId" : 123,
+  "productCodeId" : 123,
+  "packingSlipDescription" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "maxCycle" : 123,
+  "upc" : "aeiou",
+  "allocationRule" : "aeiou",
+  "extrinsicNumber2" : 123,
+  "compCode" : 123,
+  "extrinsicNumber1" : 123,
+  "forwardItemMixingRule" : "aeiou",
+  "extrinsicText1" : "aeiou",
+  "storageItemMixingRule" : "aeiou",
+  "backorder" : "aeiou",
+  "outsideVendor" : 123,
+  "extrinsicText3" : "aeiou",
+  "extrinsicText2" : "aeiou",
+  "subGroupId" : 123,
+  "overallLeadTime" : 123,
+  "chargeCode" : "aeiou",
+  "status" : "aeiou",
+  "legacyLowLevelContactId" : 123,
+  "overallFixedReorderPoint" : 123,
+  "seasonalItem" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "serialCode" : "aeiou",
+  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
+  "maxInterim" : 123,
+  "wrapCode" : "aeiou",
+  "additionalDescription" : "aeiou",
+  "lowStockCodeId" : 123,
+  "pickNo" : "aeiou",
+  "majorGroupId" : 123,
+  "lotControlFlag" : "aeiou",
+  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "unitsPerWrap" : 123,
+  "podOrderSuffix" : 123,
+  "accountCodeId" : 123,
+  "vendorSKU" : "aeiou",
+  "requiresProductionLot" : "aeiou",
+  "casebreakEnabled" : "aeiou",
+  "summaryCodeId" : 123,
+  "numericSortOrder" : 123,
+  "listPrice" : 1.3579000000000001069366817318950779736042022705078125
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -359,7 +371,7 @@ public class ItemAPI: APIBase {
      - returns: RequestBuilder<[Item]> 
      */
     public class func getItemByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Item]> {
-        let path = "/v1.0/item/search"
+        let path = "/beta/item/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -393,81 +405,85 @@ public class ItemAPI: APIBase {
      
      Get an item by id
      
-     - GET /v1.0/item/{itemId}
+     - GET /beta/item/{itemId}
      - Returns the item identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "sector" : "aeiou",
-  "wrapCode" : "aeiou",
-  "majorGroupId" : 123,
-  "additionalDescription" : "aeiou",
-  "outsideVendor" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "seasonalItem" : "aeiou",
-  "serialCode" : "aeiou",
-  "hazmat" : "aeiou",
-  "vendorSKU" : "aeiou",
-  "podRevDate" : "aeiou",
-  "voidDate" : "2000-01-23T04:56:07.000+0000",
-  "extrinsicNumber2" : 123,
-  "summaryCodeId" : 123,
-  "listPrice" : 1.3579000000000001069366817318950779736042022705078125,
-  "extrinsicNumber1" : 123,
-  "storageItemMixingRule" : "aeiou",
-  "unitCode" : "aeiou",
-  "forwardItemMixingRule" : "aeiou",
-  "lotControlFlag" : "aeiou",
-  "status" : "aeiou",
-  "absoluteMax" : "aeiou",
+     - examples: [{contentType=application/json, example={
   "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
   "storageLotMixingRule" : "aeiou",
-  "casebreakEnabled" : "aeiou",
-  "sku" : "aeiou",
-  "maxInterim" : 123,
-  "podOrderSuffix" : 123,
-  "overallFixedReorderPoint" : 123,
-  "accountCodeId" : 123,
-  "maxCycle" : 123,
-  "criticalAmount" : 123,
-  "allocationRule" : "aeiou",
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "productCodeId" : 123,
-  "secure" : "aeiou",
-  "unitsPerWrap" : 123,
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "id" : 123,
-  "packingSlipDescription" : "aeiou",
-  "lobId" : 123,
-  "overallLeadTime" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "extrinsicText3" : "aeiou",
-  "numericSortOrder" : 123,
-  "extrinsicText2" : "aeiou",
-  "extrinsicText1" : "aeiou",
-  "lowStockCodeId" : 123,
-  "legacyLowLevelContactId" : 123,
-  "upc" : "aeiou",
-  "lowStockContactId" : 123,
   "buyerId" : 123,
-  "backorder" : "aeiou",
+  "secure" : "aeiou",
+  "voidDate" : "2000-01-23T04:56:07.000+0000",
+  "lowStockContactId" : 123,
   "forwardLotMixingRule" : "aeiou",
-  "requiresProductionLot" : "aeiou",
-  "itemDescription" : "aeiou",
-  "subGroupId" : 123,
-  "chargeCode" : "aeiou",
-  "compCode" : 123,
+  "barcodeField" : "aeiou",
+  "absoluteMax" : "aeiou",
+  "criticalAmount" : 123,
+  "podRevDate" : "aeiou",
+  "unitCode" : "aeiou",
+  "hazmat" : "aeiou",
   "commodityCode" : "aeiou",
-  "pickNo" : "aeiou"
-}, contentType=application/json}]
+  "id" : 123,
+  "itemDescription" : "aeiou",
+  "sku" : "aeiou",
+  "sector" : "aeiou",
+  "lobId" : 123,
+  "productCodeId" : 123,
+  "packingSlipDescription" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "maxCycle" : 123,
+  "upc" : "aeiou",
+  "allocationRule" : "aeiou",
+  "extrinsicNumber2" : 123,
+  "compCode" : 123,
+  "extrinsicNumber1" : 123,
+  "forwardItemMixingRule" : "aeiou",
+  "extrinsicText1" : "aeiou",
+  "storageItemMixingRule" : "aeiou",
+  "backorder" : "aeiou",
+  "outsideVendor" : 123,
+  "extrinsicText3" : "aeiou",
+  "extrinsicText2" : "aeiou",
+  "subGroupId" : 123,
+  "overallLeadTime" : 123,
+  "chargeCode" : "aeiou",
+  "status" : "aeiou",
+  "legacyLowLevelContactId" : 123,
+  "overallFixedReorderPoint" : 123,
+  "seasonalItem" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "serialCode" : "aeiou",
+  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
+  "maxInterim" : 123,
+  "wrapCode" : "aeiou",
+  "additionalDescription" : "aeiou",
+  "lowStockCodeId" : 123,
+  "pickNo" : "aeiou",
+  "majorGroupId" : 123,
+  "lotControlFlag" : "aeiou",
+  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "unitsPerWrap" : 123,
+  "podOrderSuffix" : 123,
+  "accountCodeId" : 123,
+  "vendorSKU" : "aeiou",
+  "requiresProductionLot" : "aeiou",
+  "casebreakEnabled" : "aeiou",
+  "summaryCodeId" : 123,
+  "numericSortOrder" : 123,
+  "listPrice" : 1.3579000000000001069366817318950779736042022705078125
+}}]
      
      - parameter itemId: (path) Id of the item to be returned. 
 
      - returns: RequestBuilder<Item> 
      */
     public class func getItemByIdWithRequestBuilder(itemId itemId: Int) -> RequestBuilder<Item> {
-        var path = "/v1.0/item/{itemId}"
+        var path = "/beta/item/{itemId}"
         path = path.stringByReplacingOccurrencesOfString("{itemId}", withString: "\(itemId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -497,7 +513,7 @@ public class ItemAPI: APIBase {
      
      Update an item
      
-     - PUT /v1.0/item
+     - PUT /beta/item
      - Updates an existing item using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -508,7 +524,46 @@ public class ItemAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateItemWithRequestBuilder(body body: Item) -> RequestBuilder<Void> {
-        let path = "/v1.0/item"
+        let path = "/beta/item"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update an item custom fields
+     
+     - parameter body: (body) Item to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateItemCustomFields(body body: Item, completion: ((error: ErrorType?) -> Void)) {
+        updateItemCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update an item custom fields
+     
+     - PUT /beta/item/customFields
+     - Updates an existing item custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) Item to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateItemCustomFieldsWithRequestBuilder(body body: Item) -> RequestBuilder<Void> {
+        let path = "/beta/item/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

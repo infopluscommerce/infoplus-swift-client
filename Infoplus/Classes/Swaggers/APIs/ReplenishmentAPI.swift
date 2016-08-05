@@ -31,21 +31,24 @@ public class ReplenishmentAPI: APIBase {
      
      Search replenishments by filter
      
-     - GET /v1.0/replenishment/search
+     - GET /beta/replenishment/search
      - Returns the list of replenishments that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "id" : 123,
-  "pickFaceAssignment" : 123,
-  "locationId" : 123,
+     - examples: [{contentType=application/json, example=[ {
+  "replenishmentProcess" : 123,
   "quantity" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "locationId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "pickFaceAssignment" : 123,
+  "id" : 123,
   "sku" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "replenishmentProcess" : 123
-} ], contentType=application/json}]
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -55,7 +58,7 @@ public class ReplenishmentAPI: APIBase {
      - returns: RequestBuilder<[Replenishment]> 
      */
     public class func getReplenishmentByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Replenishment]> {
-        let path = "/v1.0/replenishment/search"
+        let path = "/beta/replenishment/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -89,28 +92,31 @@ public class ReplenishmentAPI: APIBase {
      
      Get a replenishment by id
      
-     - GET /v1.0/replenishment/{replenishmentId}
+     - GET /beta/replenishment/{replenishmentId}
      - Returns the replenishment identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "id" : 123,
-  "pickFaceAssignment" : 123,
-  "locationId" : 123,
+     - examples: [{contentType=application/json, example={
+  "replenishmentProcess" : 123,
   "quantity" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "locationId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "pickFaceAssignment" : 123,
+  "id" : 123,
   "sku" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "replenishmentProcess" : 123
-}, contentType=application/json}]
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
      
      - parameter replenishmentId: (path) Id of the replenishment to be returned. 
 
      - returns: RequestBuilder<Replenishment> 
      */
     public class func getReplenishmentByIdWithRequestBuilder(replenishmentId replenishmentId: Int) -> RequestBuilder<Replenishment> {
-        var path = "/v1.0/replenishment/{replenishmentId}"
+        var path = "/beta/replenishment/{replenishmentId}"
         path = path.stringByReplacingOccurrencesOfString("{replenishmentId}", withString: "\(replenishmentId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -120,6 +126,45 @@ public class ReplenishmentAPI: APIBase {
         let requestBuilder: RequestBuilder<Replenishment>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a replenishment custom fields
+     
+     - parameter body: (body) Replenishment to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateReplenishmentCustomFields(body body: Replenishment, completion: ((error: ErrorType?) -> Void)) {
+        updateReplenishmentCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a replenishment custom fields
+     
+     - PUT /beta/replenishment/customFields
+     - Updates an existing replenishment custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) Replenishment to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateReplenishmentCustomFieldsWithRequestBuilder(body body: Replenishment) -> RequestBuilder<Void> {
+        let path = "/beta/replenishment/customFields"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }

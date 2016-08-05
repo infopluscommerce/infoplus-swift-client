@@ -31,6 +31,7 @@ public class ReceivingWorksheetLineItem: JSONEncodable {
     public var cartonHeight: Double?
     public var putAwayPlans: [ReceivingWorksheetPutAwayPlan]?
     public var quantity: Int?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -59,6 +60,7 @@ public class ReceivingWorksheetLineItem: JSONEncodable {
         nillableDictionary["cartonHeight"] = self.cartonHeight
         nillableDictionary["putAwayPlans"] = self.putAwayPlans?.encodeToJSON()
         nillableDictionary["quantity"] = self.quantity
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

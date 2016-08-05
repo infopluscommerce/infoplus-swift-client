@@ -31,28 +31,31 @@ public class WorkAPI: APIBase {
      
      Search works by filter
      
-     - GET /v1.0/work/search
+     - GET /beta/work/search
      - Returns the list of works that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "priorityCode" : 123,
+     - examples: [{contentType=application/json, example=[ {
+  "destinationWarehouseId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "destinationBuildingId" : 123,
+  "destinationLocation" : "aeiou",
+  "type" : "aeiou",
+  "userId" : 123,
+  "sourceWarehouseId" : 123,
   "workBatchId" : 123,
   "sourceBuildingId" : 123,
-  "status" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "destinationBuildingId" : 123,
-  "type" : "aeiou",
-  "id" : 123,
   "sourceLocation" : "aeiou",
-  "userId" : 123,
-  "lobId" : 123,
-  "sourceWarehouseId" : 123,
+  "priorityCode" : 123,
+  "id" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "destinationLocation" : "aeiou",
-  "destinationWarehouseId" : 123
-} ], contentType=application/json}]
+  "status" : "aeiou",
+  "lobId" : 123
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -62,7 +65,7 @@ public class WorkAPI: APIBase {
      - returns: RequestBuilder<[Work]> 
      */
     public class func getWorkByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Work]> {
-        let path = "/v1.0/work/search"
+        let path = "/beta/work/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -96,35 +99,38 @@ public class WorkAPI: APIBase {
      
      Get a work by id
      
-     - GET /v1.0/work/{workId}
+     - GET /beta/work/{workId}
      - Returns the work identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "priorityCode" : 123,
+     - examples: [{contentType=application/json, example={
+  "destinationWarehouseId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "destinationBuildingId" : 123,
+  "destinationLocation" : "aeiou",
+  "type" : "aeiou",
+  "userId" : 123,
+  "sourceWarehouseId" : 123,
   "workBatchId" : 123,
   "sourceBuildingId" : 123,
-  "status" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "destinationBuildingId" : 123,
-  "type" : "aeiou",
-  "id" : 123,
   "sourceLocation" : "aeiou",
-  "userId" : 123,
-  "lobId" : 123,
-  "sourceWarehouseId" : 123,
+  "priorityCode" : 123,
+  "id" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "destinationLocation" : "aeiou",
-  "destinationWarehouseId" : 123
-}, contentType=application/json}]
+  "status" : "aeiou",
+  "lobId" : 123
+}}]
      
      - parameter workId: (path) Id of the work to be returned. 
 
      - returns: RequestBuilder<Work> 
      */
     public class func getWorkByIdWithRequestBuilder(workId workId: Int) -> RequestBuilder<Work> {
-        var path = "/v1.0/work/{workId}"
+        var path = "/beta/work/{workId}"
         path = path.stringByReplacingOccurrencesOfString("{workId}", withString: "\(workId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -134,6 +140,45 @@ public class WorkAPI: APIBase {
         let requestBuilder: RequestBuilder<Work>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a work custom fields
+     
+     - parameter body: (body) Work to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateWorkCustomFields(body body: Work, completion: ((error: ErrorType?) -> Void)) {
+        updateWorkCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a work custom fields
+     
+     - PUT /beta/work/customFields
+     - Updates an existing work custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) Work to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateWorkCustomFieldsWithRequestBuilder(body body: Work) -> RequestBuilder<Void> {
+        let path = "/beta/work/customFields"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }

@@ -30,15 +30,15 @@ public class OrderLoadProgramAPI: APIBase {
      
      Search orderLoadPrograms
      
-     - GET /v1.0/orderLoadProgram/search
+     - GET /beta/orderLoadProgram/search
      - Returns the list of orderLoadPrograms that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
+     - examples: [{contentType=application/json, example=[ {
   "id" : 123,
   "label" : "aeiou"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -47,7 +47,7 @@ public class OrderLoadProgramAPI: APIBase {
      - returns: RequestBuilder<[OrderLoadProgram]> 
      */
     public class func getOrderLoadProgramBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[OrderLoadProgram]> {
-        let path = "/v1.0/orderLoadProgram/search"
+        let path = "/beta/orderLoadProgram/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -80,22 +80,22 @@ public class OrderLoadProgramAPI: APIBase {
      
      Get an orderLoadProgram by id
      
-     - GET /v1.0/orderLoadProgram/{orderLoadProgramId}
+     - GET /beta/orderLoadProgram/{orderLoadProgramId}
      - Returns the orderLoadProgram identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
+     - examples: [{contentType=application/json, example={
   "id" : 123,
   "label" : "aeiou"
-}, contentType=application/json}]
+}}]
      
      - parameter orderLoadProgramId: (path) Id of orderLoadProgram to be returned. 
 
      - returns: RequestBuilder<OrderLoadProgram> 
      */
     public class func getReqLoadProgramByIdWithRequestBuilder(orderLoadProgramId orderLoadProgramId: String) -> RequestBuilder<OrderLoadProgram> {
-        var path = "/v1.0/orderLoadProgram/{orderLoadProgramId}"
+        var path = "/beta/orderLoadProgram/{orderLoadProgramId}"
         path = path.stringByReplacingOccurrencesOfString("{orderLoadProgramId}", withString: "\(orderLoadProgramId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         

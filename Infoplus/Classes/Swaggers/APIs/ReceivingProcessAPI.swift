@@ -28,7 +28,7 @@ public class ReceivingProcessAPI: APIBase {
      
      Delete a receivingProcess
      
-     - DELETE /v1.0/receivingProcess/{receivingProcessId}
+     - DELETE /beta/receivingProcess/{receivingProcessId}
      - Deletes the receivingProcess identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -39,7 +39,7 @@ public class ReceivingProcessAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteReceivingProcessWithRequestBuilder(receivingProcessId receivingProcessId: Int) -> RequestBuilder<Void> {
-        var path = "/v1.0/receivingProcess/{receivingProcessId}"
+        var path = "/beta/receivingProcess/{receivingProcessId}"
         path = path.stringByReplacingOccurrencesOfString("{receivingProcessId}", withString: "\(receivingProcessId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -72,20 +72,23 @@ public class ReceivingProcessAPI: APIBase {
      
      Search receivingProcesses by filter
      
-     - GET /v1.0/receivingProcess/search
+     - GET /beta/receivingProcess/search
      - Returns the list of receivingProcesses that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "id" : 123,
-  "workBatchId" : 123,
+     - examples: [{contentType=application/json, example=[ {
   "receivingWorksheetId" : 123,
-  "status" : "aeiou",
+  "workBatchId" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "warehouseId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "id" : 123,
+  "status" : "aeiou",
   "createDate" : "2000-01-23T04:56:07.000+0000"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -95,7 +98,7 @@ public class ReceivingProcessAPI: APIBase {
      - returns: RequestBuilder<[ReceivingProcess]> 
      */
     public class func getReceivingProcessByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ReceivingProcess]> {
-        let path = "/v1.0/receivingProcess/search"
+        let path = "/beta/receivingProcess/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -129,27 +132,30 @@ public class ReceivingProcessAPI: APIBase {
      
      Get a receivingProcess by id
      
-     - GET /v1.0/receivingProcess/{receivingProcessId}
+     - GET /beta/receivingProcess/{receivingProcessId}
      - Returns the receivingProcess identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "id" : 123,
-  "workBatchId" : 123,
+     - examples: [{contentType=application/json, example={
   "receivingWorksheetId" : 123,
-  "status" : "aeiou",
+  "workBatchId" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "warehouseId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "id" : 123,
+  "status" : "aeiou",
   "createDate" : "2000-01-23T04:56:07.000+0000"
-}, contentType=application/json}]
+}}]
      
      - parameter receivingProcessId: (path) Id of the receivingProcess to be returned. 
 
      - returns: RequestBuilder<ReceivingProcess> 
      */
     public class func getReceivingProcessByIdWithRequestBuilder(receivingProcessId receivingProcessId: Int) -> RequestBuilder<ReceivingProcess> {
-        var path = "/v1.0/receivingProcess/{receivingProcessId}"
+        var path = "/beta/receivingProcess/{receivingProcessId}"
         path = path.stringByReplacingOccurrencesOfString("{receivingProcessId}", withString: "\(receivingProcessId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -159,6 +165,45 @@ public class ReceivingProcessAPI: APIBase {
         let requestBuilder: RequestBuilder<ReceivingProcess>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a receivingProcess custom fields
+     
+     - parameter body: (body) ReceivingProcess to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateReceivingProcessCustomFields(body body: ReceivingProcess, completion: ((error: ErrorType?) -> Void)) {
+        updateReceivingProcessCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a receivingProcess custom fields
+     
+     - PUT /beta/receivingProcess/customFields
+     - Updates an existing receivingProcess custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) ReceivingProcess to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateReceivingProcessCustomFieldsWithRequestBuilder(body body: ReceivingProcess) -> RequestBuilder<Void> {
+        let path = "/beta/receivingProcess/customFields"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }

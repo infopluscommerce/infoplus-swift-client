@@ -28,28 +28,31 @@ public class BillingCodeTypeAPI: APIBase {
      
      Create a billingCodeType
      
-     - POST /v1.0/billingCodeType
+     - POST /beta/billingCodeType
      - Inserts a new billingCodeType using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "isActive" : true,
-  "id" : 123,
-  "description" : "aeiou",
-  "name" : "aeiou",
+     - examples: [{contentType=application/json, example={
   "billingCode" : "aeiou",
+  "clientId" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "clientId" : 123
-}, contentType=application/json}]
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
+  "description" : "aeiou",
+  "id" : 123,
+  "isActive" : true,
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
      
      - parameter body: (body) BillingCodeType to be inserted. 
 
      - returns: RequestBuilder<BillingCodeType> 
      */
     public class func addBillingCodeTypeWithRequestBuilder(body body: BillingCodeType) -> RequestBuilder<BillingCodeType> {
-        let path = "/v1.0/billingCodeType"
+        let path = "/beta/billingCodeType"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -77,7 +80,7 @@ public class BillingCodeTypeAPI: APIBase {
      
      Delete a billingCodeType
      
-     - DELETE /v1.0/billingCodeType/{billingCodeTypeId}
+     - DELETE /beta/billingCodeType/{billingCodeTypeId}
      - Deletes the billingCodeType identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -88,7 +91,7 @@ public class BillingCodeTypeAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteBillingCodeTypeWithRequestBuilder(billingCodeTypeId billingCodeTypeId: Int) -> RequestBuilder<Void> {
-        var path = "/v1.0/billingCodeType/{billingCodeTypeId}"
+        var path = "/beta/billingCodeType/{billingCodeTypeId}"
         path = path.stringByReplacingOccurrencesOfString("{billingCodeTypeId}", withString: "\(billingCodeTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -121,21 +124,24 @@ public class BillingCodeTypeAPI: APIBase {
      
      Search billingCodeTypes by filter
      
-     - GET /v1.0/billingCodeType/search
+     - GET /beta/billingCodeType/search
      - Returns the list of billingCodeTypes that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "isActive" : true,
-  "id" : 123,
-  "description" : "aeiou",
-  "name" : "aeiou",
+     - examples: [{contentType=application/json, example=[ {
   "billingCode" : "aeiou",
+  "clientId" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "clientId" : 123
-} ], contentType=application/json}]
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
+  "description" : "aeiou",
+  "id" : 123,
+  "isActive" : true,
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -145,7 +151,7 @@ public class BillingCodeTypeAPI: APIBase {
      - returns: RequestBuilder<[BillingCodeType]> 
      */
     public class func getBillingCodeTypeByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[BillingCodeType]> {
-        let path = "/v1.0/billingCodeType/search"
+        let path = "/beta/billingCodeType/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -179,28 +185,31 @@ public class BillingCodeTypeAPI: APIBase {
      
      Get a billingCodeType by id
      
-     - GET /v1.0/billingCodeType/{billingCodeTypeId}
+     - GET /beta/billingCodeType/{billingCodeTypeId}
      - Returns the billingCodeType identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "isActive" : true,
-  "id" : 123,
-  "description" : "aeiou",
-  "name" : "aeiou",
+     - examples: [{contentType=application/json, example={
   "billingCode" : "aeiou",
+  "clientId" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "clientId" : 123
-}, contentType=application/json}]
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
+  "description" : "aeiou",
+  "id" : 123,
+  "isActive" : true,
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
      
      - parameter billingCodeTypeId: (path) Id of the billingCodeType to be returned. 
 
      - returns: RequestBuilder<BillingCodeType> 
      */
     public class func getBillingCodeTypeByIdWithRequestBuilder(billingCodeTypeId billingCodeTypeId: Int) -> RequestBuilder<BillingCodeType> {
-        var path = "/v1.0/billingCodeType/{billingCodeTypeId}"
+        var path = "/beta/billingCodeType/{billingCodeTypeId}"
         path = path.stringByReplacingOccurrencesOfString("{billingCodeTypeId}", withString: "\(billingCodeTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -230,7 +239,7 @@ public class BillingCodeTypeAPI: APIBase {
      
      Update a billingCodeType
      
-     - PUT /v1.0/billingCodeType
+     - PUT /beta/billingCodeType
      - Updates an existing billingCodeType using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -241,7 +250,46 @@ public class BillingCodeTypeAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateBillingCodeTypeWithRequestBuilder(body body: BillingCodeType) -> RequestBuilder<Void> {
-        let path = "/v1.0/billingCodeType"
+        let path = "/beta/billingCodeType"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a billingCodeType custom fields
+     
+     - parameter body: (body) BillingCodeType to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateBillingCodeTypeCustomFields(body body: BillingCodeType, completion: ((error: ErrorType?) -> Void)) {
+        updateBillingCodeTypeCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a billingCodeType custom fields
+     
+     - PUT /beta/billingCodeType/customFields
+     - Updates an existing billingCodeType custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) BillingCodeType to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateBillingCodeTypeCustomFieldsWithRequestBuilder(body body: BillingCodeType) -> RequestBuilder<Void> {
+        let path = "/beta/billingCodeType/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

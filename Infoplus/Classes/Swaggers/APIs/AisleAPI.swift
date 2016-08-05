@@ -28,25 +28,28 @@ public class AisleAPI: APIBase {
      
      Create an aisle
      
-     - POST /v1.0/aisle
+     - POST /beta/aisle
      - Inserts a new aisle using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "id" : 123,
+     - examples: [{contentType=application/json, example={
   "address" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "warehouseId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "id" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000"
-}, contentType=application/json}]
+}}]
      
      - parameter body: (body) Aisle to be inserted. 
 
      - returns: RequestBuilder<Aisle> 
      */
     public class func addAisleWithRequestBuilder(body body: Aisle) -> RequestBuilder<Aisle> {
-        let path = "/v1.0/aisle"
+        let path = "/beta/aisle"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -74,7 +77,7 @@ public class AisleAPI: APIBase {
      
      Delete an aisle
      
-     - DELETE /v1.0/aisle/{aisleId}
+     - DELETE /beta/aisle/{aisleId}
      - Deletes the aisle identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -85,7 +88,7 @@ public class AisleAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteAisleWithRequestBuilder(aisleId aisleId: Int) -> RequestBuilder<Void> {
-        var path = "/v1.0/aisle/{aisleId}"
+        var path = "/beta/aisle/{aisleId}"
         path = path.stringByReplacingOccurrencesOfString("{aisleId}", withString: "\(aisleId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -118,18 +121,21 @@ public class AisleAPI: APIBase {
      
      Search aisles by filter
      
-     - GET /v1.0/aisle/search
+     - GET /beta/aisle/search
      - Returns the list of aisles that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "id" : 123,
+     - examples: [{contentType=application/json, example=[ {
   "address" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "warehouseId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "id" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -139,7 +145,7 @@ public class AisleAPI: APIBase {
      - returns: RequestBuilder<[Aisle]> 
      */
     public class func getAisleByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Aisle]> {
-        let path = "/v1.0/aisle/search"
+        let path = "/beta/aisle/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -173,25 +179,28 @@ public class AisleAPI: APIBase {
      
      Get an aisle by id
      
-     - GET /v1.0/aisle/{aisleId}
+     - GET /beta/aisle/{aisleId}
      - Returns the aisle identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "id" : 123,
+     - examples: [{contentType=application/json, example={
   "address" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "warehouseId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "id" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000"
-}, contentType=application/json}]
+}}]
      
      - parameter aisleId: (path) Id of the aisle to be returned. 
 
      - returns: RequestBuilder<Aisle> 
      */
     public class func getAisleByIdWithRequestBuilder(aisleId aisleId: Int) -> RequestBuilder<Aisle> {
-        var path = "/v1.0/aisle/{aisleId}"
+        var path = "/beta/aisle/{aisleId}"
         path = path.stringByReplacingOccurrencesOfString("{aisleId}", withString: "\(aisleId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -221,7 +230,7 @@ public class AisleAPI: APIBase {
      
      Update an aisle
      
-     - PUT /v1.0/aisle
+     - PUT /beta/aisle
      - Updates an existing aisle using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -232,7 +241,46 @@ public class AisleAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateAisleWithRequestBuilder(body body: Aisle) -> RequestBuilder<Void> {
-        let path = "/v1.0/aisle"
+        let path = "/beta/aisle"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update an aisle custom fields
+     
+     - parameter body: (body) Aisle to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateAisleCustomFields(body body: Aisle, completion: ((error: ErrorType?) -> Void)) {
+        updateAisleCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update an aisle custom fields
+     
+     - PUT /beta/aisle/customFields
+     - Updates an existing aisle custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) Aisle to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateAisleCustomFieldsWithRequestBuilder(body body: Aisle) -> RequestBuilder<Void> {
+        let path = "/beta/aisle/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

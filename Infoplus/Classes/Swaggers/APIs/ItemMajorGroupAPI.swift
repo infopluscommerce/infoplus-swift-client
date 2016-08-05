@@ -30,15 +30,15 @@ public class ItemMajorGroupAPI: APIBase {
      
      Search itemMajorGroups
      
-     - GET /v1.0/itemMajorGroup/search
+     - GET /beta/itemMajorGroup/search
      - Returns the list of itemMajorGroups that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
+     - examples: [{contentType=application/json, example=[ {
   "id" : 123,
   "label" : "aeiou"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -47,7 +47,7 @@ public class ItemMajorGroupAPI: APIBase {
      - returns: RequestBuilder<[ItemMajorGroup]> 
      */
     public class func getItemMajorGroupBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[ItemMajorGroup]> {
-        let path = "/v1.0/itemMajorGroup/search"
+        let path = "/beta/itemMajorGroup/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -80,22 +80,22 @@ public class ItemMajorGroupAPI: APIBase {
      
      Get an itemMajorGroup by id
      
-     - GET /v1.0/itemMajorGroup/{itemMajorGroupId}
+     - GET /beta/itemMajorGroup/{itemMajorGroupId}
      - Returns the itemMajorGroup identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
+     - examples: [{contentType=application/json, example={
   "id" : 123,
   "label" : "aeiou"
-}, contentType=application/json}]
+}}]
      
      - parameter itemMajorGroupId: (path) Id of itemMajorGroup to be returned. 
 
      - returns: RequestBuilder<ItemMajorGroup> 
      */
     public class func getTranslateMajorGroupByIdWithRequestBuilder(itemMajorGroupId itemMajorGroupId: String) -> RequestBuilder<ItemMajorGroup> {
-        var path = "/v1.0/itemMajorGroup/{itemMajorGroupId}"
+        var path = "/beta/itemMajorGroup/{itemMajorGroupId}"
         path = path.stringByReplacingOccurrencesOfString("{itemMajorGroupId}", withString: "\(itemMajorGroupId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         

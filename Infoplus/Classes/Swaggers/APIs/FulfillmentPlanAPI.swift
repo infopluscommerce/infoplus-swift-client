@@ -28,48 +28,52 @@ public class FulfillmentPlanAPI: APIBase {
      
      Create a fulfillmentPlan
      
-     - POST /v1.0/fulfillmentPlan
+     - POST /beta/fulfillmentPlan
      - Inserts a new fulfillmentPlan using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "preGenerateParcelLabels" : true,
-  "pickSummarySort" : "aeiou",
-  "pickSortRule" : "aeiou",
-  "cartonizeOrders" : true,
-  "pickListSort" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "id" : 123,
-  "layoutRule" : "aeiou",
-  "createPickWork" : true,
-  "locationSmartFilterId" : 123,
+     - examples: [{contentType=application/json, example={
   "pickListLayout" : "aeiou",
-  "maximumNumberOfOrders" : 123,
-  "orderSmartFilterId" : 123,
-  "description" : "aeiou",
-  "name" : "aeiou",
-  "pickListFormat" : "aeiou",
-  "pickSummaryLayout" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "pickListGroup" : "aeiou",
-  "createPickSummary" : true,
-  "pickSummaryFormat" : "aeiou",
-  "createPackingSlip" : true,
-  "warehouseId" : 123,
-  "overridePackingSlipTemplateId" : 123,
+  "createPickWork" : true,
   "pickingRule" : "aeiou",
+  "pickSummaryLayout" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "pickListSort" : "aeiou",
+  "description" : "aeiou",
+  "createPickSummary" : true,
+  "locationSmartFilterId" : 123,
+  "pickSummaryFormat" : "aeiou",
+  "cartonizeOrders" : true,
+  "pickSortRule" : "aeiou",
+  "layoutRule" : "aeiou",
+  "id" : 123,
+  "pickListFormat" : "aeiou",
+  "pickListGroup" : "aeiou",
+  "pickScanSchemeId" : 123,
   "createPickList" : true,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "maximumNumberOfOrders" : 123,
+  "createOrderAssemblyGuide" : true,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "createPackingSlip" : true,
+  "pickSummarySort" : "aeiou",
+  "preGenerateParcelLabels" : true,
+  "warehouseId" : 123,
+  "name" : "aeiou",
+  "overridePackingSlipTemplateId" : 123,
   "autoShipCasebreakCartons" : true,
-  "createOrderAssemblyGuide" : true
-}, contentType=application/json}]
+  "orderSmartFilterId" : 123
+}}]
      
      - parameter body: (body) FulfillmentPlan to be inserted. 
 
      - returns: RequestBuilder<FulfillmentPlan> 
      */
     public class func addFulfillmentPlanWithRequestBuilder(body body: FulfillmentPlan) -> RequestBuilder<FulfillmentPlan> {
-        let path = "/v1.0/fulfillmentPlan"
+        let path = "/beta/fulfillmentPlan"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -97,7 +101,7 @@ public class FulfillmentPlanAPI: APIBase {
      
      Delete a fulfillmentPlan
      
-     - DELETE /v1.0/fulfillmentPlan/{fulfillmentPlanId}
+     - DELETE /beta/fulfillmentPlan/{fulfillmentPlanId}
      - Deletes the fulfillmentPlan identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -108,7 +112,7 @@ public class FulfillmentPlanAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteFulfillmentPlanWithRequestBuilder(fulfillmentPlanId fulfillmentPlanId: Int) -> RequestBuilder<Void> {
-        var path = "/v1.0/fulfillmentPlan/{fulfillmentPlanId}"
+        var path = "/beta/fulfillmentPlan/{fulfillmentPlanId}"
         path = path.stringByReplacingOccurrencesOfString("{fulfillmentPlanId}", withString: "\(fulfillmentPlanId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -141,41 +145,45 @@ public class FulfillmentPlanAPI: APIBase {
      
      Search fulfillmentPlans by filter
      
-     - GET /v1.0/fulfillmentPlan/search
+     - GET /beta/fulfillmentPlan/search
      - Returns the list of fulfillmentPlans that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "preGenerateParcelLabels" : true,
-  "pickSummarySort" : "aeiou",
-  "pickSortRule" : "aeiou",
-  "cartonizeOrders" : true,
-  "pickListSort" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "id" : 123,
-  "layoutRule" : "aeiou",
-  "createPickWork" : true,
-  "locationSmartFilterId" : 123,
+     - examples: [{contentType=application/json, example=[ {
   "pickListLayout" : "aeiou",
-  "maximumNumberOfOrders" : 123,
-  "orderSmartFilterId" : 123,
-  "description" : "aeiou",
-  "name" : "aeiou",
-  "pickListFormat" : "aeiou",
-  "pickSummaryLayout" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "pickListGroup" : "aeiou",
-  "createPickSummary" : true,
-  "pickSummaryFormat" : "aeiou",
-  "createPackingSlip" : true,
-  "warehouseId" : 123,
-  "overridePackingSlipTemplateId" : 123,
+  "createPickWork" : true,
   "pickingRule" : "aeiou",
+  "pickSummaryLayout" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "pickListSort" : "aeiou",
+  "description" : "aeiou",
+  "createPickSummary" : true,
+  "locationSmartFilterId" : 123,
+  "pickSummaryFormat" : "aeiou",
+  "cartonizeOrders" : true,
+  "pickSortRule" : "aeiou",
+  "layoutRule" : "aeiou",
+  "id" : 123,
+  "pickListFormat" : "aeiou",
+  "pickListGroup" : "aeiou",
+  "pickScanSchemeId" : 123,
   "createPickList" : true,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "maximumNumberOfOrders" : 123,
+  "createOrderAssemblyGuide" : true,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "createPackingSlip" : true,
+  "pickSummarySort" : "aeiou",
+  "preGenerateParcelLabels" : true,
+  "warehouseId" : 123,
+  "name" : "aeiou",
+  "overridePackingSlipTemplateId" : 123,
   "autoShipCasebreakCartons" : true,
-  "createOrderAssemblyGuide" : true
-} ], contentType=application/json}]
+  "orderSmartFilterId" : 123
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -185,7 +193,7 @@ public class FulfillmentPlanAPI: APIBase {
      - returns: RequestBuilder<[FulfillmentPlan]> 
      */
     public class func getFulfillmentPlanByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[FulfillmentPlan]> {
-        let path = "/v1.0/fulfillmentPlan/search"
+        let path = "/beta/fulfillmentPlan/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -219,48 +227,52 @@ public class FulfillmentPlanAPI: APIBase {
      
      Get a fulfillmentPlan by id
      
-     - GET /v1.0/fulfillmentPlan/{fulfillmentPlanId}
+     - GET /beta/fulfillmentPlan/{fulfillmentPlanId}
      - Returns the fulfillmentPlan identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "preGenerateParcelLabels" : true,
-  "pickSummarySort" : "aeiou",
-  "pickSortRule" : "aeiou",
-  "cartonizeOrders" : true,
-  "pickListSort" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "id" : 123,
-  "layoutRule" : "aeiou",
-  "createPickWork" : true,
-  "locationSmartFilterId" : 123,
+     - examples: [{contentType=application/json, example={
   "pickListLayout" : "aeiou",
-  "maximumNumberOfOrders" : 123,
-  "orderSmartFilterId" : 123,
-  "description" : "aeiou",
-  "name" : "aeiou",
-  "pickListFormat" : "aeiou",
-  "pickSummaryLayout" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "pickListGroup" : "aeiou",
-  "createPickSummary" : true,
-  "pickSummaryFormat" : "aeiou",
-  "createPackingSlip" : true,
-  "warehouseId" : 123,
-  "overridePackingSlipTemplateId" : 123,
+  "createPickWork" : true,
   "pickingRule" : "aeiou",
+  "pickSummaryLayout" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "pickListSort" : "aeiou",
+  "description" : "aeiou",
+  "createPickSummary" : true,
+  "locationSmartFilterId" : 123,
+  "pickSummaryFormat" : "aeiou",
+  "cartonizeOrders" : true,
+  "pickSortRule" : "aeiou",
+  "layoutRule" : "aeiou",
+  "id" : 123,
+  "pickListFormat" : "aeiou",
+  "pickListGroup" : "aeiou",
+  "pickScanSchemeId" : 123,
   "createPickList" : true,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "maximumNumberOfOrders" : 123,
+  "createOrderAssemblyGuide" : true,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "createPackingSlip" : true,
+  "pickSummarySort" : "aeiou",
+  "preGenerateParcelLabels" : true,
+  "warehouseId" : 123,
+  "name" : "aeiou",
+  "overridePackingSlipTemplateId" : 123,
   "autoShipCasebreakCartons" : true,
-  "createOrderAssemblyGuide" : true
-}, contentType=application/json}]
+  "orderSmartFilterId" : 123
+}}]
      
      - parameter fulfillmentPlanId: (path) Id of the fulfillmentPlan to be returned. 
 
      - returns: RequestBuilder<FulfillmentPlan> 
      */
     public class func getFulfillmentPlanByIdWithRequestBuilder(fulfillmentPlanId fulfillmentPlanId: Int) -> RequestBuilder<FulfillmentPlan> {
-        var path = "/v1.0/fulfillmentPlan/{fulfillmentPlanId}"
+        var path = "/beta/fulfillmentPlan/{fulfillmentPlanId}"
         path = path.stringByReplacingOccurrencesOfString("{fulfillmentPlanId}", withString: "\(fulfillmentPlanId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -290,7 +302,7 @@ public class FulfillmentPlanAPI: APIBase {
      
      Update a fulfillmentPlan
      
-     - PUT /v1.0/fulfillmentPlan
+     - PUT /beta/fulfillmentPlan
      - Updates an existing fulfillmentPlan using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -301,7 +313,46 @@ public class FulfillmentPlanAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateFulfillmentPlanWithRequestBuilder(body body: FulfillmentPlan) -> RequestBuilder<Void> {
-        let path = "/v1.0/fulfillmentPlan"
+        let path = "/beta/fulfillmentPlan"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a fulfillmentPlan custom fields
+     
+     - parameter body: (body) FulfillmentPlan to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateFulfillmentPlanCustomFields(body body: FulfillmentPlan, completion: ((error: ErrorType?) -> Void)) {
+        updateFulfillmentPlanCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a fulfillmentPlan custom fields
+     
+     - PUT /beta/fulfillmentPlan/customFields
+     - Updates an existing fulfillmentPlan custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) FulfillmentPlan to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateFulfillmentPlanCustomFieldsWithRequestBuilder(body body: FulfillmentPlan) -> RequestBuilder<Void> {
+        let path = "/beta/fulfillmentPlan/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

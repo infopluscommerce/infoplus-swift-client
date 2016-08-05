@@ -22,6 +22,7 @@ public class OrderSource: JSONEncodable {
     public var packingSlipId: Int?
     public var orderConfirmationEmailId: Int?
     public var shipmentConfirmationEmailId: Int?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -41,6 +42,7 @@ public class OrderSource: JSONEncodable {
         nillableDictionary["packingSlipId"] = self.packingSlipId
         nillableDictionary["orderConfirmationEmailId"] = self.orderConfirmationEmailId
         nillableDictionary["shipmentConfirmationEmailId"] = self.shipmentConfirmationEmailId
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

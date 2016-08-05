@@ -31,56 +31,60 @@ public class FulfillmentProcessAPI: APIBase {
      
      Search fulfillmentProcesses by filter
      
-     - GET /v1.0/fulfillmentProcess/search
+     - GET /beta/fulfillmentProcess/search
      - Returns the list of fulfillmentProcesses that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "preGenerateParcelLabels" : true,
-  "pickSummarySort" : "aeiou",
-  "allocationPlanId" : 123,
-  "pickSortRule" : "aeiou",
-  "cartonizeOrders" : true,
-  "orderLimit" : 123,
-  "completedPicks" : 123,
-  "pickListSort" : "aeiou",
-  "shippedOrders" : 123,
-  "totalOrdersToShip" : 123,
-  "shipDate" : "2000-01-23T04:56:07.000+0000",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "id" : 123,
-  "layoutRule" : "aeiou",
-  "totalPicks" : 123,
+     - examples: [{contentType=application/json, example=[ {
   "pickListLayout" : "aeiou",
-  "locationSmartFilterId" : 123,
   "createPickWork" : true,
-  "numberOfLines" : 123,
-  "firstPickPosition" : 123,
-  "orderSmartFilterId" : 123,
-  "processNo" : 123,
-  "pickListFormat" : "aeiou",
-  "totalCasebreaksToShip" : 123,
-  "pickSummaryLayout" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "pickListGroup" : "aeiou",
-  "numberOfSKUs" : 123,
-  "shippedCasebreaks" : 123,
-  "createPickSummary" : true,
-  "workBatchId" : 123,
-  "pickSummaryFormat" : "aeiou",
-  "status" : "aeiou",
-  "createPackingSlip" : true,
-  "warehouseId" : 123,
-  "completedToDo" : 123,
-  "overridePackingSlipTemplateId" : 123,
-  "numberOfOrders" : 123,
   "pickingRule" : "aeiou",
-  "autoShipCasebreakCartons" : true,
+  "pickSummaryLayout" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "orderLimit" : 123,
+  "pickListSort" : "aeiou",
+  "createPickSummary" : true,
+  "numberOfOrders" : 123,
+  "fulfillmentPlanId" : 123,
+  "firstPickPosition" : 123,
+  "locationSmartFilterId" : 123,
+  "totalPicks" : 123,
+  "pickSummaryFormat" : "aeiou",
+  "workBatchId" : 123,
+  "numberOfSKUs" : 123,
+  "cartonizeOrders" : true,
+  "pickSortRule" : "aeiou",
+  "totalOrdersToShip" : 123,
+  "layoutRule" : "aeiou",
+  "id" : 123,
+  "pickListFormat" : "aeiou",
+  "pickScanSchemeId" : 123,
+  "pickListGroup" : "aeiou",
+  "shippedCasebreaks" : 123,
+  "totalToDo" : 123,
   "createPickList" : true,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
   "createOrderAssemblyGuide" : true,
-  "totalToDo" : 123
-} ], contentType=application/json}]
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "numberOfLines" : 123,
+  "createPackingSlip" : true,
+  "shippedOrders" : 123,
+  "shipDate" : "2000-01-23T04:56:07.000+0000",
+  "processNo" : 123,
+  "completedToDo" : 123,
+  "pickSummarySort" : "aeiou",
+  "preGenerateParcelLabels" : true,
+  "warehouseId" : 123,
+  "totalCasebreaksToShip" : 123,
+  "overridePackingSlipTemplateId" : 123,
+  "autoShipCasebreakCartons" : true,
+  "completedPicks" : 123,
+  "orderSmartFilterId" : 123,
+  "status" : "aeiou"
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -90,7 +94,7 @@ public class FulfillmentProcessAPI: APIBase {
      - returns: RequestBuilder<[FulfillmentProcess]> 
      */
     public class func getFulfillmentProcessByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[FulfillmentProcess]> {
-        let path = "/v1.0/fulfillmentProcess/search"
+        let path = "/beta/fulfillmentProcess/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -124,63 +128,67 @@ public class FulfillmentProcessAPI: APIBase {
      
      Get a fulfillmentProcess by id
      
-     - GET /v1.0/fulfillmentProcess/{fulfillmentProcessId}
+     - GET /beta/fulfillmentProcess/{fulfillmentProcessId}
      - Returns the fulfillmentProcess identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "preGenerateParcelLabels" : true,
-  "pickSummarySort" : "aeiou",
-  "allocationPlanId" : 123,
-  "pickSortRule" : "aeiou",
-  "cartonizeOrders" : true,
-  "orderLimit" : 123,
-  "completedPicks" : 123,
-  "pickListSort" : "aeiou",
-  "shippedOrders" : 123,
-  "totalOrdersToShip" : 123,
-  "shipDate" : "2000-01-23T04:56:07.000+0000",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "id" : 123,
-  "layoutRule" : "aeiou",
-  "totalPicks" : 123,
+     - examples: [{contentType=application/json, example={
   "pickListLayout" : "aeiou",
-  "locationSmartFilterId" : 123,
   "createPickWork" : true,
-  "numberOfLines" : 123,
-  "firstPickPosition" : 123,
-  "orderSmartFilterId" : 123,
-  "processNo" : 123,
-  "pickListFormat" : "aeiou",
-  "totalCasebreaksToShip" : 123,
-  "pickSummaryLayout" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "pickListGroup" : "aeiou",
-  "numberOfSKUs" : 123,
-  "shippedCasebreaks" : 123,
-  "createPickSummary" : true,
-  "workBatchId" : 123,
-  "pickSummaryFormat" : "aeiou",
-  "status" : "aeiou",
-  "createPackingSlip" : true,
-  "warehouseId" : 123,
-  "completedToDo" : 123,
-  "overridePackingSlipTemplateId" : 123,
-  "numberOfOrders" : 123,
   "pickingRule" : "aeiou",
-  "autoShipCasebreakCartons" : true,
+  "pickSummaryLayout" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "orderLimit" : 123,
+  "pickListSort" : "aeiou",
+  "createPickSummary" : true,
+  "numberOfOrders" : 123,
+  "fulfillmentPlanId" : 123,
+  "firstPickPosition" : 123,
+  "locationSmartFilterId" : 123,
+  "totalPicks" : 123,
+  "pickSummaryFormat" : "aeiou",
+  "workBatchId" : 123,
+  "numberOfSKUs" : 123,
+  "cartonizeOrders" : true,
+  "pickSortRule" : "aeiou",
+  "totalOrdersToShip" : 123,
+  "layoutRule" : "aeiou",
+  "id" : 123,
+  "pickListFormat" : "aeiou",
+  "pickScanSchemeId" : 123,
+  "pickListGroup" : "aeiou",
+  "shippedCasebreaks" : 123,
+  "totalToDo" : 123,
   "createPickList" : true,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
   "createOrderAssemblyGuide" : true,
-  "totalToDo" : 123
-}, contentType=application/json}]
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "numberOfLines" : 123,
+  "createPackingSlip" : true,
+  "shippedOrders" : 123,
+  "shipDate" : "2000-01-23T04:56:07.000+0000",
+  "processNo" : 123,
+  "completedToDo" : 123,
+  "pickSummarySort" : "aeiou",
+  "preGenerateParcelLabels" : true,
+  "warehouseId" : 123,
+  "totalCasebreaksToShip" : 123,
+  "overridePackingSlipTemplateId" : 123,
+  "autoShipCasebreakCartons" : true,
+  "completedPicks" : 123,
+  "orderSmartFilterId" : 123,
+  "status" : "aeiou"
+}}]
      
      - parameter fulfillmentProcessId: (path) Id of the fulfillmentProcess to be returned. 
 
      - returns: RequestBuilder<FulfillmentProcess> 
      */
     public class func getFulfillmentProcessByIdWithRequestBuilder(fulfillmentProcessId fulfillmentProcessId: Int) -> RequestBuilder<FulfillmentProcess> {
-        var path = "/v1.0/fulfillmentProcess/{fulfillmentProcessId}"
+        var path = "/beta/fulfillmentProcess/{fulfillmentProcessId}"
         path = path.stringByReplacingOccurrencesOfString("{fulfillmentProcessId}", withString: "\(fulfillmentProcessId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -190,6 +198,45 @@ public class FulfillmentProcessAPI: APIBase {
         let requestBuilder: RequestBuilder<FulfillmentProcess>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a fulfillmentProcess custom fields
+     
+     - parameter body: (body) FulfillmentProcess to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateFulfillmentProcessCustomFields(body body: FulfillmentProcess, completion: ((error: ErrorType?) -> Void)) {
+        updateFulfillmentProcessCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a fulfillmentProcess custom fields
+     
+     - PUT /beta/fulfillmentProcess/customFields
+     - Updates an existing fulfillmentProcess custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) FulfillmentProcess to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateFulfillmentProcessCustomFieldsWithRequestBuilder(body body: FulfillmentProcess) -> RequestBuilder<Void> {
+        let path = "/beta/fulfillmentProcess/customFields"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }

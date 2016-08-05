@@ -19,6 +19,7 @@ public class EmailTemplate: JSONEncodable {
     public var emailTemplateType: String?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -35,6 +36,7 @@ public class EmailTemplate: JSONEncodable {
         nillableDictionary["emailTemplateType"] = self.emailTemplateType
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

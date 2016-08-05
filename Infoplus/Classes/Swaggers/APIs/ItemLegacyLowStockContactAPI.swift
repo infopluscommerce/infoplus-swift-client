@@ -30,15 +30,15 @@ public class ItemLegacyLowStockContactAPI: APIBase {
      
      Search itemLegacyLowStockContacts
      
-     - GET /v1.0/itemLegacyLowStockContact/search
+     - GET /beta/itemLegacyLowStockContact/search
      - Returns the list of itemLegacyLowStockContacts that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
+     - examples: [{contentType=application/json, example=[ {
   "id" : 123,
   "label" : "aeiou"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -47,7 +47,7 @@ public class ItemLegacyLowStockContactAPI: APIBase {
      - returns: RequestBuilder<[ItemLegacyLowStockContact]> 
      */
     public class func getItemLegacyLowStockContactBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[ItemLegacyLowStockContact]> {
-        let path = "/v1.0/itemLegacyLowStockContact/search"
+        let path = "/beta/itemLegacyLowStockContact/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -80,22 +80,22 @@ public class ItemLegacyLowStockContactAPI: APIBase {
      
      Get an itemLegacyLowStockContact by id
      
-     - GET /v1.0/itemLegacyLowStockContact/{itemLegacyLowStockContactId}
+     - GET /beta/itemLegacyLowStockContact/{itemLegacyLowStockContactId}
      - Returns the itemLegacyLowStockContact identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
+     - examples: [{contentType=application/json, example={
   "id" : 123,
   "label" : "aeiou"
-}, contentType=application/json}]
+}}]
      
      - parameter itemLegacyLowStockContactId: (path) Id of itemLegacyLowStockContact to be returned. 
 
      - returns: RequestBuilder<ItemLegacyLowStockContact> 
      */
     public class func getTranslateLowStockContactByIdWithRequestBuilder(itemLegacyLowStockContactId itemLegacyLowStockContactId: String) -> RequestBuilder<ItemLegacyLowStockContact> {
-        var path = "/v1.0/itemLegacyLowStockContact/{itemLegacyLowStockContactId}"
+        var path = "/beta/itemLegacyLowStockContact/{itemLegacyLowStockContactId}"
         path = path.stringByReplacingOccurrencesOfString("{itemLegacyLowStockContactId}", withString: "\(itemLegacyLowStockContactId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         

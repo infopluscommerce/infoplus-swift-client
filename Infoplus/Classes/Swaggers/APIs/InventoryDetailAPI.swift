@@ -31,25 +31,28 @@ public class InventoryDetailAPI: APIBase {
      
      Search inventoryDetails by filter
      
-     - GET /v1.0/inventoryDetail/search
+     - GET /beta/inventoryDetail/search
      - Returns the list of inventoryDetails that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "id" : 123,
-  "poNo" : "aeiou",
-  "productionLot" : "aeiou",
-  "lobId" : 123,
+     - examples: [{contentType=application/json, example=[ {
   "unitsPerWrap" : 123,
-  "distributionDate" : "2000-01-23T04:56:07.000+0000",
   "quantity" : 123,
   "revisionDate" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "distributionDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseLocationId" : 123,
+  "productionLot" : "aeiou",
   "unitsPerCase" : 123,
+  "poNo" : "aeiou",
+  "id" : 123,
   "sku" : "aeiou",
   "oldestReceiptDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseLocationId" : 123
-} ], contentType=application/json}]
+  "lobId" : 123
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -59,7 +62,7 @@ public class InventoryDetailAPI: APIBase {
      - returns: RequestBuilder<[InventoryDetail]> 
      */
     public class func getInventoryDetailByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[InventoryDetail]> {
-        let path = "/v1.0/inventoryDetail/search"
+        let path = "/beta/inventoryDetail/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -93,32 +96,35 @@ public class InventoryDetailAPI: APIBase {
      
      Get an inventoryDetail by id
      
-     - GET /v1.0/inventoryDetail/{inventoryDetailId}
+     - GET /beta/inventoryDetail/{inventoryDetailId}
      - Returns the inventoryDetail identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "id" : 123,
-  "poNo" : "aeiou",
-  "productionLot" : "aeiou",
-  "lobId" : 123,
+     - examples: [{contentType=application/json, example={
   "unitsPerWrap" : 123,
-  "distributionDate" : "2000-01-23T04:56:07.000+0000",
   "quantity" : 123,
   "revisionDate" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "distributionDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseLocationId" : 123,
+  "productionLot" : "aeiou",
   "unitsPerCase" : 123,
+  "poNo" : "aeiou",
+  "id" : 123,
   "sku" : "aeiou",
   "oldestReceiptDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseLocationId" : 123
-}, contentType=application/json}]
+  "lobId" : 123
+}}]
      
      - parameter inventoryDetailId: (path) Id of the inventoryDetail to be returned. 
 
      - returns: RequestBuilder<InventoryDetail> 
      */
     public class func getInventoryDetailByIdWithRequestBuilder(inventoryDetailId inventoryDetailId: Int) -> RequestBuilder<InventoryDetail> {
-        var path = "/v1.0/inventoryDetail/{inventoryDetailId}"
+        var path = "/beta/inventoryDetail/{inventoryDetailId}"
         path = path.stringByReplacingOccurrencesOfString("{inventoryDetailId}", withString: "\(inventoryDetailId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -128,6 +134,45 @@ public class InventoryDetailAPI: APIBase {
         let requestBuilder: RequestBuilder<InventoryDetail>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update an inventoryDetail custom fields
+     
+     - parameter body: (body) InventoryDetail to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateInventoryDetailCustomFields(body body: InventoryDetail, completion: ((error: ErrorType?) -> Void)) {
+        updateInventoryDetailCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update an inventoryDetail custom fields
+     
+     - PUT /beta/inventoryDetail/customFields
+     - Updates an existing inventoryDetail custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) InventoryDetail to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateInventoryDetailCustomFieldsWithRequestBuilder(body body: InventoryDetail) -> RequestBuilder<Void> {
+        let path = "/beta/inventoryDetail/customFields"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }

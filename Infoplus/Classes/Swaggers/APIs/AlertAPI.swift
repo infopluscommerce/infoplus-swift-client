@@ -31,23 +31,26 @@ public class AlertAPI: APIBase {
      
      Search alerts by filter
      
-     - GET /v1.0/alert/search
+     - GET /beta/alert/search
      - Returns the list of alerts that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "message" : "aeiou",
-  "id" : 123,
-  "expirationDate" : "2000-01-23T04:56:07.000+0000",
-  "linkText" : "aeiou",
-  "level" : "aeiou",
-  "link" : "aeiou",
+     - examples: [{contentType=application/json, example=[ {
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "level" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "link" : "aeiou",
+  "linkText" : "aeiou",
+  "id" : 123,
   "type" : "aeiou",
+  "message" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "expirationDate" : "2000-01-23T04:56:07.000+0000",
   "acknowledgeDate" : "2000-01-23T04:56:07.000+0000"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -57,7 +60,7 @@ public class AlertAPI: APIBase {
      - returns: RequestBuilder<[Alert]> 
      */
     public class func getAlertByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Alert]> {
-        let path = "/v1.0/alert/search"
+        let path = "/beta/alert/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -91,30 +94,33 @@ public class AlertAPI: APIBase {
      
      Get an alert by id
      
-     - GET /v1.0/alert/{alertId}
+     - GET /beta/alert/{alertId}
      - Returns the alert identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "message" : "aeiou",
-  "id" : 123,
-  "expirationDate" : "2000-01-23T04:56:07.000+0000",
-  "linkText" : "aeiou",
-  "level" : "aeiou",
-  "link" : "aeiou",
+     - examples: [{contentType=application/json, example={
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "level" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "link" : "aeiou",
+  "linkText" : "aeiou",
+  "id" : 123,
   "type" : "aeiou",
+  "message" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "expirationDate" : "2000-01-23T04:56:07.000+0000",
   "acknowledgeDate" : "2000-01-23T04:56:07.000+0000"
-}, contentType=application/json}]
+}}]
      
      - parameter alertId: (path) Id of the alert to be returned. 
 
      - returns: RequestBuilder<Alert> 
      */
     public class func getAlertByIdWithRequestBuilder(alertId alertId: Int) -> RequestBuilder<Alert> {
-        var path = "/v1.0/alert/{alertId}"
+        var path = "/beta/alert/{alertId}"
         path = path.stringByReplacingOccurrencesOfString("{alertId}", withString: "\(alertId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -124,6 +130,45 @@ public class AlertAPI: APIBase {
         let requestBuilder: RequestBuilder<Alert>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update an alert custom fields
+     
+     - parameter body: (body) Alert to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateAlertCustomFields(body body: Alert, completion: ((error: ErrorType?) -> Void)) {
+        updateAlertCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update an alert custom fields
+     
+     - PUT /beta/alert/customFields
+     - Updates an existing alert custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) Alert to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateAlertCustomFieldsWithRequestBuilder(body body: Alert) -> RequestBuilder<Void> {
+        let path = "/beta/alert/customFields"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }

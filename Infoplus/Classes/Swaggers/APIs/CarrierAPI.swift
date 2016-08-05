@@ -28,22 +28,22 @@ public class CarrierAPI: APIBase {
      
      Get a carrier by id
      
-     - GET /v1.0/carrier/{carrierId}
+     - GET /beta/carrier/{carrierId}
      - Returns the carrier identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
+     - examples: [{contentType=application/json, example={
   "carrier" : 123,
   "label" : "aeiou"
-}, contentType=application/json}]
+}}]
      
      - parameter carrierId: (path) Id of carrier to be returned. 
 
      - returns: RequestBuilder<Carrier> 
      */
     public class func getCarrierByIdWithRequestBuilder(carrierId carrierId: String) -> RequestBuilder<Carrier> {
-        var path = "/v1.0/carrier/{carrierId}"
+        var path = "/beta/carrier/{carrierId}"
         path = path.stringByReplacingOccurrencesOfString("{carrierId}", withString: "\(carrierId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -75,15 +75,15 @@ public class CarrierAPI: APIBase {
      
      Search carriers
      
-     - GET /v1.0/carrier/search
+     - GET /beta/carrier/search
      - Returns the list of carriers that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
+     - examples: [{contentType=application/json, example=[ {
   "carrier" : 123,
   "label" : "aeiou"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -92,7 +92,7 @@ public class CarrierAPI: APIBase {
      - returns: RequestBuilder<[Carrier]> 
      */
     public class func getCarrierBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[Carrier]> {
-        let path = "/v1.0/carrier/search"
+        let path = "/beta/carrier/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [

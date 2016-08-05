@@ -30,15 +30,15 @@ public class ItemSubGroupAPI: APIBase {
      
      Search itemSubGroups
      
-     - GET /v1.0/itemSubGroup/search
+     - GET /beta/itemSubGroup/search
      - Returns the list of itemSubGroups that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
+     - examples: [{contentType=application/json, example=[ {
   "id" : 123,
   "label" : "aeiou"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -47,7 +47,7 @@ public class ItemSubGroupAPI: APIBase {
      - returns: RequestBuilder<[ItemSubGroup]> 
      */
     public class func getItemSubGroupBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[ItemSubGroup]> {
-        let path = "/v1.0/itemSubGroup/search"
+        let path = "/beta/itemSubGroup/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -80,22 +80,22 @@ public class ItemSubGroupAPI: APIBase {
      
      Get an itemSubGroup by id
      
-     - GET /v1.0/itemSubGroup/{itemSubGroupId}
+     - GET /beta/itemSubGroup/{itemSubGroupId}
      - Returns the itemSubGroup identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
+     - examples: [{contentType=application/json, example={
   "id" : 123,
   "label" : "aeiou"
-}, contentType=application/json}]
+}}]
      
      - parameter itemSubGroupId: (path) Id of itemSubGroup to be returned. 
 
      - returns: RequestBuilder<ItemSubGroup> 
      */
     public class func getTranslateSubGroupByIdWithRequestBuilder(itemSubGroupId itemSubGroupId: String) -> RequestBuilder<ItemSubGroup> {
-        var path = "/v1.0/itemSubGroup/{itemSubGroupId}"
+        var path = "/beta/itemSubGroup/{itemSubGroupId}"
         path = path.stringByReplacingOccurrencesOfString("{itemSubGroupId}", withString: "\(itemSubGroupId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         

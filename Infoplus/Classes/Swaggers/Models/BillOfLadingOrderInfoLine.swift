@@ -15,6 +15,7 @@ public class BillOfLadingOrderInfoLine: JSONEncodable {
     public var weight: Int?
     public var palletslip: Bool?
     public var additionalShipperInfo: String?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -27,6 +28,7 @@ public class BillOfLadingOrderInfoLine: JSONEncodable {
         nillableDictionary["weight"] = self.weight
         nillableDictionary["palletslip"] = self.palletslip
         nillableDictionary["additionalShipperInfo"] = self.additionalShipperInfo
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

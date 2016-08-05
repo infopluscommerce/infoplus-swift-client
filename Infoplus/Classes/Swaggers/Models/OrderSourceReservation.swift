@@ -15,6 +15,7 @@ public class OrderSourceReservation: JSONEncodable {
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var reservedQuantity: Int?
+    public var customFields: [String:AnyObject]?
     public var sku: String?
     
 
@@ -28,6 +29,7 @@ public class OrderSourceReservation: JSONEncodable {
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["reservedQuantity"] = self.reservedQuantity
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         nillableDictionary["sku"] = self.sku
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

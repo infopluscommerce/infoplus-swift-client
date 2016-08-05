@@ -31,82 +31,85 @@ public class ItemReceiptAPI: APIBase {
      
      Search itemReceipts by filter
      
-     - GET /v1.0/itemReceipt/search
+     - GET /beta/itemReceipt/search
      - Returns the list of itemReceipts that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "revDate" : "aeiou",
-  "wrapCode" : "aeiou",
-  "endVal" : 1.3579000000000001069366817318950779736042022705078125,
-  "endQuantity" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "distDate" : "2000-01-23T04:56:07.000+0000",
-  "legacyPoNo" : "aeiou",
-  "prodLot" : "aeiou",
-  "voidDate" : "2000-01-23T04:56:07.000+0000",
-  "height" : 1.3579000000000001069366817318950779736042022705078125,
-  "interimFact" : 1.3579000000000001069366817318950779736042022705078125,
-  "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
-  "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "interimQuantity" : 123,
-  "maxUnders" : 123,
-  "mlVendor" : 123,
-  "unitCode" : "aeiou",
-  "taxExempt" : "aeiou",
-  "impressions" : 123,
+     - examples: [{contentType=application/json, example=[ {
+  "sampleTo" : "aeiou",
   "budgetCode" : "aeiou",
-  "receiptNo" : 123,
-  "orderDate" : "2000-01-23T04:56:07.000+0000",
-  "width" : 1.3579000000000001069366817318950779736042022705078125,
+  "interimFact" : 1.3579000000000001069366817318950779736042022705078125,
+  "legacyPoNo" : "aeiou",
   "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+  "vendorId" : 123,
+  "oddQuantity" : 123,
+  "orderQuantity" : 123,
+  "voidDate" : "2000-01-23T04:56:07.000+0000",
+  "revDate" : "aeiou",
+  "unitsPerCase" : 123,
   "lineNo" : 123,
+  "unitCode" : "aeiou",
+  "id" : 123,
+  "sku" : "aeiou",
+  "pricingPer" : "aeiou",
+  "receivedDate" : "2000-01-23T04:56:07.000+0000",
+  "mlCost" : 1.3579000000000001069366817318950779736042022705078125,
+  "lobId" : 123,
+  "height" : 1.3579000000000001069366817318950779736042022705078125,
+  "chargeFreight" : "aeiou",
+  "accountingCode" : "aeiou",
+  "taxExempt" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "artBack" : "aeiou",
+  "lastAct" : "2000-01-23T04:56:07.000+0000",
   "capitalize" : "aeiou",
   "warehouseId" : 123,
-  "sku" : "aeiou",
-  "sfpComplete" : "aeiou",
-  "cost" : 1.3579000000000001069366817318950779736042022705078125,
-  "accrual" : "aeiou",
-  "receivedDate" : "2000-01-23T04:56:07.000+0000",
-  "poNo" : "aeiou",
-  "maxOvers" : 123,
+  "maxUnders" : 123,
+  "interimQuantity" : 123,
+  "receivedQuantity" : 123,
+  "receiptNo" : 123,
+  "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
+  "poNoId" : 123,
+  "asnLine" : 123,
+  "orderDate" : "2000-01-23T04:56:07.000+0000",
+  "factCost" : 1.3579000000000001069366817318950779736042022705078125,
+  "endQuantity" : 123,
+  "maxFreight" : 1.3579000000000001069366817318950779736042022705078125,
   "norcs" : "aeiou",
+  "mlVendor" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "origin" : "aeiou",
   "endFact" : 1.3579000000000001069366817318950779736042022705078125,
   "enteredBy" : "aeiou",
-  "sampleTo" : "aeiou",
-  "receivedBy" : "aeiou",
-  "dockTime" : "2000-01-23T04:56:07.000+0000",
-  "maxFreight" : 1.3579000000000001069366817318950779736042022705078125,
+  "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
+  "distDate" : "2000-01-23T04:56:07.000+0000",
+  "endVal" : 1.3579000000000001069366817318950779736042022705078125,
+  "wrapCode" : "aeiou",
+  "sfpComplete" : "aeiou",
   "bsVendor" : 123,
-  "maxOther" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderQuantity" : 123,
-  "accountingCode" : "aeiou",
-  "freezeAction" : "aeiou",
-  "freightCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "chargeFreight" : "aeiou",
+  "receivedBy" : "aeiou",
   "unitsPerWrap" : 123,
-  "receivedQuantity" : 123,
-  "receivedSfp" : 123,
-  "id" : 123,
-  "pricingPer" : "aeiou",
-  "artBack" : "aeiou",
-  "asnLine" : 123,
-  "sell" : 1.3579000000000001069366817318950779736042022705078125,
-  "mlCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "paidFull" : "aeiou",
-  "length" : 1.3579000000000001069366817318950779736042022705078125,
-  "lobId" : 123,
-  "oddQuantity" : 123,
-  "unitsPerCase" : 123,
-  "sample" : 123,
-  "origin" : "aeiou",
-  "factCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "vendorId" : 123,
-  "lastAct" : "2000-01-23T04:56:07.000+0000",
+  "cost" : 1.3579000000000001069366817318950779736042022705078125,
+  "dockTime" : "2000-01-23T04:56:07.000+0000",
   "interimVal" : 1.3579000000000001069366817318950779736042022705078125,
-  "fromProd" : 123
-} ], contentType=application/json}]
+  "sell" : 1.3579000000000001069366817318950779736042022705078125,
+  "length" : 1.3579000000000001069366817318950779736042022705078125,
+  "maxOvers" : 123,
+  "impressions" : 123,
+  "sample" : 123,
+  "fromProd" : 123,
+  "paidFull" : "aeiou",
+  "prodLot" : "aeiou",
+  "width" : 1.3579000000000001069366817318950779736042022705078125,
+  "receivedSfp" : 123,
+  "accrual" : "aeiou",
+  "freightCost" : 1.3579000000000001069366817318950779736042022705078125,
+  "maxOther" : 1.3579000000000001069366817318950779736042022705078125,
+  "freezeAction" : "aeiou"
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -116,7 +119,7 @@ public class ItemReceiptAPI: APIBase {
      - returns: RequestBuilder<[ItemReceipt]> 
      */
     public class func getItemReceiptByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ItemReceipt]> {
-        let path = "/v1.0/itemReceipt/search"
+        let path = "/beta/itemReceipt/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -150,89 +153,92 @@ public class ItemReceiptAPI: APIBase {
      
      Get an itemReceipt by id
      
-     - GET /v1.0/itemReceipt/{itemReceiptId}
+     - GET /beta/itemReceipt/{itemReceiptId}
      - Returns the itemReceipt identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "revDate" : "aeiou",
-  "wrapCode" : "aeiou",
-  "endVal" : 1.3579000000000001069366817318950779736042022705078125,
-  "endQuantity" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "distDate" : "2000-01-23T04:56:07.000+0000",
-  "legacyPoNo" : "aeiou",
-  "prodLot" : "aeiou",
-  "voidDate" : "2000-01-23T04:56:07.000+0000",
-  "height" : 1.3579000000000001069366817318950779736042022705078125,
-  "interimFact" : 1.3579000000000001069366817318950779736042022705078125,
-  "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
-  "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "interimQuantity" : 123,
-  "maxUnders" : 123,
-  "mlVendor" : 123,
-  "unitCode" : "aeiou",
-  "taxExempt" : "aeiou",
-  "impressions" : 123,
+     - examples: [{contentType=application/json, example={
+  "sampleTo" : "aeiou",
   "budgetCode" : "aeiou",
-  "receiptNo" : 123,
-  "orderDate" : "2000-01-23T04:56:07.000+0000",
-  "width" : 1.3579000000000001069366817318950779736042022705078125,
+  "interimFact" : 1.3579000000000001069366817318950779736042022705078125,
+  "legacyPoNo" : "aeiou",
   "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+  "vendorId" : 123,
+  "oddQuantity" : 123,
+  "orderQuantity" : 123,
+  "voidDate" : "2000-01-23T04:56:07.000+0000",
+  "revDate" : "aeiou",
+  "unitsPerCase" : 123,
   "lineNo" : 123,
+  "unitCode" : "aeiou",
+  "id" : 123,
+  "sku" : "aeiou",
+  "pricingPer" : "aeiou",
+  "receivedDate" : "2000-01-23T04:56:07.000+0000",
+  "mlCost" : 1.3579000000000001069366817318950779736042022705078125,
+  "lobId" : 123,
+  "height" : 1.3579000000000001069366817318950779736042022705078125,
+  "chargeFreight" : "aeiou",
+  "accountingCode" : "aeiou",
+  "taxExempt" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "artBack" : "aeiou",
+  "lastAct" : "2000-01-23T04:56:07.000+0000",
   "capitalize" : "aeiou",
   "warehouseId" : 123,
-  "sku" : "aeiou",
-  "sfpComplete" : "aeiou",
-  "cost" : 1.3579000000000001069366817318950779736042022705078125,
-  "accrual" : "aeiou",
-  "receivedDate" : "2000-01-23T04:56:07.000+0000",
-  "poNo" : "aeiou",
-  "maxOvers" : 123,
+  "maxUnders" : 123,
+  "interimQuantity" : 123,
+  "receivedQuantity" : 123,
+  "receiptNo" : 123,
+  "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
+  "poNoId" : 123,
+  "asnLine" : 123,
+  "orderDate" : "2000-01-23T04:56:07.000+0000",
+  "factCost" : 1.3579000000000001069366817318950779736042022705078125,
+  "endQuantity" : 123,
+  "maxFreight" : 1.3579000000000001069366817318950779736042022705078125,
   "norcs" : "aeiou",
+  "mlVendor" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "origin" : "aeiou",
   "endFact" : 1.3579000000000001069366817318950779736042022705078125,
   "enteredBy" : "aeiou",
-  "sampleTo" : "aeiou",
-  "receivedBy" : "aeiou",
-  "dockTime" : "2000-01-23T04:56:07.000+0000",
-  "maxFreight" : 1.3579000000000001069366817318950779736042022705078125,
+  "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
+  "distDate" : "2000-01-23T04:56:07.000+0000",
+  "endVal" : 1.3579000000000001069366817318950779736042022705078125,
+  "wrapCode" : "aeiou",
+  "sfpComplete" : "aeiou",
   "bsVendor" : 123,
-  "maxOther" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderQuantity" : 123,
-  "accountingCode" : "aeiou",
-  "freezeAction" : "aeiou",
-  "freightCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "chargeFreight" : "aeiou",
+  "receivedBy" : "aeiou",
   "unitsPerWrap" : 123,
-  "receivedQuantity" : 123,
-  "receivedSfp" : 123,
-  "id" : 123,
-  "pricingPer" : "aeiou",
-  "artBack" : "aeiou",
-  "asnLine" : 123,
-  "sell" : 1.3579000000000001069366817318950779736042022705078125,
-  "mlCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "paidFull" : "aeiou",
-  "length" : 1.3579000000000001069366817318950779736042022705078125,
-  "lobId" : 123,
-  "oddQuantity" : 123,
-  "unitsPerCase" : 123,
-  "sample" : 123,
-  "origin" : "aeiou",
-  "factCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "vendorId" : 123,
-  "lastAct" : "2000-01-23T04:56:07.000+0000",
+  "cost" : 1.3579000000000001069366817318950779736042022705078125,
+  "dockTime" : "2000-01-23T04:56:07.000+0000",
   "interimVal" : 1.3579000000000001069366817318950779736042022705078125,
-  "fromProd" : 123
-}, contentType=application/json}]
+  "sell" : 1.3579000000000001069366817318950779736042022705078125,
+  "length" : 1.3579000000000001069366817318950779736042022705078125,
+  "maxOvers" : 123,
+  "impressions" : 123,
+  "sample" : 123,
+  "fromProd" : 123,
+  "paidFull" : "aeiou",
+  "prodLot" : "aeiou",
+  "width" : 1.3579000000000001069366817318950779736042022705078125,
+  "receivedSfp" : 123,
+  "accrual" : "aeiou",
+  "freightCost" : 1.3579000000000001069366817318950779736042022705078125,
+  "maxOther" : 1.3579000000000001069366817318950779736042022705078125,
+  "freezeAction" : "aeiou"
+}}]
      
      - parameter itemReceiptId: (path) Id of the itemReceipt to be returned. 
 
      - returns: RequestBuilder<ItemReceipt> 
      */
     public class func getItemReceiptByIdWithRequestBuilder(itemReceiptId itemReceiptId: Int) -> RequestBuilder<ItemReceipt> {
-        var path = "/v1.0/itemReceipt/{itemReceiptId}"
+        var path = "/beta/itemReceipt/{itemReceiptId}"
         path = path.stringByReplacingOccurrencesOfString("{itemReceiptId}", withString: "\(itemReceiptId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -242,6 +248,45 @@ public class ItemReceiptAPI: APIBase {
         let requestBuilder: RequestBuilder<ItemReceipt>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update an itemReceipt custom fields
+     
+     - parameter body: (body) ItemReceipt to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateItemReceiptCustomFields(body body: ItemReceipt, completion: ((error: ErrorType?) -> Void)) {
+        updateItemReceiptCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update an itemReceipt custom fields
+     
+     - PUT /beta/itemReceipt/customFields
+     - Updates an existing itemReceipt custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) ItemReceipt to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateItemReceiptCustomFieldsWithRequestBuilder(body body: ItemReceipt) -> RequestBuilder<Void> {
+        let path = "/beta/itemReceipt/customFields"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }

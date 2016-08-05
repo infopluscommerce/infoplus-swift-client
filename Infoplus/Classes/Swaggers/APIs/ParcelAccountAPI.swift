@@ -31,21 +31,24 @@ public class ParcelAccountAPI: APIBase {
      
      Search parcelAccounts by filter
      
-     - GET /v1.0/parcelAccount/search
+     - GET /beta/parcelAccount/search
      - Returns the list of parcelAccounts that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "id" : 123,
-  "client" : 123,
-  "name" : "aeiou",
+     - examples: [{contentType=application/json, example=[ {
   "carrier" : "aeiou",
-  "accountNo" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "manifestPartnerId" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "accountNo" : "aeiou",
+  "name" : "aeiou",
+  "client" : 123,
+  "id" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -55,7 +58,7 @@ public class ParcelAccountAPI: APIBase {
      - returns: RequestBuilder<[ParcelAccount]> 
      */
     public class func getParcelAccountByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ParcelAccount]> {
-        let path = "/v1.0/parcelAccount/search"
+        let path = "/beta/parcelAccount/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -89,28 +92,31 @@ public class ParcelAccountAPI: APIBase {
      
      Get a parcelAccount by id
      
-     - GET /v1.0/parcelAccount/{parcelAccountId}
+     - GET /beta/parcelAccount/{parcelAccountId}
      - Returns the parcelAccount identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "id" : 123,
-  "client" : 123,
-  "name" : "aeiou",
+     - examples: [{contentType=application/json, example={
   "carrier" : "aeiou",
-  "accountNo" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "manifestPartnerId" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "accountNo" : "aeiou",
+  "name" : "aeiou",
+  "client" : 123,
+  "id" : 123,
   "createDate" : "2000-01-23T04:56:07.000+0000"
-}, contentType=application/json}]
+}}]
      
      - parameter parcelAccountId: (path) Id of the parcelAccount to be returned. 
 
      - returns: RequestBuilder<ParcelAccount> 
      */
     public class func getParcelAccountByIdWithRequestBuilder(parcelAccountId parcelAccountId: Int) -> RequestBuilder<ParcelAccount> {
-        var path = "/v1.0/parcelAccount/{parcelAccountId}"
+        var path = "/beta/parcelAccount/{parcelAccountId}"
         path = path.stringByReplacingOccurrencesOfString("{parcelAccountId}", withString: "\(parcelAccountId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -120,6 +126,45 @@ public class ParcelAccountAPI: APIBase {
         let requestBuilder: RequestBuilder<ParcelAccount>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a parcelAccount custom fields
+     
+     - parameter body: (body) ParcelAccount to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateParcelAccountCustomFields(body body: ParcelAccount, completion: ((error: ErrorType?) -> Void)) {
+        updateParcelAccountCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a parcelAccount custom fields
+     
+     - PUT /beta/parcelAccount/customFields
+     - Updates an existing parcelAccount custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) ParcelAccount to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateParcelAccountCustomFieldsWithRequestBuilder(body body: ParcelAccount) -> RequestBuilder<Void> {
+        let path = "/beta/parcelAccount/customFields"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }

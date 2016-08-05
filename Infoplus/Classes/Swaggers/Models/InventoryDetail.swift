@@ -21,6 +21,7 @@ public class InventoryDetail: JSONEncodable {
     public var oldestReceiptDate: NSDate?
     public var lobId: Int?
     public var poNo: String?
+    public var customFields: [String:AnyObject]?
     public var sku: String?
     
 
@@ -40,6 +41,7 @@ public class InventoryDetail: JSONEncodable {
         nillableDictionary["oldestReceiptDate"] = self.oldestReceiptDate?.encodeToJSON()
         nillableDictionary["lobId"] = self.lobId
         nillableDictionary["poNo"] = self.poNo
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         nillableDictionary["sku"] = self.sku
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

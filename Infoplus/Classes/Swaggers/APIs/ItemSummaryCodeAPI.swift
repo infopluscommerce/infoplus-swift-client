@@ -30,15 +30,15 @@ public class ItemSummaryCodeAPI: APIBase {
      
      Search itemSummaryCodes
      
-     - GET /v1.0/itemSummaryCode/search
+     - GET /beta/itemSummaryCode/search
      - Returns the list of itemSummaryCodes that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
+     - examples: [{contentType=application/json, example=[ {
   "id" : 123,
   "label" : "aeiou"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -47,7 +47,7 @@ public class ItemSummaryCodeAPI: APIBase {
      - returns: RequestBuilder<[ItemSummaryCode]> 
      */
     public class func getItemSummaryCodeBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[ItemSummaryCode]> {
-        let path = "/v1.0/itemSummaryCode/search"
+        let path = "/beta/itemSummaryCode/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -80,22 +80,22 @@ public class ItemSummaryCodeAPI: APIBase {
      
      Get an itemSummaryCode by id
      
-     - GET /v1.0/itemSummaryCode/{itemSummaryCodeId}
+     - GET /beta/itemSummaryCode/{itemSummaryCodeId}
      - Returns the itemSummaryCode identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
+     - examples: [{contentType=application/json, example={
   "id" : 123,
   "label" : "aeiou"
-}, contentType=application/json}]
+}}]
      
      - parameter itemSummaryCodeId: (path) Id of itemSummaryCode to be returned. 
 
      - returns: RequestBuilder<ItemSummaryCode> 
      */
     public class func getTranslateSummaryCodeByIdWithRequestBuilder(itemSummaryCodeId itemSummaryCodeId: String) -> RequestBuilder<ItemSummaryCode> {
-        var path = "/v1.0/itemSummaryCode/{itemSummaryCodeId}"
+        var path = "/beta/itemSummaryCode/{itemSummaryCodeId}"
         path = path.stringByReplacingOccurrencesOfString("{itemSummaryCodeId}", withString: "\(itemSummaryCodeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
