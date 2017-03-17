@@ -27,6 +27,7 @@ public class Warehouse: JSONEncodable {
     public var lpnPrefix: String?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -51,6 +52,7 @@ public class Warehouse: JSONEncodable {
         nillableDictionary["lpnPrefix"] = self.lpnPrefix
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

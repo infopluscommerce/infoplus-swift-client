@@ -18,6 +18,7 @@ public class JobType: JSONEncodable {
     public var description: String?
     public var jobCode: String?
     public var isActive: Bool?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -33,6 +34,7 @@ public class JobType: JSONEncodable {
         nillableDictionary["description"] = self.description
         nillableDictionary["jobCode"] = self.jobCode
         nillableDictionary["isActive"] = self.isActive
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

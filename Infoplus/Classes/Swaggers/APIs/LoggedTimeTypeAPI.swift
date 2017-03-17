@@ -28,22 +28,22 @@ public class LoggedTimeTypeAPI: APIBase {
      
      Get a loggedTimeType by id
      
-     - GET /v1.0/loggedTimeType/{loggedTimeTypeId}
+     - GET /beta/loggedTimeType/{loggedTimeTypeId}
      - Returns the loggedTimeType identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
+     - examples: [{contentType=application/json, example={
   "id" : 123,
   "label" : "aeiou"
-}, contentType=application/json}]
+}}]
      
      - parameter loggedTimeTypeId: (path) Id of loggedTimeType to be returned. 
 
      - returns: RequestBuilder<LoggedTimeType> 
      */
     public class func getLoggedTimeTypeByIdWithRequestBuilder(loggedTimeTypeId loggedTimeTypeId: String) -> RequestBuilder<LoggedTimeType> {
-        var path = "/v1.0/loggedTimeType/{loggedTimeTypeId}"
+        var path = "/beta/loggedTimeType/{loggedTimeTypeId}"
         path = path.stringByReplacingOccurrencesOfString("{loggedTimeTypeId}", withString: "\(loggedTimeTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -75,15 +75,15 @@ public class LoggedTimeTypeAPI: APIBase {
      
      Search loggedTimeTypes
      
-     - GET /v1.0/loggedTimeType/search
+     - GET /beta/loggedTimeType/search
      - Returns the list of loggedTimeTypes that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
+     - examples: [{contentType=application/json, example=[ {
   "id" : 123,
   "label" : "aeiou"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -92,7 +92,7 @@ public class LoggedTimeTypeAPI: APIBase {
      - returns: RequestBuilder<[LoggedTimeType]> 
      */
     public class func getLoggedTimeTypeBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[LoggedTimeType]> {
-        let path = "/v1.0/loggedTimeType/search"
+        let path = "/beta/loggedTimeType/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [

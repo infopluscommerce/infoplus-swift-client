@@ -70,7 +70,40 @@ public class Item: JSONEncodable {
     public var forwardItemMixingRule: String?
     public var storageItemMixingRule: String?
     public var allocationRule: String?
+    public var barcodeField: String?
+    public var warehouseDisplayField: String?
+    public var productIdTagSchemeId: Int?
     public var hazmat: String?
+    public var isAlcohol: Bool?
+    public var alcoholType: String?
+    public var alcoholContent: Double?
+    public var alcoholContainer: String?
+    public var alcoholVintageYear: String?
+    public var alcoholCountry: String?
+    public var alcoholState: String?
+    public var alcoholRegion: String?
+    public var alcoholBrand: String?
+    public var alcoholUPCCode: String?
+    public var alcoholNAMBCACode: String?
+    public var alcoholUNIMERCCode: String?
+    public var alcoholSCCCode: String?
+    public var length: Double?
+    public var width: Double?
+    public var height: Double?
+    public var topUp: Bool?
+    public var shipSolo: Bool?
+    public var availableQuantity: Int?
+    public var damagedQuantity: Int?
+    public var inFulfillmentProcessQuantity: Int?
+    public var onHandQuantity: Int?
+    public var openOrderQuantity: Int?
+    public var openPOQuantity: Int?
+    public var orderableQuantity: Int?
+    public var unallocatableQuantity: Int?
+    public var unavailableQuantity: Int?
+    public var overallDaysOnHand: Int?
+    public var overallStockStatus: String?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -138,7 +171,40 @@ public class Item: JSONEncodable {
         nillableDictionary["forwardItemMixingRule"] = self.forwardItemMixingRule
         nillableDictionary["storageItemMixingRule"] = self.storageItemMixingRule
         nillableDictionary["allocationRule"] = self.allocationRule
+        nillableDictionary["barcodeField"] = self.barcodeField
+        nillableDictionary["warehouseDisplayField"] = self.warehouseDisplayField
+        nillableDictionary["productIdTagSchemeId"] = self.productIdTagSchemeId
         nillableDictionary["hazmat"] = self.hazmat
+        nillableDictionary["isAlcohol"] = self.isAlcohol
+        nillableDictionary["alcoholType"] = self.alcoholType
+        nillableDictionary["alcoholContent"] = self.alcoholContent
+        nillableDictionary["alcoholContainer"] = self.alcoholContainer
+        nillableDictionary["alcoholVintageYear"] = self.alcoholVintageYear
+        nillableDictionary["alcoholCountry"] = self.alcoholCountry
+        nillableDictionary["alcoholState"] = self.alcoholState
+        nillableDictionary["alcoholRegion"] = self.alcoholRegion
+        nillableDictionary["alcoholBrand"] = self.alcoholBrand
+        nillableDictionary["alcoholUPCCode"] = self.alcoholUPCCode
+        nillableDictionary["alcoholNAMBCACode"] = self.alcoholNAMBCACode
+        nillableDictionary["alcoholUNIMERCCode"] = self.alcoholUNIMERCCode
+        nillableDictionary["alcoholSCCCode"] = self.alcoholSCCCode
+        nillableDictionary["length"] = self.length
+        nillableDictionary["width"] = self.width
+        nillableDictionary["height"] = self.height
+        nillableDictionary["topUp"] = self.topUp
+        nillableDictionary["shipSolo"] = self.shipSolo
+        nillableDictionary["availableQuantity"] = self.availableQuantity
+        nillableDictionary["damagedQuantity"] = self.damagedQuantity
+        nillableDictionary["inFulfillmentProcessQuantity"] = self.inFulfillmentProcessQuantity
+        nillableDictionary["onHandQuantity"] = self.onHandQuantity
+        nillableDictionary["openOrderQuantity"] = self.openOrderQuantity
+        nillableDictionary["openPOQuantity"] = self.openPOQuantity
+        nillableDictionary["orderableQuantity"] = self.orderableQuantity
+        nillableDictionary["unallocatableQuantity"] = self.unallocatableQuantity
+        nillableDictionary["unavailableQuantity"] = self.unavailableQuantity
+        nillableDictionary["overallDaysOnHand"] = self.overallDaysOnHand
+        nillableDictionary["overallStockStatus"] = self.overallStockStatus
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

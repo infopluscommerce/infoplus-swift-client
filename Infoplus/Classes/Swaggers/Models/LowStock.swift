@@ -18,6 +18,7 @@ public class LowStock: JSONEncodable {
     public var isDelayed: Bool?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
+    public var customFields: [String:AnyObject]?
     public var sku: String?
     
 
@@ -34,6 +35,7 @@ public class LowStock: JSONEncodable {
         nillableDictionary["isDelayed"] = self.isDelayed
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         nillableDictionary["sku"] = self.sku
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

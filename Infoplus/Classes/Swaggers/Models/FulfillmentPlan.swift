@@ -16,6 +16,7 @@ public class FulfillmentPlan: JSONEncodable {
     public var name: String?
     public var description: String?
     public var warehouseId: Int?
+    public var lastRunTime: NSDate?
     public var orderSmartFilterId: Int?
     public var locationSmartFilterId: Int?
     public var maximumNumberOfOrders: Int?
@@ -32,12 +33,18 @@ public class FulfillmentPlan: JSONEncodable {
     public var pickSummaryFormat: String?
     public var pickSummaryLayout: String?
     public var pickSummarySort: String?
+    public var pickScanSchemeId: Int?
     public var cartonizeOrders: Bool?
     public var autoShipCasebreakCartons: Bool?
     public var preGenerateParcelLabels: Bool?
+    public var createPackingSlip: String?
     public var overridePackingSlipTemplateId: Int?
-    public var createPackingSlip: Bool?
     public var createOrderAssemblyGuide: Bool?
+    public var createOrderInvoice: String?
+    public var overrideOrderInvoiceTemplateId: Int?
+    public var sendToExternalShippingSystem: Bool?
+    public var externalShippingSystemId: Int?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -51,6 +58,7 @@ public class FulfillmentPlan: JSONEncodable {
         nillableDictionary["name"] = self.name
         nillableDictionary["description"] = self.description
         nillableDictionary["warehouseId"] = self.warehouseId
+        nillableDictionary["lastRunTime"] = self.lastRunTime?.encodeToJSON()
         nillableDictionary["orderSmartFilterId"] = self.orderSmartFilterId
         nillableDictionary["locationSmartFilterId"] = self.locationSmartFilterId
         nillableDictionary["maximumNumberOfOrders"] = self.maximumNumberOfOrders
@@ -67,12 +75,18 @@ public class FulfillmentPlan: JSONEncodable {
         nillableDictionary["pickSummaryFormat"] = self.pickSummaryFormat
         nillableDictionary["pickSummaryLayout"] = self.pickSummaryLayout
         nillableDictionary["pickSummarySort"] = self.pickSummarySort
+        nillableDictionary["pickScanSchemeId"] = self.pickScanSchemeId
         nillableDictionary["cartonizeOrders"] = self.cartonizeOrders
         nillableDictionary["autoShipCasebreakCartons"] = self.autoShipCasebreakCartons
         nillableDictionary["preGenerateParcelLabels"] = self.preGenerateParcelLabels
-        nillableDictionary["overridePackingSlipTemplateId"] = self.overridePackingSlipTemplateId
         nillableDictionary["createPackingSlip"] = self.createPackingSlip
+        nillableDictionary["overridePackingSlipTemplateId"] = self.overridePackingSlipTemplateId
         nillableDictionary["createOrderAssemblyGuide"] = self.createOrderAssemblyGuide
+        nillableDictionary["createOrderInvoice"] = self.createOrderInvoice
+        nillableDictionary["overrideOrderInvoiceTemplateId"] = self.overrideOrderInvoiceTemplateId
+        nillableDictionary["sendToExternalShippingSystem"] = self.sendToExternalShippingSystem
+        nillableDictionary["externalShippingSystemId"] = self.externalShippingSystemId
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

@@ -15,8 +15,10 @@ public class PickFaceAssignment: JSONEncodable {
     public var locationId: Int?
     public var replenishmentPoint: Int?
     public var maxQuantity: Int?
+    public var active: Bool?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
+    public var customFields: [String:AnyObject]?
     public var sku: String?
     
 
@@ -30,8 +32,10 @@ public class PickFaceAssignment: JSONEncodable {
         nillableDictionary["locationId"] = self.locationId
         nillableDictionary["replenishmentPoint"] = self.replenishmentPoint
         nillableDictionary["maxQuantity"] = self.maxQuantity
+        nillableDictionary["active"] = self.active
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         nillableDictionary["sku"] = self.sku
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

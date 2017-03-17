@@ -28,6 +28,7 @@ public class LocationAddressScheme: JSONEncodable {
     public var bayNumberMinimumNumberOfDigits: Int?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -53,6 +54,7 @@ public class LocationAddressScheme: JSONEncodable {
         nillableDictionary["bayNumberMinimumNumberOfDigits"] = self.bayNumberMinimumNumberOfDigits
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

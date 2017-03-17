@@ -16,7 +16,8 @@ public class FulfillmentProcess: JSONEncodable {
     public var processNo: Int?
     public var workBatchId: Int?
     public var warehouseId: Int?
-    public var allocationPlanId: Int?
+    public var fulfillmentPlanId: Int?
+    public var pickScanSchemeId: Int?
     public var status: String?
     public var orderSmartFilterId: Int?
     public var locationSmartFilterId: Int?
@@ -50,9 +51,14 @@ public class FulfillmentProcess: JSONEncodable {
     public var shipDate: NSDate?
     public var autoShipCasebreakCartons: Bool?
     public var cartonizeOrders: Bool?
-    public var createPackingSlip: Bool?
+    public var createPackingSlip: String?
     public var overridePackingSlipTemplateId: Int?
     public var createOrderAssemblyGuide: Bool?
+    public var createOrderInvoice: String?
+    public var overrideOrderInvoiceTemplateId: Int?
+    public var sendToExternalShippingSystem: Bool?
+    public var externalShippingSystemId: Int?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -66,7 +72,8 @@ public class FulfillmentProcess: JSONEncodable {
         nillableDictionary["processNo"] = self.processNo
         nillableDictionary["workBatchId"] = self.workBatchId
         nillableDictionary["warehouseId"] = self.warehouseId
-        nillableDictionary["allocationPlanId"] = self.allocationPlanId
+        nillableDictionary["fulfillmentPlanId"] = self.fulfillmentPlanId
+        nillableDictionary["pickScanSchemeId"] = self.pickScanSchemeId
         nillableDictionary["status"] = self.status
         nillableDictionary["orderSmartFilterId"] = self.orderSmartFilterId
         nillableDictionary["locationSmartFilterId"] = self.locationSmartFilterId
@@ -103,6 +110,11 @@ public class FulfillmentProcess: JSONEncodable {
         nillableDictionary["createPackingSlip"] = self.createPackingSlip
         nillableDictionary["overridePackingSlipTemplateId"] = self.overridePackingSlipTemplateId
         nillableDictionary["createOrderAssemblyGuide"] = self.createOrderAssemblyGuide
+        nillableDictionary["createOrderInvoice"] = self.createOrderInvoice
+        nillableDictionary["overrideOrderInvoiceTemplateId"] = self.overrideOrderInvoiceTemplateId
+        nillableDictionary["sendToExternalShippingSystem"] = self.sendToExternalShippingSystem
+        nillableDictionary["externalShippingSystemId"] = self.externalShippingSystemId
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

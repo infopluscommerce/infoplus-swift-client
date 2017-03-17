@@ -16,6 +16,7 @@ public class ReplenishmentPlan: JSONEncodable {
     public var warehouseId: Int?
     public var pickFaceAssignmentSmartFilterId: Int?
     public var name: String?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -29,6 +30,7 @@ public class ReplenishmentPlan: JSONEncodable {
         nillableDictionary["warehouseId"] = self.warehouseId
         nillableDictionary["pickFaceAssignmentSmartFilterId"] = self.pickFaceAssignmentSmartFilterId
         nillableDictionary["name"] = self.name
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

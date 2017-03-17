@@ -17,6 +17,7 @@ public class ReceivingProcess: JSONEncodable {
     public var receivingWorksheetId: Int?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -31,6 +32,7 @@ public class ReceivingProcess: JSONEncodable {
         nillableDictionary["receivingWorksheetId"] = self.receivingWorksheetId
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

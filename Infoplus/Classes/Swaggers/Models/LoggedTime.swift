@@ -23,6 +23,7 @@ public class LoggedTime: JSONEncodable {
     public var warehouseId: Int?
     public var loggedTimeTypeId: Int?
     public var appId: Int?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -43,6 +44,7 @@ public class LoggedTime: JSONEncodable {
         nillableDictionary["warehouseId"] = self.warehouseId
         nillableDictionary["loggedTimeTypeId"] = self.loggedTimeTypeId
         nillableDictionary["appId"] = self.appId
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

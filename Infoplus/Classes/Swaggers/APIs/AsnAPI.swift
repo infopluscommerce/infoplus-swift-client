@@ -28,135 +28,143 @@ public class AsnAPI: APIBase {
      
      Create an asn
      
-     - POST /v1.0/asn
+     - POST /beta/asn
      - Inserts a new asn using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "corporateCity" : "aeiou",
-  "billingZipCode" : "aeiou",
-  "terms" : "aeiou",
-  "shipToPhone" : "aeiou",
-  "remarks" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "corporateName" : "aeiou",
-  "type" : "aeiou",
-  "billingState" : "aeiou",
-  "corporateZipCode" : "aeiou",
-  "id" : 123,
-  "shipToStreet1" : "aeiou",
-  "accountCode" : "aeiou",
-  "shipToZipCode" : "aeiou",
-  "requestBy" : "aeiou",
-  "corporateAttention" : "aeiou",
-  "buyer" : 123,
-  "billingAttention" : "aeiou",
-  "lobId" : 123,
-  "carrier" : 123,
-  "corporateStreet1" : "aeiou",
-  "billingCity" : "aeiou",
-  "corporateStreet2" : "aeiou",
+     - examples: [{contentType=application/json, example={
   "confTo" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "shipToAddress" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "vendorId" : 123,
+  "corporateCity" : "aeiou",
+  "type" : "aeiou",
+  "corporateName" : "aeiou",
+  "corporateStreet2" : "aeiou",
   "lineItems" : [ {
-    "revDate" : "aeiou",
-    "wrapCode" : "aeiou",
-    "endVal" : 1.3579000000000001069366817318950779736042022705078125,
-    "endQuantity" : 123,
-    "modifyDate" : "2000-01-23T04:56:07.000+0000",
-    "distDate" : "2000-01-23T04:56:07.000+0000",
-    "legacyPoNo" : "aeiou",
-    "prodLot" : "aeiou",
-    "voidDate" : "2000-01-23T04:56:07.000+0000",
-    "height" : 1.3579000000000001069366817318950779736042022705078125,
-    "interimFact" : 1.3579000000000001069366817318950779736042022705078125,
-    "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
-    "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-    "interimQuantity" : 123,
-    "maxUnders" : 123,
-    "mlVendor" : 123,
-    "unitCode" : "aeiou",
-    "taxExempt" : "aeiou",
-    "impressions" : 123,
+    "sampleTo" : "aeiou",
     "budgetCode" : "aeiou",
-    "receiptNo" : 123,
-    "orderDate" : "2000-01-23T04:56:07.000+0000",
-    "width" : 1.3579000000000001069366817318950779736042022705078125,
+    "interimFact" : 1.3579000000000001069366817318950779736042022705078125,
+    "legacyPoNo" : "aeiou",
     "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+    "vendorId" : 123,
+    "oddQuantity" : 123,
+    "orderQuantity" : 123,
+    "voidDate" : "2000-01-23T04:56:07.000+0000",
+    "revDate" : "aeiou",
+    "unitsPerCase" : 123,
     "lineNo" : 123,
+    "unitCode" : "aeiou",
+    "id" : 123,
+    "sku" : "aeiou",
+    "pricingPer" : "aeiou",
+    "receivedDate" : "2000-01-23T04:56:07.000+0000",
+    "mlCost" : 1.3579000000000001069366817318950779736042022705078125,
+    "lobId" : 123,
+    "height" : 1.3579000000000001069366817318950779736042022705078125,
+    "chargeFreight" : "aeiou",
+    "accountingCode" : "aeiou",
+    "taxExempt" : "aeiou",
+    "modifyDate" : "2000-01-23T04:56:07.000+0000",
+    "artBack" : "aeiou",
+    "lastAct" : "2000-01-23T04:56:07.000+0000",
     "capitalize" : "aeiou",
     "warehouseId" : 123,
-    "sku" : "aeiou",
-    "sfpComplete" : "aeiou",
-    "cost" : 1.3579000000000001069366817318950779736042022705078125,
-    "accrual" : "aeiou",
-    "receivedDate" : "2000-01-23T04:56:07.000+0000",
-    "poNo" : "aeiou",
-    "maxOvers" : 123,
+    "maxUnders" : 123,
+    "interimQuantity" : 123,
+    "receivedQuantity" : 123,
+    "receiptNo" : 123,
+    "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
+    "poNoId" : 123,
+    "dockDate" : "2000-01-23T04:56:07.000+0000",
+    "asnLine" : 123,
+    "orderDate" : "2000-01-23T04:56:07.000+0000",
+    "factCost" : 1.3579000000000001069366817318950779736042022705078125,
+    "endQuantity" : 123,
+    "maxFreight" : 1.3579000000000001069366817318950779736042022705078125,
     "norcs" : "aeiou",
+    "mlVendor" : 123,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "origin" : "aeiou",
     "endFact" : 1.3579000000000001069366817318950779736042022705078125,
     "enteredBy" : "aeiou",
-    "sampleTo" : "aeiou",
-    "receivedBy" : "aeiou",
-    "dockTime" : "2000-01-23T04:56:07.000+0000",
-    "maxFreight" : 1.3579000000000001069366817318950779736042022705078125,
+    "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
+    "distDate" : "2000-01-23T04:56:07.000+0000",
+    "endVal" : 1.3579000000000001069366817318950779736042022705078125,
+    "wrapCode" : "aeiou",
+    "sfpComplete" : "aeiou",
     "bsVendor" : 123,
-    "maxOther" : 1.3579000000000001069366817318950779736042022705078125,
-    "orderQuantity" : 123,
-    "accountingCode" : "aeiou",
-    "freezeAction" : "aeiou",
-    "freightCost" : 1.3579000000000001069366817318950779736042022705078125,
-    "chargeFreight" : "aeiou",
+    "receivedBy" : "aeiou",
     "unitsPerWrap" : 123,
-    "receivedQuantity" : 123,
-    "receivedSfp" : 123,
-    "id" : 123,
-    "pricingPer" : "aeiou",
-    "artBack" : "aeiou",
-    "asnLine" : 123,
-    "sell" : 1.3579000000000001069366817318950779736042022705078125,
-    "mlCost" : 1.3579000000000001069366817318950779736042022705078125,
-    "paidFull" : "aeiou",
-    "length" : 1.3579000000000001069366817318950779736042022705078125,
-    "lobId" : 123,
-    "oddQuantity" : 123,
-    "unitsPerCase" : 123,
-    "sample" : 123,
-    "origin" : "aeiou",
-    "factCost" : 1.3579000000000001069366817318950779736042022705078125,
-    "vendorId" : 123,
-    "lastAct" : "2000-01-23T04:56:07.000+0000",
+    "cost" : 1.3579000000000001069366817318950779736042022705078125,
     "interimVal" : 1.3579000000000001069366817318950779736042022705078125,
-    "fromProd" : 123
+    "sell" : 1.3579000000000001069366817318950779736042022705078125,
+    "length" : 1.3579000000000001069366817318950779736042022705078125,
+    "maxOvers" : 123,
+    "productIdTag" : "aeiou",
+    "impressions" : 123,
+    "sample" : 123,
+    "fromProd" : 123,
+    "paidFull" : "aeiou",
+    "prodLot" : "aeiou",
+    "width" : 1.3579000000000001069366817318950779736042022705078125,
+    "receivedSfp" : 123,
+    "accrual" : "aeiou",
+    "freightCost" : 1.3579000000000001069366817318950779736042022705078125,
+    "maxOther" : 1.3579000000000001069366817318950779736042022705078125,
+    "freezeAction" : "aeiou"
   } ],
-  "shipToStreet2" : "aeiou",
-  "shipToName" : "aeiou",
-  "shipToAddress" : "aeiou",
-  "shipToState" : "aeiou",
-  "status" : "aeiou",
-  "orderDate" : "2000-01-23T04:56:07.000+0000",
   "shipToCity" : "aeiou",
-  "billingStreet2" : "aeiou",
-  "warehouseId" : 123,
-  "vendorId" : 123,
-  "billingStreet1" : "aeiou",
+  "corporateStreet1" : "aeiou",
   "projectNo" : 123,
-  "fob" : "aeiou",
   "poNo" : "aeiou",
-  "corporateState" : "aeiou",
-  "printed" : "aeiou",
+  "terms" : "aeiou",
+  "billingAttention" : "aeiou",
+  "requestBy" : "aeiou",
+  "id" : 123,
   "billingName" : "aeiou",
+  "corporateZipCode" : "aeiou",
+  "shipToState" : "aeiou",
   "usedBy" : "aeiou",
-  "billingPhone" : "aeiou"
-}, contentType=application/json}]
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "lobId" : 123,
+  "shipToStreet2" : "aeiou",
+  "shipToPhone" : "aeiou",
+  "accountCode" : "aeiou",
+  "shipToZipCode" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "billingZipCode" : "aeiou",
+  "billingStreet2" : "aeiou",
+  "billingState" : "aeiou",
+  "transferOrderId" : 1.3579000000000001069366817318950779736042022705078125,
+  "billingStreet1" : "aeiou",
+  "shipToStreet1" : "aeiou",
+  "buyer" : 123,
+  "printed" : "aeiou",
+  "corporateAttention" : "aeiou",
+  "carrier" : 123,
+  "warehouseId" : 123,
+  "fob" : "aeiou",
+  "shipToName" : "aeiou",
+  "corporateState" : "aeiou",
+  "orderDate" : "2000-01-23T04:56:07.000+0000",
+  "billingCity" : "aeiou",
+  "billingPhone" : "aeiou",
+  "remarks" : "aeiou",
+  "status" : "aeiou"
+}}]
      
      - parameter body: (body) Asn to be inserted. 
 
      - returns: RequestBuilder<Asn> 
      */
     public class func addAsnWithRequestBuilder(body body: Asn) -> RequestBuilder<Asn> {
-        let path = "/v1.0/asn"
+        let path = "/beta/asn"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -164,6 +172,94 @@ public class AsnAPI: APIBase {
         let requestBuilder: RequestBuilder<Asn>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new audit for an asn
+     
+     - parameter asnId: (path) Id of the asn to add an audit to 
+     - parameter asnAudit: (path) The audit to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addAsnAudit(asnId asnId: Int, asnAudit: String, completion: ((error: ErrorType?) -> Void)) {
+        addAsnAuditWithRequestBuilder(asnId: asnId, asnAudit: asnAudit).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new audit for an asn
+     
+     - PUT /beta/asn/{asnId}/audit/{asnAudit}
+     - Adds an audit to an existing asn.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter asnId: (path) Id of the asn to add an audit to 
+     - parameter asnAudit: (path) The audit to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addAsnAuditWithRequestBuilder(asnId asnId: Int, asnAudit: String) -> RequestBuilder<Void> {
+        var path = "/beta/asn/{asnId}/audit/{asnAudit}"
+        path = path.stringByReplacingOccurrencesOfString("{asnId}", withString: "\(asnId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{asnAudit}", withString: "\(asnAudit)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new tags for an asn.
+     
+     - parameter asnId: (path) Id of the asn to add a tag to 
+     - parameter asnTag: (path) The tag to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addAsnTag(asnId asnId: Int, asnTag: String, completion: ((error: ErrorType?) -> Void)) {
+        addAsnTagWithRequestBuilder(asnId: asnId, asnTag: asnTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new tags for an asn.
+     
+     - PUT /beta/asn/{asnId}/tag/{asnTag}
+     - Adds a tag to an existing asn.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter asnId: (path) Id of the asn to add a tag to 
+     - parameter asnTag: (path) The tag to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addAsnTagWithRequestBuilder(asnId asnId: Int, asnTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/asn/{asnId}/tag/{asnTag}"
+        path = path.stringByReplacingOccurrencesOfString("{asnId}", withString: "\(asnId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{asnTag}", withString: "\(asnTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -184,7 +280,7 @@ public class AsnAPI: APIBase {
      
      Delete an asn
      
-     - DELETE /v1.0/asn/{asnId}
+     - DELETE /beta/asn/{asnId}
      - Deletes the asn identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -195,8 +291,52 @@ public class AsnAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteAsnWithRequestBuilder(asnId asnId: Int) -> RequestBuilder<Void> {
-        var path = "/v1.0/asn/{asnId}"
+        var path = "/beta/asn/{asnId}"
         path = path.stringByReplacingOccurrencesOfString("{asnId}", withString: "\(asnId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Delete a tag for an asn.
+     
+     - parameter asnId: (path) Id of the asn to remove tag from 
+     - parameter asnTag: (path) The tag to delete 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func deleteAsnTag(asnId asnId: Int, asnTag: String, completion: ((error: ErrorType?) -> Void)) {
+        deleteAsnTagWithRequestBuilder(asnId: asnId, asnTag: asnTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Delete a tag for an asn.
+     
+     - DELETE /beta/asn/{asnId}/tag/{asnTag}
+     - Deletes an existing asn tag using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter asnId: (path) Id of the asn to remove tag from 
+     - parameter asnTag: (path) The tag to delete 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func deleteAsnTagWithRequestBuilder(asnId asnId: Int, asnTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/asn/{asnId}/tag/{asnTag}"
+        path = path.stringByReplacingOccurrencesOfString("{asnId}", withString: "\(asnId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{asnTag}", withString: "\(asnTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
@@ -228,128 +368,136 @@ public class AsnAPI: APIBase {
      
      Search asns by filter
      
-     - GET /v1.0/asn/search
+     - GET /beta/asn/search
      - Returns the list of asns that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "corporateCity" : "aeiou",
-  "billingZipCode" : "aeiou",
-  "terms" : "aeiou",
-  "shipToPhone" : "aeiou",
-  "remarks" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "corporateName" : "aeiou",
-  "type" : "aeiou",
-  "billingState" : "aeiou",
-  "corporateZipCode" : "aeiou",
-  "id" : 123,
-  "shipToStreet1" : "aeiou",
-  "accountCode" : "aeiou",
-  "shipToZipCode" : "aeiou",
-  "requestBy" : "aeiou",
-  "corporateAttention" : "aeiou",
-  "buyer" : 123,
-  "billingAttention" : "aeiou",
-  "lobId" : 123,
-  "carrier" : 123,
-  "corporateStreet1" : "aeiou",
-  "billingCity" : "aeiou",
-  "corporateStreet2" : "aeiou",
+     - examples: [{contentType=application/json, example=[ {
   "confTo" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "shipToAddress" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "vendorId" : 123,
+  "corporateCity" : "aeiou",
+  "type" : "aeiou",
+  "corporateName" : "aeiou",
+  "corporateStreet2" : "aeiou",
   "lineItems" : [ {
-    "revDate" : "aeiou",
-    "wrapCode" : "aeiou",
-    "endVal" : 1.3579000000000001069366817318950779736042022705078125,
-    "endQuantity" : 123,
-    "modifyDate" : "2000-01-23T04:56:07.000+0000",
-    "distDate" : "2000-01-23T04:56:07.000+0000",
-    "legacyPoNo" : "aeiou",
-    "prodLot" : "aeiou",
-    "voidDate" : "2000-01-23T04:56:07.000+0000",
-    "height" : 1.3579000000000001069366817318950779736042022705078125,
-    "interimFact" : 1.3579000000000001069366817318950779736042022705078125,
-    "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
-    "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-    "interimQuantity" : 123,
-    "maxUnders" : 123,
-    "mlVendor" : 123,
-    "unitCode" : "aeiou",
-    "taxExempt" : "aeiou",
-    "impressions" : 123,
+    "sampleTo" : "aeiou",
     "budgetCode" : "aeiou",
-    "receiptNo" : 123,
-    "orderDate" : "2000-01-23T04:56:07.000+0000",
-    "width" : 1.3579000000000001069366817318950779736042022705078125,
+    "interimFact" : 1.3579000000000001069366817318950779736042022705078125,
+    "legacyPoNo" : "aeiou",
     "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+    "vendorId" : 123,
+    "oddQuantity" : 123,
+    "orderQuantity" : 123,
+    "voidDate" : "2000-01-23T04:56:07.000+0000",
+    "revDate" : "aeiou",
+    "unitsPerCase" : 123,
     "lineNo" : 123,
+    "unitCode" : "aeiou",
+    "id" : 123,
+    "sku" : "aeiou",
+    "pricingPer" : "aeiou",
+    "receivedDate" : "2000-01-23T04:56:07.000+0000",
+    "mlCost" : 1.3579000000000001069366817318950779736042022705078125,
+    "lobId" : 123,
+    "height" : 1.3579000000000001069366817318950779736042022705078125,
+    "chargeFreight" : "aeiou",
+    "accountingCode" : "aeiou",
+    "taxExempt" : "aeiou",
+    "modifyDate" : "2000-01-23T04:56:07.000+0000",
+    "artBack" : "aeiou",
+    "lastAct" : "2000-01-23T04:56:07.000+0000",
     "capitalize" : "aeiou",
     "warehouseId" : 123,
-    "sku" : "aeiou",
-    "sfpComplete" : "aeiou",
-    "cost" : 1.3579000000000001069366817318950779736042022705078125,
-    "accrual" : "aeiou",
-    "receivedDate" : "2000-01-23T04:56:07.000+0000",
-    "poNo" : "aeiou",
-    "maxOvers" : 123,
+    "maxUnders" : 123,
+    "interimQuantity" : 123,
+    "receivedQuantity" : 123,
+    "receiptNo" : 123,
+    "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
+    "poNoId" : 123,
+    "dockDate" : "2000-01-23T04:56:07.000+0000",
+    "asnLine" : 123,
+    "orderDate" : "2000-01-23T04:56:07.000+0000",
+    "factCost" : 1.3579000000000001069366817318950779736042022705078125,
+    "endQuantity" : 123,
+    "maxFreight" : 1.3579000000000001069366817318950779736042022705078125,
     "norcs" : "aeiou",
+    "mlVendor" : 123,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "origin" : "aeiou",
     "endFact" : 1.3579000000000001069366817318950779736042022705078125,
     "enteredBy" : "aeiou",
-    "sampleTo" : "aeiou",
-    "receivedBy" : "aeiou",
-    "dockTime" : "2000-01-23T04:56:07.000+0000",
-    "maxFreight" : 1.3579000000000001069366817318950779736042022705078125,
+    "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
+    "distDate" : "2000-01-23T04:56:07.000+0000",
+    "endVal" : 1.3579000000000001069366817318950779736042022705078125,
+    "wrapCode" : "aeiou",
+    "sfpComplete" : "aeiou",
     "bsVendor" : 123,
-    "maxOther" : 1.3579000000000001069366817318950779736042022705078125,
-    "orderQuantity" : 123,
-    "accountingCode" : "aeiou",
-    "freezeAction" : "aeiou",
-    "freightCost" : 1.3579000000000001069366817318950779736042022705078125,
-    "chargeFreight" : "aeiou",
+    "receivedBy" : "aeiou",
     "unitsPerWrap" : 123,
-    "receivedQuantity" : 123,
-    "receivedSfp" : 123,
-    "id" : 123,
-    "pricingPer" : "aeiou",
-    "artBack" : "aeiou",
-    "asnLine" : 123,
-    "sell" : 1.3579000000000001069366817318950779736042022705078125,
-    "mlCost" : 1.3579000000000001069366817318950779736042022705078125,
-    "paidFull" : "aeiou",
-    "length" : 1.3579000000000001069366817318950779736042022705078125,
-    "lobId" : 123,
-    "oddQuantity" : 123,
-    "unitsPerCase" : 123,
-    "sample" : 123,
-    "origin" : "aeiou",
-    "factCost" : 1.3579000000000001069366817318950779736042022705078125,
-    "vendorId" : 123,
-    "lastAct" : "2000-01-23T04:56:07.000+0000",
+    "cost" : 1.3579000000000001069366817318950779736042022705078125,
     "interimVal" : 1.3579000000000001069366817318950779736042022705078125,
-    "fromProd" : 123
+    "sell" : 1.3579000000000001069366817318950779736042022705078125,
+    "length" : 1.3579000000000001069366817318950779736042022705078125,
+    "maxOvers" : 123,
+    "productIdTag" : "aeiou",
+    "impressions" : 123,
+    "sample" : 123,
+    "fromProd" : 123,
+    "paidFull" : "aeiou",
+    "prodLot" : "aeiou",
+    "width" : 1.3579000000000001069366817318950779736042022705078125,
+    "receivedSfp" : 123,
+    "accrual" : "aeiou",
+    "freightCost" : 1.3579000000000001069366817318950779736042022705078125,
+    "maxOther" : 1.3579000000000001069366817318950779736042022705078125,
+    "freezeAction" : "aeiou"
   } ],
-  "shipToStreet2" : "aeiou",
-  "shipToName" : "aeiou",
-  "shipToAddress" : "aeiou",
-  "shipToState" : "aeiou",
-  "status" : "aeiou",
-  "orderDate" : "2000-01-23T04:56:07.000+0000",
   "shipToCity" : "aeiou",
-  "billingStreet2" : "aeiou",
-  "warehouseId" : 123,
-  "vendorId" : 123,
-  "billingStreet1" : "aeiou",
+  "corporateStreet1" : "aeiou",
   "projectNo" : 123,
-  "fob" : "aeiou",
   "poNo" : "aeiou",
-  "corporateState" : "aeiou",
-  "printed" : "aeiou",
+  "terms" : "aeiou",
+  "billingAttention" : "aeiou",
+  "requestBy" : "aeiou",
+  "id" : 123,
   "billingName" : "aeiou",
+  "corporateZipCode" : "aeiou",
+  "shipToState" : "aeiou",
   "usedBy" : "aeiou",
-  "billingPhone" : "aeiou"
-} ], contentType=application/json}]
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "lobId" : 123,
+  "shipToStreet2" : "aeiou",
+  "shipToPhone" : "aeiou",
+  "accountCode" : "aeiou",
+  "shipToZipCode" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "billingZipCode" : "aeiou",
+  "billingStreet2" : "aeiou",
+  "billingState" : "aeiou",
+  "transferOrderId" : 1.3579000000000001069366817318950779736042022705078125,
+  "billingStreet1" : "aeiou",
+  "shipToStreet1" : "aeiou",
+  "buyer" : 123,
+  "printed" : "aeiou",
+  "corporateAttention" : "aeiou",
+  "carrier" : 123,
+  "warehouseId" : 123,
+  "fob" : "aeiou",
+  "shipToName" : "aeiou",
+  "corporateState" : "aeiou",
+  "orderDate" : "2000-01-23T04:56:07.000+0000",
+  "billingCity" : "aeiou",
+  "billingPhone" : "aeiou",
+  "remarks" : "aeiou",
+  "status" : "aeiou"
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -359,7 +507,7 @@ public class AsnAPI: APIBase {
      - returns: RequestBuilder<[Asn]> 
      */
     public class func getAsnByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Asn]> {
-        let path = "/v1.0/asn/search"
+        let path = "/beta/asn/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -393,135 +541,350 @@ public class AsnAPI: APIBase {
      
      Get an asn by id
      
-     - GET /v1.0/asn/{asnId}
+     - GET /beta/asn/{asnId}
      - Returns the asn identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "corporateCity" : "aeiou",
-  "billingZipCode" : "aeiou",
-  "terms" : "aeiou",
-  "shipToPhone" : "aeiou",
-  "remarks" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "corporateName" : "aeiou",
-  "type" : "aeiou",
-  "billingState" : "aeiou",
-  "corporateZipCode" : "aeiou",
-  "id" : 123,
-  "shipToStreet1" : "aeiou",
-  "accountCode" : "aeiou",
-  "shipToZipCode" : "aeiou",
-  "requestBy" : "aeiou",
-  "corporateAttention" : "aeiou",
-  "buyer" : 123,
-  "billingAttention" : "aeiou",
-  "lobId" : 123,
-  "carrier" : 123,
-  "corporateStreet1" : "aeiou",
-  "billingCity" : "aeiou",
-  "corporateStreet2" : "aeiou",
+     - examples: [{contentType=application/json, example={
   "confTo" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "shipToAddress" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "vendorId" : 123,
+  "corporateCity" : "aeiou",
+  "type" : "aeiou",
+  "corporateName" : "aeiou",
+  "corporateStreet2" : "aeiou",
   "lineItems" : [ {
-    "revDate" : "aeiou",
-    "wrapCode" : "aeiou",
-    "endVal" : 1.3579000000000001069366817318950779736042022705078125,
-    "endQuantity" : 123,
-    "modifyDate" : "2000-01-23T04:56:07.000+0000",
-    "distDate" : "2000-01-23T04:56:07.000+0000",
-    "legacyPoNo" : "aeiou",
-    "prodLot" : "aeiou",
-    "voidDate" : "2000-01-23T04:56:07.000+0000",
-    "height" : 1.3579000000000001069366817318950779736042022705078125,
-    "interimFact" : 1.3579000000000001069366817318950779736042022705078125,
-    "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
-    "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-    "interimQuantity" : 123,
-    "maxUnders" : 123,
-    "mlVendor" : 123,
-    "unitCode" : "aeiou",
-    "taxExempt" : "aeiou",
-    "impressions" : 123,
+    "sampleTo" : "aeiou",
     "budgetCode" : "aeiou",
-    "receiptNo" : 123,
-    "orderDate" : "2000-01-23T04:56:07.000+0000",
-    "width" : 1.3579000000000001069366817318950779736042022705078125,
+    "interimFact" : 1.3579000000000001069366817318950779736042022705078125,
+    "legacyPoNo" : "aeiou",
     "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+    "vendorId" : 123,
+    "oddQuantity" : 123,
+    "orderQuantity" : 123,
+    "voidDate" : "2000-01-23T04:56:07.000+0000",
+    "revDate" : "aeiou",
+    "unitsPerCase" : 123,
     "lineNo" : 123,
+    "unitCode" : "aeiou",
+    "id" : 123,
+    "sku" : "aeiou",
+    "pricingPer" : "aeiou",
+    "receivedDate" : "2000-01-23T04:56:07.000+0000",
+    "mlCost" : 1.3579000000000001069366817318950779736042022705078125,
+    "lobId" : 123,
+    "height" : 1.3579000000000001069366817318950779736042022705078125,
+    "chargeFreight" : "aeiou",
+    "accountingCode" : "aeiou",
+    "taxExempt" : "aeiou",
+    "modifyDate" : "2000-01-23T04:56:07.000+0000",
+    "artBack" : "aeiou",
+    "lastAct" : "2000-01-23T04:56:07.000+0000",
     "capitalize" : "aeiou",
     "warehouseId" : 123,
-    "sku" : "aeiou",
-    "sfpComplete" : "aeiou",
-    "cost" : 1.3579000000000001069366817318950779736042022705078125,
-    "accrual" : "aeiou",
-    "receivedDate" : "2000-01-23T04:56:07.000+0000",
-    "poNo" : "aeiou",
-    "maxOvers" : 123,
+    "maxUnders" : 123,
+    "interimQuantity" : 123,
+    "receivedQuantity" : 123,
+    "receiptNo" : 123,
+    "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
+    "poNoId" : 123,
+    "dockDate" : "2000-01-23T04:56:07.000+0000",
+    "asnLine" : 123,
+    "orderDate" : "2000-01-23T04:56:07.000+0000",
+    "factCost" : 1.3579000000000001069366817318950779736042022705078125,
+    "endQuantity" : 123,
+    "maxFreight" : 1.3579000000000001069366817318950779736042022705078125,
     "norcs" : "aeiou",
+    "mlVendor" : 123,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "origin" : "aeiou",
     "endFact" : 1.3579000000000001069366817318950779736042022705078125,
     "enteredBy" : "aeiou",
-    "sampleTo" : "aeiou",
-    "receivedBy" : "aeiou",
-    "dockTime" : "2000-01-23T04:56:07.000+0000",
-    "maxFreight" : 1.3579000000000001069366817318950779736042022705078125,
+    "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
+    "distDate" : "2000-01-23T04:56:07.000+0000",
+    "endVal" : 1.3579000000000001069366817318950779736042022705078125,
+    "wrapCode" : "aeiou",
+    "sfpComplete" : "aeiou",
     "bsVendor" : 123,
-    "maxOther" : 1.3579000000000001069366817318950779736042022705078125,
-    "orderQuantity" : 123,
-    "accountingCode" : "aeiou",
-    "freezeAction" : "aeiou",
-    "freightCost" : 1.3579000000000001069366817318950779736042022705078125,
-    "chargeFreight" : "aeiou",
+    "receivedBy" : "aeiou",
     "unitsPerWrap" : 123,
-    "receivedQuantity" : 123,
-    "receivedSfp" : 123,
-    "id" : 123,
-    "pricingPer" : "aeiou",
-    "artBack" : "aeiou",
-    "asnLine" : 123,
-    "sell" : 1.3579000000000001069366817318950779736042022705078125,
-    "mlCost" : 1.3579000000000001069366817318950779736042022705078125,
-    "paidFull" : "aeiou",
-    "length" : 1.3579000000000001069366817318950779736042022705078125,
-    "lobId" : 123,
-    "oddQuantity" : 123,
-    "unitsPerCase" : 123,
-    "sample" : 123,
-    "origin" : "aeiou",
-    "factCost" : 1.3579000000000001069366817318950779736042022705078125,
-    "vendorId" : 123,
-    "lastAct" : "2000-01-23T04:56:07.000+0000",
+    "cost" : 1.3579000000000001069366817318950779736042022705078125,
     "interimVal" : 1.3579000000000001069366817318950779736042022705078125,
-    "fromProd" : 123
+    "sell" : 1.3579000000000001069366817318950779736042022705078125,
+    "length" : 1.3579000000000001069366817318950779736042022705078125,
+    "maxOvers" : 123,
+    "productIdTag" : "aeiou",
+    "impressions" : 123,
+    "sample" : 123,
+    "fromProd" : 123,
+    "paidFull" : "aeiou",
+    "prodLot" : "aeiou",
+    "width" : 1.3579000000000001069366817318950779736042022705078125,
+    "receivedSfp" : 123,
+    "accrual" : "aeiou",
+    "freightCost" : 1.3579000000000001069366817318950779736042022705078125,
+    "maxOther" : 1.3579000000000001069366817318950779736042022705078125,
+    "freezeAction" : "aeiou"
   } ],
-  "shipToStreet2" : "aeiou",
-  "shipToName" : "aeiou",
-  "shipToAddress" : "aeiou",
-  "shipToState" : "aeiou",
-  "status" : "aeiou",
-  "orderDate" : "2000-01-23T04:56:07.000+0000",
   "shipToCity" : "aeiou",
-  "billingStreet2" : "aeiou",
-  "warehouseId" : 123,
-  "vendorId" : 123,
-  "billingStreet1" : "aeiou",
+  "corporateStreet1" : "aeiou",
   "projectNo" : 123,
-  "fob" : "aeiou",
   "poNo" : "aeiou",
-  "corporateState" : "aeiou",
-  "printed" : "aeiou",
+  "terms" : "aeiou",
+  "billingAttention" : "aeiou",
+  "requestBy" : "aeiou",
+  "id" : 123,
   "billingName" : "aeiou",
+  "corporateZipCode" : "aeiou",
+  "shipToState" : "aeiou",
   "usedBy" : "aeiou",
-  "billingPhone" : "aeiou"
-}, contentType=application/json}]
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "lobId" : 123,
+  "shipToStreet2" : "aeiou",
+  "shipToPhone" : "aeiou",
+  "accountCode" : "aeiou",
+  "shipToZipCode" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "billingZipCode" : "aeiou",
+  "billingStreet2" : "aeiou",
+  "billingState" : "aeiou",
+  "transferOrderId" : 1.3579000000000001069366817318950779736042022705078125,
+  "billingStreet1" : "aeiou",
+  "shipToStreet1" : "aeiou",
+  "buyer" : 123,
+  "printed" : "aeiou",
+  "corporateAttention" : "aeiou",
+  "carrier" : 123,
+  "warehouseId" : 123,
+  "fob" : "aeiou",
+  "shipToName" : "aeiou",
+  "corporateState" : "aeiou",
+  "orderDate" : "2000-01-23T04:56:07.000+0000",
+  "billingCity" : "aeiou",
+  "billingPhone" : "aeiou",
+  "remarks" : "aeiou",
+  "status" : "aeiou"
+}}]
      
      - parameter asnId: (path) Id of the asn to be returned. 
 
      - returns: RequestBuilder<Asn> 
      */
     public class func getAsnByIdWithRequestBuilder(asnId asnId: Int) -> RequestBuilder<Asn> {
-        var path = "/v1.0/asn/{asnId}"
+        var path = "/beta/asn/{asnId}"
+        path = path.stringByReplacingOccurrencesOfString("{asnId}", withString: "\(asnId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Asn>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get the tags for an asn.
+     
+     - parameter asnId: (path) Id of the asn to get tags for 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getAsnTags(asnId asnId: Int, completion: ((error: ErrorType?) -> Void)) {
+        getAsnTagsWithRequestBuilder(asnId: asnId).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Get the tags for an asn.
+     
+     - GET /beta/asn/{asnId}/tag
+     - Get all existing asn tags.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter asnId: (path) Id of the asn to get tags for 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func getAsnTagsWithRequestBuilder(asnId asnId: Int) -> RequestBuilder<Void> {
+        var path = "/beta/asn/{asnId}/tag"
+        path = path.stringByReplacingOccurrencesOfString("{asnId}", withString: "\(asnId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get a duplicated an asn by id
+     
+     - parameter asnId: (path) Id of the asn to be duplicated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getDuplicateAsnById(asnId asnId: Int, completion: ((data: Asn?, error: ErrorType?) -> Void)) {
+        getDuplicateAsnByIdWithRequestBuilder(asnId: asnId).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Get a duplicated an asn by id
+     
+     - GET /beta/asn/duplicate/{asnId}
+     - Returns a duplicated asn identified by the specified id.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "confTo" : "aeiou",
+  "shipToAddress" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "vendorId" : 123,
+  "corporateCity" : "aeiou",
+  "type" : "aeiou",
+  "corporateName" : "aeiou",
+  "corporateStreet2" : "aeiou",
+  "lineItems" : [ {
+    "sampleTo" : "aeiou",
+    "budgetCode" : "aeiou",
+    "interimFact" : 1.3579000000000001069366817318950779736042022705078125,
+    "legacyPoNo" : "aeiou",
+    "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+    "vendorId" : 123,
+    "oddQuantity" : 123,
+    "orderQuantity" : 123,
+    "voidDate" : "2000-01-23T04:56:07.000+0000",
+    "revDate" : "aeiou",
+    "unitsPerCase" : 123,
+    "lineNo" : 123,
+    "unitCode" : "aeiou",
+    "id" : 123,
+    "sku" : "aeiou",
+    "pricingPer" : "aeiou",
+    "receivedDate" : "2000-01-23T04:56:07.000+0000",
+    "mlCost" : 1.3579000000000001069366817318950779736042022705078125,
+    "lobId" : 123,
+    "height" : 1.3579000000000001069366817318950779736042022705078125,
+    "chargeFreight" : "aeiou",
+    "accountingCode" : "aeiou",
+    "taxExempt" : "aeiou",
+    "modifyDate" : "2000-01-23T04:56:07.000+0000",
+    "artBack" : "aeiou",
+    "lastAct" : "2000-01-23T04:56:07.000+0000",
+    "capitalize" : "aeiou",
+    "warehouseId" : 123,
+    "maxUnders" : 123,
+    "interimQuantity" : 123,
+    "receivedQuantity" : 123,
+    "receiptNo" : 123,
+    "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
+    "poNoId" : 123,
+    "dockDate" : "2000-01-23T04:56:07.000+0000",
+    "asnLine" : 123,
+    "orderDate" : "2000-01-23T04:56:07.000+0000",
+    "factCost" : 1.3579000000000001069366817318950779736042022705078125,
+    "endQuantity" : 123,
+    "maxFreight" : 1.3579000000000001069366817318950779736042022705078125,
+    "norcs" : "aeiou",
+    "mlVendor" : 123,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "origin" : "aeiou",
+    "endFact" : 1.3579000000000001069366817318950779736042022705078125,
+    "enteredBy" : "aeiou",
+    "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
+    "distDate" : "2000-01-23T04:56:07.000+0000",
+    "endVal" : 1.3579000000000001069366817318950779736042022705078125,
+    "wrapCode" : "aeiou",
+    "sfpComplete" : "aeiou",
+    "bsVendor" : 123,
+    "receivedBy" : "aeiou",
+    "unitsPerWrap" : 123,
+    "cost" : 1.3579000000000001069366817318950779736042022705078125,
+    "interimVal" : 1.3579000000000001069366817318950779736042022705078125,
+    "sell" : 1.3579000000000001069366817318950779736042022705078125,
+    "length" : 1.3579000000000001069366817318950779736042022705078125,
+    "maxOvers" : 123,
+    "productIdTag" : "aeiou",
+    "impressions" : 123,
+    "sample" : 123,
+    "fromProd" : 123,
+    "paidFull" : "aeiou",
+    "prodLot" : "aeiou",
+    "width" : 1.3579000000000001069366817318950779736042022705078125,
+    "receivedSfp" : 123,
+    "accrual" : "aeiou",
+    "freightCost" : 1.3579000000000001069366817318950779736042022705078125,
+    "maxOther" : 1.3579000000000001069366817318950779736042022705078125,
+    "freezeAction" : "aeiou"
+  } ],
+  "shipToCity" : "aeiou",
+  "corporateStreet1" : "aeiou",
+  "projectNo" : 123,
+  "poNo" : "aeiou",
+  "terms" : "aeiou",
+  "billingAttention" : "aeiou",
+  "requestBy" : "aeiou",
+  "id" : 123,
+  "billingName" : "aeiou",
+  "corporateZipCode" : "aeiou",
+  "shipToState" : "aeiou",
+  "usedBy" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "lobId" : 123,
+  "shipToStreet2" : "aeiou",
+  "shipToPhone" : "aeiou",
+  "accountCode" : "aeiou",
+  "shipToZipCode" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "billingZipCode" : "aeiou",
+  "billingStreet2" : "aeiou",
+  "billingState" : "aeiou",
+  "transferOrderId" : 1.3579000000000001069366817318950779736042022705078125,
+  "billingStreet1" : "aeiou",
+  "shipToStreet1" : "aeiou",
+  "buyer" : 123,
+  "printed" : "aeiou",
+  "corporateAttention" : "aeiou",
+  "carrier" : 123,
+  "warehouseId" : 123,
+  "fob" : "aeiou",
+  "shipToName" : "aeiou",
+  "corporateState" : "aeiou",
+  "orderDate" : "2000-01-23T04:56:07.000+0000",
+  "billingCity" : "aeiou",
+  "billingPhone" : "aeiou",
+  "remarks" : "aeiou",
+  "status" : "aeiou"
+}}]
+     
+     - parameter asnId: (path) Id of the asn to be duplicated. 
+
+     - returns: RequestBuilder<Asn> 
+     */
+    public class func getDuplicateAsnByIdWithRequestBuilder(asnId asnId: Int) -> RequestBuilder<Asn> {
+        var path = "/beta/asn/duplicate/{asnId}"
         path = path.stringByReplacingOccurrencesOfString("{asnId}", withString: "\(asnId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -551,7 +914,7 @@ public class AsnAPI: APIBase {
      
      Update an asn
      
-     - PUT /v1.0/asn
+     - PUT /beta/asn
      - Updates an existing asn using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -562,7 +925,46 @@ public class AsnAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateAsnWithRequestBuilder(body body: Asn) -> RequestBuilder<Void> {
-        let path = "/v1.0/asn"
+        let path = "/beta/asn"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update an asn custom fields
+     
+     - parameter body: (body) Asn to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateAsnCustomFields(body body: Asn, completion: ((error: ErrorType?) -> Void)) {
+        updateAsnCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update an asn custom fields
+     
+     - PUT /beta/asn/customFields
+     - Updates an existing asn custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) Asn to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateAsnCustomFieldsWithRequestBuilder(body body: Asn) -> RequestBuilder<Void> {
+        let path = "/beta/asn/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

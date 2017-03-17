@@ -11,6 +11,7 @@ import Foundation
 public class ReceivingWorksheetLineItem: JSONEncodable {
 
     public var sku: String?
+    public var sku2: String?
     public var fullDescription: String?
     public var orderedQty: Int?
     public var prevReceivedQty: Int?
@@ -24,6 +25,7 @@ public class ReceivingWorksheetLineItem: JSONEncodable {
     public var weightPerWrap: Double?
     public var weightPerCase: Double?
     public var productionLot: String?
+    public var productIdTag: String?
     public var revisionDate: String?
     public var origin: String?
     public var cartonLength: Double?
@@ -31,6 +33,7 @@ public class ReceivingWorksheetLineItem: JSONEncodable {
     public var cartonHeight: Double?
     public var putAwayPlans: [ReceivingWorksheetPutAwayPlan]?
     public var quantity: Int?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -39,6 +42,7 @@ public class ReceivingWorksheetLineItem: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["sku"] = self.sku
+        nillableDictionary["sku2"] = self.sku2
         nillableDictionary["fullDescription"] = self.fullDescription
         nillableDictionary["orderedQty"] = self.orderedQty
         nillableDictionary["prevReceivedQty"] = self.prevReceivedQty
@@ -52,6 +56,7 @@ public class ReceivingWorksheetLineItem: JSONEncodable {
         nillableDictionary["weightPerWrap"] = self.weightPerWrap
         nillableDictionary["weightPerCase"] = self.weightPerCase
         nillableDictionary["productionLot"] = self.productionLot
+        nillableDictionary["productIdTag"] = self.productIdTag
         nillableDictionary["revisionDate"] = self.revisionDate
         nillableDictionary["origin"] = self.origin
         nillableDictionary["cartonLength"] = self.cartonLength
@@ -59,6 +64,7 @@ public class ReceivingWorksheetLineItem: JSONEncodable {
         nillableDictionary["cartonHeight"] = self.cartonHeight
         nillableDictionary["putAwayPlans"] = self.putAwayPlans?.encodeToJSON()
         nillableDictionary["quantity"] = self.quantity
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

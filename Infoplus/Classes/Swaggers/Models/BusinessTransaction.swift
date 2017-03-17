@@ -18,6 +18,7 @@ public class BusinessTransaction: JSONEncodable {
     public var lobId: Int?
     public var messageBody: String?
     public var status: String?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -33,6 +34,7 @@ public class BusinessTransaction: JSONEncodable {
         nillableDictionary["lobId"] = self.lobId
         nillableDictionary["messageBody"] = self.messageBody
         nillableDictionary["status"] = self.status
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

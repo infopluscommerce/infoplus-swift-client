@@ -25,6 +25,7 @@ public class OverrideReturnAddress: JSONEncodable {
     public var zip: String?
     public var country: String?
     public var phone: String?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -47,6 +48,7 @@ public class OverrideReturnAddress: JSONEncodable {
         nillableDictionary["zip"] = self.zip
         nillableDictionary["country"] = self.country
         nillableDictionary["phone"] = self.phone
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

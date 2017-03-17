@@ -15,6 +15,7 @@ public class VendorComplianceSurvey: JSONEncodable {
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var surveyQuestions: String?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -27,6 +28,7 @@ public class VendorComplianceSurvey: JSONEncodable {
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["surveyQuestions"] = self.surveyQuestions
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

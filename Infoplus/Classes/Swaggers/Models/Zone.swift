@@ -21,6 +21,7 @@ public class Zone: JSONEncodable {
     public var isRefrigerated: Bool?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -39,6 +40,7 @@ public class Zone: JSONEncodable {
         nillableDictionary["isRefrigerated"] = self.isRefrigerated
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

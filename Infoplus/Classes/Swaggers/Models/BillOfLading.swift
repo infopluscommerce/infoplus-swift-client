@@ -58,6 +58,7 @@ public class BillOfLading: JSONEncodable {
     public var specialInstructions: String?
     public var orderInfoLines: [BillOfLadingOrderInfoLine]?
     public var carrierInfoLines: [BillOfLadingCarrierInfoLine]?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -113,6 +114,7 @@ public class BillOfLading: JSONEncodable {
         nillableDictionary["specialInstructions"] = self.specialInstructions
         nillableDictionary["orderInfoLines"] = self.orderInfoLines?.encodeToJSON()
         nillableDictionary["carrierInfoLines"] = self.carrierInfoLines?.encodeToJSON()
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

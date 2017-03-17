@@ -26,9 +26,11 @@ public class Location: JSONEncodable {
     public var number: Int?
     public var online: Bool?
     public var priorityCode: Int?
+    public var cost: Int?
     public var allowItemMixing: Bool?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -52,9 +54,11 @@ public class Location: JSONEncodable {
         nillableDictionary["number"] = self.number
         nillableDictionary["online"] = self.online
         nillableDictionary["priorityCode"] = self.priorityCode
+        nillableDictionary["cost"] = self.cost
         nillableDictionary["allowItemMixing"] = self.allowItemMixing
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

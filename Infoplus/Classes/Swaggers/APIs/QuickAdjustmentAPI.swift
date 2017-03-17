@@ -28,30 +28,34 @@ public class QuickAdjustmentAPI: APIBase {
      
      Create a quickAdjustment
      
-     - POST /v1.0/quickAdjustment
+     - POST /beta/quickAdjustment
      - Inserts a new quickAdjustment using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "message" : "aeiou",
-  "id" : 123,
-  "totalQuantity" : 123,
-  "status" : "aeiou",
-  "locationId" : 123,
-  "warehouseId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "sku" : "aeiou",
+     - examples: [{contentType=application/json, example={
   "adjustmentCode" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}, contentType=application/json}]
+  "totalQuantity" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
+  "locationId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "id" : 123,
+  "productIdTag" : "aeiou",
+  "message" : "aeiou",
+  "sku" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "status" : "aeiou"
+}}]
      
      - parameter body: (body) QuickAdjustment to be inserted. 
 
      - returns: RequestBuilder<QuickAdjustment> 
      */
     public class func addQuickAdjustmentWithRequestBuilder(body body: QuickAdjustment) -> RequestBuilder<QuickAdjustment> {
-        let path = "/v1.0/quickAdjustment"
+        let path = "/beta/quickAdjustment"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -59,6 +63,94 @@ public class QuickAdjustmentAPI: APIBase {
         let requestBuilder: RequestBuilder<QuickAdjustment>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new audit for a quickAdjustment
+     
+     - parameter quickAdjustmentId: (path) Id of the quickAdjustment to add an audit to 
+     - parameter quickAdjustmentAudit: (path) The audit to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addQuickAdjustmentAudit(quickAdjustmentId quickAdjustmentId: Int, quickAdjustmentAudit: String, completion: ((error: ErrorType?) -> Void)) {
+        addQuickAdjustmentAuditWithRequestBuilder(quickAdjustmentId: quickAdjustmentId, quickAdjustmentAudit: quickAdjustmentAudit).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new audit for a quickAdjustment
+     
+     - PUT /beta/quickAdjustment/{quickAdjustmentId}/audit/{quickAdjustmentAudit}
+     - Adds an audit to an existing quickAdjustment.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter quickAdjustmentId: (path) Id of the quickAdjustment to add an audit to 
+     - parameter quickAdjustmentAudit: (path) The audit to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addQuickAdjustmentAuditWithRequestBuilder(quickAdjustmentId quickAdjustmentId: Int, quickAdjustmentAudit: String) -> RequestBuilder<Void> {
+        var path = "/beta/quickAdjustment/{quickAdjustmentId}/audit/{quickAdjustmentAudit}"
+        path = path.stringByReplacingOccurrencesOfString("{quickAdjustmentId}", withString: "\(quickAdjustmentId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{quickAdjustmentAudit}", withString: "\(quickAdjustmentAudit)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new tags for a quickAdjustment.
+     
+     - parameter quickAdjustmentId: (path) Id of the quickAdjustment to add a tag to 
+     - parameter quickAdjustmentTag: (path) The tag to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addQuickAdjustmentTag(quickAdjustmentId quickAdjustmentId: Int, quickAdjustmentTag: String, completion: ((error: ErrorType?) -> Void)) {
+        addQuickAdjustmentTagWithRequestBuilder(quickAdjustmentId: quickAdjustmentId, quickAdjustmentTag: quickAdjustmentTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new tags for a quickAdjustment.
+     
+     - PUT /beta/quickAdjustment/{quickAdjustmentId}/tag/{quickAdjustmentTag}
+     - Adds a tag to an existing quickAdjustment.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter quickAdjustmentId: (path) Id of the quickAdjustment to add a tag to 
+     - parameter quickAdjustmentTag: (path) The tag to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addQuickAdjustmentTagWithRequestBuilder(quickAdjustmentId quickAdjustmentId: Int, quickAdjustmentTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/quickAdjustment/{quickAdjustmentId}/tag/{quickAdjustmentTag}"
+        path = path.stringByReplacingOccurrencesOfString("{quickAdjustmentId}", withString: "\(quickAdjustmentId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{quickAdjustmentTag}", withString: "\(quickAdjustmentTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -79,7 +171,7 @@ public class QuickAdjustmentAPI: APIBase {
      
      Delete a quickAdjustment
      
-     - DELETE /v1.0/quickAdjustment/{quickAdjustmentId}
+     - DELETE /beta/quickAdjustment/{quickAdjustmentId}
      - Deletes the quickAdjustment identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -90,7 +182,7 @@ public class QuickAdjustmentAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteQuickAdjustmentWithRequestBuilder(quickAdjustmentId quickAdjustmentId: Int) -> RequestBuilder<Void> {
-        var path = "/v1.0/quickAdjustment/{quickAdjustmentId}"
+        var path = "/beta/quickAdjustment/{quickAdjustmentId}"
         path = path.stringByReplacingOccurrencesOfString("{quickAdjustmentId}", withString: "\(quickAdjustmentId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -100,6 +192,107 @@ public class QuickAdjustmentAPI: APIBase {
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Delete a tag for a quickAdjustment.
+     
+     - parameter quickAdjustmentId: (path) Id of the quickAdjustment to remove tag from 
+     - parameter quickAdjustmentTag: (path) The tag to delete 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func deleteQuickAdjustmentTag(quickAdjustmentId quickAdjustmentId: Int, quickAdjustmentTag: String, completion: ((error: ErrorType?) -> Void)) {
+        deleteQuickAdjustmentTagWithRequestBuilder(quickAdjustmentId: quickAdjustmentId, quickAdjustmentTag: quickAdjustmentTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Delete a tag for a quickAdjustment.
+     
+     - DELETE /beta/quickAdjustment/{quickAdjustmentId}/tag/{quickAdjustmentTag}
+     - Deletes an existing quickAdjustment tag using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter quickAdjustmentId: (path) Id of the quickAdjustment to remove tag from 
+     - parameter quickAdjustmentTag: (path) The tag to delete 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func deleteQuickAdjustmentTagWithRequestBuilder(quickAdjustmentId quickAdjustmentId: Int, quickAdjustmentTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/quickAdjustment/{quickAdjustmentId}/tag/{quickAdjustmentTag}"
+        path = path.stringByReplacingOccurrencesOfString("{quickAdjustmentId}", withString: "\(quickAdjustmentId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{quickAdjustmentTag}", withString: "\(quickAdjustmentTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get a duplicated a quickAdjustment by id
+     
+     - parameter quickAdjustmentId: (path) Id of the quickAdjustment to be duplicated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getDuplicateQuickAdjustmentById(quickAdjustmentId quickAdjustmentId: Int, completion: ((data: QuickAdjustment?, error: ErrorType?) -> Void)) {
+        getDuplicateQuickAdjustmentByIdWithRequestBuilder(quickAdjustmentId: quickAdjustmentId).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Get a duplicated a quickAdjustment by id
+     
+     - GET /beta/quickAdjustment/duplicate/{quickAdjustmentId}
+     - Returns a duplicated quickAdjustment identified by the specified id.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "adjustmentCode" : "aeiou",
+  "totalQuantity" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
+  "locationId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "id" : 123,
+  "productIdTag" : "aeiou",
+  "message" : "aeiou",
+  "sku" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "status" : "aeiou"
+}}]
+     
+     - parameter quickAdjustmentId: (path) Id of the quickAdjustment to be duplicated. 
+
+     - returns: RequestBuilder<QuickAdjustment> 
+     */
+    public class func getDuplicateQuickAdjustmentByIdWithRequestBuilder(quickAdjustmentId quickAdjustmentId: Int) -> RequestBuilder<QuickAdjustment> {
+        var path = "/beta/quickAdjustment/duplicate/{quickAdjustmentId}"
+        path = path.stringByReplacingOccurrencesOfString("{quickAdjustmentId}", withString: "\(quickAdjustmentId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<QuickAdjustment>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -123,23 +316,27 @@ public class QuickAdjustmentAPI: APIBase {
      
      Search quickAdjustments by filter
      
-     - GET /v1.0/quickAdjustment/search
+     - GET /beta/quickAdjustment/search
      - Returns the list of quickAdjustments that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "message" : "aeiou",
-  "id" : 123,
-  "totalQuantity" : 123,
-  "status" : "aeiou",
-  "locationId" : 123,
-  "warehouseId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "sku" : "aeiou",
+     - examples: [{contentType=application/json, example=[ {
   "adjustmentCode" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-} ], contentType=application/json}]
+  "totalQuantity" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
+  "locationId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "id" : 123,
+  "productIdTag" : "aeiou",
+  "message" : "aeiou",
+  "sku" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "status" : "aeiou"
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -149,7 +346,7 @@ public class QuickAdjustmentAPI: APIBase {
      - returns: RequestBuilder<[QuickAdjustment]> 
      */
     public class func getQuickAdjustmentByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[QuickAdjustment]> {
-        let path = "/v1.0/quickAdjustment/search"
+        let path = "/beta/quickAdjustment/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -183,30 +380,34 @@ public class QuickAdjustmentAPI: APIBase {
      
      Get a quickAdjustment by id
      
-     - GET /v1.0/quickAdjustment/{quickAdjustmentId}
+     - GET /beta/quickAdjustment/{quickAdjustmentId}
      - Returns the quickAdjustment identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "message" : "aeiou",
-  "id" : 123,
-  "totalQuantity" : 123,
-  "status" : "aeiou",
-  "locationId" : 123,
-  "warehouseId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "sku" : "aeiou",
+     - examples: [{contentType=application/json, example={
   "adjustmentCode" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000"
-}, contentType=application/json}]
+  "totalQuantity" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
+  "locationId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "id" : 123,
+  "productIdTag" : "aeiou",
+  "message" : "aeiou",
+  "sku" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "status" : "aeiou"
+}}]
      
      - parameter quickAdjustmentId: (path) Id of the quickAdjustment to be returned. 
 
      - returns: RequestBuilder<QuickAdjustment> 
      */
     public class func getQuickAdjustmentByIdWithRequestBuilder(quickAdjustmentId quickAdjustmentId: Int) -> RequestBuilder<QuickAdjustment> {
-        var path = "/v1.0/quickAdjustment/{quickAdjustmentId}"
+        var path = "/beta/quickAdjustment/{quickAdjustmentId}"
         path = path.stringByReplacingOccurrencesOfString("{quickAdjustmentId}", withString: "\(quickAdjustmentId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -214,6 +415,47 @@ public class QuickAdjustmentAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<QuickAdjustment>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get the tags for a quickAdjustment.
+     
+     - parameter quickAdjustmentId: (path) Id of the quickAdjustment to get tags for 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getQuickAdjustmentTags(quickAdjustmentId quickAdjustmentId: Int, completion: ((error: ErrorType?) -> Void)) {
+        getQuickAdjustmentTagsWithRequestBuilder(quickAdjustmentId: quickAdjustmentId).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Get the tags for a quickAdjustment.
+     
+     - GET /beta/quickAdjustment/{quickAdjustmentId}/tag
+     - Get all existing quickAdjustment tags.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter quickAdjustmentId: (path) Id of the quickAdjustment to get tags for 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func getQuickAdjustmentTagsWithRequestBuilder(quickAdjustmentId quickAdjustmentId: Int) -> RequestBuilder<Void> {
+        var path = "/beta/quickAdjustment/{quickAdjustmentId}/tag"
+        path = path.stringByReplacingOccurrencesOfString("{quickAdjustmentId}", withString: "\(quickAdjustmentId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -236,7 +478,7 @@ public class QuickAdjustmentAPI: APIBase {
      
      Update a quickAdjustment
      
-     - PUT /v1.0/quickAdjustment
+     - PUT /beta/quickAdjustment
      - Updates an existing quickAdjustment using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -247,7 +489,46 @@ public class QuickAdjustmentAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateQuickAdjustmentWithRequestBuilder(body body: QuickAdjustment) -> RequestBuilder<Void> {
-        let path = "/v1.0/quickAdjustment"
+        let path = "/beta/quickAdjustment"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a quickAdjustment custom fields
+     
+     - parameter body: (body) QuickAdjustment to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateQuickAdjustmentCustomFields(body body: QuickAdjustment, completion: ((error: ErrorType?) -> Void)) {
+        updateQuickAdjustmentCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a quickAdjustment custom fields
+     
+     - PUT /beta/quickAdjustment/customFields
+     - Updates an existing quickAdjustment custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) QuickAdjustment to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateQuickAdjustmentCustomFieldsWithRequestBuilder(body body: QuickAdjustment) -> RequestBuilder<Void> {
+        let path = "/beta/quickAdjustment/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

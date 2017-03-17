@@ -11,7 +11,7 @@ import Foundation
 public class InventoryAdjustment: JSONEncodable {
 
     public var id: Int?
-    public var lob: Int?
+    public var lobId: Int?
     public var skuId: Int?
     public var poNoId: Int?
     public var adjustmentDate: NSDate?
@@ -23,6 +23,7 @@ public class InventoryAdjustment: JSONEncodable {
     public var printed: String?
     public var orderNo: Double?
     public var adjustmentCode: String?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -31,7 +32,7 @@ public class InventoryAdjustment: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["id"] = self.id
-        nillableDictionary["lob"] = self.lob
+        nillableDictionary["lobId"] = self.lobId
         nillableDictionary["skuId"] = self.skuId
         nillableDictionary["poNoId"] = self.poNoId
         nillableDictionary["adjustmentDate"] = self.adjustmentDate?.encodeToJSON()
@@ -43,6 +44,7 @@ public class InventoryAdjustment: JSONEncodable {
         nillableDictionary["printed"] = self.printed
         nillableDictionary["orderNo"] = self.orderNo
         nillableDictionary["adjustmentCode"] = self.adjustmentCode
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

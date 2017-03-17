@@ -18,6 +18,7 @@ public class BillingCodeType: JSONEncodable {
     public var description: String?
     public var billingCode: String?
     public var isActive: Bool?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -33,6 +34,7 @@ public class BillingCodeType: JSONEncodable {
         nillableDictionary["description"] = self.description
         nillableDictionary["billingCode"] = self.billingCode
         nillableDictionary["isActive"] = self.isActive
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

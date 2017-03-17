@@ -28,22 +28,22 @@ public class ServiceTypeAPI: APIBase {
      
      Get a serviceType by id
      
-     - GET /v1.0/serviceType/{serviceTypeId}
+     - GET /beta/serviceType/{serviceTypeId}
      - Returns the serviceType identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "label" : "aeiou",
-  "serviceType" : "aeiou"
-}, contentType=application/json}]
+     - examples: [{contentType=application/json, example={
+  "serviceType" : "aeiou",
+  "label" : "aeiou"
+}}]
      
      - parameter serviceTypeId: (path) Id of serviceType to be returned. 
 
      - returns: RequestBuilder<ServiceType> 
      */
     public class func getServiceTypeByIdWithRequestBuilder(serviceTypeId serviceTypeId: String) -> RequestBuilder<ServiceType> {
-        var path = "/v1.0/serviceType/{serviceTypeId}"
+        var path = "/beta/serviceType/{serviceTypeId}"
         path = path.stringByReplacingOccurrencesOfString("{serviceTypeId}", withString: "\(serviceTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -75,15 +75,15 @@ public class ServiceTypeAPI: APIBase {
      
      Search serviceTypes
      
-     - GET /v1.0/serviceType/search
+     - GET /beta/serviceType/search
      - Returns the list of serviceTypes that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "label" : "aeiou",
-  "serviceType" : "aeiou"
-} ], contentType=application/json}]
+     - examples: [{contentType=application/json, example=[ {
+  "serviceType" : "aeiou",
+  "label" : "aeiou"
+} ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -92,7 +92,7 @@ public class ServiceTypeAPI: APIBase {
      - returns: RequestBuilder<[ServiceType]> 
      */
     public class func getServiceTypeBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[ServiceType]> {
-        let path = "/v1.0/serviceType/search"
+        let path = "/beta/serviceType/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [

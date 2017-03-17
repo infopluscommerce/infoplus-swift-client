@@ -12,6 +12,216 @@ import Alamofire
 public class OrderLineAPI: APIBase {
     /**
      
+     Add new audit for an orderLine
+     
+     - parameter orderLineId: (path) Id of the orderLine to add an audit to 
+     - parameter orderLineAudit: (path) The audit to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addOrderLineAudit(orderLineId orderLineId: Int, orderLineAudit: String, completion: ((error: ErrorType?) -> Void)) {
+        addOrderLineAuditWithRequestBuilder(orderLineId: orderLineId, orderLineAudit: orderLineAudit).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new audit for an orderLine
+     
+     - PUT /beta/orderLine/{orderLineId}/audit/{orderLineAudit}
+     - Adds an audit to an existing orderLine.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter orderLineId: (path) Id of the orderLine to add an audit to 
+     - parameter orderLineAudit: (path) The audit to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addOrderLineAuditWithRequestBuilder(orderLineId orderLineId: Int, orderLineAudit: String) -> RequestBuilder<Void> {
+        var path = "/beta/orderLine/{orderLineId}/audit/{orderLineAudit}"
+        path = path.stringByReplacingOccurrencesOfString("{orderLineId}", withString: "\(orderLineId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{orderLineAudit}", withString: "\(orderLineAudit)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new tags for an orderLine.
+     
+     - parameter orderLineId: (path) Id of the orderLine to add a tag to 
+     - parameter orderLineTag: (path) The tag to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addOrderLineTag(orderLineId orderLineId: Int, orderLineTag: String, completion: ((error: ErrorType?) -> Void)) {
+        addOrderLineTagWithRequestBuilder(orderLineId: orderLineId, orderLineTag: orderLineTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new tags for an orderLine.
+     
+     - PUT /beta/orderLine/{orderLineId}/tag/{orderLineTag}
+     - Adds a tag to an existing orderLine.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter orderLineId: (path) Id of the orderLine to add a tag to 
+     - parameter orderLineTag: (path) The tag to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addOrderLineTagWithRequestBuilder(orderLineId orderLineId: Int, orderLineTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/orderLine/{orderLineId}/tag/{orderLineTag}"
+        path = path.stringByReplacingOccurrencesOfString("{orderLineId}", withString: "\(orderLineId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{orderLineTag}", withString: "\(orderLineTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Delete a tag for an orderLine.
+     
+     - parameter orderLineId: (path) Id of the orderLine to remove tag from 
+     - parameter orderLineTag: (path) The tag to delete 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func deleteOrderLineTag(orderLineId orderLineId: Int, orderLineTag: String, completion: ((error: ErrorType?) -> Void)) {
+        deleteOrderLineTagWithRequestBuilder(orderLineId: orderLineId, orderLineTag: orderLineTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Delete a tag for an orderLine.
+     
+     - DELETE /beta/orderLine/{orderLineId}/tag/{orderLineTag}
+     - Deletes an existing orderLine tag using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter orderLineId: (path) Id of the orderLine to remove tag from 
+     - parameter orderLineTag: (path) The tag to delete 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func deleteOrderLineTagWithRequestBuilder(orderLineId orderLineId: Int, orderLineTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/orderLine/{orderLineId}/tag/{orderLineTag}"
+        path = path.stringByReplacingOccurrencesOfString("{orderLineId}", withString: "\(orderLineId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{orderLineTag}", withString: "\(orderLineTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get a duplicated an orderLine by id
+     
+     - parameter orderLineId: (path) Id of the orderLine to be duplicated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getDuplicateOrderLineById(orderLineId orderLineId: Int, completion: ((data: OrderLine?, error: ErrorType?) -> Void)) {
+        getDuplicateOrderLineByIdWithRequestBuilder(orderLineId: orderLineId).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Get a duplicated an orderLine by id
+     
+     - GET /beta/orderLine/duplicate/{orderLineId}
+     - Returns a duplicated orderLine identified by the specified id.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "itemSubGroupId" : 123,
+  "extendedDiscount" : 1.3579000000000001069366817318950779736042022705078125,
+  "distributionCode" : "aeiou",
+  "itemMajorGroupId" : 123,
+  "ncExtendedSell" : 1.3579000000000001069366817318950779736042022705078125,
+  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "itemLegacyLowStockContactId" : 123,
+  "revDate" : "aeiou",
+  "backorderQty" : 123,
+  "orderSourceSKU" : "aeiou",
+  "extendedCost" : 1.3579000000000001069366817318950779736042022705078125,
+  "id" : 123,
+  "sku" : "aeiou",
+  "unitDiscount" : 1.3579000000000001069366817318950779736042022705078125,
+  "sector" : "aeiou",
+  "itemAccountCodeId" : 123,
+  "itemProductCodeId" : 123,
+  "itemWeight" : 1.3579000000000001069366817318950779736042022705078125,
+  "lobId" : 123,
+  "shippedQty" : 123,
+  "itemSummaryCodeId" : 123,
+  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "extendedSell" : 1.3579000000000001069366817318950779736042022705078125,
+  "upc" : "aeiou",
+  "productionLot" : "aeiou",
+  "orderedQty" : 123,
+  "vendorSKU" : "aeiou",
+  "unitCost" : 1.3579000000000001069366817318950779736042022705078125,
+  "poNoId" : 123,
+  "unitSell" : 1.3579000000000001069366817318950779736042022705078125,
+  "allowedQty" : 123,
+  "chargeCode" : "aeiou"
+}}]
+     
+     - parameter orderLineId: (path) Id of the orderLine to be duplicated. 
+
+     - returns: RequestBuilder<OrderLine> 
+     */
+    public class func getDuplicateOrderLineByIdWithRequestBuilder(orderLineId orderLineId: Int) -> RequestBuilder<OrderLine> {
+        var path = "/beta/orderLine/duplicate/{orderLineId}"
+        path = path.stringByReplacingOccurrencesOfString("{orderLineId}", withString: "\(orderLineId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<OrderLine>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Search orderLines by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -31,42 +241,48 @@ public class OrderLineAPI: APIBase {
      
      Search orderLines by filter
      
-     - GET /v1.0/orderLine/search
+     - GET /beta/orderLine/search
      - Returns the list of orderLines that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "ncExtendedSell" : 1.3579000000000001069366817318950779736042022705078125,
-  "sector" : "aeiou",
-  "orderedQty" : 123,
-  "revDate" : "aeiou",
-  "id" : 123,
-  "itemLegacyLowStockContactId" : 123,
-  "vendorSKU" : "aeiou",
-  "itemMajorGroupId" : 123,
-  "unitCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "lobId" : 123,
-  "extendedCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "extendedSell" : 1.3579000000000001069366817318950779736042022705078125,
-  "allowedQty" : 123,
-  "poNoId" : 123,
-  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-  "sku" : "aeiou",
-  "distributionCode" : "aeiou",
-  "upc" : "aeiou",
-  "itemWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "itemSummaryCodeId" : 123,
-  "shippedQty" : 123,
-  "unitSell" : 1.3579000000000001069366817318950779736042022705078125,
+     - examples: [{contentType=application/json, example=[ {
   "itemSubGroupId" : 123,
-  "itemProductCodeId" : 123,
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "extendedDiscount" : 1.3579000000000001069366817318950779736042022705078125,
+  "distributionCode" : "aeiou",
+  "itemMajorGroupId" : 123,
+  "ncExtendedSell" : 1.3579000000000001069366817318950779736042022705078125,
+  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "itemLegacyLowStockContactId" : 123,
+  "revDate" : "aeiou",
   "backorderQty" : 123,
-  "itemAccountCodeId" : 123,
   "orderSourceSKU" : "aeiou",
+  "extendedCost" : 1.3579000000000001069366817318950779736042022705078125,
+  "id" : 123,
+  "sku" : "aeiou",
+  "unitDiscount" : 1.3579000000000001069366817318950779736042022705078125,
+  "sector" : "aeiou",
+  "itemAccountCodeId" : 123,
+  "itemProductCodeId" : 123,
+  "itemWeight" : 1.3579000000000001069366817318950779736042022705078125,
+  "lobId" : 123,
+  "shippedQty" : 123,
+  "itemSummaryCodeId" : 123,
+  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "extendedSell" : 1.3579000000000001069366817318950779736042022705078125,
+  "upc" : "aeiou",
+  "productionLot" : "aeiou",
+  "orderedQty" : 123,
+  "vendorSKU" : "aeiou",
+  "unitCost" : 1.3579000000000001069366817318950779736042022705078125,
+  "poNoId" : 123,
+  "unitSell" : 1.3579000000000001069366817318950779736042022705078125,
+  "allowedQty" : 123,
   "chargeCode" : "aeiou"
-} ], contentType=application/json}]
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -76,7 +292,7 @@ public class OrderLineAPI: APIBase {
      - returns: RequestBuilder<[OrderLine]> 
      */
     public class func getOrderLineByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[OrderLine]> {
-        let path = "/v1.0/orderLine/search"
+        let path = "/beta/orderLine/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -110,49 +326,55 @@ public class OrderLineAPI: APIBase {
      
      Get an orderLine by id
      
-     - GET /v1.0/orderLine/{orderLineId}
+     - GET /beta/orderLine/{orderLineId}
      - Returns the orderLine identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "ncExtendedSell" : 1.3579000000000001069366817318950779736042022705078125,
-  "sector" : "aeiou",
-  "orderedQty" : 123,
-  "revDate" : "aeiou",
-  "id" : 123,
-  "itemLegacyLowStockContactId" : 123,
-  "vendorSKU" : "aeiou",
-  "itemMajorGroupId" : 123,
-  "unitCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "lobId" : 123,
-  "extendedCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "extendedSell" : 1.3579000000000001069366817318950779736042022705078125,
-  "allowedQty" : 123,
-  "poNoId" : 123,
-  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-  "sku" : "aeiou",
-  "distributionCode" : "aeiou",
-  "upc" : "aeiou",
-  "itemWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "itemSummaryCodeId" : 123,
-  "shippedQty" : 123,
-  "unitSell" : 1.3579000000000001069366817318950779736042022705078125,
+     - examples: [{contentType=application/json, example={
   "itemSubGroupId" : 123,
-  "itemProductCodeId" : 123,
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "extendedDiscount" : 1.3579000000000001069366817318950779736042022705078125,
+  "distributionCode" : "aeiou",
+  "itemMajorGroupId" : 123,
+  "ncExtendedSell" : 1.3579000000000001069366817318950779736042022705078125,
+  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "itemLegacyLowStockContactId" : 123,
+  "revDate" : "aeiou",
   "backorderQty" : 123,
-  "itemAccountCodeId" : 123,
   "orderSourceSKU" : "aeiou",
+  "extendedCost" : 1.3579000000000001069366817318950779736042022705078125,
+  "id" : 123,
+  "sku" : "aeiou",
+  "unitDiscount" : 1.3579000000000001069366817318950779736042022705078125,
+  "sector" : "aeiou",
+  "itemAccountCodeId" : 123,
+  "itemProductCodeId" : 123,
+  "itemWeight" : 1.3579000000000001069366817318950779736042022705078125,
+  "lobId" : 123,
+  "shippedQty" : 123,
+  "itemSummaryCodeId" : 123,
+  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "extendedSell" : 1.3579000000000001069366817318950779736042022705078125,
+  "upc" : "aeiou",
+  "productionLot" : "aeiou",
+  "orderedQty" : 123,
+  "vendorSKU" : "aeiou",
+  "unitCost" : 1.3579000000000001069366817318950779736042022705078125,
+  "poNoId" : 123,
+  "unitSell" : 1.3579000000000001069366817318950779736042022705078125,
+  "allowedQty" : 123,
   "chargeCode" : "aeiou"
-}, contentType=application/json}]
+}}]
      
      - parameter orderLineId: (path) Id of the orderLine to be returned. 
 
      - returns: RequestBuilder<OrderLine> 
      */
     public class func getOrderLineByIdWithRequestBuilder(orderLineId orderLineId: Int) -> RequestBuilder<OrderLine> {
-        var path = "/v1.0/orderLine/{orderLineId}"
+        var path = "/beta/orderLine/{orderLineId}"
         path = path.stringByReplacingOccurrencesOfString("{orderLineId}", withString: "\(orderLineId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -162,6 +384,86 @@ public class OrderLineAPI: APIBase {
         let requestBuilder: RequestBuilder<OrderLine>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get the tags for an orderLine.
+     
+     - parameter orderLineId: (path) Id of the orderLine to get tags for 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getOrderLineTags(orderLineId orderLineId: Int, completion: ((error: ErrorType?) -> Void)) {
+        getOrderLineTagsWithRequestBuilder(orderLineId: orderLineId).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Get the tags for an orderLine.
+     
+     - GET /beta/orderLine/{orderLineId}/tag
+     - Get all existing orderLine tags.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter orderLineId: (path) Id of the orderLine to get tags for 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func getOrderLineTagsWithRequestBuilder(orderLineId orderLineId: Int) -> RequestBuilder<Void> {
+        var path = "/beta/orderLine/{orderLineId}/tag"
+        path = path.stringByReplacingOccurrencesOfString("{orderLineId}", withString: "\(orderLineId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update an orderLine custom fields
+     
+     - parameter body: (body) OrderLine to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateOrderLineCustomFields(body body: OrderLine, completion: ((error: ErrorType?) -> Void)) {
+        updateOrderLineCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update an orderLine custom fields
+     
+     - PUT /beta/orderLine/customFields
+     - Updates an existing orderLine custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) OrderLine to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateOrderLineCustomFieldsWithRequestBuilder(body body: OrderLine) -> RequestBuilder<Void> {
+        let path = "/beta/orderLine/customFields"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }
