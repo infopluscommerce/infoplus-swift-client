@@ -73,6 +73,94 @@ public class ExternalShipmentAPI: APIBase {
 
     /**
      
+     Add new audit for an externalShipment
+     
+     - parameter externalShipmentId: (path) Id of the externalShipment to add an audit to 
+     - parameter externalShipmentAudit: (path) The audit to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addExternalShipmentAudit(externalShipmentId externalShipmentId: Int, externalShipmentAudit: String, completion: ((error: ErrorType?) -> Void)) {
+        addExternalShipmentAuditWithRequestBuilder(externalShipmentId: externalShipmentId, externalShipmentAudit: externalShipmentAudit).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new audit for an externalShipment
+     
+     - PUT /beta/externalShipment/{externalShipmentId}/audit/{externalShipmentAudit}
+     - Adds an audit to an existing externalShipment.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter externalShipmentId: (path) Id of the externalShipment to add an audit to 
+     - parameter externalShipmentAudit: (path) The audit to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addExternalShipmentAuditWithRequestBuilder(externalShipmentId externalShipmentId: Int, externalShipmentAudit: String) -> RequestBuilder<Void> {
+        var path = "/beta/externalShipment/{externalShipmentId}/audit/{externalShipmentAudit}"
+        path = path.stringByReplacingOccurrencesOfString("{externalShipmentId}", withString: "\(externalShipmentId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{externalShipmentAudit}", withString: "\(externalShipmentAudit)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new tags for an externalShipment.
+     
+     - parameter externalShipmentId: (path) Id of the externalShipment to add a tag to 
+     - parameter externalShipmentTag: (path) The tag to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addExternalShipmentTag(externalShipmentId externalShipmentId: Int, externalShipmentTag: String, completion: ((error: ErrorType?) -> Void)) {
+        addExternalShipmentTagWithRequestBuilder(externalShipmentId: externalShipmentId, externalShipmentTag: externalShipmentTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new tags for an externalShipment.
+     
+     - PUT /beta/externalShipment/{externalShipmentId}/tag/{externalShipmentTag}
+     - Adds a tag to an existing externalShipment.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter externalShipmentId: (path) Id of the externalShipment to add a tag to 
+     - parameter externalShipmentTag: (path) The tag to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addExternalShipmentTagWithRequestBuilder(externalShipmentId externalShipmentId: Int, externalShipmentTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/externalShipment/{externalShipmentId}/tag/{externalShipmentTag}"
+        path = path.stringByReplacingOccurrencesOfString("{externalShipmentId}", withString: "\(externalShipmentId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{externalShipmentTag}", withString: "\(externalShipmentTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Delete an externalShipment
      
      - parameter externalShipmentId: (path) Id of the externalShipment to be deleted. 
@@ -110,6 +198,113 @@ public class ExternalShipmentAPI: APIBase {
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Delete a tag for an externalShipment.
+     
+     - parameter externalShipmentId: (path) Id of the externalShipment to remove tag from 
+     - parameter externalShipmentTag: (path) The tag to delete 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func deleteExternalShipmentTag(externalShipmentId externalShipmentId: Int, externalShipmentTag: String, completion: ((error: ErrorType?) -> Void)) {
+        deleteExternalShipmentTagWithRequestBuilder(externalShipmentId: externalShipmentId, externalShipmentTag: externalShipmentTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Delete a tag for an externalShipment.
+     
+     - DELETE /beta/externalShipment/{externalShipmentId}/tag/{externalShipmentTag}
+     - Deletes an existing externalShipment tag using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter externalShipmentId: (path) Id of the externalShipment to remove tag from 
+     - parameter externalShipmentTag: (path) The tag to delete 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func deleteExternalShipmentTagWithRequestBuilder(externalShipmentId externalShipmentId: Int, externalShipmentTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/externalShipment/{externalShipmentId}/tag/{externalShipmentTag}"
+        path = path.stringByReplacingOccurrencesOfString("{externalShipmentId}", withString: "\(externalShipmentId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{externalShipmentTag}", withString: "\(externalShipmentTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get a duplicated an externalShipment by id
+     
+     - parameter externalShipmentId: (path) Id of the externalShipment to be duplicated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getDuplicateExternalShipmentById(externalShipmentId externalShipmentId: Int, completion: ((data: ExternalShipment?, error: ErrorType?) -> Void)) {
+        getDuplicateExternalShipmentByIdWithRequestBuilder(externalShipmentId: externalShipmentId).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Get a duplicated an externalShipment by id
+     
+     - GET /beta/externalShipment/duplicate/{externalShipmentId}
+     - Returns a duplicated externalShipment identified by the specified id.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "orderId" : 1.3579000000000001069366817318950779736042022705078125,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "freight" : 1.3579000000000001069366817318950779736042022705078125,
+  "parcelAccountId" : 123,
+  "dim3In" : 1.3579000000000001069366817318950779736042022705078125,
+  "dim1In" : 1.3579000000000001069366817318950779736042022705078125,
+  "dim2In" : 1.3579000000000001069366817318950779736042022705078125,
+  "residential" : true,
+  "dimWeight" : 1.3579000000000001069366817318950779736042022705078125,
+  "thirdPartyParcelAccountId" : 123,
+  "trackingNo" : "aeiou",
+  "zone" : "aeiou",
+  "id" : 123,
+  "carrierId" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "status" : "aeiou"
+}}]
+     
+     - parameter externalShipmentId: (path) Id of the externalShipment to be duplicated. 
+
+     - returns: RequestBuilder<ExternalShipment> 
+     */
+    public class func getDuplicateExternalShipmentByIdWithRequestBuilder(externalShipmentId externalShipmentId: Int) -> RequestBuilder<ExternalShipment> {
+        var path = "/beta/externalShipment/duplicate/{externalShipmentId}"
+        path = path.stringByReplacingOccurrencesOfString("{externalShipmentId}", withString: "\(externalShipmentId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<ExternalShipment>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -244,6 +439,47 @@ public class ExternalShipmentAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<ExternalShipment>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get the tags for an externalShipment.
+     
+     - parameter externalShipmentId: (path) Id of the externalShipment to get tags for 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getExternalShipmentTags(externalShipmentId externalShipmentId: Int, completion: ((error: ErrorType?) -> Void)) {
+        getExternalShipmentTagsWithRequestBuilder(externalShipmentId: externalShipmentId).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Get the tags for an externalShipment.
+     
+     - GET /beta/externalShipment/{externalShipmentId}/tag
+     - Get all existing externalShipment tags.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter externalShipmentId: (path) Id of the externalShipment to get tags for 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func getExternalShipmentTagsWithRequestBuilder(externalShipmentId externalShipmentId: Int) -> RequestBuilder<Void> {
+        var path = "/beta/externalShipment/{externalShipmentId}/tag"
+        path = path.stringByReplacingOccurrencesOfString("{externalShipmentId}", withString: "\(externalShipmentId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }

@@ -10,8 +10,11 @@ import Foundation
 
 public class ItemProductCode: JSONEncodable {
 
-    public var id: Int?
-    public var label: String?
+    public var lobId: Int?
+    public var internalId: Int?
+    public var id: String?
+    public var name: String?
+    public var customFields: [String:AnyObject]?
     
 
     public init() {}
@@ -19,8 +22,11 @@ public class ItemProductCode: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
+        nillableDictionary["lobId"] = self.lobId
+        nillableDictionary["internalId"] = self.internalId
         nillableDictionary["id"] = self.id
-        nillableDictionary["label"] = self.label
+        nillableDictionary["name"] = self.name
+        nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

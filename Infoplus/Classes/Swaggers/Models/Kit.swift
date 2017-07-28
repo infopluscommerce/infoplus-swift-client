@@ -12,7 +12,7 @@ public class Kit: JSONEncodable {
 
     public var lobId: Int?
     public var id: Int?
-    public var kitSKUId: Int?
+    public var kitSKU: String?
     public var packagingType: String?
     public var other: String?
     public var numberOfComponents: Int?
@@ -32,6 +32,7 @@ public class Kit: JSONEncodable {
     public var maxInvQty: Int?
     public var isKOD: String?
     public var kodType: String?
+    public var kitComponentList: [KitComponent]?
     public var customFields: [String:AnyObject]?
     
 
@@ -42,7 +43,7 @@ public class Kit: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["lobId"] = self.lobId
         nillableDictionary["id"] = self.id
-        nillableDictionary["kitSKUId"] = self.kitSKUId
+        nillableDictionary["kitSKU"] = self.kitSKU
         nillableDictionary["packagingType"] = self.packagingType
         nillableDictionary["other"] = self.other
         nillableDictionary["numberOfComponents"] = self.numberOfComponents
@@ -62,6 +63,7 @@ public class Kit: JSONEncodable {
         nillableDictionary["maxInvQty"] = self.maxInvQty
         nillableDictionary["isKOD"] = self.isKOD
         nillableDictionary["kodType"] = self.kodType
+        nillableDictionary["kitComponentList"] = self.kitComponentList?.encodeToJSON()
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

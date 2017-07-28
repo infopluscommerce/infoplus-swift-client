@@ -74,6 +74,94 @@ public class LocationAddressSchemeAPI: APIBase {
 
     /**
      
+     Add new audit for a locationAddressScheme
+     
+     - parameter locationAddressSchemeId: (path) Id of the locationAddressScheme to add an audit to 
+     - parameter locationAddressSchemeAudit: (path) The audit to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addLocationAddressSchemeAudit(locationAddressSchemeId locationAddressSchemeId: Int, locationAddressSchemeAudit: String, completion: ((error: ErrorType?) -> Void)) {
+        addLocationAddressSchemeAuditWithRequestBuilder(locationAddressSchemeId: locationAddressSchemeId, locationAddressSchemeAudit: locationAddressSchemeAudit).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new audit for a locationAddressScheme
+     
+     - PUT /beta/locationAddressScheme/{locationAddressSchemeId}/audit/{locationAddressSchemeAudit}
+     - Adds an audit to an existing locationAddressScheme.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter locationAddressSchemeId: (path) Id of the locationAddressScheme to add an audit to 
+     - parameter locationAddressSchemeAudit: (path) The audit to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addLocationAddressSchemeAuditWithRequestBuilder(locationAddressSchemeId locationAddressSchemeId: Int, locationAddressSchemeAudit: String) -> RequestBuilder<Void> {
+        var path = "/beta/locationAddressScheme/{locationAddressSchemeId}/audit/{locationAddressSchemeAudit}"
+        path = path.stringByReplacingOccurrencesOfString("{locationAddressSchemeId}", withString: "\(locationAddressSchemeId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{locationAddressSchemeAudit}", withString: "\(locationAddressSchemeAudit)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new tags for a locationAddressScheme.
+     
+     - parameter locationAddressSchemeId: (path) Id of the locationAddressScheme to add a tag to 
+     - parameter locationAddressSchemeTag: (path) The tag to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addLocationAddressSchemeTag(locationAddressSchemeId locationAddressSchemeId: Int, locationAddressSchemeTag: String, completion: ((error: ErrorType?) -> Void)) {
+        addLocationAddressSchemeTagWithRequestBuilder(locationAddressSchemeId: locationAddressSchemeId, locationAddressSchemeTag: locationAddressSchemeTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new tags for a locationAddressScheme.
+     
+     - PUT /beta/locationAddressScheme/{locationAddressSchemeId}/tag/{locationAddressSchemeTag}
+     - Adds a tag to an existing locationAddressScheme.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter locationAddressSchemeId: (path) Id of the locationAddressScheme to add a tag to 
+     - parameter locationAddressSchemeTag: (path) The tag to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addLocationAddressSchemeTagWithRequestBuilder(locationAddressSchemeId locationAddressSchemeId: Int, locationAddressSchemeTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/locationAddressScheme/{locationAddressSchemeId}/tag/{locationAddressSchemeTag}"
+        path = path.stringByReplacingOccurrencesOfString("{locationAddressSchemeId}", withString: "\(locationAddressSchemeId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{locationAddressSchemeTag}", withString: "\(locationAddressSchemeTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Delete a locationAddressScheme
      
      - parameter locationAddressSchemeId: (path) Id of the locationAddressScheme to be deleted. 
@@ -111,6 +199,114 @@ public class LocationAddressSchemeAPI: APIBase {
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Delete a tag for a locationAddressScheme.
+     
+     - parameter locationAddressSchemeId: (path) Id of the locationAddressScheme to remove tag from 
+     - parameter locationAddressSchemeTag: (path) The tag to delete 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func deleteLocationAddressSchemeTag(locationAddressSchemeId locationAddressSchemeId: Int, locationAddressSchemeTag: String, completion: ((error: ErrorType?) -> Void)) {
+        deleteLocationAddressSchemeTagWithRequestBuilder(locationAddressSchemeId: locationAddressSchemeId, locationAddressSchemeTag: locationAddressSchemeTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Delete a tag for a locationAddressScheme.
+     
+     - DELETE /beta/locationAddressScheme/{locationAddressSchemeId}/tag/{locationAddressSchemeTag}
+     - Deletes an existing locationAddressScheme tag using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter locationAddressSchemeId: (path) Id of the locationAddressScheme to remove tag from 
+     - parameter locationAddressSchemeTag: (path) The tag to delete 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func deleteLocationAddressSchemeTagWithRequestBuilder(locationAddressSchemeId locationAddressSchemeId: Int, locationAddressSchemeTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/locationAddressScheme/{locationAddressSchemeId}/tag/{locationAddressSchemeTag}"
+        path = path.stringByReplacingOccurrencesOfString("{locationAddressSchemeId}", withString: "\(locationAddressSchemeId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{locationAddressSchemeTag}", withString: "\(locationAddressSchemeTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get a duplicated a locationAddressScheme by id
+     
+     - parameter locationAddressSchemeId: (path) Id of the locationAddressScheme to be duplicated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getDuplicateLocationAddressSchemeById(locationAddressSchemeId locationAddressSchemeId: Int, completion: ((data: LocationAddressScheme?, error: ErrorType?) -> Void)) {
+        getDuplicateLocationAddressSchemeByIdWithRequestBuilder(locationAddressSchemeId: locationAddressSchemeId).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Get a duplicated a locationAddressScheme by id
+     
+     - GET /beta/locationAddressScheme/duplicate/{locationAddressSchemeId}
+     - Returns a duplicated locationAddressScheme identified by the specified id.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "formatString" : "aeiou",
+  "clientId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "locationNamingScheme" : "aeiou",
+  "bayNumberZeroPadded" : true,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "aisleNumberZeroPadded" : true,
+  "locationNumberZeroPadded" : true,
+  "levelNumberZeroPadded" : true,
+  "levelNumberMinimumNumberOfDigits" : 123,
+  "bayNumberMinimumNumberOfDigits" : 123,
+  "name" : "aeiou",
+  "levelNamingScheme" : "aeiou",
+  "bayNamingScheme" : "aeiou",
+  "id" : 123,
+  "aisleNamingScheme" : "aeiou",
+  "locationNumberMinimumNumberOfDigits" : 123,
+  "aisleNumberMinimumNumberOfDigits" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
+     
+     - parameter locationAddressSchemeId: (path) Id of the locationAddressScheme to be duplicated. 
+
+     - returns: RequestBuilder<LocationAddressScheme> 
+     */
+    public class func getDuplicateLocationAddressSchemeByIdWithRequestBuilder(locationAddressSchemeId locationAddressSchemeId: Int) -> RequestBuilder<LocationAddressScheme> {
+        var path = "/beta/locationAddressScheme/duplicate/{locationAddressSchemeId}"
+        path = path.stringByReplacingOccurrencesOfString("{locationAddressSchemeId}", withString: "\(locationAddressSchemeId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<LocationAddressScheme>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -247,6 +443,47 @@ public class LocationAddressSchemeAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<LocationAddressScheme>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get the tags for a locationAddressScheme.
+     
+     - parameter locationAddressSchemeId: (path) Id of the locationAddressScheme to get tags for 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getLocationAddressSchemeTags(locationAddressSchemeId locationAddressSchemeId: Int, completion: ((error: ErrorType?) -> Void)) {
+        getLocationAddressSchemeTagsWithRequestBuilder(locationAddressSchemeId: locationAddressSchemeId).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Get the tags for a locationAddressScheme.
+     
+     - GET /beta/locationAddressScheme/{locationAddressSchemeId}/tag
+     - Get all existing locationAddressScheme tags.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter locationAddressSchemeId: (path) Id of the locationAddressScheme to get tags for 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func getLocationAddressSchemeTagsWithRequestBuilder(locationAddressSchemeId locationAddressSchemeId: Int) -> RequestBuilder<Void> {
+        var path = "/beta/locationAddressScheme/{locationAddressSchemeId}/tag"
+        path = path.stringByReplacingOccurrencesOfString("{locationAddressSchemeId}", withString: "\(locationAddressSchemeId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }

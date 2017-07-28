@@ -12,6 +12,94 @@ import Alamofire
 public class ReceivingProcessAPI: APIBase {
     /**
      
+     Add new audit for a receivingProcess
+     
+     - parameter receivingProcessId: (path) Id of the receivingProcess to add an audit to 
+     - parameter receivingProcessAudit: (path) The audit to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addReceivingProcessAudit(receivingProcessId receivingProcessId: Int, receivingProcessAudit: String, completion: ((error: ErrorType?) -> Void)) {
+        addReceivingProcessAuditWithRequestBuilder(receivingProcessId: receivingProcessId, receivingProcessAudit: receivingProcessAudit).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new audit for a receivingProcess
+     
+     - PUT /beta/receivingProcess/{receivingProcessId}/audit/{receivingProcessAudit}
+     - Adds an audit to an existing receivingProcess.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter receivingProcessId: (path) Id of the receivingProcess to add an audit to 
+     - parameter receivingProcessAudit: (path) The audit to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addReceivingProcessAuditWithRequestBuilder(receivingProcessId receivingProcessId: Int, receivingProcessAudit: String) -> RequestBuilder<Void> {
+        var path = "/beta/receivingProcess/{receivingProcessId}/audit/{receivingProcessAudit}"
+        path = path.stringByReplacingOccurrencesOfString("{receivingProcessId}", withString: "\(receivingProcessId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{receivingProcessAudit}", withString: "\(receivingProcessAudit)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new tags for a receivingProcess.
+     
+     - parameter receivingProcessId: (path) Id of the receivingProcess to add a tag to 
+     - parameter receivingProcessTag: (path) The tag to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addReceivingProcessTag(receivingProcessId receivingProcessId: Int, receivingProcessTag: String, completion: ((error: ErrorType?) -> Void)) {
+        addReceivingProcessTagWithRequestBuilder(receivingProcessId: receivingProcessId, receivingProcessTag: receivingProcessTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new tags for a receivingProcess.
+     
+     - PUT /beta/receivingProcess/{receivingProcessId}/tag/{receivingProcessTag}
+     - Adds a tag to an existing receivingProcess.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter receivingProcessId: (path) Id of the receivingProcess to add a tag to 
+     - parameter receivingProcessTag: (path) The tag to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addReceivingProcessTagWithRequestBuilder(receivingProcessId receivingProcessId: Int, receivingProcessTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/receivingProcess/{receivingProcessId}/tag/{receivingProcessTag}"
+        path = path.stringByReplacingOccurrencesOfString("{receivingProcessId}", withString: "\(receivingProcessId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{receivingProcessTag}", withString: "\(receivingProcessTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Delete a receivingProcess
      
      - parameter receivingProcessId: (path) Id of the receivingProcess to be deleted. 
@@ -49,6 +137,103 @@ public class ReceivingProcessAPI: APIBase {
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Delete a tag for a receivingProcess.
+     
+     - parameter receivingProcessId: (path) Id of the receivingProcess to remove tag from 
+     - parameter receivingProcessTag: (path) The tag to delete 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func deleteReceivingProcessTag(receivingProcessId receivingProcessId: Int, receivingProcessTag: String, completion: ((error: ErrorType?) -> Void)) {
+        deleteReceivingProcessTagWithRequestBuilder(receivingProcessId: receivingProcessId, receivingProcessTag: receivingProcessTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Delete a tag for a receivingProcess.
+     
+     - DELETE /beta/receivingProcess/{receivingProcessId}/tag/{receivingProcessTag}
+     - Deletes an existing receivingProcess tag using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter receivingProcessId: (path) Id of the receivingProcess to remove tag from 
+     - parameter receivingProcessTag: (path) The tag to delete 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func deleteReceivingProcessTagWithRequestBuilder(receivingProcessId receivingProcessId: Int, receivingProcessTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/receivingProcess/{receivingProcessId}/tag/{receivingProcessTag}"
+        path = path.stringByReplacingOccurrencesOfString("{receivingProcessId}", withString: "\(receivingProcessId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{receivingProcessTag}", withString: "\(receivingProcessTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get a duplicated a receivingProcess by id
+     
+     - parameter receivingProcessId: (path) Id of the receivingProcess to be duplicated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getDuplicateReceivingProcessById(receivingProcessId receivingProcessId: Int, completion: ((data: ReceivingProcess?, error: ErrorType?) -> Void)) {
+        getDuplicateReceivingProcessByIdWithRequestBuilder(receivingProcessId: receivingProcessId).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Get a duplicated a receivingProcess by id
+     
+     - GET /beta/receivingProcess/duplicate/{receivingProcessId}
+     - Returns a duplicated receivingProcess identified by the specified id.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "receivingWorksheetId" : 123,
+  "workBatchId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "id" : 123,
+  "status" : "aeiou",
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
+     
+     - parameter receivingProcessId: (path) Id of the receivingProcess to be duplicated. 
+
+     - returns: RequestBuilder<ReceivingProcess> 
+     */
+    public class func getDuplicateReceivingProcessByIdWithRequestBuilder(receivingProcessId receivingProcessId: Int) -> RequestBuilder<ReceivingProcess> {
+        var path = "/beta/receivingProcess/duplicate/{receivingProcessId}"
+        path = path.stringByReplacingOccurrencesOfString("{receivingProcessId}", withString: "\(receivingProcessId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<ReceivingProcess>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -163,6 +348,47 @@ public class ReceivingProcessAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<ReceivingProcess>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get the tags for a receivingProcess.
+     
+     - parameter receivingProcessId: (path) Id of the receivingProcess to get tags for 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getReceivingProcessTags(receivingProcessId receivingProcessId: Int, completion: ((error: ErrorType?) -> Void)) {
+        getReceivingProcessTagsWithRequestBuilder(receivingProcessId: receivingProcessId).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Get the tags for a receivingProcess.
+     
+     - GET /beta/receivingProcess/{receivingProcessId}/tag
+     - Get all existing receivingProcess tags.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter receivingProcessId: (path) Id of the receivingProcess to get tags for 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func getReceivingProcessTagsWithRequestBuilder(receivingProcessId receivingProcessId: Int) -> RequestBuilder<Void> {
+        var path = "/beta/receivingProcess/{receivingProcessId}/tag"
+        path = path.stringByReplacingOccurrencesOfString("{receivingProcessId}", withString: "\(receivingProcessId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }

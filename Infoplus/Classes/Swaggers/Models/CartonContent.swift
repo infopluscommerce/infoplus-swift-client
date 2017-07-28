@@ -13,7 +13,7 @@ public class CartonContent: JSONEncodable {
     public var id: Int?
     public var groupOrderId: Double?
     public var orderNo: Double?
-    public var cartonNoId: Int?
+    public var cartonId: Int?
     public var lineItemId: Int?
     public var location: String?
     public var quantity: Int?
@@ -33,7 +33,7 @@ public class CartonContent: JSONEncodable {
         nillableDictionary["id"] = self.id
         nillableDictionary["groupOrderId"] = self.groupOrderId
         nillableDictionary["orderNo"] = self.orderNo
-        nillableDictionary["cartonNoId"] = self.cartonNoId
+        nillableDictionary["cartonId"] = self.cartonId
         nillableDictionary["lineItemId"] = self.lineItemId
         nillableDictionary["location"] = self.location
         nillableDictionary["quantity"] = self.quantity

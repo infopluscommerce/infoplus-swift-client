@@ -34,6 +34,7 @@ public class CarrierAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
+  "fullEntityClassName" : "aeiou",
   "carrier" : 123,
   "label" : "aeiou"
 }}]
@@ -81,6 +82,7 @@ public class CarrierAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
+  "fullEntityClassName" : "aeiou",
   "carrier" : 123,
   "label" : "aeiou"
 } ]}]

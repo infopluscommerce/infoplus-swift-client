@@ -65,6 +65,94 @@ public class SubstitutionAPI: APIBase {
 
     /**
      
+     Add new audit for a substitution
+     
+     - parameter substitutionId: (path) Id of the substitution to add an audit to 
+     - parameter substitutionAudit: (path) The audit to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addSubstitutionAudit(substitutionId substitutionId: Int, substitutionAudit: String, completion: ((error: ErrorType?) -> Void)) {
+        addSubstitutionAuditWithRequestBuilder(substitutionId: substitutionId, substitutionAudit: substitutionAudit).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new audit for a substitution
+     
+     - PUT /beta/substitution/{substitutionId}/audit/{substitutionAudit}
+     - Adds an audit to an existing substitution.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter substitutionId: (path) Id of the substitution to add an audit to 
+     - parameter substitutionAudit: (path) The audit to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addSubstitutionAuditWithRequestBuilder(substitutionId substitutionId: Int, substitutionAudit: String) -> RequestBuilder<Void> {
+        var path = "/beta/substitution/{substitutionId}/audit/{substitutionAudit}"
+        path = path.stringByReplacingOccurrencesOfString("{substitutionId}", withString: "\(substitutionId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{substitutionAudit}", withString: "\(substitutionAudit)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new tags for a substitution.
+     
+     - parameter substitutionId: (path) Id of the substitution to add a tag to 
+     - parameter substitutionTag: (path) The tag to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addSubstitutionTag(substitutionId substitutionId: Int, substitutionTag: String, completion: ((error: ErrorType?) -> Void)) {
+        addSubstitutionTagWithRequestBuilder(substitutionId: substitutionId, substitutionTag: substitutionTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new tags for a substitution.
+     
+     - PUT /beta/substitution/{substitutionId}/tag/{substitutionTag}
+     - Adds a tag to an existing substitution.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter substitutionId: (path) Id of the substitution to add a tag to 
+     - parameter substitutionTag: (path) The tag to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addSubstitutionTagWithRequestBuilder(substitutionId substitutionId: Int, substitutionTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/substitution/{substitutionId}/tag/{substitutionTag}"
+        path = path.stringByReplacingOccurrencesOfString("{substitutionId}", withString: "\(substitutionId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{substitutionTag}", withString: "\(substitutionTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Delete a substitution
      
      - parameter substitutionId: (path) Id of the substitution to be deleted. 
@@ -102,6 +190,105 @@ public class SubstitutionAPI: APIBase {
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Delete a tag for a substitution.
+     
+     - parameter substitutionId: (path) Id of the substitution to remove tag from 
+     - parameter substitutionTag: (path) The tag to delete 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func deleteSubstitutionTag(substitutionId substitutionId: Int, substitutionTag: String, completion: ((error: ErrorType?) -> Void)) {
+        deleteSubstitutionTagWithRequestBuilder(substitutionId: substitutionId, substitutionTag: substitutionTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Delete a tag for a substitution.
+     
+     - DELETE /beta/substitution/{substitutionId}/tag/{substitutionTag}
+     - Deletes an existing substitution tag using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter substitutionId: (path) Id of the substitution to remove tag from 
+     - parameter substitutionTag: (path) The tag to delete 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func deleteSubstitutionTagWithRequestBuilder(substitutionId substitutionId: Int, substitutionTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/substitution/{substitutionId}/tag/{substitutionTag}"
+        path = path.stringByReplacingOccurrencesOfString("{substitutionId}", withString: "\(substitutionId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{substitutionTag}", withString: "\(substitutionTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get a duplicated a substitution by id
+     
+     - parameter substitutionId: (path) Id of the substitution to be duplicated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getDuplicateSubstitutionById(substitutionId substitutionId: Int, completion: ((data: Substitution?, error: ErrorType?) -> Void)) {
+        getDuplicateSubstitutionByIdWithRequestBuilder(substitutionId: substitutionId).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Get a duplicated a substitution by id
+     
+     - GET /beta/substitution/duplicate/{substitutionId}
+     - Returns a duplicated substitution identified by the specified id.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "period" : "aeiou",
+  "orderSKUId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "substitutionQuantity" : 1.3579000000000001069366817318950779736042022705078125,
+  "id" : 123,
+  "type" : "aeiou",
+  "lobId" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "substituteSKUId" : 123
+}}]
+     
+     - parameter substitutionId: (path) Id of the substitution to be duplicated. 
+
+     - returns: RequestBuilder<Substitution> 
+     */
+    public class func getDuplicateSubstitutionByIdWithRequestBuilder(substitutionId substitutionId: Int) -> RequestBuilder<Substitution> {
+        var path = "/beta/substitution/duplicate/{substitutionId}"
+        path = path.stringByReplacingOccurrencesOfString("{substitutionId}", withString: "\(substitutionId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Substitution>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -220,6 +407,47 @@ public class SubstitutionAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<Substitution>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get the tags for a substitution.
+     
+     - parameter substitutionId: (path) Id of the substitution to get tags for 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getSubstitutionTags(substitutionId substitutionId: Int, completion: ((error: ErrorType?) -> Void)) {
+        getSubstitutionTagsWithRequestBuilder(substitutionId: substitutionId).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Get the tags for a substitution.
+     
+     - GET /beta/substitution/{substitutionId}/tag
+     - Get all existing substitution tags.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter substitutionId: (path) Id of the substitution to get tags for 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func getSubstitutionTagsWithRequestBuilder(substitutionId substitutionId: Int) -> RequestBuilder<Void> {
+        var path = "/beta/substitution/{substitutionId}/tag"
+        path = path.stringByReplacingOccurrencesOfString("{substitutionId}", withString: "\(substitutionId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }

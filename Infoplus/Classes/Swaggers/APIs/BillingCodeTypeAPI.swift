@@ -64,6 +64,94 @@ public class BillingCodeTypeAPI: APIBase {
 
     /**
      
+     Add new audit for a billingCodeType
+     
+     - parameter billingCodeTypeId: (path) Id of the billingCodeType to add an audit to 
+     - parameter billingCodeTypeAudit: (path) The audit to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addBillingCodeTypeAudit(billingCodeTypeId billingCodeTypeId: Int, billingCodeTypeAudit: String, completion: ((error: ErrorType?) -> Void)) {
+        addBillingCodeTypeAuditWithRequestBuilder(billingCodeTypeId: billingCodeTypeId, billingCodeTypeAudit: billingCodeTypeAudit).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new audit for a billingCodeType
+     
+     - PUT /beta/billingCodeType/{billingCodeTypeId}/audit/{billingCodeTypeAudit}
+     - Adds an audit to an existing billingCodeType.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter billingCodeTypeId: (path) Id of the billingCodeType to add an audit to 
+     - parameter billingCodeTypeAudit: (path) The audit to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addBillingCodeTypeAuditWithRequestBuilder(billingCodeTypeId billingCodeTypeId: Int, billingCodeTypeAudit: String) -> RequestBuilder<Void> {
+        var path = "/beta/billingCodeType/{billingCodeTypeId}/audit/{billingCodeTypeAudit}"
+        path = path.stringByReplacingOccurrencesOfString("{billingCodeTypeId}", withString: "\(billingCodeTypeId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{billingCodeTypeAudit}", withString: "\(billingCodeTypeAudit)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new tags for a billingCodeType.
+     
+     - parameter billingCodeTypeId: (path) Id of the billingCodeType to add a tag to 
+     - parameter billingCodeTypeTag: (path) The tag to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addBillingCodeTypeTag(billingCodeTypeId billingCodeTypeId: Int, billingCodeTypeTag: String, completion: ((error: ErrorType?) -> Void)) {
+        addBillingCodeTypeTagWithRequestBuilder(billingCodeTypeId: billingCodeTypeId, billingCodeTypeTag: billingCodeTypeTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new tags for a billingCodeType.
+     
+     - PUT /beta/billingCodeType/{billingCodeTypeId}/tag/{billingCodeTypeTag}
+     - Adds a tag to an existing billingCodeType.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter billingCodeTypeId: (path) Id of the billingCodeType to add a tag to 
+     - parameter billingCodeTypeTag: (path) The tag to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addBillingCodeTypeTagWithRequestBuilder(billingCodeTypeId billingCodeTypeId: Int, billingCodeTypeTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/billingCodeType/{billingCodeTypeId}/tag/{billingCodeTypeTag}"
+        path = path.stringByReplacingOccurrencesOfString("{billingCodeTypeId}", withString: "\(billingCodeTypeId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{billingCodeTypeTag}", withString: "\(billingCodeTypeTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Delete a billingCodeType
      
      - parameter billingCodeTypeId: (path) Id of the billingCodeType to be deleted. 
@@ -93,6 +181,50 @@ public class BillingCodeTypeAPI: APIBase {
     public class func deleteBillingCodeTypeWithRequestBuilder(billingCodeTypeId billingCodeTypeId: Int) -> RequestBuilder<Void> {
         var path = "/beta/billingCodeType/{billingCodeTypeId}"
         path = path.stringByReplacingOccurrencesOfString("{billingCodeTypeId}", withString: "\(billingCodeTypeId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Delete a tag for a billingCodeType.
+     
+     - parameter billingCodeTypeId: (path) Id of the billingCodeType to remove tag from 
+     - parameter billingCodeTypeTag: (path) The tag to delete 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func deleteBillingCodeTypeTag(billingCodeTypeId billingCodeTypeId: Int, billingCodeTypeTag: String, completion: ((error: ErrorType?) -> Void)) {
+        deleteBillingCodeTypeTagWithRequestBuilder(billingCodeTypeId: billingCodeTypeId, billingCodeTypeTag: billingCodeTypeTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Delete a tag for a billingCodeType.
+     
+     - DELETE /beta/billingCodeType/{billingCodeTypeId}/tag/{billingCodeTypeTag}
+     - Deletes an existing billingCodeType tag using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter billingCodeTypeId: (path) Id of the billingCodeType to remove tag from 
+     - parameter billingCodeTypeTag: (path) The tag to delete 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func deleteBillingCodeTypeTagWithRequestBuilder(billingCodeTypeId billingCodeTypeId: Int, billingCodeTypeTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/billingCodeType/{billingCodeTypeId}/tag/{billingCodeTypeTag}"
+        path = path.stringByReplacingOccurrencesOfString("{billingCodeTypeId}", withString: "\(billingCodeTypeId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{billingCodeTypeTag}", withString: "\(billingCodeTypeTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
@@ -210,6 +342,101 @@ public class BillingCodeTypeAPI: APIBase {
      */
     public class func getBillingCodeTypeByIdWithRequestBuilder(billingCodeTypeId billingCodeTypeId: Int) -> RequestBuilder<BillingCodeType> {
         var path = "/beta/billingCodeType/{billingCodeTypeId}"
+        path = path.stringByReplacingOccurrencesOfString("{billingCodeTypeId}", withString: "\(billingCodeTypeId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<BillingCodeType>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get the tags for a billingCodeType.
+     
+     - parameter billingCodeTypeId: (path) Id of the billingCodeType to get tags for 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getBillingCodeTypeTags(billingCodeTypeId billingCodeTypeId: Int, completion: ((error: ErrorType?) -> Void)) {
+        getBillingCodeTypeTagsWithRequestBuilder(billingCodeTypeId: billingCodeTypeId).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Get the tags for a billingCodeType.
+     
+     - GET /beta/billingCodeType/{billingCodeTypeId}/tag
+     - Get all existing billingCodeType tags.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter billingCodeTypeId: (path) Id of the billingCodeType to get tags for 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func getBillingCodeTypeTagsWithRequestBuilder(billingCodeTypeId billingCodeTypeId: Int) -> RequestBuilder<Void> {
+        var path = "/beta/billingCodeType/{billingCodeTypeId}/tag"
+        path = path.stringByReplacingOccurrencesOfString("{billingCodeTypeId}", withString: "\(billingCodeTypeId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get a duplicated a billingCodeType by id
+     
+     - parameter billingCodeTypeId: (path) Id of the billingCodeType to be duplicated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getDuplicateBillingCodeTypeById(billingCodeTypeId billingCodeTypeId: Int, completion: ((data: BillingCodeType?, error: ErrorType?) -> Void)) {
+        getDuplicateBillingCodeTypeByIdWithRequestBuilder(billingCodeTypeId: billingCodeTypeId).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Get a duplicated a billingCodeType by id
+     
+     - GET /beta/billingCodeType/duplicate/{billingCodeTypeId}
+     - Returns a duplicated billingCodeType identified by the specified id.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "billingCode" : "aeiou",
+  "clientId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
+  "description" : "aeiou",
+  "id" : 123,
+  "isActive" : true,
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
+     
+     - parameter billingCodeTypeId: (path) Id of the billingCodeType to be duplicated. 
+
+     - returns: RequestBuilder<BillingCodeType> 
+     */
+    public class func getDuplicateBillingCodeTypeByIdWithRequestBuilder(billingCodeTypeId billingCodeTypeId: Int) -> RequestBuilder<BillingCodeType> {
+        var path = "/beta/billingCodeType/duplicate/{billingCodeTypeId}"
         path = path.stringByReplacingOccurrencesOfString("{billingCodeTypeId}", withString: "\(billingCodeTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         

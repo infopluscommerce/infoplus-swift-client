@@ -12,6 +12,199 @@ import Alamofire
 public class WorkAPI: APIBase {
     /**
      
+     Add new audit for a work
+     
+     - parameter workId: (path) Id of the work to add an audit to 
+     - parameter workAudit: (path) The audit to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addWorkAudit(workId workId: Int, workAudit: String, completion: ((error: ErrorType?) -> Void)) {
+        addWorkAuditWithRequestBuilder(workId: workId, workAudit: workAudit).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new audit for a work
+     
+     - PUT /beta/work/{workId}/audit/{workAudit}
+     - Adds an audit to an existing work.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter workId: (path) Id of the work to add an audit to 
+     - parameter workAudit: (path) The audit to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addWorkAuditWithRequestBuilder(workId workId: Int, workAudit: String) -> RequestBuilder<Void> {
+        var path = "/beta/work/{workId}/audit/{workAudit}"
+        path = path.stringByReplacingOccurrencesOfString("{workId}", withString: "\(workId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{workAudit}", withString: "\(workAudit)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new tags for a work.
+     
+     - parameter workId: (path) Id of the work to add a tag to 
+     - parameter workTag: (path) The tag to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addWorkTag(workId workId: Int, workTag: String, completion: ((error: ErrorType?) -> Void)) {
+        addWorkTagWithRequestBuilder(workId: workId, workTag: workTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new tags for a work.
+     
+     - PUT /beta/work/{workId}/tag/{workTag}
+     - Adds a tag to an existing work.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter workId: (path) Id of the work to add a tag to 
+     - parameter workTag: (path) The tag to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addWorkTagWithRequestBuilder(workId workId: Int, workTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/work/{workId}/tag/{workTag}"
+        path = path.stringByReplacingOccurrencesOfString("{workId}", withString: "\(workId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{workTag}", withString: "\(workTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Delete a tag for a work.
+     
+     - parameter workId: (path) Id of the work to remove tag from 
+     - parameter workTag: (path) The tag to delete 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func deleteWorkTag(workId workId: Int, workTag: String, completion: ((error: ErrorType?) -> Void)) {
+        deleteWorkTagWithRequestBuilder(workId: workId, workTag: workTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Delete a tag for a work.
+     
+     - DELETE /beta/work/{workId}/tag/{workTag}
+     - Deletes an existing work tag using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter workId: (path) Id of the work to remove tag from 
+     - parameter workTag: (path) The tag to delete 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func deleteWorkTagWithRequestBuilder(workId workId: Int, workTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/work/{workId}/tag/{workTag}"
+        path = path.stringByReplacingOccurrencesOfString("{workId}", withString: "\(workId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{workTag}", withString: "\(workTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get a duplicated a work by id
+     
+     - parameter workId: (path) Id of the work to be duplicated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getDuplicateWorkById(workId workId: Int, completion: ((data: Work?, error: ErrorType?) -> Void)) {
+        getDuplicateWorkByIdWithRequestBuilder(workId: workId).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Get a duplicated a work by id
+     
+     - GET /beta/work/duplicate/{workId}
+     - Returns a duplicated work identified by the specified id.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "destinationWarehouseId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "destinationBuildingId" : 123,
+  "destinationLocation" : "aeiou",
+  "type" : "aeiou",
+  "userId" : 123,
+  "sourceWarehouseId" : 123,
+  "workBatchId" : 123,
+  "sourceBuildingId" : 123,
+  "sourceLocation" : "aeiou",
+  "priorityCode" : 123,
+  "id" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "status" : "aeiou",
+  "lobId" : 123
+}}]
+     
+     - parameter workId: (path) Id of the work to be duplicated. 
+
+     - returns: RequestBuilder<Work> 
+     */
+    public class func getDuplicateWorkByIdWithRequestBuilder(workId workId: Int) -> RequestBuilder<Work> {
+        var path = "/beta/work/duplicate/{workId}"
+        path = path.stringByReplacingOccurrencesOfString("{workId}", withString: "\(workId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Work>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Search works by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -138,6 +331,47 @@ public class WorkAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<Work>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get the tags for a work.
+     
+     - parameter workId: (path) Id of the work to get tags for 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getWorkTags(workId workId: Int, completion: ((error: ErrorType?) -> Void)) {
+        getWorkTagsWithRequestBuilder(workId: workId).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Get the tags for a work.
+     
+     - GET /beta/work/{workId}/tag
+     - Get all existing work tags.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter workId: (path) Id of the work to get tags for 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func getWorkTagsWithRequestBuilder(workId workId: Int) -> RequestBuilder<Void> {
+        var path = "/beta/work/{workId}/tag"
+        path = path.stringByReplacingOccurrencesOfString("{workId}", withString: "\(workId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }

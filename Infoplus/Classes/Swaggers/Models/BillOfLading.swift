@@ -14,28 +14,35 @@ public class BillOfLading: JSONEncodable {
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var lobId: Int?
+    public var orderNo: Double?
     public var bolNo: String?
     public var bolDate: NSDate?
     public var shipFromName: String?
+    public var shipFromAttention: String?
     public var shipFromAddress: String?
     public var shipFromCity: String?
     public var shipFromState: String?
     public var shipFromZip: String?
+    public var shipFromCountry: String?
     public var sid: String?
     public var isShipFromFOB: Bool?
     public var shipToName: String?
+    public var shipToAttention: String?
     public var shipToAddress: String?
     public var shipToCity: String?
     public var shipToState: String?
     public var shipToZip: String?
+    public var shipToCountry: String?
     public var shipToLocationNo: String?
     public var cid: String?
     public var isShipToFOB: Bool?
     public var billToName: String?
+    public var billToAttention: String?
     public var billToAddress: String?
     public var billToCity: String?
     public var billToState: String?
     public var billToZip: String?
+    public var billToCountry: String?
     public var isTrailerLoadedByShipper: Bool?
     public var byDriver: Bool?
     public var codAmount: Double?
@@ -70,28 +77,35 @@ public class BillOfLading: JSONEncodable {
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["lobId"] = self.lobId
+        nillableDictionary["orderNo"] = self.orderNo
         nillableDictionary["bolNo"] = self.bolNo
         nillableDictionary["bolDate"] = self.bolDate?.encodeToJSON()
         nillableDictionary["shipFromName"] = self.shipFromName
+        nillableDictionary["shipFromAttention"] = self.shipFromAttention
         nillableDictionary["shipFromAddress"] = self.shipFromAddress
         nillableDictionary["shipFromCity"] = self.shipFromCity
         nillableDictionary["shipFromState"] = self.shipFromState
         nillableDictionary["shipFromZip"] = self.shipFromZip
+        nillableDictionary["shipFromCountry"] = self.shipFromCountry
         nillableDictionary["sid"] = self.sid
         nillableDictionary["isShipFromFOB"] = self.isShipFromFOB
         nillableDictionary["shipToName"] = self.shipToName
+        nillableDictionary["shipToAttention"] = self.shipToAttention
         nillableDictionary["shipToAddress"] = self.shipToAddress
         nillableDictionary["shipToCity"] = self.shipToCity
         nillableDictionary["shipToState"] = self.shipToState
         nillableDictionary["shipToZip"] = self.shipToZip
+        nillableDictionary["shipToCountry"] = self.shipToCountry
         nillableDictionary["shipToLocationNo"] = self.shipToLocationNo
         nillableDictionary["cid"] = self.cid
         nillableDictionary["isShipToFOB"] = self.isShipToFOB
         nillableDictionary["billToName"] = self.billToName
+        nillableDictionary["billToAttention"] = self.billToAttention
         nillableDictionary["billToAddress"] = self.billToAddress
         nillableDictionary["billToCity"] = self.billToCity
         nillableDictionary["billToState"] = self.billToState
         nillableDictionary["billToZip"] = self.billToZip
+        nillableDictionary["billToCountry"] = self.billToCountry
         nillableDictionary["isTrailerLoadedByShipper"] = self.isTrailerLoadedByShipper
         nillableDictionary["byDriver"] = self.byDriver
         nillableDictionary["codAmount"] = self.codAmount

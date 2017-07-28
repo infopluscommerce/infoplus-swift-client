@@ -37,6 +37,7 @@ public class FulfillmentPlanAPI: APIBase {
   "pickListLayout" : "aeiou",
   "createPickWork" : true,
   "pickingRule" : "aeiou",
+  "createOrderInvoice" : "aeiou",
   "pickSummaryLayout" : "aeiou",
   "customFields" : {
     "key" : "{}"
@@ -44,6 +45,7 @@ public class FulfillmentPlanAPI: APIBase {
   "pickListSort" : "aeiou",
   "description" : "aeiou",
   "createPickSummary" : true,
+  "sendToExternalShippingSystem" : true,
   "locationSmartFilterId" : 123,
   "pickSummaryFormat" : "aeiou",
   "cartonizeOrders" : true,
@@ -53,13 +55,16 @@ public class FulfillmentPlanAPI: APIBase {
   "pickListFormat" : "aeiou",
   "pickListGroup" : "aeiou",
   "pickScanSchemeId" : 123,
+  "externalShippingSystemId" : 123,
   "createPickList" : true,
   "createDate" : "2000-01-23T04:56:07.000+0000",
   "maximumNumberOfOrders" : 123,
   "createOrderAssemblyGuide" : true,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "createPackingSlip" : true,
+  "createPackingSlip" : "aeiou",
+  "overrideOrderInvoiceTemplateId" : 123,
   "pickSummarySort" : "aeiou",
+  "lastRunTime" : "2000-01-23T04:56:07.000+0000",
   "preGenerateParcelLabels" : true,
   "warehouseId" : 123,
   "name" : "aeiou",
@@ -81,6 +86,94 @@ public class FulfillmentPlanAPI: APIBase {
         let requestBuilder: RequestBuilder<FulfillmentPlan>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new audit for a fulfillmentPlan
+     
+     - parameter fulfillmentPlanId: (path) Id of the fulfillmentPlan to add an audit to 
+     - parameter fulfillmentPlanAudit: (path) The audit to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addFulfillmentPlanAudit(fulfillmentPlanId fulfillmentPlanId: Int, fulfillmentPlanAudit: String, completion: ((error: ErrorType?) -> Void)) {
+        addFulfillmentPlanAuditWithRequestBuilder(fulfillmentPlanId: fulfillmentPlanId, fulfillmentPlanAudit: fulfillmentPlanAudit).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new audit for a fulfillmentPlan
+     
+     - PUT /beta/fulfillmentPlan/{fulfillmentPlanId}/audit/{fulfillmentPlanAudit}
+     - Adds an audit to an existing fulfillmentPlan.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter fulfillmentPlanId: (path) Id of the fulfillmentPlan to add an audit to 
+     - parameter fulfillmentPlanAudit: (path) The audit to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addFulfillmentPlanAuditWithRequestBuilder(fulfillmentPlanId fulfillmentPlanId: Int, fulfillmentPlanAudit: String) -> RequestBuilder<Void> {
+        var path = "/beta/fulfillmentPlan/{fulfillmentPlanId}/audit/{fulfillmentPlanAudit}"
+        path = path.stringByReplacingOccurrencesOfString("{fulfillmentPlanId}", withString: "\(fulfillmentPlanId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{fulfillmentPlanAudit}", withString: "\(fulfillmentPlanAudit)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new tags for a fulfillmentPlan.
+     
+     - parameter fulfillmentPlanId: (path) Id of the fulfillmentPlan to add a tag to 
+     - parameter fulfillmentPlanTag: (path) The tag to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addFulfillmentPlanTag(fulfillmentPlanId fulfillmentPlanId: Int, fulfillmentPlanTag: String, completion: ((error: ErrorType?) -> Void)) {
+        addFulfillmentPlanTagWithRequestBuilder(fulfillmentPlanId: fulfillmentPlanId, fulfillmentPlanTag: fulfillmentPlanTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new tags for a fulfillmentPlan.
+     
+     - PUT /beta/fulfillmentPlan/{fulfillmentPlanId}/tag/{fulfillmentPlanTag}
+     - Adds a tag to an existing fulfillmentPlan.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter fulfillmentPlanId: (path) Id of the fulfillmentPlan to add a tag to 
+     - parameter fulfillmentPlanTag: (path) The tag to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addFulfillmentPlanTagWithRequestBuilder(fulfillmentPlanId fulfillmentPlanId: Int, fulfillmentPlanTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/fulfillmentPlan/{fulfillmentPlanId}/tag/{fulfillmentPlanTag}"
+        path = path.stringByReplacingOccurrencesOfString("{fulfillmentPlanId}", withString: "\(fulfillmentPlanId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{fulfillmentPlanTag}", withString: "\(fulfillmentPlanTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -126,6 +219,130 @@ public class FulfillmentPlanAPI: APIBase {
 
     /**
      
+     Delete a tag for a fulfillmentPlan.
+     
+     - parameter fulfillmentPlanId: (path) Id of the fulfillmentPlan to remove tag from 
+     - parameter fulfillmentPlanTag: (path) The tag to delete 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func deleteFulfillmentPlanTag(fulfillmentPlanId fulfillmentPlanId: Int, fulfillmentPlanTag: String, completion: ((error: ErrorType?) -> Void)) {
+        deleteFulfillmentPlanTagWithRequestBuilder(fulfillmentPlanId: fulfillmentPlanId, fulfillmentPlanTag: fulfillmentPlanTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Delete a tag for a fulfillmentPlan.
+     
+     - DELETE /beta/fulfillmentPlan/{fulfillmentPlanId}/tag/{fulfillmentPlanTag}
+     - Deletes an existing fulfillmentPlan tag using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter fulfillmentPlanId: (path) Id of the fulfillmentPlan to remove tag from 
+     - parameter fulfillmentPlanTag: (path) The tag to delete 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func deleteFulfillmentPlanTagWithRequestBuilder(fulfillmentPlanId fulfillmentPlanId: Int, fulfillmentPlanTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/fulfillmentPlan/{fulfillmentPlanId}/tag/{fulfillmentPlanTag}"
+        path = path.stringByReplacingOccurrencesOfString("{fulfillmentPlanId}", withString: "\(fulfillmentPlanId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{fulfillmentPlanTag}", withString: "\(fulfillmentPlanTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get a duplicated a fulfillmentPlan by id
+     
+     - parameter fulfillmentPlanId: (path) Id of the fulfillmentPlan to be duplicated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getDuplicateFulfillmentPlanById(fulfillmentPlanId fulfillmentPlanId: Int, completion: ((data: FulfillmentPlan?, error: ErrorType?) -> Void)) {
+        getDuplicateFulfillmentPlanByIdWithRequestBuilder(fulfillmentPlanId: fulfillmentPlanId).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Get a duplicated a fulfillmentPlan by id
+     
+     - GET /beta/fulfillmentPlan/duplicate/{fulfillmentPlanId}
+     - Returns a duplicated fulfillmentPlan identified by the specified id.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "pickListLayout" : "aeiou",
+  "createPickWork" : true,
+  "pickingRule" : "aeiou",
+  "createOrderInvoice" : "aeiou",
+  "pickSummaryLayout" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "pickListSort" : "aeiou",
+  "description" : "aeiou",
+  "createPickSummary" : true,
+  "sendToExternalShippingSystem" : true,
+  "locationSmartFilterId" : 123,
+  "pickSummaryFormat" : "aeiou",
+  "cartonizeOrders" : true,
+  "pickSortRule" : "aeiou",
+  "layoutRule" : "aeiou",
+  "id" : 123,
+  "pickListFormat" : "aeiou",
+  "pickListGroup" : "aeiou",
+  "pickScanSchemeId" : 123,
+  "externalShippingSystemId" : 123,
+  "createPickList" : true,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "maximumNumberOfOrders" : 123,
+  "createOrderAssemblyGuide" : true,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "createPackingSlip" : "aeiou",
+  "overrideOrderInvoiceTemplateId" : 123,
+  "pickSummarySort" : "aeiou",
+  "lastRunTime" : "2000-01-23T04:56:07.000+0000",
+  "preGenerateParcelLabels" : true,
+  "warehouseId" : 123,
+  "name" : "aeiou",
+  "overridePackingSlipTemplateId" : 123,
+  "autoShipCasebreakCartons" : true,
+  "orderSmartFilterId" : 123
+}}]
+     
+     - parameter fulfillmentPlanId: (path) Id of the fulfillmentPlan to be duplicated. 
+
+     - returns: RequestBuilder<FulfillmentPlan> 
+     */
+    public class func getDuplicateFulfillmentPlanByIdWithRequestBuilder(fulfillmentPlanId fulfillmentPlanId: Int) -> RequestBuilder<FulfillmentPlan> {
+        var path = "/beta/fulfillmentPlan/duplicate/{fulfillmentPlanId}"
+        path = path.stringByReplacingOccurrencesOfString("{fulfillmentPlanId}", withString: "\(fulfillmentPlanId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<FulfillmentPlan>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Search fulfillmentPlans by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -154,6 +371,7 @@ public class FulfillmentPlanAPI: APIBase {
   "pickListLayout" : "aeiou",
   "createPickWork" : true,
   "pickingRule" : "aeiou",
+  "createOrderInvoice" : "aeiou",
   "pickSummaryLayout" : "aeiou",
   "customFields" : {
     "key" : "{}"
@@ -161,6 +379,7 @@ public class FulfillmentPlanAPI: APIBase {
   "pickListSort" : "aeiou",
   "description" : "aeiou",
   "createPickSummary" : true,
+  "sendToExternalShippingSystem" : true,
   "locationSmartFilterId" : 123,
   "pickSummaryFormat" : "aeiou",
   "cartonizeOrders" : true,
@@ -170,13 +389,16 @@ public class FulfillmentPlanAPI: APIBase {
   "pickListFormat" : "aeiou",
   "pickListGroup" : "aeiou",
   "pickScanSchemeId" : 123,
+  "externalShippingSystemId" : 123,
   "createPickList" : true,
   "createDate" : "2000-01-23T04:56:07.000+0000",
   "maximumNumberOfOrders" : 123,
   "createOrderAssemblyGuide" : true,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "createPackingSlip" : true,
+  "createPackingSlip" : "aeiou",
+  "overrideOrderInvoiceTemplateId" : 123,
   "pickSummarySort" : "aeiou",
+  "lastRunTime" : "2000-01-23T04:56:07.000+0000",
   "preGenerateParcelLabels" : true,
   "warehouseId" : 123,
   "name" : "aeiou",
@@ -236,6 +458,7 @@ public class FulfillmentPlanAPI: APIBase {
   "pickListLayout" : "aeiou",
   "createPickWork" : true,
   "pickingRule" : "aeiou",
+  "createOrderInvoice" : "aeiou",
   "pickSummaryLayout" : "aeiou",
   "customFields" : {
     "key" : "{}"
@@ -243,6 +466,7 @@ public class FulfillmentPlanAPI: APIBase {
   "pickListSort" : "aeiou",
   "description" : "aeiou",
   "createPickSummary" : true,
+  "sendToExternalShippingSystem" : true,
   "locationSmartFilterId" : 123,
   "pickSummaryFormat" : "aeiou",
   "cartonizeOrders" : true,
@@ -252,13 +476,16 @@ public class FulfillmentPlanAPI: APIBase {
   "pickListFormat" : "aeiou",
   "pickListGroup" : "aeiou",
   "pickScanSchemeId" : 123,
+  "externalShippingSystemId" : 123,
   "createPickList" : true,
   "createDate" : "2000-01-23T04:56:07.000+0000",
   "maximumNumberOfOrders" : 123,
   "createOrderAssemblyGuide" : true,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "createPackingSlip" : true,
+  "createPackingSlip" : "aeiou",
+  "overrideOrderInvoiceTemplateId" : 123,
   "pickSummarySort" : "aeiou",
+  "lastRunTime" : "2000-01-23T04:56:07.000+0000",
   "preGenerateParcelLabels" : true,
   "warehouseId" : 123,
   "name" : "aeiou",
@@ -280,6 +507,47 @@ public class FulfillmentPlanAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<FulfillmentPlan>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get the tags for a fulfillmentPlan.
+     
+     - parameter fulfillmentPlanId: (path) Id of the fulfillmentPlan to get tags for 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getFulfillmentPlanTags(fulfillmentPlanId fulfillmentPlanId: Int, completion: ((error: ErrorType?) -> Void)) {
+        getFulfillmentPlanTagsWithRequestBuilder(fulfillmentPlanId: fulfillmentPlanId).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Get the tags for a fulfillmentPlan.
+     
+     - GET /beta/fulfillmentPlan/{fulfillmentPlanId}/tag
+     - Get all existing fulfillmentPlan tags.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter fulfillmentPlanId: (path) Id of the fulfillmentPlan to get tags for 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func getFulfillmentPlanTagsWithRequestBuilder(fulfillmentPlanId fulfillmentPlanId: Int) -> RequestBuilder<Void> {
+        var path = "/beta/fulfillmentPlan/{fulfillmentPlanId}/tag"
+        path = path.stringByReplacingOccurrencesOfString("{fulfillmentPlanId}", withString: "\(fulfillmentPlanId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }

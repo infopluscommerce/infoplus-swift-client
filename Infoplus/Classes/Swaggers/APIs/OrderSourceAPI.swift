@@ -34,6 +34,7 @@ public class OrderSourceAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
+  "orderInvoiceId" : 123,
   "shippingNotes" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "packingSlipId" : 123,
@@ -64,6 +65,94 @@ public class OrderSourceAPI: APIBase {
         let requestBuilder: RequestBuilder<OrderSource>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new audit for an orderSource
+     
+     - parameter orderSourceId: (path) Id of the orderSource to add an audit to 
+     - parameter orderSourceAudit: (path) The audit to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addOrderSourceAudit(orderSourceId orderSourceId: Int, orderSourceAudit: String, completion: ((error: ErrorType?) -> Void)) {
+        addOrderSourceAuditWithRequestBuilder(orderSourceId: orderSourceId, orderSourceAudit: orderSourceAudit).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new audit for an orderSource
+     
+     - PUT /beta/orderSource/{orderSourceId}/audit/{orderSourceAudit}
+     - Adds an audit to an existing orderSource.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter orderSourceId: (path) Id of the orderSource to add an audit to 
+     - parameter orderSourceAudit: (path) The audit to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addOrderSourceAuditWithRequestBuilder(orderSourceId orderSourceId: Int, orderSourceAudit: String) -> RequestBuilder<Void> {
+        var path = "/beta/orderSource/{orderSourceId}/audit/{orderSourceAudit}"
+        path = path.stringByReplacingOccurrencesOfString("{orderSourceId}", withString: "\(orderSourceId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{orderSourceAudit}", withString: "\(orderSourceAudit)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new tags for an orderSource.
+     
+     - parameter orderSourceId: (path) Id of the orderSource to add a tag to 
+     - parameter orderSourceTag: (path) The tag to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addOrderSourceTag(orderSourceId orderSourceId: Int, orderSourceTag: String, completion: ((error: ErrorType?) -> Void)) {
+        addOrderSourceTagWithRequestBuilder(orderSourceId: orderSourceId, orderSourceTag: orderSourceTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new tags for an orderSource.
+     
+     - PUT /beta/orderSource/{orderSourceId}/tag/{orderSourceTag}
+     - Adds a tag to an existing orderSource.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter orderSourceId: (path) Id of the orderSource to add a tag to 
+     - parameter orderSourceTag: (path) The tag to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addOrderSourceTagWithRequestBuilder(orderSourceId orderSourceId: Int, orderSourceTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/orderSource/{orderSourceId}/tag/{orderSourceTag}"
+        path = path.stringByReplacingOccurrencesOfString("{orderSourceId}", withString: "\(orderSourceId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{orderSourceTag}", withString: "\(orderSourceTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -109,6 +198,109 @@ public class OrderSourceAPI: APIBase {
 
     /**
      
+     Delete a tag for an orderSource.
+     
+     - parameter orderSourceId: (path) Id of the orderSource to remove tag from 
+     - parameter orderSourceTag: (path) The tag to delete 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func deleteOrderSourceTag(orderSourceId orderSourceId: Int, orderSourceTag: String, completion: ((error: ErrorType?) -> Void)) {
+        deleteOrderSourceTagWithRequestBuilder(orderSourceId: orderSourceId, orderSourceTag: orderSourceTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Delete a tag for an orderSource.
+     
+     - DELETE /beta/orderSource/{orderSourceId}/tag/{orderSourceTag}
+     - Deletes an existing orderSource tag using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter orderSourceId: (path) Id of the orderSource to remove tag from 
+     - parameter orderSourceTag: (path) The tag to delete 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func deleteOrderSourceTagWithRequestBuilder(orderSourceId orderSourceId: Int, orderSourceTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/orderSource/{orderSourceId}/tag/{orderSourceTag}"
+        path = path.stringByReplacingOccurrencesOfString("{orderSourceId}", withString: "\(orderSourceId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{orderSourceTag}", withString: "\(orderSourceTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get a duplicated an orderSource by id
+     
+     - parameter orderSourceId: (path) Id of the orderSource to be duplicated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getDuplicateOrderSourceById(orderSourceId orderSourceId: Int, completion: ((data: OrderSource?, error: ErrorType?) -> Void)) {
+        getDuplicateOrderSourceByIdWithRequestBuilder(orderSourceId: orderSourceId).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Get a duplicated an orderSource by id
+     
+     - GET /beta/orderSource/duplicate/{orderSourceId}
+     - Returns a duplicated orderSource identified by the specified id.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "orderInvoiceId" : 123,
+  "shippingNotes" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "packingSlipId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "orderConfirmationEmailId" : 123,
+  "packingNotes" : "aeiou",
+  "requireCartonizedASN" : true,
+  "name" : "aeiou",
+  "id" : 123,
+  "requireGS1128Label" : true,
+  "shipmentConfirmationEmailId" : 123,
+  "lobId" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
+     
+     - parameter orderSourceId: (path) Id of the orderSource to be duplicated. 
+
+     - returns: RequestBuilder<OrderSource> 
+     */
+    public class func getDuplicateOrderSourceByIdWithRequestBuilder(orderSourceId orderSourceId: Int) -> RequestBuilder<OrderSource> {
+        var path = "/beta/orderSource/duplicate/{orderSourceId}"
+        path = path.stringByReplacingOccurrencesOfString("{orderSourceId}", withString: "\(orderSourceId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<OrderSource>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Search orderSources by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -134,6 +326,7 @@ public class OrderSourceAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
+  "orderInvoiceId" : 123,
   "shippingNotes" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "packingSlipId" : 123,
@@ -199,6 +392,7 @@ public class OrderSourceAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
+  "orderInvoiceId" : 123,
   "shippingNotes" : "aeiou",
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "packingSlipId" : 123,
@@ -229,6 +423,47 @@ public class OrderSourceAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<OrderSource>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get the tags for an orderSource.
+     
+     - parameter orderSourceId: (path) Id of the orderSource to get tags for 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getOrderSourceTags(orderSourceId orderSourceId: Int, completion: ((error: ErrorType?) -> Void)) {
+        getOrderSourceTagsWithRequestBuilder(orderSourceId: orderSourceId).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Get the tags for an orderSource.
+     
+     - GET /beta/orderSource/{orderSourceId}/tag
+     - Get all existing orderSource tags.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter orderSourceId: (path) Id of the orderSource to get tags for 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func getOrderSourceTagsWithRequestBuilder(orderSourceId orderSourceId: Int) -> RequestBuilder<Void> {
+        var path = "/beta/orderSource/{orderSourceId}/tag"
+        path = path.stringByReplacingOccurrencesOfString("{orderSourceId}", withString: "\(orderSourceId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }

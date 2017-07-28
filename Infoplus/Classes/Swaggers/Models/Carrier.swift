@@ -12,6 +12,7 @@ public class Carrier: JSONEncodable {
 
     public var carrier: Int?
     public var label: String?
+    public var fullEntityClassName: String?
     
 
     public init() {}
@@ -21,6 +22,7 @@ public class Carrier: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["carrier"] = self.carrier
         nillableDictionary["label"] = self.label
+        nillableDictionary["fullEntityClassName"] = self.fullEntityClassName
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

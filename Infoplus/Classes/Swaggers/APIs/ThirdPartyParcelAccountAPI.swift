@@ -74,6 +74,94 @@ public class ThirdPartyParcelAccountAPI: APIBase {
 
     /**
      
+     Add new audit for a thirdPartyParcelAccount
+     
+     - parameter thirdPartyParcelAccountId: (path) Id of the thirdPartyParcelAccount to add an audit to 
+     - parameter thirdPartyParcelAccountAudit: (path) The audit to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addThirdPartyParcelAccountAudit(thirdPartyParcelAccountId thirdPartyParcelAccountId: Int, thirdPartyParcelAccountAudit: String, completion: ((error: ErrorType?) -> Void)) {
+        addThirdPartyParcelAccountAuditWithRequestBuilder(thirdPartyParcelAccountId: thirdPartyParcelAccountId, thirdPartyParcelAccountAudit: thirdPartyParcelAccountAudit).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new audit for a thirdPartyParcelAccount
+     
+     - PUT /beta/thirdPartyParcelAccount/{thirdPartyParcelAccountId}/audit/{thirdPartyParcelAccountAudit}
+     - Adds an audit to an existing thirdPartyParcelAccount.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter thirdPartyParcelAccountId: (path) Id of the thirdPartyParcelAccount to add an audit to 
+     - parameter thirdPartyParcelAccountAudit: (path) The audit to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addThirdPartyParcelAccountAuditWithRequestBuilder(thirdPartyParcelAccountId thirdPartyParcelAccountId: Int, thirdPartyParcelAccountAudit: String) -> RequestBuilder<Void> {
+        var path = "/beta/thirdPartyParcelAccount/{thirdPartyParcelAccountId}/audit/{thirdPartyParcelAccountAudit}"
+        path = path.stringByReplacingOccurrencesOfString("{thirdPartyParcelAccountId}", withString: "\(thirdPartyParcelAccountId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{thirdPartyParcelAccountAudit}", withString: "\(thirdPartyParcelAccountAudit)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new tags for a thirdPartyParcelAccount.
+     
+     - parameter thirdPartyParcelAccountId: (path) Id of the thirdPartyParcelAccount to add a tag to 
+     - parameter thirdPartyParcelAccountTag: (path) The tag to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addThirdPartyParcelAccountTag(thirdPartyParcelAccountId thirdPartyParcelAccountId: Int, thirdPartyParcelAccountTag: String, completion: ((error: ErrorType?) -> Void)) {
+        addThirdPartyParcelAccountTagWithRequestBuilder(thirdPartyParcelAccountId: thirdPartyParcelAccountId, thirdPartyParcelAccountTag: thirdPartyParcelAccountTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new tags for a thirdPartyParcelAccount.
+     
+     - PUT /beta/thirdPartyParcelAccount/{thirdPartyParcelAccountId}/tag/{thirdPartyParcelAccountTag}
+     - Adds a tag to an existing thirdPartyParcelAccount.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter thirdPartyParcelAccountId: (path) Id of the thirdPartyParcelAccount to add a tag to 
+     - parameter thirdPartyParcelAccountTag: (path) The tag to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addThirdPartyParcelAccountTagWithRequestBuilder(thirdPartyParcelAccountId thirdPartyParcelAccountId: Int, thirdPartyParcelAccountTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/thirdPartyParcelAccount/{thirdPartyParcelAccountId}/tag/{thirdPartyParcelAccountTag}"
+        path = path.stringByReplacingOccurrencesOfString("{thirdPartyParcelAccountId}", withString: "\(thirdPartyParcelAccountId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{thirdPartyParcelAccountTag}", withString: "\(thirdPartyParcelAccountTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Delete a thirdPartyParcelAccount
      
      - parameter thirdPartyParcelAccountId: (path) Id of the thirdPartyParcelAccount to be deleted. 
@@ -111,6 +199,114 @@ public class ThirdPartyParcelAccountAPI: APIBase {
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Delete a tag for a thirdPartyParcelAccount.
+     
+     - parameter thirdPartyParcelAccountId: (path) Id of the thirdPartyParcelAccount to remove tag from 
+     - parameter thirdPartyParcelAccountTag: (path) The tag to delete 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func deleteThirdPartyParcelAccountTag(thirdPartyParcelAccountId thirdPartyParcelAccountId: Int, thirdPartyParcelAccountTag: String, completion: ((error: ErrorType?) -> Void)) {
+        deleteThirdPartyParcelAccountTagWithRequestBuilder(thirdPartyParcelAccountId: thirdPartyParcelAccountId, thirdPartyParcelAccountTag: thirdPartyParcelAccountTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Delete a tag for a thirdPartyParcelAccount.
+     
+     - DELETE /beta/thirdPartyParcelAccount/{thirdPartyParcelAccountId}/tag/{thirdPartyParcelAccountTag}
+     - Deletes an existing thirdPartyParcelAccount tag using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter thirdPartyParcelAccountId: (path) Id of the thirdPartyParcelAccount to remove tag from 
+     - parameter thirdPartyParcelAccountTag: (path) The tag to delete 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func deleteThirdPartyParcelAccountTagWithRequestBuilder(thirdPartyParcelAccountId thirdPartyParcelAccountId: Int, thirdPartyParcelAccountTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/thirdPartyParcelAccount/{thirdPartyParcelAccountId}/tag/{thirdPartyParcelAccountTag}"
+        path = path.stringByReplacingOccurrencesOfString("{thirdPartyParcelAccountId}", withString: "\(thirdPartyParcelAccountId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{thirdPartyParcelAccountTag}", withString: "\(thirdPartyParcelAccountTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get a duplicated a thirdPartyParcelAccount by id
+     
+     - parameter thirdPartyParcelAccountId: (path) Id of the thirdPartyParcelAccount to be duplicated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getDuplicateThirdPartyParcelAccountById(thirdPartyParcelAccountId thirdPartyParcelAccountId: Int, completion: ((data: ThirdPartyParcelAccount?, error: ErrorType?) -> Void)) {
+        getDuplicateThirdPartyParcelAccountByIdWithRequestBuilder(thirdPartyParcelAccountId: thirdPartyParcelAccountId).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Get a duplicated a thirdPartyParcelAccount by id
+     
+     - GET /beta/thirdPartyParcelAccount/duplicate/{thirdPartyParcelAccountId}
+     - Returns a duplicated thirdPartyParcelAccount identified by the specified id.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "country" : "aeiou",
+  "zipCode" : "aeiou",
+  "street3" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "accountName" : "aeiou",
+  "city" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "active" : "aeiou",
+  "billingCompany" : "aeiou",
+  "carrier" : "aeiou",
+  "phone" : "aeiou",
+  "accountNo" : "aeiou",
+  "attention" : "aeiou",
+  "street1" : "aeiou",
+  "id" : 123,
+  "street2" : "aeiou",
+  "state" : "aeiou",
+  "lobId" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
+     
+     - parameter thirdPartyParcelAccountId: (path) Id of the thirdPartyParcelAccount to be duplicated. 
+
+     - returns: RequestBuilder<ThirdPartyParcelAccount> 
+     */
+    public class func getDuplicateThirdPartyParcelAccountByIdWithRequestBuilder(thirdPartyParcelAccountId thirdPartyParcelAccountId: Int) -> RequestBuilder<ThirdPartyParcelAccount> {
+        var path = "/beta/thirdPartyParcelAccount/duplicate/{thirdPartyParcelAccountId}"
+        path = path.stringByReplacingOccurrencesOfString("{thirdPartyParcelAccountId}", withString: "\(thirdPartyParcelAccountId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<ThirdPartyParcelAccount>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -247,6 +443,47 @@ public class ThirdPartyParcelAccountAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<ThirdPartyParcelAccount>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get the tags for a thirdPartyParcelAccount.
+     
+     - parameter thirdPartyParcelAccountId: (path) Id of the thirdPartyParcelAccount to get tags for 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getThirdPartyParcelAccountTags(thirdPartyParcelAccountId thirdPartyParcelAccountId: Int, completion: ((error: ErrorType?) -> Void)) {
+        getThirdPartyParcelAccountTagsWithRequestBuilder(thirdPartyParcelAccountId: thirdPartyParcelAccountId).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Get the tags for a thirdPartyParcelAccount.
+     
+     - GET /beta/thirdPartyParcelAccount/{thirdPartyParcelAccountId}/tag
+     - Get all existing thirdPartyParcelAccount tags.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter thirdPartyParcelAccountId: (path) Id of the thirdPartyParcelAccount to get tags for 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func getThirdPartyParcelAccountTagsWithRequestBuilder(thirdPartyParcelAccountId thirdPartyParcelAccountId: Int) -> RequestBuilder<Void> {
+        var path = "/beta/thirdPartyParcelAccount/{thirdPartyParcelAccountId}/tag"
+        path = path.stringByReplacingOccurrencesOfString("{thirdPartyParcelAccountId}", withString: "\(thirdPartyParcelAccountId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }

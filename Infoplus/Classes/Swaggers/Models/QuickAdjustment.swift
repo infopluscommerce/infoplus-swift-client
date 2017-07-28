@@ -19,6 +19,7 @@ public class QuickAdjustment: JSONEncodable {
     public var totalQuantity: Int?
     public var message: String?
     public var status: String?
+    public var productIdTag: String?
     public var customFields: [String:AnyObject]?
     public var sku: String?
     
@@ -37,6 +38,7 @@ public class QuickAdjustment: JSONEncodable {
         nillableDictionary["totalQuantity"] = self.totalQuantity
         nillableDictionary["message"] = self.message
         nillableDictionary["status"] = self.status
+        nillableDictionary["productIdTag"] = self.productIdTag
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         nillableDictionary["sku"] = self.sku
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

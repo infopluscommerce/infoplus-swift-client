@@ -12,6 +12,7 @@ public class ServiceType: JSONEncodable {
 
     public var serviceType: String?
     public var label: String?
+    public var fullEntityClassName: String?
     
 
     public init() {}
@@ -21,6 +22,7 @@ public class ServiceType: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["serviceType"] = self.serviceType
         nillableDictionary["label"] = self.label
+        nillableDictionary["fullEntityClassName"] = self.fullEntityClassName
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

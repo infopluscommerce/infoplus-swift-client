@@ -35,6 +35,7 @@ public class ServiceTypeAPI: APIBase {
        - name: api_key
      - examples: [{contentType=application/json, example={
   "serviceType" : "aeiou",
+  "fullEntityClassName" : "aeiou",
   "label" : "aeiou"
 }}]
      
@@ -82,6 +83,7 @@ public class ServiceTypeAPI: APIBase {
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
   "serviceType" : "aeiou",
+  "fullEntityClassName" : "aeiou",
   "label" : "aeiou"
 } ]}]
      

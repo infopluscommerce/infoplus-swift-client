@@ -67,6 +67,94 @@ public class ZoneAPI: APIBase {
 
     /**
      
+     Add new audit for a zone
+     
+     - parameter zoneId: (path) Id of the zone to add an audit to 
+     - parameter zoneAudit: (path) The audit to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addZoneAudit(zoneId zoneId: Int, zoneAudit: String, completion: ((error: ErrorType?) -> Void)) {
+        addZoneAuditWithRequestBuilder(zoneId: zoneId, zoneAudit: zoneAudit).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new audit for a zone
+     
+     - PUT /beta/zone/{zoneId}/audit/{zoneAudit}
+     - Adds an audit to an existing zone.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter zoneId: (path) Id of the zone to add an audit to 
+     - parameter zoneAudit: (path) The audit to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addZoneAuditWithRequestBuilder(zoneId zoneId: Int, zoneAudit: String) -> RequestBuilder<Void> {
+        var path = "/beta/zone/{zoneId}/audit/{zoneAudit}"
+        path = path.stringByReplacingOccurrencesOfString("{zoneId}", withString: "\(zoneId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{zoneAudit}", withString: "\(zoneAudit)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new tags for a zone.
+     
+     - parameter zoneId: (path) Id of the zone to add a tag to 
+     - parameter zoneTag: (path) The tag to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addZoneTag(zoneId zoneId: Int, zoneTag: String, completion: ((error: ErrorType?) -> Void)) {
+        addZoneTagWithRequestBuilder(zoneId: zoneId, zoneTag: zoneTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new tags for a zone.
+     
+     - PUT /beta/zone/{zoneId}/tag/{zoneTag}
+     - Adds a tag to an existing zone.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter zoneId: (path) Id of the zone to add a tag to 
+     - parameter zoneTag: (path) The tag to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addZoneTagWithRequestBuilder(zoneId zoneId: Int, zoneTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/zone/{zoneId}/tag/{zoneTag}"
+        path = path.stringByReplacingOccurrencesOfString("{zoneId}", withString: "\(zoneId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{zoneTag}", withString: "\(zoneTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Delete a zone
      
      - parameter zoneId: (path) Id of the zone to be deleted. 
@@ -104,6 +192,107 @@ public class ZoneAPI: APIBase {
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Delete a tag for a zone.
+     
+     - parameter zoneId: (path) Id of the zone to remove tag from 
+     - parameter zoneTag: (path) The tag to delete 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func deleteZoneTag(zoneId zoneId: Int, zoneTag: String, completion: ((error: ErrorType?) -> Void)) {
+        deleteZoneTagWithRequestBuilder(zoneId: zoneId, zoneTag: zoneTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Delete a tag for a zone.
+     
+     - DELETE /beta/zone/{zoneId}/tag/{zoneTag}
+     - Deletes an existing zone tag using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter zoneId: (path) Id of the zone to remove tag from 
+     - parameter zoneTag: (path) The tag to delete 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func deleteZoneTagWithRequestBuilder(zoneId zoneId: Int, zoneTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/zone/{zoneId}/tag/{zoneTag}"
+        path = path.stringByReplacingOccurrencesOfString("{zoneId}", withString: "\(zoneId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{zoneTag}", withString: "\(zoneTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get a duplicated a zone by id
+     
+     - parameter zoneId: (path) Id of the zone to be duplicated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getDuplicateZoneById(zoneId zoneId: Int, completion: ((data: Zone?, error: ErrorType?) -> Void)) {
+        getDuplicateZoneByIdWithRequestBuilder(zoneId: zoneId).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Get a duplicated a zone by id
+     
+     - GET /beta/zone/duplicate/{zoneId}
+     - Returns a duplicated zone identified by the specified id.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "address" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "warehouseId" : 123,
+  "isFoodGrade" : true,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
+  "isSecure" : true,
+  "isRefrigerated" : true,
+  "id" : 123,
+  "isClimateControlled" : true,
+  "isFrozen" : true,
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
+     
+     - parameter zoneId: (path) Id of the zone to be duplicated. 
+
+     - returns: RequestBuilder<Zone> 
+     */
+    public class func getDuplicateZoneByIdWithRequestBuilder(zoneId zoneId: Int) -> RequestBuilder<Zone> {
+        var path = "/beta/zone/duplicate/{zoneId}"
+        path = path.stringByReplacingOccurrencesOfString("{zoneId}", withString: "\(zoneId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Zone>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -226,6 +415,47 @@ public class ZoneAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<Zone>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get the tags for a zone.
+     
+     - parameter zoneId: (path) Id of the zone to get tags for 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getZoneTags(zoneId zoneId: Int, completion: ((error: ErrorType?) -> Void)) {
+        getZoneTagsWithRequestBuilder(zoneId: zoneId).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Get the tags for a zone.
+     
+     - GET /beta/zone/{zoneId}/tag
+     - Get all existing zone tags.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter zoneId: (path) Id of the zone to get tags for 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func getZoneTagsWithRequestBuilder(zoneId zoneId: Int) -> RequestBuilder<Void> {
+        var path = "/beta/zone/{zoneId}/tag"
+        path = path.stringByReplacingOccurrencesOfString("{zoneId}", withString: "\(zoneId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }

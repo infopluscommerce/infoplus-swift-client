@@ -12,6 +12,192 @@ import Alamofire
 public class ParcelAccountAPI: APIBase {
     /**
      
+     Add new audit for a parcelAccount
+     
+     - parameter parcelAccountId: (path) Id of the parcelAccount to add an audit to 
+     - parameter parcelAccountAudit: (path) The audit to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addParcelAccountAudit(parcelAccountId parcelAccountId: Int, parcelAccountAudit: String, completion: ((error: ErrorType?) -> Void)) {
+        addParcelAccountAuditWithRequestBuilder(parcelAccountId: parcelAccountId, parcelAccountAudit: parcelAccountAudit).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new audit for a parcelAccount
+     
+     - PUT /beta/parcelAccount/{parcelAccountId}/audit/{parcelAccountAudit}
+     - Adds an audit to an existing parcelAccount.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter parcelAccountId: (path) Id of the parcelAccount to add an audit to 
+     - parameter parcelAccountAudit: (path) The audit to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addParcelAccountAuditWithRequestBuilder(parcelAccountId parcelAccountId: Int, parcelAccountAudit: String) -> RequestBuilder<Void> {
+        var path = "/beta/parcelAccount/{parcelAccountId}/audit/{parcelAccountAudit}"
+        path = path.stringByReplacingOccurrencesOfString("{parcelAccountId}", withString: "\(parcelAccountId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{parcelAccountAudit}", withString: "\(parcelAccountAudit)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new tags for a parcelAccount.
+     
+     - parameter parcelAccountId: (path) Id of the parcelAccount to add a tag to 
+     - parameter parcelAccountTag: (path) The tag to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addParcelAccountTag(parcelAccountId parcelAccountId: Int, parcelAccountTag: String, completion: ((error: ErrorType?) -> Void)) {
+        addParcelAccountTagWithRequestBuilder(parcelAccountId: parcelAccountId, parcelAccountTag: parcelAccountTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new tags for a parcelAccount.
+     
+     - PUT /beta/parcelAccount/{parcelAccountId}/tag/{parcelAccountTag}
+     - Adds a tag to an existing parcelAccount.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter parcelAccountId: (path) Id of the parcelAccount to add a tag to 
+     - parameter parcelAccountTag: (path) The tag to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addParcelAccountTagWithRequestBuilder(parcelAccountId parcelAccountId: Int, parcelAccountTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/parcelAccount/{parcelAccountId}/tag/{parcelAccountTag}"
+        path = path.stringByReplacingOccurrencesOfString("{parcelAccountId}", withString: "\(parcelAccountId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{parcelAccountTag}", withString: "\(parcelAccountTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Delete a tag for a parcelAccount.
+     
+     - parameter parcelAccountId: (path) Id of the parcelAccount to remove tag from 
+     - parameter parcelAccountTag: (path) The tag to delete 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func deleteParcelAccountTag(parcelAccountId parcelAccountId: Int, parcelAccountTag: String, completion: ((error: ErrorType?) -> Void)) {
+        deleteParcelAccountTagWithRequestBuilder(parcelAccountId: parcelAccountId, parcelAccountTag: parcelAccountTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Delete a tag for a parcelAccount.
+     
+     - DELETE /beta/parcelAccount/{parcelAccountId}/tag/{parcelAccountTag}
+     - Deletes an existing parcelAccount tag using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter parcelAccountId: (path) Id of the parcelAccount to remove tag from 
+     - parameter parcelAccountTag: (path) The tag to delete 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func deleteParcelAccountTagWithRequestBuilder(parcelAccountId parcelAccountId: Int, parcelAccountTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/parcelAccount/{parcelAccountId}/tag/{parcelAccountTag}"
+        path = path.stringByReplacingOccurrencesOfString("{parcelAccountId}", withString: "\(parcelAccountId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{parcelAccountTag}", withString: "\(parcelAccountTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get a duplicated a parcelAccount by id
+     
+     - parameter parcelAccountId: (path) Id of the parcelAccount to be duplicated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getDuplicateParcelAccountById(parcelAccountId parcelAccountId: Int, completion: ((data: ParcelAccount?, error: ErrorType?) -> Void)) {
+        getDuplicateParcelAccountByIdWithRequestBuilder(parcelAccountId: parcelAccountId).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Get a duplicated a parcelAccount by id
+     
+     - GET /beta/parcelAccount/duplicate/{parcelAccountId}
+     - Returns a duplicated parcelAccount identified by the specified id.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "carrier" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "manifestPartnerId" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "accountNo" : "aeiou",
+  "name" : "aeiou",
+  "client" : 123,
+  "id" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
+     
+     - parameter parcelAccountId: (path) Id of the parcelAccount to be duplicated. 
+
+     - returns: RequestBuilder<ParcelAccount> 
+     */
+    public class func getDuplicateParcelAccountByIdWithRequestBuilder(parcelAccountId parcelAccountId: Int) -> RequestBuilder<ParcelAccount> {
+        var path = "/beta/parcelAccount/duplicate/{parcelAccountId}"
+        path = path.stringByReplacingOccurrencesOfString("{parcelAccountId}", withString: "\(parcelAccountId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<ParcelAccount>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Search parcelAccounts by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -124,6 +310,47 @@ public class ParcelAccountAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<ParcelAccount>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get the tags for a parcelAccount.
+     
+     - parameter parcelAccountId: (path) Id of the parcelAccount to get tags for 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getParcelAccountTags(parcelAccountId parcelAccountId: Int, completion: ((error: ErrorType?) -> Void)) {
+        getParcelAccountTagsWithRequestBuilder(parcelAccountId: parcelAccountId).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Get the tags for a parcelAccount.
+     
+     - GET /beta/parcelAccount/{parcelAccountId}/tag
+     - Get all existing parcelAccount tags.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter parcelAccountId: (path) Id of the parcelAccount to get tags for 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func getParcelAccountTagsWithRequestBuilder(parcelAccountId parcelAccountId: Int) -> RequestBuilder<Void> {
+        var path = "/beta/parcelAccount/{parcelAccountId}/tag"
+        path = path.stringByReplacingOccurrencesOfString("{parcelAccountId}", withString: "\(parcelAccountId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }

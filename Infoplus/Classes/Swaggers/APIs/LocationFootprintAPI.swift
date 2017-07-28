@@ -64,6 +64,94 @@ public class LocationFootprintAPI: APIBase {
 
     /**
      
+     Add new audit for a locationFootprint
+     
+     - parameter locationFootprintId: (path) Id of the locationFootprint to add an audit to 
+     - parameter locationFootprintAudit: (path) The audit to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addLocationFootprintAudit(locationFootprintId locationFootprintId: Int, locationFootprintAudit: String, completion: ((error: ErrorType?) -> Void)) {
+        addLocationFootprintAuditWithRequestBuilder(locationFootprintId: locationFootprintId, locationFootprintAudit: locationFootprintAudit).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new audit for a locationFootprint
+     
+     - PUT /beta/locationFootprint/{locationFootprintId}/audit/{locationFootprintAudit}
+     - Adds an audit to an existing locationFootprint.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter locationFootprintId: (path) Id of the locationFootprint to add an audit to 
+     - parameter locationFootprintAudit: (path) The audit to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addLocationFootprintAuditWithRequestBuilder(locationFootprintId locationFootprintId: Int, locationFootprintAudit: String) -> RequestBuilder<Void> {
+        var path = "/beta/locationFootprint/{locationFootprintId}/audit/{locationFootprintAudit}"
+        path = path.stringByReplacingOccurrencesOfString("{locationFootprintId}", withString: "\(locationFootprintId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{locationFootprintAudit}", withString: "\(locationFootprintAudit)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new tags for a locationFootprint.
+     
+     - parameter locationFootprintId: (path) Id of the locationFootprint to add a tag to 
+     - parameter locationFootprintTag: (path) The tag to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addLocationFootprintTag(locationFootprintId locationFootprintId: Int, locationFootprintTag: String, completion: ((error: ErrorType?) -> Void)) {
+        addLocationFootprintTagWithRequestBuilder(locationFootprintId: locationFootprintId, locationFootprintTag: locationFootprintTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new tags for a locationFootprint.
+     
+     - PUT /beta/locationFootprint/{locationFootprintId}/tag/{locationFootprintTag}
+     - Adds a tag to an existing locationFootprint.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter locationFootprintId: (path) Id of the locationFootprint to add a tag to 
+     - parameter locationFootprintTag: (path) The tag to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addLocationFootprintTagWithRequestBuilder(locationFootprintId locationFootprintId: Int, locationFootprintTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/locationFootprint/{locationFootprintId}/tag/{locationFootprintTag}"
+        path = path.stringByReplacingOccurrencesOfString("{locationFootprintId}", withString: "\(locationFootprintId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{locationFootprintTag}", withString: "\(locationFootprintTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Delete a locationFootprint
      
      - parameter locationFootprintId: (path) Id of the locationFootprint to be deleted. 
@@ -101,6 +189,104 @@ public class LocationFootprintAPI: APIBase {
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Delete a tag for a locationFootprint.
+     
+     - parameter locationFootprintId: (path) Id of the locationFootprint to remove tag from 
+     - parameter locationFootprintTag: (path) The tag to delete 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func deleteLocationFootprintTag(locationFootprintId locationFootprintId: Int, locationFootprintTag: String, completion: ((error: ErrorType?) -> Void)) {
+        deleteLocationFootprintTagWithRequestBuilder(locationFootprintId: locationFootprintId, locationFootprintTag: locationFootprintTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Delete a tag for a locationFootprint.
+     
+     - DELETE /beta/locationFootprint/{locationFootprintId}/tag/{locationFootprintTag}
+     - Deletes an existing locationFootprint tag using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter locationFootprintId: (path) Id of the locationFootprint to remove tag from 
+     - parameter locationFootprintTag: (path) The tag to delete 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func deleteLocationFootprintTagWithRequestBuilder(locationFootprintId locationFootprintId: Int, locationFootprintTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/locationFootprint/{locationFootprintId}/tag/{locationFootprintTag}"
+        path = path.stringByReplacingOccurrencesOfString("{locationFootprintId}", withString: "\(locationFootprintId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{locationFootprintTag}", withString: "\(locationFootprintTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get a duplicated a locationFootprint by id
+     
+     - parameter locationFootprintId: (path) Id of the locationFootprint to be duplicated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getDuplicateLocationFootprintById(locationFootprintId locationFootprintId: Int, completion: ((data: LocationFootprint?, error: ErrorType?) -> Void)) {
+        getDuplicateLocationFootprintByIdWithRequestBuilder(locationFootprintId: locationFootprintId).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Get a duplicated a locationFootprint by id
+     
+     - GET /beta/locationFootprint/duplicate/{locationFootprintId}
+     - Returns a duplicated locationFootprint identified by the specified id.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "clientId" : 123,
+  "depth" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
+  "width" : 123,
+  "id" : 123,
+  "height" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
+     
+     - parameter locationFootprintId: (path) Id of the locationFootprint to be duplicated. 
+
+     - returns: RequestBuilder<LocationFootprint> 
+     */
+    public class func getDuplicateLocationFootprintByIdWithRequestBuilder(locationFootprintId locationFootprintId: Int) -> RequestBuilder<LocationFootprint> {
+        var path = "/beta/locationFootprint/duplicate/{locationFootprintId}"
+        path = path.stringByReplacingOccurrencesOfString("{locationFootprintId}", withString: "\(locationFootprintId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<LocationFootprint>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -217,6 +403,47 @@ public class LocationFootprintAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<LocationFootprint>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get the tags for a locationFootprint.
+     
+     - parameter locationFootprintId: (path) Id of the locationFootprint to get tags for 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getLocationFootprintTags(locationFootprintId locationFootprintId: Int, completion: ((error: ErrorType?) -> Void)) {
+        getLocationFootprintTagsWithRequestBuilder(locationFootprintId: locationFootprintId).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Get the tags for a locationFootprint.
+     
+     - GET /beta/locationFootprint/{locationFootprintId}/tag
+     - Get all existing locationFootprint tags.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter locationFootprintId: (path) Id of the locationFootprint to get tags for 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func getLocationFootprintTagsWithRequestBuilder(locationFootprintId locationFootprintId: Int) -> RequestBuilder<Void> {
+        var path = "/beta/locationFootprint/{locationFootprintId}/tag"
+        path = path.stringByReplacingOccurrencesOfString("{locationFootprintId}", withString: "\(locationFootprintId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }

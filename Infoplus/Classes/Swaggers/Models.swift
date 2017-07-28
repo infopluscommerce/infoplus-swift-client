@@ -230,6 +230,7 @@ class Decoders {
                 instance.usedBy = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["usedBy"])
                 instance.lineItems = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["lineItems"])
                 instance.status = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["status"])
+                instance.transferOrderId = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["transferOrderId"])
                 instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
             }
@@ -247,28 +248,35 @@ class Decoders {
                 instance.createDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createDate"])
                 instance.modifyDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["modifyDate"])
                 instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.orderNo = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["orderNo"])
                 instance.bolNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["bolNo"])
                 instance.bolDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["bolDate"])
                 instance.shipFromName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipFromName"])
+                instance.shipFromAttention = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipFromAttention"])
                 instance.shipFromAddress = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipFromAddress"])
                 instance.shipFromCity = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipFromCity"])
                 instance.shipFromState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipFromState"])
                 instance.shipFromZip = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipFromZip"])
+                instance.shipFromCountry = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipFromCountry"])
                 instance.sid = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sid"])
                 instance.isShipFromFOB = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["isShipFromFOB"])
                 instance.shipToName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToName"])
+                instance.shipToAttention = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToAttention"])
                 instance.shipToAddress = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToAddress"])
                 instance.shipToCity = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToCity"])
                 instance.shipToState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToState"])
                 instance.shipToZip = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToZip"])
+                instance.shipToCountry = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToCountry"])
                 instance.shipToLocationNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToLocationNo"])
                 instance.cid = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cid"])
                 instance.isShipToFOB = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["isShipToFOB"])
                 instance.billToName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToName"])
+                instance.billToAttention = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToAttention"])
                 instance.billToAddress = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToAddress"])
                 instance.billToCity = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToCity"])
                 instance.billToState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToState"])
                 instance.billToZip = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToZip"])
+                instance.billToCountry = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToCountry"])
                 instance.isTrailerLoadedByShipper = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["isTrailerLoadedByShipper"])
                 instance.byDriver = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["byDriver"])
                 instance.codAmount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["codAmount"])
@@ -359,6 +367,31 @@ class Decoders {
             }
 			
 
+			// Decoder for [BillingCodeActivity]
+            Decoders.addDecoder(clazz: [BillingCodeActivity].self) { (source: AnyObject) -> [BillingCodeActivity] in
+                return Decoders.decode(clazz: [BillingCodeActivity].self, source: source)
+            }
+			// Decoder for BillingCodeActivity
+            Decoders.addDecoder(clazz: BillingCodeActivity.self) { (source: AnyObject) -> BillingCodeActivity in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = BillingCodeActivity()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.importedId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["importedId"])
+                instance.createDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createDate"])
+                instance.modifyDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["modifyDate"])
+                instance.date = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["date"])
+                instance.quantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["quantity"])
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.userId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["userId"])
+                instance.email = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["email"])
+                instance.billingCodeTypeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["billingCodeTypeId"])
+                instance.billingCodeTypeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billingCodeTypeName"])
+                instance.note = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["note"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+			
+
 			// Decoder for [BillingCodeType]
             Decoders.addDecoder(clazz: [BillingCodeType].self) { (source: AnyObject) -> [BillingCodeType] in
                 return Decoders.decode(clazz: [BillingCodeType].self, source: source)
@@ -430,6 +463,7 @@ class Decoders {
                 let instance = Carrier()
                 instance.carrier = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["carrier"])
                 instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                instance.fullEntityClassName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["fullEntityClassName"])
                 return instance
             }
 			
@@ -444,6 +478,7 @@ class Decoders {
                 let instance = CarrierService()
                 instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
                 instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                instance.fullEntityClassName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["fullEntityClassName"])
                 return instance
             }
 			
@@ -467,6 +502,150 @@ class Decoders {
             }
 			
 
+			// Decoder for [CartonActivity]
+            Decoders.addDecoder(clazz: [CartonActivity].self) { (source: AnyObject) -> [CartonActivity] in
+                return Decoders.decode(clazz: [CartonActivity].self, source: source)
+            }
+			// Decoder for CartonActivity
+            Decoders.addDecoder(clazz: CartonActivity.self) { (source: AnyObject) -> CartonActivity in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = CartonActivity()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.createDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createDate"])
+                instance.modifyDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["modifyDate"])
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.orderNo = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["orderNo"])
+                instance.shipDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["shipDate"])
+                instance.deliveredDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["deliveredDate"])
+                instance.trackingNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["trackingNo"])
+                instance.warehouseId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseId"])
+                instance.warehouseName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseName"])
+                instance.cartonNo = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["cartonNo"])
+                instance.numberOfCartons = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numberOfCartons"])
+                instance.status = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["status"])
+                instance.shipped = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["shipped"])
+                instance.carrierServiceId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["carrierServiceId"])
+                instance.dim1In = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["dim1In"])
+                instance.dim2In = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["dim2In"])
+                instance.dim3In = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["dim3In"])
+                instance.estimatedZone = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["estimatedZone"])
+                instance.parcelAccountNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["parcelAccountNo"])
+                instance.thirdPartyParcelAccountNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["thirdPartyParcelAccountNo"])
+                instance.manifestId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["manifestId"])
+                instance.residential = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["residential"])
+                instance.billingOption = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billingOption"])
+                instance.weightLbs = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["weightLbs"])
+                instance.dimWeight = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["dimWeight"])
+                instance.licensePlateNumber = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["licensePlateNumber"])
+                instance.chargedFreightAmount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["chargedFreightAmount"])
+                instance.publishedFreightAmount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["publishedFreightAmount"])
+                instance.retailFreightAmount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["retailFreightAmount"])
+                instance.alternateUsage = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alternateUsage"])
+                instance.groupOrderId = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["groupOrderId"])
+                instance.orderStatus = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["orderStatus"])
+                instance.orderStatusName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["orderStatusName"])
+                instance.fulfillmentProcessId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["fulfillmentProcessId"])
+                instance.carrierId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["carrierId"])
+                instance.carrierName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["carrierName"])
+                instance.mediaCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["mediaCode"])
+                instance.legacyRestrictionType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["legacyRestrictionType"])
+                instance.reqTypeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["reqTypeName"])
+                instance.serviceTypeId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["serviceTypeId"])
+                instance.serviceTypeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["serviceTypeName"])
+                instance.alcoholOrderType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholOrderType"])
+                instance.distributionChannel = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["distributionChannel"])
+                instance.distributionChannelName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["distributionChannelName"])
+                instance.priorityCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["priorityCode"])
+                instance.orderDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["orderDate"])
+                instance.enteredBy = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["enteredBy"])
+                instance.orderReason = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderReason"])
+                instance.customerOrderNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["customerOrderNo"])
+                instance.priceLevel = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["priceLevel"])
+                instance.orderCreateDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["orderCreateDate"])
+                instance.shipBy = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["shipBy"])
+                instance.stopBackOrders = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["stopBackOrders"])
+                instance.orderSourceId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderSourceId"])
+                instance.orderSourceName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["orderSourceName"])
+                instance.integrationPartnerId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["integrationPartnerId"])
+                instance.integrationPartnerName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["integrationPartnerName"])
+                instance.orderLoadProgramId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderLoadProgramId"])
+                instance.orderLoadProgramName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["orderLoadProgramName"])
+                instance.omsOrderNo = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["omsOrderNo"])
+                instance.omsCustomerId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["omsCustomerId"])
+                instance.shipToAttention = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToAttention"])
+                instance.shipToCompany = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToCompany"])
+                instance.shipToStreet = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToStreet"])
+                instance.shipToStreet2 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToStreet2"])
+                instance.shipToStreet3 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToStreet3"])
+                instance.shipToCity = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToCity"])
+                instance.shipToState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToState"])
+                instance.shipToZip = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToZip"])
+                instance.shipToCountry = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToCountry"])
+                instance.shipToPhone = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToPhone"])
+                instance.shipToEmail = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToEmail"])
+                instance.billToAttention = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToAttention"])
+                instance.billToCompany = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToCompany"])
+                instance.billToStreet = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToStreet"])
+                instance.billToStreet2 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToStreet2"])
+                instance.billToStreet3 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToStreet3"])
+                instance.billToCity = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToCity"])
+                instance.billToState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToState"])
+                instance.billToZip = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToZip"])
+                instance.billToCountry = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToCountry"])
+                instance.billToPhone = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToPhone"])
+                instance.billToEmail = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToEmail"])
+                instance.orderShipDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["orderShipDate"])
+                instance.freight = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["freight"])
+                instance.orderWeightLbs = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["orderWeightLbs"])
+                instance.orderEstimatedWeightLbs = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["orderEstimatedWeightLbs"])
+                instance.numberOfPallets = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numberOfPallets"])
+                instance.numberOfLineItems = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numberOfLineItems"])
+                instance.completionStatus = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["completionStatus"])
+                instance.holdCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["holdCode"])
+                instance.shipCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipCode"])
+                instance.orderMessage = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["orderMessage"])
+                instance.division = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["division"])
+                instance.costCenter = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["costCenter"])
+                instance.authorizedBy = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["authorizedBy"])
+                instance.batchNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["batchNo"])
+                instance.firstShipDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["firstShipDate"])
+                instance.lastShipDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["lastShipDate"])
+                instance.deliverOnDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["deliverOnDate"])
+                instance.customerPONo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["customerPONo"])
+                instance.shipVia = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipVia"])
+                instance.needByDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["needByDate"])
+                instance.total = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["total"])
+                instance.balanceDue = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["balanceDue"])
+                instance.totalPaid = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["totalPaid"])
+                instance.authorizationAmount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["authorizationAmount"])
+                instance.subtotal = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["subtotal"])
+                instance.taxOnFreight = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["taxOnFreight"])
+                instance.tax = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["tax"])
+                instance.distributionCharges = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["distributionCharges"])
+                instance.shippingCharge = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["shippingCharge"])
+                instance.totalDiscount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["totalDiscount"])
+                instance.parcelAccountId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["parcelAccountId"])
+                instance.packingSlipTemplateId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["packingSlipTemplateId"])
+                instance.giftMessage = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["giftMessage"])
+                instance.branchSector = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["branchSector"])
+                instance.branchArea = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["branchArea"])
+                instance.branchCustomerType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["branchCustomerType"])
+                instance.branchId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["branchId"])
+                instance.orderCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["orderCode"])
+                instance.leadPackageId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["leadPackageId"])
+                instance.totalQty = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalQty"])
+                instance.estimatedNumberOfPicks = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["estimatedNumberOfPicks"])
+                instance.orderConfirmationEmailTemplateId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderConfirmationEmailTemplateId"])
+                instance.shipmentConfirmationEmailTemplateId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["shipmentConfirmationEmailTemplateId"])
+                instance.externalShippingSystemId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["externalShippingSystemId"])
+                instance.shippingSystemName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shippingSystemName"])
+                instance.orderInvoiceTemplateId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderInvoiceTemplateId"])
+                instance.priceMode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["priceMode"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+			
+
 			// Decoder for [CartonContent]
             Decoders.addDecoder(clazz: [CartonContent].self) { (source: AnyObject) -> [CartonContent] in
                 return Decoders.decode(clazz: [CartonContent].self, source: source)
@@ -478,7 +657,7 @@ class Decoders {
                 instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
                 instance.groupOrderId = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["groupOrderId"])
                 instance.orderNo = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["orderNo"])
-                instance.cartonNoId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["cartonNoId"])
+                instance.cartonId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["cartonId"])
                 instance.lineItemId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lineItemId"])
                 instance.location = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["location"])
                 instance.quantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["quantity"])
@@ -512,6 +691,7 @@ class Decoders {
                 instance.weightLbs = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["weightLbs"])
                 instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
                 instance.isActive = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["isActive"])
+                instance.predefinedPackageTypeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["predefinedPackageTypeId"])
                 instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
             }
@@ -578,6 +758,21 @@ class Decoders {
             }
 			
 
+			// Decoder for [EDIDocumentType]
+            Decoders.addDecoder(clazz: [EDIDocumentType].self) { (source: AnyObject) -> [EDIDocumentType] in
+                return Decoders.decode(clazz: [EDIDocumentType].self, source: source)
+            }
+			// Decoder for EDIDocumentType
+            Decoders.addDecoder(clazz: EDIDocumentType.self) { (source: AnyObject) -> EDIDocumentType in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = EDIDocumentType()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                instance.fullEntityClassName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["fullEntityClassName"])
+                return instance
+            }
+			
+
 			// Decoder for [EmailTemplate]
             Decoders.addDecoder(clazz: [EmailTemplate].self) { (source: AnyObject) -> [EmailTemplate] in
                 return Decoders.decode(clazz: [EmailTemplate].self, source: source)
@@ -630,6 +825,26 @@ class Decoders {
             }
 			
 
+			// Decoder for [ExternalShippingSystem]
+            Decoders.addDecoder(clazz: [ExternalShippingSystem].self) { (source: AnyObject) -> [ExternalShippingSystem] in
+                return Decoders.decode(clazz: [ExternalShippingSystem].self, source: source)
+            }
+			// Decoder for ExternalShippingSystem
+            Decoders.addDecoder(clazz: ExternalShippingSystem.self) { (source: AnyObject) -> ExternalShippingSystem in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = ExternalShippingSystem()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"])
+                instance.systemType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["systemType"])
+                instance.apiKey = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["apiKey"])
+                instance.apiSecret = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["apiSecret"])
+                instance.createDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createDate"])
+                instance.modifyDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["modifyDate"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+			
+
 			// Decoder for [FulfillmentPlan]
             Decoders.addDecoder(clazz: [FulfillmentPlan].self) { (source: AnyObject) -> [FulfillmentPlan] in
                 return Decoders.decode(clazz: [FulfillmentPlan].self, source: source)
@@ -644,6 +859,7 @@ class Decoders {
                 instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"])
                 instance.description = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["description"])
                 instance.warehouseId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseId"])
+                instance.lastRunTime = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["lastRunTime"])
                 instance.orderSmartFilterId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderSmartFilterId"])
                 instance.locationSmartFilterId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["locationSmartFilterId"])
                 instance.maximumNumberOfOrders = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["maximumNumberOfOrders"])
@@ -664,9 +880,13 @@ class Decoders {
                 instance.cartonizeOrders = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["cartonizeOrders"])
                 instance.autoShipCasebreakCartons = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["autoShipCasebreakCartons"])
                 instance.preGenerateParcelLabels = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["preGenerateParcelLabels"])
+                instance.createPackingSlip = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["createPackingSlip"])
                 instance.overridePackingSlipTemplateId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["overridePackingSlipTemplateId"])
-                instance.createPackingSlip = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["createPackingSlip"])
                 instance.createOrderAssemblyGuide = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["createOrderAssemblyGuide"])
+                instance.createOrderInvoice = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["createOrderInvoice"])
+                instance.overrideOrderInvoiceTemplateId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["overrideOrderInvoiceTemplateId"])
+                instance.sendToExternalShippingSystem = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["sendToExternalShippingSystem"])
+                instance.externalShippingSystemId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["externalShippingSystemId"])
                 instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
             }
@@ -721,9 +941,13 @@ class Decoders {
                 instance.shipDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["shipDate"])
                 instance.autoShipCasebreakCartons = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["autoShipCasebreakCartons"])
                 instance.cartonizeOrders = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["cartonizeOrders"])
-                instance.createPackingSlip = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["createPackingSlip"])
+                instance.createPackingSlip = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["createPackingSlip"])
                 instance.overridePackingSlipTemplateId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["overridePackingSlipTemplateId"])
                 instance.createOrderAssemblyGuide = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["createOrderAssemblyGuide"])
+                instance.createOrderInvoice = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["createOrderInvoice"])
+                instance.overrideOrderInvoiceTemplateId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["overrideOrderInvoiceTemplateId"])
+                instance.sendToExternalShippingSystem = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["sendToExternalShippingSystem"])
+                instance.externalShippingSystemId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["externalShippingSystemId"])
                 instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
             }
@@ -739,6 +963,7 @@ class Decoders {
                 let instance = IntegrationPartner()
                 instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
                 instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                instance.fullEntityClassName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["fullEntityClassName"])
                 return instance
             }
 			
@@ -752,8 +977,8 @@ class Decoders {
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = InventoryAdjustment()
                 instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
-                instance.lob = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lob"])
-                instance.skuId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["skuId"])
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.sku = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sku"])
                 instance.poNoId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["poNoId"])
                 instance.adjustmentDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["adjustmentDate"])
                 instance.adjustmentTime = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["adjustmentTime"])
@@ -790,6 +1015,278 @@ class Decoders {
                 instance.poNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["poNo"])
                 instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 instance.sku = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sku"])
+                return instance
+            }
+			
+
+			// Decoder for [InventorySnapshot]
+            Decoders.addDecoder(clazz: [InventorySnapshot].self) { (source: AnyObject) -> [InventorySnapshot] in
+                return Decoders.decode(clazz: [InventorySnapshot].self, source: source)
+            }
+			// Decoder for InventorySnapshot
+            Decoders.addDecoder(clazz: InventorySnapshot.self) { (source: AnyObject) -> InventorySnapshot in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = InventorySnapshot()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.warehouseLocationId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationId"])
+                instance.itemId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemId"])
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.snapshotDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["snapshotDate"])
+                instance.isMixedReceipts = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["isMixedReceipts"])
+                instance.quantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["quantity"])
+                instance.address = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["address"])
+                instance.warehouseId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseId"])
+                instance.warehouseName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseName"])
+                instance.warehouseZoneId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseZoneId"])
+                instance.warehouseZoneName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseZoneName"])
+                instance.warehouseZoneAddress = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseZoneAddress"])
+                instance.warehouseBuildingId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseBuildingId"])
+                instance.warehouseBuildingName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseBuildingName"])
+                instance.warehouseAisleId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseAisleId"])
+                instance.warehouseAisleAddress = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseAisleAddress"])
+                instance.warehouseLocationOriginId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationOriginId"])
+                instance.warehouseLocationOriginName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseLocationOriginName"])
+                instance.warehouseLocationBillingTypeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationBillingTypeId"])
+                instance.warehouseLocationBillingTypeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseLocationBillingTypeName"])
+                instance.warehouseLocationBehaviorTypeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationBehaviorTypeId"])
+                instance.warehouseLocationBehaviorTypeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseLocationBehaviorTypeName"])
+                instance.warehouseLocationFootprintId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationFootprintId"])
+                instance.warehouseLocationFootprintName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseLocationFootprintName"])
+                instance.warehouseLocationFootprintWidth = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationFootprintWidth"])
+                instance.warehouseLocationFootprintHeight = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationFootprintHeight"])
+                instance.warehouseLocationFootprintDepth = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationFootprintDepth"])
+                instance.warehouseLocationLevel = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationLevel"])
+                instance.warehouseLocationBay = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationBay"])
+                instance.warehouseLocationNumber = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationNumber"])
+                instance.warehouseLocationOnline = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["warehouseLocationOnline"])
+                instance.warehouseLocationPriorityCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationPriorityCode"])
+                instance.warehouseLocationAllowItemMixing = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["warehouseLocationAllowItemMixing"])
+                instance.warehouseLocationCost = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationCost"])
+                instance.controlNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["controlNo"])
+                instance.itemVendorSku = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemVendorSku"])
+                instance.itemUpc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemUpc"])
+                instance.itemMajorGroup = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemMajorGroup"])
+                instance.itemMajorGroupName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemMajorGroupName"])
+                instance.itemSubGroup = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemSubGroup"])
+                instance.itemSubGroupName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemSubGroupName"])
+                instance.itemProductCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemProductCode"])
+                instance.itemProductCodeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemProductCodeName"])
+                instance.itemAccountCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemAccountCode"])
+                instance.itemAccountCodeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemAccountCodeName"])
+                instance.itemSummaryCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemSummaryCode"])
+                instance.itemSummaryCodeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemSummaryCodeName"])
+                instance.itemSector = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemSector"])
+                instance.poNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["poNo"])
+                instance.receiptDistributionDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["receiptDistributionDate"])
+                instance.receiptUnitsPerWrap = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["receiptUnitsPerWrap"])
+                instance.receiptUnitsPerCase = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["receiptUnitsPerCase"])
+                instance.receiptRevisionDate = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptRevisionDate"])
+                instance.receiptProductionLot = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptProductionLot"])
+                instance.receiptReceiveDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["receiptReceiveDate"])
+                instance.receiptStatus = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptStatus"])
+                instance.receiptStatusName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptStatusName"])
+                instance.receiptUnitCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["receiptUnitCode"])
+                instance.receiptUnitCodeText = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptUnitCodeText"])
+                instance.receiptWrapCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["receiptWrapCode"])
+                instance.receiptWrapCodeText = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptWrapCodeText"])
+                instance.receiptCaseWeight = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["receiptCaseWeight"])
+                instance.receiptProductIdTag = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptProductIdTag"])
+                instance.alcoholType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholType"])
+                instance.alcoholTypeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholTypeName"])
+                instance.alcoholContent = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["alcoholContent"])
+                instance.alcoholContainer = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholContainer"])
+                instance.alcoholContainerName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholContainerName"])
+                instance.alcoholContainerVolume = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["alcoholContainerVolume"])
+                instance.alcoholVintageYear = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholVintageYear"])
+                instance.alcoholCountry = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholCountry"])
+                instance.alcoholCountryName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholCountryName"])
+                instance.alcoholState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholState"])
+                instance.alcoholRegion = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholRegion"])
+                instance.alcoholBrand = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholBrand"])
+                instance.alcoholUPCCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholUPCCode"])
+                instance.alcoholNABCACode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholNABCACode"])
+                instance.alcoholUNIMERCCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholUNIMERCCode"])
+                instance.alcoholSCCCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholSCCCode"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+			
+
+			// Decoder for [InventoryStorageActivity]
+            Decoders.addDecoder(clazz: [InventoryStorageActivity].self) { (source: AnyObject) -> [InventoryStorageActivity] in
+                return Decoders.decode(clazz: [InventoryStorageActivity].self, source: source)
+            }
+			// Decoder for InventoryStorageActivity
+            Decoders.addDecoder(clazz: InventoryStorageActivity.self) { (source: AnyObject) -> InventoryStorageActivity in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = InventoryStorageActivity()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.importedRecordId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["importedRecordId"])
+                instance.createDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createDate"])
+                instance.modifyDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["modifyDate"])
+                instance.warehouseLocationId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationId"])
+                instance.itemId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemId"])
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.snapshotDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["snapshotDate"])
+                instance.isMixedReceipts = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["isMixedReceipts"])
+                instance.quantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["quantity"])
+                instance.address = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["address"])
+                instance.warehouseId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseId"])
+                instance.warehouseName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseName"])
+                instance.warehouseZoneId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseZoneId"])
+                instance.warehouseZoneName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseZoneName"])
+                instance.warehouseZoneAddress = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseZoneAddress"])
+                instance.warehouseBuildingId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseBuildingId"])
+                instance.warehouseBuildingName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseBuildingName"])
+                instance.warehouseAisleId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseAisleId"])
+                instance.warehouseAisleAddress = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseAisleAddress"])
+                instance.warehouseLocationOriginId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationOriginId"])
+                instance.warehouseLocationOriginName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseLocationOriginName"])
+                instance.warehouseLocationBillingTypeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationBillingTypeId"])
+                instance.warehouseLocationBillingTypeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseLocationBillingTypeName"])
+                instance.warehouseLocationBehaviorTypeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationBehaviorTypeId"])
+                instance.warehouseLocationBehaviorTypeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseLocationBehaviorTypeName"])
+                instance.warehouseLocationFootprintId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationFootprintId"])
+                instance.warehouseLocationFootprintName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseLocationFootprintName"])
+                instance.warehouseLocationFootprintWidth = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationFootprintWidth"])
+                instance.warehouseLocationFootprintHeight = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationFootprintHeight"])
+                instance.warehouseLocationFootprintDepth = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationFootprintDepth"])
+                instance.warehouseLocationLevel = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationLevel"])
+                instance.warehouseLocationBay = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationBay"])
+                instance.warehouseLocationNumber = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationNumber"])
+                instance.warehouseLocationOnline = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["warehouseLocationOnline"])
+                instance.warehouseLocationPriorityCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationPriorityCode"])
+                instance.warehouseLocationAllowItemMixing = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["warehouseLocationAllowItemMixing"])
+                instance.warehouseLocationCost = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationCost"])
+                instance.controlNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["controlNo"])
+                instance.itemVendorSku = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemVendorSku"])
+                instance.itemUpc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemUpc"])
+                instance.itemMajorGroup = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemMajorGroup"])
+                instance.itemMajorGroupName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemMajorGroupName"])
+                instance.itemSubGroup = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemSubGroup"])
+                instance.itemSubGroupName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemSubGroupName"])
+                instance.itemProductCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemProductCode"])
+                instance.itemProductCodeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemProductCodeName"])
+                instance.itemAccountCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemAccountCode"])
+                instance.itemAccountCodeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemAccountCodeName"])
+                instance.itemSummaryCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemSummaryCode"])
+                instance.itemSummaryCodeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemSummaryCodeName"])
+                instance.itemSector = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemSector"])
+                instance.poNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["poNo"])
+                instance.receiptDistributionDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["receiptDistributionDate"])
+                instance.receiptUnitsPerWrap = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["receiptUnitsPerWrap"])
+                instance.receiptUnitsPerCase = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["receiptUnitsPerCase"])
+                instance.receiptRevisionDate = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptRevisionDate"])
+                instance.receiptProductionLot = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptProductionLot"])
+                instance.receiptReceiveDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["receiptReceiveDate"])
+                instance.receiptStatus = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptStatus"])
+                instance.receiptStatusName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptStatusName"])
+                instance.receiptUnitCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["receiptUnitCode"])
+                instance.receiptUnitCodeText = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptUnitCodeText"])
+                instance.receiptWrapCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["receiptWrapCode"])
+                instance.receiptWrapCodeText = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptWrapCodeText"])
+                instance.receiptCaseWeight = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["receiptCaseWeight"])
+                instance.receiptProductIdTag = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptProductIdTag"])
+                instance.alcoholTypeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["alcoholTypeId"])
+                instance.alcoholTypeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholTypeName"])
+                instance.alcoholContent = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["alcoholContent"])
+                instance.alcoholContainerId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["alcoholContainerId"])
+                instance.alcoholContainerName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholContainerName"])
+                instance.alcoholContainerVolume = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["alcoholContainerVolume"])
+                instance.alcoholVintageYear = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholVintageYear"])
+                instance.alcoholCountryId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["alcoholCountryId"])
+                instance.alcoholCountryName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholCountryName"])
+                instance.alcoholState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholState"])
+                instance.alcoholRegion = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholRegion"])
+                instance.alcoholBrand = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholBrand"])
+                instance.alcoholUPCCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholUPCCode"])
+                instance.alcoholNABCACode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholNABCACode"])
+                instance.alcoholUNIMERCCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholUNIMERCCode"])
+                instance.alcoholSCCCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholSCCCode"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+			
+
+			// Decoder for [InvoiceWorksheet]
+            Decoders.addDecoder(clazz: [InvoiceWorksheet].self) { (source: AnyObject) -> [InvoiceWorksheet] in
+                return Decoders.decode(clazz: [InvoiceWorksheet].self, source: source)
+            }
+			// Decoder for InvoiceWorksheet
+            Decoders.addDecoder(clazz: InvoiceWorksheet.self) { (source: AnyObject) -> InvoiceWorksheet in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = InvoiceWorksheet()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.createDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createDate"])
+                instance.modifyDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["modifyDate"])
+                instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"])
+                instance.invoiceNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["invoiceNo"])
+                instance.poNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["poNo"])
+                instance.costCenter = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["costCenter"])
+                instance.description = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["description"])
+                instance.notes = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["notes"])
+                instance.terms = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["terms"])
+                instance.specialInstructions = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["specialInstructions"])
+                instance.total = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["total"])
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.customerInvoiceTemplateId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["customerInvoiceTemplateId"])
+                instance.startDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["startDate"])
+                instance.endDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["endDate"])
+                instance.issueDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["issueDate"])
+                instance.status = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["status"])
+                instance.remitToAttention = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["remitToAttention"])
+                instance.remitToCompany = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["remitToCompany"])
+                instance.remitToStreet = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["remitToStreet"])
+                instance.remitToStreet2 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["remitToStreet2"])
+                instance.remitToStreet3 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["remitToStreet3"])
+                instance.remitToCity = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["remitToCity"])
+                instance.remitToState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["remitToState"])
+                instance.remitToZip = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["remitToZip"])
+                instance.remitToCountry = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["remitToCountry"])
+                instance.remitToPhone = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["remitToPhone"])
+                instance.remitToEmail = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["remitToEmail"])
+                instance.billToAttention = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToAttention"])
+                instance.billToCompany = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToCompany"])
+                instance.billToStreet = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToStreet"])
+                instance.billToStreet2 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToStreet2"])
+                instance.billToStreet3 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToStreet3"])
+                instance.billToCity = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToCity"])
+                instance.billToState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToState"])
+                instance.billToZip = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToZip"])
+                instance.billToCountry = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToCountry"])
+                instance.billToPhone = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToPhone"])
+                instance.billToEmail = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToEmail"])
+                instance.invoiceWorksheetLineItemList = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["invoiceWorksheetLineItemList"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+			
+
+			// Decoder for [InvoiceWorksheetLine]
+            Decoders.addDecoder(clazz: [InvoiceWorksheetLine].self) { (source: AnyObject) -> [InvoiceWorksheetLine] in
+                return Decoders.decode(clazz: [InvoiceWorksheetLine].self, source: source)
+            }
+			// Decoder for InvoiceWorksheetLine
+            Decoders.addDecoder(clazz: InvoiceWorksheetLine.self) { (source: AnyObject) -> InvoiceWorksheetLine in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = InvoiceWorksheetLine()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.createDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createDate"])
+                instance.modifyDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["modifyDate"])
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.seqNo = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["seqNo"])
+                instance.description = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["description"])
+                instance.accountCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["accountCode"])
+                instance.department = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["department"])
+                instance.itemCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemCode"])
+                instance.quantity = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["quantity"])
+                instance.chargeRate = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["chargeRate"])
+                instance.extendedCharge = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extendedCharge"])
+                instance.backupFile = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["backupFile"])
+                instance.backupFileUrl = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["backupFileUrl"])
+                instance.invoiceWorksheetId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["invoiceWorksheetId"])
+                instance.invoiceTemplateLineId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["invoiceTemplateLineId"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
             }
 			
@@ -863,7 +1360,39 @@ class Decoders {
                 instance.storageItemMixingRule = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["storageItemMixingRule"])
                 instance.allocationRule = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["allocationRule"])
                 instance.barcodeField = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["barcodeField"])
+                instance.warehouseDisplayField = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseDisplayField"])
+                instance.productIdTagSchemeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["productIdTagSchemeId"])
                 instance.hazmat = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["hazmat"])
+                instance.isAlcohol = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["isAlcohol"])
+                instance.alcoholType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholType"])
+                instance.alcoholContent = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["alcoholContent"])
+                instance.alcoholContainer = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholContainer"])
+                instance.alcoholVintageYear = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholVintageYear"])
+                instance.alcoholCountry = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholCountry"])
+                instance.alcoholState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholState"])
+                instance.alcoholRegion = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholRegion"])
+                instance.alcoholBrand = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholBrand"])
+                instance.alcoholUPCCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholUPCCode"])
+                instance.alcoholNAMBCACode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholNAMBCACode"])
+                instance.alcoholUNIMERCCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholUNIMERCCode"])
+                instance.alcoholSCCCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholSCCCode"])
+                instance.length = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["length"])
+                instance.width = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["width"])
+                instance.height = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["height"])
+                instance.topUp = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["topUp"])
+                instance.shipSolo = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["shipSolo"])
+                instance.inventoryUpdateTimestamp = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["inventoryUpdateTimestamp"])
+                instance.availableQuantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["availableQuantity"])
+                instance.damagedQuantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["damagedQuantity"])
+                instance.inFulfillmentProcessQuantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["inFulfillmentProcessQuantity"])
+                instance.onHandQuantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["onHandQuantity"])
+                instance.openOrderQuantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["openOrderQuantity"])
+                instance.openPOQuantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["openPOQuantity"])
+                instance.orderableQuantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderableQuantity"])
+                instance.unallocatableQuantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["unallocatableQuantity"])
+                instance.unavailableQuantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["unavailableQuantity"])
+                instance.overallDaysOnHand = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["overallDaysOnHand"])
+                instance.overallStockStatus = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["overallStockStatus"])
                 instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
             }
@@ -877,8 +1406,26 @@ class Decoders {
             Decoders.addDecoder(clazz: ItemAccountCode.self) { (source: AnyObject) -> ItemAccountCode in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = ItemAccountCode()
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.internalId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["internalId"])
+                instance.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"])
+                instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+			
+
+			// Decoder for [ItemActivityType]
+            Decoders.addDecoder(clazz: [ItemActivityType].self) { (source: AnyObject) -> [ItemActivityType] in
+                return Decoders.decode(clazz: [ItemActivityType].self, source: source)
+            }
+			// Decoder for ItemActivityType
+            Decoders.addDecoder(clazz: ItemActivityType.self) { (source: AnyObject) -> ItemActivityType in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = ItemActivityType()
                 instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
                 instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                instance.fullEntityClassName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["fullEntityClassName"])
                 return instance
             }
 			
@@ -891,50 +1438,45 @@ class Decoders {
             Decoders.addDecoder(clazz: ItemBuyer.self) { (source: AnyObject) -> ItemBuyer in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = ItemBuyer()
-                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
-                instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.internalId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["internalId"])
+                instance.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"])
+                instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
             }
 			
 
-			// Decoder for [ItemLegacyLowStockContact]
-            Decoders.addDecoder(clazz: [ItemLegacyLowStockContact].self) { (source: AnyObject) -> [ItemLegacyLowStockContact] in
-                return Decoders.decode(clazz: [ItemLegacyLowStockContact].self, source: source)
+			// Decoder for [ItemCategory]
+            Decoders.addDecoder(clazz: [ItemCategory].self) { (source: AnyObject) -> [ItemCategory] in
+                return Decoders.decode(clazz: [ItemCategory].self, source: source)
             }
-			// Decoder for ItemLegacyLowStockContact
-            Decoders.addDecoder(clazz: ItemLegacyLowStockContact.self) { (source: AnyObject) -> ItemLegacyLowStockContact in
+			// Decoder for ItemCategory
+            Decoders.addDecoder(clazz: ItemCategory.self) { (source: AnyObject) -> ItemCategory in
                 let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = ItemLegacyLowStockContact()
-                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
-                instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                let instance = ItemCategory()
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.internalId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["internalId"])
+                instance.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"])
+                instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
             }
 			
 
-			// Decoder for [ItemLowStockCode]
-            Decoders.addDecoder(clazz: [ItemLowStockCode].self) { (source: AnyObject) -> [ItemLowStockCode] in
-                return Decoders.decode(clazz: [ItemLowStockCode].self, source: source)
+			// Decoder for [ItemLowstockCode]
+            Decoders.addDecoder(clazz: [ItemLowstockCode].self) { (source: AnyObject) -> [ItemLowstockCode] in
+                return Decoders.decode(clazz: [ItemLowstockCode].self, source: source)
             }
-			// Decoder for ItemLowStockCode
-            Decoders.addDecoder(clazz: ItemLowStockCode.self) { (source: AnyObject) -> ItemLowStockCode in
+			// Decoder for ItemLowstockCode
+            Decoders.addDecoder(clazz: ItemLowstockCode.self) { (source: AnyObject) -> ItemLowstockCode in
                 let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = ItemLowStockCode()
-                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
-                instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
-                return instance
-            }
-			
-
-			// Decoder for [ItemMajorGroup]
-            Decoders.addDecoder(clazz: [ItemMajorGroup].self) { (source: AnyObject) -> [ItemMajorGroup] in
-                return Decoders.decode(clazz: [ItemMajorGroup].self, source: source)
-            }
-			// Decoder for ItemMajorGroup
-            Decoders.addDecoder(clazz: ItemMajorGroup.self) { (source: AnyObject) -> ItemMajorGroup in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = ItemMajorGroup()
-                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
-                instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                let instance = ItemLowstockCode()
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.internalId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["internalId"])
+                instance.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"])
+                instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
             }
 			
@@ -947,8 +1489,11 @@ class Decoders {
             Decoders.addDecoder(clazz: ItemProductCode.self) { (source: AnyObject) -> ItemProductCode in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = ItemProductCode()
-                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
-                instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.internalId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["internalId"])
+                instance.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"])
+                instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
             }
 			
@@ -1021,12 +1566,13 @@ class Decoders {
                 instance.receivedBy = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receivedBy"])
                 instance.lineNo = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lineNo"])
                 instance.prodLot = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["prodLot"])
+                instance.productIdTag = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["productIdTag"])
                 instance.unitsPerCase = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["unitsPerCase"])
                 instance.caseWeight = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["caseWeight"])
                 instance.height = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["height"])
                 instance.width = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["width"])
                 instance.length = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["length"])
-                instance.dockTime = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["dockTime"])
+                instance.dockDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["dockDate"])
                 instance.modifyDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["modifyDate"])
                 instance.impressions = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["impressions"])
                 instance.asnLine = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["asnLine"])
@@ -1035,16 +1581,122 @@ class Decoders {
             }
 			
 
-			// Decoder for [ItemSubGroup]
-            Decoders.addDecoder(clazz: [ItemSubGroup].self) { (source: AnyObject) -> [ItemSubGroup] in
-                return Decoders.decode(clazz: [ItemSubGroup].self, source: source)
+			// Decoder for [ItemReceiptActivity]
+            Decoders.addDecoder(clazz: [ItemReceiptActivity].self) { (source: AnyObject) -> [ItemReceiptActivity] in
+                return Decoders.decode(clazz: [ItemReceiptActivity].self, source: source)
             }
-			// Decoder for ItemSubGroup
-            Decoders.addDecoder(clazz: ItemSubGroup.self) { (source: AnyObject) -> ItemSubGroup in
+			// Decoder for ItemReceiptActivity
+            Decoders.addDecoder(clazz: ItemReceiptActivity.self) { (source: AnyObject) -> ItemReceiptActivity in
                 let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = ItemSubGroup()
+                let instance = ItemReceiptActivity()
                 instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
-                instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                instance.createDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createDate"])
+                instance.modifyDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["modifyDate"])
+                instance.itemReceiptId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemReceiptId"])
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.poNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["poNo"])
+                instance.receiptDistributionDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["receiptDistributionDate"])
+                instance.receiptUnitsPerWrap = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["receiptUnitsPerWrap"])
+                instance.receiptUnitsPerCase = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["receiptUnitsPerCase"])
+                instance.receiptRevisionDate = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptRevisionDate"])
+                instance.receiptProductionLot = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptProductionLot"])
+                instance.receiptReceiveDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["receiptReceiveDate"])
+                instance.receiptStatus = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptStatus"])
+                instance.receiptStatusName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptStatusName"])
+                instance.receiptUnitCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["receiptUnitCode"])
+                instance.receiptUnitCodeText = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptUnitCodeText"])
+                instance.receiptWrapCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["receiptWrapCode"])
+                instance.receiptWrapCodeText = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptWrapCodeText"])
+                instance.receiptCaseWeight = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["receiptCaseWeight"])
+                instance.receiptProductIdTag = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptProductIdTag"])
+                instance.warehouseId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseId"])
+                instance.warehouseName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["warehouseName"])
+                instance.itemId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemId"])
+                instance.sku = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sku"])
+                instance.itemVendorSku = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemVendorSku"])
+                instance.itemUPC = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemUPC"])
+                instance.itemMajorGroup = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemMajorGroup"])
+                instance.itemMajorGroupName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemMajorGroupName"])
+                instance.itemSubGroup = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemSubGroup"])
+                instance.itemSubGroupName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemSubGroupName"])
+                instance.itemProductCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemProductCode"])
+                instance.itemProductCodeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemProductCodeName"])
+                instance.itemAccountCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemAccountCode"])
+                instance.itemAccountCodeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemAccountCodeName"])
+                instance.itemSummaryCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemSummaryCode"])
+                instance.itemSummaryCodeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemSummaryCodeName"])
+                instance.itemSector = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemSector"])
+                instance.vendorComplianceSurveyAnswer1 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorComplianceSurveyAnswer1"])
+                instance.vendorComplianceSurveyAnswer2 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorComplianceSurveyAnswer2"])
+                instance.vendorComplianceSurveyAnswer3 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorComplianceSurveyAnswer3"])
+                instance.vendorComplianceSurveyAnswer4 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorComplianceSurveyAnswer4"])
+                instance.vendorComplianceSurveyAnswer5 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorComplianceSurveyAnswer5"])
+                instance.vendorComplianceSurveyAnswer6 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorComplianceSurveyAnswer6"])
+                instance.vendorComplianceSurveyAnswer7 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorComplianceSurveyAnswer7"])
+                instance.vendorComplianceSurveyAnswer8 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorComplianceSurveyAnswer8"])
+                instance.vendorComplianceSurveyAnswer9 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorComplianceSurveyAnswer9"])
+                instance.vendorComplianceSurveyAnswer10 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorComplianceSurveyAnswer10"])
+                instance.vendorComplianceSurveyAnswer11 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorComplianceSurveyAnswer11"])
+                instance.vendorComplianceSurveyAnswer12 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorComplianceSurveyAnswer12"])
+                instance.vendorComplianceSurveyAnswer13 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorComplianceSurveyAnswer13"])
+                instance.vendorComplianceSurveyAnswer14 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorComplianceSurveyAnswer14"])
+                instance.vendorComplianceSurveyAnswer15 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorComplianceSurveyAnswer15"])
+                instance.vendorComplianceSurveyAnswer16 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorComplianceSurveyAnswer16"])
+                instance.vendorComplianceSurveyAnswer17 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorComplianceSurveyAnswer17"])
+                instance.vendorComplianceSurveyAnswer18 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorComplianceSurveyAnswer18"])
+                instance.vendorComplianceSurveyAnswer19 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorComplianceSurveyAnswer19"])
+                instance.vendorComplianceSurveyAnswer20 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorComplianceSurveyAnswer20"])
+                instance.alcoholTypeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["alcoholTypeId"])
+                instance.alcoholTypeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholTypeName"])
+                instance.alcoholContent = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["alcoholContent"])
+                instance.alcoholContainerId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["alcoholContainerId"])
+                instance.alcoholContainerName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholContainerName"])
+                instance.alcoholContainerVolume = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["alcoholContainerVolume"])
+                instance.alcoholVintageYear = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholVintageYear"])
+                instance.alcoholCountryId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["alcoholCountryId"])
+                instance.alcoholCountryName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholCountryName"])
+                instance.alcoholState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholState"])
+                instance.alcoholRegion = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholRegion"])
+                instance.alcoholBrand = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholBrand"])
+                instance.alcoholUPCCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholUPCCode"])
+                instance.alcoholNABCACode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholNABCACode"])
+                instance.alcoholUNIMERCCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholUNIMERCCode"])
+                instance.alcoholSCCCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholSCCCode"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+			
+
+			// Decoder for [ItemSector]
+            Decoders.addDecoder(clazz: [ItemSector].self) { (source: AnyObject) -> [ItemSector] in
+                return Decoders.decode(clazz: [ItemSector].self, source: source)
+            }
+			// Decoder for ItemSector
+            Decoders.addDecoder(clazz: ItemSector.self) { (source: AnyObject) -> ItemSector in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = ItemSector()
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.internalId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["internalId"])
+                instance.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"])
+                instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+			
+
+			// Decoder for [ItemSubCategory]
+            Decoders.addDecoder(clazz: [ItemSubCategory].self) { (source: AnyObject) -> [ItemSubCategory] in
+                return Decoders.decode(clazz: [ItemSubCategory].self, source: source)
+            }
+			// Decoder for ItemSubCategory
+            Decoders.addDecoder(clazz: ItemSubCategory.self) { (source: AnyObject) -> ItemSubCategory in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = ItemSubCategory()
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.internalId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["internalId"])
+                instance.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"])
+                instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
             }
 			
@@ -1057,8 +1709,11 @@ class Decoders {
             Decoders.addDecoder(clazz: ItemSummaryCode.self) { (source: AnyObject) -> ItemSummaryCode in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = ItemSummaryCode()
-                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
-                instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.internalId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["internalId"])
+                instance.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"])
+                instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
             }
 			
@@ -1079,6 +1734,31 @@ class Decoders {
                 instance.userId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["userId"])
                 instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
                 instance.jobTypeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["jobTypeId"])
+                instance.note = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["note"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+			
+
+			// Decoder for [JobTimeActivity]
+            Decoders.addDecoder(clazz: [JobTimeActivity].self) { (source: AnyObject) -> [JobTimeActivity] in
+                return Decoders.decode(clazz: [JobTimeActivity].self, source: source)
+            }
+			// Decoder for JobTimeActivity
+            Decoders.addDecoder(clazz: JobTimeActivity.self) { (source: AnyObject) -> JobTimeActivity in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = JobTimeActivity()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.importedId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["importedId"])
+                instance.createDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createDate"])
+                instance.modifyDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["modifyDate"])
+                instance.date = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["date"])
+                instance.secondDuration = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["secondDuration"])
+                instance.userId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["userId"])
+                instance.email = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["email"])
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.jobTypeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["jobTypeId"])
+                instance.jobTypeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["jobTypeName"])
                 instance.note = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["note"])
                 instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
@@ -1116,7 +1796,7 @@ class Decoders {
                 let instance = Kit()
                 instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
                 instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
-                instance.kitSKUId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["kitSKUId"])
+                instance.kitSKU = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["kitSKU"])
                 instance.packagingType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["packagingType"])
                 instance.other = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["other"])
                 instance.numberOfComponents = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numberOfComponents"])
@@ -1136,6 +1816,42 @@ class Decoders {
                 instance.maxInvQty = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["maxInvQty"])
                 instance.isKOD = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["isKOD"])
                 instance.kodType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["kodType"])
+                instance.kitComponentList = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["kitComponentList"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+			
+
+			// Decoder for [KitComponent]
+            Decoders.addDecoder(clazz: [KitComponent].self) { (source: AnyObject) -> [KitComponent] in
+                return Decoders.decode(clazz: [KitComponent].self, source: source)
+            }
+			// Decoder for KitComponent
+            Decoders.addDecoder(clazz: KitComponent.self) { (source: AnyObject) -> KitComponent in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = KitComponent()
+                instance.sku = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sku"])
+                instance.quantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["quantity"])
+                instance.instructions = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["instructions"])
+                instance.additionalServices = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["additionalServices"])
+                instance.critical = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["critical"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+			
+
+			// Decoder for [LegacyLowstockContact]
+            Decoders.addDecoder(clazz: [LegacyLowstockContact].self) { (source: AnyObject) -> [LegacyLowstockContact] in
+                return Decoders.decode(clazz: [LegacyLowstockContact].self, source: source)
+            }
+			// Decoder for LegacyLowstockContact
+            Decoders.addDecoder(clazz: LegacyLowstockContact.self) { (source: AnyObject) -> LegacyLowstockContact in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = LegacyLowstockContact()
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.internalId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["internalId"])
+                instance.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"])
+                instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"])
                 instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
             }
@@ -1151,6 +1867,7 @@ class Decoders {
                 let instance = LineOfBusiness()
                 instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
                 instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                instance.fullEntityClassName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["fullEntityClassName"])
                 return instance
             }
 			
@@ -1179,6 +1896,7 @@ class Decoders {
                 instance.number = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["number"])
                 instance.online = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["online"])
                 instance.priorityCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["priorityCode"])
+                instance.cost = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["cost"])
                 instance.allowItemMixing = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["allowItemMixing"])
                 instance.createDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createDate"])
                 instance.modifyDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["modifyDate"])
@@ -1293,6 +2011,7 @@ class Decoders {
                 let instance = LoggedTimeType()
                 instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
                 instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                instance.fullEntityClassName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["fullEntityClassName"])
                 return instance
             }
 			
@@ -1356,6 +2075,7 @@ class Decoders {
                 instance.warehouseId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseId"])
                 instance.orderDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["orderDate"])
                 instance.customerNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["customerNo"])
+                instance.useOrderNoRoot = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["useOrderNoRoot"])
                 instance.firstShipDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["firstShipDate"])
                 instance.lastShipDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["lastShipDate"])
                 instance.deliverOnDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["deliverOnDate"])
@@ -1386,6 +2106,7 @@ class Decoders {
                 instance.numberOfPallets = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numberOfPallets"])
                 instance.completionStatus = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["completionStatus"])
                 instance.parcelAccountId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["parcelAccountId"])
+                instance.thirdPartyParcelAccountId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["thirdPartyParcelAccountId"])
                 instance.costCenter = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["costCenter"])
                 instance.createDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createDate"])
                 instance.customerPONo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["customerPONo"])
@@ -1400,6 +2121,7 @@ class Decoders {
                 instance.holdCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["holdCode"])
                 instance.integrationPartnerId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["integrationPartnerId"])
                 instance.numberOfLineItems = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numberOfLineItems"])
+                instance.estimatedNumberOfPicks = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["estimatedNumberOfPicks"])
                 instance.modifyDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["modifyDate"])
                 instance.omsOrderNo = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["omsOrderNo"])
                 instance.omsCustomerId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["omsCustomerId"])
@@ -1408,9 +2130,11 @@ class Decoders {
                 instance.orderReason = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderReason"])
                 instance.orderSourceId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderSourceId"])
                 instance.packingSlipTemplateId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["packingSlipTemplateId"])
+                instance.orderInvoiceTemplateId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderInvoiceTemplateId"])
                 instance.orderConfirmationEmailTemplateId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderConfirmationEmailTemplateId"])
                 instance.shipmentConfirmationEmailTemplateId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["shipmentConfirmationEmailTemplateId"])
                 instance.priceLevel = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["priceLevel"])
+                instance.priceMode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["priceMode"])
                 instance.priorityCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["priorityCode"])
                 instance.fulfillmentProcessId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["fulfillmentProcessId"])
                 instance.shipBy = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["shipBy"])
@@ -1436,8 +2160,182 @@ class Decoders {
                 instance.totalPaid = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["totalPaid"])
                 instance.totalQty = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalQty"])
                 instance.weightLbs = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["weightLbs"])
+                instance.orderAssemblyInstructions = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["orderAssemblyInstructions"])
                 instance.lineItems = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["lineItems"])
+                instance.extraOrderData = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["extraOrderData"])
+                instance.extraLineItemData = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["extraLineItemData"])
+                instance.externalShippingSystemId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["externalShippingSystemId"])
                 instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+			
+
+			// Decoder for [OrderActivity]
+            Decoders.addDecoder(clazz: [OrderActivity].self) { (source: AnyObject) -> [OrderActivity] in
+                return Decoders.decode(clazz: [OrderActivity].self, source: source)
+            }
+			// Decoder for OrderActivity
+            Decoders.addDecoder(clazz: OrderActivity.self) { (source: AnyObject) -> OrderActivity in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = OrderActivity()
+                instance.orderNo = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["orderNo"])
+                instance.createDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createDate"])
+                instance.modifyDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["modifyDate"])
+                instance.alternateUsage = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alternateUsage"])
+                instance.groupOrderId = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["groupOrderId"])
+                instance.status = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["status"])
+                instance.reqStatusName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["reqStatusName"])
+                instance.fulfillmentProcessId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["fulfillmentProcessId"])
+                instance.carrierId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["carrierId"])
+                instance.carrierName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["carrierName"])
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.mediaCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["mediaCode"])
+                instance.legacyRestrictionType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["legacyRestrictionType"])
+                instance.reqTypeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["reqTypeName"])
+                instance.serviceTypeId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["serviceTypeId"])
+                instance.serviceTypeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["serviceTypeName"])
+                instance.alcoholOrderType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholOrderType"])
+                instance.distributionChannel = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["distributionChannel"])
+                instance.distributionChannelName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["distributionChannelName"])
+                instance.priorityCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["priorityCode"])
+                instance.orderDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["orderDate"])
+                instance.enteredBy = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["enteredBy"])
+                instance.orderReason = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderReason"])
+                instance.customerOrderNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["customerOrderNo"])
+                instance.priceLevel = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["priceLevel"])
+                instance.entryTime = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["entryTime"])
+                instance.shipBy = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["shipBy"])
+                instance.stopBackOrders = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["stopBackOrders"])
+                instance.warehouseId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseId"])
+                instance.orderSourceId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderSourceId"])
+                instance.orderSourceName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["orderSourceName"])
+                instance.integrationPartnerId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["integrationPartnerId"])
+                instance.integrationPartnerName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["integrationPartnerName"])
+                instance.orderLoadProgramId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderLoadProgramId"])
+                instance.orderLoadProgramName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["orderLoadProgramName"])
+                instance.omsOrderNo = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["omsOrderNo"])
+                instance.omsCustomerId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["omsCustomerId"])
+                instance.shipToAttention = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToAttention"])
+                instance.shipToCompany = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToCompany"])
+                instance.shipToStreet = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToStreet"])
+                instance.shipToStreet2 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToStreet2"])
+                instance.shipToStreet3 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToStreet3"])
+                instance.shipToCity = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToCity"])
+                instance.shipToState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToState"])
+                instance.shipToZip = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToZip"])
+                instance.shipToCountry = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToCountry"])
+                instance.shipToPhone = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToPhone"])
+                instance.shipToEmail = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToEmail"])
+                instance.billToAttention = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToAttention"])
+                instance.billToCompany = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToCompany"])
+                instance.billToStreet = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToStreet"])
+                instance.billToStreet2 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToStreet2"])
+                instance.billToStreet3 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToStreet3"])
+                instance.billToCity = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToCity"])
+                instance.billToState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToState"])
+                instance.billToZip = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToZip"])
+                instance.billToCountry = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToCountry"])
+                instance.billToPhone = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToPhone"])
+                instance.billToEmail = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billToEmail"])
+                instance.shipDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["shipDate"])
+                instance.freight = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["freight"])
+                instance.weightLbs = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["weightLbs"])
+                instance.estimatedWeightLbs = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["estimatedWeightLbs"])
+                instance.numberOfCartons = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numberOfCartons"])
+                instance.numberOfPallets = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numberOfPallets"])
+                instance.numberOfLineItems = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numberOfLineItems"])
+                instance.completionStatus = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["completionStatus"])
+                instance.holdCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["holdCode"])
+                instance.shipCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipCode"])
+                instance.orderMessage = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["orderMessage"])
+                instance.division = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["division"])
+                instance.costCenter = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["costCenter"])
+                instance.authorizedBy = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["authorizedBy"])
+                instance.batchNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["batchNo"])
+                instance.firstShipDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["firstShipDate"])
+                instance.lastShipDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["lastShipDate"])
+                instance.deliverOnDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["deliverOnDate"])
+                instance.customerPONo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["customerPONo"])
+                instance.shipVia = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipVia"])
+                instance.needByDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["needByDate"])
+                instance.total = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["total"])
+                instance.balanceDue = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["balanceDue"])
+                instance.totalPaid = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["totalPaid"])
+                instance.authorizationAmount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["authorizationAmount"])
+                instance.subtotal = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["subtotal"])
+                instance.taxOnFreight = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["taxOnFreight"])
+                instance.tax = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["tax"])
+                instance.distributionCharges = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["distributionCharges"])
+                instance.shippingCharge = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["shippingCharge"])
+                instance.totalDiscount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["totalDiscount"])
+                instance.parcelAccountId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["parcelAccountId"])
+                instance.packingSlipTemplateId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["packingSlipTemplateId"])
+                instance.giftMessage = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["giftMessage"])
+                instance.branchSector = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["branchSector"])
+                instance.branchArea = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["branchArea"])
+                instance.branchCustomerType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["branchCustomerType"])
+                instance.branchId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["branchId"])
+                instance.orderCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["orderCode"])
+                instance.leadPackageId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["leadPackageId"])
+                instance.deliveredDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["deliveredDate"])
+                instance.totalQty = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalQty"])
+                instance.estimatedNumberOfPicks = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["estimatedNumberOfPicks"])
+                instance.orderConfirmationEmailTemplateId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderConfirmationEmailTemplateId"])
+                instance.shipmentConfirmationEmailTemplateId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["shipmentConfirmationEmailTemplateId"])
+                instance.externalShippingSystemId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["externalShippingSystemId"])
+                instance.shippingSystemName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shippingSystemName"])
+                instance.orderInvoiceTemplateId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderInvoiceTemplateId"])
+                instance.priceMode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["priceMode"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+			
+
+			// Decoder for [OrderExtraLineItemData]
+            Decoders.addDecoder(clazz: [OrderExtraLineItemData].self) { (source: AnyObject) -> [OrderExtraLineItemData] in
+                return Decoders.decode(clazz: [OrderExtraLineItemData].self, source: source)
+            }
+			// Decoder for OrderExtraLineItemData
+            Decoders.addDecoder(clazz: OrderExtraLineItemData.self) { (source: AnyObject) -> OrderExtraLineItemData in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = OrderExtraLineItemData()
+                instance.sku = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sku"])
+                instance.category = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["category"])
+                instance.code = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["code"])
+                instance.value = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["value"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+			
+
+			// Decoder for [OrderExtraOrderData]
+            Decoders.addDecoder(clazz: [OrderExtraOrderData].self) { (source: AnyObject) -> [OrderExtraOrderData] in
+                return Decoders.decode(clazz: [OrderExtraOrderData].self, source: source)
+            }
+			// Decoder for OrderExtraOrderData
+            Decoders.addDecoder(clazz: OrderExtraOrderData.self) { (source: AnyObject) -> OrderExtraOrderData in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = OrderExtraOrderData()
+                instance.sequence = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sequence"])
+                instance.category = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["category"])
+                instance.code = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["code"])
+                instance.value = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["value"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+			
+
+			// Decoder for [OrderInvoiceTemplateLineItemDescriptionEnum]
+            Decoders.addDecoder(clazz: [OrderInvoiceTemplateLineItemDescriptionEnum].self) { (source: AnyObject) -> [OrderInvoiceTemplateLineItemDescriptionEnum] in
+                return Decoders.decode(clazz: [OrderInvoiceTemplateLineItemDescriptionEnum].self, source: source)
+            }
+			// Decoder for OrderInvoiceTemplateLineItemDescriptionEnum
+            Decoders.addDecoder(clazz: OrderInvoiceTemplateLineItemDescriptionEnum.self) { (source: AnyObject) -> OrderInvoiceTemplateLineItemDescriptionEnum in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = OrderInvoiceTemplateLineItemDescriptionEnum()
+                instance.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"])
+                instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                instance.fullEntityClassName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["fullEntityClassName"])
                 return instance
             }
 			
@@ -1467,19 +2365,97 @@ class Decoders {
                 instance.orderSourceSKU = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["orderSourceSKU"])
                 instance.unitCost = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["unitCost"])
                 instance.unitSell = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["unitSell"])
+                instance.unitDiscount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["unitDiscount"])
                 instance.extendedCost = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extendedCost"])
                 instance.extendedSell = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extendedSell"])
+                instance.extendedDiscount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extendedDiscount"])
                 instance.ncExtendedSell = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["ncExtendedSell"])
                 instance.itemWeight = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["itemWeight"])
                 instance.productionLot = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["productionLot"])
                 instance.weightPerWrap = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["weightPerWrap"])
                 instance.sector = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sector"])
+                instance.orderAssemblyInstructions = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["orderAssemblyInstructions"])
                 instance.itemAccountCodeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemAccountCodeId"])
                 instance.itemLegacyLowStockContactId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemLegacyLowStockContactId"])
                 instance.itemMajorGroupId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemMajorGroupId"])
                 instance.itemSubGroupId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemSubGroupId"])
                 instance.itemProductCodeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemProductCodeId"])
                 instance.itemSummaryCodeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemSummaryCodeId"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+			
+
+			// Decoder for [OrderLineActivity]
+            Decoders.addDecoder(clazz: [OrderLineActivity].self) { (source: AnyObject) -> [OrderLineActivity] in
+                return Decoders.decode(clazz: [OrderLineActivity].self, source: source)
+            }
+			// Decoder for OrderLineActivity
+            Decoders.addDecoder(clazz: OrderLineActivity.self) { (source: AnyObject) -> OrderLineActivity in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = OrderLineActivity()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.createDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createDate"])
+                instance.modifyDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["modifyDate"])
+                instance.orderNo = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["orderNo"])
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.sku = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sku"])
+                instance.poNoId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["poNoId"])
+                instance.crossDock = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["crossDock"])
+                instance.processNo = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["processNo"])
+                instance.orderedQty = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderedQty"])
+                instance.allowedQty = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["allowedQty"])
+                instance.shippedQty = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["shippedQty"])
+                instance.backorderQty = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["backorderQty"])
+                instance.adjustCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["adjustCode"])
+                instance.processFlag = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["processFlag"])
+                instance.revDate = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["revDate"])
+                instance.restrictionRule = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["restrictionRule"])
+                instance.unitCost = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["unitCost"])
+                instance.unitSell = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["unitSell"])
+                instance.unitDiscount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["unitDiscount"])
+                instance.extendedCost = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extendedCost"])
+                instance.extendedSell = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extendedSell"])
+                instance.extendedDiscount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extendedDiscount"])
+                instance.ncExtendedSell = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["ncExtendedSell"])
+                instance.per = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["per"])
+                instance.chargeCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["chargeCode"])
+                instance.distributionCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["distributionCode"])
+                instance.upc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["upc"])
+                instance.vendorSKU = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorSKU"])
+                instance.orderSourceSKU = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["orderSourceSKU"])
+                instance.itemMajorGroupId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemMajorGroupId"])
+                instance.masterMajorGroupName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["masterMajorGroupName"])
+                instance.itemSubGroupId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemSubGroupId"])
+                instance.masterSubGroupName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["masterSubGroupName"])
+                instance.itemProductCodeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemProductCodeId"])
+                instance.masterProductionCodeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["masterProductionCodeName"])
+                instance.itemAccountCodeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemAccountCodeId"])
+                instance.masterAccountCodeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["masterAccountCodeName"])
+                instance.itemSummaryCodeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemSummaryCodeId"])
+                instance.masterSummaryCodeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["masterSummaryCodeName"])
+                instance.itemLegacyLowStockContactId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemLegacyLowStockContactId"])
+                instance.lowStockContactName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["lowStockContactName"])
+                instance.sector = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sector"])
+                instance.weightPerWrap = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["weightPerWrap"])
+                instance.itemWeight = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["itemWeight"])
+                instance.productionLot = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["productionLot"])
+                instance.alcoholTypeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["alcoholTypeId"])
+                instance.alcoholTypeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholTypeName"])
+                instance.alcoholContent = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["alcoholContent"])
+                instance.alcoholContainerId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["alcoholContainerId"])
+                instance.alcoholContainerName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholContainerName"])
+                instance.alcoholContainerVolume = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["alcoholContainerVolume"])
+                instance.alcoholVintageYear = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholVintageYear"])
+                instance.alcoholCountryId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["alcoholCountryId"])
+                instance.alcoholCountryName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholCountryName"])
+                instance.alcoholState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholState"])
+                instance.alcoholRegion = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholRegion"])
+                instance.alcoholBrand = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholBrand"])
+                instance.alcoholUPCCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholUPCCode"])
+                instance.alcoholNABCACode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholNABCACode"])
+                instance.alcoholUNIMERCCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholUNIMERCCode"])
+                instance.alcoholSCCCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholSCCCode"])
                 instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
             }
@@ -1495,6 +2471,7 @@ class Decoders {
                 let instance = OrderLoadProgram()
                 instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
                 instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                instance.fullEntityClassName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["fullEntityClassName"])
                 return instance
             }
 			
@@ -1517,6 +2494,7 @@ class Decoders {
                 instance.requireGS1128Label = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["requireGS1128Label"])
                 instance.shippingNotes = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shippingNotes"])
                 instance.packingSlipId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["packingSlipId"])
+                instance.orderInvoiceId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderInvoiceId"])
                 instance.orderConfirmationEmailId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderConfirmationEmailId"])
                 instance.shipmentConfirmationEmailId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["shipmentConfirmationEmailId"])
                 instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
@@ -1571,6 +2549,21 @@ class Decoders {
             }
 			
 
+			// Decoder for [PackingSlipTemplateLineItemDescriptionEnum]
+            Decoders.addDecoder(clazz: [PackingSlipTemplateLineItemDescriptionEnum].self) { (source: AnyObject) -> [PackingSlipTemplateLineItemDescriptionEnum] in
+                return Decoders.decode(clazz: [PackingSlipTemplateLineItemDescriptionEnum].self, source: source)
+            }
+			// Decoder for PackingSlipTemplateLineItemDescriptionEnum
+            Decoders.addDecoder(clazz: PackingSlipTemplateLineItemDescriptionEnum.self) { (source: AnyObject) -> PackingSlipTemplateLineItemDescriptionEnum in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = PackingSlipTemplateLineItemDescriptionEnum()
+                instance.id = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["id"])
+                instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                instance.fullEntityClassName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["fullEntityClassName"])
+                return instance
+            }
+			
+
 			// Decoder for [ParcelAccount]
             Decoders.addDecoder(clazz: [ParcelAccount].self) { (source: AnyObject) -> [ParcelAccount] in
                 return Decoders.decode(clazz: [ParcelAccount].self, source: source)
@@ -1592,43 +2585,259 @@ class Decoders {
             }
 			
 
-			// Decoder for [ParcelShipment]
-            Decoders.addDecoder(clazz: [ParcelShipment].self) { (source: AnyObject) -> [ParcelShipment] in
-                return Decoders.decode(clazz: [ParcelShipment].self, source: source)
+			// Decoder for [ParcelInvoice]
+            Decoders.addDecoder(clazz: [ParcelInvoice].self) { (source: AnyObject) -> [ParcelInvoice] in
+                return Decoders.decode(clazz: [ParcelInvoice].self, source: source)
             }
-			// Decoder for ParcelShipment
-            Decoders.addDecoder(clazz: ParcelShipment.self) { (source: AnyObject) -> ParcelShipment in
+			// Decoder for ParcelInvoice
+            Decoders.addDecoder(clazz: ParcelInvoice.self) { (source: AnyObject) -> ParcelInvoice in
                 let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = ParcelShipment()
+                let instance = ParcelInvoice()
                 instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
                 instance.createDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createDate"])
                 instance.modifyDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["modifyDate"])
-                instance.shipDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["shipDate"])
-                instance.deliveredDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["deliveredDate"])
-                instance.trackingNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["trackingNo"])
-                instance.warehouseId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseId"])
+                instance.carrier = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["carrier"])
+                instance.invoiceNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["invoiceNo"])
+                instance.accountNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["accountNo"])
+                instance.invoiceDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["invoiceDate"])
+                instance.invoiceAmount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["invoiceAmount"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+			
+
+			// Decoder for [ParcelInvoiceLine]
+            Decoders.addDecoder(clazz: [ParcelInvoiceLine].self) { (source: AnyObject) -> [ParcelInvoiceLine] in
+                return Decoders.decode(clazz: [ParcelInvoiceLine].self, source: source)
+            }
+			// Decoder for ParcelInvoiceLine
+            Decoders.addDecoder(clazz: ParcelInvoiceLine.self) { (source: AnyObject) -> ParcelInvoiceLine in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = ParcelInvoiceLine()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.invoiceNoId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["invoiceNoId"])
+                instance.createDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createDate"])
+                instance.modifyDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["modifyDate"])
                 instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
-                instance.orderNo = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["orderNo"])
-                instance.cartonNo = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["cartonNo"])
-                instance.numberOfCartons = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numberOfCartons"])
-                instance.status = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["status"])
-                instance.shipped = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["shipped"])
-                instance.carrierServiceId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["carrierServiceId"])
-                instance.dim1In = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["dim1In"])
-                instance.dim2In = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["dim2In"])
-                instance.dim3In = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["dim3In"])
-                instance.estimatedZone = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["estimatedZone"])
-                instance.parcelAccountNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["parcelAccountNo"])
-                instance.thirdPartyParcelAccountNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["thirdPartyParcelAccountNo"])
-                instance.manifestId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["manifestId"])
-                instance.residential = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["residential"])
-                instance.billingOption = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billingOption"])
-                instance.weightLbs = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["weightLbs"])
-                instance.dimWeight = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["dimWeight"])
-                instance.licensePlateNumber = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["licensePlateNumber"])
-                instance.chargedFreightAmount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["chargedFreightAmount"])
-                instance.publishedFreightAmount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["publishedFreightAmount"])
-                instance.retailFreightAmount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["retailFreightAmount"])
+                instance.orderId = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["orderId"])
+                instance.shipmentId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["shipmentId"])
+                instance.trackingNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["trackingNo"])
+                instance.shipDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["shipDate"])
+                instance.zone = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["zone"])
+                instance.dim1 = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["dim1"])
+                instance.dim2 = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["dim2"])
+                instance.dim3 = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["dim3"])
+                instance.enteredWeight = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["enteredWeight"])
+                instance.actualWeight = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["actualWeight"])
+                instance.billedWeight = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["billedWeight"])
+                instance.enteredWeightUnit = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["enteredWeightUnit"])
+                instance.actualWeightUnit = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["actualWeightUnit"])
+                instance.billedWeightUnit = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billedWeightUnit"])
+                instance.customerReference = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["customerReference"])
+                instance.shipmentReference = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipmentReference"])
+                instance.reference3 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["reference3"])
+                instance.reference4 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["reference4"])
+                instance.reference5 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["reference5"])
+                instance.reference6 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["reference6"])
+                instance.reference7 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["reference7"])
+                instance.shipFromName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipFromName"])
+                instance.shipFromCompany = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipFromCompany"])
+                instance.shipFromStreet1 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipFromStreet1"])
+                instance.shipFromStreet2 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipFromStreet2"])
+                instance.shipFromCity = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipFromCity"])
+                instance.shipFromState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipFromState"])
+                instance.shipFromZip = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipFromZip"])
+                instance.shipFromCountry = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipFromCountry"])
+                instance.shipToName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToName"])
+                instance.shipToCompany = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToCompany"])
+                instance.shipToStreet1 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToStreet1"])
+                instance.shipToStreet2 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToStreet2"])
+                instance.shipToCity = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToCity"])
+                instance.shipToState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToState"])
+                instance.shipToZip = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToZip"])
+                instance.shipToCountry = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipToCountry"])
+                instance.originalShipToName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["originalShipToName"])
+                instance.originalShipToCompany = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["originalShipToCompany"])
+                instance.originalShipToStreet1 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["originalShipToStreet1"])
+                instance.originalShipToStreet2 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["originalShipToStreet2"])
+                instance.originalShipToCity = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["originalShipToCity"])
+                instance.originalShipToState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["originalShipToState"])
+                instance.originalShipToZip = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["originalShipToZip"])
+                instance.originalShipToCountry = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["originalShipToCountry"])
+                instance.thirdPartyName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["thirdPartyName"])
+                instance.thirdPartyCompany = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["thirdPartyCompany"])
+                instance.thirdPartyStreet1 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["thirdPartyStreet1"])
+                instance.thirdPartyStreet2 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["thirdPartyStreet2"])
+                instance.thirdPartyCity = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["thirdPartyCity"])
+                instance.thirdPartyState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["thirdPartyState"])
+                instance.thirdPartyZip = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["thirdPartyZip"])
+                instance.thirdPartyCountry = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["thirdPartyCountry"])
+                instance.soldToName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["soldToName"])
+                instance.soldToCompany = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["soldToCompany"])
+                instance.soldToStreet1 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["soldToStreet1"])
+                instance.soldToStreet2 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["soldToStreet2"])
+                instance.soldToCity = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["soldToCity"])
+                instance.soldToState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["soldToState"])
+                instance.soldToZip = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["soldToZip"])
+                instance.soldToCountry = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["soldToCountry"])
+                instance.freightServiceType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["freightServiceType"])
+                instance.netCharges = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["netCharges"])
+                instance.baseFreight = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["baseFreight"])
+                instance.grossCharges = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["grossCharges"])
+                instance.fuelCharge = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["fuelCharge"])
+                instance.residentialCharge = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["residentialCharge"])
+                instance.adultSignatureCharge = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["adultSignatureCharge"])
+                instance.deliveryAreaCharge = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["deliveryAreaCharge"])
+                instance.deliveryAreaChargeExtended = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["deliveryAreaChargeExtended"])
+                instance.addressCorrectionCharge = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["addressCorrectionCharge"])
+                instance.extraCharge1Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge1Name"])
+                instance.extraCharge1Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge1Amount"])
+                instance.extraCharge2Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge2Name"])
+                instance.extraCharge2Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge2Amount"])
+                instance.extraCharge3Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge3Name"])
+                instance.extraCharge3Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge3Amount"])
+                instance.extraCharge4Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge4Name"])
+                instance.extraCharge4Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge4Amount"])
+                instance.extraCharge5Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge5Name"])
+                instance.extraCharge5Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge5Amount"])
+                instance.extraCharge6Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge6Name"])
+                instance.extraCharge6Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge6Amount"])
+                instance.extraCharge7Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge7Name"])
+                instance.extraCharge7Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge7Amount"])
+                instance.extraCharge8Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge8Name"])
+                instance.extraCharge8Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge8Amount"])
+                instance.extraCharge9Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge9Name"])
+                instance.extraCharge9Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge9Amount"])
+                instance.extraCharge10Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge10Name"])
+                instance.extraCharge10Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge10Amount"])
+                instance.extraCharge11Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge11Name"])
+                instance.extraCharge11Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge11Amount"])
+                instance.extraCharge12Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge12Name"])
+                instance.extraCharge12Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge12Amount"])
+                instance.extraCharge13Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge13Name"])
+                instance.extraCharge13Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge13Amount"])
+                instance.extraCharge14Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge14Name"])
+                instance.extraCharge14Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge14Amount"])
+                instance.extraCharge15Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge15Name"])
+                instance.extraCharge15Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge15Amount"])
+                instance.extraCharge16Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge16Name"])
+                instance.extraCharge16Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge16Amount"])
+                instance.extraCharge17Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge17Name"])
+                instance.extraCharge17Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge17Amount"])
+                instance.extraCharge18Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge18Name"])
+                instance.extraCharge18Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge18Amount"])
+                instance.extraCharge19Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge19Name"])
+                instance.extraCharge19Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge19Amount"])
+                instance.extraCharge20Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge20Name"])
+                instance.extraCharge20Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge20Amount"])
+                instance.extraCharge21Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge21Name"])
+                instance.extraCharge21Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge21Amount"])
+                instance.extraCharge22Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge22Name"])
+                instance.extraCharge22Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge22Amount"])
+                instance.extraCharge23Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge23Name"])
+                instance.extraCharge23Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge23Amount"])
+                instance.extraCharge24Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge24Name"])
+                instance.extraCharge24Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge24Amount"])
+                instance.extraCharge25Name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extraCharge25Name"])
+                instance.extraCharge25Amount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extraCharge25Amount"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+			
+
+			// Decoder for [PerpetualInventoryLog]
+            Decoders.addDecoder(clazz: [PerpetualInventoryLog].self) { (source: AnyObject) -> [PerpetualInventoryLog] in
+                return Decoders.decode(clazz: [PerpetualInventoryLog].self, source: source)
+            }
+			// Decoder for PerpetualInventoryLog
+            Decoders.addDecoder(clazz: PerpetualInventoryLog.self) { (source: AnyObject) -> PerpetualInventoryLog in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = PerpetualInventoryLog()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.itemReceiptId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemReceiptId"])
+                instance.skuId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["skuId"])
+                instance.asnId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["asnId"])
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.legacyPoNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["legacyPoNo"])
+                instance.warehouseId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseId"])
+                instance.currentQuantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["currentQuantity"])
+                instance.address = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["address"])
+                instance.warehouseLocationId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseLocationId"])
+                instance.locationStatus = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["locationStatus"])
+                instance.orderDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["orderDate"])
+                instance.receiptStatus = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receiptStatus"])
+                instance.factCost = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["factCost"])
+                instance.mlCost = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["mlCost"])
+                instance.sku = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sku"])
+                instance.orderQuantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderQuantity"])
+                instance.requestedDeliveryDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["requestedDeliveryDate"])
+                instance.unitCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["unitCode"])
+                instance.wrapCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["wrapCode"])
+                instance.unitsPerWrap = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["unitsPerWrap"])
+                instance.cost = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["cost"])
+                instance.sell = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["sell"])
+                instance.pricingPer = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["pricingPer"])
+                instance.maxFreight = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["maxFreight"])
+                instance.chargeFreight = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["chargeFreight"])
+                instance.maxOther = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["maxOther"])
+                instance.distDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["distDate"])
+                instance.voidDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["voidDate"])
+                instance.freezeAction = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["freezeAction"])
+                instance.revDate = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["revDate"])
+                instance.artBack = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["artBack"])
+                instance.origin = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["origin"])
+                instance.sample = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["sample"])
+                instance.sampleTo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sampleTo"])
+                instance.maxOvers = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["maxOvers"])
+                instance.maxUnders = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["maxUnders"])
+                instance.receivedSfp = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["receivedSfp"])
+                instance.budgetCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["budgetCode"])
+                instance.accountingCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["accountingCode"])
+                instance.taxExempt = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["taxExempt"])
+                instance.capitalize = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["capitalize"])
+                instance.accrual = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["accrual"])
+                instance.oddQuantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["oddQuantity"])
+                instance.freightCost = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["freightCost"])
+                instance.receivedDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["receivedDate"])
+                instance.receivedQuantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["receivedQuantity"])
+                instance.fromProd = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["fromProd"])
+                instance.sfpComplete = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sfpComplete"])
+                instance.endQuantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["endQuantity"])
+                instance.endVal = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["endVal"])
+                instance.endFact = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["endFact"])
+                instance.interimQuantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["interimQuantity"])
+                instance.interimVal = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["interimVal"])
+                instance.interimFact = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["interimFact"])
+                instance.lastAct = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["lastAct"])
+                instance.weightPerWrap = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["weightPerWrap"])
+                instance.norcs = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["norcs"])
+                instance.vendorId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["vendorId"])
+                instance.bsVendor = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["bsVendor"])
+                instance.mlVendor = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["mlVendor"])
+                instance.receiptNo = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["receiptNo"])
+                instance.paidFull = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["paidFull"])
+                instance.enteredBy = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["enteredBy"])
+                instance.receivedBy = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["receivedBy"])
+                instance.lineNo = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lineNo"])
+                instance.prodLot = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["prodLot"])
+                instance.productIdTag = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["productIdTag"])
+                instance.unitsPerCase = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["unitsPerCase"])
+                instance.caseWeight = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["caseWeight"])
+                instance.height = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["height"])
+                instance.width = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["width"])
+                instance.length = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["length"])
+                instance.dockDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["dockDate"])
+                instance.impressions = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["impressions"])
+                instance.asnLine = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["asnLine"])
+                instance.updatedAt = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["updatedAt"])
+                instance.itemForwardLotMixingRule = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemForwardLotMixingRule"])
+                instance.itemStorageLotMixingRule = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemStorageLotMixingRule"])
+                instance.itemForwardItemMixingRule = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemForwardItemMixingRule"])
+                instance.itemStorageItemMixingRule = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemStorageItemMixingRule"])
+                instance.itemAllocationRule = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemAllocationRule"])
+                instance.itemBarcodeField = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemBarcodeField"])
+                instance.itemWarehouseDisplayField = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemWarehouseDisplayField"])
+                instance.itemProductIdTagSchemeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["itemProductIdTagSchemeId"])
                 instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
             }
@@ -1656,6 +2865,21 @@ class Decoders {
             }
 			
 
+			// Decoder for [PredefinedCarton]
+            Decoders.addDecoder(clazz: [PredefinedCarton].self) { (source: AnyObject) -> [PredefinedCarton] in
+                return Decoders.decode(clazz: [PredefinedCarton].self, source: source)
+            }
+			// Decoder for PredefinedCarton
+            Decoders.addDecoder(clazz: PredefinedCarton.self) { (source: AnyObject) -> PredefinedCarton in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = PredefinedCarton()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                instance.fullEntityClassName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["fullEntityClassName"])
+                return instance
+            }
+			
+
 			// Decoder for [ProductType]
             Decoders.addDecoder(clazz: [ProductType].self) { (source: AnyObject) -> [ProductType] in
                 return Decoders.decode(clazz: [ProductType].self, source: source)
@@ -1666,6 +2890,7 @@ class Decoders {
                 let instance = ProductType()
                 instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
                 instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                instance.fullEntityClassName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["fullEntityClassName"])
                 return instance
             }
 			
@@ -1705,6 +2930,7 @@ class Decoders {
                 instance.totalQuantity = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalQuantity"])
                 instance.message = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["message"])
                 instance.status = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["status"])
+                instance.productIdTag = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["productIdTag"])
                 instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 instance.sku = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sku"])
                 return instance
@@ -1748,6 +2974,8 @@ class Decoders {
                 instance.pricingPer = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["pricingPer"])
                 instance.generatedItemReceiptId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["generatedItemReceiptId"])
                 instance.generatedASNId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["generatedASNId"])
+                instance.dockDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["dockDate"])
+                instance.productIdTag = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["productIdTag"])
                 instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 instance.sku = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sku"])
                 return instance
@@ -1790,6 +3018,7 @@ class Decoders {
                 instance.status = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["status"])
                 instance.serviceLevel = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["serviceLevel"])
                 instance.receivingProcessId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["receivingProcessId"])
+                instance.dockDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["dockDate"])
                 instance.createdBy = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["createdBy"])
                 instance.worksheetName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["worksheetName"])
                 instance.carrier = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["carrier"])
@@ -1814,6 +3043,7 @@ class Decoders {
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = ReceivingWorksheetLineItem()
                 instance.sku = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sku"])
+                instance.sku2 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sku2"])
                 instance.fullDescription = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["fullDescription"])
                 instance.orderedQty = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["orderedQty"])
                 instance.prevReceivedQty = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["prevReceivedQty"])
@@ -1827,6 +3057,7 @@ class Decoders {
                 instance.weightPerWrap = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["weightPerWrap"])
                 instance.weightPerCase = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["weightPerCase"])
                 instance.productionLot = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["productionLot"])
+                instance.productIdTag = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["productIdTag"])
                 instance.revisionDate = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["revisionDate"])
                 instance.origin = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["origin"])
                 instance.cartonLength = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["cartonLength"])
@@ -1947,6 +3178,51 @@ class Decoders {
                 let instance = ServiceType()
                 instance.serviceType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["serviceType"])
                 instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                instance.fullEntityClassName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["fullEntityClassName"])
+                return instance
+            }
+			
+
+			// Decoder for [Shipment]
+            Decoders.addDecoder(clazz: [Shipment].self) { (source: AnyObject) -> [Shipment] in
+                return Decoders.decode(clazz: [Shipment].self, source: source)
+            }
+			// Decoder for Shipment
+            Decoders.addDecoder(clazz: Shipment.self) { (source: AnyObject) -> Shipment in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = Shipment()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.createDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createDate"])
+                instance.modifyDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["modifyDate"])
+                instance.shipDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["shipDate"])
+                instance.deliveredDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["deliveredDate"])
+                instance.trackingNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["trackingNo"])
+                instance.warehouseId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["warehouseId"])
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.orderNo = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["orderNo"])
+                instance.cartonNo = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["cartonNo"])
+                instance.numberOfCartons = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numberOfCartons"])
+                instance.status = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["status"])
+                instance.shipped = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["shipped"])
+                instance.carrierServiceId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["carrierServiceId"])
+                instance.dim1In = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["dim1In"])
+                instance.dim2In = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["dim2In"])
+                instance.dim3In = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["dim3In"])
+                instance.estimatedZone = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["estimatedZone"])
+                instance.parcelAccountNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["parcelAccountNo"])
+                instance.thirdPartyParcelAccountNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["thirdPartyParcelAccountNo"])
+                instance.manifestId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["manifestId"])
+                instance.residential = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["residential"])
+                instance.billingOption = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["billingOption"])
+                instance.weightLbs = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["weightLbs"])
+                instance.dimWeight = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["dimWeight"])
+                instance.licensePlateNumber = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["licensePlateNumber"])
+                instance.chargedFreightAmount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["chargedFreightAmount"])
+                instance.publishedFreightAmount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["publishedFreightAmount"])
+                instance.retailFreightAmount = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["retailFreightAmount"])
+                instance.externalShippingSystemId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["externalShippingSystemId"])
+                instance.shipmentType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shipmentType"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
             }
 			
@@ -1975,10 +3251,18 @@ class Decoders {
                 instance.shoppingCartStoreURL = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["shoppingCartStoreURL"])
                 instance.accessCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["accessCode"])
                 instance.accessToken = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["accessToken"])
+                instance.username = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["username"])
+                instance.password = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["password"])
+                instance.defaultCarrierId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["defaultCarrierId"])
+                instance.orderShipmentLevel = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["orderShipmentLevel"])
                 instance.syncOrders = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["syncOrders"])
                 instance.syncInventory = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["syncInventory"])
                 instance.syncTrackingData = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["syncTrackingData"])
+                instance.fulfillAllItems = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["fulfillAllItems"])
                 instance.syncInventoryLevelsLastRunTime = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["syncInventoryLevelsLastRunTime"])
+                instance.syncOrdersLastRunTime = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["syncOrdersLastRunTime"])
+                instance.inventoryLevelWarehouseControls = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["inventoryLevelWarehouseControls"])
+                instance.warehouseList = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["warehouseList"])
                 instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
             }
@@ -2068,6 +3352,7 @@ class Decoders {
                 let instance = User()
                 instance.userId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["userId"])
                 instance.label = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["label"])
+                instance.fullEntityClassName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["fullEntityClassName"])
                 return instance
             }
 			
@@ -2235,6 +3520,165 @@ class Decoders {
                 instance.userId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["userId"])
                 instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
                 instance.workBatchId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["workBatchId"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+			
+
+			// Decoder for [WorkActivity]
+            Decoders.addDecoder(clazz: [WorkActivity].self) { (source: AnyObject) -> [WorkActivity] in
+                return Decoders.decode(clazz: [WorkActivity].self, source: source)
+            }
+			// Decoder for WorkActivity
+            Decoders.addDecoder(clazz: WorkActivity.self) { (source: AnyObject) -> WorkActivity in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = WorkActivity()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.importedRecordId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["importedRecordId"])
+                instance.lobId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lobId"])
+                instance.createDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createDate"])
+                instance.modifyDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["modifyDate"])
+                instance.userId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["userId"])
+                instance.email = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["email"])
+                instance._type = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["type"])
+                instance.typeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["typeName"])
+                instance.status = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["status"])
+                instance.statusName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["statusName"])
+                instance.workBatchId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["workBatchId"])
+                instance.workParentId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["workParentId"])
+                instance.priorityCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["priorityCode"])
+                instance.foreignId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["foreignId"])
+                instance.sourceWarehouseId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["sourceWarehouseId"])
+                instance.sourceWarehouseName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sourceWarehouseName"])
+                instance.sourceLocation = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sourceLocation"])
+                instance.sourceBuildingId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["sourceBuildingId"])
+                instance.sourceBuildingName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sourceBuildingName"])
+                instance.sourceZoneId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["sourceZoneId"])
+                instance.sourceZoneName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sourceZoneName"])
+                instance.sourceAisleId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["sourceAisleId"])
+                instance.sourceAisleAddress = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sourceAisleAddress"])
+                instance.sourceOrigin = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["sourceOrigin"])
+                instance.sourceOriginName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sourceOriginName"])
+                instance.sourceBillingTypeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["sourceBillingTypeId"])
+                instance.sourceBillingTypeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sourceBillingTypeName"])
+                instance.sourceBehaviorType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sourceBehaviorType"])
+                instance.sourceBehaviorTypeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sourceBehaviorTypeName"])
+                instance.sourceFootprintId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["sourceFootprintId"])
+                instance.sourceFootprintName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sourceFootprintName"])
+                instance.sourceFootprintHeight = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["sourceFootprintHeight"])
+                instance.sourceFootprintWidth = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["sourceFootprintWidth"])
+                instance.sourceFootprintDepth = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["sourceFootprintDepth"])
+                instance.sourceAddressSchemeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["sourceAddressSchemeId"])
+                instance.sourceAddressSchemeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sourceAddressSchemeName"])
+                instance.sourceLevel = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["sourceLevel"])
+                instance.sourceBay = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["sourceBay"])
+                instance.sourceNumber = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["sourceNumber"])
+                instance.sourceOnline = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["sourceOnline"])
+                instance.sourcePriorityCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["sourcePriorityCode"])
+                instance.sourceCost = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["sourceCost"])
+                instance.sourceAllowItemMixing = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["sourceAllowItemMixing"])
+                instance.destinationWarehouseId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["destinationWarehouseId"])
+                instance.destinationWarehouseName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["destinationWarehouseName"])
+                instance.destinationLocation = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["destinationLocation"])
+                instance.destinationBuildingId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["destinationBuildingId"])
+                instance.destinationBuildingName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["destinationBuildingName"])
+                instance.destinationZoneId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["destinationZoneId"])
+                instance.destinationZoneName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["destinationZoneName"])
+                instance.destinationAisleId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["destinationAisleId"])
+                instance.destinationAisleAddress = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["destinationAisleAddress"])
+                instance.destinationOrigin = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["destinationOrigin"])
+                instance.destinationOriginName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["destinationOriginName"])
+                instance.destinationBillingTypeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["destinationBillingTypeId"])
+                instance.destinationBillingTypeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["destinationBillingTypeName"])
+                instance.destinationBehaviorType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["destinationBehaviorType"])
+                instance.destinationBehaviorTypeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["destinationBehaviorTypeName"])
+                instance.destinationFootprintId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["destinationFootprintId"])
+                instance.destinationFootprintName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["destinationFootprintName"])
+                instance.destinationFootprintHeight = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["destinationFootprintHeight"])
+                instance.destinationFootprintWidth = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["destinationFootprintWidth"])
+                instance.destinationFootprintDepth = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["destinationFootprintDepth"])
+                instance.destinationAddressSchemeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["destinationAddressSchemeId"])
+                instance.destinationAddressSchemeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["destinationAddressSchemeName"])
+                instance.destinationLevel = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["destinationLevel"])
+                instance.destinationBay = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["destinationBay"])
+                instance.destinationNumber = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["destinationNumber"])
+                instance.destinationOnline = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["destinationOnline"])
+                instance.destinationPriorityCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["destinationPriorityCode"])
+                instance.destinationCost = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["destinationCost"])
+                instance.destinationAllowItemMixing = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["destinationAllowItemMixing"])
+                instance.masterRef = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["masterRef"])
+                instance.weightPerWrap = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["weightPerWrap"])
+                instance.sku = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sku"])
+                instance.numericSortOrder = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numericSortOrder"])
+                instance.itemDescription = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemDescription"])
+                instance.additionalDescription = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["additionalDescription"])
+                instance.unitCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["unitCode"])
+                instance.wrapCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["wrapCode"])
+                instance.unitsPerWrap = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["unitsPerWrap"])
+                instance.classRestriction = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["classRestriction"])
+                instance.maxCycle = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["maxCycle"])
+                instance.maxInterim = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["maxInterim"])
+                instance.seasonalItem = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["seasonalItem"])
+                instance.secure = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["secure"])
+                instance.productType = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["productType"])
+                instance.itemStatus = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["itemStatus"])
+                instance.overallLeadTime = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["overallLeadTime"])
+                instance.overallFixedReorderPoint = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["overallFixedReorderPoint"])
+                instance.qualityControlIndicator = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["qualityControlIndicator"])
+                instance.lotControlFlag = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["lotControlFlag"])
+                instance.productCodeFlag = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["productCodeFlag"])
+                instance.chargeCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["chargeCode"])
+                instance.podRevDate = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["podRevDate"])
+                instance.podOrderSuffix = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["podOrderSuffix"])
+                instance.serialCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["serialCode"])
+                instance.assetCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["assetCode"])
+                instance.backorder = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["backorder"])
+                instance.absoluteMax = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["absoluteMax"])
+                instance.accountCodeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["accountCodeId"])
+                instance.summaryCodeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["summaryCodeId"])
+                instance.lowStockContactId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lowStockContactId"])
+                instance.legacyLowLevelContactId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["legacyLowLevelContactId"])
+                instance.lowStockCodeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["lowStockCodeId"])
+                instance.majorGroupId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["majorGroupId"])
+                instance.subGroupId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["subGroupId"])
+                instance.productCodeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["productCodeId"])
+                instance.buyerId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["buyerId"])
+                instance.vendorSKU = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vendorSKU"])
+                instance.upc = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["upc"])
+                instance.packingSlipDescription = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["packingSlipDescription"])
+                instance.commodityCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["commodityCode"])
+                instance.compCode = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["compCode"])
+                instance.criticalAmount = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["criticalAmount"])
+                instance.listPrice = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["listPrice"])
+                instance.outsideVendor = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["outsideVendor"])
+                instance.pickNo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["pickNo"])
+                instance.requiresProductionLot = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["requiresProductionLot"])
+                instance.sector = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sector"])
+                instance.voidDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["voidDate"])
+                instance.extrinsicText1 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extrinsicText1"])
+                instance.extrinsicText2 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extrinsicText2"])
+                instance.extrinsicText3 = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extrinsicText3"])
+                instance.extrinsicNumber1 = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["extrinsicNumber1"])
+                instance.extrinsicNumber2 = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["extrinsicNumber2"])
+                instance.extrinsicDecimal1 = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extrinsicDecimal1"])
+                instance.extrinsicDecimal2 = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["extrinsicDecimal2"])
+                instance.casebreakEnabled = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["casebreakEnabled"])
+                instance.alcoholTypeId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["alcoholTypeId"])
+                instance.alcoholTypeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholTypeName"])
+                instance.alcoholContent = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["alcoholContent"])
+                instance.alcoholContainerId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["alcoholContainerId"])
+                instance.alcoholContainerName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholContainerName"])
+                instance.alcoholContainerVolume = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["alcoholContainerVolume"])
+                instance.alcoholVintageYear = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholVintageYear"])
+                instance.alcoholCountryId = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["alcoholCountryId"])
+                instance.alcoholCountryName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholCountryName"])
+                instance.alcoholState = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholState"])
+                instance.alcoholRegion = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholRegion"])
+                instance.alcoholBrand = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholBrand"])
+                instance.alcoholUPCCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholUPCCode"])
+                instance.alcoholNABCACode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholNABCACode"])
+                instance.alcoholUNIMERCCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholUNIMERCCode"])
+                instance.alcoholSCCCode = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["alcoholSCCCode"])
                 instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
             }

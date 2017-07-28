@@ -20,6 +20,7 @@ public class OrderSource: JSONEncodable {
     public var requireGS1128Label: Bool?
     public var shippingNotes: String?
     public var packingSlipId: Int?
+    public var orderInvoiceId: Int?
     public var orderConfirmationEmailId: Int?
     public var shipmentConfirmationEmailId: Int?
     public var customFields: [String:AnyObject]?
@@ -40,6 +41,7 @@ public class OrderSource: JSONEncodable {
         nillableDictionary["requireGS1128Label"] = self.requireGS1128Label
         nillableDictionary["shippingNotes"] = self.shippingNotes
         nillableDictionary["packingSlipId"] = self.packingSlipId
+        nillableDictionary["orderInvoiceId"] = self.orderInvoiceId
         nillableDictionary["orderConfirmationEmailId"] = self.orderConfirmationEmailId
         nillableDictionary["shipmentConfirmationEmailId"] = self.shipmentConfirmationEmailId
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()

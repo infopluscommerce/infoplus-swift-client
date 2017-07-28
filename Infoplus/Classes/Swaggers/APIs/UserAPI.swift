@@ -34,6 +34,7 @@ public class UserAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
+  "fullEntityClassName" : "aeiou",
   "label" : "aeiou",
   "userId" : 123
 }}]
@@ -81,6 +82,7 @@ public class UserAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
+  "fullEntityClassName" : "aeiou",
   "label" : "aeiou",
   "userId" : 123
 } ]}]

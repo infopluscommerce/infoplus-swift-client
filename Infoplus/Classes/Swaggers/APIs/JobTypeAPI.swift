@@ -64,6 +64,94 @@ public class JobTypeAPI: APIBase {
 
     /**
      
+     Add new audit for a jobType
+     
+     - parameter jobTypeId: (path) Id of the jobType to add an audit to 
+     - parameter jobTypeAudit: (path) The audit to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addJobTypeAudit(jobTypeId jobTypeId: Int, jobTypeAudit: String, completion: ((error: ErrorType?) -> Void)) {
+        addJobTypeAuditWithRequestBuilder(jobTypeId: jobTypeId, jobTypeAudit: jobTypeAudit).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new audit for a jobType
+     
+     - PUT /beta/jobType/{jobTypeId}/audit/{jobTypeAudit}
+     - Adds an audit to an existing jobType.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter jobTypeId: (path) Id of the jobType to add an audit to 
+     - parameter jobTypeAudit: (path) The audit to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addJobTypeAuditWithRequestBuilder(jobTypeId jobTypeId: Int, jobTypeAudit: String) -> RequestBuilder<Void> {
+        var path = "/beta/jobType/{jobTypeId}/audit/{jobTypeAudit}"
+        path = path.stringByReplacingOccurrencesOfString("{jobTypeId}", withString: "\(jobTypeId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{jobTypeAudit}", withString: "\(jobTypeAudit)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new tags for a jobType.
+     
+     - parameter jobTypeId: (path) Id of the jobType to add a tag to 
+     - parameter jobTypeTag: (path) The tag to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addJobTypeTag(jobTypeId jobTypeId: Int, jobTypeTag: String, completion: ((error: ErrorType?) -> Void)) {
+        addJobTypeTagWithRequestBuilder(jobTypeId: jobTypeId, jobTypeTag: jobTypeTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new tags for a jobType.
+     
+     - PUT /beta/jobType/{jobTypeId}/tag/{jobTypeTag}
+     - Adds a tag to an existing jobType.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter jobTypeId: (path) Id of the jobType to add a tag to 
+     - parameter jobTypeTag: (path) The tag to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addJobTypeTagWithRequestBuilder(jobTypeId jobTypeId: Int, jobTypeTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/jobType/{jobTypeId}/tag/{jobTypeTag}"
+        path = path.stringByReplacingOccurrencesOfString("{jobTypeId}", withString: "\(jobTypeId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{jobTypeTag}", withString: "\(jobTypeTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Delete a jobType
      
      - parameter jobTypeId: (path) Id of the jobType to be deleted. 
@@ -101,6 +189,104 @@ public class JobTypeAPI: APIBase {
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Delete a tag for a jobType.
+     
+     - parameter jobTypeId: (path) Id of the jobType to remove tag from 
+     - parameter jobTypeTag: (path) The tag to delete 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func deleteJobTypeTag(jobTypeId jobTypeId: Int, jobTypeTag: String, completion: ((error: ErrorType?) -> Void)) {
+        deleteJobTypeTagWithRequestBuilder(jobTypeId: jobTypeId, jobTypeTag: jobTypeTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Delete a tag for a jobType.
+     
+     - DELETE /beta/jobType/{jobTypeId}/tag/{jobTypeTag}
+     - Deletes an existing jobType tag using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter jobTypeId: (path) Id of the jobType to remove tag from 
+     - parameter jobTypeTag: (path) The tag to delete 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func deleteJobTypeTagWithRequestBuilder(jobTypeId jobTypeId: Int, jobTypeTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/jobType/{jobTypeId}/tag/{jobTypeTag}"
+        path = path.stringByReplacingOccurrencesOfString("{jobTypeId}", withString: "\(jobTypeId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{jobTypeTag}", withString: "\(jobTypeTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get a duplicated a jobType by id
+     
+     - parameter jobTypeId: (path) Id of the jobType to be duplicated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getDuplicateJobTypeById(jobTypeId jobTypeId: Int, completion: ((data: JobType?, error: ErrorType?) -> Void)) {
+        getDuplicateJobTypeByIdWithRequestBuilder(jobTypeId: jobTypeId).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Get a duplicated a jobType by id
+     
+     - GET /beta/jobType/duplicate/{jobTypeId}
+     - Returns a duplicated jobType identified by the specified id.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "clientId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
+  "description" : "aeiou",
+  "jobCode" : "aeiou",
+  "id" : 123,
+  "isActive" : true,
+  "createDate" : "2000-01-23T04:56:07.000+0000"
+}}]
+     
+     - parameter jobTypeId: (path) Id of the jobType to be duplicated. 
+
+     - returns: RequestBuilder<JobType> 
+     */
+    public class func getDuplicateJobTypeByIdWithRequestBuilder(jobTypeId jobTypeId: Int) -> RequestBuilder<JobType> {
+        var path = "/beta/jobType/duplicate/{jobTypeId}"
+        path = path.stringByReplacingOccurrencesOfString("{jobTypeId}", withString: "\(jobTypeId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<JobType>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -217,6 +403,47 @@ public class JobTypeAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<JobType>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get the tags for a jobType.
+     
+     - parameter jobTypeId: (path) Id of the jobType to get tags for 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getJobTypeTags(jobTypeId jobTypeId: Int, completion: ((error: ErrorType?) -> Void)) {
+        getJobTypeTagsWithRequestBuilder(jobTypeId: jobTypeId).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Get the tags for a jobType.
+     
+     - GET /beta/jobType/{jobTypeId}/tag
+     - Get all existing jobType tags.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter jobTypeId: (path) Id of the jobType to get tags for 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func getJobTypeTagsWithRequestBuilder(jobTypeId jobTypeId: Int) -> RequestBuilder<Void> {
+        var path = "/beta/jobType/{jobTypeId}/tag"
+        path = path.stringByReplacingOccurrencesOfString("{jobTypeId}", withString: "\(jobTypeId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }

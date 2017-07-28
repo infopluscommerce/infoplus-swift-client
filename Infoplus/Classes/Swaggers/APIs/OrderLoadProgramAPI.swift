@@ -36,6 +36,7 @@ public class OrderLoadProgramAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
+  "fullEntityClassName" : "aeiou",
   "id" : 123,
   "label" : "aeiou"
 } ]}]
@@ -86,6 +87,7 @@ public class OrderLoadProgramAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
+  "fullEntityClassName" : "aeiou",
   "id" : 123,
   "label" : "aeiou"
 }}]

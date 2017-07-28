@@ -26,10 +26,18 @@ public class ShoppingCartConnection: JSONEncodable {
     public var shoppingCartStoreURL: String?
     public var accessCode: String?
     public var accessToken: String?
+    public var username: String?
+    public var password: String?
+    public var defaultCarrierId: Int?
+    public var orderShipmentLevel: String?
     public var syncOrders: Bool?
     public var syncInventory: Bool?
     public var syncTrackingData: Bool?
+    public var fulfillAllItems: Bool?
     public var syncInventoryLevelsLastRunTime: NSDate?
+    public var syncOrdersLastRunTime: NSDate?
+    public var inventoryLevelWarehouseControls: String?
+    public var warehouseList: [Warehouse]?
     public var customFields: [String:AnyObject]?
     
 
@@ -54,10 +62,18 @@ public class ShoppingCartConnection: JSONEncodable {
         nillableDictionary["shoppingCartStoreURL"] = self.shoppingCartStoreURL
         nillableDictionary["accessCode"] = self.accessCode
         nillableDictionary["accessToken"] = self.accessToken
+        nillableDictionary["username"] = self.username
+        nillableDictionary["password"] = self.password
+        nillableDictionary["defaultCarrierId"] = self.defaultCarrierId
+        nillableDictionary["orderShipmentLevel"] = self.orderShipmentLevel
         nillableDictionary["syncOrders"] = self.syncOrders
         nillableDictionary["syncInventory"] = self.syncInventory
         nillableDictionary["syncTrackingData"] = self.syncTrackingData
+        nillableDictionary["fulfillAllItems"] = self.fulfillAllItems
         nillableDictionary["syncInventoryLevelsLastRunTime"] = self.syncInventoryLevelsLastRunTime?.encodeToJSON()
+        nillableDictionary["syncOrdersLastRunTime"] = self.syncOrdersLastRunTime?.encodeToJSON()
+        nillableDictionary["inventoryLevelWarehouseControls"] = self.inventoryLevelWarehouseControls
+        nillableDictionary["warehouseList"] = self.warehouseList?.encodeToJSON()
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

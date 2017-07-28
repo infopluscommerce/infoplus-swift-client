@@ -12,15 +12,13 @@ import Alamofire
 public class ItemSummaryCodeAPI: APIBase {
     /**
      
-     Search itemSummaryCodes
+     Create an itemSummaryCode
      
-     - parameter searchText: (query) Search text, used to filter results. (optional)
-     - parameter page: (query) Result page number.  Defaults to 1. (optional)
-     - parameter limit: (query) Maximum results per page.  Defaults to 20.  Max allowed value is 250. (optional)
+     - parameter body: (body) ItemSummaryCode to be inserted. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getItemSummaryCodeBySearchText(searchText searchText: String?, page: Int?, limit: Int?, completion: ((data: [ItemSummaryCode]?, error: ErrorType?) -> Void)) {
-        getItemSummaryCodeBySearchTextWithRequestBuilder(searchText: searchText, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func addItemSummaryCode(body body: ItemSummaryCode, completion: ((data: ItemSummaryCode?, error: ErrorType?) -> Void)) {
+        addItemSummaryCodeWithRequestBuilder(body: body).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -28,32 +26,313 @@ public class ItemSummaryCodeAPI: APIBase {
 
     /**
      
-     Search itemSummaryCodes
+     Create an itemSummaryCode
+     
+     - POST /beta/itemSummaryCode
+     - Inserts a new itemSummaryCode using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "internalId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
+  "id" : "aeiou",
+  "lobId" : 123
+}}]
+     
+     - parameter body: (body) ItemSummaryCode to be inserted. 
+
+     - returns: RequestBuilder<ItemSummaryCode> 
+     */
+    public class func addItemSummaryCodeWithRequestBuilder(body body: ItemSummaryCode) -> RequestBuilder<ItemSummaryCode> {
+        let path = "/beta/itemSummaryCode"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<ItemSummaryCode>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new audit for an itemSummaryCode
+     
+     - parameter itemSummaryCodeId: (path) Id of the itemSummaryCode to add an audit to 
+     - parameter itemSummaryCodeAudit: (path) The audit to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addItemSummaryCodeAudit(itemSummaryCodeId itemSummaryCodeId: Int, itemSummaryCodeAudit: String, completion: ((error: ErrorType?) -> Void)) {
+        addItemSummaryCodeAuditWithRequestBuilder(itemSummaryCodeId: itemSummaryCodeId, itemSummaryCodeAudit: itemSummaryCodeAudit).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new audit for an itemSummaryCode
+     
+     - PUT /beta/itemSummaryCode/{itemSummaryCodeId}/audit/{itemSummaryCodeAudit}
+     - Adds an audit to an existing itemSummaryCode.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter itemSummaryCodeId: (path) Id of the itemSummaryCode to add an audit to 
+     - parameter itemSummaryCodeAudit: (path) The audit to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addItemSummaryCodeAuditWithRequestBuilder(itemSummaryCodeId itemSummaryCodeId: Int, itemSummaryCodeAudit: String) -> RequestBuilder<Void> {
+        var path = "/beta/itemSummaryCode/{itemSummaryCodeId}/audit/{itemSummaryCodeAudit}"
+        path = path.stringByReplacingOccurrencesOfString("{itemSummaryCodeId}", withString: "\(itemSummaryCodeId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{itemSummaryCodeAudit}", withString: "\(itemSummaryCodeAudit)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Add new tags for an itemSummaryCode.
+     
+     - parameter itemSummaryCodeId: (path) Id of the itemSummaryCode to add a tag to 
+     - parameter itemSummaryCodeTag: (path) The tag to add 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func addItemSummaryCodeTag(itemSummaryCodeId itemSummaryCodeId: Int, itemSummaryCodeTag: String, completion: ((error: ErrorType?) -> Void)) {
+        addItemSummaryCodeTagWithRequestBuilder(itemSummaryCodeId: itemSummaryCodeId, itemSummaryCodeTag: itemSummaryCodeTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Add new tags for an itemSummaryCode.
+     
+     - PUT /beta/itemSummaryCode/{itemSummaryCodeId}/tag/{itemSummaryCodeTag}
+     - Adds a tag to an existing itemSummaryCode.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter itemSummaryCodeId: (path) Id of the itemSummaryCode to add a tag to 
+     - parameter itemSummaryCodeTag: (path) The tag to add 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func addItemSummaryCodeTagWithRequestBuilder(itemSummaryCodeId itemSummaryCodeId: Int, itemSummaryCodeTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/itemSummaryCode/{itemSummaryCodeId}/tag/{itemSummaryCodeTag}"
+        path = path.stringByReplacingOccurrencesOfString("{itemSummaryCodeId}", withString: "\(itemSummaryCodeId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{itemSummaryCodeTag}", withString: "\(itemSummaryCodeTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Delete an itemSummaryCode
+     
+     - parameter itemSummaryCodeId: (path) Id of the itemSummaryCode to be deleted. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func deleteItemSummaryCode(itemSummaryCodeId itemSummaryCodeId: Int, completion: ((error: ErrorType?) -> Void)) {
+        deleteItemSummaryCodeWithRequestBuilder(itemSummaryCodeId: itemSummaryCodeId).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Delete an itemSummaryCode
+     
+     - DELETE /beta/itemSummaryCode/{itemSummaryCodeId}
+     - Deletes the itemSummaryCode identified by the specified id.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter itemSummaryCodeId: (path) Id of the itemSummaryCode to be deleted. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func deleteItemSummaryCodeWithRequestBuilder(itemSummaryCodeId itemSummaryCodeId: Int) -> RequestBuilder<Void> {
+        var path = "/beta/itemSummaryCode/{itemSummaryCodeId}"
+        path = path.stringByReplacingOccurrencesOfString("{itemSummaryCodeId}", withString: "\(itemSummaryCodeId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Delete a tag for an itemSummaryCode.
+     
+     - parameter itemSummaryCodeId: (path) Id of the itemSummaryCode to remove tag from 
+     - parameter itemSummaryCodeTag: (path) The tag to delete 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func deleteItemSummaryCodeTag(itemSummaryCodeId itemSummaryCodeId: Int, itemSummaryCodeTag: String, completion: ((error: ErrorType?) -> Void)) {
+        deleteItemSummaryCodeTagWithRequestBuilder(itemSummaryCodeId: itemSummaryCodeId, itemSummaryCodeTag: itemSummaryCodeTag).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Delete a tag for an itemSummaryCode.
+     
+     - DELETE /beta/itemSummaryCode/{itemSummaryCodeId}/tag/{itemSummaryCodeTag}
+     - Deletes an existing itemSummaryCode tag using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter itemSummaryCodeId: (path) Id of the itemSummaryCode to remove tag from 
+     - parameter itemSummaryCodeTag: (path) The tag to delete 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func deleteItemSummaryCodeTagWithRequestBuilder(itemSummaryCodeId itemSummaryCodeId: Int, itemSummaryCodeTag: String) -> RequestBuilder<Void> {
+        var path = "/beta/itemSummaryCode/{itemSummaryCodeId}/tag/{itemSummaryCodeTag}"
+        path = path.stringByReplacingOccurrencesOfString("{itemSummaryCodeId}", withString: "\(itemSummaryCodeId)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{itemSummaryCodeTag}", withString: "\(itemSummaryCodeTag)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get a duplicated an itemSummaryCode by id
+     
+     - parameter itemSummaryCodeId: (path) Id of the itemSummaryCode to be duplicated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getDuplicateItemSummaryCodeById(itemSummaryCodeId itemSummaryCodeId: Int, completion: ((data: ItemSummaryCode?, error: ErrorType?) -> Void)) {
+        getDuplicateItemSummaryCodeByIdWithRequestBuilder(itemSummaryCodeId: itemSummaryCodeId).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Get a duplicated an itemSummaryCode by id
+     
+     - GET /beta/itemSummaryCode/duplicate/{itemSummaryCodeId}
+     - Returns a duplicated itemSummaryCode identified by the specified id.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "internalId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
+  "id" : "aeiou",
+  "lobId" : 123
+}}]
+     
+     - parameter itemSummaryCodeId: (path) Id of the itemSummaryCode to be duplicated. 
+
+     - returns: RequestBuilder<ItemSummaryCode> 
+     */
+    public class func getDuplicateItemSummaryCodeByIdWithRequestBuilder(itemSummaryCodeId itemSummaryCodeId: Int) -> RequestBuilder<ItemSummaryCode> {
+        var path = "/beta/itemSummaryCode/duplicate/{itemSummaryCodeId}"
+        path = path.stringByReplacingOccurrencesOfString("{itemSummaryCodeId}", withString: "\(itemSummaryCodeId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<ItemSummaryCode>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Search itemSummaryCodes by filter
+     
+     - parameter filter: (query) Query string, used to filter results. (optional)
+     - parameter page: (query) Result page number.  Defaults to 1. (optional)
+     - parameter limit: (query) Maximum results per page.  Defaults to 20.  Max allowed value is 250. (optional)
+     - parameter sort: (query) Sort results by specified field. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getItemSummaryCodeByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [ItemSummaryCode]?, error: ErrorType?) -> Void)) {
+        getItemSummaryCodeByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Search itemSummaryCodes by filter
      
      - GET /beta/itemSummaryCode/search
-     - Returns the list of itemSummaryCodes that match the given searchText.
+     - Returns the list of itemSummaryCodes that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "id" : 123,
-  "label" : "aeiou"
+  "internalId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
+  "id" : "aeiou",
+  "lobId" : 123
 } ]}]
      
-     - parameter searchText: (query) Search text, used to filter results. (optional)
+     - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
      - parameter limit: (query) Maximum results per page.  Defaults to 20.  Max allowed value is 250. (optional)
+     - parameter sort: (query) Sort results by specified field. (optional)
 
      - returns: RequestBuilder<[ItemSummaryCode]> 
      */
-    public class func getItemSummaryCodeBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[ItemSummaryCode]> {
+    public class func getItemSummaryCodeByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ItemSummaryCode]> {
         let path = "/beta/itemSummaryCode/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
-            "searchText": searchText,
+            "filter": filter,
             "page": page,
-            "limit": limit
+            "limit": limit,
+            "sort": sort
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
@@ -66,11 +345,11 @@ public class ItemSummaryCodeAPI: APIBase {
      
      Get an itemSummaryCode by id
      
-     - parameter itemSummaryCodeId: (path) Id of itemSummaryCode to be returned. 
+     - parameter itemSummaryCodeId: (path) Id of the itemSummaryCode to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getTranslateSummaryCodeById(itemSummaryCodeId itemSummaryCodeId: String, completion: ((data: ItemSummaryCode?, error: ErrorType?) -> Void)) {
-        getTranslateSummaryCodeByIdWithRequestBuilder(itemSummaryCodeId: itemSummaryCodeId).execute { (response, error) -> Void in
+    public class func getItemSummaryCodeById(itemSummaryCodeId itemSummaryCodeId: Int, completion: ((data: ItemSummaryCode?, error: ErrorType?) -> Void)) {
+        getItemSummaryCodeByIdWithRequestBuilder(itemSummaryCodeId: itemSummaryCodeId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -86,15 +365,20 @@ public class ItemSummaryCodeAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "id" : 123,
-  "label" : "aeiou"
+  "internalId" : 123,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "aeiou",
+  "id" : "aeiou",
+  "lobId" : 123
 }}]
      
-     - parameter itemSummaryCodeId: (path) Id of itemSummaryCode to be returned. 
+     - parameter itemSummaryCodeId: (path) Id of the itemSummaryCode to be returned. 
 
      - returns: RequestBuilder<ItemSummaryCode> 
      */
-    public class func getTranslateSummaryCodeByIdWithRequestBuilder(itemSummaryCodeId itemSummaryCodeId: String) -> RequestBuilder<ItemSummaryCode> {
+    public class func getItemSummaryCodeByIdWithRequestBuilder(itemSummaryCodeId itemSummaryCodeId: Int) -> RequestBuilder<ItemSummaryCode> {
         var path = "/beta/itemSummaryCode/{itemSummaryCodeId}"
         path = path.stringByReplacingOccurrencesOfString("{itemSummaryCodeId}", withString: "\(itemSummaryCodeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
@@ -105,6 +389,86 @@ public class ItemSummaryCodeAPI: APIBase {
         let requestBuilder: RequestBuilder<ItemSummaryCode>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Get the tags for an itemSummaryCode.
+     
+     - parameter itemSummaryCodeId: (path) Id of the itemSummaryCode to get tags for 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getItemSummaryCodeTags(itemSummaryCodeId itemSummaryCodeId: Int, completion: ((error: ErrorType?) -> Void)) {
+        getItemSummaryCodeTagsWithRequestBuilder(itemSummaryCodeId: itemSummaryCodeId).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Get the tags for an itemSummaryCode.
+     
+     - GET /beta/itemSummaryCode/{itemSummaryCodeId}/tag
+     - Get all existing itemSummaryCode tags.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter itemSummaryCodeId: (path) Id of the itemSummaryCode to get tags for 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func getItemSummaryCodeTagsWithRequestBuilder(itemSummaryCodeId itemSummaryCodeId: Int) -> RequestBuilder<Void> {
+        var path = "/beta/itemSummaryCode/{itemSummaryCodeId}/tag"
+        path = path.stringByReplacingOccurrencesOfString("{itemSummaryCodeId}", withString: "\(itemSummaryCodeId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update an itemSummaryCode
+     
+     - parameter body: (body) ItemSummaryCode to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateItemSummaryCode(body body: ItemSummaryCode, completion: ((error: ErrorType?) -> Void)) {
+        updateItemSummaryCodeWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update an itemSummaryCode
+     
+     - PUT /beta/itemSummaryCode
+     - Updates an existing itemSummaryCode using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) ItemSummaryCode to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateItemSummaryCodeWithRequestBuilder(body body: ItemSummaryCode) -> RequestBuilder<Void> {
+        let path = "/beta/itemSummaryCode"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }
