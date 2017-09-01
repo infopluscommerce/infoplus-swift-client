@@ -22,6 +22,7 @@ public class FulfillmentProcess: JSONEncodable {
     public var orderSmartFilterId: Int?
     public var locationSmartFilterId: Int?
     public var orderLimit: Int?
+    public var version: String?
     public var numberOfOrders: Int?
     public var numberOfLines: Int?
     public var numberOfSKUs: Int?
@@ -78,6 +79,7 @@ public class FulfillmentProcess: JSONEncodable {
         nillableDictionary["orderSmartFilterId"] = self.orderSmartFilterId
         nillableDictionary["locationSmartFilterId"] = self.locationSmartFilterId
         nillableDictionary["orderLimit"] = self.orderLimit
+        nillableDictionary["version"] = self.version
         nillableDictionary["numberOfOrders"] = self.numberOfOrders
         nillableDictionary["numberOfLines"] = self.numberOfLines
         nillableDictionary["numberOfSKUs"] = self.numberOfSKUs

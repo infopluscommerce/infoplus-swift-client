@@ -40,6 +40,8 @@ public class CartonActivity: JSONEncodable {
     public var chargedFreightAmount: Double?
     public var publishedFreightAmount: Double?
     public var retailFreightAmount: Double?
+    public var cartonCreateDate: NSDate?
+    public var cartonModifyDate: NSDate?
     public var alternateUsage: String?
     public var groupOrderId: Double?
     public var orderStatus: String?
@@ -62,6 +64,7 @@ public class CartonActivity: JSONEncodable {
     public var customerOrderNo: String?
     public var priceLevel: String?
     public var orderCreateDate: NSDate?
+    public var orderModifyDate: NSDate?
     public var shipBy: NSDate?
     public var stopBackOrders: String?
     public var orderSourceId: Int?
@@ -179,6 +182,8 @@ public class CartonActivity: JSONEncodable {
         nillableDictionary["chargedFreightAmount"] = self.chargedFreightAmount
         nillableDictionary["publishedFreightAmount"] = self.publishedFreightAmount
         nillableDictionary["retailFreightAmount"] = self.retailFreightAmount
+        nillableDictionary["cartonCreateDate"] = self.cartonCreateDate?.encodeToJSON()
+        nillableDictionary["cartonModifyDate"] = self.cartonModifyDate?.encodeToJSON()
         nillableDictionary["alternateUsage"] = self.alternateUsage
         nillableDictionary["groupOrderId"] = self.groupOrderId
         nillableDictionary["orderStatus"] = self.orderStatus
@@ -201,6 +206,7 @@ public class CartonActivity: JSONEncodable {
         nillableDictionary["customerOrderNo"] = self.customerOrderNo
         nillableDictionary["priceLevel"] = self.priceLevel
         nillableDictionary["orderCreateDate"] = self.orderCreateDate?.encodeToJSON()
+        nillableDictionary["orderModifyDate"] = self.orderModifyDate?.encodeToJSON()
         nillableDictionary["shipBy"] = self.shipBy?.encodeToJSON()
         nillableDictionary["stopBackOrders"] = self.stopBackOrders
         nillableDictionary["orderSourceId"] = self.orderSourceId

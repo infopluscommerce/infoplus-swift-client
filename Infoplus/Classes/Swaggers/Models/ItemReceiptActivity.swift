@@ -13,6 +13,8 @@ public class ItemReceiptActivity: JSONEncodable {
     public var id: Int?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
+    public var receiptASNCreateDate: NSDate?
+    public var receiptModifyDate: NSDate?
     public var itemReceiptId: Int?
     public var lobId: Int?
     public var poNo: String?
@@ -22,14 +24,20 @@ public class ItemReceiptActivity: JSONEncodable {
     public var receiptRevisionDate: String?
     public var receiptProductionLot: String?
     public var receiptReceiveDate: NSDate?
+    public var receiptReceiveQuantity: Int?
+    public var receiptNumberOfCases: Int?
     public var receiptStatus: String?
     public var receiptStatusName: String?
     public var receiptUnitCode: Int?
     public var receiptUnitCodeText: String?
     public var receiptWrapCode: Int?
     public var receiptWrapCodeText: String?
+    public var receiptWrapUnitWeight: Double?
     public var receiptCaseWeight: Double?
     public var receiptProductIdTag: String?
+    public var receiptEnteredBy: String?
+    public var receiptReceivedBy: String?
+    public var receiptType: String?
     public var warehouseId: Int?
     public var warehouseName: String?
     public var itemId: Int?
@@ -94,6 +102,8 @@ public class ItemReceiptActivity: JSONEncodable {
         nillableDictionary["id"] = self.id
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
+        nillableDictionary["receiptASNCreateDate"] = self.receiptASNCreateDate?.encodeToJSON()
+        nillableDictionary["receiptModifyDate"] = self.receiptModifyDate?.encodeToJSON()
         nillableDictionary["itemReceiptId"] = self.itemReceiptId
         nillableDictionary["lobId"] = self.lobId
         nillableDictionary["poNo"] = self.poNo
@@ -103,14 +113,20 @@ public class ItemReceiptActivity: JSONEncodable {
         nillableDictionary["receiptRevisionDate"] = self.receiptRevisionDate
         nillableDictionary["receiptProductionLot"] = self.receiptProductionLot
         nillableDictionary["receiptReceiveDate"] = self.receiptReceiveDate?.encodeToJSON()
+        nillableDictionary["receiptReceiveQuantity"] = self.receiptReceiveQuantity
+        nillableDictionary["receiptNumberOfCases"] = self.receiptNumberOfCases
         nillableDictionary["receiptStatus"] = self.receiptStatus
         nillableDictionary["receiptStatusName"] = self.receiptStatusName
         nillableDictionary["receiptUnitCode"] = self.receiptUnitCode
         nillableDictionary["receiptUnitCodeText"] = self.receiptUnitCodeText
         nillableDictionary["receiptWrapCode"] = self.receiptWrapCode
         nillableDictionary["receiptWrapCodeText"] = self.receiptWrapCodeText
+        nillableDictionary["receiptWrapUnitWeight"] = self.receiptWrapUnitWeight
         nillableDictionary["receiptCaseWeight"] = self.receiptCaseWeight
         nillableDictionary["receiptProductIdTag"] = self.receiptProductIdTag
+        nillableDictionary["receiptEnteredBy"] = self.receiptEnteredBy
+        nillableDictionary["receiptReceivedBy"] = self.receiptReceivedBy
+        nillableDictionary["receiptType"] = self.receiptType
         nillableDictionary["warehouseId"] = self.warehouseId
         nillableDictionary["warehouseName"] = self.warehouseName
         nillableDictionary["itemId"] = self.itemId

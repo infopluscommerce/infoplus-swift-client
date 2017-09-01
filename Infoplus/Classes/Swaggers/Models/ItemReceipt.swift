@@ -16,6 +16,7 @@ public class ItemReceipt: JSONEncodable {
     public var legacyPoNo: String?
     public var warehouseId: Int?
     public var orderDate: NSDate?
+    public var fullDescription: String?
     public var factCost: Double?
     public var mlCost: Double?
     public var sku: String?
@@ -25,7 +26,7 @@ public class ItemReceipt: JSONEncodable {
     public var wrapCode: String?
     public var unitsPerWrap: Int?
     public var cost: Double?
-    public var sell: Double?
+    public var sellPrice: Double?
     public var pricingPer: String?
     public var maxFreight: Double?
     public var chargeFreight: String?
@@ -94,6 +95,7 @@ public class ItemReceipt: JSONEncodable {
         nillableDictionary["legacyPoNo"] = self.legacyPoNo
         nillableDictionary["warehouseId"] = self.warehouseId
         nillableDictionary["orderDate"] = self.orderDate?.encodeToJSON()
+        nillableDictionary["fullDescription"] = self.fullDescription
         nillableDictionary["factCost"] = self.factCost
         nillableDictionary["mlCost"] = self.mlCost
         nillableDictionary["sku"] = self.sku
@@ -103,7 +105,7 @@ public class ItemReceipt: JSONEncodable {
         nillableDictionary["wrapCode"] = self.wrapCode
         nillableDictionary["unitsPerWrap"] = self.unitsPerWrap
         nillableDictionary["cost"] = self.cost
-        nillableDictionary["sell"] = self.sell
+        nillableDictionary["sellPrice"] = self.sellPrice
         nillableDictionary["pricingPer"] = self.pricingPer
         nillableDictionary["maxFreight"] = self.maxFreight
         nillableDictionary["chargeFreight"] = self.chargeFreight

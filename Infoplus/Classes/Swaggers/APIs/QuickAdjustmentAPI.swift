@@ -240,6 +240,50 @@ public class QuickAdjustmentAPI: APIBase {
 
     /**
      
+     Run the ExecuteQuickAdjustment process.
+     
+     - parameter body: (body) Input data for ExecuteQuickAdjustment process. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func executeQuickAdjustment(body body: ExecuteQuickAdjustmentInputAPIModel, completion: ((data: [ProcessOutputAPIModel]?, error: ErrorType?) -> Void)) {
+        executeQuickAdjustmentWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Run the ExecuteQuickAdjustment process.
+     
+     - POST /beta/quickAdjustment/executeQuickAdjustment
+     - 
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example=[ {
+  "messageList" : [ "aeiou" ],
+  "id" : "{}",
+  "status" : "aeiou"
+} ]}]
+     
+     - parameter body: (body) Input data for ExecuteQuickAdjustment process. 
+
+     - returns: RequestBuilder<[ProcessOutputAPIModel]> 
+     */
+    public class func executeQuickAdjustmentWithRequestBuilder(body body: ExecuteQuickAdjustmentInputAPIModel) -> RequestBuilder<[ProcessOutputAPIModel]> {
+        let path = "/beta/quickAdjustment/executeQuickAdjustment"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<[ProcessOutputAPIModel]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Get a duplicated a quickAdjustment by id
      
      - parameter quickAdjustmentId: (path) Id of the quickAdjustment to be duplicated. 

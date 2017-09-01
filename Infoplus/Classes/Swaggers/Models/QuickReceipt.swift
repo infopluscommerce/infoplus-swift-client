@@ -35,7 +35,7 @@ public class QuickReceipt: JSONEncodable {
     public var cartonWidth: Double?
     public var cartonHeight: Double?
     public var cost: Double?
-    public var sell: Double?
+    public var sellPrice: Double?
     public var pricingPer: String?
     public var generatedItemReceiptId: Int?
     public var generatedASNId: Int?
@@ -75,7 +75,7 @@ public class QuickReceipt: JSONEncodable {
         nillableDictionary["cartonWidth"] = self.cartonWidth
         nillableDictionary["cartonHeight"] = self.cartonHeight
         nillableDictionary["cost"] = self.cost
-        nillableDictionary["sell"] = self.sell
+        nillableDictionary["sellPrice"] = self.sellPrice
         nillableDictionary["pricingPer"] = self.pricingPer
         nillableDictionary["generatedItemReceiptId"] = self.generatedItemReceiptId
         nillableDictionary["generatedASNId"] = self.generatedASNId

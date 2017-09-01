@@ -83,6 +83,8 @@ public class WorkActivity: JSONEncodable {
     public var destinationPriorityCode: Int?
     public var destinationCost: Int?
     public var destinationAllowItemMixing: Bool?
+    public var workCreateDate: NSDate?
+    public var workModifyDate: NSDate?
     public var masterRef: Int?
     public var weightPerWrap: Double?
     public var sku: String?
@@ -92,6 +94,10 @@ public class WorkActivity: JSONEncodable {
     public var unitCode: String?
     public var wrapCode: String?
     public var unitsPerWrap: Int?
+    public var quantity: Int?
+    public var numberOfWraps: Int?
+    public var numberOfCases: Int?
+    public var pickTouches: Int?
     public var classRestriction: String?
     public var maxCycle: Int?
     public var maxInterim: Int?
@@ -237,6 +243,8 @@ public class WorkActivity: JSONEncodable {
         nillableDictionary["destinationPriorityCode"] = self.destinationPriorityCode
         nillableDictionary["destinationCost"] = self.destinationCost
         nillableDictionary["destinationAllowItemMixing"] = self.destinationAllowItemMixing
+        nillableDictionary["workCreateDate"] = self.workCreateDate?.encodeToJSON()
+        nillableDictionary["workModifyDate"] = self.workModifyDate?.encodeToJSON()
         nillableDictionary["masterRef"] = self.masterRef
         nillableDictionary["weightPerWrap"] = self.weightPerWrap
         nillableDictionary["sku"] = self.sku
@@ -246,6 +254,10 @@ public class WorkActivity: JSONEncodable {
         nillableDictionary["unitCode"] = self.unitCode
         nillableDictionary["wrapCode"] = self.wrapCode
         nillableDictionary["unitsPerWrap"] = self.unitsPerWrap
+        nillableDictionary["quantity"] = self.quantity
+        nillableDictionary["numberOfWraps"] = self.numberOfWraps
+        nillableDictionary["numberOfCases"] = self.numberOfCases
+        nillableDictionary["pickTouches"] = self.pickTouches
         nillableDictionary["classRestriction"] = self.classRestriction
         nillableDictionary["maxCycle"] = self.maxCycle
         nillableDictionary["maxInterim"] = self.maxInterim

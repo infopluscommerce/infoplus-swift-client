@@ -41,6 +41,7 @@ public class QuickReceiptAPI: APIBase {
   },
   "origin" : "aeiou",
   "vendorId" : 123,
+  "sellPrice" : 1.3579000000000001069366817318950779736042022705078125,
   "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
   "unitsPerCase" : 123,
   "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
@@ -59,7 +60,6 @@ public class QuickReceiptAPI: APIBase {
   "cost" : 1.3579000000000001069366817318950779736042022705078125,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "casesPerPallet" : 123,
-  "sell" : 1.3579000000000001069366817318950779736042022705078125,
   "productionLot" : "aeiou",
   "productIdTag" : "aeiou",
   "carrier" : "aeiou",
@@ -261,6 +261,50 @@ public class QuickReceiptAPI: APIBase {
 
     /**
      
+     Run the ExecuteQuickReceipt process.
+     
+     - parameter body: (body) Input data for ExecuteQuickReceipt process. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func executeQuickReceipt(body body: ExecuteQuickReceiptInputAPIModel, completion: ((data: [ProcessOutputAPIModel]?, error: ErrorType?) -> Void)) {
+        executeQuickReceiptWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Run the ExecuteQuickReceipt process.
+     
+     - POST /beta/quickReceipt/executeQuickReceipt
+     - 
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example=[ {
+  "messageList" : [ "aeiou" ],
+  "id" : "{}",
+  "status" : "aeiou"
+} ]}]
+     
+     - parameter body: (body) Input data for ExecuteQuickReceipt process. 
+
+     - returns: RequestBuilder<[ProcessOutputAPIModel]> 
+     */
+    public class func executeQuickReceiptWithRequestBuilder(body body: ExecuteQuickReceiptInputAPIModel) -> RequestBuilder<[ProcessOutputAPIModel]> {
+        let path = "/beta/quickReceipt/executeQuickReceipt"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<[ProcessOutputAPIModel]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Get a duplicated a quickReceipt by id
      
      - parameter quickReceiptId: (path) Id of the quickReceipt to be duplicated. 
@@ -290,6 +334,7 @@ public class QuickReceiptAPI: APIBase {
   },
   "origin" : "aeiou",
   "vendorId" : 123,
+  "sellPrice" : 1.3579000000000001069366817318950779736042022705078125,
   "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
   "unitsPerCase" : 123,
   "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
@@ -308,7 +353,6 @@ public class QuickReceiptAPI: APIBase {
   "cost" : 1.3579000000000001069366817318950779736042022705078125,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "casesPerPallet" : 123,
-  "sell" : 1.3579000000000001069366817318950779736042022705078125,
   "productionLot" : "aeiou",
   "productIdTag" : "aeiou",
   "carrier" : "aeiou",
@@ -371,6 +415,7 @@ public class QuickReceiptAPI: APIBase {
   },
   "origin" : "aeiou",
   "vendorId" : 123,
+  "sellPrice" : 1.3579000000000001069366817318950779736042022705078125,
   "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
   "unitsPerCase" : 123,
   "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
@@ -389,7 +434,6 @@ public class QuickReceiptAPI: APIBase {
   "cost" : 1.3579000000000001069366817318950779736042022705078125,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "casesPerPallet" : 123,
-  "sell" : 1.3579000000000001069366817318950779736042022705078125,
   "productionLot" : "aeiou",
   "productIdTag" : "aeiou",
   "carrier" : "aeiou",
@@ -456,6 +500,7 @@ public class QuickReceiptAPI: APIBase {
   },
   "origin" : "aeiou",
   "vendorId" : 123,
+  "sellPrice" : 1.3579000000000001069366817318950779736042022705078125,
   "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
   "unitsPerCase" : 123,
   "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
@@ -474,7 +519,6 @@ public class QuickReceiptAPI: APIBase {
   "cost" : 1.3579000000000001069366817318950779736042022705078125,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "casesPerPallet" : 123,
-  "sell" : 1.3579000000000001069366817318950779736042022705078125,
   "productionLot" : "aeiou",
   "productIdTag" : "aeiou",
   "carrier" : "aeiou",

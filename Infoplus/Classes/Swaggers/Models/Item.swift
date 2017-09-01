@@ -36,7 +36,8 @@ public class Item: JSONEncodable {
     public var criticalAmount: Int?
     public var overallFixedReorderPoint: Int?
     public var overallLeadTime: Int?
-    public var listPrice: Double?
+    public var sellPrice: Double?
+    public var pricingPer: String?
     public var lotControlFlag: String?
     public var maxCycle: Int?
     public var maxInterim: Int?
@@ -64,6 +65,9 @@ public class Item: JSONEncodable {
     public var extrinsicDecimal1: Double?
     public var extrinsicDecimal2: Double?
     public var casebreakEnabled: String?
+    public var vendorId: Int?
+    public var vendorPrice: Double?
+    public var vendorPer: String?
     public var modifyDate: NSDate?
     public var forwardLotMixingRule: String?
     public var storageLotMixingRule: String?
@@ -138,7 +142,8 @@ public class Item: JSONEncodable {
         nillableDictionary["criticalAmount"] = self.criticalAmount
         nillableDictionary["overallFixedReorderPoint"] = self.overallFixedReorderPoint
         nillableDictionary["overallLeadTime"] = self.overallLeadTime
-        nillableDictionary["listPrice"] = self.listPrice
+        nillableDictionary["sellPrice"] = self.sellPrice
+        nillableDictionary["pricingPer"] = self.pricingPer
         nillableDictionary["lotControlFlag"] = self.lotControlFlag
         nillableDictionary["maxCycle"] = self.maxCycle
         nillableDictionary["maxInterim"] = self.maxInterim
@@ -166,6 +171,9 @@ public class Item: JSONEncodable {
         nillableDictionary["extrinsicDecimal1"] = self.extrinsicDecimal1
         nillableDictionary["extrinsicDecimal2"] = self.extrinsicDecimal2
         nillableDictionary["casebreakEnabled"] = self.casebreakEnabled
+        nillableDictionary["vendorId"] = self.vendorId
+        nillableDictionary["vendorPrice"] = self.vendorPrice
+        nillableDictionary["vendorPer"] = self.vendorPer
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["forwardLotMixingRule"] = self.forwardLotMixingRule
         nillableDictionary["storageLotMixingRule"] = self.storageLotMixingRule

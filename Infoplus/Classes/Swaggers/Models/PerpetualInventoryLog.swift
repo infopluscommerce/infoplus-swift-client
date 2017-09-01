@@ -11,6 +11,7 @@ import Foundation
 public class PerpetualInventoryLog: JSONEncodable {
 
     public var id: Int?
+    public var itemReceiptLocationId: Int?
     public var itemReceiptId: Int?
     public var skuId: Int?
     public var asnId: Int?
@@ -104,6 +105,7 @@ public class PerpetualInventoryLog: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["id"] = self.id
+        nillableDictionary["itemReceiptLocationId"] = self.itemReceiptLocationId
         nillableDictionary["itemReceiptId"] = self.itemReceiptId
         nillableDictionary["skuId"] = self.skuId
         nillableDictionary["asnId"] = self.asnId

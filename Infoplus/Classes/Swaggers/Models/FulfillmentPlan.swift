@@ -20,6 +20,7 @@ public class FulfillmentPlan: JSONEncodable {
     public var orderSmartFilterId: Int?
     public var locationSmartFilterId: Int?
     public var maximumNumberOfOrders: Int?
+    public var version: String?
     public var createPickWork: Bool?
     public var pickingRule: String?
     public var layoutRule: String?
@@ -62,6 +63,7 @@ public class FulfillmentPlan: JSONEncodable {
         nillableDictionary["orderSmartFilterId"] = self.orderSmartFilterId
         nillableDictionary["locationSmartFilterId"] = self.locationSmartFilterId
         nillableDictionary["maximumNumberOfOrders"] = self.maximumNumberOfOrders
+        nillableDictionary["version"] = self.version
         nillableDictionary["createPickWork"] = self.createPickWork
         nillableDictionary["pickingRule"] = self.pickingRule
         nillableDictionary["layoutRule"] = self.layoutRule

@@ -35,7 +35,8 @@ public class OrderActivity: JSONEncodable {
     public var orderReason: Int?
     public var customerOrderNo: String?
     public var priceLevel: String?
-    public var entryTime: NSDate?
+    public var orderCreateDate: NSDate?
+    public var orderModifyDate: NSDate?
     public var shipBy: NSDate?
     public var stopBackOrders: String?
     public var warehouseId: Int?
@@ -111,6 +112,9 @@ public class OrderActivity: JSONEncodable {
     public var leadPackageId: String?
     public var deliveredDate: NSDate?
     public var totalQty: Int?
+    public var numberOfWraps: Int?
+    public var numberOfCases: Int?
+    public var numberOfTouches: Int?
     public var estimatedNumberOfPicks: Int?
     public var orderConfirmationEmailTemplateId: Int?
     public var shipmentConfirmationEmailTemplateId: Int?
@@ -151,7 +155,8 @@ public class OrderActivity: JSONEncodable {
         nillableDictionary["orderReason"] = self.orderReason
         nillableDictionary["customerOrderNo"] = self.customerOrderNo
         nillableDictionary["priceLevel"] = self.priceLevel
-        nillableDictionary["entryTime"] = self.entryTime?.encodeToJSON()
+        nillableDictionary["orderCreateDate"] = self.orderCreateDate?.encodeToJSON()
+        nillableDictionary["orderModifyDate"] = self.orderModifyDate?.encodeToJSON()
         nillableDictionary["shipBy"] = self.shipBy?.encodeToJSON()
         nillableDictionary["stopBackOrders"] = self.stopBackOrders
         nillableDictionary["warehouseId"] = self.warehouseId
@@ -227,6 +232,9 @@ public class OrderActivity: JSONEncodable {
         nillableDictionary["leadPackageId"] = self.leadPackageId
         nillableDictionary["deliveredDate"] = self.deliveredDate?.encodeToJSON()
         nillableDictionary["totalQty"] = self.totalQty
+        nillableDictionary["numberOfWraps"] = self.numberOfWraps
+        nillableDictionary["numberOfCases"] = self.numberOfCases
+        nillableDictionary["numberOfTouches"] = self.numberOfTouches
         nillableDictionary["estimatedNumberOfPicks"] = self.estimatedNumberOfPicks
         nillableDictionary["orderConfirmationEmailTemplateId"] = self.orderConfirmationEmailTemplateId
         nillableDictionary["shipmentConfirmationEmailTemplateId"] = self.shipmentConfirmationEmailTemplateId

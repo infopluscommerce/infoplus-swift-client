@@ -18,6 +18,9 @@ public class InventorySnapshot: JSONEncodable {
     public var isMixedReceipts: Bool?
     public var quantity: Int?
     public var address: String?
+    public var numberOfCases: Int?
+    public var inventoryValue: Double?
+    public var inventoryAgeDays: Int?
     public var warehouseId: Int?
     public var warehouseName: String?
     public var warehouseZoneId: Int?
@@ -45,7 +48,7 @@ public class InventorySnapshot: JSONEncodable {
     public var warehouseLocationPriorityCode: Int?
     public var warehouseLocationAllowItemMixing: Bool?
     public var warehouseLocationCost: Int?
-    public var controlNo: String?
+    public var sku: String?
     public var itemVendorSku: String?
     public var itemUpc: String?
     public var itemMajorGroup: Int?
@@ -106,6 +109,9 @@ public class InventorySnapshot: JSONEncodable {
         nillableDictionary["isMixedReceipts"] = self.isMixedReceipts
         nillableDictionary["quantity"] = self.quantity
         nillableDictionary["address"] = self.address
+        nillableDictionary["numberOfCases"] = self.numberOfCases
+        nillableDictionary["inventoryValue"] = self.inventoryValue
+        nillableDictionary["inventoryAgeDays"] = self.inventoryAgeDays
         nillableDictionary["warehouseId"] = self.warehouseId
         nillableDictionary["warehouseName"] = self.warehouseName
         nillableDictionary["warehouseZoneId"] = self.warehouseZoneId
@@ -133,7 +139,7 @@ public class InventorySnapshot: JSONEncodable {
         nillableDictionary["warehouseLocationPriorityCode"] = self.warehouseLocationPriorityCode
         nillableDictionary["warehouseLocationAllowItemMixing"] = self.warehouseLocationAllowItemMixing
         nillableDictionary["warehouseLocationCost"] = self.warehouseLocationCost
-        nillableDictionary["controlNo"] = self.controlNo
+        nillableDictionary["sku"] = self.sku
         nillableDictionary["itemVendorSku"] = self.itemVendorSku
         nillableDictionary["itemUpc"] = self.itemUpc
         nillableDictionary["itemMajorGroup"] = self.itemMajorGroup
