@@ -35,9 +35,11 @@ public class BillingCodeAPI: APIBase {
        - name: api_key
      - examples: [{contentType=application/json, example={
   "date" : "2000-01-23T04:56:07.000+0000",
+  "recordId" : "aeiou",
   "note" : "aeiou",
   "quantity" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "recordType" : "aeiou",
   "customFields" : {
     "key" : "{}"
   },
@@ -264,9 +266,11 @@ public class BillingCodeAPI: APIBase {
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
   "date" : "2000-01-23T04:56:07.000+0000",
+  "recordId" : "aeiou",
   "note" : "aeiou",
   "quantity" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "recordType" : "aeiou",
   "customFields" : {
     "key" : "{}"
   },
@@ -326,9 +330,11 @@ public class BillingCodeAPI: APIBase {
        - name: api_key
      - examples: [{contentType=application/json, example={
   "date" : "2000-01-23T04:56:07.000+0000",
+  "recordId" : "aeiou",
   "note" : "aeiou",
   "quantity" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "recordType" : "aeiou",
   "customFields" : {
     "key" : "{}"
   },
@@ -422,9 +428,11 @@ public class BillingCodeAPI: APIBase {
        - name: api_key
      - examples: [{contentType=application/json, example={
   "date" : "2000-01-23T04:56:07.000+0000",
+  "recordId" : "aeiou",
   "note" : "aeiou",
   "quantity" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "recordType" : "aeiou",
   "customFields" : {
     "key" : "{}"
   },

@@ -45,10 +45,13 @@ public class BillingCodeActivityAPI: APIBase {
   "billingCodeTypeId" : 123,
   "importedId" : 123,
   "userId" : 123,
+  "recordId" : "aeiou",
+  "recordTypeId" : 123,
   "id" : 123,
   "email" : "aeiou",
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
+  "lobId" : 123,
+  "recordTypeName" : "aeiou"
 }}]
      
      - parameter body: (body) BillingCodeActivity to be inserted. 
@@ -277,10 +280,13 @@ public class BillingCodeActivityAPI: APIBase {
   "billingCodeTypeId" : 123,
   "importedId" : 123,
   "userId" : 123,
+  "recordId" : "aeiou",
+  "recordTypeId" : 123,
   "id" : 123,
   "email" : "aeiou",
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
+  "lobId" : 123,
+  "recordTypeName" : "aeiou"
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -342,10 +348,13 @@ public class BillingCodeActivityAPI: APIBase {
   "billingCodeTypeId" : 123,
   "importedId" : 123,
   "userId" : 123,
+  "recordId" : "aeiou",
+  "recordTypeId" : 123,
   "id" : 123,
   "email" : "aeiou",
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
+  "lobId" : 123,
+  "recordTypeName" : "aeiou"
 }}]
      
      - parameter billingCodeActivityId: (path) Id of the billingCodeActivity to be returned. 
@@ -441,10 +450,13 @@ public class BillingCodeActivityAPI: APIBase {
   "billingCodeTypeId" : 123,
   "importedId" : 123,
   "userId" : 123,
+  "recordId" : "aeiou",
+  "recordTypeId" : 123,
   "id" : 123,
   "email" : "aeiou",
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
+  "lobId" : 123,
+  "recordTypeName" : "aeiou"
 }}]
      
      - parameter billingCodeActivityId: (path) Id of the billingCodeActivity to be duplicated. 

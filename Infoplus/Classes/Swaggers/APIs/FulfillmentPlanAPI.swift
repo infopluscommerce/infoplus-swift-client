@@ -46,6 +46,7 @@ public class FulfillmentPlanAPI: APIBase {
   "description" : "aeiou",
   "createPickSummary" : true,
   "sendToExternalShippingSystem" : true,
+  "maxOrders" : 123,
   "locationSmartFilterId" : 123,
   "pickSummaryFormat" : "aeiou",
   "cartonizeOrders" : true,
@@ -58,7 +59,6 @@ public class FulfillmentPlanAPI: APIBase {
   "externalShippingSystemId" : 123,
   "createPickList" : true,
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "maximumNumberOfOrders" : 123,
   "createOrderAssemblyGuide" : true,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "createPackingSlip" : "aeiou",
@@ -71,6 +71,7 @@ public class FulfillmentPlanAPI: APIBase {
   "name" : "aeiou",
   "overridePackingSlipTemplateId" : 123,
   "autoShipCasebreakCartons" : true,
+  "batchSize" : 123,
   "orderSmartFilterId" : 123
 }}]
      
@@ -298,6 +299,7 @@ public class FulfillmentPlanAPI: APIBase {
   "description" : "aeiou",
   "createPickSummary" : true,
   "sendToExternalShippingSystem" : true,
+  "maxOrders" : 123,
   "locationSmartFilterId" : 123,
   "pickSummaryFormat" : "aeiou",
   "cartonizeOrders" : true,
@@ -310,7 +312,6 @@ public class FulfillmentPlanAPI: APIBase {
   "externalShippingSystemId" : 123,
   "createPickList" : true,
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "maximumNumberOfOrders" : 123,
   "createOrderAssemblyGuide" : true,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "createPackingSlip" : "aeiou",
@@ -323,6 +324,7 @@ public class FulfillmentPlanAPI: APIBase {
   "name" : "aeiou",
   "overridePackingSlipTemplateId" : 123,
   "autoShipCasebreakCartons" : true,
+  "batchSize" : 123,
   "orderSmartFilterId" : 123
 }}]
      
@@ -382,6 +384,7 @@ public class FulfillmentPlanAPI: APIBase {
   "description" : "aeiou",
   "createPickSummary" : true,
   "sendToExternalShippingSystem" : true,
+  "maxOrders" : 123,
   "locationSmartFilterId" : 123,
   "pickSummaryFormat" : "aeiou",
   "cartonizeOrders" : true,
@@ -394,7 +397,6 @@ public class FulfillmentPlanAPI: APIBase {
   "externalShippingSystemId" : 123,
   "createPickList" : true,
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "maximumNumberOfOrders" : 123,
   "createOrderAssemblyGuide" : true,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "createPackingSlip" : "aeiou",
@@ -407,6 +409,7 @@ public class FulfillmentPlanAPI: APIBase {
   "name" : "aeiou",
   "overridePackingSlipTemplateId" : 123,
   "autoShipCasebreakCartons" : true,
+  "batchSize" : 123,
   "orderSmartFilterId" : 123
 } ]}]
      
@@ -470,6 +473,7 @@ public class FulfillmentPlanAPI: APIBase {
   "description" : "aeiou",
   "createPickSummary" : true,
   "sendToExternalShippingSystem" : true,
+  "maxOrders" : 123,
   "locationSmartFilterId" : 123,
   "pickSummaryFormat" : "aeiou",
   "cartonizeOrders" : true,
@@ -482,7 +486,6 @@ public class FulfillmentPlanAPI: APIBase {
   "externalShippingSystemId" : 123,
   "createPickList" : true,
   "createDate" : "2000-01-23T04:56:07.000+0000",
-  "maximumNumberOfOrders" : 123,
   "createOrderAssemblyGuide" : true,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "createPackingSlip" : "aeiou",
@@ -495,6 +498,7 @@ public class FulfillmentPlanAPI: APIBase {
   "name" : "aeiou",
   "overridePackingSlipTemplateId" : 123,
   "autoShipCasebreakCartons" : true,
+  "batchSize" : 123,
   "orderSmartFilterId" : 123
 }}]
      

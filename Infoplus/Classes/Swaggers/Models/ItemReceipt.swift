@@ -81,6 +81,8 @@ public class ItemReceipt: JSONEncodable {
     public var modifyDate: NSDate?
     public var impressions: Int?
     public var asnLine: Int?
+    public var upc: String?
+    public var vendorSKU: String?
     public var customFields: [String:AnyObject]?
     
 
@@ -160,6 +162,8 @@ public class ItemReceipt: JSONEncodable {
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["impressions"] = self.impressions
         nillableDictionary["asnLine"] = self.asnLine
+        nillableDictionary["upc"] = self.upc
+        nillableDictionary["vendorSKU"] = self.vendorSKU
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

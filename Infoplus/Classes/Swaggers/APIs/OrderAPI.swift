@@ -60,6 +60,7 @@ public class OrderAPI: APIBase {
   "shipToCompany" : "aeiou",
   "numberOfCartons" : 123,
   "shipToZip" : "aeiou",
+  "preAllocationEstimatedWeight" : 1.3579000000000001069366817318950779736042022705078125,
   "customerPONo" : "aeiou",
   "lastShipDate" : "2000-01-23T04:56:07.000+0000",
   "shipToAttention" : "aeiou",
@@ -73,6 +74,7 @@ public class OrderAPI: APIBase {
   "authorizedBy" : "aeiou",
   "holdCode" : "aeiou",
   "deliverOnDate" : "2000-01-23T04:56:07.000+0000",
+  "totalDiscount" : 1.3579000000000001069366817318950779736042022705078125,
   "priorityCode" : 123,
   "completionStatus" : "aeiou",
   "customerOrderNo" : "aeiou",
@@ -136,6 +138,7 @@ public class OrderAPI: APIBase {
   "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
   "shipToStreet3" : "aeiou",
   "billToEmail" : "aeiou",
+  "parentKODOrderId" : 1.3579000000000001069366817318950779736042022705078125,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "totalPaid" : 1.3579000000000001069366817318950779736042022705078125,
   "tax" : 1.3579000000000001069366817318950779736042022705078125,
@@ -293,6 +296,204 @@ public class OrderAPI: APIBase {
 
     /**
      
+     Run the Apply Order Warehouse Fulfillment Plan method.
+     
+     - parameter body: (body) Input data for Apply Order Warehouse Fulfillment Plan process. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func applyOrderWarehouseFulfillmentPlan(body body: ApplyOrderWarehouseFulfillmentPlanInput, completion: ((data: ApplyOrderWarehouseFulfillmentPlanOutput?, error: ErrorType?) -> Void)) {
+        applyOrderWarehouseFulfillmentPlanWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Run the Apply Order Warehouse Fulfillment Plan method.
+     
+     - POST /beta/order/applyOrderWarehouseFulfillmentPlan
+     - 
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "orderList" : [ {
+    "integrationPartnerId" : 123,
+    "omsCustomerId" : 123,
+    "priceLevel" : "aeiou",
+    "shipToStreet" : "aeiou",
+    "division" : 123,
+    "billToZip" : "aeiou",
+    "shipToEmail" : "aeiou",
+    "billToStreet" : "aeiou",
+    "shipToState" : "aeiou",
+    "giftMessage" : "aeiou",
+    "useOrderNoRoot" : 123,
+    "costCenter" : "aeiou",
+    "shipDate" : "2000-01-23T04:56:07.000+0000",
+    "orderMessage" : "aeiou",
+    "firstShipDate" : "2000-01-23T04:56:07.000+0000",
+    "warehouseId" : 123,
+    "billToAttention" : "aeiou",
+    "subtotal" : 1.3579000000000001069366817318950779736042022705078125,
+    "status" : "aeiou",
+    "alternateUsage" : "aeiou",
+    "authorizationAmount" : 1.3579000000000001069366817318950779736042022705078125,
+    "freight" : 1.3579000000000001069366817318950779736042022705078125,
+    "billToCompany" : "aeiou",
+    "shipToCompany" : "aeiou",
+    "numberOfCartons" : 123,
+    "shipToZip" : "aeiou",
+    "preAllocationEstimatedWeight" : 1.3579000000000001069366817318950779736042022705078125,
+    "customerPONo" : "aeiou",
+    "lastShipDate" : "2000-01-23T04:56:07.000+0000",
+    "shipToAttention" : "aeiou",
+    "createDate" : "2000-01-23T04:56:07.000+0000",
+    "distributionCharges" : 1.3579000000000001069366817318950779736042022705078125,
+    "numberOfPallets" : 123,
+    "legacyRestrictionType" : "aeiou",
+    "shipToPhone" : "aeiou",
+    "needByDate" : "2000-01-23T04:56:07.000+0000",
+    "shipCode" : "aeiou",
+    "authorizedBy" : "aeiou",
+    "holdCode" : "aeiou",
+    "deliverOnDate" : "2000-01-23T04:56:07.000+0000",
+    "totalDiscount" : 1.3579000000000001069366817318950779736042022705078125,
+    "priorityCode" : 123,
+    "completionStatus" : "aeiou",
+    "customerOrderNo" : "aeiou",
+    "mediaCode" : "aeiou",
+    "estimatedNumberOfPicks" : 123,
+    "packingSlipTemplateId" : 123,
+    "orderAssemblyInstructions" : "aeiou",
+    "totalQty" : 123,
+    "orderConfirmationEmailTemplateId" : 123,
+    "billToState" : "aeiou",
+    "fulfillmentProcessId" : 123,
+    "billToCity" : "aeiou",
+    "lineItems" : [ {
+      "itemSubGroupId" : 123,
+      "extendedDiscount" : 1.3579000000000001069366817318950779736042022705078125,
+      "orderAssemblyInstructions" : "aeiou",
+      "distributionCode" : "aeiou",
+      "itemMajorGroupId" : 123,
+      "ncExtendedSell" : 1.3579000000000001069366817318950779736042022705078125,
+      "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
+      "customFields" : {
+        "key" : "{}"
+      },
+      "itemLegacyLowStockContactId" : 123,
+      "revDate" : "aeiou",
+      "backorderQty" : 123,
+      "orderSourceSKU" : "aeiou",
+      "extendedCost" : 1.3579000000000001069366817318950779736042022705078125,
+      "id" : 123,
+      "sku" : "aeiou",
+      "unitDiscount" : 1.3579000000000001069366817318950779736042022705078125,
+      "sector" : "aeiou",
+      "itemAccountCodeId" : 123,
+      "itemProductCodeId" : 123,
+      "itemWeight" : 1.3579000000000001069366817318950779736042022705078125,
+      "lobId" : 123,
+      "shippedQty" : 123,
+      "itemSummaryCodeId" : 123,
+      "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+      "extendedSell" : 1.3579000000000001069366817318950779736042022705078125,
+      "upc" : "aeiou",
+      "productionLot" : "aeiou",
+      "orderedQty" : 123,
+      "vendorSKU" : "aeiou",
+      "unitCost" : 1.3579000000000001069366817318950779736042022705078125,
+      "poNoId" : 123,
+      "unitSell" : 1.3579000000000001069366817318950779736042022705078125,
+      "allowedQty" : 123,
+      "chargeCode" : "aeiou"
+    } ],
+    "shipToCity" : "aeiou",
+    "orderReason" : 123,
+    "shipBy" : "2000-01-23T04:56:07.000+0000",
+    "shippingCharge" : 1.3579000000000001069366817318950779736042022705078125,
+    "distributionChannel" : "aeiou",
+    "externalShippingSystemId" : 123,
+    "lobId" : 123,
+    "orderSourceId" : 123,
+    "batchNo" : "aeiou",
+    "shipToStreet2" : "aeiou",
+    "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+    "shipToStreet3" : "aeiou",
+    "billToEmail" : "aeiou",
+    "parentKODOrderId" : 1.3579000000000001069366817318950779736042022705078125,
+    "modifyDate" : "2000-01-23T04:56:07.000+0000",
+    "totalPaid" : 1.3579000000000001069366817318950779736042022705078125,
+    "tax" : 1.3579000000000001069366817318950779736042022705078125,
+    "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
+    "orderInvoiceTemplateId" : 123,
+    "billToCountry" : "aeiou",
+    "billToPhone" : "aeiou",
+    "orderDate" : "2000-01-23T04:56:07.000+0000",
+    "numberOfLineItems" : 123,
+    "extraOrderData" : [ {
+      "sequence" : "aeiou",
+      "code" : "aeiou",
+      "customFields" : {
+        "key" : "{}"
+      },
+      "category" : "aeiou",
+      "value" : "aeiou"
+    } ],
+    "priceMode" : "aeiou",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "shipmentConfirmationEmailTemplateId" : 123,
+    "stopBackOrders" : "aeiou",
+    "parcelAccountId" : 123,
+    "enteredBy" : "aeiou",
+    "shipVia" : "aeiou",
+    "total" : 1.3579000000000001069366817318950779736042022705078125,
+    "serviceTypeId" : "aeiou",
+    "estimatedWeightLbs" : 1.3579000000000001069366817318950779736042022705078125,
+    "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
+    "shipToCountry" : "aeiou",
+    "balanceDue" : 1.3579000000000001069366817318950779736042022705078125,
+    "orderLoadProgramId" : 123,
+    "alcoholOrderType" : "aeiou",
+    "billToStreet2" : "aeiou",
+    "billToStreet3" : "aeiou",
+    "omsOrderNo" : 123,
+    "extraLineItemData" : [ {
+      "code" : "aeiou",
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "aeiou",
+      "category" : "aeiou",
+      "value" : "aeiou"
+    } ],
+    "thirdPartyParcelAccountId" : 123,
+    "carrierId" : 123,
+    "customerNo" : "aeiou"
+  } ]
+}}]
+     
+     - parameter body: (body) Input data for Apply Order Warehouse Fulfillment Plan process. 
+
+     - returns: RequestBuilder<ApplyOrderWarehouseFulfillmentPlanOutput> 
+     */
+    public class func applyOrderWarehouseFulfillmentPlanWithRequestBuilder(body body: ApplyOrderWarehouseFulfillmentPlanInput) -> RequestBuilder<ApplyOrderWarehouseFulfillmentPlanOutput> {
+        let path = "/beta/order/applyOrderWarehouseFulfillmentPlan"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<ApplyOrderWarehouseFulfillmentPlanOutput>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Delete an order
      
      - parameter orderId: (path) Id of the order to be deleted. 
@@ -426,6 +627,7 @@ public class OrderAPI: APIBase {
   "shipToCompany" : "aeiou",
   "numberOfCartons" : 123,
   "shipToZip" : "aeiou",
+  "preAllocationEstimatedWeight" : 1.3579000000000001069366817318950779736042022705078125,
   "customerPONo" : "aeiou",
   "lastShipDate" : "2000-01-23T04:56:07.000+0000",
   "shipToAttention" : "aeiou",
@@ -439,6 +641,7 @@ public class OrderAPI: APIBase {
   "authorizedBy" : "aeiou",
   "holdCode" : "aeiou",
   "deliverOnDate" : "2000-01-23T04:56:07.000+0000",
+  "totalDiscount" : 1.3579000000000001069366817318950779736042022705078125,
   "priorityCode" : 123,
   "completionStatus" : "aeiou",
   "customerOrderNo" : "aeiou",
@@ -502,6 +705,7 @@ public class OrderAPI: APIBase {
   "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
   "shipToStreet3" : "aeiou",
   "billToEmail" : "aeiou",
+  "parentKODOrderId" : 1.3579000000000001069366817318950779736042022705078125,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "totalPaid" : 1.3579000000000001069366817318950779736042022705078125,
   "tax" : 1.3579000000000001069366817318950779736042022705078125,
@@ -624,6 +828,7 @@ public class OrderAPI: APIBase {
   "shipToCompany" : "aeiou",
   "numberOfCartons" : 123,
   "shipToZip" : "aeiou",
+  "preAllocationEstimatedWeight" : 1.3579000000000001069366817318950779736042022705078125,
   "customerPONo" : "aeiou",
   "lastShipDate" : "2000-01-23T04:56:07.000+0000",
   "shipToAttention" : "aeiou",
@@ -637,6 +842,7 @@ public class OrderAPI: APIBase {
   "authorizedBy" : "aeiou",
   "holdCode" : "aeiou",
   "deliverOnDate" : "2000-01-23T04:56:07.000+0000",
+  "totalDiscount" : 1.3579000000000001069366817318950779736042022705078125,
   "priorityCode" : 123,
   "completionStatus" : "aeiou",
   "customerOrderNo" : "aeiou",
@@ -700,6 +906,7 @@ public class OrderAPI: APIBase {
   "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
   "shipToStreet3" : "aeiou",
   "billToEmail" : "aeiou",
+  "parentKODOrderId" : 1.3579000000000001069366817318950779736042022705078125,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "totalPaid" : 1.3579000000000001069366817318950779736042022705078125,
   "tax" : 1.3579000000000001069366817318950779736042022705078125,
@@ -826,6 +1033,7 @@ public class OrderAPI: APIBase {
   "shipToCompany" : "aeiou",
   "numberOfCartons" : 123,
   "shipToZip" : "aeiou",
+  "preAllocationEstimatedWeight" : 1.3579000000000001069366817318950779736042022705078125,
   "customerPONo" : "aeiou",
   "lastShipDate" : "2000-01-23T04:56:07.000+0000",
   "shipToAttention" : "aeiou",
@@ -839,6 +1047,7 @@ public class OrderAPI: APIBase {
   "authorizedBy" : "aeiou",
   "holdCode" : "aeiou",
   "deliverOnDate" : "2000-01-23T04:56:07.000+0000",
+  "totalDiscount" : 1.3579000000000001069366817318950779736042022705078125,
   "priorityCode" : 123,
   "completionStatus" : "aeiou",
   "customerOrderNo" : "aeiou",
@@ -902,6 +1111,7 @@ public class OrderAPI: APIBase {
   "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
   "shipToStreet3" : "aeiou",
   "billToEmail" : "aeiou",
+  "parentKODOrderId" : 1.3579000000000001069366817318950779736042022705078125,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "totalPaid" : 1.3579000000000001069366817318950779736042022705078125,
   "tax" : 1.3579000000000001069366817318950779736042022705078125,
@@ -1010,6 +1220,67 @@ public class OrderAPI: APIBase {
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Run the Get Order Warehouse Fulfillment Plan method.
+     
+     - parameter body: (body) Input data for Get Order Warehouse Fulfillment Plan process. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getOrderWarehouseFulfillmentData(body body: GetOrderWarehouseFulfillmentDataInput, completion: ((data: GetOrderWarehouseFulfillmentDataOutput?, error: ErrorType?) -> Void)) {
+        getOrderWarehouseFulfillmentDataWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Run the Get Order Warehouse Fulfillment Plan method.
+     
+     - POST /beta/order/getOrderWarehouseFulfillmentData
+     - 
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "rawData" : {
+    "key" : {
+      "canFulfill" : true,
+      "warehouseId" : 123,
+      "skuMap" : {
+        "key" : {
+          "quantity" : 123,
+          "canFulfill" : true
+        }
+      }
+    }
+  },
+  "planList" : [ {
+    "score" : 123,
+    "planDetailList" : [ {
+      "warehouseId" : 123,
+      "lineItemList" : [ "aeiou" ],
+      "carrierCode" : 123
+    } ]
+  } ]
+}}]
+     
+     - parameter body: (body) Input data for Get Order Warehouse Fulfillment Plan process. 
+
+     - returns: RequestBuilder<GetOrderWarehouseFulfillmentDataOutput> 
+     */
+    public class func getOrderWarehouseFulfillmentDataWithRequestBuilder(body body: GetOrderWarehouseFulfillmentDataInput) -> RequestBuilder<GetOrderWarehouseFulfillmentDataOutput> {
+        let path = "/beta/order/getOrderWarehouseFulfillmentData"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<GetOrderWarehouseFulfillmentDataOutput>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**

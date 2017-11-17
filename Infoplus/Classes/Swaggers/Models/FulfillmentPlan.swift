@@ -19,7 +19,8 @@ public class FulfillmentPlan: JSONEncodable {
     public var lastRunTime: NSDate?
     public var orderSmartFilterId: Int?
     public var locationSmartFilterId: Int?
-    public var maximumNumberOfOrders: Int?
+    public var maxOrders: Int?
+    public var batchSize: Int?
     public var version: String?
     public var createPickWork: Bool?
     public var pickingRule: String?
@@ -62,7 +63,8 @@ public class FulfillmentPlan: JSONEncodable {
         nillableDictionary["lastRunTime"] = self.lastRunTime?.encodeToJSON()
         nillableDictionary["orderSmartFilterId"] = self.orderSmartFilterId
         nillableDictionary["locationSmartFilterId"] = self.locationSmartFilterId
-        nillableDictionary["maximumNumberOfOrders"] = self.maximumNumberOfOrders
+        nillableDictionary["maxOrders"] = self.maxOrders
+        nillableDictionary["batchSize"] = self.batchSize
         nillableDictionary["version"] = self.version
         nillableDictionary["createPickWork"] = self.createPickWork
         nillableDictionary["pickingRule"] = self.pickingRule

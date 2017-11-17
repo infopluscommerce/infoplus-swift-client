@@ -22,6 +22,7 @@ public class ShoppingCartConnection: JSONEncodable {
     public var itemFilterId: Int?
     public var infoplusSKUFieldToMap: String?
     public var shoppingCartSKUFieldToMap: String?
+    public var scriptId: Int?
     public var name: String?
     public var shoppingCartStoreURL: String?
     public var accessCode: String?
@@ -30,6 +31,7 @@ public class ShoppingCartConnection: JSONEncodable {
     public var password: String?
     public var defaultCarrierId: Int?
     public var orderShipmentLevel: String?
+    public var createInvoices: Bool?
     public var syncOrders: Bool?
     public var syncInventory: Bool?
     public var syncTrackingData: Bool?
@@ -58,6 +60,7 @@ public class ShoppingCartConnection: JSONEncodable {
         nillableDictionary["itemFilterId"] = self.itemFilterId
         nillableDictionary["infoplusSKUFieldToMap"] = self.infoplusSKUFieldToMap
         nillableDictionary["shoppingCartSKUFieldToMap"] = self.shoppingCartSKUFieldToMap
+        nillableDictionary["scriptId"] = self.scriptId
         nillableDictionary["name"] = self.name
         nillableDictionary["shoppingCartStoreURL"] = self.shoppingCartStoreURL
         nillableDictionary["accessCode"] = self.accessCode
@@ -66,6 +69,7 @@ public class ShoppingCartConnection: JSONEncodable {
         nillableDictionary["password"] = self.password
         nillableDictionary["defaultCarrierId"] = self.defaultCarrierId
         nillableDictionary["orderShipmentLevel"] = self.orderShipmentLevel
+        nillableDictionary["createInvoices"] = self.createInvoices
         nillableDictionary["syncOrders"] = self.syncOrders
         nillableDictionary["syncInventory"] = self.syncInventory
         nillableDictionary["syncTrackingData"] = self.syncTrackingData

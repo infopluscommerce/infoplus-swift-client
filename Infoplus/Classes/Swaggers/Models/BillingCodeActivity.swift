@@ -22,6 +22,9 @@ public class BillingCodeActivity: JSONEncodable {
     public var billingCodeTypeId: Int?
     public var billingCodeTypeName: String?
     public var note: String?
+    public var recordTypeName: String?
+    public var recordTypeId: Int?
+    public var recordId: String?
     public var customFields: [String:AnyObject]?
     
 
@@ -42,6 +45,9 @@ public class BillingCodeActivity: JSONEncodable {
         nillableDictionary["billingCodeTypeId"] = self.billingCodeTypeId
         nillableDictionary["billingCodeTypeName"] = self.billingCodeTypeName
         nillableDictionary["note"] = self.note
+        nillableDictionary["recordTypeName"] = self.recordTypeName
+        nillableDictionary["recordTypeId"] = self.recordTypeId
+        nillableDictionary["recordId"] = self.recordId
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

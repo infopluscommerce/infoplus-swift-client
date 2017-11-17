@@ -30,6 +30,7 @@ public class Shipment: JSONEncodable {
     public var estimatedZone: String?
     public var parcelAccountNo: String?
     public var thirdPartyParcelAccountNo: String?
+    public var shipmentID: String?
     public var manifestId: Int?
     public var residential: Bool?
     public var billingOption: String?
@@ -41,6 +42,7 @@ public class Shipment: JSONEncodable {
     public var retailFreightAmount: Double?
     public var externalShippingSystemId: Int?
     public var shipmentType: String?
+    public var carrierCompany: String?
     public var customFields: [String:AnyObject]?
     
 
@@ -69,6 +71,7 @@ public class Shipment: JSONEncodable {
         nillableDictionary["estimatedZone"] = self.estimatedZone
         nillableDictionary["parcelAccountNo"] = self.parcelAccountNo
         nillableDictionary["thirdPartyParcelAccountNo"] = self.thirdPartyParcelAccountNo
+        nillableDictionary["shipmentID"] = self.shipmentID
         nillableDictionary["manifestId"] = self.manifestId
         nillableDictionary["residential"] = self.residential
         nillableDictionary["billingOption"] = self.billingOption
@@ -80,6 +83,7 @@ public class Shipment: JSONEncodable {
         nillableDictionary["retailFreightAmount"] = self.retailFreightAmount
         nillableDictionary["externalShippingSystemId"] = self.externalShippingSystemId
         nillableDictionary["shipmentType"] = self.shipmentType
+        nillableDictionary["carrierCompany"] = self.carrierCompany
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

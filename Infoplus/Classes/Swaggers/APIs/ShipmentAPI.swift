@@ -171,6 +171,7 @@ public class ShipmentAPI: APIBase {
   "customFields" : {
     "key" : "{}"
   },
+  "carrierCompany" : "aeiou",
   "carrierServiceId" : 123,
   "numberOfCartons" : 123,
   "shipmentType" : "aeiou",
@@ -179,6 +180,7 @@ public class ShipmentAPI: APIBase {
   "parcelAccountNo" : "aeiou",
   "thirdPartyParcelAccountNo" : "aeiou",
   "licensePlateNumber" : "aeiou",
+  "shipmentID" : "aeiou",
   "id" : 123,
   "manifestId" : 123,
   "externalShippingSystemId" : 123,
@@ -251,6 +253,7 @@ public class ShipmentAPI: APIBase {
   "customFields" : {
     "key" : "{}"
   },
+  "carrierCompany" : "aeiou",
   "carrierServiceId" : 123,
   "numberOfCartons" : 123,
   "shipmentType" : "aeiou",
@@ -259,6 +262,7 @@ public class ShipmentAPI: APIBase {
   "parcelAccountNo" : "aeiou",
   "thirdPartyParcelAccountNo" : "aeiou",
   "licensePlateNumber" : "aeiou",
+  "shipmentID" : "aeiou",
   "id" : 123,
   "manifestId" : 123,
   "externalShippingSystemId" : 123,
@@ -335,6 +339,7 @@ public class ShipmentAPI: APIBase {
   "customFields" : {
     "key" : "{}"
   },
+  "carrierCompany" : "aeiou",
   "carrierServiceId" : 123,
   "numberOfCartons" : 123,
   "shipmentType" : "aeiou",
@@ -343,6 +348,7 @@ public class ShipmentAPI: APIBase {
   "parcelAccountNo" : "aeiou",
   "thirdPartyParcelAccountNo" : "aeiou",
   "licensePlateNumber" : "aeiou",
+  "shipmentID" : "aeiou",
   "id" : 123,
   "manifestId" : 123,
   "externalShippingSystemId" : 123,

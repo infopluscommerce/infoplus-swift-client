@@ -170,7 +170,6 @@ public class FulfillmentProcessAPI: APIBase {
   "pickingRule" : "aeiou",
   "createOrderInvoice" : "aeiou",
   "pickSummaryLayout" : "aeiou",
-  "orderLimit" : 123,
   "pickListSort" : "aeiou",
   "locationSmartFilterId" : 123,
   "totalPicks" : 123,
@@ -200,8 +199,10 @@ public class FulfillmentProcessAPI: APIBase {
   "createPickSummary" : true,
   "sendToExternalShippingSystem" : true,
   "numberOfOrders" : 123,
+  "maxOrders" : 123,
   "fulfillmentPlanId" : 123,
   "firstPickPosition" : 123,
+  "fulfillmentProcessGroup" : 123,
   "pickSummaryFormat" : "aeiou",
   "numberOfSKUs" : 123,
   "cartonizeOrders" : true,
@@ -217,6 +218,7 @@ public class FulfillmentProcessAPI: APIBase {
   "totalCasebreaksToShip" : 123,
   "overridePackingSlipTemplateId" : 123,
   "autoShipCasebreakCartons" : true,
+  "batchSize" : 123,
   "orderSmartFilterId" : 123
 }}]
      
@@ -268,7 +270,6 @@ public class FulfillmentProcessAPI: APIBase {
   "pickingRule" : "aeiou",
   "createOrderInvoice" : "aeiou",
   "pickSummaryLayout" : "aeiou",
-  "orderLimit" : 123,
   "pickListSort" : "aeiou",
   "locationSmartFilterId" : 123,
   "totalPicks" : 123,
@@ -298,8 +299,10 @@ public class FulfillmentProcessAPI: APIBase {
   "createPickSummary" : true,
   "sendToExternalShippingSystem" : true,
   "numberOfOrders" : 123,
+  "maxOrders" : 123,
   "fulfillmentPlanId" : 123,
   "firstPickPosition" : 123,
+  "fulfillmentProcessGroup" : 123,
   "pickSummaryFormat" : "aeiou",
   "numberOfSKUs" : 123,
   "cartonizeOrders" : true,
@@ -315,6 +318,7 @@ public class FulfillmentProcessAPI: APIBase {
   "totalCasebreaksToShip" : 123,
   "overridePackingSlipTemplateId" : 123,
   "autoShipCasebreakCartons" : true,
+  "batchSize" : 123,
   "orderSmartFilterId" : 123
 } ]}]
      
@@ -370,7 +374,6 @@ public class FulfillmentProcessAPI: APIBase {
   "pickingRule" : "aeiou",
   "createOrderInvoice" : "aeiou",
   "pickSummaryLayout" : "aeiou",
-  "orderLimit" : 123,
   "pickListSort" : "aeiou",
   "locationSmartFilterId" : 123,
   "totalPicks" : 123,
@@ -400,8 +403,10 @@ public class FulfillmentProcessAPI: APIBase {
   "createPickSummary" : true,
   "sendToExternalShippingSystem" : true,
   "numberOfOrders" : 123,
+  "maxOrders" : 123,
   "fulfillmentPlanId" : 123,
   "firstPickPosition" : 123,
+  "fulfillmentProcessGroup" : 123,
   "pickSummaryFormat" : "aeiou",
   "numberOfSKUs" : 123,
   "cartonizeOrders" : true,
@@ -417,6 +422,7 @@ public class FulfillmentProcessAPI: APIBase {
   "totalCasebreaksToShip" : 123,
   "overridePackingSlipTemplateId" : 123,
   "autoShipCasebreakCartons" : true,
+  "batchSize" : 123,
   "orderSmartFilterId" : 123
 }}]
      

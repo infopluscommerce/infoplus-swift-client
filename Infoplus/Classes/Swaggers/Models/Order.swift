@@ -55,10 +55,12 @@ public class Order: JSONEncodable {
     public var distributionCharges: Double?
     public var division: Int?
     public var enteredBy: String?
+    public var preAllocationEstimatedWeight: Double?
     public var estimatedWeightLbs: Double?
     public var freight: Double?
     public var giftMessage: String?
     public var groupOrderId: Double?
+    public var parentKODOrderId: Double?
     public var holdCode: String?
     public var integrationPartnerId: Int?
     public var numberOfLineItems: Int?
@@ -98,6 +100,7 @@ public class Order: JSONEncodable {
     public var subtotal: Double?
     public var tax: Double?
     public var total: Double?
+    public var totalDiscount: Double?
     public var totalPaid: Double?
     public var totalQty: Int?
     public var weightLbs: Double?
@@ -159,10 +162,12 @@ public class Order: JSONEncodable {
         nillableDictionary["distributionCharges"] = self.distributionCharges
         nillableDictionary["division"] = self.division
         nillableDictionary["enteredBy"] = self.enteredBy
+        nillableDictionary["preAllocationEstimatedWeight"] = self.preAllocationEstimatedWeight
         nillableDictionary["estimatedWeightLbs"] = self.estimatedWeightLbs
         nillableDictionary["freight"] = self.freight
         nillableDictionary["giftMessage"] = self.giftMessage
         nillableDictionary["groupOrderId"] = self.groupOrderId
+        nillableDictionary["parentKODOrderId"] = self.parentKODOrderId
         nillableDictionary["holdCode"] = self.holdCode
         nillableDictionary["integrationPartnerId"] = self.integrationPartnerId
         nillableDictionary["numberOfLineItems"] = self.numberOfLineItems
@@ -202,6 +207,7 @@ public class Order: JSONEncodable {
         nillableDictionary["subtotal"] = self.subtotal
         nillableDictionary["tax"] = self.tax
         nillableDictionary["total"] = self.total
+        nillableDictionary["totalDiscount"] = self.totalDiscount
         nillableDictionary["totalPaid"] = self.totalPaid
         nillableDictionary["totalQty"] = self.totalQty
         nillableDictionary["weightLbs"] = self.weightLbs
