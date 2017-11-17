@@ -28,7 +28,7 @@ public class UserAPI: APIBase {
      
      Get an user by id
      
-     - GET /beta/user/{userId}
+     - GET /v2.0/user/{userId}
      - Returns the user identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -43,7 +43,7 @@ public class UserAPI: APIBase {
      - returns: RequestBuilder<User> 
      */
     public class func getUserByIdWithRequestBuilder(userId userId: String) -> RequestBuilder<User> {
-        var path = "/beta/user/{userId}"
+        var path = "/v2.0/user/{userId}"
         path = path.stringByReplacingOccurrencesOfString("{userId}", withString: "\(userId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -75,7 +75,7 @@ public class UserAPI: APIBase {
      
      Search users
      
-     - GET /beta/user/search
+     - GET /v2.0/user/search
      - Returns the list of users that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
@@ -92,7 +92,7 @@ public class UserAPI: APIBase {
      - returns: RequestBuilder<[User]> 
      */
     public class func getUserBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[User]> {
-        let path = "/beta/user/search"
+        let path = "/v2.0/user/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [

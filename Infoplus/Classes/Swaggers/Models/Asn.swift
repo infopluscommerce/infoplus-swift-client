@@ -55,7 +55,6 @@ public class Asn: JSONEncodable {
     public var usedBy: String?
     public var lineItems: [ItemReceipt]?
     public var status: String?
-    public var transferOrderId: Double?
     public var customFields: [String:AnyObject]?
     
 
@@ -109,7 +108,6 @@ public class Asn: JSONEncodable {
         nillableDictionary["usedBy"] = self.usedBy
         nillableDictionary["lineItems"] = self.lineItems?.encodeToJSON()
         nillableDictionary["status"] = self.status
-        nillableDictionary["transferOrderId"] = self.transferOrderId
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

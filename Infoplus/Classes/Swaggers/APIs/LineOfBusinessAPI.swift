@@ -28,7 +28,7 @@ public class LineOfBusinessAPI: APIBase {
      
      Get a lineOfBusiness by id
      
-     - GET /beta/lineOfBusiness/{lineOfBusinessId}
+     - GET /v2.0/lineOfBusiness/{lineOfBusinessId}
      - Returns the lineOfBusiness identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -43,7 +43,7 @@ public class LineOfBusinessAPI: APIBase {
      - returns: RequestBuilder<LineOfBusiness> 
      */
     public class func getLineOfBusinessByIdWithRequestBuilder(lineOfBusinessId lineOfBusinessId: String) -> RequestBuilder<LineOfBusiness> {
-        var path = "/beta/lineOfBusiness/{lineOfBusinessId}"
+        var path = "/v2.0/lineOfBusiness/{lineOfBusinessId}"
         path = path.stringByReplacingOccurrencesOfString("{lineOfBusinessId}", withString: "\(lineOfBusinessId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -75,7 +75,7 @@ public class LineOfBusinessAPI: APIBase {
      
      Search lineOfBusinesses
      
-     - GET /beta/lineOfBusiness/search
+     - GET /v2.0/lineOfBusiness/search
      - Returns the list of lineOfBusinesses that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
@@ -92,7 +92,7 @@ public class LineOfBusinessAPI: APIBase {
      - returns: RequestBuilder<[LineOfBusiness]> 
      */
     public class func getLineOfBusinessBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[LineOfBusiness]> {
-        let path = "/beta/lineOfBusiness/search"
+        let path = "/v2.0/lineOfBusiness/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [

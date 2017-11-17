@@ -12,6 +12,82 @@ import Alamofire
 public class ParcelShipmentAPI: APIBase {
     /**
      
+     Get a duplicated a parcelShipment by id
+     
+     - parameter parcelShipmentId: (path) Id of the parcelShipment to be duplicated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func getDuplicateParcelShipmentById(parcelShipmentId parcelShipmentId: Int, completion: ((data: ParcelShipment?, error: ErrorType?) -> Void)) {
+        getDuplicateParcelShipmentByIdWithRequestBuilder(parcelShipmentId: parcelShipmentId).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Get a duplicated a parcelShipment by id
+     
+     - GET /v2.0/parcelShipment/duplicate/{parcelShipmentId}
+     - Returns a duplicated parcelShipment identified by the specified id.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example={
+  "retailFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
+  "estimatedZone" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "carrierServiceId" : 123,
+  "numberOfCartons" : 123,
+  "deliveredDate" : "2000-01-23T04:56:07.000+0000",
+  "cartonNo" : 123,
+  "parcelAccountNo" : "aeiou",
+  "thirdPartyParcelAccountNo" : "aeiou",
+  "licensePlateNumber" : "aeiou",
+  "id" : 123,
+  "manifestId" : 123,
+  "externalShippingSystemId" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "lobId" : 123,
+  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
+  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "shipDate" : "2000-01-23T04:56:07.000+0000",
+  "dim3In" : 1.3579000000000001069366817318950779736042022705078125,
+  "dim1In" : 1.3579000000000001069366817318950779736042022705078125,
+  "billingOption" : "aeiou",
+  "chargedFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
+  "dim2In" : 1.3579000000000001069366817318950779736042022705078125,
+  "shipped" : true,
+  "residential" : true,
+  "dimWeight" : 1.3579000000000001069366817318950779736042022705078125,
+  "trackingNo" : "aeiou",
+  "warehouseId" : 123,
+  "publishedFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
+  "status" : "aeiou"
+}}]
+     
+     - parameter parcelShipmentId: (path) Id of the parcelShipment to be duplicated. 
+
+     - returns: RequestBuilder<ParcelShipment> 
+     */
+    public class func getDuplicateParcelShipmentByIdWithRequestBuilder(parcelShipmentId parcelShipmentId: Int) -> RequestBuilder<ParcelShipment> {
+        var path = "/v2.0/parcelShipment/duplicate/{parcelShipmentId}"
+        path = path.stringByReplacingOccurrencesOfString("{parcelShipmentId}", withString: "\(parcelShipmentId)", options: .LiteralSearch, range: nil)
+        let URLString = InfoplusAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<ParcelShipment>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Search parcelShipments by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -31,42 +107,46 @@ public class ParcelShipmentAPI: APIBase {
      
      Search parcelShipments by filter
      
-     - GET /v1.0/parcelShipment/search
+     - GET /v2.0/parcelShipment/search
      - Returns the list of parcelShipments that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example=[ {
-  "dim1In" : 1.3579000000000001069366817318950779736042022705078125,
-  "trackingNo" : "aeiou",
-  "residential" : true,
-  "shipDate" : "2000-01-23T04:56:07.000+0000",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "id" : 123,
-  "carrierServiceId" : 123,
-  "chargedFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipped" : true,
-  "manifestId" : 123,
-  "licensePlateNumber" : "aeiou",
-  "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
+     - examples: [{contentType=application/json, example=[ {
   "retailFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "dimWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "billingOption" : "aeiou",
-  "status" : "aeiou",
-  "cartonNo" : 123,
-  "numberOfCartons" : 123,
-  "dim3In" : 1.3579000000000001069366817318950779736042022705078125,
-  "parcelAccountNo" : "aeiou",
-  "warehouseId" : 123,
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "dim2In" : 1.3579000000000001069366817318950779736042022705078125,
   "estimatedZone" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "carrierServiceId" : 123,
+  "numberOfCartons" : 123,
   "deliveredDate" : "2000-01-23T04:56:07.000+0000",
-  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
+  "cartonNo" : 123,
+  "parcelAccountNo" : "aeiou",
   "thirdPartyParcelAccountNo" : "aeiou",
-  "publishedFreightAmount" : 1.3579000000000001069366817318950779736042022705078125
-} ], contentType=application/json}]
+  "licensePlateNumber" : "aeiou",
+  "id" : 123,
+  "manifestId" : 123,
+  "externalShippingSystemId" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "lobId" : 123,
+  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
+  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "shipDate" : "2000-01-23T04:56:07.000+0000",
+  "dim3In" : 1.3579000000000001069366817318950779736042022705078125,
+  "dim1In" : 1.3579000000000001069366817318950779736042022705078125,
+  "billingOption" : "aeiou",
+  "chargedFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
+  "dim2In" : 1.3579000000000001069366817318950779736042022705078125,
+  "shipped" : true,
+  "residential" : true,
+  "dimWeight" : 1.3579000000000001069366817318950779736042022705078125,
+  "trackingNo" : "aeiou",
+  "warehouseId" : 123,
+  "publishedFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
+  "status" : "aeiou"
+} ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
      - parameter page: (query) Result page number.  Defaults to 1. (optional)
@@ -76,7 +156,7 @@ public class ParcelShipmentAPI: APIBase {
      - returns: RequestBuilder<[ParcelShipment]> 
      */
     public class func getParcelShipmentByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ParcelShipment]> {
-        let path = "/v1.0/parcelShipment/search"
+        let path = "/v2.0/parcelShipment/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -110,49 +190,53 @@ public class ParcelShipmentAPI: APIBase {
      
      Get a parcelShipment by id
      
-     - GET /v1.0/parcelShipment/{parcelShipmentId}
+     - GET /v2.0/parcelShipment/{parcelShipmentId}
      - Returns the parcelShipment identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
-     - examples: [{example={
-  "dim1In" : 1.3579000000000001069366817318950779736042022705078125,
-  "trackingNo" : "aeiou",
-  "residential" : true,
-  "shipDate" : "2000-01-23T04:56:07.000+0000",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "id" : 123,
-  "carrierServiceId" : 123,
-  "chargedFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipped" : true,
-  "manifestId" : 123,
-  "licensePlateNumber" : "aeiou",
-  "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
+     - examples: [{contentType=application/json, example={
   "retailFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "dimWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "billingOption" : "aeiou",
-  "status" : "aeiou",
-  "cartonNo" : 123,
-  "numberOfCartons" : 123,
-  "dim3In" : 1.3579000000000001069366817318950779736042022705078125,
-  "parcelAccountNo" : "aeiou",
-  "warehouseId" : 123,
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "dim2In" : 1.3579000000000001069366817318950779736042022705078125,
   "estimatedZone" : "aeiou",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "carrierServiceId" : 123,
+  "numberOfCartons" : 123,
   "deliveredDate" : "2000-01-23T04:56:07.000+0000",
-  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
+  "cartonNo" : 123,
+  "parcelAccountNo" : "aeiou",
   "thirdPartyParcelAccountNo" : "aeiou",
-  "publishedFreightAmount" : 1.3579000000000001069366817318950779736042022705078125
-}, contentType=application/json}]
+  "licensePlateNumber" : "aeiou",
+  "id" : 123,
+  "manifestId" : 123,
+  "externalShippingSystemId" : 123,
+  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "lobId" : 123,
+  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
+  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
+  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "shipDate" : "2000-01-23T04:56:07.000+0000",
+  "dim3In" : 1.3579000000000001069366817318950779736042022705078125,
+  "dim1In" : 1.3579000000000001069366817318950779736042022705078125,
+  "billingOption" : "aeiou",
+  "chargedFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
+  "dim2In" : 1.3579000000000001069366817318950779736042022705078125,
+  "shipped" : true,
+  "residential" : true,
+  "dimWeight" : 1.3579000000000001069366817318950779736042022705078125,
+  "trackingNo" : "aeiou",
+  "warehouseId" : 123,
+  "publishedFreightAmount" : 1.3579000000000001069366817318950779736042022705078125,
+  "status" : "aeiou"
+}}]
      
      - parameter parcelShipmentId: (path) Id of the parcelShipment to be returned. 
 
      - returns: RequestBuilder<ParcelShipment> 
      */
     public class func getParcelShipmentByIdWithRequestBuilder(parcelShipmentId parcelShipmentId: Int) -> RequestBuilder<ParcelShipment> {
-        var path = "/v1.0/parcelShipment/{parcelShipmentId}"
+        var path = "/v2.0/parcelShipment/{parcelShipmentId}"
         path = path.stringByReplacingOccurrencesOfString("{parcelShipmentId}", withString: "\(parcelShipmentId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -162,6 +246,45 @@ public class ParcelShipmentAPI: APIBase {
         let requestBuilder: RequestBuilder<ParcelShipment>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Update a parcelShipment custom fields
+     
+     - parameter body: (body) ParcelShipment to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateParcelShipmentCustomFields(body body: ParcelShipment, completion: ((error: ErrorType?) -> Void)) {
+        updateParcelShipmentCustomFieldsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     
+     Update a parcelShipment custom fields
+     
+     - PUT /v2.0/parcelShipment/customFields
+     - Updates an existing parcelShipment custom fields using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) ParcelShipment to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateParcelShipmentCustomFieldsWithRequestBuilder(body body: ParcelShipment) -> RequestBuilder<Void> {
+        let path = "/v2.0/parcelShipment/customFields"
+        let URLString = InfoplusAPI.basePath + path
+        
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }

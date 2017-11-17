@@ -28,13 +28,12 @@ public class ItemAPI: APIBase {
      
      Create an item
      
-     - POST /beta/item
+     - POST /v2.0/item
      - Inserts a new item using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "inFulfillmentProcessQuantity" : 123,
   "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
   "alcoholNAMBCACode" : "aeiou",
   "storageLotMixingRule" : "aeiou",
@@ -49,7 +48,6 @@ public class ItemAPI: APIBase {
   "podRevDate" : "aeiou",
   "alcoholContent" : 1.3579000000000001069366817318950779736042022705078125,
   "shipSolo" : true,
-  "orderableQuantity" : 123,
   "unitCode" : "aeiou",
   "hazmat" : "aeiou",
   "commodityCode" : "aeiou",
@@ -63,14 +61,11 @@ public class ItemAPI: APIBase {
   "alcoholType" : "aeiou",
   "productCodeId" : 123,
   "packingSlipDescription" : "aeiou",
-  "openOrderQuantity" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "isAlcohol" : true,
-  "unallocatableQuantity" : 123,
   "maxCycle" : 123,
   "upc" : "aeiou",
   "allocationRule" : "aeiou",
-  "productIdTagSchemeId" : 123,
   "extrinsicNumber2" : 123,
   "compCode" : 123,
   "extrinsicNumber1" : 123,
@@ -83,8 +78,6 @@ public class ItemAPI: APIBase {
   "extrinsicText2" : "aeiou",
   "alcoholUPCCode" : "aeiou",
   "subGroupId" : 123,
-  "overallStockStatus" : "aeiou",
-  "onHandQuantity" : 123,
   "alcoholRegion" : "aeiou",
   "overallLeadTime" : 123,
   "alcoholContainer" : "aeiou",
@@ -95,30 +88,24 @@ public class ItemAPI: APIBase {
   "seasonalItem" : "aeiou",
   "alcoholSCCCode" : "aeiou",
   "topUp" : true,
-  "overallDaysOnHand" : 123,
   "customFields" : {
     "key" : "{}"
   },
   "serialCode" : "aeiou",
   "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
   "maxInterim" : 123,
-  "damagedQuantity" : 123,
   "wrapCode" : "aeiou",
   "alcoholCountry" : "aeiou",
   "additionalDescription" : "aeiou",
   "lowStockCodeId" : 123,
   "pickNo" : "aeiou",
   "alcoholBrand" : "aeiou",
-  "warehouseDisplayField" : "aeiou",
-  "openPOQuantity" : 123,
-  "unavailableQuantity" : 123,
   "majorGroupId" : 123,
   "lotControlFlag" : "aeiou",
   "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
   "createDate" : "2000-01-23T04:56:07.000+0000",
   "unitsPerWrap" : 123,
   "alcoholVintageYear" : "aeiou",
-  "availableQuantity" : 123,
   "podOrderSuffix" : 123,
   "length" : 1.3579000000000001069366817318950779736042022705078125,
   "accountCodeId" : 123,
@@ -137,7 +124,7 @@ public class ItemAPI: APIBase {
      - returns: RequestBuilder<Item> 
      */
     public class func addItemWithRequestBuilder(body body: Item) -> RequestBuilder<Item> {
-        let path = "/beta/item"
+        let path = "/v2.0/item"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -145,94 +132,6 @@ public class ItemAPI: APIBase {
         let requestBuilder: RequestBuilder<Item>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new audit for an item
-     
-     - parameter itemId: (path) Id of the item to add an audit to 
-     - parameter itemAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addItemAudit(itemId itemId: Int, itemAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addItemAuditWithRequestBuilder(itemId: itemId, itemAudit: itemAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for an item
-     
-     - PUT /beta/item/{itemId}/audit/{itemAudit}
-     - Adds an audit to an existing item.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter itemId: (path) Id of the item to add an audit to 
-     - parameter itemAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addItemAuditWithRequestBuilder(itemId itemId: Int, itemAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/item/{itemId}/audit/{itemAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{itemId}", withString: "\(itemId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{itemAudit}", withString: "\(itemAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for an item.
-     
-     - parameter itemId: (path) Id of the item to add a tag to 
-     - parameter itemTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addItemTag(itemId itemId: Int, itemTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addItemTagWithRequestBuilder(itemId: itemId, itemTag: itemTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for an item.
-     
-     - PUT /beta/item/{itemId}/tag/{itemTag}
-     - Adds a tag to an existing item.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter itemId: (path) Id of the item to add a tag to 
-     - parameter itemTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addItemTagWithRequestBuilder(itemId itemId: Int, itemTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/item/{itemId}/tag/{itemTag}"
-        path = path.stringByReplacingOccurrencesOfString("{itemId}", withString: "\(itemId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{itemTag}", withString: "\(itemTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -253,7 +152,7 @@ public class ItemAPI: APIBase {
      
      Delete an item
      
-     - DELETE /beta/item/{itemId}
+     - DELETE /v2.0/item/{itemId}
      - Deletes the item identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -264,52 +163,8 @@ public class ItemAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteItemWithRequestBuilder(itemId itemId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/item/{itemId}"
+        var path = "/v2.0/item/{itemId}"
         path = path.stringByReplacingOccurrencesOfString("{itemId}", withString: "\(itemId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for an item.
-     
-     - parameter itemId: (path) Id of the item to remove tag from 
-     - parameter itemTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteItemTag(itemId itemId: Int, itemTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteItemTagWithRequestBuilder(itemId: itemId, itemTag: itemTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for an item.
-     
-     - DELETE /beta/item/{itemId}/tag/{itemTag}
-     - Deletes an existing item tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter itemId: (path) Id of the item to remove tag from 
-     - parameter itemTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteItemTagWithRequestBuilder(itemId itemId: Int, itemTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/item/{itemId}/tag/{itemTag}"
-        path = path.stringByReplacingOccurrencesOfString("{itemId}", withString: "\(itemId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{itemTag}", withString: "\(itemTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
@@ -339,13 +194,12 @@ public class ItemAPI: APIBase {
      
      Get an item by SKU
      
-     - GET /beta/item/getBySKU
+     - GET /v2.0/item/getBySKU
      - Returns the item identified by the specified parameters.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "inFulfillmentProcessQuantity" : 123,
   "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
   "alcoholNAMBCACode" : "aeiou",
   "storageLotMixingRule" : "aeiou",
@@ -360,7 +214,6 @@ public class ItemAPI: APIBase {
   "podRevDate" : "aeiou",
   "alcoholContent" : 1.3579000000000001069366817318950779736042022705078125,
   "shipSolo" : true,
-  "orderableQuantity" : 123,
   "unitCode" : "aeiou",
   "hazmat" : "aeiou",
   "commodityCode" : "aeiou",
@@ -374,14 +227,11 @@ public class ItemAPI: APIBase {
   "alcoholType" : "aeiou",
   "productCodeId" : 123,
   "packingSlipDescription" : "aeiou",
-  "openOrderQuantity" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "isAlcohol" : true,
-  "unallocatableQuantity" : 123,
   "maxCycle" : 123,
   "upc" : "aeiou",
   "allocationRule" : "aeiou",
-  "productIdTagSchemeId" : 123,
   "extrinsicNumber2" : 123,
   "compCode" : 123,
   "extrinsicNumber1" : 123,
@@ -394,8 +244,6 @@ public class ItemAPI: APIBase {
   "extrinsicText2" : "aeiou",
   "alcoholUPCCode" : "aeiou",
   "subGroupId" : 123,
-  "overallStockStatus" : "aeiou",
-  "onHandQuantity" : 123,
   "alcoholRegion" : "aeiou",
   "overallLeadTime" : 123,
   "alcoholContainer" : "aeiou",
@@ -406,30 +254,24 @@ public class ItemAPI: APIBase {
   "seasonalItem" : "aeiou",
   "alcoholSCCCode" : "aeiou",
   "topUp" : true,
-  "overallDaysOnHand" : 123,
   "customFields" : {
     "key" : "{}"
   },
   "serialCode" : "aeiou",
   "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
   "maxInterim" : 123,
-  "damagedQuantity" : 123,
   "wrapCode" : "aeiou",
   "alcoholCountry" : "aeiou",
   "additionalDescription" : "aeiou",
   "lowStockCodeId" : 123,
   "pickNo" : "aeiou",
   "alcoholBrand" : "aeiou",
-  "warehouseDisplayField" : "aeiou",
-  "openPOQuantity" : 123,
-  "unavailableQuantity" : 123,
   "majorGroupId" : 123,
   "lotControlFlag" : "aeiou",
   "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
   "createDate" : "2000-01-23T04:56:07.000+0000",
   "unitsPerWrap" : 123,
   "alcoholVintageYear" : "aeiou",
-  "availableQuantity" : 123,
   "podOrderSuffix" : 123,
   "length" : 1.3579000000000001069366817318950779736042022705078125,
   "accountCodeId" : 123,
@@ -449,7 +291,7 @@ public class ItemAPI: APIBase {
      - returns: RequestBuilder<Item> 
      */
     public class func getBySKUWithRequestBuilder(lobId lobId: Int, sku: String) -> RequestBuilder<Item> {
-        let path = "/beta/item/getBySKU"
+        let path = "/v2.0/item/getBySKU"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -481,13 +323,12 @@ public class ItemAPI: APIBase {
      
      Get a duplicated an item by id
      
-     - GET /beta/item/duplicate/{itemId}
+     - GET /v2.0/item/duplicate/{itemId}
      - Returns a duplicated item identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "inFulfillmentProcessQuantity" : 123,
   "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
   "alcoholNAMBCACode" : "aeiou",
   "storageLotMixingRule" : "aeiou",
@@ -502,7 +343,6 @@ public class ItemAPI: APIBase {
   "podRevDate" : "aeiou",
   "alcoholContent" : 1.3579000000000001069366817318950779736042022705078125,
   "shipSolo" : true,
-  "orderableQuantity" : 123,
   "unitCode" : "aeiou",
   "hazmat" : "aeiou",
   "commodityCode" : "aeiou",
@@ -516,14 +356,11 @@ public class ItemAPI: APIBase {
   "alcoholType" : "aeiou",
   "productCodeId" : 123,
   "packingSlipDescription" : "aeiou",
-  "openOrderQuantity" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "isAlcohol" : true,
-  "unallocatableQuantity" : 123,
   "maxCycle" : 123,
   "upc" : "aeiou",
   "allocationRule" : "aeiou",
-  "productIdTagSchemeId" : 123,
   "extrinsicNumber2" : 123,
   "compCode" : 123,
   "extrinsicNumber1" : 123,
@@ -536,8 +373,6 @@ public class ItemAPI: APIBase {
   "extrinsicText2" : "aeiou",
   "alcoholUPCCode" : "aeiou",
   "subGroupId" : 123,
-  "overallStockStatus" : "aeiou",
-  "onHandQuantity" : 123,
   "alcoholRegion" : "aeiou",
   "overallLeadTime" : 123,
   "alcoholContainer" : "aeiou",
@@ -548,30 +383,24 @@ public class ItemAPI: APIBase {
   "seasonalItem" : "aeiou",
   "alcoholSCCCode" : "aeiou",
   "topUp" : true,
-  "overallDaysOnHand" : 123,
   "customFields" : {
     "key" : "{}"
   },
   "serialCode" : "aeiou",
   "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
   "maxInterim" : 123,
-  "damagedQuantity" : 123,
   "wrapCode" : "aeiou",
   "alcoholCountry" : "aeiou",
   "additionalDescription" : "aeiou",
   "lowStockCodeId" : 123,
   "pickNo" : "aeiou",
   "alcoholBrand" : "aeiou",
-  "warehouseDisplayField" : "aeiou",
-  "openPOQuantity" : 123,
-  "unavailableQuantity" : 123,
   "majorGroupId" : 123,
   "lotControlFlag" : "aeiou",
   "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
   "createDate" : "2000-01-23T04:56:07.000+0000",
   "unitsPerWrap" : 123,
   "alcoholVintageYear" : "aeiou",
-  "availableQuantity" : 123,
   "podOrderSuffix" : 123,
   "length" : 1.3579000000000001069366817318950779736042022705078125,
   "accountCodeId" : 123,
@@ -590,7 +419,7 @@ public class ItemAPI: APIBase {
      - returns: RequestBuilder<Item> 
      */
     public class func getDuplicateItemByIdWithRequestBuilder(itemId itemId: Int) -> RequestBuilder<Item> {
-        var path = "/beta/item/duplicate/{itemId}"
+        var path = "/v2.0/item/duplicate/{itemId}"
         path = path.stringByReplacingOccurrencesOfString("{itemId}", withString: "\(itemId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -623,13 +452,12 @@ public class ItemAPI: APIBase {
      
      Search items by filter
      
-     - GET /beta/item/search
+     - GET /v2.0/item/search
      - Returns the list of items that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "inFulfillmentProcessQuantity" : 123,
   "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
   "alcoholNAMBCACode" : "aeiou",
   "storageLotMixingRule" : "aeiou",
@@ -644,7 +472,6 @@ public class ItemAPI: APIBase {
   "podRevDate" : "aeiou",
   "alcoholContent" : 1.3579000000000001069366817318950779736042022705078125,
   "shipSolo" : true,
-  "orderableQuantity" : 123,
   "unitCode" : "aeiou",
   "hazmat" : "aeiou",
   "commodityCode" : "aeiou",
@@ -658,14 +485,11 @@ public class ItemAPI: APIBase {
   "alcoholType" : "aeiou",
   "productCodeId" : 123,
   "packingSlipDescription" : "aeiou",
-  "openOrderQuantity" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "isAlcohol" : true,
-  "unallocatableQuantity" : 123,
   "maxCycle" : 123,
   "upc" : "aeiou",
   "allocationRule" : "aeiou",
-  "productIdTagSchemeId" : 123,
   "extrinsicNumber2" : 123,
   "compCode" : 123,
   "extrinsicNumber1" : 123,
@@ -678,8 +502,6 @@ public class ItemAPI: APIBase {
   "extrinsicText2" : "aeiou",
   "alcoholUPCCode" : "aeiou",
   "subGroupId" : 123,
-  "overallStockStatus" : "aeiou",
-  "onHandQuantity" : 123,
   "alcoholRegion" : "aeiou",
   "overallLeadTime" : 123,
   "alcoholContainer" : "aeiou",
@@ -690,30 +512,24 @@ public class ItemAPI: APIBase {
   "seasonalItem" : "aeiou",
   "alcoholSCCCode" : "aeiou",
   "topUp" : true,
-  "overallDaysOnHand" : 123,
   "customFields" : {
     "key" : "{}"
   },
   "serialCode" : "aeiou",
   "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
   "maxInterim" : 123,
-  "damagedQuantity" : 123,
   "wrapCode" : "aeiou",
   "alcoholCountry" : "aeiou",
   "additionalDescription" : "aeiou",
   "lowStockCodeId" : 123,
   "pickNo" : "aeiou",
   "alcoholBrand" : "aeiou",
-  "warehouseDisplayField" : "aeiou",
-  "openPOQuantity" : 123,
-  "unavailableQuantity" : 123,
   "majorGroupId" : 123,
   "lotControlFlag" : "aeiou",
   "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
   "createDate" : "2000-01-23T04:56:07.000+0000",
   "unitsPerWrap" : 123,
   "alcoholVintageYear" : "aeiou",
-  "availableQuantity" : 123,
   "podOrderSuffix" : 123,
   "length" : 1.3579000000000001069366817318950779736042022705078125,
   "accountCodeId" : 123,
@@ -735,7 +551,7 @@ public class ItemAPI: APIBase {
      - returns: RequestBuilder<[Item]> 
      */
     public class func getItemByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Item]> {
-        let path = "/beta/item/search"
+        let path = "/v2.0/item/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -769,13 +585,12 @@ public class ItemAPI: APIBase {
      
      Get an item by id
      
-     - GET /beta/item/{itemId}
+     - GET /v2.0/item/{itemId}
      - Returns the item identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "inFulfillmentProcessQuantity" : 123,
   "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
   "alcoholNAMBCACode" : "aeiou",
   "storageLotMixingRule" : "aeiou",
@@ -790,7 +605,6 @@ public class ItemAPI: APIBase {
   "podRevDate" : "aeiou",
   "alcoholContent" : 1.3579000000000001069366817318950779736042022705078125,
   "shipSolo" : true,
-  "orderableQuantity" : 123,
   "unitCode" : "aeiou",
   "hazmat" : "aeiou",
   "commodityCode" : "aeiou",
@@ -804,14 +618,11 @@ public class ItemAPI: APIBase {
   "alcoholType" : "aeiou",
   "productCodeId" : 123,
   "packingSlipDescription" : "aeiou",
-  "openOrderQuantity" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "isAlcohol" : true,
-  "unallocatableQuantity" : 123,
   "maxCycle" : 123,
   "upc" : "aeiou",
   "allocationRule" : "aeiou",
-  "productIdTagSchemeId" : 123,
   "extrinsicNumber2" : 123,
   "compCode" : 123,
   "extrinsicNumber1" : 123,
@@ -824,8 +635,6 @@ public class ItemAPI: APIBase {
   "extrinsicText2" : "aeiou",
   "alcoholUPCCode" : "aeiou",
   "subGroupId" : 123,
-  "overallStockStatus" : "aeiou",
-  "onHandQuantity" : 123,
   "alcoholRegion" : "aeiou",
   "overallLeadTime" : 123,
   "alcoholContainer" : "aeiou",
@@ -836,30 +645,24 @@ public class ItemAPI: APIBase {
   "seasonalItem" : "aeiou",
   "alcoholSCCCode" : "aeiou",
   "topUp" : true,
-  "overallDaysOnHand" : 123,
   "customFields" : {
     "key" : "{}"
   },
   "serialCode" : "aeiou",
   "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
   "maxInterim" : 123,
-  "damagedQuantity" : 123,
   "wrapCode" : "aeiou",
   "alcoholCountry" : "aeiou",
   "additionalDescription" : "aeiou",
   "lowStockCodeId" : 123,
   "pickNo" : "aeiou",
   "alcoholBrand" : "aeiou",
-  "warehouseDisplayField" : "aeiou",
-  "openPOQuantity" : 123,
-  "unavailableQuantity" : 123,
   "majorGroupId" : 123,
   "lotControlFlag" : "aeiou",
   "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
   "createDate" : "2000-01-23T04:56:07.000+0000",
   "unitsPerWrap" : 123,
   "alcoholVintageYear" : "aeiou",
-  "availableQuantity" : 123,
   "podOrderSuffix" : 123,
   "length" : 1.3579000000000001069366817318950779736042022705078125,
   "accountCodeId" : 123,
@@ -878,7 +681,7 @@ public class ItemAPI: APIBase {
      - returns: RequestBuilder<Item> 
      */
     public class func getItemByIdWithRequestBuilder(itemId itemId: Int) -> RequestBuilder<Item> {
-        var path = "/beta/item/{itemId}"
+        var path = "/v2.0/item/{itemId}"
         path = path.stringByReplacingOccurrencesOfString("{itemId}", withString: "\(itemId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -886,47 +689,6 @@ public class ItemAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<Item>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for an item.
-     
-     - parameter itemId: (path) Id of the item to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getItemTags(itemId itemId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getItemTagsWithRequestBuilder(itemId: itemId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for an item.
-     
-     - GET /beta/item/{itemId}/tag
-     - Get all existing item tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter itemId: (path) Id of the item to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getItemTagsWithRequestBuilder(itemId itemId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/item/{itemId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{itemId}", withString: "\(itemId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -949,7 +711,7 @@ public class ItemAPI: APIBase {
      
      Update an item
      
-     - PUT /beta/item
+     - PUT /v2.0/item
      - Updates an existing item using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -960,7 +722,7 @@ public class ItemAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateItemWithRequestBuilder(body body: Item) -> RequestBuilder<Void> {
-        let path = "/beta/item"
+        let path = "/v2.0/item"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -988,7 +750,7 @@ public class ItemAPI: APIBase {
      
      Update an item custom fields
      
-     - PUT /beta/item/customFields
+     - PUT /v2.0/item/customFields
      - Updates an existing item custom fields using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -999,7 +761,7 @@ public class ItemAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateItemCustomFieldsWithRequestBuilder(body body: Item) -> RequestBuilder<Void> {
-        let path = "/beta/item/customFields"
+        let path = "/v2.0/item/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

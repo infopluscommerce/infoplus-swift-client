@@ -18,7 +18,6 @@ public class ReceivingWorksheet: JSONEncodable {
     public var status: String?
     public var serviceLevel: String?
     public var receivingProcessId: Int?
-    public var dockDate: NSDate?
     public var createdBy: Int?
     public var worksheetName: String?
     public var carrier: String?
@@ -45,7 +44,6 @@ public class ReceivingWorksheet: JSONEncodable {
         nillableDictionary["status"] = self.status
         nillableDictionary["serviceLevel"] = self.serviceLevel
         nillableDictionary["receivingProcessId"] = self.receivingProcessId
-        nillableDictionary["dockDate"] = self.dockDate?.encodeToJSON()
         nillableDictionary["createdBy"] = self.createdBy
         nillableDictionary["worksheetName"] = self.worksheetName
         nillableDictionary["carrier"] = self.carrier

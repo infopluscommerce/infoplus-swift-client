@@ -28,7 +28,7 @@ public class CarrierAPI: APIBase {
      
      Get a carrier by id
      
-     - GET /beta/carrier/{carrierId}
+     - GET /v2.0/carrier/{carrierId}
      - Returns the carrier identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -43,7 +43,7 @@ public class CarrierAPI: APIBase {
      - returns: RequestBuilder<Carrier> 
      */
     public class func getCarrierByIdWithRequestBuilder(carrierId carrierId: String) -> RequestBuilder<Carrier> {
-        var path = "/beta/carrier/{carrierId}"
+        var path = "/v2.0/carrier/{carrierId}"
         path = path.stringByReplacingOccurrencesOfString("{carrierId}", withString: "\(carrierId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -75,7 +75,7 @@ public class CarrierAPI: APIBase {
      
      Search carriers
      
-     - GET /beta/carrier/search
+     - GET /v2.0/carrier/search
      - Returns the list of carriers that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
@@ -92,7 +92,7 @@ public class CarrierAPI: APIBase {
      - returns: RequestBuilder<[Carrier]> 
      */
     public class func getCarrierBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[Carrier]> {
-        let path = "/beta/carrier/search"
+        let path = "/v2.0/carrier/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [

@@ -28,14 +28,13 @@ public class LocationAPI: APIBase {
      
      Create a location
      
-     - POST /beta/location
+     - POST /v2.0/location
      - Inserts a new location using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
   "address" : "aeiou",
-  "cost" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "level" : 123,
   "allowItemMixing" : true,
@@ -64,7 +63,7 @@ public class LocationAPI: APIBase {
      - returns: RequestBuilder<Location> 
      */
     public class func addLocationWithRequestBuilder(body body: Location) -> RequestBuilder<Location> {
-        let path = "/beta/location"
+        let path = "/v2.0/location"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -72,94 +71,6 @@ public class LocationAPI: APIBase {
         let requestBuilder: RequestBuilder<Location>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new audit for a location
-     
-     - parameter locationId: (path) Id of the location to add an audit to 
-     - parameter locationAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addLocationAudit(locationId locationId: Int, locationAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addLocationAuditWithRequestBuilder(locationId: locationId, locationAudit: locationAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for a location
-     
-     - PUT /beta/location/{locationId}/audit/{locationAudit}
-     - Adds an audit to an existing location.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter locationId: (path) Id of the location to add an audit to 
-     - parameter locationAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addLocationAuditWithRequestBuilder(locationId locationId: Int, locationAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/location/{locationId}/audit/{locationAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{locationId}", withString: "\(locationId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{locationAudit}", withString: "\(locationAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for a location.
-     
-     - parameter locationId: (path) Id of the location to add a tag to 
-     - parameter locationTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addLocationTag(locationId locationId: Int, locationTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addLocationTagWithRequestBuilder(locationId: locationId, locationTag: locationTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for a location.
-     
-     - PUT /beta/location/{locationId}/tag/{locationTag}
-     - Adds a tag to an existing location.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter locationId: (path) Id of the location to add a tag to 
-     - parameter locationTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addLocationTagWithRequestBuilder(locationId locationId: Int, locationTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/location/{locationId}/tag/{locationTag}"
-        path = path.stringByReplacingOccurrencesOfString("{locationId}", withString: "\(locationId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{locationTag}", withString: "\(locationTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -180,7 +91,7 @@ public class LocationAPI: APIBase {
      
      Delete a location
      
-     - DELETE /beta/location/{locationId}
+     - DELETE /v2.0/location/{locationId}
      - Deletes the location identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -191,52 +102,8 @@ public class LocationAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteLocationWithRequestBuilder(locationId locationId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/location/{locationId}"
+        var path = "/v2.0/location/{locationId}"
         path = path.stringByReplacingOccurrencesOfString("{locationId}", withString: "\(locationId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for a location.
-     
-     - parameter locationId: (path) Id of the location to remove tag from 
-     - parameter locationTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteLocationTag(locationId locationId: Int, locationTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteLocationTagWithRequestBuilder(locationId: locationId, locationTag: locationTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for a location.
-     
-     - DELETE /beta/location/{locationId}/tag/{locationTag}
-     - Deletes an existing location tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter locationId: (path) Id of the location to remove tag from 
-     - parameter locationTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteLocationTagWithRequestBuilder(locationId locationId: Int, locationTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/location/{locationId}/tag/{locationTag}"
-        path = path.stringByReplacingOccurrencesOfString("{locationId}", withString: "\(locationId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{locationTag}", withString: "\(locationTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
@@ -265,14 +132,13 @@ public class LocationAPI: APIBase {
      
      Get a duplicated a location by id
      
-     - GET /beta/location/duplicate/{locationId}
+     - GET /v2.0/location/duplicate/{locationId}
      - Returns a duplicated location identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
   "address" : "aeiou",
-  "cost" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "level" : 123,
   "allowItemMixing" : true,
@@ -301,7 +167,7 @@ public class LocationAPI: APIBase {
      - returns: RequestBuilder<Location> 
      */
     public class func getDuplicateLocationByIdWithRequestBuilder(locationId locationId: Int) -> RequestBuilder<Location> {
-        var path = "/beta/location/duplicate/{locationId}"
+        var path = "/v2.0/location/duplicate/{locationId}"
         path = path.stringByReplacingOccurrencesOfString("{locationId}", withString: "\(locationId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -334,14 +200,13 @@ public class LocationAPI: APIBase {
      
      Search locations by filter
      
-     - GET /beta/location/search
+     - GET /v2.0/location/search
      - Returns the list of locations that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
   "address" : "aeiou",
-  "cost" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "level" : 123,
   "allowItemMixing" : true,
@@ -373,7 +238,7 @@ public class LocationAPI: APIBase {
      - returns: RequestBuilder<[Location]> 
      */
     public class func getLocationByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Location]> {
-        let path = "/beta/location/search"
+        let path = "/v2.0/location/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -407,14 +272,13 @@ public class LocationAPI: APIBase {
      
      Get a location by id
      
-     - GET /beta/location/{locationId}
+     - GET /v2.0/location/{locationId}
      - Returns the location identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
   "address" : "aeiou",
-  "cost" : 123,
   "modifyDate" : "2000-01-23T04:56:07.000+0000",
   "level" : 123,
   "allowItemMixing" : true,
@@ -443,7 +307,7 @@ public class LocationAPI: APIBase {
      - returns: RequestBuilder<Location> 
      */
     public class func getLocationByIdWithRequestBuilder(locationId locationId: Int) -> RequestBuilder<Location> {
-        var path = "/beta/location/{locationId}"
+        var path = "/v2.0/location/{locationId}"
         path = path.stringByReplacingOccurrencesOfString("{locationId}", withString: "\(locationId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -451,47 +315,6 @@ public class LocationAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<Location>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for a location.
-     
-     - parameter locationId: (path) Id of the location to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getLocationTags(locationId locationId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getLocationTagsWithRequestBuilder(locationId: locationId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for a location.
-     
-     - GET /beta/location/{locationId}/tag
-     - Get all existing location tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter locationId: (path) Id of the location to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getLocationTagsWithRequestBuilder(locationId locationId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/location/{locationId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{locationId}", withString: "\(locationId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -514,7 +337,7 @@ public class LocationAPI: APIBase {
      
      Update a location
      
-     - PUT /beta/location
+     - PUT /v2.0/location
      - Updates an existing location using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -525,7 +348,7 @@ public class LocationAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateLocationWithRequestBuilder(body body: Location) -> RequestBuilder<Void> {
-        let path = "/beta/location"
+        let path = "/v2.0/location"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -553,7 +376,7 @@ public class LocationAPI: APIBase {
      
      Update a location custom fields
      
-     - PUT /beta/location/customFields
+     - PUT /v2.0/location/customFields
      - Updates an existing location custom fields using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -564,7 +387,7 @@ public class LocationAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateLocationCustomFieldsWithRequestBuilder(body body: Location) -> RequestBuilder<Void> {
-        let path = "/beta/location/customFields"
+        let path = "/v2.0/location/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

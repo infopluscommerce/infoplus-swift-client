@@ -28,7 +28,7 @@ public class ExternalShippingSystemAPI: APIBase {
      
      Create an externalShippingSystem
      
-     - POST /beta/externalShippingSystem
+     - POST /v2.0/externalShippingSystem
      - Inserts a new externalShippingSystem using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -51,7 +51,7 @@ public class ExternalShippingSystemAPI: APIBase {
      - returns: RequestBuilder<ExternalShippingSystem> 
      */
     public class func addExternalShippingSystemWithRequestBuilder(body body: ExternalShippingSystem) -> RequestBuilder<ExternalShippingSystem> {
-        let path = "/beta/externalShippingSystem"
+        let path = "/v2.0/externalShippingSystem"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -59,94 +59,6 @@ public class ExternalShippingSystemAPI: APIBase {
         let requestBuilder: RequestBuilder<ExternalShippingSystem>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new audit for an externalShippingSystem
-     
-     - parameter externalShippingSystemId: (path) Id of the externalShippingSystem to add an audit to 
-     - parameter externalShippingSystemAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addExternalShippingSystemAudit(externalShippingSystemId externalShippingSystemId: Int, externalShippingSystemAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addExternalShippingSystemAuditWithRequestBuilder(externalShippingSystemId: externalShippingSystemId, externalShippingSystemAudit: externalShippingSystemAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for an externalShippingSystem
-     
-     - PUT /beta/externalShippingSystem/{externalShippingSystemId}/audit/{externalShippingSystemAudit}
-     - Adds an audit to an existing externalShippingSystem.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter externalShippingSystemId: (path) Id of the externalShippingSystem to add an audit to 
-     - parameter externalShippingSystemAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addExternalShippingSystemAuditWithRequestBuilder(externalShippingSystemId externalShippingSystemId: Int, externalShippingSystemAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/externalShippingSystem/{externalShippingSystemId}/audit/{externalShippingSystemAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{externalShippingSystemId}", withString: "\(externalShippingSystemId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{externalShippingSystemAudit}", withString: "\(externalShippingSystemAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for an externalShippingSystem.
-     
-     - parameter externalShippingSystemId: (path) Id of the externalShippingSystem to add a tag to 
-     - parameter externalShippingSystemTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addExternalShippingSystemTag(externalShippingSystemId externalShippingSystemId: Int, externalShippingSystemTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addExternalShippingSystemTagWithRequestBuilder(externalShippingSystemId: externalShippingSystemId, externalShippingSystemTag: externalShippingSystemTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for an externalShippingSystem.
-     
-     - PUT /beta/externalShippingSystem/{externalShippingSystemId}/tag/{externalShippingSystemTag}
-     - Adds a tag to an existing externalShippingSystem.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter externalShippingSystemId: (path) Id of the externalShippingSystem to add a tag to 
-     - parameter externalShippingSystemTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addExternalShippingSystemTagWithRequestBuilder(externalShippingSystemId externalShippingSystemId: Int, externalShippingSystemTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/externalShippingSystem/{externalShippingSystemId}/tag/{externalShippingSystemTag}"
-        path = path.stringByReplacingOccurrencesOfString("{externalShippingSystemId}", withString: "\(externalShippingSystemId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{externalShippingSystemTag}", withString: "\(externalShippingSystemTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -167,7 +79,7 @@ public class ExternalShippingSystemAPI: APIBase {
      
      Delete an externalShippingSystem
      
-     - DELETE /beta/externalShippingSystem/{externalShippingSystemId}
+     - DELETE /v2.0/externalShippingSystem/{externalShippingSystemId}
      - Deletes the externalShippingSystem identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -178,52 +90,8 @@ public class ExternalShippingSystemAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteExternalShippingSystemWithRequestBuilder(externalShippingSystemId externalShippingSystemId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/externalShippingSystem/{externalShippingSystemId}"
+        var path = "/v2.0/externalShippingSystem/{externalShippingSystemId}"
         path = path.stringByReplacingOccurrencesOfString("{externalShippingSystemId}", withString: "\(externalShippingSystemId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for an externalShippingSystem.
-     
-     - parameter externalShippingSystemId: (path) Id of the externalShippingSystem to remove tag from 
-     - parameter externalShippingSystemTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteExternalShippingSystemTag(externalShippingSystemId externalShippingSystemId: Int, externalShippingSystemTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteExternalShippingSystemTagWithRequestBuilder(externalShippingSystemId: externalShippingSystemId, externalShippingSystemTag: externalShippingSystemTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for an externalShippingSystem.
-     
-     - DELETE /beta/externalShippingSystem/{externalShippingSystemId}/tag/{externalShippingSystemTag}
-     - Deletes an existing externalShippingSystem tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter externalShippingSystemId: (path) Id of the externalShippingSystem to remove tag from 
-     - parameter externalShippingSystemTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteExternalShippingSystemTagWithRequestBuilder(externalShippingSystemId externalShippingSystemId: Int, externalShippingSystemTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/externalShippingSystem/{externalShippingSystemId}/tag/{externalShippingSystemTag}"
-        path = path.stringByReplacingOccurrencesOfString("{externalShippingSystemId}", withString: "\(externalShippingSystemId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{externalShippingSystemTag}", withString: "\(externalShippingSystemTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
@@ -252,7 +120,7 @@ public class ExternalShippingSystemAPI: APIBase {
      
      Get a duplicated an externalShippingSystem by id
      
-     - GET /beta/externalShippingSystem/duplicate/{externalShippingSystemId}
+     - GET /v2.0/externalShippingSystem/duplicate/{externalShippingSystemId}
      - Returns a duplicated externalShippingSystem identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -275,7 +143,7 @@ public class ExternalShippingSystemAPI: APIBase {
      - returns: RequestBuilder<ExternalShippingSystem> 
      */
     public class func getDuplicateExternalShippingSystemByIdWithRequestBuilder(externalShippingSystemId externalShippingSystemId: Int) -> RequestBuilder<ExternalShippingSystem> {
-        var path = "/beta/externalShippingSystem/duplicate/{externalShippingSystemId}"
+        var path = "/v2.0/externalShippingSystem/duplicate/{externalShippingSystemId}"
         path = path.stringByReplacingOccurrencesOfString("{externalShippingSystemId}", withString: "\(externalShippingSystemId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -308,7 +176,7 @@ public class ExternalShippingSystemAPI: APIBase {
      
      Search externalShippingSystems by filter
      
-     - GET /beta/externalShippingSystem/search
+     - GET /v2.0/externalShippingSystem/search
      - Returns the list of externalShippingSystems that match the given filter.
      - API Key:
        - type: apiKey API-Key 
@@ -334,7 +202,7 @@ public class ExternalShippingSystemAPI: APIBase {
      - returns: RequestBuilder<[ExternalShippingSystem]> 
      */
     public class func getExternalShippingSystemByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ExternalShippingSystem]> {
-        let path = "/beta/externalShippingSystem/search"
+        let path = "/v2.0/externalShippingSystem/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -368,7 +236,7 @@ public class ExternalShippingSystemAPI: APIBase {
      
      Get an externalShippingSystem by id
      
-     - GET /beta/externalShippingSystem/{externalShippingSystemId}
+     - GET /v2.0/externalShippingSystem/{externalShippingSystemId}
      - Returns the externalShippingSystem identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -391,7 +259,7 @@ public class ExternalShippingSystemAPI: APIBase {
      - returns: RequestBuilder<ExternalShippingSystem> 
      */
     public class func getExternalShippingSystemByIdWithRequestBuilder(externalShippingSystemId externalShippingSystemId: Int) -> RequestBuilder<ExternalShippingSystem> {
-        var path = "/beta/externalShippingSystem/{externalShippingSystemId}"
+        var path = "/v2.0/externalShippingSystem/{externalShippingSystemId}"
         path = path.stringByReplacingOccurrencesOfString("{externalShippingSystemId}", withString: "\(externalShippingSystemId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -399,47 +267,6 @@ public class ExternalShippingSystemAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<ExternalShippingSystem>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for an externalShippingSystem.
-     
-     - parameter externalShippingSystemId: (path) Id of the externalShippingSystem to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getExternalShippingSystemTags(externalShippingSystemId externalShippingSystemId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getExternalShippingSystemTagsWithRequestBuilder(externalShippingSystemId: externalShippingSystemId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for an externalShippingSystem.
-     
-     - GET /beta/externalShippingSystem/{externalShippingSystemId}/tag
-     - Get all existing externalShippingSystem tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter externalShippingSystemId: (path) Id of the externalShippingSystem to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getExternalShippingSystemTagsWithRequestBuilder(externalShippingSystemId externalShippingSystemId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/externalShippingSystem/{externalShippingSystemId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{externalShippingSystemId}", withString: "\(externalShippingSystemId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -462,7 +289,7 @@ public class ExternalShippingSystemAPI: APIBase {
      
      Update an externalShippingSystem
      
-     - PUT /beta/externalShippingSystem
+     - PUT /v2.0/externalShippingSystem
      - Updates an existing externalShippingSystem using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -473,7 +300,7 @@ public class ExternalShippingSystemAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateExternalShippingSystemWithRequestBuilder(body body: ExternalShippingSystem) -> RequestBuilder<Void> {
-        let path = "/beta/externalShippingSystem"
+        let path = "/v2.0/externalShippingSystem"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -501,7 +328,7 @@ public class ExternalShippingSystemAPI: APIBase {
      
      Update an externalShippingSystem custom fields
      
-     - PUT /beta/externalShippingSystem/customFields
+     - PUT /v2.0/externalShippingSystem/customFields
      - Updates an existing externalShippingSystem custom fields using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -512,7 +339,7 @@ public class ExternalShippingSystemAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateExternalShippingSystemCustomFieldsWithRequestBuilder(body body: ExternalShippingSystem) -> RequestBuilder<Void> {
-        let path = "/beta/externalShippingSystem/customFields"
+        let path = "/v2.0/externalShippingSystem/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

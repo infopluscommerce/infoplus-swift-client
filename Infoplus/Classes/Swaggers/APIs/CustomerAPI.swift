@@ -28,7 +28,7 @@ public class CustomerAPI: APIBase {
      
      Create a customer
      
-     - POST /beta/customer
+     - POST /v2.0/customer
      - Inserts a new customer using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -92,7 +92,7 @@ public class CustomerAPI: APIBase {
      - returns: RequestBuilder<Customer> 
      */
     public class func addCustomerWithRequestBuilder(body body: Customer) -> RequestBuilder<Customer> {
-        let path = "/beta/customer"
+        let path = "/v2.0/customer"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -100,94 +100,6 @@ public class CustomerAPI: APIBase {
         let requestBuilder: RequestBuilder<Customer>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new audit for a customer
-     
-     - parameter customerId: (path) Id of the customer to add an audit to 
-     - parameter customerAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addCustomerAudit(customerId customerId: Int, customerAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addCustomerAuditWithRequestBuilder(customerId: customerId, customerAudit: customerAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for a customer
-     
-     - PUT /beta/customer/{customerId}/audit/{customerAudit}
-     - Adds an audit to an existing customer.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter customerId: (path) Id of the customer to add an audit to 
-     - parameter customerAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addCustomerAuditWithRequestBuilder(customerId customerId: Int, customerAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/customer/{customerId}/audit/{customerAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{customerId}", withString: "\(customerId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{customerAudit}", withString: "\(customerAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for a customer.
-     
-     - parameter customerId: (path) Id of the customer to add a tag to 
-     - parameter customerTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addCustomerTag(customerId customerId: Int, customerTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addCustomerTagWithRequestBuilder(customerId: customerId, customerTag: customerTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for a customer.
-     
-     - PUT /beta/customer/{customerId}/tag/{customerTag}
-     - Adds a tag to an existing customer.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter customerId: (path) Id of the customer to add a tag to 
-     - parameter customerTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addCustomerTagWithRequestBuilder(customerId customerId: Int, customerTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/customer/{customerId}/tag/{customerTag}"
-        path = path.stringByReplacingOccurrencesOfString("{customerId}", withString: "\(customerId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{customerTag}", withString: "\(customerTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -208,7 +120,7 @@ public class CustomerAPI: APIBase {
      
      Delete a customer
      
-     - DELETE /beta/customer/{customerId}
+     - DELETE /v2.0/customer/{customerId}
      - Deletes the customer identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -219,52 +131,8 @@ public class CustomerAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteCustomerWithRequestBuilder(customerId customerId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/customer/{customerId}"
+        var path = "/v2.0/customer/{customerId}"
         path = path.stringByReplacingOccurrencesOfString("{customerId}", withString: "\(customerId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for a customer.
-     
-     - parameter customerId: (path) Id of the customer to remove tag from 
-     - parameter customerTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteCustomerTag(customerId customerId: Int, customerTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteCustomerTagWithRequestBuilder(customerId: customerId, customerTag: customerTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for a customer.
-     
-     - DELETE /beta/customer/{customerId}/tag/{customerTag}
-     - Deletes an existing customer tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter customerId: (path) Id of the customer to remove tag from 
-     - parameter customerTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteCustomerTagWithRequestBuilder(customerId customerId: Int, customerTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/customer/{customerId}/tag/{customerTag}"
-        path = path.stringByReplacingOccurrencesOfString("{customerId}", withString: "\(customerId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{customerTag}", withString: "\(customerTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
@@ -294,7 +162,7 @@ public class CustomerAPI: APIBase {
      
      Get a customer by Customer No
      
-     - GET /beta/customer/getByCustomerNo
+     - GET /v2.0/customer/getByCustomerNo
      - Returns the customer identified by the specified parameters.
      - API Key:
        - type: apiKey API-Key 
@@ -359,7 +227,7 @@ public class CustomerAPI: APIBase {
      - returns: RequestBuilder<Customer> 
      */
     public class func getByCustomerNoWithRequestBuilder(lobId lobId: Int, customerNo: String) -> RequestBuilder<Customer> {
-        let path = "/beta/customer/getByCustomerNo"
+        let path = "/v2.0/customer/getByCustomerNo"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -394,7 +262,7 @@ public class CustomerAPI: APIBase {
      
      Search customers by filter
      
-     - GET /beta/customer/search
+     - GET /v2.0/customer/search
      - Returns the list of customers that match the given filter.
      - API Key:
        - type: apiKey API-Key 
@@ -461,7 +329,7 @@ public class CustomerAPI: APIBase {
      - returns: RequestBuilder<[Customer]> 
      */
     public class func getCustomerByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Customer]> {
-        let path = "/beta/customer/search"
+        let path = "/v2.0/customer/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -495,7 +363,7 @@ public class CustomerAPI: APIBase {
      
      Get a customer by id
      
-     - GET /beta/customer/{customerId}
+     - GET /v2.0/customer/{customerId}
      - Returns the customer identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -559,7 +427,7 @@ public class CustomerAPI: APIBase {
      - returns: RequestBuilder<Customer> 
      */
     public class func getCustomerByIdWithRequestBuilder(customerId customerId: Int) -> RequestBuilder<Customer> {
-        var path = "/beta/customer/{customerId}"
+        var path = "/v2.0/customer/{customerId}"
         path = path.stringByReplacingOccurrencesOfString("{customerId}", withString: "\(customerId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -567,47 +435,6 @@ public class CustomerAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<Customer>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for a customer.
-     
-     - parameter customerId: (path) Id of the customer to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getCustomerTags(customerId customerId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getCustomerTagsWithRequestBuilder(customerId: customerId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for a customer.
-     
-     - GET /beta/customer/{customerId}/tag
-     - Get all existing customer tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter customerId: (path) Id of the customer to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getCustomerTagsWithRequestBuilder(customerId customerId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/customer/{customerId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{customerId}", withString: "\(customerId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -630,7 +457,7 @@ public class CustomerAPI: APIBase {
      
      Get a duplicated a customer by id
      
-     - GET /beta/customer/duplicate/{customerId}
+     - GET /v2.0/customer/duplicate/{customerId}
      - Returns a duplicated customer identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -694,7 +521,7 @@ public class CustomerAPI: APIBase {
      - returns: RequestBuilder<Customer> 
      */
     public class func getDuplicateCustomerByIdWithRequestBuilder(customerId customerId: Int) -> RequestBuilder<Customer> {
-        var path = "/beta/customer/duplicate/{customerId}"
+        var path = "/v2.0/customer/duplicate/{customerId}"
         path = path.stringByReplacingOccurrencesOfString("{customerId}", withString: "\(customerId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -724,7 +551,7 @@ public class CustomerAPI: APIBase {
      
      Update a customer
      
-     - PUT /beta/customer
+     - PUT /v2.0/customer
      - Updates an existing customer using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -735,7 +562,7 @@ public class CustomerAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateCustomerWithRequestBuilder(body body: Customer) -> RequestBuilder<Void> {
-        let path = "/beta/customer"
+        let path = "/v2.0/customer"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -763,7 +590,7 @@ public class CustomerAPI: APIBase {
      
      Update a customer custom fields
      
-     - PUT /beta/customer/customFields
+     - PUT /v2.0/customer/customFields
      - Updates an existing customer custom fields using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -774,7 +601,7 @@ public class CustomerAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateCustomerCustomFieldsWithRequestBuilder(body body: Customer) -> RequestBuilder<Void> {
-        let path = "/beta/customer/customFields"
+        let path = "/v2.0/customer/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

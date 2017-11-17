@@ -30,7 +30,7 @@ public class OrderLoadProgramAPI: APIBase {
      
      Search orderLoadPrograms
      
-     - GET /beta/orderLoadProgram/search
+     - GET /v2.0/orderLoadProgram/search
      - Returns the list of orderLoadPrograms that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
@@ -47,7 +47,7 @@ public class OrderLoadProgramAPI: APIBase {
      - returns: RequestBuilder<[OrderLoadProgram]> 
      */
     public class func getOrderLoadProgramBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[OrderLoadProgram]> {
-        let path = "/beta/orderLoadProgram/search"
+        let path = "/v2.0/orderLoadProgram/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -80,7 +80,7 @@ public class OrderLoadProgramAPI: APIBase {
      
      Get an orderLoadProgram by id
      
-     - GET /beta/orderLoadProgram/{orderLoadProgramId}
+     - GET /v2.0/orderLoadProgram/{orderLoadProgramId}
      - Returns the orderLoadProgram identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -95,7 +95,7 @@ public class OrderLoadProgramAPI: APIBase {
      - returns: RequestBuilder<OrderLoadProgram> 
      */
     public class func getReqLoadProgramByIdWithRequestBuilder(orderLoadProgramId orderLoadProgramId: String) -> RequestBuilder<OrderLoadProgram> {
-        var path = "/beta/orderLoadProgram/{orderLoadProgramId}"
+        var path = "/v2.0/orderLoadProgram/{orderLoadProgramId}"
         path = path.stringByReplacingOccurrencesOfString("{orderLoadProgramId}", withString: "\(orderLoadProgramId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         

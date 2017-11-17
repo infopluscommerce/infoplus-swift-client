@@ -51,13 +51,9 @@ public class FulfillmentProcess: JSONEncodable {
     public var shipDate: NSDate?
     public var autoShipCasebreakCartons: Bool?
     public var cartonizeOrders: Bool?
-    public var createPackingSlip: String?
+    public var createPackingSlip: Bool?
     public var overridePackingSlipTemplateId: Int?
     public var createOrderAssemblyGuide: Bool?
-    public var createOrderInvoice: String?
-    public var overrideOrderInvoiceTemplateId: Int?
-    public var sendToExternalShippingSystem: Bool?
-    public var externalShippingSystemId: Int?
     public var customFields: [String:AnyObject]?
     
 
@@ -110,10 +106,6 @@ public class FulfillmentProcess: JSONEncodable {
         nillableDictionary["createPackingSlip"] = self.createPackingSlip
         nillableDictionary["overridePackingSlipTemplateId"] = self.overridePackingSlipTemplateId
         nillableDictionary["createOrderAssemblyGuide"] = self.createOrderAssemblyGuide
-        nillableDictionary["createOrderInvoice"] = self.createOrderInvoice
-        nillableDictionary["overrideOrderInvoiceTemplateId"] = self.overrideOrderInvoiceTemplateId
-        nillableDictionary["sendToExternalShippingSystem"] = self.sendToExternalShippingSystem
-        nillableDictionary["externalShippingSystemId"] = self.externalShippingSystemId
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

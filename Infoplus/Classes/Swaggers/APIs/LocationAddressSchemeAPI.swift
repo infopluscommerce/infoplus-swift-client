@@ -28,7 +28,7 @@ public class LocationAddressSchemeAPI: APIBase {
      
      Create a locationAddressScheme
      
-     - POST /beta/locationAddressScheme
+     - POST /v2.0/locationAddressScheme
      - Inserts a new locationAddressScheme using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -62,7 +62,7 @@ public class LocationAddressSchemeAPI: APIBase {
      - returns: RequestBuilder<LocationAddressScheme> 
      */
     public class func addLocationAddressSchemeWithRequestBuilder(body body: LocationAddressScheme) -> RequestBuilder<LocationAddressScheme> {
-        let path = "/beta/locationAddressScheme"
+        let path = "/v2.0/locationAddressScheme"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -70,94 +70,6 @@ public class LocationAddressSchemeAPI: APIBase {
         let requestBuilder: RequestBuilder<LocationAddressScheme>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new audit for a locationAddressScheme
-     
-     - parameter locationAddressSchemeId: (path) Id of the locationAddressScheme to add an audit to 
-     - parameter locationAddressSchemeAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addLocationAddressSchemeAudit(locationAddressSchemeId locationAddressSchemeId: Int, locationAddressSchemeAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addLocationAddressSchemeAuditWithRequestBuilder(locationAddressSchemeId: locationAddressSchemeId, locationAddressSchemeAudit: locationAddressSchemeAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for a locationAddressScheme
-     
-     - PUT /beta/locationAddressScheme/{locationAddressSchemeId}/audit/{locationAddressSchemeAudit}
-     - Adds an audit to an existing locationAddressScheme.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter locationAddressSchemeId: (path) Id of the locationAddressScheme to add an audit to 
-     - parameter locationAddressSchemeAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addLocationAddressSchemeAuditWithRequestBuilder(locationAddressSchemeId locationAddressSchemeId: Int, locationAddressSchemeAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/locationAddressScheme/{locationAddressSchemeId}/audit/{locationAddressSchemeAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{locationAddressSchemeId}", withString: "\(locationAddressSchemeId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{locationAddressSchemeAudit}", withString: "\(locationAddressSchemeAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for a locationAddressScheme.
-     
-     - parameter locationAddressSchemeId: (path) Id of the locationAddressScheme to add a tag to 
-     - parameter locationAddressSchemeTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addLocationAddressSchemeTag(locationAddressSchemeId locationAddressSchemeId: Int, locationAddressSchemeTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addLocationAddressSchemeTagWithRequestBuilder(locationAddressSchemeId: locationAddressSchemeId, locationAddressSchemeTag: locationAddressSchemeTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for a locationAddressScheme.
-     
-     - PUT /beta/locationAddressScheme/{locationAddressSchemeId}/tag/{locationAddressSchemeTag}
-     - Adds a tag to an existing locationAddressScheme.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter locationAddressSchemeId: (path) Id of the locationAddressScheme to add a tag to 
-     - parameter locationAddressSchemeTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addLocationAddressSchemeTagWithRequestBuilder(locationAddressSchemeId locationAddressSchemeId: Int, locationAddressSchemeTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/locationAddressScheme/{locationAddressSchemeId}/tag/{locationAddressSchemeTag}"
-        path = path.stringByReplacingOccurrencesOfString("{locationAddressSchemeId}", withString: "\(locationAddressSchemeId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{locationAddressSchemeTag}", withString: "\(locationAddressSchemeTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -178,7 +90,7 @@ public class LocationAddressSchemeAPI: APIBase {
      
      Delete a locationAddressScheme
      
-     - DELETE /beta/locationAddressScheme/{locationAddressSchemeId}
+     - DELETE /v2.0/locationAddressScheme/{locationAddressSchemeId}
      - Deletes the locationAddressScheme identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -189,52 +101,8 @@ public class LocationAddressSchemeAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteLocationAddressSchemeWithRequestBuilder(locationAddressSchemeId locationAddressSchemeId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/locationAddressScheme/{locationAddressSchemeId}"
+        var path = "/v2.0/locationAddressScheme/{locationAddressSchemeId}"
         path = path.stringByReplacingOccurrencesOfString("{locationAddressSchemeId}", withString: "\(locationAddressSchemeId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for a locationAddressScheme.
-     
-     - parameter locationAddressSchemeId: (path) Id of the locationAddressScheme to remove tag from 
-     - parameter locationAddressSchemeTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteLocationAddressSchemeTag(locationAddressSchemeId locationAddressSchemeId: Int, locationAddressSchemeTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteLocationAddressSchemeTagWithRequestBuilder(locationAddressSchemeId: locationAddressSchemeId, locationAddressSchemeTag: locationAddressSchemeTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for a locationAddressScheme.
-     
-     - DELETE /beta/locationAddressScheme/{locationAddressSchemeId}/tag/{locationAddressSchemeTag}
-     - Deletes an existing locationAddressScheme tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter locationAddressSchemeId: (path) Id of the locationAddressScheme to remove tag from 
-     - parameter locationAddressSchemeTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteLocationAddressSchemeTagWithRequestBuilder(locationAddressSchemeId locationAddressSchemeId: Int, locationAddressSchemeTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/locationAddressScheme/{locationAddressSchemeId}/tag/{locationAddressSchemeTag}"
-        path = path.stringByReplacingOccurrencesOfString("{locationAddressSchemeId}", withString: "\(locationAddressSchemeId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{locationAddressSchemeTag}", withString: "\(locationAddressSchemeTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
@@ -263,7 +131,7 @@ public class LocationAddressSchemeAPI: APIBase {
      
      Get a duplicated a locationAddressScheme by id
      
-     - GET /beta/locationAddressScheme/duplicate/{locationAddressSchemeId}
+     - GET /v2.0/locationAddressScheme/duplicate/{locationAddressSchemeId}
      - Returns a duplicated locationAddressScheme identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -297,7 +165,7 @@ public class LocationAddressSchemeAPI: APIBase {
      - returns: RequestBuilder<LocationAddressScheme> 
      */
     public class func getDuplicateLocationAddressSchemeByIdWithRequestBuilder(locationAddressSchemeId locationAddressSchemeId: Int) -> RequestBuilder<LocationAddressScheme> {
-        var path = "/beta/locationAddressScheme/duplicate/{locationAddressSchemeId}"
+        var path = "/v2.0/locationAddressScheme/duplicate/{locationAddressSchemeId}"
         path = path.stringByReplacingOccurrencesOfString("{locationAddressSchemeId}", withString: "\(locationAddressSchemeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -330,7 +198,7 @@ public class LocationAddressSchemeAPI: APIBase {
      
      Search locationAddressSchemes by filter
      
-     - GET /beta/locationAddressScheme/search
+     - GET /v2.0/locationAddressScheme/search
      - Returns the list of locationAddressSchemes that match the given filter.
      - API Key:
        - type: apiKey API-Key 
@@ -367,7 +235,7 @@ public class LocationAddressSchemeAPI: APIBase {
      - returns: RequestBuilder<[LocationAddressScheme]> 
      */
     public class func getLocationAddressSchemeByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[LocationAddressScheme]> {
-        let path = "/beta/locationAddressScheme/search"
+        let path = "/v2.0/locationAddressScheme/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -401,7 +269,7 @@ public class LocationAddressSchemeAPI: APIBase {
      
      Get a locationAddressScheme by id
      
-     - GET /beta/locationAddressScheme/{locationAddressSchemeId}
+     - GET /v2.0/locationAddressScheme/{locationAddressSchemeId}
      - Returns the locationAddressScheme identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -435,7 +303,7 @@ public class LocationAddressSchemeAPI: APIBase {
      - returns: RequestBuilder<LocationAddressScheme> 
      */
     public class func getLocationAddressSchemeByIdWithRequestBuilder(locationAddressSchemeId locationAddressSchemeId: Int) -> RequestBuilder<LocationAddressScheme> {
-        var path = "/beta/locationAddressScheme/{locationAddressSchemeId}"
+        var path = "/v2.0/locationAddressScheme/{locationAddressSchemeId}"
         path = path.stringByReplacingOccurrencesOfString("{locationAddressSchemeId}", withString: "\(locationAddressSchemeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -443,47 +311,6 @@ public class LocationAddressSchemeAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<LocationAddressScheme>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for a locationAddressScheme.
-     
-     - parameter locationAddressSchemeId: (path) Id of the locationAddressScheme to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getLocationAddressSchemeTags(locationAddressSchemeId locationAddressSchemeId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getLocationAddressSchemeTagsWithRequestBuilder(locationAddressSchemeId: locationAddressSchemeId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for a locationAddressScheme.
-     
-     - GET /beta/locationAddressScheme/{locationAddressSchemeId}/tag
-     - Get all existing locationAddressScheme tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter locationAddressSchemeId: (path) Id of the locationAddressScheme to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getLocationAddressSchemeTagsWithRequestBuilder(locationAddressSchemeId locationAddressSchemeId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/locationAddressScheme/{locationAddressSchemeId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{locationAddressSchemeId}", withString: "\(locationAddressSchemeId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -506,7 +333,7 @@ public class LocationAddressSchemeAPI: APIBase {
      
      Update a locationAddressScheme
      
-     - PUT /beta/locationAddressScheme
+     - PUT /v2.0/locationAddressScheme
      - Updates an existing locationAddressScheme using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -517,7 +344,7 @@ public class LocationAddressSchemeAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateLocationAddressSchemeWithRequestBuilder(body body: LocationAddressScheme) -> RequestBuilder<Void> {
-        let path = "/beta/locationAddressScheme"
+        let path = "/v2.0/locationAddressScheme"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -545,7 +372,7 @@ public class LocationAddressSchemeAPI: APIBase {
      
      Update a locationAddressScheme custom fields
      
-     - PUT /beta/locationAddressScheme/customFields
+     - PUT /v2.0/locationAddressScheme/customFields
      - Updates an existing locationAddressScheme custom fields using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -556,7 +383,7 @@ public class LocationAddressSchemeAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateLocationAddressSchemeCustomFieldsWithRequestBuilder(body body: LocationAddressScheme) -> RequestBuilder<Void> {
-        let path = "/beta/locationAddressScheme/customFields"
+        let path = "/v2.0/locationAddressScheme/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

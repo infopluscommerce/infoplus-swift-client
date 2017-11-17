@@ -12,228 +12,6 @@ import Alamofire
 public class ProductionLotAPI: APIBase {
     /**
      
-     Create a productionLot
-     
-     - parameter body: (body) ProductionLot to be inserted. 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addProductionLot(body body: ProductionLot, completion: ((data: ProductionLot?, error: ErrorType?) -> Void)) {
-        addProductionLotWithRequestBuilder(body: body).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Create a productionLot
-     
-     - POST /beta/productionLot
-     - Inserts a new productionLot using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     - examples: [{contentType=application/json, example={
-  "quantity" : 123,
-  "customFields" : {
-    "key" : "{}"
-  },
-  "productionLot" : "aeiou",
-  "id" : 123,
-  "sku" : "aeiou",
-  "lobId" : 123
-}}]
-     
-     - parameter body: (body) ProductionLot to be inserted. 
-
-     - returns: RequestBuilder<ProductionLot> 
-     */
-    public class func addProductionLotWithRequestBuilder(body body: ProductionLot) -> RequestBuilder<ProductionLot> {
-        let path = "/beta/productionLot"
-        let URLString = InfoplusAPI.basePath + path
-        
-        let parameters = body.encodeToJSON() as? [String:AnyObject]
-
-        let requestBuilder: RequestBuilder<ProductionLot>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new audit for a productionLot
-     
-     - parameter productionLotId: (path) Id of the productionLot to add an audit to 
-     - parameter productionLotAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addProductionLotAudit(productionLotId productionLotId: Int, productionLotAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addProductionLotAuditWithRequestBuilder(productionLotId: productionLotId, productionLotAudit: productionLotAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for a productionLot
-     
-     - PUT /beta/productionLot/{productionLotId}/audit/{productionLotAudit}
-     - Adds an audit to an existing productionLot.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter productionLotId: (path) Id of the productionLot to add an audit to 
-     - parameter productionLotAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addProductionLotAuditWithRequestBuilder(productionLotId productionLotId: Int, productionLotAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/productionLot/{productionLotId}/audit/{productionLotAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{productionLotId}", withString: "\(productionLotId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{productionLotAudit}", withString: "\(productionLotAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for a productionLot.
-     
-     - parameter productionLotId: (path) Id of the productionLot to add a tag to 
-     - parameter productionLotTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addProductionLotTag(productionLotId productionLotId: Int, productionLotTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addProductionLotTagWithRequestBuilder(productionLotId: productionLotId, productionLotTag: productionLotTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for a productionLot.
-     
-     - PUT /beta/productionLot/{productionLotId}/tag/{productionLotTag}
-     - Adds a tag to an existing productionLot.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter productionLotId: (path) Id of the productionLot to add a tag to 
-     - parameter productionLotTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addProductionLotTagWithRequestBuilder(productionLotId productionLotId: Int, productionLotTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/productionLot/{productionLotId}/tag/{productionLotTag}"
-        path = path.stringByReplacingOccurrencesOfString("{productionLotId}", withString: "\(productionLotId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{productionLotTag}", withString: "\(productionLotTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a productionLot
-     
-     - parameter productionLotId: (path) Id of the productionLot to be deleted. 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteProductionLot(productionLotId productionLotId: Int, completion: ((error: ErrorType?) -> Void)) {
-        deleteProductionLotWithRequestBuilder(productionLotId: productionLotId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a productionLot
-     
-     - DELETE /beta/productionLot/{productionLotId}
-     - Deletes the productionLot identified by the specified id.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter productionLotId: (path) Id of the productionLot to be deleted. 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteProductionLotWithRequestBuilder(productionLotId productionLotId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/productionLot/{productionLotId}"
-        path = path.stringByReplacingOccurrencesOfString("{productionLotId}", withString: "\(productionLotId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for a productionLot.
-     
-     - parameter productionLotId: (path) Id of the productionLot to remove tag from 
-     - parameter productionLotTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteProductionLotTag(productionLotId productionLotId: Int, productionLotTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteProductionLotTagWithRequestBuilder(productionLotId: productionLotId, productionLotTag: productionLotTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for a productionLot.
-     
-     - DELETE /beta/productionLot/{productionLotId}/tag/{productionLotTag}
-     - Deletes an existing productionLot tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter productionLotId: (path) Id of the productionLot to remove tag from 
-     - parameter productionLotTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteProductionLotTagWithRequestBuilder(productionLotId productionLotId: Int, productionLotTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/productionLot/{productionLotId}/tag/{productionLotTag}"
-        path = path.stringByReplacingOccurrencesOfString("{productionLotId}", withString: "\(productionLotId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{productionLotTag}", withString: "\(productionLotTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
      Get a duplicated a productionLot by id
      
      - parameter productionLotId: (path) Id of the productionLot to be duplicated. 
@@ -250,7 +28,7 @@ public class ProductionLotAPI: APIBase {
      
      Get a duplicated a productionLot by id
      
-     - GET /beta/productionLot/duplicate/{productionLotId}
+     - GET /v2.0/productionLot/duplicate/{productionLotId}
      - Returns a duplicated productionLot identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -271,7 +49,7 @@ public class ProductionLotAPI: APIBase {
      - returns: RequestBuilder<ProductionLot> 
      */
     public class func getDuplicateProductionLotByIdWithRequestBuilder(productionLotId productionLotId: Int) -> RequestBuilder<ProductionLot> {
-        var path = "/beta/productionLot/duplicate/{productionLotId}"
+        var path = "/v2.0/productionLot/duplicate/{productionLotId}"
         path = path.stringByReplacingOccurrencesOfString("{productionLotId}", withString: "\(productionLotId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -304,7 +82,7 @@ public class ProductionLotAPI: APIBase {
      
      Search productionLots by filter
      
-     - GET /beta/productionLot/search
+     - GET /v2.0/productionLot/search
      - Returns the list of productionLots that match the given filter.
      - API Key:
        - type: apiKey API-Key 
@@ -328,7 +106,7 @@ public class ProductionLotAPI: APIBase {
      - returns: RequestBuilder<[ProductionLot]> 
      */
     public class func getProductionLotByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ProductionLot]> {
-        let path = "/beta/productionLot/search"
+        let path = "/v2.0/productionLot/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -362,7 +140,7 @@ public class ProductionLotAPI: APIBase {
      
      Get a productionLot by id
      
-     - GET /beta/productionLot/{productionLotId}
+     - GET /v2.0/productionLot/{productionLotId}
      - Returns the productionLot identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -383,7 +161,7 @@ public class ProductionLotAPI: APIBase {
      - returns: RequestBuilder<ProductionLot> 
      */
     public class func getProductionLotByIdWithRequestBuilder(productionLotId productionLotId: Int) -> RequestBuilder<ProductionLot> {
-        var path = "/beta/productionLot/{productionLotId}"
+        var path = "/v2.0/productionLot/{productionLotId}"
         path = path.stringByReplacingOccurrencesOfString("{productionLotId}", withString: "\(productionLotId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -393,86 +171,6 @@ public class ProductionLotAPI: APIBase {
         let requestBuilder: RequestBuilder<ProductionLot>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for a productionLot.
-     
-     - parameter productionLotId: (path) Id of the productionLot to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getProductionLotTags(productionLotId productionLotId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getProductionLotTagsWithRequestBuilder(productionLotId: productionLotId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for a productionLot.
-     
-     - GET /beta/productionLot/{productionLotId}/tag
-     - Get all existing productionLot tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter productionLotId: (path) Id of the productionLot to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getProductionLotTagsWithRequestBuilder(productionLotId productionLotId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/productionLot/{productionLotId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{productionLotId}", withString: "\(productionLotId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Update a productionLot
-     
-     - parameter body: (body) ProductionLot to be updated. 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func updateProductionLot(body body: ProductionLot, completion: ((error: ErrorType?) -> Void)) {
-        updateProductionLotWithRequestBuilder(body: body).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Update a productionLot
-     
-     - PUT /beta/productionLot
-     - Updates an existing productionLot using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter body: (body) ProductionLot to be updated. 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func updateProductionLotWithRequestBuilder(body body: ProductionLot) -> RequestBuilder<Void> {
-        let path = "/beta/productionLot"
-        let URLString = InfoplusAPI.basePath + path
-        
-        let parameters = body.encodeToJSON() as? [String:AnyObject]
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -493,7 +191,7 @@ public class ProductionLotAPI: APIBase {
      
      Update a productionLot custom fields
      
-     - PUT /beta/productionLot/customFields
+     - PUT /v2.0/productionLot/customFields
      - Updates an existing productionLot custom fields using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -504,7 +202,7 @@ public class ProductionLotAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateProductionLotCustomFieldsWithRequestBuilder(body body: ProductionLot) -> RequestBuilder<Void> {
-        let path = "/beta/productionLot/customFields"
+        let path = "/v2.0/productionLot/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

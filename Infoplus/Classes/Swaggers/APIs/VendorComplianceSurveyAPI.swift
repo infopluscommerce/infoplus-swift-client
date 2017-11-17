@@ -28,7 +28,7 @@ public class VendorComplianceSurveyAPI: APIBase {
      
      Create a vendorComplianceSurvey
      
-     - POST /beta/vendorComplianceSurvey
+     - POST /v2.0/vendorComplianceSurvey
      - Inserts a new vendorComplianceSurvey using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -49,7 +49,7 @@ public class VendorComplianceSurveyAPI: APIBase {
      - returns: RequestBuilder<VendorComplianceSurvey> 
      */
     public class func addVendorComplianceSurveyWithRequestBuilder(body body: VendorComplianceSurvey) -> RequestBuilder<VendorComplianceSurvey> {
-        let path = "/beta/vendorComplianceSurvey"
+        let path = "/v2.0/vendorComplianceSurvey"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -57,94 +57,6 @@ public class VendorComplianceSurveyAPI: APIBase {
         let requestBuilder: RequestBuilder<VendorComplianceSurvey>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new audit for a vendorComplianceSurvey
-     
-     - parameter vendorComplianceSurveyId: (path) Id of the vendorComplianceSurvey to add an audit to 
-     - parameter vendorComplianceSurveyAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addVendorComplianceSurveyAudit(vendorComplianceSurveyId vendorComplianceSurveyId: Int, vendorComplianceSurveyAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addVendorComplianceSurveyAuditWithRequestBuilder(vendorComplianceSurveyId: vendorComplianceSurveyId, vendorComplianceSurveyAudit: vendorComplianceSurveyAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for a vendorComplianceSurvey
-     
-     - PUT /beta/vendorComplianceSurvey/{vendorComplianceSurveyId}/audit/{vendorComplianceSurveyAudit}
-     - Adds an audit to an existing vendorComplianceSurvey.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter vendorComplianceSurveyId: (path) Id of the vendorComplianceSurvey to add an audit to 
-     - parameter vendorComplianceSurveyAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addVendorComplianceSurveyAuditWithRequestBuilder(vendorComplianceSurveyId vendorComplianceSurveyId: Int, vendorComplianceSurveyAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/vendorComplianceSurvey/{vendorComplianceSurveyId}/audit/{vendorComplianceSurveyAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{vendorComplianceSurveyId}", withString: "\(vendorComplianceSurveyId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{vendorComplianceSurveyAudit}", withString: "\(vendorComplianceSurveyAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for a vendorComplianceSurvey.
-     
-     - parameter vendorComplianceSurveyId: (path) Id of the vendorComplianceSurvey to add a tag to 
-     - parameter vendorComplianceSurveyTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addVendorComplianceSurveyTag(vendorComplianceSurveyId vendorComplianceSurveyId: Int, vendorComplianceSurveyTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addVendorComplianceSurveyTagWithRequestBuilder(vendorComplianceSurveyId: vendorComplianceSurveyId, vendorComplianceSurveyTag: vendorComplianceSurveyTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for a vendorComplianceSurvey.
-     
-     - PUT /beta/vendorComplianceSurvey/{vendorComplianceSurveyId}/tag/{vendorComplianceSurveyTag}
-     - Adds a tag to an existing vendorComplianceSurvey.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter vendorComplianceSurveyId: (path) Id of the vendorComplianceSurvey to add a tag to 
-     - parameter vendorComplianceSurveyTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addVendorComplianceSurveyTagWithRequestBuilder(vendorComplianceSurveyId vendorComplianceSurveyId: Int, vendorComplianceSurveyTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/vendorComplianceSurvey/{vendorComplianceSurveyId}/tag/{vendorComplianceSurveyTag}"
-        path = path.stringByReplacingOccurrencesOfString("{vendorComplianceSurveyId}", withString: "\(vendorComplianceSurveyId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{vendorComplianceSurveyTag}", withString: "\(vendorComplianceSurveyTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -165,7 +77,7 @@ public class VendorComplianceSurveyAPI: APIBase {
      
      Delete a vendorComplianceSurvey
      
-     - DELETE /beta/vendorComplianceSurvey/{vendorComplianceSurveyId}
+     - DELETE /v2.0/vendorComplianceSurvey/{vendorComplianceSurveyId}
      - Deletes the vendorComplianceSurvey identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -176,52 +88,8 @@ public class VendorComplianceSurveyAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteVendorComplianceSurveyWithRequestBuilder(vendorComplianceSurveyId vendorComplianceSurveyId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/vendorComplianceSurvey/{vendorComplianceSurveyId}"
+        var path = "/v2.0/vendorComplianceSurvey/{vendorComplianceSurveyId}"
         path = path.stringByReplacingOccurrencesOfString("{vendorComplianceSurveyId}", withString: "\(vendorComplianceSurveyId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for a vendorComplianceSurvey.
-     
-     - parameter vendorComplianceSurveyId: (path) Id of the vendorComplianceSurvey to remove tag from 
-     - parameter vendorComplianceSurveyTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteVendorComplianceSurveyTag(vendorComplianceSurveyId vendorComplianceSurveyId: Int, vendorComplianceSurveyTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteVendorComplianceSurveyTagWithRequestBuilder(vendorComplianceSurveyId: vendorComplianceSurveyId, vendorComplianceSurveyTag: vendorComplianceSurveyTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for a vendorComplianceSurvey.
-     
-     - DELETE /beta/vendorComplianceSurvey/{vendorComplianceSurveyId}/tag/{vendorComplianceSurveyTag}
-     - Deletes an existing vendorComplianceSurvey tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter vendorComplianceSurveyId: (path) Id of the vendorComplianceSurvey to remove tag from 
-     - parameter vendorComplianceSurveyTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteVendorComplianceSurveyTagWithRequestBuilder(vendorComplianceSurveyId vendorComplianceSurveyId: Int, vendorComplianceSurveyTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/vendorComplianceSurvey/{vendorComplianceSurveyId}/tag/{vendorComplianceSurveyTag}"
-        path = path.stringByReplacingOccurrencesOfString("{vendorComplianceSurveyId}", withString: "\(vendorComplianceSurveyId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{vendorComplianceSurveyTag}", withString: "\(vendorComplianceSurveyTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
@@ -250,7 +118,7 @@ public class VendorComplianceSurveyAPI: APIBase {
      
      Get a duplicated a vendorComplianceSurvey by id
      
-     - GET /beta/vendorComplianceSurvey/duplicate/{vendorComplianceSurveyId}
+     - GET /v2.0/vendorComplianceSurvey/duplicate/{vendorComplianceSurveyId}
      - Returns a duplicated vendorComplianceSurvey identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -271,7 +139,7 @@ public class VendorComplianceSurveyAPI: APIBase {
      - returns: RequestBuilder<VendorComplianceSurvey> 
      */
     public class func getDuplicateVendorComplianceSurveyByIdWithRequestBuilder(vendorComplianceSurveyId vendorComplianceSurveyId: Int) -> RequestBuilder<VendorComplianceSurvey> {
-        var path = "/beta/vendorComplianceSurvey/duplicate/{vendorComplianceSurveyId}"
+        var path = "/v2.0/vendorComplianceSurvey/duplicate/{vendorComplianceSurveyId}"
         path = path.stringByReplacingOccurrencesOfString("{vendorComplianceSurveyId}", withString: "\(vendorComplianceSurveyId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -304,7 +172,7 @@ public class VendorComplianceSurveyAPI: APIBase {
      
      Search vendorComplianceSurveys by filter
      
-     - GET /beta/vendorComplianceSurvey/search
+     - GET /v2.0/vendorComplianceSurvey/search
      - Returns the list of vendorComplianceSurveys that match the given filter.
      - API Key:
        - type: apiKey API-Key 
@@ -328,7 +196,7 @@ public class VendorComplianceSurveyAPI: APIBase {
      - returns: RequestBuilder<[VendorComplianceSurvey]> 
      */
     public class func getVendorComplianceSurveyByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[VendorComplianceSurvey]> {
-        let path = "/beta/vendorComplianceSurvey/search"
+        let path = "/v2.0/vendorComplianceSurvey/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -362,7 +230,7 @@ public class VendorComplianceSurveyAPI: APIBase {
      
      Get a vendorComplianceSurvey by id
      
-     - GET /beta/vendorComplianceSurvey/{vendorComplianceSurveyId}
+     - GET /v2.0/vendorComplianceSurvey/{vendorComplianceSurveyId}
      - Returns the vendorComplianceSurvey identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -383,7 +251,7 @@ public class VendorComplianceSurveyAPI: APIBase {
      - returns: RequestBuilder<VendorComplianceSurvey> 
      */
     public class func getVendorComplianceSurveyByIdWithRequestBuilder(vendorComplianceSurveyId vendorComplianceSurveyId: Int) -> RequestBuilder<VendorComplianceSurvey> {
-        var path = "/beta/vendorComplianceSurvey/{vendorComplianceSurveyId}"
+        var path = "/v2.0/vendorComplianceSurvey/{vendorComplianceSurveyId}"
         path = path.stringByReplacingOccurrencesOfString("{vendorComplianceSurveyId}", withString: "\(vendorComplianceSurveyId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -391,47 +259,6 @@ public class VendorComplianceSurveyAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<VendorComplianceSurvey>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for a vendorComplianceSurvey.
-     
-     - parameter vendorComplianceSurveyId: (path) Id of the vendorComplianceSurvey to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getVendorComplianceSurveyTags(vendorComplianceSurveyId vendorComplianceSurveyId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getVendorComplianceSurveyTagsWithRequestBuilder(vendorComplianceSurveyId: vendorComplianceSurveyId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for a vendorComplianceSurvey.
-     
-     - GET /beta/vendorComplianceSurvey/{vendorComplianceSurveyId}/tag
-     - Get all existing vendorComplianceSurvey tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter vendorComplianceSurveyId: (path) Id of the vendorComplianceSurvey to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getVendorComplianceSurveyTagsWithRequestBuilder(vendorComplianceSurveyId vendorComplianceSurveyId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/vendorComplianceSurvey/{vendorComplianceSurveyId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{vendorComplianceSurveyId}", withString: "\(vendorComplianceSurveyId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -454,7 +281,7 @@ public class VendorComplianceSurveyAPI: APIBase {
      
      Update a vendorComplianceSurvey
      
-     - PUT /beta/vendorComplianceSurvey
+     - PUT /v2.0/vendorComplianceSurvey
      - Updates an existing vendorComplianceSurvey using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -465,7 +292,7 @@ public class VendorComplianceSurveyAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateVendorComplianceSurveyWithRequestBuilder(body body: VendorComplianceSurvey) -> RequestBuilder<Void> {
-        let path = "/beta/vendorComplianceSurvey"
+        let path = "/v2.0/vendorComplianceSurvey"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -493,7 +320,7 @@ public class VendorComplianceSurveyAPI: APIBase {
      
      Update a vendorComplianceSurvey custom fields
      
-     - PUT /beta/vendorComplianceSurvey/customFields
+     - PUT /v2.0/vendorComplianceSurvey/customFields
      - Updates an existing vendorComplianceSurvey custom fields using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -504,7 +331,7 @@ public class VendorComplianceSurveyAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateVendorComplianceSurveyCustomFieldsWithRequestBuilder(body body: VendorComplianceSurvey) -> RequestBuilder<Void> {
-        let path = "/beta/vendorComplianceSurvey/customFields"
+        let path = "/v2.0/vendorComplianceSurvey/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

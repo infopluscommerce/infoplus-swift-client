@@ -28,7 +28,7 @@ public class ItemBuyerAPI: APIBase {
      
      Create an itemBuyer
      
-     - POST /beta/itemBuyer
+     - POST /v2.0/itemBuyer
      - Inserts a new itemBuyer using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -48,7 +48,7 @@ public class ItemBuyerAPI: APIBase {
      - returns: RequestBuilder<ItemBuyer> 
      */
     public class func addItemBuyerWithRequestBuilder(body body: ItemBuyer) -> RequestBuilder<ItemBuyer> {
-        let path = "/beta/itemBuyer"
+        let path = "/v2.0/itemBuyer"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -56,94 +56,6 @@ public class ItemBuyerAPI: APIBase {
         let requestBuilder: RequestBuilder<ItemBuyer>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new audit for an itemBuyer
-     
-     - parameter itemBuyerId: (path) Id of the itemBuyer to add an audit to 
-     - parameter itemBuyerAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addItemBuyerAudit(itemBuyerId itemBuyerId: Int, itemBuyerAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addItemBuyerAuditWithRequestBuilder(itemBuyerId: itemBuyerId, itemBuyerAudit: itemBuyerAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for an itemBuyer
-     
-     - PUT /beta/itemBuyer/{itemBuyerId}/audit/{itemBuyerAudit}
-     - Adds an audit to an existing itemBuyer.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter itemBuyerId: (path) Id of the itemBuyer to add an audit to 
-     - parameter itemBuyerAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addItemBuyerAuditWithRequestBuilder(itemBuyerId itemBuyerId: Int, itemBuyerAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/itemBuyer/{itemBuyerId}/audit/{itemBuyerAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{itemBuyerId}", withString: "\(itemBuyerId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{itemBuyerAudit}", withString: "\(itemBuyerAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for an itemBuyer.
-     
-     - parameter itemBuyerId: (path) Id of the itemBuyer to add a tag to 
-     - parameter itemBuyerTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addItemBuyerTag(itemBuyerId itemBuyerId: Int, itemBuyerTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addItemBuyerTagWithRequestBuilder(itemBuyerId: itemBuyerId, itemBuyerTag: itemBuyerTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for an itemBuyer.
-     
-     - PUT /beta/itemBuyer/{itemBuyerId}/tag/{itemBuyerTag}
-     - Adds a tag to an existing itemBuyer.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter itemBuyerId: (path) Id of the itemBuyer to add a tag to 
-     - parameter itemBuyerTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addItemBuyerTagWithRequestBuilder(itemBuyerId itemBuyerId: Int, itemBuyerTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/itemBuyer/{itemBuyerId}/tag/{itemBuyerTag}"
-        path = path.stringByReplacingOccurrencesOfString("{itemBuyerId}", withString: "\(itemBuyerId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{itemBuyerTag}", withString: "\(itemBuyerTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -164,7 +76,7 @@ public class ItemBuyerAPI: APIBase {
      
      Delete an itemBuyer
      
-     - DELETE /beta/itemBuyer/{itemBuyerId}
+     - DELETE /v2.0/itemBuyer/{itemBuyerId}
      - Deletes the itemBuyer identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -175,52 +87,8 @@ public class ItemBuyerAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteItemBuyerWithRequestBuilder(itemBuyerId itemBuyerId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/itemBuyer/{itemBuyerId}"
+        var path = "/v2.0/itemBuyer/{itemBuyerId}"
         path = path.stringByReplacingOccurrencesOfString("{itemBuyerId}", withString: "\(itemBuyerId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for an itemBuyer.
-     
-     - parameter itemBuyerId: (path) Id of the itemBuyer to remove tag from 
-     - parameter itemBuyerTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteItemBuyerTag(itemBuyerId itemBuyerId: Int, itemBuyerTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteItemBuyerTagWithRequestBuilder(itemBuyerId: itemBuyerId, itemBuyerTag: itemBuyerTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for an itemBuyer.
-     
-     - DELETE /beta/itemBuyer/{itemBuyerId}/tag/{itemBuyerTag}
-     - Deletes an existing itemBuyer tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter itemBuyerId: (path) Id of the itemBuyer to remove tag from 
-     - parameter itemBuyerTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteItemBuyerTagWithRequestBuilder(itemBuyerId itemBuyerId: Int, itemBuyerTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/itemBuyer/{itemBuyerId}/tag/{itemBuyerTag}"
-        path = path.stringByReplacingOccurrencesOfString("{itemBuyerId}", withString: "\(itemBuyerId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{itemBuyerTag}", withString: "\(itemBuyerTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
@@ -249,7 +117,7 @@ public class ItemBuyerAPI: APIBase {
      
      Get a duplicated an itemBuyer by id
      
-     - GET /beta/itemBuyer/duplicate/{itemBuyerId}
+     - GET /v2.0/itemBuyer/duplicate/{itemBuyerId}
      - Returns a duplicated itemBuyer identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -269,7 +137,7 @@ public class ItemBuyerAPI: APIBase {
      - returns: RequestBuilder<ItemBuyer> 
      */
     public class func getDuplicateItemBuyerByIdWithRequestBuilder(itemBuyerId itemBuyerId: Int) -> RequestBuilder<ItemBuyer> {
-        var path = "/beta/itemBuyer/duplicate/{itemBuyerId}"
+        var path = "/v2.0/itemBuyer/duplicate/{itemBuyerId}"
         path = path.stringByReplacingOccurrencesOfString("{itemBuyerId}", withString: "\(itemBuyerId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -302,7 +170,7 @@ public class ItemBuyerAPI: APIBase {
      
      Search itemBuyers by filter
      
-     - GET /beta/itemBuyer/search
+     - GET /v2.0/itemBuyer/search
      - Returns the list of itemBuyers that match the given filter.
      - API Key:
        - type: apiKey API-Key 
@@ -325,7 +193,7 @@ public class ItemBuyerAPI: APIBase {
      - returns: RequestBuilder<[ItemBuyer]> 
      */
     public class func getItemBuyerByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ItemBuyer]> {
-        let path = "/beta/itemBuyer/search"
+        let path = "/v2.0/itemBuyer/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -359,7 +227,7 @@ public class ItemBuyerAPI: APIBase {
      
      Get an itemBuyer by id
      
-     - GET /beta/itemBuyer/{itemBuyerId}
+     - GET /v2.0/itemBuyer/{itemBuyerId}
      - Returns the itemBuyer identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -379,7 +247,7 @@ public class ItemBuyerAPI: APIBase {
      - returns: RequestBuilder<ItemBuyer> 
      */
     public class func getItemBuyerByIdWithRequestBuilder(itemBuyerId itemBuyerId: Int) -> RequestBuilder<ItemBuyer> {
-        var path = "/beta/itemBuyer/{itemBuyerId}"
+        var path = "/v2.0/itemBuyer/{itemBuyerId}"
         path = path.stringByReplacingOccurrencesOfString("{itemBuyerId}", withString: "\(itemBuyerId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -387,47 +255,6 @@ public class ItemBuyerAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<ItemBuyer>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for an itemBuyer.
-     
-     - parameter itemBuyerId: (path) Id of the itemBuyer to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getItemBuyerTags(itemBuyerId itemBuyerId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getItemBuyerTagsWithRequestBuilder(itemBuyerId: itemBuyerId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for an itemBuyer.
-     
-     - GET /beta/itemBuyer/{itemBuyerId}/tag
-     - Get all existing itemBuyer tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter itemBuyerId: (path) Id of the itemBuyer to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getItemBuyerTagsWithRequestBuilder(itemBuyerId itemBuyerId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/itemBuyer/{itemBuyerId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{itemBuyerId}", withString: "\(itemBuyerId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -450,7 +277,7 @@ public class ItemBuyerAPI: APIBase {
      
      Update an itemBuyer
      
-     - PUT /beta/itemBuyer
+     - PUT /v2.0/itemBuyer
      - Updates an existing itemBuyer using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -461,7 +288,7 @@ public class ItemBuyerAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateItemBuyerWithRequestBuilder(body body: ItemBuyer) -> RequestBuilder<Void> {
-        let path = "/beta/itemBuyer"
+        let path = "/v2.0/itemBuyer"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

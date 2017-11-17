@@ -28,7 +28,7 @@ public class LoggedTimeTypeAPI: APIBase {
      
      Get a loggedTimeType by id
      
-     - GET /beta/loggedTimeType/{loggedTimeTypeId}
+     - GET /v2.0/loggedTimeType/{loggedTimeTypeId}
      - Returns the loggedTimeType identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -43,7 +43,7 @@ public class LoggedTimeTypeAPI: APIBase {
      - returns: RequestBuilder<LoggedTimeType> 
      */
     public class func getLoggedTimeTypeByIdWithRequestBuilder(loggedTimeTypeId loggedTimeTypeId: String) -> RequestBuilder<LoggedTimeType> {
-        var path = "/beta/loggedTimeType/{loggedTimeTypeId}"
+        var path = "/v2.0/loggedTimeType/{loggedTimeTypeId}"
         path = path.stringByReplacingOccurrencesOfString("{loggedTimeTypeId}", withString: "\(loggedTimeTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -75,7 +75,7 @@ public class LoggedTimeTypeAPI: APIBase {
      
      Search loggedTimeTypes
      
-     - GET /beta/loggedTimeType/search
+     - GET /v2.0/loggedTimeType/search
      - Returns the list of loggedTimeTypes that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
@@ -92,7 +92,7 @@ public class LoggedTimeTypeAPI: APIBase {
      - returns: RequestBuilder<[LoggedTimeType]> 
      */
     public class func getLoggedTimeTypeBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[LoggedTimeType]> {
-        let path = "/beta/loggedTimeType/search"
+        let path = "/v2.0/loggedTimeType/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [

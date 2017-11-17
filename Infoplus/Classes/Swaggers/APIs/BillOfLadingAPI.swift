@@ -28,7 +28,7 @@ public class BillOfLadingAPI: APIBase {
      
      Create a billOfLading
      
-     - POST /beta/billOfLading
+     - POST /v2.0/billOfLading
      - Inserts a new billOfLading using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -115,7 +115,7 @@ public class BillOfLadingAPI: APIBase {
      - returns: RequestBuilder<BillOfLading> 
      */
     public class func addBillOfLadingWithRequestBuilder(body body: BillOfLading) -> RequestBuilder<BillOfLading> {
-        let path = "/beta/billOfLading"
+        let path = "/v2.0/billOfLading"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -123,94 +123,6 @@ public class BillOfLadingAPI: APIBase {
         let requestBuilder: RequestBuilder<BillOfLading>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new audit for a billOfLading
-     
-     - parameter billOfLadingId: (path) Id of the billOfLading to add an audit to 
-     - parameter billOfLadingAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addBillOfLadingAudit(billOfLadingId billOfLadingId: Int, billOfLadingAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addBillOfLadingAuditWithRequestBuilder(billOfLadingId: billOfLadingId, billOfLadingAudit: billOfLadingAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for a billOfLading
-     
-     - PUT /beta/billOfLading/{billOfLadingId}/audit/{billOfLadingAudit}
-     - Adds an audit to an existing billOfLading.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter billOfLadingId: (path) Id of the billOfLading to add an audit to 
-     - parameter billOfLadingAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addBillOfLadingAuditWithRequestBuilder(billOfLadingId billOfLadingId: Int, billOfLadingAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/billOfLading/{billOfLadingId}/audit/{billOfLadingAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{billOfLadingId}", withString: "\(billOfLadingId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{billOfLadingAudit}", withString: "\(billOfLadingAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for a billOfLading.
-     
-     - parameter billOfLadingId: (path) Id of the billOfLading to add a tag to 
-     - parameter billOfLadingTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addBillOfLadingTag(billOfLadingId billOfLadingId: Int, billOfLadingTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addBillOfLadingTagWithRequestBuilder(billOfLadingId: billOfLadingId, billOfLadingTag: billOfLadingTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for a billOfLading.
-     
-     - PUT /beta/billOfLading/{billOfLadingId}/tag/{billOfLadingTag}
-     - Adds a tag to an existing billOfLading.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter billOfLadingId: (path) Id of the billOfLading to add a tag to 
-     - parameter billOfLadingTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addBillOfLadingTagWithRequestBuilder(billOfLadingId billOfLadingId: Int, billOfLadingTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/billOfLading/{billOfLadingId}/tag/{billOfLadingTag}"
-        path = path.stringByReplacingOccurrencesOfString("{billOfLadingId}", withString: "\(billOfLadingId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{billOfLadingTag}", withString: "\(billOfLadingTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -231,7 +143,7 @@ public class BillOfLadingAPI: APIBase {
      
      Delete a billOfLading
      
-     - DELETE /beta/billOfLading/{billOfLadingId}
+     - DELETE /v2.0/billOfLading/{billOfLadingId}
      - Deletes the billOfLading identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -242,52 +154,8 @@ public class BillOfLadingAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteBillOfLadingWithRequestBuilder(billOfLadingId billOfLadingId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/billOfLading/{billOfLadingId}"
+        var path = "/v2.0/billOfLading/{billOfLadingId}"
         path = path.stringByReplacingOccurrencesOfString("{billOfLadingId}", withString: "\(billOfLadingId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for a billOfLading.
-     
-     - parameter billOfLadingId: (path) Id of the billOfLading to remove tag from 
-     - parameter billOfLadingTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteBillOfLadingTag(billOfLadingId billOfLadingId: Int, billOfLadingTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteBillOfLadingTagWithRequestBuilder(billOfLadingId: billOfLadingId, billOfLadingTag: billOfLadingTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for a billOfLading.
-     
-     - DELETE /beta/billOfLading/{billOfLadingId}/tag/{billOfLadingTag}
-     - Deletes an existing billOfLading tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter billOfLadingId: (path) Id of the billOfLading to remove tag from 
-     - parameter billOfLadingTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteBillOfLadingTagWithRequestBuilder(billOfLadingId billOfLadingId: Int, billOfLadingTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/billOfLading/{billOfLadingId}/tag/{billOfLadingTag}"
-        path = path.stringByReplacingOccurrencesOfString("{billOfLadingId}", withString: "\(billOfLadingId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{billOfLadingTag}", withString: "\(billOfLadingTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
@@ -319,7 +187,7 @@ public class BillOfLadingAPI: APIBase {
      
      Search billOfLadings by filter
      
-     - GET /beta/billOfLading/search
+     - GET /v2.0/billOfLading/search
      - Returns the list of billOfLadings that match the given filter.
      - API Key:
        - type: apiKey API-Key 
@@ -409,7 +277,7 @@ public class BillOfLadingAPI: APIBase {
      - returns: RequestBuilder<[BillOfLading]> 
      */
     public class func getBillOfLadingByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[BillOfLading]> {
-        let path = "/beta/billOfLading/search"
+        let path = "/v2.0/billOfLading/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -443,7 +311,7 @@ public class BillOfLadingAPI: APIBase {
      
      Get a billOfLading by id
      
-     - GET /beta/billOfLading/{billOfLadingId}
+     - GET /v2.0/billOfLading/{billOfLadingId}
      - Returns the billOfLading identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -530,7 +398,7 @@ public class BillOfLadingAPI: APIBase {
      - returns: RequestBuilder<BillOfLading> 
      */
     public class func getBillOfLadingByIdWithRequestBuilder(billOfLadingId billOfLadingId: Int) -> RequestBuilder<BillOfLading> {
-        var path = "/beta/billOfLading/{billOfLadingId}"
+        var path = "/v2.0/billOfLading/{billOfLadingId}"
         path = path.stringByReplacingOccurrencesOfString("{billOfLadingId}", withString: "\(billOfLadingId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -538,47 +406,6 @@ public class BillOfLadingAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<BillOfLading>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for a billOfLading.
-     
-     - parameter billOfLadingId: (path) Id of the billOfLading to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getBillOfLadingTags(billOfLadingId billOfLadingId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getBillOfLadingTagsWithRequestBuilder(billOfLadingId: billOfLadingId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for a billOfLading.
-     
-     - GET /beta/billOfLading/{billOfLadingId}/tag
-     - Get all existing billOfLading tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter billOfLadingId: (path) Id of the billOfLading to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getBillOfLadingTagsWithRequestBuilder(billOfLadingId billOfLadingId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/billOfLading/{billOfLadingId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{billOfLadingId}", withString: "\(billOfLadingId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -601,7 +428,7 @@ public class BillOfLadingAPI: APIBase {
      
      Get a duplicated a billOfLading by id
      
-     - GET /beta/billOfLading/duplicate/{billOfLadingId}
+     - GET /v2.0/billOfLading/duplicate/{billOfLadingId}
      - Returns a duplicated billOfLading identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -688,7 +515,7 @@ public class BillOfLadingAPI: APIBase {
      - returns: RequestBuilder<BillOfLading> 
      */
     public class func getDuplicateBillOfLadingByIdWithRequestBuilder(billOfLadingId billOfLadingId: Int) -> RequestBuilder<BillOfLading> {
-        var path = "/beta/billOfLading/duplicate/{billOfLadingId}"
+        var path = "/v2.0/billOfLading/duplicate/{billOfLadingId}"
         path = path.stringByReplacingOccurrencesOfString("{billOfLadingId}", withString: "\(billOfLadingId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -718,7 +545,7 @@ public class BillOfLadingAPI: APIBase {
      
      Update a billOfLading
      
-     - PUT /beta/billOfLading
+     - PUT /v2.0/billOfLading
      - Updates an existing billOfLading using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -729,7 +556,7 @@ public class BillOfLadingAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateBillOfLadingWithRequestBuilder(body body: BillOfLading) -> RequestBuilder<Void> {
-        let path = "/beta/billOfLading"
+        let path = "/v2.0/billOfLading"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -757,7 +584,7 @@ public class BillOfLadingAPI: APIBase {
      
      Update a billOfLading custom fields
      
-     - PUT /beta/billOfLading/customFields
+     - PUT /v2.0/billOfLading/customFields
      - Updates an existing billOfLading custom fields using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -768,7 +595,7 @@ public class BillOfLadingAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateBillOfLadingCustomFieldsWithRequestBuilder(body body: BillOfLading) -> RequestBuilder<Void> {
-        let path = "/beta/billOfLading/customFields"
+        let path = "/v2.0/billOfLading/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

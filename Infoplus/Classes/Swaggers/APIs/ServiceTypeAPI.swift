@@ -28,7 +28,7 @@ public class ServiceTypeAPI: APIBase {
      
      Get a serviceType by id
      
-     - GET /beta/serviceType/{serviceTypeId}
+     - GET /v2.0/serviceType/{serviceTypeId}
      - Returns the serviceType identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -43,7 +43,7 @@ public class ServiceTypeAPI: APIBase {
      - returns: RequestBuilder<ServiceType> 
      */
     public class func getServiceTypeByIdWithRequestBuilder(serviceTypeId serviceTypeId: String) -> RequestBuilder<ServiceType> {
-        var path = "/beta/serviceType/{serviceTypeId}"
+        var path = "/v2.0/serviceType/{serviceTypeId}"
         path = path.stringByReplacingOccurrencesOfString("{serviceTypeId}", withString: "\(serviceTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -75,7 +75,7 @@ public class ServiceTypeAPI: APIBase {
      
      Search serviceTypes
      
-     - GET /beta/serviceType/search
+     - GET /v2.0/serviceType/search
      - Returns the list of serviceTypes that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
@@ -92,7 +92,7 @@ public class ServiceTypeAPI: APIBase {
      - returns: RequestBuilder<[ServiceType]> 
      */
     public class func getServiceTypeBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[ServiceType]> {
-        let path = "/beta/serviceType/search"
+        let path = "/v2.0/serviceType/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [

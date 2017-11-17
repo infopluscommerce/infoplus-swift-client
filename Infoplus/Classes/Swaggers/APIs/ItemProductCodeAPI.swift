@@ -28,7 +28,7 @@ public class ItemProductCodeAPI: APIBase {
      
      Create an itemProductCode
      
-     - POST /beta/itemProductCode
+     - POST /v2.0/itemProductCode
      - Inserts a new itemProductCode using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -48,7 +48,7 @@ public class ItemProductCodeAPI: APIBase {
      - returns: RequestBuilder<ItemProductCode> 
      */
     public class func addItemProductCodeWithRequestBuilder(body body: ItemProductCode) -> RequestBuilder<ItemProductCode> {
-        let path = "/beta/itemProductCode"
+        let path = "/v2.0/itemProductCode"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -56,94 +56,6 @@ public class ItemProductCodeAPI: APIBase {
         let requestBuilder: RequestBuilder<ItemProductCode>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new audit for an itemProductCode
-     
-     - parameter itemProductCodeId: (path) Id of the itemProductCode to add an audit to 
-     - parameter itemProductCodeAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addItemProductCodeAudit(itemProductCodeId itemProductCodeId: Int, itemProductCodeAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addItemProductCodeAuditWithRequestBuilder(itemProductCodeId: itemProductCodeId, itemProductCodeAudit: itemProductCodeAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for an itemProductCode
-     
-     - PUT /beta/itemProductCode/{itemProductCodeId}/audit/{itemProductCodeAudit}
-     - Adds an audit to an existing itemProductCode.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter itemProductCodeId: (path) Id of the itemProductCode to add an audit to 
-     - parameter itemProductCodeAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addItemProductCodeAuditWithRequestBuilder(itemProductCodeId itemProductCodeId: Int, itemProductCodeAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/itemProductCode/{itemProductCodeId}/audit/{itemProductCodeAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{itemProductCodeId}", withString: "\(itemProductCodeId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{itemProductCodeAudit}", withString: "\(itemProductCodeAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for an itemProductCode.
-     
-     - parameter itemProductCodeId: (path) Id of the itemProductCode to add a tag to 
-     - parameter itemProductCodeTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addItemProductCodeTag(itemProductCodeId itemProductCodeId: Int, itemProductCodeTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addItemProductCodeTagWithRequestBuilder(itemProductCodeId: itemProductCodeId, itemProductCodeTag: itemProductCodeTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for an itemProductCode.
-     
-     - PUT /beta/itemProductCode/{itemProductCodeId}/tag/{itemProductCodeTag}
-     - Adds a tag to an existing itemProductCode.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter itemProductCodeId: (path) Id of the itemProductCode to add a tag to 
-     - parameter itemProductCodeTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addItemProductCodeTagWithRequestBuilder(itemProductCodeId itemProductCodeId: Int, itemProductCodeTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/itemProductCode/{itemProductCodeId}/tag/{itemProductCodeTag}"
-        path = path.stringByReplacingOccurrencesOfString("{itemProductCodeId}", withString: "\(itemProductCodeId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{itemProductCodeTag}", withString: "\(itemProductCodeTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -164,7 +76,7 @@ public class ItemProductCodeAPI: APIBase {
      
      Delete an itemProductCode
      
-     - DELETE /beta/itemProductCode/{itemProductCodeId}
+     - DELETE /v2.0/itemProductCode/{itemProductCodeId}
      - Deletes the itemProductCode identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -175,52 +87,8 @@ public class ItemProductCodeAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteItemProductCodeWithRequestBuilder(itemProductCodeId itemProductCodeId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/itemProductCode/{itemProductCodeId}"
+        var path = "/v2.0/itemProductCode/{itemProductCodeId}"
         path = path.stringByReplacingOccurrencesOfString("{itemProductCodeId}", withString: "\(itemProductCodeId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for an itemProductCode.
-     
-     - parameter itemProductCodeId: (path) Id of the itemProductCode to remove tag from 
-     - parameter itemProductCodeTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteItemProductCodeTag(itemProductCodeId itemProductCodeId: Int, itemProductCodeTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteItemProductCodeTagWithRequestBuilder(itemProductCodeId: itemProductCodeId, itemProductCodeTag: itemProductCodeTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for an itemProductCode.
-     
-     - DELETE /beta/itemProductCode/{itemProductCodeId}/tag/{itemProductCodeTag}
-     - Deletes an existing itemProductCode tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter itemProductCodeId: (path) Id of the itemProductCode to remove tag from 
-     - parameter itemProductCodeTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteItemProductCodeTagWithRequestBuilder(itemProductCodeId itemProductCodeId: Int, itemProductCodeTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/itemProductCode/{itemProductCodeId}/tag/{itemProductCodeTag}"
-        path = path.stringByReplacingOccurrencesOfString("{itemProductCodeId}", withString: "\(itemProductCodeId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{itemProductCodeTag}", withString: "\(itemProductCodeTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
@@ -249,7 +117,7 @@ public class ItemProductCodeAPI: APIBase {
      
      Get a duplicated an itemProductCode by id
      
-     - GET /beta/itemProductCode/duplicate/{itemProductCodeId}
+     - GET /v2.0/itemProductCode/duplicate/{itemProductCodeId}
      - Returns a duplicated itemProductCode identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -269,7 +137,7 @@ public class ItemProductCodeAPI: APIBase {
      - returns: RequestBuilder<ItemProductCode> 
      */
     public class func getDuplicateItemProductCodeByIdWithRequestBuilder(itemProductCodeId itemProductCodeId: Int) -> RequestBuilder<ItemProductCode> {
-        var path = "/beta/itemProductCode/duplicate/{itemProductCodeId}"
+        var path = "/v2.0/itemProductCode/duplicate/{itemProductCodeId}"
         path = path.stringByReplacingOccurrencesOfString("{itemProductCodeId}", withString: "\(itemProductCodeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -302,7 +170,7 @@ public class ItemProductCodeAPI: APIBase {
      
      Search itemProductCodes by filter
      
-     - GET /beta/itemProductCode/search
+     - GET /v2.0/itemProductCode/search
      - Returns the list of itemProductCodes that match the given filter.
      - API Key:
        - type: apiKey API-Key 
@@ -325,7 +193,7 @@ public class ItemProductCodeAPI: APIBase {
      - returns: RequestBuilder<[ItemProductCode]> 
      */
     public class func getItemProductCodeByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ItemProductCode]> {
-        let path = "/beta/itemProductCode/search"
+        let path = "/v2.0/itemProductCode/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -359,7 +227,7 @@ public class ItemProductCodeAPI: APIBase {
      
      Get an itemProductCode by id
      
-     - GET /beta/itemProductCode/{itemProductCodeId}
+     - GET /v2.0/itemProductCode/{itemProductCodeId}
      - Returns the itemProductCode identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -379,7 +247,7 @@ public class ItemProductCodeAPI: APIBase {
      - returns: RequestBuilder<ItemProductCode> 
      */
     public class func getItemProductCodeByIdWithRequestBuilder(itemProductCodeId itemProductCodeId: Int) -> RequestBuilder<ItemProductCode> {
-        var path = "/beta/itemProductCode/{itemProductCodeId}"
+        var path = "/v2.0/itemProductCode/{itemProductCodeId}"
         path = path.stringByReplacingOccurrencesOfString("{itemProductCodeId}", withString: "\(itemProductCodeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -387,47 +255,6 @@ public class ItemProductCodeAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<ItemProductCode>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for an itemProductCode.
-     
-     - parameter itemProductCodeId: (path) Id of the itemProductCode to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getItemProductCodeTags(itemProductCodeId itemProductCodeId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getItemProductCodeTagsWithRequestBuilder(itemProductCodeId: itemProductCodeId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for an itemProductCode.
-     
-     - GET /beta/itemProductCode/{itemProductCodeId}/tag
-     - Get all existing itemProductCode tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter itemProductCodeId: (path) Id of the itemProductCode to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getItemProductCodeTagsWithRequestBuilder(itemProductCodeId itemProductCodeId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/itemProductCode/{itemProductCodeId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{itemProductCodeId}", withString: "\(itemProductCodeId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -450,7 +277,7 @@ public class ItemProductCodeAPI: APIBase {
      
      Update an itemProductCode
      
-     - PUT /beta/itemProductCode
+     - PUT /v2.0/itemProductCode
      - Updates an existing itemProductCode using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -461,7 +288,7 @@ public class ItemProductCodeAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateItemProductCodeWithRequestBuilder(body body: ItemProductCode) -> RequestBuilder<Void> {
-        let path = "/beta/itemProductCode"
+        let path = "/v2.0/itemProductCode"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

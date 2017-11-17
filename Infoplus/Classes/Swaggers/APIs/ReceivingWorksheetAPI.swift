@@ -28,7 +28,7 @@ public class ReceivingWorksheetAPI: APIBase {
      
      Create a receivingWorksheet
      
-     - POST /beta/receivingWorksheet
+     - POST /v2.0/receivingWorksheet
      - Inserts a new receivingWorksheet using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -43,7 +43,6 @@ public class ReceivingWorksheetAPI: APIBase {
   "vendorId" : 123,
   "serviceLevel" : "aeiou",
   "lineItems" : [ {
-    "sku2" : "aeiou",
     "unitsPerWrap" : 123,
     "unreceivedQty" : 123,
     "quantity" : 123,
@@ -58,7 +57,6 @@ public class ReceivingWorksheetAPI: APIBase {
     "weightPerCase" : 1.3579000000000001069366817318950779736042022705078125,
     "productionLot" : "aeiou",
     "orderedQty" : 123,
-    "productIdTag" : "aeiou",
     "fullDescription" : "aeiou",
     "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
     "unitsPerCase" : 123,
@@ -82,7 +80,6 @@ public class ReceivingWorksheetAPI: APIBase {
   "id" : 123,
   "poNoId" : 123,
   "receivingProcessId" : 123,
-  "dockDate" : "2000-01-23T04:56:07.000+0000",
   "autoCommit" : true,
   "worksheetName" : "aeiou",
   "lobId" : 123,
@@ -95,7 +92,7 @@ public class ReceivingWorksheetAPI: APIBase {
      - returns: RequestBuilder<ReceivingWorksheet> 
      */
     public class func addReceivingWorksheetWithRequestBuilder(body body: ReceivingWorksheet) -> RequestBuilder<ReceivingWorksheet> {
-        let path = "/beta/receivingWorksheet"
+        let path = "/v2.0/receivingWorksheet"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -103,94 +100,6 @@ public class ReceivingWorksheetAPI: APIBase {
         let requestBuilder: RequestBuilder<ReceivingWorksheet>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new audit for a receivingWorksheet
-     
-     - parameter receivingWorksheetId: (path) Id of the receivingWorksheet to add an audit to 
-     - parameter receivingWorksheetAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addReceivingWorksheetAudit(receivingWorksheetId receivingWorksheetId: Int, receivingWorksheetAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addReceivingWorksheetAuditWithRequestBuilder(receivingWorksheetId: receivingWorksheetId, receivingWorksheetAudit: receivingWorksheetAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for a receivingWorksheet
-     
-     - PUT /beta/receivingWorksheet/{receivingWorksheetId}/audit/{receivingWorksheetAudit}
-     - Adds an audit to an existing receivingWorksheet.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter receivingWorksheetId: (path) Id of the receivingWorksheet to add an audit to 
-     - parameter receivingWorksheetAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addReceivingWorksheetAuditWithRequestBuilder(receivingWorksheetId receivingWorksheetId: Int, receivingWorksheetAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/receivingWorksheet/{receivingWorksheetId}/audit/{receivingWorksheetAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{receivingWorksheetId}", withString: "\(receivingWorksheetId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{receivingWorksheetAudit}", withString: "\(receivingWorksheetAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for a receivingWorksheet.
-     
-     - parameter receivingWorksheetId: (path) Id of the receivingWorksheet to add a tag to 
-     - parameter receivingWorksheetTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addReceivingWorksheetTag(receivingWorksheetId receivingWorksheetId: Int, receivingWorksheetTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addReceivingWorksheetTagWithRequestBuilder(receivingWorksheetId: receivingWorksheetId, receivingWorksheetTag: receivingWorksheetTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for a receivingWorksheet.
-     
-     - PUT /beta/receivingWorksheet/{receivingWorksheetId}/tag/{receivingWorksheetTag}
-     - Adds a tag to an existing receivingWorksheet.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter receivingWorksheetId: (path) Id of the receivingWorksheet to add a tag to 
-     - parameter receivingWorksheetTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addReceivingWorksheetTagWithRequestBuilder(receivingWorksheetId receivingWorksheetId: Int, receivingWorksheetTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/receivingWorksheet/{receivingWorksheetId}/tag/{receivingWorksheetTag}"
-        path = path.stringByReplacingOccurrencesOfString("{receivingWorksheetId}", withString: "\(receivingWorksheetId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{receivingWorksheetTag}", withString: "\(receivingWorksheetTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -211,7 +120,7 @@ public class ReceivingWorksheetAPI: APIBase {
      
      Delete a receivingWorksheet
      
-     - DELETE /beta/receivingWorksheet/{receivingWorksheetId}
+     - DELETE /v2.0/receivingWorksheet/{receivingWorksheetId}
      - Deletes the receivingWorksheet identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -222,52 +131,8 @@ public class ReceivingWorksheetAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteReceivingWorksheetWithRequestBuilder(receivingWorksheetId receivingWorksheetId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/receivingWorksheet/{receivingWorksheetId}"
+        var path = "/v2.0/receivingWorksheet/{receivingWorksheetId}"
         path = path.stringByReplacingOccurrencesOfString("{receivingWorksheetId}", withString: "\(receivingWorksheetId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for a receivingWorksheet.
-     
-     - parameter receivingWorksheetId: (path) Id of the receivingWorksheet to remove tag from 
-     - parameter receivingWorksheetTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteReceivingWorksheetTag(receivingWorksheetId receivingWorksheetId: Int, receivingWorksheetTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteReceivingWorksheetTagWithRequestBuilder(receivingWorksheetId: receivingWorksheetId, receivingWorksheetTag: receivingWorksheetTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for a receivingWorksheet.
-     
-     - DELETE /beta/receivingWorksheet/{receivingWorksheetId}/tag/{receivingWorksheetTag}
-     - Deletes an existing receivingWorksheet tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter receivingWorksheetId: (path) Id of the receivingWorksheet to remove tag from 
-     - parameter receivingWorksheetTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteReceivingWorksheetTagWithRequestBuilder(receivingWorksheetId receivingWorksheetId: Int, receivingWorksheetTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/receivingWorksheet/{receivingWorksheetId}/tag/{receivingWorksheetTag}"
-        path = path.stringByReplacingOccurrencesOfString("{receivingWorksheetId}", withString: "\(receivingWorksheetId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{receivingWorksheetTag}", withString: "\(receivingWorksheetTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
@@ -296,7 +161,7 @@ public class ReceivingWorksheetAPI: APIBase {
      
      Get a duplicated a receivingWorksheet by id
      
-     - GET /beta/receivingWorksheet/duplicate/{receivingWorksheetId}
+     - GET /v2.0/receivingWorksheet/duplicate/{receivingWorksheetId}
      - Returns a duplicated receivingWorksheet identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -311,7 +176,6 @@ public class ReceivingWorksheetAPI: APIBase {
   "vendorId" : 123,
   "serviceLevel" : "aeiou",
   "lineItems" : [ {
-    "sku2" : "aeiou",
     "unitsPerWrap" : 123,
     "unreceivedQty" : 123,
     "quantity" : 123,
@@ -326,7 +190,6 @@ public class ReceivingWorksheetAPI: APIBase {
     "weightPerCase" : 1.3579000000000001069366817318950779736042022705078125,
     "productionLot" : "aeiou",
     "orderedQty" : 123,
-    "productIdTag" : "aeiou",
     "fullDescription" : "aeiou",
     "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
     "unitsPerCase" : 123,
@@ -350,7 +213,6 @@ public class ReceivingWorksheetAPI: APIBase {
   "id" : 123,
   "poNoId" : 123,
   "receivingProcessId" : 123,
-  "dockDate" : "2000-01-23T04:56:07.000+0000",
   "autoCommit" : true,
   "worksheetName" : "aeiou",
   "lobId" : 123,
@@ -363,7 +225,7 @@ public class ReceivingWorksheetAPI: APIBase {
      - returns: RequestBuilder<ReceivingWorksheet> 
      */
     public class func getDuplicateReceivingWorksheetByIdWithRequestBuilder(receivingWorksheetId receivingWorksheetId: Int) -> RequestBuilder<ReceivingWorksheet> {
-        var path = "/beta/receivingWorksheet/duplicate/{receivingWorksheetId}"
+        var path = "/v2.0/receivingWorksheet/duplicate/{receivingWorksheetId}"
         path = path.stringByReplacingOccurrencesOfString("{receivingWorksheetId}", withString: "\(receivingWorksheetId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -396,7 +258,7 @@ public class ReceivingWorksheetAPI: APIBase {
      
      Search receivingWorksheets by filter
      
-     - GET /beta/receivingWorksheet/search
+     - GET /v2.0/receivingWorksheet/search
      - Returns the list of receivingWorksheets that match the given filter.
      - API Key:
        - type: apiKey API-Key 
@@ -411,7 +273,6 @@ public class ReceivingWorksheetAPI: APIBase {
   "vendorId" : 123,
   "serviceLevel" : "aeiou",
   "lineItems" : [ {
-    "sku2" : "aeiou",
     "unitsPerWrap" : 123,
     "unreceivedQty" : 123,
     "quantity" : 123,
@@ -426,7 +287,6 @@ public class ReceivingWorksheetAPI: APIBase {
     "weightPerCase" : 1.3579000000000001069366817318950779736042022705078125,
     "productionLot" : "aeiou",
     "orderedQty" : 123,
-    "productIdTag" : "aeiou",
     "fullDescription" : "aeiou",
     "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
     "unitsPerCase" : 123,
@@ -450,7 +310,6 @@ public class ReceivingWorksheetAPI: APIBase {
   "id" : 123,
   "poNoId" : 123,
   "receivingProcessId" : 123,
-  "dockDate" : "2000-01-23T04:56:07.000+0000",
   "autoCommit" : true,
   "worksheetName" : "aeiou",
   "lobId" : 123,
@@ -466,7 +325,7 @@ public class ReceivingWorksheetAPI: APIBase {
      - returns: RequestBuilder<[ReceivingWorksheet]> 
      */
     public class func getReceivingWorksheetByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ReceivingWorksheet]> {
-        let path = "/beta/receivingWorksheet/search"
+        let path = "/v2.0/receivingWorksheet/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -500,7 +359,7 @@ public class ReceivingWorksheetAPI: APIBase {
      
      Get a receivingWorksheet by id
      
-     - GET /beta/receivingWorksheet/{receivingWorksheetId}
+     - GET /v2.0/receivingWorksheet/{receivingWorksheetId}
      - Returns the receivingWorksheet identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -515,7 +374,6 @@ public class ReceivingWorksheetAPI: APIBase {
   "vendorId" : 123,
   "serviceLevel" : "aeiou",
   "lineItems" : [ {
-    "sku2" : "aeiou",
     "unitsPerWrap" : 123,
     "unreceivedQty" : 123,
     "quantity" : 123,
@@ -530,7 +388,6 @@ public class ReceivingWorksheetAPI: APIBase {
     "weightPerCase" : 1.3579000000000001069366817318950779736042022705078125,
     "productionLot" : "aeiou",
     "orderedQty" : 123,
-    "productIdTag" : "aeiou",
     "fullDescription" : "aeiou",
     "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
     "unitsPerCase" : 123,
@@ -554,7 +411,6 @@ public class ReceivingWorksheetAPI: APIBase {
   "id" : 123,
   "poNoId" : 123,
   "receivingProcessId" : 123,
-  "dockDate" : "2000-01-23T04:56:07.000+0000",
   "autoCommit" : true,
   "worksheetName" : "aeiou",
   "lobId" : 123,
@@ -567,7 +423,7 @@ public class ReceivingWorksheetAPI: APIBase {
      - returns: RequestBuilder<ReceivingWorksheet> 
      */
     public class func getReceivingWorksheetByIdWithRequestBuilder(receivingWorksheetId receivingWorksheetId: Int) -> RequestBuilder<ReceivingWorksheet> {
-        var path = "/beta/receivingWorksheet/{receivingWorksheetId}"
+        var path = "/v2.0/receivingWorksheet/{receivingWorksheetId}"
         path = path.stringByReplacingOccurrencesOfString("{receivingWorksheetId}", withString: "\(receivingWorksheetId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -575,47 +431,6 @@ public class ReceivingWorksheetAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<ReceivingWorksheet>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for a receivingWorksheet.
-     
-     - parameter receivingWorksheetId: (path) Id of the receivingWorksheet to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getReceivingWorksheetTags(receivingWorksheetId receivingWorksheetId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getReceivingWorksheetTagsWithRequestBuilder(receivingWorksheetId: receivingWorksheetId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for a receivingWorksheet.
-     
-     - GET /beta/receivingWorksheet/{receivingWorksheetId}/tag
-     - Get all existing receivingWorksheet tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter receivingWorksheetId: (path) Id of the receivingWorksheet to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getReceivingWorksheetTagsWithRequestBuilder(receivingWorksheetId receivingWorksheetId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/receivingWorksheet/{receivingWorksheetId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{receivingWorksheetId}", withString: "\(receivingWorksheetId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -638,7 +453,7 @@ public class ReceivingWorksheetAPI: APIBase {
      
      Update a receivingWorksheet
      
-     - PUT /beta/receivingWorksheet
+     - PUT /v2.0/receivingWorksheet
      - Updates an existing receivingWorksheet using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -649,7 +464,7 @@ public class ReceivingWorksheetAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateReceivingWorksheetWithRequestBuilder(body body: ReceivingWorksheet) -> RequestBuilder<Void> {
-        let path = "/beta/receivingWorksheet"
+        let path = "/v2.0/receivingWorksheet"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -677,7 +492,7 @@ public class ReceivingWorksheetAPI: APIBase {
      
      Update a receivingWorksheet custom fields
      
-     - PUT /beta/receivingWorksheet/customFields
+     - PUT /v2.0/receivingWorksheet/customFields
      - Updates an existing receivingWorksheet custom fields using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -688,7 +503,7 @@ public class ReceivingWorksheetAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateReceivingWorksheetCustomFieldsWithRequestBuilder(body body: ReceivingWorksheet) -> RequestBuilder<Void> {
-        let path = "/beta/receivingWorksheet/customFields"
+        let path = "/v2.0/receivingWorksheet/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

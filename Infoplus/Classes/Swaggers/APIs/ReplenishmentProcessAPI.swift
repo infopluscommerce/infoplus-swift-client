@@ -12,138 +12,6 @@ import Alamofire
 public class ReplenishmentProcessAPI: APIBase {
     /**
      
-     Add new audit for a replenishmentProcess
-     
-     - parameter replenishmentProcessId: (path) Id of the replenishmentProcess to add an audit to 
-     - parameter replenishmentProcessAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addReplenishmentProcessAudit(replenishmentProcessId replenishmentProcessId: Int, replenishmentProcessAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addReplenishmentProcessAuditWithRequestBuilder(replenishmentProcessId: replenishmentProcessId, replenishmentProcessAudit: replenishmentProcessAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for a replenishmentProcess
-     
-     - PUT /beta/replenishmentProcess/{replenishmentProcessId}/audit/{replenishmentProcessAudit}
-     - Adds an audit to an existing replenishmentProcess.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter replenishmentProcessId: (path) Id of the replenishmentProcess to add an audit to 
-     - parameter replenishmentProcessAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addReplenishmentProcessAuditWithRequestBuilder(replenishmentProcessId replenishmentProcessId: Int, replenishmentProcessAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/replenishmentProcess/{replenishmentProcessId}/audit/{replenishmentProcessAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{replenishmentProcessId}", withString: "\(replenishmentProcessId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{replenishmentProcessAudit}", withString: "\(replenishmentProcessAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for a replenishmentProcess.
-     
-     - parameter replenishmentProcessId: (path) Id of the replenishmentProcess to add a tag to 
-     - parameter replenishmentProcessTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addReplenishmentProcessTag(replenishmentProcessId replenishmentProcessId: Int, replenishmentProcessTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addReplenishmentProcessTagWithRequestBuilder(replenishmentProcessId: replenishmentProcessId, replenishmentProcessTag: replenishmentProcessTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for a replenishmentProcess.
-     
-     - PUT /beta/replenishmentProcess/{replenishmentProcessId}/tag/{replenishmentProcessTag}
-     - Adds a tag to an existing replenishmentProcess.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter replenishmentProcessId: (path) Id of the replenishmentProcess to add a tag to 
-     - parameter replenishmentProcessTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addReplenishmentProcessTagWithRequestBuilder(replenishmentProcessId replenishmentProcessId: Int, replenishmentProcessTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/replenishmentProcess/{replenishmentProcessId}/tag/{replenishmentProcessTag}"
-        path = path.stringByReplacingOccurrencesOfString("{replenishmentProcessId}", withString: "\(replenishmentProcessId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{replenishmentProcessTag}", withString: "\(replenishmentProcessTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for a replenishmentProcess.
-     
-     - parameter replenishmentProcessId: (path) Id of the replenishmentProcess to remove tag from 
-     - parameter replenishmentProcessTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteReplenishmentProcessTag(replenishmentProcessId replenishmentProcessId: Int, replenishmentProcessTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteReplenishmentProcessTagWithRequestBuilder(replenishmentProcessId: replenishmentProcessId, replenishmentProcessTag: replenishmentProcessTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for a replenishmentProcess.
-     
-     - DELETE /beta/replenishmentProcess/{replenishmentProcessId}/tag/{replenishmentProcessTag}
-     - Deletes an existing replenishmentProcess tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter replenishmentProcessId: (path) Id of the replenishmentProcess to remove tag from 
-     - parameter replenishmentProcessTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteReplenishmentProcessTagWithRequestBuilder(replenishmentProcessId replenishmentProcessId: Int, replenishmentProcessTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/replenishmentProcess/{replenishmentProcessId}/tag/{replenishmentProcessTag}"
-        path = path.stringByReplacingOccurrencesOfString("{replenishmentProcessId}", withString: "\(replenishmentProcessId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{replenishmentProcessTag}", withString: "\(replenishmentProcessTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
      Get a duplicated a replenishmentProcess by id
      
      - parameter replenishmentProcessId: (path) Id of the replenishmentProcess to be duplicated. 
@@ -160,7 +28,7 @@ public class ReplenishmentProcessAPI: APIBase {
      
      Get a duplicated a replenishmentProcess by id
      
-     - GET /beta/replenishmentProcess/duplicate/{replenishmentProcessId}
+     - GET /v2.0/replenishmentProcess/duplicate/{replenishmentProcessId}
      - Returns a duplicated replenishmentProcess identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -184,7 +52,7 @@ public class ReplenishmentProcessAPI: APIBase {
      - returns: RequestBuilder<ReplenishmentProcess> 
      */
     public class func getDuplicateReplenishmentProcessByIdWithRequestBuilder(replenishmentProcessId replenishmentProcessId: Int) -> RequestBuilder<ReplenishmentProcess> {
-        var path = "/beta/replenishmentProcess/duplicate/{replenishmentProcessId}"
+        var path = "/v2.0/replenishmentProcess/duplicate/{replenishmentProcessId}"
         path = path.stringByReplacingOccurrencesOfString("{replenishmentProcessId}", withString: "\(replenishmentProcessId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -217,7 +85,7 @@ public class ReplenishmentProcessAPI: APIBase {
      
      Search replenishmentProcesses by filter
      
-     - GET /beta/replenishmentProcess/search
+     - GET /v2.0/replenishmentProcess/search
      - Returns the list of replenishmentProcesses that match the given filter.
      - API Key:
        - type: apiKey API-Key 
@@ -244,7 +112,7 @@ public class ReplenishmentProcessAPI: APIBase {
      - returns: RequestBuilder<[ReplenishmentProcess]> 
      */
     public class func getReplenishmentProcessByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ReplenishmentProcess]> {
-        let path = "/beta/replenishmentProcess/search"
+        let path = "/v2.0/replenishmentProcess/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -278,7 +146,7 @@ public class ReplenishmentProcessAPI: APIBase {
      
      Get a replenishmentProcess by id
      
-     - GET /beta/replenishmentProcess/{replenishmentProcessId}
+     - GET /v2.0/replenishmentProcess/{replenishmentProcessId}
      - Returns the replenishmentProcess identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -302,7 +170,7 @@ public class ReplenishmentProcessAPI: APIBase {
      - returns: RequestBuilder<ReplenishmentProcess> 
      */
     public class func getReplenishmentProcessByIdWithRequestBuilder(replenishmentProcessId replenishmentProcessId: Int) -> RequestBuilder<ReplenishmentProcess> {
-        var path = "/beta/replenishmentProcess/{replenishmentProcessId}"
+        var path = "/v2.0/replenishmentProcess/{replenishmentProcessId}"
         path = path.stringByReplacingOccurrencesOfString("{replenishmentProcessId}", withString: "\(replenishmentProcessId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -310,47 +178,6 @@ public class ReplenishmentProcessAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<ReplenishmentProcess>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for a replenishmentProcess.
-     
-     - parameter replenishmentProcessId: (path) Id of the replenishmentProcess to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getReplenishmentProcessTags(replenishmentProcessId replenishmentProcessId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getReplenishmentProcessTagsWithRequestBuilder(replenishmentProcessId: replenishmentProcessId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for a replenishmentProcess.
-     
-     - GET /beta/replenishmentProcess/{replenishmentProcessId}/tag
-     - Get all existing replenishmentProcess tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter replenishmentProcessId: (path) Id of the replenishmentProcess to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getReplenishmentProcessTagsWithRequestBuilder(replenishmentProcessId replenishmentProcessId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/replenishmentProcess/{replenishmentProcessId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{replenishmentProcessId}", withString: "\(replenishmentProcessId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -373,7 +200,7 @@ public class ReplenishmentProcessAPI: APIBase {
      
      Update a replenishmentProcess custom fields
      
-     - PUT /beta/replenishmentProcess/customFields
+     - PUT /v2.0/replenishmentProcess/customFields
      - Updates an existing replenishmentProcess custom fields using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -384,7 +211,7 @@ public class ReplenishmentProcessAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateReplenishmentProcessCustomFieldsWithRequestBuilder(body body: ReplenishmentProcess) -> RequestBuilder<Void> {
-        let path = "/beta/replenishmentProcess/customFields"
+        let path = "/v2.0/replenishmentProcess/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

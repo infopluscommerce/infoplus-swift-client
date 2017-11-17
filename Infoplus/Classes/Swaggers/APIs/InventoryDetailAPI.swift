@@ -12,138 +12,6 @@ import Alamofire
 public class InventoryDetailAPI: APIBase {
     /**
      
-     Add new audit for an inventoryDetail
-     
-     - parameter inventoryDetailId: (path) Id of the inventoryDetail to add an audit to 
-     - parameter inventoryDetailAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addInventoryDetailAudit(inventoryDetailId inventoryDetailId: Int, inventoryDetailAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addInventoryDetailAuditWithRequestBuilder(inventoryDetailId: inventoryDetailId, inventoryDetailAudit: inventoryDetailAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for an inventoryDetail
-     
-     - PUT /beta/inventoryDetail/{inventoryDetailId}/audit/{inventoryDetailAudit}
-     - Adds an audit to an existing inventoryDetail.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter inventoryDetailId: (path) Id of the inventoryDetail to add an audit to 
-     - parameter inventoryDetailAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addInventoryDetailAuditWithRequestBuilder(inventoryDetailId inventoryDetailId: Int, inventoryDetailAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/inventoryDetail/{inventoryDetailId}/audit/{inventoryDetailAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{inventoryDetailId}", withString: "\(inventoryDetailId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{inventoryDetailAudit}", withString: "\(inventoryDetailAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for an inventoryDetail.
-     
-     - parameter inventoryDetailId: (path) Id of the inventoryDetail to add a tag to 
-     - parameter inventoryDetailTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addInventoryDetailTag(inventoryDetailId inventoryDetailId: Int, inventoryDetailTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addInventoryDetailTagWithRequestBuilder(inventoryDetailId: inventoryDetailId, inventoryDetailTag: inventoryDetailTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for an inventoryDetail.
-     
-     - PUT /beta/inventoryDetail/{inventoryDetailId}/tag/{inventoryDetailTag}
-     - Adds a tag to an existing inventoryDetail.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter inventoryDetailId: (path) Id of the inventoryDetail to add a tag to 
-     - parameter inventoryDetailTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addInventoryDetailTagWithRequestBuilder(inventoryDetailId inventoryDetailId: Int, inventoryDetailTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/inventoryDetail/{inventoryDetailId}/tag/{inventoryDetailTag}"
-        path = path.stringByReplacingOccurrencesOfString("{inventoryDetailId}", withString: "\(inventoryDetailId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{inventoryDetailTag}", withString: "\(inventoryDetailTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for an inventoryDetail.
-     
-     - parameter inventoryDetailId: (path) Id of the inventoryDetail to remove tag from 
-     - parameter inventoryDetailTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteInventoryDetailTag(inventoryDetailId inventoryDetailId: Int, inventoryDetailTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteInventoryDetailTagWithRequestBuilder(inventoryDetailId: inventoryDetailId, inventoryDetailTag: inventoryDetailTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for an inventoryDetail.
-     
-     - DELETE /beta/inventoryDetail/{inventoryDetailId}/tag/{inventoryDetailTag}
-     - Deletes an existing inventoryDetail tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter inventoryDetailId: (path) Id of the inventoryDetail to remove tag from 
-     - parameter inventoryDetailTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteInventoryDetailTagWithRequestBuilder(inventoryDetailId inventoryDetailId: Int, inventoryDetailTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/inventoryDetail/{inventoryDetailId}/tag/{inventoryDetailTag}"
-        path = path.stringByReplacingOccurrencesOfString("{inventoryDetailId}", withString: "\(inventoryDetailId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{inventoryDetailTag}", withString: "\(inventoryDetailTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
      Get a duplicated an inventoryDetail by id
      
      - parameter inventoryDetailId: (path) Id of the inventoryDetail to be duplicated. 
@@ -160,7 +28,7 @@ public class InventoryDetailAPI: APIBase {
      
      Get a duplicated an inventoryDetail by id
      
-     - GET /beta/inventoryDetail/duplicate/{inventoryDetailId}
+     - GET /v2.0/inventoryDetail/duplicate/{inventoryDetailId}
      - Returns a duplicated inventoryDetail identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -188,7 +56,7 @@ public class InventoryDetailAPI: APIBase {
      - returns: RequestBuilder<InventoryDetail> 
      */
     public class func getDuplicateInventoryDetailByIdWithRequestBuilder(inventoryDetailId inventoryDetailId: Int) -> RequestBuilder<InventoryDetail> {
-        var path = "/beta/inventoryDetail/duplicate/{inventoryDetailId}"
+        var path = "/v2.0/inventoryDetail/duplicate/{inventoryDetailId}"
         path = path.stringByReplacingOccurrencesOfString("{inventoryDetailId}", withString: "\(inventoryDetailId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -221,7 +89,7 @@ public class InventoryDetailAPI: APIBase {
      
      Search inventoryDetails by filter
      
-     - GET /beta/inventoryDetail/search
+     - GET /v2.0/inventoryDetail/search
      - Returns the list of inventoryDetails that match the given filter.
      - API Key:
        - type: apiKey API-Key 
@@ -252,7 +120,7 @@ public class InventoryDetailAPI: APIBase {
      - returns: RequestBuilder<[InventoryDetail]> 
      */
     public class func getInventoryDetailByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[InventoryDetail]> {
-        let path = "/beta/inventoryDetail/search"
+        let path = "/v2.0/inventoryDetail/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -286,7 +154,7 @@ public class InventoryDetailAPI: APIBase {
      
      Get an inventoryDetail by id
      
-     - GET /beta/inventoryDetail/{inventoryDetailId}
+     - GET /v2.0/inventoryDetail/{inventoryDetailId}
      - Returns the inventoryDetail identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -314,7 +182,7 @@ public class InventoryDetailAPI: APIBase {
      - returns: RequestBuilder<InventoryDetail> 
      */
     public class func getInventoryDetailByIdWithRequestBuilder(inventoryDetailId inventoryDetailId: Int) -> RequestBuilder<InventoryDetail> {
-        var path = "/beta/inventoryDetail/{inventoryDetailId}"
+        var path = "/v2.0/inventoryDetail/{inventoryDetailId}"
         path = path.stringByReplacingOccurrencesOfString("{inventoryDetailId}", withString: "\(inventoryDetailId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -322,47 +190,6 @@ public class InventoryDetailAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<InventoryDetail>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for an inventoryDetail.
-     
-     - parameter inventoryDetailId: (path) Id of the inventoryDetail to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getInventoryDetailTags(inventoryDetailId inventoryDetailId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getInventoryDetailTagsWithRequestBuilder(inventoryDetailId: inventoryDetailId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for an inventoryDetail.
-     
-     - GET /beta/inventoryDetail/{inventoryDetailId}/tag
-     - Get all existing inventoryDetail tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter inventoryDetailId: (path) Id of the inventoryDetail to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getInventoryDetailTagsWithRequestBuilder(inventoryDetailId inventoryDetailId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/inventoryDetail/{inventoryDetailId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{inventoryDetailId}", withString: "\(inventoryDetailId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -385,7 +212,7 @@ public class InventoryDetailAPI: APIBase {
      
      Update an inventoryDetail custom fields
      
-     - PUT /beta/inventoryDetail/customFields
+     - PUT /v2.0/inventoryDetail/customFields
      - Updates an existing inventoryDetail custom fields using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -396,7 +223,7 @@ public class InventoryDetailAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateInventoryDetailCustomFieldsWithRequestBuilder(body body: InventoryDetail) -> RequestBuilder<Void> {
-        let path = "/beta/inventoryDetail/customFields"
+        let path = "/v2.0/inventoryDetail/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

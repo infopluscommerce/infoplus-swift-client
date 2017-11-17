@@ -28,7 +28,7 @@ public class AsnAPI: APIBase {
      
      Create an asn
      
-     - POST /beta/asn
+     - POST /v2.0/asn
      - Inserts a new asn using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -79,7 +79,6 @@ public class AsnAPI: APIBase {
     "receiptNo" : 123,
     "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
     "poNoId" : 123,
-    "dockDate" : "2000-01-23T04:56:07.000+0000",
     "asnLine" : 123,
     "orderDate" : "2000-01-23T04:56:07.000+0000",
     "factCost" : 1.3579000000000001069366817318950779736042022705078125,
@@ -102,11 +101,11 @@ public class AsnAPI: APIBase {
     "receivedBy" : "aeiou",
     "unitsPerWrap" : 123,
     "cost" : 1.3579000000000001069366817318950779736042022705078125,
+    "dockTime" : "2000-01-23T04:56:07.000+0000",
     "interimVal" : 1.3579000000000001069366817318950779736042022705078125,
     "sell" : 1.3579000000000001069366817318950779736042022705078125,
     "length" : 1.3579000000000001069366817318950779736042022705078125,
     "maxOvers" : 123,
-    "productIdTag" : "aeiou",
     "impressions" : 123,
     "sample" : 123,
     "fromProd" : 123,
@@ -141,7 +140,6 @@ public class AsnAPI: APIBase {
   "billingZipCode" : "aeiou",
   "billingStreet2" : "aeiou",
   "billingState" : "aeiou",
-  "transferOrderId" : 1.3579000000000001069366817318950779736042022705078125,
   "billingStreet1" : "aeiou",
   "shipToStreet1" : "aeiou",
   "buyer" : 123,
@@ -164,7 +162,7 @@ public class AsnAPI: APIBase {
      - returns: RequestBuilder<Asn> 
      */
     public class func addAsnWithRequestBuilder(body body: Asn) -> RequestBuilder<Asn> {
-        let path = "/beta/asn"
+        let path = "/v2.0/asn"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -172,94 +170,6 @@ public class AsnAPI: APIBase {
         let requestBuilder: RequestBuilder<Asn>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new audit for an asn
-     
-     - parameter asnId: (path) Id of the asn to add an audit to 
-     - parameter asnAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addAsnAudit(asnId asnId: Int, asnAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addAsnAuditWithRequestBuilder(asnId: asnId, asnAudit: asnAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for an asn
-     
-     - PUT /beta/asn/{asnId}/audit/{asnAudit}
-     - Adds an audit to an existing asn.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter asnId: (path) Id of the asn to add an audit to 
-     - parameter asnAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addAsnAuditWithRequestBuilder(asnId asnId: Int, asnAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/asn/{asnId}/audit/{asnAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{asnId}", withString: "\(asnId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{asnAudit}", withString: "\(asnAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for an asn.
-     
-     - parameter asnId: (path) Id of the asn to add a tag to 
-     - parameter asnTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addAsnTag(asnId asnId: Int, asnTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addAsnTagWithRequestBuilder(asnId: asnId, asnTag: asnTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for an asn.
-     
-     - PUT /beta/asn/{asnId}/tag/{asnTag}
-     - Adds a tag to an existing asn.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter asnId: (path) Id of the asn to add a tag to 
-     - parameter asnTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addAsnTagWithRequestBuilder(asnId asnId: Int, asnTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/asn/{asnId}/tag/{asnTag}"
-        path = path.stringByReplacingOccurrencesOfString("{asnId}", withString: "\(asnId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{asnTag}", withString: "\(asnTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -280,7 +190,7 @@ public class AsnAPI: APIBase {
      
      Delete an asn
      
-     - DELETE /beta/asn/{asnId}
+     - DELETE /v2.0/asn/{asnId}
      - Deletes the asn identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -291,52 +201,8 @@ public class AsnAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteAsnWithRequestBuilder(asnId asnId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/asn/{asnId}"
+        var path = "/v2.0/asn/{asnId}"
         path = path.stringByReplacingOccurrencesOfString("{asnId}", withString: "\(asnId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for an asn.
-     
-     - parameter asnId: (path) Id of the asn to remove tag from 
-     - parameter asnTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteAsnTag(asnId asnId: Int, asnTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteAsnTagWithRequestBuilder(asnId: asnId, asnTag: asnTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for an asn.
-     
-     - DELETE /beta/asn/{asnId}/tag/{asnTag}
-     - Deletes an existing asn tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter asnId: (path) Id of the asn to remove tag from 
-     - parameter asnTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteAsnTagWithRequestBuilder(asnId asnId: Int, asnTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/asn/{asnId}/tag/{asnTag}"
-        path = path.stringByReplacingOccurrencesOfString("{asnId}", withString: "\(asnId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{asnTag}", withString: "\(asnTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
@@ -368,7 +234,7 @@ public class AsnAPI: APIBase {
      
      Search asns by filter
      
-     - GET /beta/asn/search
+     - GET /v2.0/asn/search
      - Returns the list of asns that match the given filter.
      - API Key:
        - type: apiKey API-Key 
@@ -419,7 +285,6 @@ public class AsnAPI: APIBase {
     "receiptNo" : 123,
     "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
     "poNoId" : 123,
-    "dockDate" : "2000-01-23T04:56:07.000+0000",
     "asnLine" : 123,
     "orderDate" : "2000-01-23T04:56:07.000+0000",
     "factCost" : 1.3579000000000001069366817318950779736042022705078125,
@@ -442,11 +307,11 @@ public class AsnAPI: APIBase {
     "receivedBy" : "aeiou",
     "unitsPerWrap" : 123,
     "cost" : 1.3579000000000001069366817318950779736042022705078125,
+    "dockTime" : "2000-01-23T04:56:07.000+0000",
     "interimVal" : 1.3579000000000001069366817318950779736042022705078125,
     "sell" : 1.3579000000000001069366817318950779736042022705078125,
     "length" : 1.3579000000000001069366817318950779736042022705078125,
     "maxOvers" : 123,
-    "productIdTag" : "aeiou",
     "impressions" : 123,
     "sample" : 123,
     "fromProd" : 123,
@@ -481,7 +346,6 @@ public class AsnAPI: APIBase {
   "billingZipCode" : "aeiou",
   "billingStreet2" : "aeiou",
   "billingState" : "aeiou",
-  "transferOrderId" : 1.3579000000000001069366817318950779736042022705078125,
   "billingStreet1" : "aeiou",
   "shipToStreet1" : "aeiou",
   "buyer" : 123,
@@ -507,7 +371,7 @@ public class AsnAPI: APIBase {
      - returns: RequestBuilder<[Asn]> 
      */
     public class func getAsnByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Asn]> {
-        let path = "/beta/asn/search"
+        let path = "/v2.0/asn/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -541,7 +405,7 @@ public class AsnAPI: APIBase {
      
      Get an asn by id
      
-     - GET /beta/asn/{asnId}
+     - GET /v2.0/asn/{asnId}
      - Returns the asn identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -592,7 +456,6 @@ public class AsnAPI: APIBase {
     "receiptNo" : 123,
     "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
     "poNoId" : 123,
-    "dockDate" : "2000-01-23T04:56:07.000+0000",
     "asnLine" : 123,
     "orderDate" : "2000-01-23T04:56:07.000+0000",
     "factCost" : 1.3579000000000001069366817318950779736042022705078125,
@@ -615,11 +478,11 @@ public class AsnAPI: APIBase {
     "receivedBy" : "aeiou",
     "unitsPerWrap" : 123,
     "cost" : 1.3579000000000001069366817318950779736042022705078125,
+    "dockTime" : "2000-01-23T04:56:07.000+0000",
     "interimVal" : 1.3579000000000001069366817318950779736042022705078125,
     "sell" : 1.3579000000000001069366817318950779736042022705078125,
     "length" : 1.3579000000000001069366817318950779736042022705078125,
     "maxOvers" : 123,
-    "productIdTag" : "aeiou",
     "impressions" : 123,
     "sample" : 123,
     "fromProd" : 123,
@@ -654,7 +517,6 @@ public class AsnAPI: APIBase {
   "billingZipCode" : "aeiou",
   "billingStreet2" : "aeiou",
   "billingState" : "aeiou",
-  "transferOrderId" : 1.3579000000000001069366817318950779736042022705078125,
   "billingStreet1" : "aeiou",
   "shipToStreet1" : "aeiou",
   "buyer" : 123,
@@ -677,7 +539,7 @@ public class AsnAPI: APIBase {
      - returns: RequestBuilder<Asn> 
      */
     public class func getAsnByIdWithRequestBuilder(asnId asnId: Int) -> RequestBuilder<Asn> {
-        var path = "/beta/asn/{asnId}"
+        var path = "/v2.0/asn/{asnId}"
         path = path.stringByReplacingOccurrencesOfString("{asnId}", withString: "\(asnId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -685,47 +547,6 @@ public class AsnAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<Asn>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for an asn.
-     
-     - parameter asnId: (path) Id of the asn to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getAsnTags(asnId asnId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getAsnTagsWithRequestBuilder(asnId: asnId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for an asn.
-     
-     - GET /beta/asn/{asnId}/tag
-     - Get all existing asn tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter asnId: (path) Id of the asn to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getAsnTagsWithRequestBuilder(asnId asnId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/asn/{asnId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{asnId}", withString: "\(asnId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -748,7 +569,7 @@ public class AsnAPI: APIBase {
      
      Get a duplicated an asn by id
      
-     - GET /beta/asn/duplicate/{asnId}
+     - GET /v2.0/asn/duplicate/{asnId}
      - Returns a duplicated asn identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -799,7 +620,6 @@ public class AsnAPI: APIBase {
     "receiptNo" : 123,
     "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
     "poNoId" : 123,
-    "dockDate" : "2000-01-23T04:56:07.000+0000",
     "asnLine" : 123,
     "orderDate" : "2000-01-23T04:56:07.000+0000",
     "factCost" : 1.3579000000000001069366817318950779736042022705078125,
@@ -822,11 +642,11 @@ public class AsnAPI: APIBase {
     "receivedBy" : "aeiou",
     "unitsPerWrap" : 123,
     "cost" : 1.3579000000000001069366817318950779736042022705078125,
+    "dockTime" : "2000-01-23T04:56:07.000+0000",
     "interimVal" : 1.3579000000000001069366817318950779736042022705078125,
     "sell" : 1.3579000000000001069366817318950779736042022705078125,
     "length" : 1.3579000000000001069366817318950779736042022705078125,
     "maxOvers" : 123,
-    "productIdTag" : "aeiou",
     "impressions" : 123,
     "sample" : 123,
     "fromProd" : 123,
@@ -861,7 +681,6 @@ public class AsnAPI: APIBase {
   "billingZipCode" : "aeiou",
   "billingStreet2" : "aeiou",
   "billingState" : "aeiou",
-  "transferOrderId" : 1.3579000000000001069366817318950779736042022705078125,
   "billingStreet1" : "aeiou",
   "shipToStreet1" : "aeiou",
   "buyer" : 123,
@@ -884,7 +703,7 @@ public class AsnAPI: APIBase {
      - returns: RequestBuilder<Asn> 
      */
     public class func getDuplicateAsnByIdWithRequestBuilder(asnId asnId: Int) -> RequestBuilder<Asn> {
-        var path = "/beta/asn/duplicate/{asnId}"
+        var path = "/v2.0/asn/duplicate/{asnId}"
         path = path.stringByReplacingOccurrencesOfString("{asnId}", withString: "\(asnId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -914,7 +733,7 @@ public class AsnAPI: APIBase {
      
      Update an asn
      
-     - PUT /beta/asn
+     - PUT /v2.0/asn
      - Updates an existing asn using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -925,7 +744,7 @@ public class AsnAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateAsnWithRequestBuilder(body body: Asn) -> RequestBuilder<Void> {
-        let path = "/beta/asn"
+        let path = "/v2.0/asn"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -953,7 +772,7 @@ public class AsnAPI: APIBase {
      
      Update an asn custom fields
      
-     - PUT /beta/asn/customFields
+     - PUT /v2.0/asn/customFields
      - Updates an existing asn custom fields using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -964,7 +783,7 @@ public class AsnAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateAsnCustomFieldsWithRequestBuilder(body body: Asn) -> RequestBuilder<Void> {
-        let path = "/beta/asn/customFields"
+        let path = "/v2.0/asn/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

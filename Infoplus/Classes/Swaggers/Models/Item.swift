@@ -71,8 +71,6 @@ public class Item: JSONEncodable {
     public var storageItemMixingRule: String?
     public var allocationRule: String?
     public var barcodeField: String?
-    public var warehouseDisplayField: String?
-    public var productIdTagSchemeId: Int?
     public var hazmat: String?
     public var isAlcohol: Bool?
     public var alcoholType: String?
@@ -92,17 +90,6 @@ public class Item: JSONEncodable {
     public var height: Double?
     public var topUp: Bool?
     public var shipSolo: Bool?
-    public var availableQuantity: Int?
-    public var damagedQuantity: Int?
-    public var inFulfillmentProcessQuantity: Int?
-    public var onHandQuantity: Int?
-    public var openOrderQuantity: Int?
-    public var openPOQuantity: Int?
-    public var orderableQuantity: Int?
-    public var unallocatableQuantity: Int?
-    public var unavailableQuantity: Int?
-    public var overallDaysOnHand: Int?
-    public var overallStockStatus: String?
     public var customFields: [String:AnyObject]?
     
 
@@ -172,8 +159,6 @@ public class Item: JSONEncodable {
         nillableDictionary["storageItemMixingRule"] = self.storageItemMixingRule
         nillableDictionary["allocationRule"] = self.allocationRule
         nillableDictionary["barcodeField"] = self.barcodeField
-        nillableDictionary["warehouseDisplayField"] = self.warehouseDisplayField
-        nillableDictionary["productIdTagSchemeId"] = self.productIdTagSchemeId
         nillableDictionary["hazmat"] = self.hazmat
         nillableDictionary["isAlcohol"] = self.isAlcohol
         nillableDictionary["alcoholType"] = self.alcoholType
@@ -193,17 +178,6 @@ public class Item: JSONEncodable {
         nillableDictionary["height"] = self.height
         nillableDictionary["topUp"] = self.topUp
         nillableDictionary["shipSolo"] = self.shipSolo
-        nillableDictionary["availableQuantity"] = self.availableQuantity
-        nillableDictionary["damagedQuantity"] = self.damagedQuantity
-        nillableDictionary["inFulfillmentProcessQuantity"] = self.inFulfillmentProcessQuantity
-        nillableDictionary["onHandQuantity"] = self.onHandQuantity
-        nillableDictionary["openOrderQuantity"] = self.openOrderQuantity
-        nillableDictionary["openPOQuantity"] = self.openPOQuantity
-        nillableDictionary["orderableQuantity"] = self.orderableQuantity
-        nillableDictionary["unallocatableQuantity"] = self.unallocatableQuantity
-        nillableDictionary["unavailableQuantity"] = self.unavailableQuantity
-        nillableDictionary["overallDaysOnHand"] = self.overallDaysOnHand
-        nillableDictionary["overallStockStatus"] = self.overallStockStatus
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

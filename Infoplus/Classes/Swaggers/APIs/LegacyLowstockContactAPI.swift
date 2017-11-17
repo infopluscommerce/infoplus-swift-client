@@ -28,7 +28,7 @@ public class LegacyLowstockContactAPI: APIBase {
      
      Create a legacyLowstockContact
      
-     - POST /beta/legacyLowstockContact
+     - POST /v2.0/legacyLowstockContact
      - Inserts a new legacyLowstockContact using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -48,7 +48,7 @@ public class LegacyLowstockContactAPI: APIBase {
      - returns: RequestBuilder<LegacyLowstockContact> 
      */
     public class func addLegacyLowstockContactWithRequestBuilder(body body: LegacyLowstockContact) -> RequestBuilder<LegacyLowstockContact> {
-        let path = "/beta/legacyLowstockContact"
+        let path = "/v2.0/legacyLowstockContact"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -56,94 +56,6 @@ public class LegacyLowstockContactAPI: APIBase {
         let requestBuilder: RequestBuilder<LegacyLowstockContact>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new audit for a legacyLowstockContact
-     
-     - parameter legacyLowstockContactId: (path) Id of the legacyLowstockContact to add an audit to 
-     - parameter legacyLowstockContactAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addLegacyLowstockContactAudit(legacyLowstockContactId legacyLowstockContactId: Int, legacyLowstockContactAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addLegacyLowstockContactAuditWithRequestBuilder(legacyLowstockContactId: legacyLowstockContactId, legacyLowstockContactAudit: legacyLowstockContactAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for a legacyLowstockContact
-     
-     - PUT /beta/legacyLowstockContact/{legacyLowstockContactId}/audit/{legacyLowstockContactAudit}
-     - Adds an audit to an existing legacyLowstockContact.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter legacyLowstockContactId: (path) Id of the legacyLowstockContact to add an audit to 
-     - parameter legacyLowstockContactAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addLegacyLowstockContactAuditWithRequestBuilder(legacyLowstockContactId legacyLowstockContactId: Int, legacyLowstockContactAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/legacyLowstockContact/{legacyLowstockContactId}/audit/{legacyLowstockContactAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{legacyLowstockContactId}", withString: "\(legacyLowstockContactId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{legacyLowstockContactAudit}", withString: "\(legacyLowstockContactAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for a legacyLowstockContact.
-     
-     - parameter legacyLowstockContactId: (path) Id of the legacyLowstockContact to add a tag to 
-     - parameter legacyLowstockContactTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addLegacyLowstockContactTag(legacyLowstockContactId legacyLowstockContactId: Int, legacyLowstockContactTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addLegacyLowstockContactTagWithRequestBuilder(legacyLowstockContactId: legacyLowstockContactId, legacyLowstockContactTag: legacyLowstockContactTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for a legacyLowstockContact.
-     
-     - PUT /beta/legacyLowstockContact/{legacyLowstockContactId}/tag/{legacyLowstockContactTag}
-     - Adds a tag to an existing legacyLowstockContact.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter legacyLowstockContactId: (path) Id of the legacyLowstockContact to add a tag to 
-     - parameter legacyLowstockContactTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addLegacyLowstockContactTagWithRequestBuilder(legacyLowstockContactId legacyLowstockContactId: Int, legacyLowstockContactTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/legacyLowstockContact/{legacyLowstockContactId}/tag/{legacyLowstockContactTag}"
-        path = path.stringByReplacingOccurrencesOfString("{legacyLowstockContactId}", withString: "\(legacyLowstockContactId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{legacyLowstockContactTag}", withString: "\(legacyLowstockContactTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -164,7 +76,7 @@ public class LegacyLowstockContactAPI: APIBase {
      
      Delete a legacyLowstockContact
      
-     - DELETE /beta/legacyLowstockContact/{legacyLowstockContactId}
+     - DELETE /v2.0/legacyLowstockContact/{legacyLowstockContactId}
      - Deletes the legacyLowstockContact identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -175,52 +87,8 @@ public class LegacyLowstockContactAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteLegacyLowstockContactWithRequestBuilder(legacyLowstockContactId legacyLowstockContactId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/legacyLowstockContact/{legacyLowstockContactId}"
+        var path = "/v2.0/legacyLowstockContact/{legacyLowstockContactId}"
         path = path.stringByReplacingOccurrencesOfString("{legacyLowstockContactId}", withString: "\(legacyLowstockContactId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for a legacyLowstockContact.
-     
-     - parameter legacyLowstockContactId: (path) Id of the legacyLowstockContact to remove tag from 
-     - parameter legacyLowstockContactTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteLegacyLowstockContactTag(legacyLowstockContactId legacyLowstockContactId: Int, legacyLowstockContactTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteLegacyLowstockContactTagWithRequestBuilder(legacyLowstockContactId: legacyLowstockContactId, legacyLowstockContactTag: legacyLowstockContactTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for a legacyLowstockContact.
-     
-     - DELETE /beta/legacyLowstockContact/{legacyLowstockContactId}/tag/{legacyLowstockContactTag}
-     - Deletes an existing legacyLowstockContact tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter legacyLowstockContactId: (path) Id of the legacyLowstockContact to remove tag from 
-     - parameter legacyLowstockContactTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteLegacyLowstockContactTagWithRequestBuilder(legacyLowstockContactId legacyLowstockContactId: Int, legacyLowstockContactTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/legacyLowstockContact/{legacyLowstockContactId}/tag/{legacyLowstockContactTag}"
-        path = path.stringByReplacingOccurrencesOfString("{legacyLowstockContactId}", withString: "\(legacyLowstockContactId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{legacyLowstockContactTag}", withString: "\(legacyLowstockContactTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
@@ -249,7 +117,7 @@ public class LegacyLowstockContactAPI: APIBase {
      
      Get a duplicated a legacyLowstockContact by id
      
-     - GET /beta/legacyLowstockContact/duplicate/{legacyLowstockContactId}
+     - GET /v2.0/legacyLowstockContact/duplicate/{legacyLowstockContactId}
      - Returns a duplicated legacyLowstockContact identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -269,7 +137,7 @@ public class LegacyLowstockContactAPI: APIBase {
      - returns: RequestBuilder<LegacyLowstockContact> 
      */
     public class func getDuplicateLegacyLowstockContactByIdWithRequestBuilder(legacyLowstockContactId legacyLowstockContactId: Int) -> RequestBuilder<LegacyLowstockContact> {
-        var path = "/beta/legacyLowstockContact/duplicate/{legacyLowstockContactId}"
+        var path = "/v2.0/legacyLowstockContact/duplicate/{legacyLowstockContactId}"
         path = path.stringByReplacingOccurrencesOfString("{legacyLowstockContactId}", withString: "\(legacyLowstockContactId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -302,7 +170,7 @@ public class LegacyLowstockContactAPI: APIBase {
      
      Search legacyLowstockContacts by filter
      
-     - GET /beta/legacyLowstockContact/search
+     - GET /v2.0/legacyLowstockContact/search
      - Returns the list of legacyLowstockContacts that match the given filter.
      - API Key:
        - type: apiKey API-Key 
@@ -325,7 +193,7 @@ public class LegacyLowstockContactAPI: APIBase {
      - returns: RequestBuilder<[LegacyLowstockContact]> 
      */
     public class func getLegacyLowstockContactByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[LegacyLowstockContact]> {
-        let path = "/beta/legacyLowstockContact/search"
+        let path = "/v2.0/legacyLowstockContact/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -359,7 +227,7 @@ public class LegacyLowstockContactAPI: APIBase {
      
      Get a legacyLowstockContact by id
      
-     - GET /beta/legacyLowstockContact/{legacyLowstockContactId}
+     - GET /v2.0/legacyLowstockContact/{legacyLowstockContactId}
      - Returns the legacyLowstockContact identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -379,7 +247,7 @@ public class LegacyLowstockContactAPI: APIBase {
      - returns: RequestBuilder<LegacyLowstockContact> 
      */
     public class func getLegacyLowstockContactByIdWithRequestBuilder(legacyLowstockContactId legacyLowstockContactId: Int) -> RequestBuilder<LegacyLowstockContact> {
-        var path = "/beta/legacyLowstockContact/{legacyLowstockContactId}"
+        var path = "/v2.0/legacyLowstockContact/{legacyLowstockContactId}"
         path = path.stringByReplacingOccurrencesOfString("{legacyLowstockContactId}", withString: "\(legacyLowstockContactId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -387,47 +255,6 @@ public class LegacyLowstockContactAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<LegacyLowstockContact>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for a legacyLowstockContact.
-     
-     - parameter legacyLowstockContactId: (path) Id of the legacyLowstockContact to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getLegacyLowstockContactTags(legacyLowstockContactId legacyLowstockContactId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getLegacyLowstockContactTagsWithRequestBuilder(legacyLowstockContactId: legacyLowstockContactId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for a legacyLowstockContact.
-     
-     - GET /beta/legacyLowstockContact/{legacyLowstockContactId}/tag
-     - Get all existing legacyLowstockContact tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter legacyLowstockContactId: (path) Id of the legacyLowstockContact to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getLegacyLowstockContactTagsWithRequestBuilder(legacyLowstockContactId legacyLowstockContactId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/legacyLowstockContact/{legacyLowstockContactId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{legacyLowstockContactId}", withString: "\(legacyLowstockContactId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -450,7 +277,7 @@ public class LegacyLowstockContactAPI: APIBase {
      
      Update a legacyLowstockContact
      
-     - PUT /beta/legacyLowstockContact
+     - PUT /v2.0/legacyLowstockContact
      - Updates an existing legacyLowstockContact using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -461,7 +288,7 @@ public class LegacyLowstockContactAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateLegacyLowstockContactWithRequestBuilder(body body: LegacyLowstockContact) -> RequestBuilder<Void> {
-        let path = "/beta/legacyLowstockContact"
+        let path = "/v2.0/legacyLowstockContact"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

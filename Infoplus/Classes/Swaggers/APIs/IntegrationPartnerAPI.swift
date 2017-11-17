@@ -28,7 +28,7 @@ public class IntegrationPartnerAPI: APIBase {
      
      Get an integrationPartner by id
      
-     - GET /beta/integrationPartner/{integrationPartnerId}
+     - GET /v2.0/integrationPartner/{integrationPartnerId}
      - Returns the integrationPartner identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -43,7 +43,7 @@ public class IntegrationPartnerAPI: APIBase {
      - returns: RequestBuilder<IntegrationPartner> 
      */
     public class func getIntegrationPartnerByIdWithRequestBuilder(integrationPartnerId integrationPartnerId: String) -> RequestBuilder<IntegrationPartner> {
-        var path = "/beta/integrationPartner/{integrationPartnerId}"
+        var path = "/v2.0/integrationPartner/{integrationPartnerId}"
         path = path.stringByReplacingOccurrencesOfString("{integrationPartnerId}", withString: "\(integrationPartnerId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -75,7 +75,7 @@ public class IntegrationPartnerAPI: APIBase {
      
      Search integrationPartners
      
-     - GET /beta/integrationPartner/search
+     - GET /v2.0/integrationPartner/search
      - Returns the list of integrationPartners that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
@@ -92,7 +92,7 @@ public class IntegrationPartnerAPI: APIBase {
      - returns: RequestBuilder<[IntegrationPartner]> 
      */
     public class func getIntegrationPartnerBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[IntegrationPartner]> {
-        let path = "/beta/integrationPartner/search"
+        let path = "/v2.0/integrationPartner/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [

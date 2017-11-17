@@ -27,10 +27,8 @@ public class OrderLine: JSONEncodable {
     public var orderSourceSKU: String?
     public var unitCost: Double?
     public var unitSell: Double?
-    public var unitDiscount: Double?
     public var extendedCost: Double?
     public var extendedSell: Double?
-    public var extendedDiscount: Double?
     public var ncExtendedSell: Double?
     public var itemWeight: Double?
     public var productionLot: String?
@@ -67,10 +65,8 @@ public class OrderLine: JSONEncodable {
         nillableDictionary["orderSourceSKU"] = self.orderSourceSKU
         nillableDictionary["unitCost"] = self.unitCost
         nillableDictionary["unitSell"] = self.unitSell
-        nillableDictionary["unitDiscount"] = self.unitDiscount
         nillableDictionary["extendedCost"] = self.extendedCost
         nillableDictionary["extendedSell"] = self.extendedSell
-        nillableDictionary["extendedDiscount"] = self.extendedDiscount
         nillableDictionary["ncExtendedSell"] = self.ncExtendedSell
         nillableDictionary["itemWeight"] = self.itemWeight
         nillableDictionary["productionLot"] = self.productionLot

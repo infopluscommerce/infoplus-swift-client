@@ -28,7 +28,7 @@ public class ItemLowstockCodeAPI: APIBase {
      
      Create an itemLowstockCode
      
-     - POST /beta/itemLowstockCode
+     - POST /v2.0/itemLowstockCode
      - Inserts a new itemLowstockCode using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -48,7 +48,7 @@ public class ItemLowstockCodeAPI: APIBase {
      - returns: RequestBuilder<ItemLowstockCode> 
      */
     public class func addItemLowstockCodeWithRequestBuilder(body body: ItemLowstockCode) -> RequestBuilder<ItemLowstockCode> {
-        let path = "/beta/itemLowstockCode"
+        let path = "/v2.0/itemLowstockCode"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -56,94 +56,6 @@ public class ItemLowstockCodeAPI: APIBase {
         let requestBuilder: RequestBuilder<ItemLowstockCode>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new audit for an itemLowstockCode
-     
-     - parameter itemLowstockCodeId: (path) Id of the itemLowstockCode to add an audit to 
-     - parameter itemLowstockCodeAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addItemLowstockCodeAudit(itemLowstockCodeId itemLowstockCodeId: Int, itemLowstockCodeAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addItemLowstockCodeAuditWithRequestBuilder(itemLowstockCodeId: itemLowstockCodeId, itemLowstockCodeAudit: itemLowstockCodeAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for an itemLowstockCode
-     
-     - PUT /beta/itemLowstockCode/{itemLowstockCodeId}/audit/{itemLowstockCodeAudit}
-     - Adds an audit to an existing itemLowstockCode.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter itemLowstockCodeId: (path) Id of the itemLowstockCode to add an audit to 
-     - parameter itemLowstockCodeAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addItemLowstockCodeAuditWithRequestBuilder(itemLowstockCodeId itemLowstockCodeId: Int, itemLowstockCodeAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/itemLowstockCode/{itemLowstockCodeId}/audit/{itemLowstockCodeAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{itemLowstockCodeId}", withString: "\(itemLowstockCodeId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{itemLowstockCodeAudit}", withString: "\(itemLowstockCodeAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for an itemLowstockCode.
-     
-     - parameter itemLowstockCodeId: (path) Id of the itemLowstockCode to add a tag to 
-     - parameter itemLowstockCodeTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addItemLowstockCodeTag(itemLowstockCodeId itemLowstockCodeId: Int, itemLowstockCodeTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addItemLowstockCodeTagWithRequestBuilder(itemLowstockCodeId: itemLowstockCodeId, itemLowstockCodeTag: itemLowstockCodeTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for an itemLowstockCode.
-     
-     - PUT /beta/itemLowstockCode/{itemLowstockCodeId}/tag/{itemLowstockCodeTag}
-     - Adds a tag to an existing itemLowstockCode.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter itemLowstockCodeId: (path) Id of the itemLowstockCode to add a tag to 
-     - parameter itemLowstockCodeTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addItemLowstockCodeTagWithRequestBuilder(itemLowstockCodeId itemLowstockCodeId: Int, itemLowstockCodeTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/itemLowstockCode/{itemLowstockCodeId}/tag/{itemLowstockCodeTag}"
-        path = path.stringByReplacingOccurrencesOfString("{itemLowstockCodeId}", withString: "\(itemLowstockCodeId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{itemLowstockCodeTag}", withString: "\(itemLowstockCodeTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -164,7 +76,7 @@ public class ItemLowstockCodeAPI: APIBase {
      
      Delete an itemLowstockCode
      
-     - DELETE /beta/itemLowstockCode/{itemLowstockCodeId}
+     - DELETE /v2.0/itemLowstockCode/{itemLowstockCodeId}
      - Deletes the itemLowstockCode identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -175,52 +87,8 @@ public class ItemLowstockCodeAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteItemLowstockCodeWithRequestBuilder(itemLowstockCodeId itemLowstockCodeId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/itemLowstockCode/{itemLowstockCodeId}"
+        var path = "/v2.0/itemLowstockCode/{itemLowstockCodeId}"
         path = path.stringByReplacingOccurrencesOfString("{itemLowstockCodeId}", withString: "\(itemLowstockCodeId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for an itemLowstockCode.
-     
-     - parameter itemLowstockCodeId: (path) Id of the itemLowstockCode to remove tag from 
-     - parameter itemLowstockCodeTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteItemLowstockCodeTag(itemLowstockCodeId itemLowstockCodeId: Int, itemLowstockCodeTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteItemLowstockCodeTagWithRequestBuilder(itemLowstockCodeId: itemLowstockCodeId, itemLowstockCodeTag: itemLowstockCodeTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for an itemLowstockCode.
-     
-     - DELETE /beta/itemLowstockCode/{itemLowstockCodeId}/tag/{itemLowstockCodeTag}
-     - Deletes an existing itemLowstockCode tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter itemLowstockCodeId: (path) Id of the itemLowstockCode to remove tag from 
-     - parameter itemLowstockCodeTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteItemLowstockCodeTagWithRequestBuilder(itemLowstockCodeId itemLowstockCodeId: Int, itemLowstockCodeTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/itemLowstockCode/{itemLowstockCodeId}/tag/{itemLowstockCodeTag}"
-        path = path.stringByReplacingOccurrencesOfString("{itemLowstockCodeId}", withString: "\(itemLowstockCodeId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{itemLowstockCodeTag}", withString: "\(itemLowstockCodeTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
@@ -249,7 +117,7 @@ public class ItemLowstockCodeAPI: APIBase {
      
      Get a duplicated an itemLowstockCode by id
      
-     - GET /beta/itemLowstockCode/duplicate/{itemLowstockCodeId}
+     - GET /v2.0/itemLowstockCode/duplicate/{itemLowstockCodeId}
      - Returns a duplicated itemLowstockCode identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -269,7 +137,7 @@ public class ItemLowstockCodeAPI: APIBase {
      - returns: RequestBuilder<ItemLowstockCode> 
      */
     public class func getDuplicateItemLowstockCodeByIdWithRequestBuilder(itemLowstockCodeId itemLowstockCodeId: Int) -> RequestBuilder<ItemLowstockCode> {
-        var path = "/beta/itemLowstockCode/duplicate/{itemLowstockCodeId}"
+        var path = "/v2.0/itemLowstockCode/duplicate/{itemLowstockCodeId}"
         path = path.stringByReplacingOccurrencesOfString("{itemLowstockCodeId}", withString: "\(itemLowstockCodeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -302,7 +170,7 @@ public class ItemLowstockCodeAPI: APIBase {
      
      Search itemLowstockCodes by filter
      
-     - GET /beta/itemLowstockCode/search
+     - GET /v2.0/itemLowstockCode/search
      - Returns the list of itemLowstockCodes that match the given filter.
      - API Key:
        - type: apiKey API-Key 
@@ -325,7 +193,7 @@ public class ItemLowstockCodeAPI: APIBase {
      - returns: RequestBuilder<[ItemLowstockCode]> 
      */
     public class func getItemLowstockCodeByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ItemLowstockCode]> {
-        let path = "/beta/itemLowstockCode/search"
+        let path = "/v2.0/itemLowstockCode/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -359,7 +227,7 @@ public class ItemLowstockCodeAPI: APIBase {
      
      Get an itemLowstockCode by id
      
-     - GET /beta/itemLowstockCode/{itemLowstockCodeId}
+     - GET /v2.0/itemLowstockCode/{itemLowstockCodeId}
      - Returns the itemLowstockCode identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -379,7 +247,7 @@ public class ItemLowstockCodeAPI: APIBase {
      - returns: RequestBuilder<ItemLowstockCode> 
      */
     public class func getItemLowstockCodeByIdWithRequestBuilder(itemLowstockCodeId itemLowstockCodeId: Int) -> RequestBuilder<ItemLowstockCode> {
-        var path = "/beta/itemLowstockCode/{itemLowstockCodeId}"
+        var path = "/v2.0/itemLowstockCode/{itemLowstockCodeId}"
         path = path.stringByReplacingOccurrencesOfString("{itemLowstockCodeId}", withString: "\(itemLowstockCodeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -387,47 +255,6 @@ public class ItemLowstockCodeAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<ItemLowstockCode>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for an itemLowstockCode.
-     
-     - parameter itemLowstockCodeId: (path) Id of the itemLowstockCode to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getItemLowstockCodeTags(itemLowstockCodeId itemLowstockCodeId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getItemLowstockCodeTagsWithRequestBuilder(itemLowstockCodeId: itemLowstockCodeId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for an itemLowstockCode.
-     
-     - GET /beta/itemLowstockCode/{itemLowstockCodeId}/tag
-     - Get all existing itemLowstockCode tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter itemLowstockCodeId: (path) Id of the itemLowstockCode to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getItemLowstockCodeTagsWithRequestBuilder(itemLowstockCodeId itemLowstockCodeId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/itemLowstockCode/{itemLowstockCodeId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{itemLowstockCodeId}", withString: "\(itemLowstockCodeId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -450,7 +277,7 @@ public class ItemLowstockCodeAPI: APIBase {
      
      Update an itemLowstockCode
      
-     - PUT /beta/itemLowstockCode
+     - PUT /v2.0/itemLowstockCode
      - Updates an existing itemLowstockCode using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -461,7 +288,7 @@ public class ItemLowstockCodeAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateItemLowstockCodeWithRequestBuilder(body body: ItemLowstockCode) -> RequestBuilder<Void> {
-        let path = "/beta/itemLowstockCode"
+        let path = "/v2.0/itemLowstockCode"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

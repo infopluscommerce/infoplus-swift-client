@@ -28,7 +28,7 @@ public class OverrideReturnAddressAPI: APIBase {
      
      Create an overrideReturnAddress
      
-     - POST /beta/overrideReturnAddress
+     - POST /v2.0/overrideReturnAddress
      - Inserts a new overrideReturnAddress using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -59,7 +59,7 @@ public class OverrideReturnAddressAPI: APIBase {
      - returns: RequestBuilder<OverrideReturnAddress> 
      */
     public class func addOverrideReturnAddressWithRequestBuilder(body body: OverrideReturnAddress) -> RequestBuilder<OverrideReturnAddress> {
-        let path = "/beta/overrideReturnAddress"
+        let path = "/v2.0/overrideReturnAddress"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -67,94 +67,6 @@ public class OverrideReturnAddressAPI: APIBase {
         let requestBuilder: RequestBuilder<OverrideReturnAddress>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new audit for an overrideReturnAddress
-     
-     - parameter overrideReturnAddressId: (path) Id of the overrideReturnAddress to add an audit to 
-     - parameter overrideReturnAddressAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addOverrideReturnAddressAudit(overrideReturnAddressId overrideReturnAddressId: Int, overrideReturnAddressAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addOverrideReturnAddressAuditWithRequestBuilder(overrideReturnAddressId: overrideReturnAddressId, overrideReturnAddressAudit: overrideReturnAddressAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for an overrideReturnAddress
-     
-     - PUT /beta/overrideReturnAddress/{overrideReturnAddressId}/audit/{overrideReturnAddressAudit}
-     - Adds an audit to an existing overrideReturnAddress.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter overrideReturnAddressId: (path) Id of the overrideReturnAddress to add an audit to 
-     - parameter overrideReturnAddressAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addOverrideReturnAddressAuditWithRequestBuilder(overrideReturnAddressId overrideReturnAddressId: Int, overrideReturnAddressAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/overrideReturnAddress/{overrideReturnAddressId}/audit/{overrideReturnAddressAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{overrideReturnAddressId}", withString: "\(overrideReturnAddressId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{overrideReturnAddressAudit}", withString: "\(overrideReturnAddressAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for an overrideReturnAddress.
-     
-     - parameter overrideReturnAddressId: (path) Id of the overrideReturnAddress to add a tag to 
-     - parameter overrideReturnAddressTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addOverrideReturnAddressTag(overrideReturnAddressId overrideReturnAddressId: Int, overrideReturnAddressTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addOverrideReturnAddressTagWithRequestBuilder(overrideReturnAddressId: overrideReturnAddressId, overrideReturnAddressTag: overrideReturnAddressTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for an overrideReturnAddress.
-     
-     - PUT /beta/overrideReturnAddress/{overrideReturnAddressId}/tag/{overrideReturnAddressTag}
-     - Adds a tag to an existing overrideReturnAddress.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter overrideReturnAddressId: (path) Id of the overrideReturnAddress to add a tag to 
-     - parameter overrideReturnAddressTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addOverrideReturnAddressTagWithRequestBuilder(overrideReturnAddressId overrideReturnAddressId: Int, overrideReturnAddressTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/overrideReturnAddress/{overrideReturnAddressId}/tag/{overrideReturnAddressTag}"
-        path = path.stringByReplacingOccurrencesOfString("{overrideReturnAddressId}", withString: "\(overrideReturnAddressId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{overrideReturnAddressTag}", withString: "\(overrideReturnAddressTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -175,7 +87,7 @@ public class OverrideReturnAddressAPI: APIBase {
      
      Delete an overrideReturnAddress
      
-     - DELETE /beta/overrideReturnAddress/{overrideReturnAddressId}
+     - DELETE /v2.0/overrideReturnAddress/{overrideReturnAddressId}
      - Deletes the overrideReturnAddress identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -186,52 +98,8 @@ public class OverrideReturnAddressAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteOverrideReturnAddressWithRequestBuilder(overrideReturnAddressId overrideReturnAddressId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/overrideReturnAddress/{overrideReturnAddressId}"
+        var path = "/v2.0/overrideReturnAddress/{overrideReturnAddressId}"
         path = path.stringByReplacingOccurrencesOfString("{overrideReturnAddressId}", withString: "\(overrideReturnAddressId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for an overrideReturnAddress.
-     
-     - parameter overrideReturnAddressId: (path) Id of the overrideReturnAddress to remove tag from 
-     - parameter overrideReturnAddressTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteOverrideReturnAddressTag(overrideReturnAddressId overrideReturnAddressId: Int, overrideReturnAddressTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteOverrideReturnAddressTagWithRequestBuilder(overrideReturnAddressId: overrideReturnAddressId, overrideReturnAddressTag: overrideReturnAddressTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for an overrideReturnAddress.
-     
-     - DELETE /beta/overrideReturnAddress/{overrideReturnAddressId}/tag/{overrideReturnAddressTag}
-     - Deletes an existing overrideReturnAddress tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter overrideReturnAddressId: (path) Id of the overrideReturnAddress to remove tag from 
-     - parameter overrideReturnAddressTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteOverrideReturnAddressTagWithRequestBuilder(overrideReturnAddressId overrideReturnAddressId: Int, overrideReturnAddressTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/overrideReturnAddress/{overrideReturnAddressId}/tag/{overrideReturnAddressTag}"
-        path = path.stringByReplacingOccurrencesOfString("{overrideReturnAddressId}", withString: "\(overrideReturnAddressId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{overrideReturnAddressTag}", withString: "\(overrideReturnAddressTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
@@ -260,7 +128,7 @@ public class OverrideReturnAddressAPI: APIBase {
      
      Get a duplicated an overrideReturnAddress by id
      
-     - GET /beta/overrideReturnAddress/duplicate/{overrideReturnAddressId}
+     - GET /v2.0/overrideReturnAddress/duplicate/{overrideReturnAddressId}
      - Returns a duplicated overrideReturnAddress identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -291,7 +159,7 @@ public class OverrideReturnAddressAPI: APIBase {
      - returns: RequestBuilder<OverrideReturnAddress> 
      */
     public class func getDuplicateOverrideReturnAddressByIdWithRequestBuilder(overrideReturnAddressId overrideReturnAddressId: Int) -> RequestBuilder<OverrideReturnAddress> {
-        var path = "/beta/overrideReturnAddress/duplicate/{overrideReturnAddressId}"
+        var path = "/v2.0/overrideReturnAddress/duplicate/{overrideReturnAddressId}"
         path = path.stringByReplacingOccurrencesOfString("{overrideReturnAddressId}", withString: "\(overrideReturnAddressId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -324,7 +192,7 @@ public class OverrideReturnAddressAPI: APIBase {
      
      Search overrideReturnAddresses by filter
      
-     - GET /beta/overrideReturnAddress/search
+     - GET /v2.0/overrideReturnAddress/search
      - Returns the list of overrideReturnAddresses that match the given filter.
      - API Key:
        - type: apiKey API-Key 
@@ -358,7 +226,7 @@ public class OverrideReturnAddressAPI: APIBase {
      - returns: RequestBuilder<[OverrideReturnAddress]> 
      */
     public class func getOverrideReturnAddressByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[OverrideReturnAddress]> {
-        let path = "/beta/overrideReturnAddress/search"
+        let path = "/v2.0/overrideReturnAddress/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -392,7 +260,7 @@ public class OverrideReturnAddressAPI: APIBase {
      
      Get an overrideReturnAddress by id
      
-     - GET /beta/overrideReturnAddress/{overrideReturnAddressId}
+     - GET /v2.0/overrideReturnAddress/{overrideReturnAddressId}
      - Returns the overrideReturnAddress identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -423,7 +291,7 @@ public class OverrideReturnAddressAPI: APIBase {
      - returns: RequestBuilder<OverrideReturnAddress> 
      */
     public class func getOverrideReturnAddressByIdWithRequestBuilder(overrideReturnAddressId overrideReturnAddressId: Int) -> RequestBuilder<OverrideReturnAddress> {
-        var path = "/beta/overrideReturnAddress/{overrideReturnAddressId}"
+        var path = "/v2.0/overrideReturnAddress/{overrideReturnAddressId}"
         path = path.stringByReplacingOccurrencesOfString("{overrideReturnAddressId}", withString: "\(overrideReturnAddressId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -431,47 +299,6 @@ public class OverrideReturnAddressAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<OverrideReturnAddress>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for an overrideReturnAddress.
-     
-     - parameter overrideReturnAddressId: (path) Id of the overrideReturnAddress to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getOverrideReturnAddressTags(overrideReturnAddressId overrideReturnAddressId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getOverrideReturnAddressTagsWithRequestBuilder(overrideReturnAddressId: overrideReturnAddressId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for an overrideReturnAddress.
-     
-     - GET /beta/overrideReturnAddress/{overrideReturnAddressId}/tag
-     - Get all existing overrideReturnAddress tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter overrideReturnAddressId: (path) Id of the overrideReturnAddress to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getOverrideReturnAddressTagsWithRequestBuilder(overrideReturnAddressId overrideReturnAddressId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/overrideReturnAddress/{overrideReturnAddressId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{overrideReturnAddressId}", withString: "\(overrideReturnAddressId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -494,7 +321,7 @@ public class OverrideReturnAddressAPI: APIBase {
      
      Update an overrideReturnAddress
      
-     - PUT /beta/overrideReturnAddress
+     - PUT /v2.0/overrideReturnAddress
      - Updates an existing overrideReturnAddress using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -505,7 +332,7 @@ public class OverrideReturnAddressAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateOverrideReturnAddressWithRequestBuilder(body body: OverrideReturnAddress) -> RequestBuilder<Void> {
-        let path = "/beta/overrideReturnAddress"
+        let path = "/v2.0/overrideReturnAddress"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -533,7 +360,7 @@ public class OverrideReturnAddressAPI: APIBase {
      
      Update an overrideReturnAddress custom fields
      
-     - PUT /beta/overrideReturnAddress/customFields
+     - PUT /v2.0/overrideReturnAddress/customFields
      - Updates an existing overrideReturnAddress custom fields using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -544,7 +371,7 @@ public class OverrideReturnAddressAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateOverrideReturnAddressCustomFieldsWithRequestBuilder(body body: OverrideReturnAddress) -> RequestBuilder<Void> {
-        let path = "/beta/overrideReturnAddress/customFields"
+        let path = "/v2.0/overrideReturnAddress/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

@@ -28,7 +28,7 @@ public class JobTimeAPI: APIBase {
      
      Create a jobTime
      
-     - POST /beta/jobTime
+     - POST /v2.0/jobTime
      - Inserts a new jobTime using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -53,7 +53,7 @@ public class JobTimeAPI: APIBase {
      - returns: RequestBuilder<JobTime> 
      */
     public class func addJobTimeWithRequestBuilder(body body: JobTime) -> RequestBuilder<JobTime> {
-        let path = "/beta/jobTime"
+        let path = "/v2.0/jobTime"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -61,94 +61,6 @@ public class JobTimeAPI: APIBase {
         let requestBuilder: RequestBuilder<JobTime>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new audit for a jobTime
-     
-     - parameter jobTimeId: (path) Id of the jobTime to add an audit to 
-     - parameter jobTimeAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addJobTimeAudit(jobTimeId jobTimeId: Int, jobTimeAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addJobTimeAuditWithRequestBuilder(jobTimeId: jobTimeId, jobTimeAudit: jobTimeAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for a jobTime
-     
-     - PUT /beta/jobTime/{jobTimeId}/audit/{jobTimeAudit}
-     - Adds an audit to an existing jobTime.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter jobTimeId: (path) Id of the jobTime to add an audit to 
-     - parameter jobTimeAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addJobTimeAuditWithRequestBuilder(jobTimeId jobTimeId: Int, jobTimeAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/jobTime/{jobTimeId}/audit/{jobTimeAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{jobTimeId}", withString: "\(jobTimeId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{jobTimeAudit}", withString: "\(jobTimeAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for a jobTime.
-     
-     - parameter jobTimeId: (path) Id of the jobTime to add a tag to 
-     - parameter jobTimeTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addJobTimeTag(jobTimeId jobTimeId: Int, jobTimeTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addJobTimeTagWithRequestBuilder(jobTimeId: jobTimeId, jobTimeTag: jobTimeTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for a jobTime.
-     
-     - PUT /beta/jobTime/{jobTimeId}/tag/{jobTimeTag}
-     - Adds a tag to an existing jobTime.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter jobTimeId: (path) Id of the jobTime to add a tag to 
-     - parameter jobTimeTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addJobTimeTagWithRequestBuilder(jobTimeId jobTimeId: Int, jobTimeTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/jobTime/{jobTimeId}/tag/{jobTimeTag}"
-        path = path.stringByReplacingOccurrencesOfString("{jobTimeId}", withString: "\(jobTimeId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{jobTimeTag}", withString: "\(jobTimeTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -169,7 +81,7 @@ public class JobTimeAPI: APIBase {
      
      Delete a jobTime
      
-     - DELETE /beta/jobTime/{jobTimeId}
+     - DELETE /v2.0/jobTime/{jobTimeId}
      - Deletes the jobTime identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -180,52 +92,8 @@ public class JobTimeAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteJobTimeWithRequestBuilder(jobTimeId jobTimeId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/jobTime/{jobTimeId}"
+        var path = "/v2.0/jobTime/{jobTimeId}"
         path = path.stringByReplacingOccurrencesOfString("{jobTimeId}", withString: "\(jobTimeId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for a jobTime.
-     
-     - parameter jobTimeId: (path) Id of the jobTime to remove tag from 
-     - parameter jobTimeTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteJobTimeTag(jobTimeId jobTimeId: Int, jobTimeTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteJobTimeTagWithRequestBuilder(jobTimeId: jobTimeId, jobTimeTag: jobTimeTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for a jobTime.
-     
-     - DELETE /beta/jobTime/{jobTimeId}/tag/{jobTimeTag}
-     - Deletes an existing jobTime tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter jobTimeId: (path) Id of the jobTime to remove tag from 
-     - parameter jobTimeTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteJobTimeTagWithRequestBuilder(jobTimeId jobTimeId: Int, jobTimeTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/jobTime/{jobTimeId}/tag/{jobTimeTag}"
-        path = path.stringByReplacingOccurrencesOfString("{jobTimeId}", withString: "\(jobTimeId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{jobTimeTag}", withString: "\(jobTimeTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
@@ -254,7 +122,7 @@ public class JobTimeAPI: APIBase {
      
      Get a duplicated a jobTime by id
      
-     - GET /beta/jobTime/duplicate/{jobTimeId}
+     - GET /v2.0/jobTime/duplicate/{jobTimeId}
      - Returns a duplicated jobTime identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -279,7 +147,7 @@ public class JobTimeAPI: APIBase {
      - returns: RequestBuilder<JobTime> 
      */
     public class func getDuplicateJobTimeByIdWithRequestBuilder(jobTimeId jobTimeId: Int) -> RequestBuilder<JobTime> {
-        var path = "/beta/jobTime/duplicate/{jobTimeId}"
+        var path = "/v2.0/jobTime/duplicate/{jobTimeId}"
         path = path.stringByReplacingOccurrencesOfString("{jobTimeId}", withString: "\(jobTimeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -312,7 +180,7 @@ public class JobTimeAPI: APIBase {
      
      Search jobTimes by filter
      
-     - GET /beta/jobTime/search
+     - GET /v2.0/jobTime/search
      - Returns the list of jobTimes that match the given filter.
      - API Key:
        - type: apiKey API-Key 
@@ -340,7 +208,7 @@ public class JobTimeAPI: APIBase {
      - returns: RequestBuilder<[JobTime]> 
      */
     public class func getJobTimeByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[JobTime]> {
-        let path = "/beta/jobTime/search"
+        let path = "/v2.0/jobTime/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -374,7 +242,7 @@ public class JobTimeAPI: APIBase {
      
      Get a jobTime by id
      
-     - GET /beta/jobTime/{jobTimeId}
+     - GET /v2.0/jobTime/{jobTimeId}
      - Returns the jobTime identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -399,7 +267,7 @@ public class JobTimeAPI: APIBase {
      - returns: RequestBuilder<JobTime> 
      */
     public class func getJobTimeByIdWithRequestBuilder(jobTimeId jobTimeId: Int) -> RequestBuilder<JobTime> {
-        var path = "/beta/jobTime/{jobTimeId}"
+        var path = "/v2.0/jobTime/{jobTimeId}"
         path = path.stringByReplacingOccurrencesOfString("{jobTimeId}", withString: "\(jobTimeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -407,47 +275,6 @@ public class JobTimeAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<JobTime>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for a jobTime.
-     
-     - parameter jobTimeId: (path) Id of the jobTime to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getJobTimeTags(jobTimeId jobTimeId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getJobTimeTagsWithRequestBuilder(jobTimeId: jobTimeId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for a jobTime.
-     
-     - GET /beta/jobTime/{jobTimeId}/tag
-     - Get all existing jobTime tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter jobTimeId: (path) Id of the jobTime to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getJobTimeTagsWithRequestBuilder(jobTimeId jobTimeId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/jobTime/{jobTimeId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{jobTimeId}", withString: "\(jobTimeId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -470,7 +297,7 @@ public class JobTimeAPI: APIBase {
      
      Update a jobTime
      
-     - PUT /beta/jobTime
+     - PUT /v2.0/jobTime
      - Updates an existing jobTime using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -481,7 +308,7 @@ public class JobTimeAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateJobTimeWithRequestBuilder(body body: JobTime) -> RequestBuilder<Void> {
-        let path = "/beta/jobTime"
+        let path = "/v2.0/jobTime"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -509,7 +336,7 @@ public class JobTimeAPI: APIBase {
      
      Update a jobTime custom fields
      
-     - PUT /beta/jobTime/customFields
+     - PUT /v2.0/jobTime/customFields
      - Updates an existing jobTime custom fields using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -520,7 +347,7 @@ public class JobTimeAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateJobTimeCustomFieldsWithRequestBuilder(body body: JobTime) -> RequestBuilder<Void> {
-        let path = "/beta/jobTime/customFields"
+        let path = "/v2.0/jobTime/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

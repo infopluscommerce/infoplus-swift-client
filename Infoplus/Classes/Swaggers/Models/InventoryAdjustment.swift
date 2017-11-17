@@ -11,7 +11,7 @@ import Foundation
 public class InventoryAdjustment: JSONEncodable {
 
     public var id: Int?
-    public var lobId: Int?
+    public var lob: Int?
     public var skuId: Int?
     public var poNoId: Int?
     public var adjustmentDate: NSDate?
@@ -32,7 +32,7 @@ public class InventoryAdjustment: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["id"] = self.id
-        nillableDictionary["lobId"] = self.lobId
+        nillableDictionary["lob"] = self.lob
         nillableDictionary["skuId"] = self.skuId
         nillableDictionary["poNoId"] = self.poNoId
         nillableDictionary["adjustmentDate"] = self.adjustmentDate?.encodeToJSON()

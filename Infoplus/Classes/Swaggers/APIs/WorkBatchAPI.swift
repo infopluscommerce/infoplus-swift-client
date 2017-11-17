@@ -12,138 +12,6 @@ import Alamofire
 public class WorkBatchAPI: APIBase {
     /**
      
-     Add new audit for a workBatch
-     
-     - parameter workBatchId: (path) Id of the workBatch to add an audit to 
-     - parameter workBatchAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addWorkBatchAudit(workBatchId workBatchId: Int, workBatchAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addWorkBatchAuditWithRequestBuilder(workBatchId: workBatchId, workBatchAudit: workBatchAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for a workBatch
-     
-     - PUT /beta/workBatch/{workBatchId}/audit/{workBatchAudit}
-     - Adds an audit to an existing workBatch.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter workBatchId: (path) Id of the workBatch to add an audit to 
-     - parameter workBatchAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addWorkBatchAuditWithRequestBuilder(workBatchId workBatchId: Int, workBatchAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/workBatch/{workBatchId}/audit/{workBatchAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{workBatchId}", withString: "\(workBatchId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{workBatchAudit}", withString: "\(workBatchAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for a workBatch.
-     
-     - parameter workBatchId: (path) Id of the workBatch to add a tag to 
-     - parameter workBatchTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addWorkBatchTag(workBatchId workBatchId: Int, workBatchTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addWorkBatchTagWithRequestBuilder(workBatchId: workBatchId, workBatchTag: workBatchTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for a workBatch.
-     
-     - PUT /beta/workBatch/{workBatchId}/tag/{workBatchTag}
-     - Adds a tag to an existing workBatch.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter workBatchId: (path) Id of the workBatch to add a tag to 
-     - parameter workBatchTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addWorkBatchTagWithRequestBuilder(workBatchId workBatchId: Int, workBatchTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/workBatch/{workBatchId}/tag/{workBatchTag}"
-        path = path.stringByReplacingOccurrencesOfString("{workBatchId}", withString: "\(workBatchId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{workBatchTag}", withString: "\(workBatchTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for a workBatch.
-     
-     - parameter workBatchId: (path) Id of the workBatch to remove tag from 
-     - parameter workBatchTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteWorkBatchTag(workBatchId workBatchId: Int, workBatchTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteWorkBatchTagWithRequestBuilder(workBatchId: workBatchId, workBatchTag: workBatchTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for a workBatch.
-     
-     - DELETE /beta/workBatch/{workBatchId}/tag/{workBatchTag}
-     - Deletes an existing workBatch tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter workBatchId: (path) Id of the workBatch to remove tag from 
-     - parameter workBatchTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteWorkBatchTagWithRequestBuilder(workBatchId workBatchId: Int, workBatchTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/workBatch/{workBatchId}/tag/{workBatchTag}"
-        path = path.stringByReplacingOccurrencesOfString("{workBatchId}", withString: "\(workBatchId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{workBatchTag}", withString: "\(workBatchTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
      Get a duplicated a workBatch by id
      
      - parameter workBatchId: (path) Id of the workBatch to be duplicated. 
@@ -160,7 +28,7 @@ public class WorkBatchAPI: APIBase {
      
      Get a duplicated a workBatch by id
      
-     - GET /beta/workBatch/duplicate/{workBatchId}
+     - GET /v2.0/workBatch/duplicate/{workBatchId}
      - Returns a duplicated workBatch identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -180,7 +48,7 @@ public class WorkBatchAPI: APIBase {
      - returns: RequestBuilder<WorkBatch> 
      */
     public class func getDuplicateWorkBatchByIdWithRequestBuilder(workBatchId workBatchId: Int) -> RequestBuilder<WorkBatch> {
-        var path = "/beta/workBatch/duplicate/{workBatchId}"
+        var path = "/v2.0/workBatch/duplicate/{workBatchId}"
         path = path.stringByReplacingOccurrencesOfString("{workBatchId}", withString: "\(workBatchId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -213,7 +81,7 @@ public class WorkBatchAPI: APIBase {
      
      Search workBatchs by filter
      
-     - GET /beta/workBatch/search
+     - GET /v2.0/workBatch/search
      - Returns the list of workBatchs that match the given filter.
      - API Key:
        - type: apiKey API-Key 
@@ -236,7 +104,7 @@ public class WorkBatchAPI: APIBase {
      - returns: RequestBuilder<[WorkBatch]> 
      */
     public class func getWorkBatchByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[WorkBatch]> {
-        let path = "/beta/workBatch/search"
+        let path = "/v2.0/workBatch/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -270,7 +138,7 @@ public class WorkBatchAPI: APIBase {
      
      Get a workBatch by id
      
-     - GET /beta/workBatch/{workBatchId}
+     - GET /v2.0/workBatch/{workBatchId}
      - Returns the workBatch identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -290,7 +158,7 @@ public class WorkBatchAPI: APIBase {
      - returns: RequestBuilder<WorkBatch> 
      */
     public class func getWorkBatchByIdWithRequestBuilder(workBatchId workBatchId: Int) -> RequestBuilder<WorkBatch> {
-        var path = "/beta/workBatch/{workBatchId}"
+        var path = "/v2.0/workBatch/{workBatchId}"
         path = path.stringByReplacingOccurrencesOfString("{workBatchId}", withString: "\(workBatchId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -298,47 +166,6 @@ public class WorkBatchAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<WorkBatch>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for a workBatch.
-     
-     - parameter workBatchId: (path) Id of the workBatch to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getWorkBatchTags(workBatchId workBatchId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getWorkBatchTagsWithRequestBuilder(workBatchId: workBatchId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for a workBatch.
-     
-     - GET /beta/workBatch/{workBatchId}/tag
-     - Get all existing workBatch tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter workBatchId: (path) Id of the workBatch to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getWorkBatchTagsWithRequestBuilder(workBatchId workBatchId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/workBatch/{workBatchId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{workBatchId}", withString: "\(workBatchId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -361,7 +188,7 @@ public class WorkBatchAPI: APIBase {
      
      Update a workBatch custom fields
      
-     - PUT /beta/workBatch/customFields
+     - PUT /v2.0/workBatch/customFields
      - Updates an existing workBatch custom fields using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -372,7 +199,7 @@ public class WorkBatchAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateWorkBatchCustomFieldsWithRequestBuilder(body body: WorkBatch) -> RequestBuilder<Void> {
-        let path = "/beta/workBatch/customFields"
+        let path = "/v2.0/workBatch/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

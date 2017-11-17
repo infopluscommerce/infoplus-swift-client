@@ -28,7 +28,7 @@ public class ItemActivityTypeAPI: APIBase {
      
      Get an itemActivityType by id
      
-     - GET /beta/itemActivityType/{itemActivityTypeId}
+     - GET /v2.0/itemActivityType/{itemActivityTypeId}
      - Returns the itemActivityType identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -43,7 +43,7 @@ public class ItemActivityTypeAPI: APIBase {
      - returns: RequestBuilder<ItemActivityType> 
      */
     public class func getItemActivityTypeByIdWithRequestBuilder(itemActivityTypeId itemActivityTypeId: String) -> RequestBuilder<ItemActivityType> {
-        var path = "/beta/itemActivityType/{itemActivityTypeId}"
+        var path = "/v2.0/itemActivityType/{itemActivityTypeId}"
         path = path.stringByReplacingOccurrencesOfString("{itemActivityTypeId}", withString: "\(itemActivityTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -75,7 +75,7 @@ public class ItemActivityTypeAPI: APIBase {
      
      Search itemActivityTypes
      
-     - GET /beta/itemActivityType/search
+     - GET /v2.0/itemActivityType/search
      - Returns the list of itemActivityTypes that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
@@ -92,7 +92,7 @@ public class ItemActivityTypeAPI: APIBase {
      - returns: RequestBuilder<[ItemActivityType]> 
      */
     public class func getItemActivityTypeBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[ItemActivityType]> {
-        let path = "/beta/itemActivityType/search"
+        let path = "/v2.0/itemActivityType/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [

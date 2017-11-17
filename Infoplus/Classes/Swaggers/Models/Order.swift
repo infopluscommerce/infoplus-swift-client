@@ -47,7 +47,6 @@ public class Order: JSONEncodable {
     public var numberOfPallets: Int?
     public var completionStatus: String?
     public var parcelAccountId: Int?
-    public var thirdPartyParcelAccountId: Int?
     public var costCenter: String?
     public var createDate: NSDate?
     public var customerPONo: String?
@@ -62,7 +61,6 @@ public class Order: JSONEncodable {
     public var holdCode: String?
     public var integrationPartnerId: Int?
     public var numberOfLineItems: Int?
-    public var estimatedNumberOfPicks: Int?
     public var modifyDate: NSDate?
     public var omsOrderNo: Int?
     public var omsCustomerId: Int?
@@ -71,11 +69,9 @@ public class Order: JSONEncodable {
     public var orderReason: Int?
     public var orderSourceId: Int?
     public var packingSlipTemplateId: Int?
-    public var orderInvoiceTemplateId: Int?
     public var orderConfirmationEmailTemplateId: Int?
     public var shipmentConfirmationEmailTemplateId: Int?
     public var priceLevel: String?
-    public var priceMode: String?
     public var priorityCode: Int?
     public var fulfillmentProcessId: Int?
     public var shipBy: NSDate?
@@ -150,7 +146,6 @@ public class Order: JSONEncodable {
         nillableDictionary["numberOfPallets"] = self.numberOfPallets
         nillableDictionary["completionStatus"] = self.completionStatus
         nillableDictionary["parcelAccountId"] = self.parcelAccountId
-        nillableDictionary["thirdPartyParcelAccountId"] = self.thirdPartyParcelAccountId
         nillableDictionary["costCenter"] = self.costCenter
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["customerPONo"] = self.customerPONo
@@ -165,7 +160,6 @@ public class Order: JSONEncodable {
         nillableDictionary["holdCode"] = self.holdCode
         nillableDictionary["integrationPartnerId"] = self.integrationPartnerId
         nillableDictionary["numberOfLineItems"] = self.numberOfLineItems
-        nillableDictionary["estimatedNumberOfPicks"] = self.estimatedNumberOfPicks
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["omsOrderNo"] = self.omsOrderNo
         nillableDictionary["omsCustomerId"] = self.omsCustomerId
@@ -174,11 +168,9 @@ public class Order: JSONEncodable {
         nillableDictionary["orderReason"] = self.orderReason
         nillableDictionary["orderSourceId"] = self.orderSourceId
         nillableDictionary["packingSlipTemplateId"] = self.packingSlipTemplateId
-        nillableDictionary["orderInvoiceTemplateId"] = self.orderInvoiceTemplateId
         nillableDictionary["orderConfirmationEmailTemplateId"] = self.orderConfirmationEmailTemplateId
         nillableDictionary["shipmentConfirmationEmailTemplateId"] = self.shipmentConfirmationEmailTemplateId
         nillableDictionary["priceLevel"] = self.priceLevel
-        nillableDictionary["priceMode"] = self.priceMode
         nillableDictionary["priorityCode"] = self.priorityCode
         nillableDictionary["fulfillmentProcessId"] = self.fulfillmentProcessId
         nillableDictionary["shipBy"] = self.shipBy?.encodeToJSON()

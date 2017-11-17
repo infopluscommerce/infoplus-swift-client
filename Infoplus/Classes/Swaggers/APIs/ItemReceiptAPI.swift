@@ -12,138 +12,6 @@ import Alamofire
 public class ItemReceiptAPI: APIBase {
     /**
      
-     Add new audit for an itemReceipt
-     
-     - parameter itemReceiptId: (path) Id of the itemReceipt to add an audit to 
-     - parameter itemReceiptAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addItemReceiptAudit(itemReceiptId itemReceiptId: Int, itemReceiptAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addItemReceiptAuditWithRequestBuilder(itemReceiptId: itemReceiptId, itemReceiptAudit: itemReceiptAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for an itemReceipt
-     
-     - PUT /beta/itemReceipt/{itemReceiptId}/audit/{itemReceiptAudit}
-     - Adds an audit to an existing itemReceipt.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter itemReceiptId: (path) Id of the itemReceipt to add an audit to 
-     - parameter itemReceiptAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addItemReceiptAuditWithRequestBuilder(itemReceiptId itemReceiptId: Int, itemReceiptAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/itemReceipt/{itemReceiptId}/audit/{itemReceiptAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{itemReceiptId}", withString: "\(itemReceiptId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{itemReceiptAudit}", withString: "\(itemReceiptAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for an itemReceipt.
-     
-     - parameter itemReceiptId: (path) Id of the itemReceipt to add a tag to 
-     - parameter itemReceiptTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addItemReceiptTag(itemReceiptId itemReceiptId: Int, itemReceiptTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addItemReceiptTagWithRequestBuilder(itemReceiptId: itemReceiptId, itemReceiptTag: itemReceiptTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for an itemReceipt.
-     
-     - PUT /beta/itemReceipt/{itemReceiptId}/tag/{itemReceiptTag}
-     - Adds a tag to an existing itemReceipt.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter itemReceiptId: (path) Id of the itemReceipt to add a tag to 
-     - parameter itemReceiptTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addItemReceiptTagWithRequestBuilder(itemReceiptId itemReceiptId: Int, itemReceiptTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/itemReceipt/{itemReceiptId}/tag/{itemReceiptTag}"
-        path = path.stringByReplacingOccurrencesOfString("{itemReceiptId}", withString: "\(itemReceiptId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{itemReceiptTag}", withString: "\(itemReceiptTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for an itemReceipt.
-     
-     - parameter itemReceiptId: (path) Id of the itemReceipt to remove tag from 
-     - parameter itemReceiptTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteItemReceiptTag(itemReceiptId itemReceiptId: Int, itemReceiptTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteItemReceiptTagWithRequestBuilder(itemReceiptId: itemReceiptId, itemReceiptTag: itemReceiptTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for an itemReceipt.
-     
-     - DELETE /beta/itemReceipt/{itemReceiptId}/tag/{itemReceiptTag}
-     - Deletes an existing itemReceipt tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter itemReceiptId: (path) Id of the itemReceipt to remove tag from 
-     - parameter itemReceiptTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteItemReceiptTagWithRequestBuilder(itemReceiptId itemReceiptId: Int, itemReceiptTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/itemReceipt/{itemReceiptId}/tag/{itemReceiptTag}"
-        path = path.stringByReplacingOccurrencesOfString("{itemReceiptId}", withString: "\(itemReceiptId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{itemReceiptTag}", withString: "\(itemReceiptTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
      Get a duplicated an itemReceipt by id
      
      - parameter itemReceiptId: (path) Id of the itemReceipt to be duplicated. 
@@ -160,7 +28,7 @@ public class ItemReceiptAPI: APIBase {
      
      Get a duplicated an itemReceipt by id
      
-     - GET /beta/itemReceipt/duplicate/{itemReceiptId}
+     - GET /v2.0/itemReceipt/duplicate/{itemReceiptId}
      - Returns a duplicated itemReceipt identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -200,7 +68,6 @@ public class ItemReceiptAPI: APIBase {
   "receiptNo" : 123,
   "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
   "poNoId" : 123,
-  "dockDate" : "2000-01-23T04:56:07.000+0000",
   "asnLine" : 123,
   "orderDate" : "2000-01-23T04:56:07.000+0000",
   "factCost" : 1.3579000000000001069366817318950779736042022705078125,
@@ -223,11 +90,11 @@ public class ItemReceiptAPI: APIBase {
   "receivedBy" : "aeiou",
   "unitsPerWrap" : 123,
   "cost" : 1.3579000000000001069366817318950779736042022705078125,
+  "dockTime" : "2000-01-23T04:56:07.000+0000",
   "interimVal" : 1.3579000000000001069366817318950779736042022705078125,
   "sell" : 1.3579000000000001069366817318950779736042022705078125,
   "length" : 1.3579000000000001069366817318950779736042022705078125,
   "maxOvers" : 123,
-  "productIdTag" : "aeiou",
   "impressions" : 123,
   "sample" : 123,
   "fromProd" : 123,
@@ -246,7 +113,7 @@ public class ItemReceiptAPI: APIBase {
      - returns: RequestBuilder<ItemReceipt> 
      */
     public class func getDuplicateItemReceiptByIdWithRequestBuilder(itemReceiptId itemReceiptId: Int) -> RequestBuilder<ItemReceipt> {
-        var path = "/beta/itemReceipt/duplicate/{itemReceiptId}"
+        var path = "/v2.0/itemReceipt/duplicate/{itemReceiptId}"
         path = path.stringByReplacingOccurrencesOfString("{itemReceiptId}", withString: "\(itemReceiptId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -279,7 +146,7 @@ public class ItemReceiptAPI: APIBase {
      
      Search itemReceipts by filter
      
-     - GET /beta/itemReceipt/search
+     - GET /v2.0/itemReceipt/search
      - Returns the list of itemReceipts that match the given filter.
      - API Key:
        - type: apiKey API-Key 
@@ -319,7 +186,6 @@ public class ItemReceiptAPI: APIBase {
   "receiptNo" : 123,
   "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
   "poNoId" : 123,
-  "dockDate" : "2000-01-23T04:56:07.000+0000",
   "asnLine" : 123,
   "orderDate" : "2000-01-23T04:56:07.000+0000",
   "factCost" : 1.3579000000000001069366817318950779736042022705078125,
@@ -342,11 +208,11 @@ public class ItemReceiptAPI: APIBase {
   "receivedBy" : "aeiou",
   "unitsPerWrap" : 123,
   "cost" : 1.3579000000000001069366817318950779736042022705078125,
+  "dockTime" : "2000-01-23T04:56:07.000+0000",
   "interimVal" : 1.3579000000000001069366817318950779736042022705078125,
   "sell" : 1.3579000000000001069366817318950779736042022705078125,
   "length" : 1.3579000000000001069366817318950779736042022705078125,
   "maxOvers" : 123,
-  "productIdTag" : "aeiou",
   "impressions" : 123,
   "sample" : 123,
   "fromProd" : 123,
@@ -368,7 +234,7 @@ public class ItemReceiptAPI: APIBase {
      - returns: RequestBuilder<[ItemReceipt]> 
      */
     public class func getItemReceiptByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ItemReceipt]> {
-        let path = "/beta/itemReceipt/search"
+        let path = "/v2.0/itemReceipt/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -402,7 +268,7 @@ public class ItemReceiptAPI: APIBase {
      
      Get an itemReceipt by id
      
-     - GET /beta/itemReceipt/{itemReceiptId}
+     - GET /v2.0/itemReceipt/{itemReceiptId}
      - Returns the itemReceipt identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -442,7 +308,6 @@ public class ItemReceiptAPI: APIBase {
   "receiptNo" : 123,
   "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
   "poNoId" : 123,
-  "dockDate" : "2000-01-23T04:56:07.000+0000",
   "asnLine" : 123,
   "orderDate" : "2000-01-23T04:56:07.000+0000",
   "factCost" : 1.3579000000000001069366817318950779736042022705078125,
@@ -465,11 +330,11 @@ public class ItemReceiptAPI: APIBase {
   "receivedBy" : "aeiou",
   "unitsPerWrap" : 123,
   "cost" : 1.3579000000000001069366817318950779736042022705078125,
+  "dockTime" : "2000-01-23T04:56:07.000+0000",
   "interimVal" : 1.3579000000000001069366817318950779736042022705078125,
   "sell" : 1.3579000000000001069366817318950779736042022705078125,
   "length" : 1.3579000000000001069366817318950779736042022705078125,
   "maxOvers" : 123,
-  "productIdTag" : "aeiou",
   "impressions" : 123,
   "sample" : 123,
   "fromProd" : 123,
@@ -488,7 +353,7 @@ public class ItemReceiptAPI: APIBase {
      - returns: RequestBuilder<ItemReceipt> 
      */
     public class func getItemReceiptByIdWithRequestBuilder(itemReceiptId itemReceiptId: Int) -> RequestBuilder<ItemReceipt> {
-        var path = "/beta/itemReceipt/{itemReceiptId}"
+        var path = "/v2.0/itemReceipt/{itemReceiptId}"
         path = path.stringByReplacingOccurrencesOfString("{itemReceiptId}", withString: "\(itemReceiptId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -496,47 +361,6 @@ public class ItemReceiptAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<ItemReceipt>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for an itemReceipt.
-     
-     - parameter itemReceiptId: (path) Id of the itemReceipt to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getItemReceiptTags(itemReceiptId itemReceiptId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getItemReceiptTagsWithRequestBuilder(itemReceiptId: itemReceiptId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for an itemReceipt.
-     
-     - GET /beta/itemReceipt/{itemReceiptId}/tag
-     - Get all existing itemReceipt tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter itemReceiptId: (path) Id of the itemReceipt to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getItemReceiptTagsWithRequestBuilder(itemReceiptId itemReceiptId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/itemReceipt/{itemReceiptId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{itemReceiptId}", withString: "\(itemReceiptId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -559,7 +383,7 @@ public class ItemReceiptAPI: APIBase {
      
      Update an itemReceipt custom fields
      
-     - PUT /beta/itemReceipt/customFields
+     - PUT /v2.0/itemReceipt/customFields
      - Updates an existing itemReceipt custom fields using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -570,7 +394,7 @@ public class ItemReceiptAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateItemReceiptCustomFieldsWithRequestBuilder(body body: ItemReceipt) -> RequestBuilder<Void> {
-        let path = "/beta/itemReceipt/customFields"
+        let path = "/v2.0/itemReceipt/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]

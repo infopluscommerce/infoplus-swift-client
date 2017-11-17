@@ -28,7 +28,7 @@ public class ProductTypeAPI: APIBase {
      
      Get a productType by id
      
-     - GET /beta/productType/{productTypeId}
+     - GET /v2.0/productType/{productTypeId}
      - Returns the productType identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -43,7 +43,7 @@ public class ProductTypeAPI: APIBase {
      - returns: RequestBuilder<ProductType> 
      */
     public class func getProductTypeByIdWithRequestBuilder(productTypeId productTypeId: String) -> RequestBuilder<ProductType> {
-        var path = "/beta/productType/{productTypeId}"
+        var path = "/v2.0/productType/{productTypeId}"
         path = path.stringByReplacingOccurrencesOfString("{productTypeId}", withString: "\(productTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -75,7 +75,7 @@ public class ProductTypeAPI: APIBase {
      
      Search productTypes
      
-     - GET /beta/productType/search
+     - GET /v2.0/productType/search
      - Returns the list of productTypes that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
@@ -92,7 +92,7 @@ public class ProductTypeAPI: APIBase {
      - returns: RequestBuilder<[ProductType]> 
      */
     public class func getProductTypeBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[ProductType]> {
-        let path = "/beta/productType/search"
+        let path = "/v2.0/productType/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [

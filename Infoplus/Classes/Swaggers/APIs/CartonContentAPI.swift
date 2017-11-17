@@ -28,7 +28,7 @@ public class CartonContentAPI: APIBase {
      
      Create a cartonContent
      
-     - POST /beta/cartonContent
+     - POST /v2.0/cartonContent
      - Inserts a new cartonContent using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -56,7 +56,7 @@ public class CartonContentAPI: APIBase {
      - returns: RequestBuilder<CartonContent> 
      */
     public class func addCartonContentWithRequestBuilder(body body: CartonContent) -> RequestBuilder<CartonContent> {
-        let path = "/beta/cartonContent"
+        let path = "/v2.0/cartonContent"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -64,94 +64,6 @@ public class CartonContentAPI: APIBase {
         let requestBuilder: RequestBuilder<CartonContent>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new audit for a cartonContent
-     
-     - parameter cartonContentId: (path) Id of the cartonContent to add an audit to 
-     - parameter cartonContentAudit: (path) The audit to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addCartonContentAudit(cartonContentId cartonContentId: Int, cartonContentAudit: String, completion: ((error: ErrorType?) -> Void)) {
-        addCartonContentAuditWithRequestBuilder(cartonContentId: cartonContentId, cartonContentAudit: cartonContentAudit).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new audit for a cartonContent
-     
-     - PUT /beta/cartonContent/{cartonContentId}/audit/{cartonContentAudit}
-     - Adds an audit to an existing cartonContent.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter cartonContentId: (path) Id of the cartonContent to add an audit to 
-     - parameter cartonContentAudit: (path) The audit to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addCartonContentAuditWithRequestBuilder(cartonContentId cartonContentId: Int, cartonContentAudit: String) -> RequestBuilder<Void> {
-        var path = "/beta/cartonContent/{cartonContentId}/audit/{cartonContentAudit}"
-        path = path.stringByReplacingOccurrencesOfString("{cartonContentId}", withString: "\(cartonContentId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{cartonContentAudit}", withString: "\(cartonContentAudit)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Add new tags for a cartonContent.
-     
-     - parameter cartonContentId: (path) Id of the cartonContent to add a tag to 
-     - parameter cartonContentTag: (path) The tag to add 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func addCartonContentTag(cartonContentId cartonContentId: Int, cartonContentTag: String, completion: ((error: ErrorType?) -> Void)) {
-        addCartonContentTagWithRequestBuilder(cartonContentId: cartonContentId, cartonContentTag: cartonContentTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Add new tags for a cartonContent.
-     
-     - PUT /beta/cartonContent/{cartonContentId}/tag/{cartonContentTag}
-     - Adds a tag to an existing cartonContent.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter cartonContentId: (path) Id of the cartonContent to add a tag to 
-     - parameter cartonContentTag: (path) The tag to add 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func addCartonContentTagWithRequestBuilder(cartonContentId cartonContentId: Int, cartonContentTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/cartonContent/{cartonContentId}/tag/{cartonContentTag}"
-        path = path.stringByReplacingOccurrencesOfString("{cartonContentId}", withString: "\(cartonContentId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{cartonContentTag}", withString: "\(cartonContentTag)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -172,7 +84,7 @@ public class CartonContentAPI: APIBase {
      
      Delete a cartonContent
      
-     - DELETE /beta/cartonContent/{cartonContentId}
+     - DELETE /v2.0/cartonContent/{cartonContentId}
      - Deletes the cartonContent identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -183,52 +95,8 @@ public class CartonContentAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func deleteCartonContentWithRequestBuilder(cartonContentId cartonContentId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/cartonContent/{cartonContentId}"
+        var path = "/v2.0/cartonContent/{cartonContentId}"
         path = path.stringByReplacingOccurrencesOfString("{cartonContentId}", withString: "\(cartonContentId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Delete a tag for a cartonContent.
-     
-     - parameter cartonContentId: (path) Id of the cartonContent to remove tag from 
-     - parameter cartonContentTag: (path) The tag to delete 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func deleteCartonContentTag(cartonContentId cartonContentId: Int, cartonContentTag: String, completion: ((error: ErrorType?) -> Void)) {
-        deleteCartonContentTagWithRequestBuilder(cartonContentId: cartonContentId, cartonContentTag: cartonContentTag).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Delete a tag for a cartonContent.
-     
-     - DELETE /beta/cartonContent/{cartonContentId}/tag/{cartonContentTag}
-     - Deletes an existing cartonContent tag using the specified data.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter cartonContentId: (path) Id of the cartonContent to remove tag from 
-     - parameter cartonContentTag: (path) The tag to delete 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func deleteCartonContentTagWithRequestBuilder(cartonContentId cartonContentId: Int, cartonContentTag: String) -> RequestBuilder<Void> {
-        var path = "/beta/cartonContent/{cartonContentId}/tag/{cartonContentTag}"
-        path = path.stringByReplacingOccurrencesOfString("{cartonContentId}", withString: "\(cartonContentId)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{cartonContentTag}", withString: "\(cartonContentTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
@@ -260,7 +128,7 @@ public class CartonContentAPI: APIBase {
      
      Search cartonContents by filter
      
-     - GET /beta/cartonContent/search
+     - GET /v2.0/cartonContent/search
      - Returns the list of cartonContents that match the given filter.
      - API Key:
        - type: apiKey API-Key 
@@ -291,7 +159,7 @@ public class CartonContentAPI: APIBase {
      - returns: RequestBuilder<[CartonContent]> 
      */
     public class func getCartonContentByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[CartonContent]> {
-        let path = "/beta/cartonContent/search"
+        let path = "/v2.0/cartonContent/search"
         let URLString = InfoplusAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -325,7 +193,7 @@ public class CartonContentAPI: APIBase {
      
      Get a cartonContent by id
      
-     - GET /beta/cartonContent/{cartonContentId}
+     - GET /v2.0/cartonContent/{cartonContentId}
      - Returns the cartonContent identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -353,7 +221,7 @@ public class CartonContentAPI: APIBase {
      - returns: RequestBuilder<CartonContent> 
      */
     public class func getCartonContentByIdWithRequestBuilder(cartonContentId cartonContentId: Int) -> RequestBuilder<CartonContent> {
-        var path = "/beta/cartonContent/{cartonContentId}"
+        var path = "/v2.0/cartonContent/{cartonContentId}"
         path = path.stringByReplacingOccurrencesOfString("{cartonContentId}", withString: "\(cartonContentId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -361,47 +229,6 @@ public class CartonContentAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<CartonContent>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Get the tags for a cartonContent.
-     
-     - parameter cartonContentId: (path) Id of the cartonContent to get tags for 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func getCartonContentTags(cartonContentId cartonContentId: Int, completion: ((error: ErrorType?) -> Void)) {
-        getCartonContentTagsWithRequestBuilder(cartonContentId: cartonContentId).execute { (response, error) -> Void in
-            completion(error: error);
-        }
-    }
-
-
-    /**
-     
-     Get the tags for a cartonContent.
-     
-     - GET /beta/cartonContent/{cartonContentId}/tag
-     - Get all existing cartonContent tags.
-     - API Key:
-       - type: apiKey API-Key 
-       - name: api_key
-     
-     - parameter cartonContentId: (path) Id of the cartonContent to get tags for 
-
-     - returns: RequestBuilder<Void> 
-     */
-    public class func getCartonContentTagsWithRequestBuilder(cartonContentId cartonContentId: Int) -> RequestBuilder<Void> {
-        var path = "/beta/cartonContent/{cartonContentId}/tag"
-        path = path.stringByReplacingOccurrencesOfString("{cartonContentId}", withString: "\(cartonContentId)", options: .LiteralSearch, range: nil)
-        let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -424,7 +251,7 @@ public class CartonContentAPI: APIBase {
      
      Get a duplicated a cartonContent by id
      
-     - GET /beta/cartonContent/duplicate/{cartonContentId}
+     - GET /v2.0/cartonContent/duplicate/{cartonContentId}
      - Returns a duplicated cartonContent identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
@@ -452,7 +279,7 @@ public class CartonContentAPI: APIBase {
      - returns: RequestBuilder<CartonContent> 
      */
     public class func getDuplicateCartonContentByIdWithRequestBuilder(cartonContentId cartonContentId: Int) -> RequestBuilder<CartonContent> {
-        var path = "/beta/cartonContent/duplicate/{cartonContentId}"
+        var path = "/v2.0/cartonContent/duplicate/{cartonContentId}"
         path = path.stringByReplacingOccurrencesOfString("{cartonContentId}", withString: "\(cartonContentId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
         
@@ -482,7 +309,7 @@ public class CartonContentAPI: APIBase {
      
      Update a cartonContent
      
-     - PUT /beta/cartonContent
+     - PUT /v2.0/cartonContent
      - Updates an existing cartonContent using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -493,7 +320,7 @@ public class CartonContentAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateCartonContentWithRequestBuilder(body body: CartonContent) -> RequestBuilder<Void> {
-        let path = "/beta/cartonContent"
+        let path = "/v2.0/cartonContent"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
@@ -521,7 +348,7 @@ public class CartonContentAPI: APIBase {
      
      Update a cartonContent custom fields
      
-     - PUT /beta/cartonContent/customFields
+     - PUT /v2.0/cartonContent/customFields
      - Updates an existing cartonContent custom fields using the specified data.
      - API Key:
        - type: apiKey API-Key 
@@ -532,7 +359,7 @@ public class CartonContentAPI: APIBase {
      - returns: RequestBuilder<Void> 
      */
     public class func updateCartonContentCustomFieldsWithRequestBuilder(body body: CartonContent) -> RequestBuilder<Void> {
-        let path = "/beta/cartonContent/customFields"
+        let path = "/v2.0/cartonContent/customFields"
         let URLString = InfoplusAPI.basePath + path
         
         let parameters = body.encodeToJSON() as? [String:AnyObject]
