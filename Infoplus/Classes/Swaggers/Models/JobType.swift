@@ -9,9 +9,8 @@ import Foundation
 
 
 public class JobType: JSONEncodable {
-
-    public var id: Int?
-    public var clientId: Int?
+    public var id: Int32?
+    public var clientId: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var name: String?
@@ -19,15 +18,14 @@ public class JobType: JSONEncodable {
     public var jobCode: String?
     public var isActive: Bool?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
-        nillableDictionary["clientId"] = self.clientId
+        nillableDictionary["id"] = self.id?.encodeToJSON()
+        nillableDictionary["clientId"] = self.clientId?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["name"] = self.name

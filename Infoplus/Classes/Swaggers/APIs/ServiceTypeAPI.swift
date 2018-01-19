@@ -11,7 +11,6 @@ import Alamofire
 
 public class ServiceTypeAPI: APIBase {
     /**
-     
      Get a serviceType by id
      
      - parameter serviceTypeId: (path) Id of serviceType to be returned. 
@@ -25,18 +24,16 @@ public class ServiceTypeAPI: APIBase {
 
 
     /**
-     
      Get a serviceType by id
-     
      - GET /beta/serviceType/{serviceTypeId}
      - Returns the serviceType identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "serviceType" : "aeiou",
-  "fullEntityClassName" : "aeiou",
-  "label" : "aeiou"
+  "serviceType" : "serviceType",
+  "fullEntityClassName" : "fullEntityClassName",
+  "label" : "label"
 }}]
      
      - parameter serviceTypeId: (path) Id of serviceType to be returned. 
@@ -47,17 +44,19 @@ public class ServiceTypeAPI: APIBase {
         var path = "/beta/serviceType/{serviceTypeId}"
         path = path.stringByReplacingOccurrencesOfString("{serviceTypeId}", withString: "\(serviceTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<ServiceType>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search serviceTypes
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
@@ -65,7 +64,7 @@ public class ServiceTypeAPI: APIBase {
      - parameter limit: (query) Maximum results per page.  Defaults to 20.  Max allowed value is 250. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getServiceTypeBySearchText(searchText searchText: String?, page: Int?, limit: Int?, completion: ((data: [ServiceType]?, error: ErrorType?) -> Void)) {
+    public class func getServiceTypeBySearchText(searchText searchText: String? = nil, page: Int32? = nil, limit: Int32? = nil, completion: ((data: [ServiceType]?, error: ErrorType?) -> Void)) {
         getServiceTypeBySearchTextWithRequestBuilder(searchText: searchText, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -73,18 +72,20 @@ public class ServiceTypeAPI: APIBase {
 
 
     /**
-     
      Search serviceTypes
-     
      - GET /beta/serviceType/search
      - Returns the list of serviceTypes that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "serviceType" : "aeiou",
-  "fullEntityClassName" : "aeiou",
-  "label" : "aeiou"
+  "serviceType" : "serviceType",
+  "fullEntityClassName" : "fullEntityClassName",
+  "label" : "label"
+}, {
+  "serviceType" : "serviceType",
+  "fullEntityClassName" : "fullEntityClassName",
+  "label" : "label"
 } ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
@@ -93,20 +94,23 @@ public class ServiceTypeAPI: APIBase {
 
      - returns: RequestBuilder<[ServiceType]> 
      */
-    public class func getServiceTypeBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[ServiceType]> {
+    public class func getServiceTypeBySearchTextWithRequestBuilder(searchText searchText: String? = nil, page: Int32? = nil, limit: Int32? = nil) -> RequestBuilder<[ServiceType]> {
         let path = "/beta/serviceType/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "searchText": searchText,
-            "page": page,
-            "limit": limit
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON()
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[ServiceType]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
 }

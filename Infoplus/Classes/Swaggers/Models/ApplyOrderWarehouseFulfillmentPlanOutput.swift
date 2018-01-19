@@ -9,9 +9,7 @@ import Foundation
 
 
 public class ApplyOrderWarehouseFulfillmentPlanOutput: JSONEncodable {
-
     public var orderList: [Order]?
-    
 
     public init() {}
 

@@ -11,7 +11,6 @@ import Alamofire
 
 public class ItemReceiptActivityAPI: APIBase {
     /**
-     
      Create an itemReceiptActivity
      
      - parameter body: (body) ItemReceiptActivity to be inserted. 
@@ -25,99 +24,97 @@ public class ItemReceiptActivityAPI: APIBase {
 
 
     /**
-     
      Create an itemReceiptActivity
-     
      - POST /beta/itemReceiptActivity
      - Inserts a new itemReceiptActivity using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "itemSector" : "aeiou",
-  "alcoholTypeId" : 123,
-  "vendorComplianceSurveyAnswer15" : "aeiou",
-  "vendorComplianceSurveyAnswer14" : "aeiou",
-  "vendorComplianceSurveyAnswer13" : "aeiou",
-  "receiptDistributionDate" : "2000-01-23T04:56:07.000+0000",
-  "vendorComplianceSurveyAnswer12" : "aeiou",
-  "vendorComplianceSurveyAnswer11" : "aeiou",
-  "vendorComplianceSurveyAnswer10" : "aeiou",
-  "vendorComplianceSurveyAnswer6" : "aeiou",
-  "itemVendorSku" : "aeiou",
-  "itemSummaryCodeName" : "aeiou",
-  "vendorComplianceSurveyAnswer5" : "aeiou",
-  "alcoholContainerVolume" : 123,
-  "vendorComplianceSurveyAnswer4" : "aeiou",
-  "vendorComplianceSurveyAnswer3" : "aeiou",
-  "poNo" : "aeiou",
-  "vendorComplianceSurveyAnswer9" : "aeiou",
-  "vendorComplianceSurveyAnswer8" : "aeiou",
-  "alcoholContent" : 1.3579000000000001069366817318950779736042022705078125,
-  "vendorComplianceSurveyAnswer7" : "aeiou",
-  "receiptReceiveDate" : "2000-01-23T04:56:07.000+0000",
-  "receiptUnitsPerCase" : 123,
-  "id" : 123,
-  "receiptProductionLot" : "aeiou",
-  "sku" : "aeiou",
-  "vendorComplianceSurveyAnswer2" : "aeiou",
-  "alcoholState" : "aeiou",
-  "receiptReceivedBy" : "aeiou",
-  "vendorComplianceSurveyAnswer1" : "aeiou",
-  "alcoholTypeName" : "aeiou",
-  "lobId" : 123,
-  "receiptUnitCode" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "receiptType" : "aeiou",
-  "itemProductCodeName" : "aeiou",
-  "itemProductCode" : 123,
-  "receiptUnitsPerWrap" : 123,
-  "receiptUnitCodeText" : "aeiou",
-  "receiptNumberOfCases" : 123,
-  "itemAccountCodeName" : "aeiou",
-  "alcoholContainerName" : "aeiou",
-  "itemSubGroupName" : "aeiou",
-  "alcoholCountryId" : 123,
-  "alcoholContainerId" : 123,
-  "itemId" : 123,
-  "itemMajorGroup" : 123,
-  "alcoholUPCCode" : "aeiou",
-  "warehouseId" : 123,
-  "itemUPC" : "aeiou",
-  "itemSummaryCode" : 123,
-  "alcoholRegion" : "aeiou",
-  "receiptStatus" : "aeiou",
-  "receiptProductIdTag" : "aeiou",
-  "receiptModifyDate" : "2000-01-23T04:56:07.000+0000",
-  "alcoholSCCCode" : "aeiou",
+  "itemSector" : "itemSector",
+  "alcoholTypeId" : 1,
+  "vendorComplianceSurveyAnswer15" : "vendorComplianceSurveyAnswer15",
+  "vendorComplianceSurveyAnswer14" : "vendorComplianceSurveyAnswer14",
+  "vendorComplianceSurveyAnswer13" : "vendorComplianceSurveyAnswer13",
+  "receiptDistributionDate" : "2000-01-23T04:56:07.000+00:00",
+  "vendorComplianceSurveyAnswer12" : "vendorComplianceSurveyAnswer12",
+  "vendorComplianceSurveyAnswer11" : "vendorComplianceSurveyAnswer11",
+  "vendorComplianceSurveyAnswer10" : "vendorComplianceSurveyAnswer10",
+  "vendorComplianceSurveyAnswer6" : "vendorComplianceSurveyAnswer6",
+  "itemVendorSku" : "itemVendorSku",
+  "itemSummaryCodeName" : "itemSummaryCodeName",
+  "vendorComplianceSurveyAnswer5" : "vendorComplianceSurveyAnswer5",
+  "alcoholContainerVolume" : 9,
+  "vendorComplianceSurveyAnswer4" : "vendorComplianceSurveyAnswer4",
+  "vendorComplianceSurveyAnswer3" : "vendorComplianceSurveyAnswer3",
+  "poNo" : "poNo",
+  "vendorComplianceSurveyAnswer9" : "vendorComplianceSurveyAnswer9",
+  "vendorComplianceSurveyAnswer8" : "vendorComplianceSurveyAnswer8",
+  "alcoholContent" : 4.9652184929849543237878606305457651615142822265625,
+  "vendorComplianceSurveyAnswer7" : "vendorComplianceSurveyAnswer7",
+  "receiptReceiveDate" : "2000-01-23T04:56:07.000+00:00",
+  "receiptUnitsPerCase" : 5,
+  "id" : 0,
+  "receiptProductionLot" : "receiptProductionLot",
+  "sku" : "sku",
+  "vendorComplianceSurveyAnswer2" : "vendorComplianceSurveyAnswer2",
+  "alcoholState" : "alcoholState",
+  "receiptReceivedBy" : "receiptReceivedBy",
+  "vendorComplianceSurveyAnswer1" : "vendorComplianceSurveyAnswer1",
+  "alcoholTypeName" : "alcoholTypeName",
+  "lobId" : 1,
+  "receiptUnitCode" : 9,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "receiptType" : "receiptType",
+  "itemProductCodeName" : "itemProductCodeName",
+  "itemProductCode" : 6,
+  "receiptUnitsPerWrap" : 5,
+  "receiptUnitCodeText" : "receiptUnitCodeText",
+  "receiptNumberOfCases" : 7,
+  "itemAccountCodeName" : "itemAccountCodeName",
+  "alcoholContainerName" : "alcoholContainerName",
+  "itemSubGroupName" : "itemSubGroupName",
+  "alcoholCountryId" : 9,
+  "alcoholContainerId" : 5,
+  "itemId" : 1,
+  "itemMajorGroup" : 1,
+  "alcoholUPCCode" : "alcoholUPCCode",
+  "warehouseId" : 7,
+  "itemUPC" : "itemUPC",
+  "itemSummaryCode" : 7,
+  "alcoholRegion" : "alcoholRegion",
+  "receiptStatus" : "receiptStatus",
+  "receiptProductIdTag" : "receiptProductIdTag",
+  "receiptModifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "alcoholSCCCode" : "alcoholSCCCode",
   "customFields" : {
     "key" : "{}"
   },
-  "receiptWrapUnitWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "receiptRevisionDate" : "aeiou",
-  "warehouseName" : "aeiou",
-  "receiptStatusName" : "aeiou",
-  "receiptEnteredBy" : "aeiou",
-  "receiptWrapCodeText" : "aeiou",
-  "alcoholBrand" : "aeiou",
-  "receiptCaseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "receiptReceiveQuantity" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "alcoholVintageYear" : "aeiou",
-  "alcoholCountryName" : "aeiou",
-  "alcoholNABCACode" : "aeiou",
-  "alcoholUNIMERCCode" : "aeiou",
-  "receiptWrapCode" : 123,
-  "vendorComplianceSurveyAnswer20" : "aeiou",
-  "itemAccountCode" : "aeiou",
-  "receiptASNCreateDate" : "2000-01-23T04:56:07.000+0000",
-  "vendorComplianceSurveyAnswer19" : "aeiou",
-  "vendorComplianceSurveyAnswer18" : "aeiou",
-  "vendorComplianceSurveyAnswer17" : "aeiou",
-  "vendorComplianceSurveyAnswer16" : "aeiou",
-  "itemSubGroup" : 123,
-  "itemReceiptId" : 123,
-  "itemMajorGroupName" : "aeiou"
+  "receiptWrapUnitWeight" : 2.027123023002321833274663731572218239307403564453125,
+  "receiptRevisionDate" : "receiptRevisionDate",
+  "warehouseName" : "warehouseName",
+  "receiptStatusName" : "receiptStatusName",
+  "receiptEnteredBy" : "receiptEnteredBy",
+  "receiptWrapCodeText" : "receiptWrapCodeText",
+  "alcoholBrand" : "alcoholBrand",
+  "receiptCaseWeight" : 4.1456080298839363962315474054776132106781005859375,
+  "receiptReceiveQuantity" : 2,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "alcoholVintageYear" : "alcoholVintageYear",
+  "alcoholCountryName" : "alcoholCountryName",
+  "alcoholNABCACode" : "alcoholNABCACode",
+  "alcoholUNIMERCCode" : "alcoholUNIMERCCode",
+  "receiptWrapCode" : 3,
+  "vendorComplianceSurveyAnswer20" : "vendorComplianceSurveyAnswer20",
+  "itemAccountCode" : "itemAccountCode",
+  "receiptASNCreateDate" : "2000-01-23T04:56:07.000+00:00",
+  "vendorComplianceSurveyAnswer19" : "vendorComplianceSurveyAnswer19",
+  "vendorComplianceSurveyAnswer18" : "vendorComplianceSurveyAnswer18",
+  "vendorComplianceSurveyAnswer17" : "vendorComplianceSurveyAnswer17",
+  "vendorComplianceSurveyAnswer16" : "vendorComplianceSurveyAnswer16",
+  "itemSubGroup" : 1,
+  "itemReceiptId" : 6,
+  "itemMajorGroupName" : "itemMajorGroupName"
 }}]
      
      - parameter body: (body) ItemReceiptActivity to be inserted. 
@@ -127,23 +124,23 @@ public class ItemReceiptActivityAPI: APIBase {
     public class func addItemReceiptActivityWithRequestBuilder(body body: ItemReceiptActivity) -> RequestBuilder<ItemReceiptActivity> {
         let path = "/beta/itemReceiptActivity"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<ItemReceiptActivity>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new audit for an itemReceiptActivity
      
      - parameter itemReceiptActivityId: (path) Id of the itemReceiptActivity to add an audit to 
      - parameter itemReceiptActivityAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addItemReceiptActivityAudit(itemReceiptActivityId itemReceiptActivityId: Int, itemReceiptActivityAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addItemReceiptActivityAudit(itemReceiptActivityId itemReceiptActivityId: Int32, itemReceiptActivityAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addItemReceiptActivityAuditWithRequestBuilder(itemReceiptActivityId: itemReceiptActivityId, itemReceiptActivityAudit: itemReceiptActivityAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -151,9 +148,7 @@ public class ItemReceiptActivityAPI: APIBase {
 
 
     /**
-     
      Add new audit for an itemReceiptActivity
-     
      - PUT /beta/itemReceiptActivity/{itemReceiptActivityId}/audit/{itemReceiptActivityAudit}
      - Adds an audit to an existing itemReceiptActivity.
      - API Key:
@@ -165,29 +160,31 @@ public class ItemReceiptActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addItemReceiptActivityAuditWithRequestBuilder(itemReceiptActivityId itemReceiptActivityId: Int, itemReceiptActivityAudit: String) -> RequestBuilder<Void> {
+    public class func addItemReceiptActivityAuditWithRequestBuilder(itemReceiptActivityId itemReceiptActivityId: Int32, itemReceiptActivityAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/itemReceiptActivity/{itemReceiptActivityId}/audit/{itemReceiptActivityAudit}"
         path = path.stringByReplacingOccurrencesOfString("{itemReceiptActivityId}", withString: "\(itemReceiptActivityId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{itemReceiptActivityAudit}", withString: "\(itemReceiptActivityAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for an itemReceiptActivity.
      
      - parameter itemReceiptActivityId: (path) Id of the itemReceiptActivity to add a tag to 
      - parameter itemReceiptActivityTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addItemReceiptActivityTag(itemReceiptActivityId itemReceiptActivityId: Int, itemReceiptActivityTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addItemReceiptActivityTag(itemReceiptActivityId itemReceiptActivityId: Int32, itemReceiptActivityTag: String, completion: ((error: ErrorType?) -> Void)) {
         addItemReceiptActivityTagWithRequestBuilder(itemReceiptActivityId: itemReceiptActivityId, itemReceiptActivityTag: itemReceiptActivityTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -195,9 +192,7 @@ public class ItemReceiptActivityAPI: APIBase {
 
 
     /**
-     
      Add new tags for an itemReceiptActivity.
-     
      - PUT /beta/itemReceiptActivity/{itemReceiptActivityId}/tag/{itemReceiptActivityTag}
      - Adds a tag to an existing itemReceiptActivity.
      - API Key:
@@ -209,28 +204,30 @@ public class ItemReceiptActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addItemReceiptActivityTagWithRequestBuilder(itemReceiptActivityId itemReceiptActivityId: Int, itemReceiptActivityTag: String) -> RequestBuilder<Void> {
+    public class func addItemReceiptActivityTagWithRequestBuilder(itemReceiptActivityId itemReceiptActivityId: Int32, itemReceiptActivityTag: String) -> RequestBuilder<Void> {
         var path = "/beta/itemReceiptActivity/{itemReceiptActivityId}/tag/{itemReceiptActivityTag}"
         path = path.stringByReplacingOccurrencesOfString("{itemReceiptActivityId}", withString: "\(itemReceiptActivityId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{itemReceiptActivityTag}", withString: "\(itemReceiptActivityTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete an itemReceiptActivity
      
      - parameter itemReceiptActivityId: (path) Id of the itemReceiptActivity to be deleted. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteItemReceiptActivity(itemReceiptActivityId itemReceiptActivityId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteItemReceiptActivity(itemReceiptActivityId itemReceiptActivityId: Int32, completion: ((error: ErrorType?) -> Void)) {
         deleteItemReceiptActivityWithRequestBuilder(itemReceiptActivityId: itemReceiptActivityId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -238,9 +235,7 @@ public class ItemReceiptActivityAPI: APIBase {
 
 
     /**
-     
      Delete an itemReceiptActivity
-     
      - DELETE /beta/itemReceiptActivity/{itemReceiptActivityId}
      - Deletes the itemReceiptActivity identified by the specified id.
      - API Key:
@@ -251,28 +246,30 @@ public class ItemReceiptActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteItemReceiptActivityWithRequestBuilder(itemReceiptActivityId itemReceiptActivityId: Int) -> RequestBuilder<Void> {
+    public class func deleteItemReceiptActivityWithRequestBuilder(itemReceiptActivityId itemReceiptActivityId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/itemReceiptActivity/{itemReceiptActivityId}"
         path = path.stringByReplacingOccurrencesOfString("{itemReceiptActivityId}", withString: "\(itemReceiptActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for an itemReceiptActivity.
      
      - parameter itemReceiptActivityId: (path) Id of the itemReceiptActivity to remove tag from 
      - parameter itemReceiptActivityTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteItemReceiptActivityTag(itemReceiptActivityId itemReceiptActivityId: Int, itemReceiptActivityTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteItemReceiptActivityTag(itemReceiptActivityId itemReceiptActivityId: Int32, itemReceiptActivityTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteItemReceiptActivityTagWithRequestBuilder(itemReceiptActivityId: itemReceiptActivityId, itemReceiptActivityTag: itemReceiptActivityTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -280,9 +277,7 @@ public class ItemReceiptActivityAPI: APIBase {
 
 
     /**
-     
      Delete a tag for an itemReceiptActivity.
-     
      - DELETE /beta/itemReceiptActivity/{itemReceiptActivityId}/tag/{itemReceiptActivityTag}
      - Deletes an existing itemReceiptActivity tag using the specified data.
      - API Key:
@@ -294,28 +289,30 @@ public class ItemReceiptActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteItemReceiptActivityTagWithRequestBuilder(itemReceiptActivityId itemReceiptActivityId: Int, itemReceiptActivityTag: String) -> RequestBuilder<Void> {
+    public class func deleteItemReceiptActivityTagWithRequestBuilder(itemReceiptActivityId itemReceiptActivityId: Int32, itemReceiptActivityTag: String) -> RequestBuilder<Void> {
         var path = "/beta/itemReceiptActivity/{itemReceiptActivityId}/tag/{itemReceiptActivityTag}"
         path = path.stringByReplacingOccurrencesOfString("{itemReceiptActivityId}", withString: "\(itemReceiptActivityId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{itemReceiptActivityTag}", withString: "\(itemReceiptActivityTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated an itemReceiptActivity by id
      
      - parameter itemReceiptActivityId: (path) Id of the itemReceiptActivity to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateItemReceiptActivityById(itemReceiptActivityId itemReceiptActivityId: Int, completion: ((data: ItemReceiptActivity?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateItemReceiptActivityById(itemReceiptActivityId itemReceiptActivityId: Int32, completion: ((data: ItemReceiptActivity?, error: ErrorType?) -> Void)) {
         getDuplicateItemReceiptActivityByIdWithRequestBuilder(itemReceiptActivityId: itemReceiptActivityId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -323,120 +320,120 @@ public class ItemReceiptActivityAPI: APIBase {
 
 
     /**
-     
      Get a duplicated an itemReceiptActivity by id
-     
      - GET /beta/itemReceiptActivity/duplicate/{itemReceiptActivityId}
      - Returns a duplicated itemReceiptActivity identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "itemSector" : "aeiou",
-  "alcoholTypeId" : 123,
-  "vendorComplianceSurveyAnswer15" : "aeiou",
-  "vendorComplianceSurveyAnswer14" : "aeiou",
-  "vendorComplianceSurveyAnswer13" : "aeiou",
-  "receiptDistributionDate" : "2000-01-23T04:56:07.000+0000",
-  "vendorComplianceSurveyAnswer12" : "aeiou",
-  "vendorComplianceSurveyAnswer11" : "aeiou",
-  "vendorComplianceSurveyAnswer10" : "aeiou",
-  "vendorComplianceSurveyAnswer6" : "aeiou",
-  "itemVendorSku" : "aeiou",
-  "itemSummaryCodeName" : "aeiou",
-  "vendorComplianceSurveyAnswer5" : "aeiou",
-  "alcoholContainerVolume" : 123,
-  "vendorComplianceSurveyAnswer4" : "aeiou",
-  "vendorComplianceSurveyAnswer3" : "aeiou",
-  "poNo" : "aeiou",
-  "vendorComplianceSurveyAnswer9" : "aeiou",
-  "vendorComplianceSurveyAnswer8" : "aeiou",
-  "alcoholContent" : 1.3579000000000001069366817318950779736042022705078125,
-  "vendorComplianceSurveyAnswer7" : "aeiou",
-  "receiptReceiveDate" : "2000-01-23T04:56:07.000+0000",
-  "receiptUnitsPerCase" : 123,
-  "id" : 123,
-  "receiptProductionLot" : "aeiou",
-  "sku" : "aeiou",
-  "vendorComplianceSurveyAnswer2" : "aeiou",
-  "alcoholState" : "aeiou",
-  "receiptReceivedBy" : "aeiou",
-  "vendorComplianceSurveyAnswer1" : "aeiou",
-  "alcoholTypeName" : "aeiou",
-  "lobId" : 123,
-  "receiptUnitCode" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "receiptType" : "aeiou",
-  "itemProductCodeName" : "aeiou",
-  "itemProductCode" : 123,
-  "receiptUnitsPerWrap" : 123,
-  "receiptUnitCodeText" : "aeiou",
-  "receiptNumberOfCases" : 123,
-  "itemAccountCodeName" : "aeiou",
-  "alcoholContainerName" : "aeiou",
-  "itemSubGroupName" : "aeiou",
-  "alcoholCountryId" : 123,
-  "alcoholContainerId" : 123,
-  "itemId" : 123,
-  "itemMajorGroup" : 123,
-  "alcoholUPCCode" : "aeiou",
-  "warehouseId" : 123,
-  "itemUPC" : "aeiou",
-  "itemSummaryCode" : 123,
-  "alcoholRegion" : "aeiou",
-  "receiptStatus" : "aeiou",
-  "receiptProductIdTag" : "aeiou",
-  "receiptModifyDate" : "2000-01-23T04:56:07.000+0000",
-  "alcoholSCCCode" : "aeiou",
+  "itemSector" : "itemSector",
+  "alcoholTypeId" : 1,
+  "vendorComplianceSurveyAnswer15" : "vendorComplianceSurveyAnswer15",
+  "vendorComplianceSurveyAnswer14" : "vendorComplianceSurveyAnswer14",
+  "vendorComplianceSurveyAnswer13" : "vendorComplianceSurveyAnswer13",
+  "receiptDistributionDate" : "2000-01-23T04:56:07.000+00:00",
+  "vendorComplianceSurveyAnswer12" : "vendorComplianceSurveyAnswer12",
+  "vendorComplianceSurveyAnswer11" : "vendorComplianceSurveyAnswer11",
+  "vendorComplianceSurveyAnswer10" : "vendorComplianceSurveyAnswer10",
+  "vendorComplianceSurveyAnswer6" : "vendorComplianceSurveyAnswer6",
+  "itemVendorSku" : "itemVendorSku",
+  "itemSummaryCodeName" : "itemSummaryCodeName",
+  "vendorComplianceSurveyAnswer5" : "vendorComplianceSurveyAnswer5",
+  "alcoholContainerVolume" : 9,
+  "vendorComplianceSurveyAnswer4" : "vendorComplianceSurveyAnswer4",
+  "vendorComplianceSurveyAnswer3" : "vendorComplianceSurveyAnswer3",
+  "poNo" : "poNo",
+  "vendorComplianceSurveyAnswer9" : "vendorComplianceSurveyAnswer9",
+  "vendorComplianceSurveyAnswer8" : "vendorComplianceSurveyAnswer8",
+  "alcoholContent" : 4.9652184929849543237878606305457651615142822265625,
+  "vendorComplianceSurveyAnswer7" : "vendorComplianceSurveyAnswer7",
+  "receiptReceiveDate" : "2000-01-23T04:56:07.000+00:00",
+  "receiptUnitsPerCase" : 5,
+  "id" : 0,
+  "receiptProductionLot" : "receiptProductionLot",
+  "sku" : "sku",
+  "vendorComplianceSurveyAnswer2" : "vendorComplianceSurveyAnswer2",
+  "alcoholState" : "alcoholState",
+  "receiptReceivedBy" : "receiptReceivedBy",
+  "vendorComplianceSurveyAnswer1" : "vendorComplianceSurveyAnswer1",
+  "alcoholTypeName" : "alcoholTypeName",
+  "lobId" : 1,
+  "receiptUnitCode" : 9,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "receiptType" : "receiptType",
+  "itemProductCodeName" : "itemProductCodeName",
+  "itemProductCode" : 6,
+  "receiptUnitsPerWrap" : 5,
+  "receiptUnitCodeText" : "receiptUnitCodeText",
+  "receiptNumberOfCases" : 7,
+  "itemAccountCodeName" : "itemAccountCodeName",
+  "alcoholContainerName" : "alcoholContainerName",
+  "itemSubGroupName" : "itemSubGroupName",
+  "alcoholCountryId" : 9,
+  "alcoholContainerId" : 5,
+  "itemId" : 1,
+  "itemMajorGroup" : 1,
+  "alcoholUPCCode" : "alcoholUPCCode",
+  "warehouseId" : 7,
+  "itemUPC" : "itemUPC",
+  "itemSummaryCode" : 7,
+  "alcoholRegion" : "alcoholRegion",
+  "receiptStatus" : "receiptStatus",
+  "receiptProductIdTag" : "receiptProductIdTag",
+  "receiptModifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "alcoholSCCCode" : "alcoholSCCCode",
   "customFields" : {
     "key" : "{}"
   },
-  "receiptWrapUnitWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "receiptRevisionDate" : "aeiou",
-  "warehouseName" : "aeiou",
-  "receiptStatusName" : "aeiou",
-  "receiptEnteredBy" : "aeiou",
-  "receiptWrapCodeText" : "aeiou",
-  "alcoholBrand" : "aeiou",
-  "receiptCaseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "receiptReceiveQuantity" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "alcoholVintageYear" : "aeiou",
-  "alcoholCountryName" : "aeiou",
-  "alcoholNABCACode" : "aeiou",
-  "alcoholUNIMERCCode" : "aeiou",
-  "receiptWrapCode" : 123,
-  "vendorComplianceSurveyAnswer20" : "aeiou",
-  "itemAccountCode" : "aeiou",
-  "receiptASNCreateDate" : "2000-01-23T04:56:07.000+0000",
-  "vendorComplianceSurveyAnswer19" : "aeiou",
-  "vendorComplianceSurveyAnswer18" : "aeiou",
-  "vendorComplianceSurveyAnswer17" : "aeiou",
-  "vendorComplianceSurveyAnswer16" : "aeiou",
-  "itemSubGroup" : 123,
-  "itemReceiptId" : 123,
-  "itemMajorGroupName" : "aeiou"
+  "receiptWrapUnitWeight" : 2.027123023002321833274663731572218239307403564453125,
+  "receiptRevisionDate" : "receiptRevisionDate",
+  "warehouseName" : "warehouseName",
+  "receiptStatusName" : "receiptStatusName",
+  "receiptEnteredBy" : "receiptEnteredBy",
+  "receiptWrapCodeText" : "receiptWrapCodeText",
+  "alcoholBrand" : "alcoholBrand",
+  "receiptCaseWeight" : 4.1456080298839363962315474054776132106781005859375,
+  "receiptReceiveQuantity" : 2,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "alcoholVintageYear" : "alcoholVintageYear",
+  "alcoholCountryName" : "alcoholCountryName",
+  "alcoholNABCACode" : "alcoholNABCACode",
+  "alcoholUNIMERCCode" : "alcoholUNIMERCCode",
+  "receiptWrapCode" : 3,
+  "vendorComplianceSurveyAnswer20" : "vendorComplianceSurveyAnswer20",
+  "itemAccountCode" : "itemAccountCode",
+  "receiptASNCreateDate" : "2000-01-23T04:56:07.000+00:00",
+  "vendorComplianceSurveyAnswer19" : "vendorComplianceSurveyAnswer19",
+  "vendorComplianceSurveyAnswer18" : "vendorComplianceSurveyAnswer18",
+  "vendorComplianceSurveyAnswer17" : "vendorComplianceSurveyAnswer17",
+  "vendorComplianceSurveyAnswer16" : "vendorComplianceSurveyAnswer16",
+  "itemSubGroup" : 1,
+  "itemReceiptId" : 6,
+  "itemMajorGroupName" : "itemMajorGroupName"
 }}]
      
      - parameter itemReceiptActivityId: (path) Id of the itemReceiptActivity to be duplicated. 
 
      - returns: RequestBuilder<ItemReceiptActivity> 
      */
-    public class func getDuplicateItemReceiptActivityByIdWithRequestBuilder(itemReceiptActivityId itemReceiptActivityId: Int) -> RequestBuilder<ItemReceiptActivity> {
+    public class func getDuplicateItemReceiptActivityByIdWithRequestBuilder(itemReceiptActivityId itemReceiptActivityId: Int32) -> RequestBuilder<ItemReceiptActivity> {
         var path = "/beta/itemReceiptActivity/duplicate/{itemReceiptActivityId}"
         path = path.stringByReplacingOccurrencesOfString("{itemReceiptActivityId}", withString: "\(itemReceiptActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<ItemReceiptActivity>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search itemReceiptActivitys by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -445,7 +442,7 @@ public class ItemReceiptActivityAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getItemReceiptActivityByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [ItemReceiptActivity]?, error: ErrorType?) -> Void)) {
+    public class func getItemReceiptActivityByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [ItemReceiptActivity]?, error: ErrorType?) -> Void)) {
         getItemReceiptActivityByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -453,99 +450,182 @@ public class ItemReceiptActivityAPI: APIBase {
 
 
     /**
-     
      Search itemReceiptActivitys by filter
-     
      - GET /beta/itemReceiptActivity/search
      - Returns the list of itemReceiptActivitys that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "itemSector" : "aeiou",
-  "alcoholTypeId" : 123,
-  "vendorComplianceSurveyAnswer15" : "aeiou",
-  "vendorComplianceSurveyAnswer14" : "aeiou",
-  "vendorComplianceSurveyAnswer13" : "aeiou",
-  "receiptDistributionDate" : "2000-01-23T04:56:07.000+0000",
-  "vendorComplianceSurveyAnswer12" : "aeiou",
-  "vendorComplianceSurveyAnswer11" : "aeiou",
-  "vendorComplianceSurveyAnswer10" : "aeiou",
-  "vendorComplianceSurveyAnswer6" : "aeiou",
-  "itemVendorSku" : "aeiou",
-  "itemSummaryCodeName" : "aeiou",
-  "vendorComplianceSurveyAnswer5" : "aeiou",
-  "alcoholContainerVolume" : 123,
-  "vendorComplianceSurveyAnswer4" : "aeiou",
-  "vendorComplianceSurveyAnswer3" : "aeiou",
-  "poNo" : "aeiou",
-  "vendorComplianceSurveyAnswer9" : "aeiou",
-  "vendorComplianceSurveyAnswer8" : "aeiou",
-  "alcoholContent" : 1.3579000000000001069366817318950779736042022705078125,
-  "vendorComplianceSurveyAnswer7" : "aeiou",
-  "receiptReceiveDate" : "2000-01-23T04:56:07.000+0000",
-  "receiptUnitsPerCase" : 123,
-  "id" : 123,
-  "receiptProductionLot" : "aeiou",
-  "sku" : "aeiou",
-  "vendorComplianceSurveyAnswer2" : "aeiou",
-  "alcoholState" : "aeiou",
-  "receiptReceivedBy" : "aeiou",
-  "vendorComplianceSurveyAnswer1" : "aeiou",
-  "alcoholTypeName" : "aeiou",
-  "lobId" : 123,
-  "receiptUnitCode" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "receiptType" : "aeiou",
-  "itemProductCodeName" : "aeiou",
-  "itemProductCode" : 123,
-  "receiptUnitsPerWrap" : 123,
-  "receiptUnitCodeText" : "aeiou",
-  "receiptNumberOfCases" : 123,
-  "itemAccountCodeName" : "aeiou",
-  "alcoholContainerName" : "aeiou",
-  "itemSubGroupName" : "aeiou",
-  "alcoholCountryId" : 123,
-  "alcoholContainerId" : 123,
-  "itemId" : 123,
-  "itemMajorGroup" : 123,
-  "alcoholUPCCode" : "aeiou",
-  "warehouseId" : 123,
-  "itemUPC" : "aeiou",
-  "itemSummaryCode" : 123,
-  "alcoholRegion" : "aeiou",
-  "receiptStatus" : "aeiou",
-  "receiptProductIdTag" : "aeiou",
-  "receiptModifyDate" : "2000-01-23T04:56:07.000+0000",
-  "alcoholSCCCode" : "aeiou",
+  "itemSector" : "itemSector",
+  "alcoholTypeId" : 1,
+  "vendorComplianceSurveyAnswer15" : "vendorComplianceSurveyAnswer15",
+  "vendorComplianceSurveyAnswer14" : "vendorComplianceSurveyAnswer14",
+  "vendorComplianceSurveyAnswer13" : "vendorComplianceSurveyAnswer13",
+  "receiptDistributionDate" : "2000-01-23T04:56:07.000+00:00",
+  "vendorComplianceSurveyAnswer12" : "vendorComplianceSurveyAnswer12",
+  "vendorComplianceSurveyAnswer11" : "vendorComplianceSurveyAnswer11",
+  "vendorComplianceSurveyAnswer10" : "vendorComplianceSurveyAnswer10",
+  "vendorComplianceSurveyAnswer6" : "vendorComplianceSurveyAnswer6",
+  "itemVendorSku" : "itemVendorSku",
+  "itemSummaryCodeName" : "itemSummaryCodeName",
+  "vendorComplianceSurveyAnswer5" : "vendorComplianceSurveyAnswer5",
+  "alcoholContainerVolume" : 9,
+  "vendorComplianceSurveyAnswer4" : "vendorComplianceSurveyAnswer4",
+  "vendorComplianceSurveyAnswer3" : "vendorComplianceSurveyAnswer3",
+  "poNo" : "poNo",
+  "vendorComplianceSurveyAnswer9" : "vendorComplianceSurveyAnswer9",
+  "vendorComplianceSurveyAnswer8" : "vendorComplianceSurveyAnswer8",
+  "alcoholContent" : 4.9652184929849543237878606305457651615142822265625,
+  "vendorComplianceSurveyAnswer7" : "vendorComplianceSurveyAnswer7",
+  "receiptReceiveDate" : "2000-01-23T04:56:07.000+00:00",
+  "receiptUnitsPerCase" : 5,
+  "id" : 0,
+  "receiptProductionLot" : "receiptProductionLot",
+  "sku" : "sku",
+  "vendorComplianceSurveyAnswer2" : "vendorComplianceSurveyAnswer2",
+  "alcoholState" : "alcoholState",
+  "receiptReceivedBy" : "receiptReceivedBy",
+  "vendorComplianceSurveyAnswer1" : "vendorComplianceSurveyAnswer1",
+  "alcoholTypeName" : "alcoholTypeName",
+  "lobId" : 1,
+  "receiptUnitCode" : 9,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "receiptType" : "receiptType",
+  "itemProductCodeName" : "itemProductCodeName",
+  "itemProductCode" : 6,
+  "receiptUnitsPerWrap" : 5,
+  "receiptUnitCodeText" : "receiptUnitCodeText",
+  "receiptNumberOfCases" : 7,
+  "itemAccountCodeName" : "itemAccountCodeName",
+  "alcoholContainerName" : "alcoholContainerName",
+  "itemSubGroupName" : "itemSubGroupName",
+  "alcoholCountryId" : 9,
+  "alcoholContainerId" : 5,
+  "itemId" : 1,
+  "itemMajorGroup" : 1,
+  "alcoholUPCCode" : "alcoholUPCCode",
+  "warehouseId" : 7,
+  "itemUPC" : "itemUPC",
+  "itemSummaryCode" : 7,
+  "alcoholRegion" : "alcoholRegion",
+  "receiptStatus" : "receiptStatus",
+  "receiptProductIdTag" : "receiptProductIdTag",
+  "receiptModifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "alcoholSCCCode" : "alcoholSCCCode",
   "customFields" : {
     "key" : "{}"
   },
-  "receiptWrapUnitWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "receiptRevisionDate" : "aeiou",
-  "warehouseName" : "aeiou",
-  "receiptStatusName" : "aeiou",
-  "receiptEnteredBy" : "aeiou",
-  "receiptWrapCodeText" : "aeiou",
-  "alcoholBrand" : "aeiou",
-  "receiptCaseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "receiptReceiveQuantity" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "alcoholVintageYear" : "aeiou",
-  "alcoholCountryName" : "aeiou",
-  "alcoholNABCACode" : "aeiou",
-  "alcoholUNIMERCCode" : "aeiou",
-  "receiptWrapCode" : 123,
-  "vendorComplianceSurveyAnswer20" : "aeiou",
-  "itemAccountCode" : "aeiou",
-  "receiptASNCreateDate" : "2000-01-23T04:56:07.000+0000",
-  "vendorComplianceSurveyAnswer19" : "aeiou",
-  "vendorComplianceSurveyAnswer18" : "aeiou",
-  "vendorComplianceSurveyAnswer17" : "aeiou",
-  "vendorComplianceSurveyAnswer16" : "aeiou",
-  "itemSubGroup" : 123,
-  "itemReceiptId" : 123,
-  "itemMajorGroupName" : "aeiou"
+  "receiptWrapUnitWeight" : 2.027123023002321833274663731572218239307403564453125,
+  "receiptRevisionDate" : "receiptRevisionDate",
+  "warehouseName" : "warehouseName",
+  "receiptStatusName" : "receiptStatusName",
+  "receiptEnteredBy" : "receiptEnteredBy",
+  "receiptWrapCodeText" : "receiptWrapCodeText",
+  "alcoholBrand" : "alcoholBrand",
+  "receiptCaseWeight" : 4.1456080298839363962315474054776132106781005859375,
+  "receiptReceiveQuantity" : 2,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "alcoholVintageYear" : "alcoholVintageYear",
+  "alcoholCountryName" : "alcoholCountryName",
+  "alcoholNABCACode" : "alcoholNABCACode",
+  "alcoholUNIMERCCode" : "alcoholUNIMERCCode",
+  "receiptWrapCode" : 3,
+  "vendorComplianceSurveyAnswer20" : "vendorComplianceSurveyAnswer20",
+  "itemAccountCode" : "itemAccountCode",
+  "receiptASNCreateDate" : "2000-01-23T04:56:07.000+00:00",
+  "vendorComplianceSurveyAnswer19" : "vendorComplianceSurveyAnswer19",
+  "vendorComplianceSurveyAnswer18" : "vendorComplianceSurveyAnswer18",
+  "vendorComplianceSurveyAnswer17" : "vendorComplianceSurveyAnswer17",
+  "vendorComplianceSurveyAnswer16" : "vendorComplianceSurveyAnswer16",
+  "itemSubGroup" : 1,
+  "itemReceiptId" : 6,
+  "itemMajorGroupName" : "itemMajorGroupName"
+}, {
+  "itemSector" : "itemSector",
+  "alcoholTypeId" : 1,
+  "vendorComplianceSurveyAnswer15" : "vendorComplianceSurveyAnswer15",
+  "vendorComplianceSurveyAnswer14" : "vendorComplianceSurveyAnswer14",
+  "vendorComplianceSurveyAnswer13" : "vendorComplianceSurveyAnswer13",
+  "receiptDistributionDate" : "2000-01-23T04:56:07.000+00:00",
+  "vendorComplianceSurveyAnswer12" : "vendorComplianceSurveyAnswer12",
+  "vendorComplianceSurveyAnswer11" : "vendorComplianceSurveyAnswer11",
+  "vendorComplianceSurveyAnswer10" : "vendorComplianceSurveyAnswer10",
+  "vendorComplianceSurveyAnswer6" : "vendorComplianceSurveyAnswer6",
+  "itemVendorSku" : "itemVendorSku",
+  "itemSummaryCodeName" : "itemSummaryCodeName",
+  "vendorComplianceSurveyAnswer5" : "vendorComplianceSurveyAnswer5",
+  "alcoholContainerVolume" : 9,
+  "vendorComplianceSurveyAnswer4" : "vendorComplianceSurveyAnswer4",
+  "vendorComplianceSurveyAnswer3" : "vendorComplianceSurveyAnswer3",
+  "poNo" : "poNo",
+  "vendorComplianceSurveyAnswer9" : "vendorComplianceSurveyAnswer9",
+  "vendorComplianceSurveyAnswer8" : "vendorComplianceSurveyAnswer8",
+  "alcoholContent" : 4.9652184929849543237878606305457651615142822265625,
+  "vendorComplianceSurveyAnswer7" : "vendorComplianceSurveyAnswer7",
+  "receiptReceiveDate" : "2000-01-23T04:56:07.000+00:00",
+  "receiptUnitsPerCase" : 5,
+  "id" : 0,
+  "receiptProductionLot" : "receiptProductionLot",
+  "sku" : "sku",
+  "vendorComplianceSurveyAnswer2" : "vendorComplianceSurveyAnswer2",
+  "alcoholState" : "alcoholState",
+  "receiptReceivedBy" : "receiptReceivedBy",
+  "vendorComplianceSurveyAnswer1" : "vendorComplianceSurveyAnswer1",
+  "alcoholTypeName" : "alcoholTypeName",
+  "lobId" : 1,
+  "receiptUnitCode" : 9,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "receiptType" : "receiptType",
+  "itemProductCodeName" : "itemProductCodeName",
+  "itemProductCode" : 6,
+  "receiptUnitsPerWrap" : 5,
+  "receiptUnitCodeText" : "receiptUnitCodeText",
+  "receiptNumberOfCases" : 7,
+  "itemAccountCodeName" : "itemAccountCodeName",
+  "alcoholContainerName" : "alcoholContainerName",
+  "itemSubGroupName" : "itemSubGroupName",
+  "alcoholCountryId" : 9,
+  "alcoholContainerId" : 5,
+  "itemId" : 1,
+  "itemMajorGroup" : 1,
+  "alcoholUPCCode" : "alcoholUPCCode",
+  "warehouseId" : 7,
+  "itemUPC" : "itemUPC",
+  "itemSummaryCode" : 7,
+  "alcoholRegion" : "alcoholRegion",
+  "receiptStatus" : "receiptStatus",
+  "receiptProductIdTag" : "receiptProductIdTag",
+  "receiptModifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "alcoholSCCCode" : "alcoholSCCCode",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "receiptWrapUnitWeight" : 2.027123023002321833274663731572218239307403564453125,
+  "receiptRevisionDate" : "receiptRevisionDate",
+  "warehouseName" : "warehouseName",
+  "receiptStatusName" : "receiptStatusName",
+  "receiptEnteredBy" : "receiptEnteredBy",
+  "receiptWrapCodeText" : "receiptWrapCodeText",
+  "alcoholBrand" : "alcoholBrand",
+  "receiptCaseWeight" : 4.1456080298839363962315474054776132106781005859375,
+  "receiptReceiveQuantity" : 2,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "alcoholVintageYear" : "alcoholVintageYear",
+  "alcoholCountryName" : "alcoholCountryName",
+  "alcoholNABCACode" : "alcoholNABCACode",
+  "alcoholUNIMERCCode" : "alcoholUNIMERCCode",
+  "receiptWrapCode" : 3,
+  "vendorComplianceSurveyAnswer20" : "vendorComplianceSurveyAnswer20",
+  "itemAccountCode" : "itemAccountCode",
+  "receiptASNCreateDate" : "2000-01-23T04:56:07.000+00:00",
+  "vendorComplianceSurveyAnswer19" : "vendorComplianceSurveyAnswer19",
+  "vendorComplianceSurveyAnswer18" : "vendorComplianceSurveyAnswer18",
+  "vendorComplianceSurveyAnswer17" : "vendorComplianceSurveyAnswer17",
+  "vendorComplianceSurveyAnswer16" : "vendorComplianceSurveyAnswer16",
+  "itemSubGroup" : 1,
+  "itemReceiptId" : 6,
+  "itemMajorGroupName" : "itemMajorGroupName"
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -555,31 +635,33 @@ public class ItemReceiptActivityAPI: APIBase {
 
      - returns: RequestBuilder<[ItemReceiptActivity]> 
      */
-    public class func getItemReceiptActivityByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ItemReceiptActivity]> {
+    public class func getItemReceiptActivityByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[ItemReceiptActivity]> {
         let path = "/beta/itemReceiptActivity/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[ItemReceiptActivity]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get an itemReceiptActivity by id
      
      - parameter itemReceiptActivityId: (path) Id of the itemReceiptActivity to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getItemReceiptActivityById(itemReceiptActivityId itemReceiptActivityId: Int, completion: ((data: ItemReceiptActivity?, error: ErrorType?) -> Void)) {
+    public class func getItemReceiptActivityById(itemReceiptActivityId itemReceiptActivityId: Int32, completion: ((data: ItemReceiptActivity?, error: ErrorType?) -> Void)) {
         getItemReceiptActivityByIdWithRequestBuilder(itemReceiptActivityId: itemReceiptActivityId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -587,126 +669,126 @@ public class ItemReceiptActivityAPI: APIBase {
 
 
     /**
-     
      Get an itemReceiptActivity by id
-     
      - GET /beta/itemReceiptActivity/{itemReceiptActivityId}
      - Returns the itemReceiptActivity identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "itemSector" : "aeiou",
-  "alcoholTypeId" : 123,
-  "vendorComplianceSurveyAnswer15" : "aeiou",
-  "vendorComplianceSurveyAnswer14" : "aeiou",
-  "vendorComplianceSurveyAnswer13" : "aeiou",
-  "receiptDistributionDate" : "2000-01-23T04:56:07.000+0000",
-  "vendorComplianceSurveyAnswer12" : "aeiou",
-  "vendorComplianceSurveyAnswer11" : "aeiou",
-  "vendorComplianceSurveyAnswer10" : "aeiou",
-  "vendorComplianceSurveyAnswer6" : "aeiou",
-  "itemVendorSku" : "aeiou",
-  "itemSummaryCodeName" : "aeiou",
-  "vendorComplianceSurveyAnswer5" : "aeiou",
-  "alcoholContainerVolume" : 123,
-  "vendorComplianceSurveyAnswer4" : "aeiou",
-  "vendorComplianceSurveyAnswer3" : "aeiou",
-  "poNo" : "aeiou",
-  "vendorComplianceSurveyAnswer9" : "aeiou",
-  "vendorComplianceSurveyAnswer8" : "aeiou",
-  "alcoholContent" : 1.3579000000000001069366817318950779736042022705078125,
-  "vendorComplianceSurveyAnswer7" : "aeiou",
-  "receiptReceiveDate" : "2000-01-23T04:56:07.000+0000",
-  "receiptUnitsPerCase" : 123,
-  "id" : 123,
-  "receiptProductionLot" : "aeiou",
-  "sku" : "aeiou",
-  "vendorComplianceSurveyAnswer2" : "aeiou",
-  "alcoholState" : "aeiou",
-  "receiptReceivedBy" : "aeiou",
-  "vendorComplianceSurveyAnswer1" : "aeiou",
-  "alcoholTypeName" : "aeiou",
-  "lobId" : 123,
-  "receiptUnitCode" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "receiptType" : "aeiou",
-  "itemProductCodeName" : "aeiou",
-  "itemProductCode" : 123,
-  "receiptUnitsPerWrap" : 123,
-  "receiptUnitCodeText" : "aeiou",
-  "receiptNumberOfCases" : 123,
-  "itemAccountCodeName" : "aeiou",
-  "alcoholContainerName" : "aeiou",
-  "itemSubGroupName" : "aeiou",
-  "alcoholCountryId" : 123,
-  "alcoholContainerId" : 123,
-  "itemId" : 123,
-  "itemMajorGroup" : 123,
-  "alcoholUPCCode" : "aeiou",
-  "warehouseId" : 123,
-  "itemUPC" : "aeiou",
-  "itemSummaryCode" : 123,
-  "alcoholRegion" : "aeiou",
-  "receiptStatus" : "aeiou",
-  "receiptProductIdTag" : "aeiou",
-  "receiptModifyDate" : "2000-01-23T04:56:07.000+0000",
-  "alcoholSCCCode" : "aeiou",
+  "itemSector" : "itemSector",
+  "alcoholTypeId" : 1,
+  "vendorComplianceSurveyAnswer15" : "vendorComplianceSurveyAnswer15",
+  "vendorComplianceSurveyAnswer14" : "vendorComplianceSurveyAnswer14",
+  "vendorComplianceSurveyAnswer13" : "vendorComplianceSurveyAnswer13",
+  "receiptDistributionDate" : "2000-01-23T04:56:07.000+00:00",
+  "vendorComplianceSurveyAnswer12" : "vendorComplianceSurveyAnswer12",
+  "vendorComplianceSurveyAnswer11" : "vendorComplianceSurveyAnswer11",
+  "vendorComplianceSurveyAnswer10" : "vendorComplianceSurveyAnswer10",
+  "vendorComplianceSurveyAnswer6" : "vendorComplianceSurveyAnswer6",
+  "itemVendorSku" : "itemVendorSku",
+  "itemSummaryCodeName" : "itemSummaryCodeName",
+  "vendorComplianceSurveyAnswer5" : "vendorComplianceSurveyAnswer5",
+  "alcoholContainerVolume" : 9,
+  "vendorComplianceSurveyAnswer4" : "vendorComplianceSurveyAnswer4",
+  "vendorComplianceSurveyAnswer3" : "vendorComplianceSurveyAnswer3",
+  "poNo" : "poNo",
+  "vendorComplianceSurveyAnswer9" : "vendorComplianceSurveyAnswer9",
+  "vendorComplianceSurveyAnswer8" : "vendorComplianceSurveyAnswer8",
+  "alcoholContent" : 4.9652184929849543237878606305457651615142822265625,
+  "vendorComplianceSurveyAnswer7" : "vendorComplianceSurveyAnswer7",
+  "receiptReceiveDate" : "2000-01-23T04:56:07.000+00:00",
+  "receiptUnitsPerCase" : 5,
+  "id" : 0,
+  "receiptProductionLot" : "receiptProductionLot",
+  "sku" : "sku",
+  "vendorComplianceSurveyAnswer2" : "vendorComplianceSurveyAnswer2",
+  "alcoholState" : "alcoholState",
+  "receiptReceivedBy" : "receiptReceivedBy",
+  "vendorComplianceSurveyAnswer1" : "vendorComplianceSurveyAnswer1",
+  "alcoholTypeName" : "alcoholTypeName",
+  "lobId" : 1,
+  "receiptUnitCode" : 9,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "receiptType" : "receiptType",
+  "itemProductCodeName" : "itemProductCodeName",
+  "itemProductCode" : 6,
+  "receiptUnitsPerWrap" : 5,
+  "receiptUnitCodeText" : "receiptUnitCodeText",
+  "receiptNumberOfCases" : 7,
+  "itemAccountCodeName" : "itemAccountCodeName",
+  "alcoholContainerName" : "alcoholContainerName",
+  "itemSubGroupName" : "itemSubGroupName",
+  "alcoholCountryId" : 9,
+  "alcoholContainerId" : 5,
+  "itemId" : 1,
+  "itemMajorGroup" : 1,
+  "alcoholUPCCode" : "alcoholUPCCode",
+  "warehouseId" : 7,
+  "itemUPC" : "itemUPC",
+  "itemSummaryCode" : 7,
+  "alcoholRegion" : "alcoholRegion",
+  "receiptStatus" : "receiptStatus",
+  "receiptProductIdTag" : "receiptProductIdTag",
+  "receiptModifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "alcoholSCCCode" : "alcoholSCCCode",
   "customFields" : {
     "key" : "{}"
   },
-  "receiptWrapUnitWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "receiptRevisionDate" : "aeiou",
-  "warehouseName" : "aeiou",
-  "receiptStatusName" : "aeiou",
-  "receiptEnteredBy" : "aeiou",
-  "receiptWrapCodeText" : "aeiou",
-  "alcoholBrand" : "aeiou",
-  "receiptCaseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "receiptReceiveQuantity" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "alcoholVintageYear" : "aeiou",
-  "alcoholCountryName" : "aeiou",
-  "alcoholNABCACode" : "aeiou",
-  "alcoholUNIMERCCode" : "aeiou",
-  "receiptWrapCode" : 123,
-  "vendorComplianceSurveyAnswer20" : "aeiou",
-  "itemAccountCode" : "aeiou",
-  "receiptASNCreateDate" : "2000-01-23T04:56:07.000+0000",
-  "vendorComplianceSurveyAnswer19" : "aeiou",
-  "vendorComplianceSurveyAnswer18" : "aeiou",
-  "vendorComplianceSurveyAnswer17" : "aeiou",
-  "vendorComplianceSurveyAnswer16" : "aeiou",
-  "itemSubGroup" : 123,
-  "itemReceiptId" : 123,
-  "itemMajorGroupName" : "aeiou"
+  "receiptWrapUnitWeight" : 2.027123023002321833274663731572218239307403564453125,
+  "receiptRevisionDate" : "receiptRevisionDate",
+  "warehouseName" : "warehouseName",
+  "receiptStatusName" : "receiptStatusName",
+  "receiptEnteredBy" : "receiptEnteredBy",
+  "receiptWrapCodeText" : "receiptWrapCodeText",
+  "alcoholBrand" : "alcoholBrand",
+  "receiptCaseWeight" : 4.1456080298839363962315474054776132106781005859375,
+  "receiptReceiveQuantity" : 2,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "alcoholVintageYear" : "alcoholVintageYear",
+  "alcoholCountryName" : "alcoholCountryName",
+  "alcoholNABCACode" : "alcoholNABCACode",
+  "alcoholUNIMERCCode" : "alcoholUNIMERCCode",
+  "receiptWrapCode" : 3,
+  "vendorComplianceSurveyAnswer20" : "vendorComplianceSurveyAnswer20",
+  "itemAccountCode" : "itemAccountCode",
+  "receiptASNCreateDate" : "2000-01-23T04:56:07.000+00:00",
+  "vendorComplianceSurveyAnswer19" : "vendorComplianceSurveyAnswer19",
+  "vendorComplianceSurveyAnswer18" : "vendorComplianceSurveyAnswer18",
+  "vendorComplianceSurveyAnswer17" : "vendorComplianceSurveyAnswer17",
+  "vendorComplianceSurveyAnswer16" : "vendorComplianceSurveyAnswer16",
+  "itemSubGroup" : 1,
+  "itemReceiptId" : 6,
+  "itemMajorGroupName" : "itemMajorGroupName"
 }}]
      
      - parameter itemReceiptActivityId: (path) Id of the itemReceiptActivity to be returned. 
 
      - returns: RequestBuilder<ItemReceiptActivity> 
      */
-    public class func getItemReceiptActivityByIdWithRequestBuilder(itemReceiptActivityId itemReceiptActivityId: Int) -> RequestBuilder<ItemReceiptActivity> {
+    public class func getItemReceiptActivityByIdWithRequestBuilder(itemReceiptActivityId itemReceiptActivityId: Int32) -> RequestBuilder<ItemReceiptActivity> {
         var path = "/beta/itemReceiptActivity/{itemReceiptActivityId}"
         path = path.stringByReplacingOccurrencesOfString("{itemReceiptActivityId}", withString: "\(itemReceiptActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<ItemReceiptActivity>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for an itemReceiptActivity.
      
      - parameter itemReceiptActivityId: (path) Id of the itemReceiptActivity to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getItemReceiptActivityTags(itemReceiptActivityId itemReceiptActivityId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getItemReceiptActivityTags(itemReceiptActivityId itemReceiptActivityId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getItemReceiptActivityTagsWithRequestBuilder(itemReceiptActivityId: itemReceiptActivityId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -714,9 +796,7 @@ public class ItemReceiptActivityAPI: APIBase {
 
 
     /**
-     
      Get the tags for an itemReceiptActivity.
-     
      - GET /beta/itemReceiptActivity/{itemReceiptActivityId}/tag
      - Get all existing itemReceiptActivity tags.
      - API Key:
@@ -727,21 +807,23 @@ public class ItemReceiptActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getItemReceiptActivityTagsWithRequestBuilder(itemReceiptActivityId itemReceiptActivityId: Int) -> RequestBuilder<Void> {
+    public class func getItemReceiptActivityTagsWithRequestBuilder(itemReceiptActivityId itemReceiptActivityId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/itemReceiptActivity/{itemReceiptActivityId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{itemReceiptActivityId}", withString: "\(itemReceiptActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update an itemReceiptActivity
      
      - parameter body: (body) ItemReceiptActivity to be updated. 
@@ -755,9 +837,7 @@ public class ItemReceiptActivityAPI: APIBase {
 
 
     /**
-     
      Update an itemReceiptActivity
-     
      - PUT /beta/itemReceiptActivity
      - Updates an existing itemReceiptActivity using the specified data.
      - API Key:
@@ -771,12 +851,13 @@ public class ItemReceiptActivityAPI: APIBase {
     public class func updateItemReceiptActivityWithRequestBuilder(body body: ItemReceiptActivity) -> RequestBuilder<Void> {
         let path = "/beta/itemReceiptActivity"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

@@ -11,7 +11,6 @@ import Alamofire
 
 public class VendorAPI: APIBase {
     /**
-     
      Create a vendor
      
      - parameter body: (body) Vendor to be inserted. 
@@ -25,60 +24,58 @@ public class VendorAPI: APIBase {
 
 
     /**
-     
      Create a vendor
-     
      - POST /beta/vendor
      - Inserts a new vendor using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "country" : "aeiou",
-  "zipCode" : "aeiou",
-  "product9" : 123,
-  "product8" : 123,
-  "requestDays" : 123,
-  "product7" : 123,
-  "city" : "aeiou",
+  "country" : "country",
+  "zipCode" : "zipCode",
+  "product9" : 1,
+  "product8" : 1,
+  "requestDays" : 5,
+  "product7" : 1,
+  "city" : "city",
   "customFields" : {
     "key" : "{}"
   },
-  "product2" : 123,
-  "product1" : 123,
-  "orderAttach" : "aeiou",
-  "orderEmail" : "aeiou",
-  "product6" : 123,
-  "minority" : "aeiou",
-  "product5" : 123,
-  "product4" : 123,
-  "sendQuantityType" : "aeiou",
-  "product3" : 123,
-  "shipVia" : 123,
-  "inactive" : "aeiou",
-  "terms" : "aeiou",
-  "street" : "aeiou",
-  "contact" : "aeiou",
-  "id" : 123,
-  "street2" : "aeiou",
-  "state" : "aeiou",
-  "fax" : "aeiou",
-  "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "actualDays" : 123,
-  "vendorNo" : 123,
-  "sendOutside" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "podOrderSuffix" : 123,
-  "salesTaxCode" : "aeiou",
-  "externalId" : "aeiou",
-  "chargeOut" : "aeiou",
-  "podEmail" : "aeiou",
-  "arEmail" : "aeiou",
-  "phone" : "aeiou",
-  "name" : "aeiou",
-  "fob" : "aeiou",
-  "podDays" : 123
+  "product2" : 9,
+  "product1" : 7,
+  "orderAttach" : "orderAttach",
+  "orderEmail" : "orderEmail",
+  "product6" : 7,
+  "minority" : "minority",
+  "product5" : 4,
+  "product4" : 2,
+  "sendQuantityType" : "sendQuantityType",
+  "product3" : 3,
+  "shipVia" : 5,
+  "inactive" : "inactive",
+  "terms" : "terms",
+  "street" : "street",
+  "contact" : "contact",
+  "id" : 0,
+  "street2" : "street2",
+  "state" : "state",
+  "fax" : "fax",
+  "lobId" : 1,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "actualDays" : 2,
+  "vendorNo" : 6,
+  "sendOutside" : "sendOutside",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "podOrderSuffix" : 7,
+  "salesTaxCode" : "salesTaxCode",
+  "externalId" : "externalId",
+  "chargeOut" : "chargeOut",
+  "podEmail" : "podEmail",
+  "arEmail" : "arEmail",
+  "phone" : "phone",
+  "name" : "name",
+  "fob" : "fob",
+  "podDays" : 6
 }}]
      
      - parameter body: (body) Vendor to be inserted. 
@@ -88,23 +85,23 @@ public class VendorAPI: APIBase {
     public class func addVendorWithRequestBuilder(body body: Vendor) -> RequestBuilder<Vendor> {
         let path = "/beta/vendor"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Vendor>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new audit for a vendor
      
      - parameter vendorId: (path) Id of the vendor to add an audit to 
      - parameter vendorAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addVendorAudit(vendorId vendorId: Int, vendorAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addVendorAudit(vendorId vendorId: Int32, vendorAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addVendorAuditWithRequestBuilder(vendorId: vendorId, vendorAudit: vendorAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -112,9 +109,7 @@ public class VendorAPI: APIBase {
 
 
     /**
-     
      Add new audit for a vendor
-     
      - PUT /beta/vendor/{vendorId}/audit/{vendorAudit}
      - Adds an audit to an existing vendor.
      - API Key:
@@ -126,29 +121,31 @@ public class VendorAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addVendorAuditWithRequestBuilder(vendorId vendorId: Int, vendorAudit: String) -> RequestBuilder<Void> {
+    public class func addVendorAuditWithRequestBuilder(vendorId vendorId: Int32, vendorAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/vendor/{vendorId}/audit/{vendorAudit}"
         path = path.stringByReplacingOccurrencesOfString("{vendorId}", withString: "\(vendorId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{vendorAudit}", withString: "\(vendorAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for a vendor.
      
      - parameter vendorId: (path) Id of the vendor to add a tag to 
      - parameter vendorTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addVendorTag(vendorId vendorId: Int, vendorTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addVendorTag(vendorId vendorId: Int32, vendorTag: String, completion: ((error: ErrorType?) -> Void)) {
         addVendorTagWithRequestBuilder(vendorId: vendorId, vendorTag: vendorTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -156,9 +153,7 @@ public class VendorAPI: APIBase {
 
 
     /**
-     
      Add new tags for a vendor.
-     
      - PUT /beta/vendor/{vendorId}/tag/{vendorTag}
      - Adds a tag to an existing vendor.
      - API Key:
@@ -170,28 +165,30 @@ public class VendorAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addVendorTagWithRequestBuilder(vendorId vendorId: Int, vendorTag: String) -> RequestBuilder<Void> {
+    public class func addVendorTagWithRequestBuilder(vendorId vendorId: Int32, vendorTag: String) -> RequestBuilder<Void> {
         var path = "/beta/vendor/{vendorId}/tag/{vendorTag}"
         path = path.stringByReplacingOccurrencesOfString("{vendorId}", withString: "\(vendorId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{vendorTag}", withString: "\(vendorTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a vendor
      
      - parameter vendorId: (path) Id of the vendor to be deleted. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteVendor(vendorId vendorId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteVendor(vendorId vendorId: Int32, completion: ((error: ErrorType?) -> Void)) {
         deleteVendorWithRequestBuilder(vendorId: vendorId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -199,9 +196,7 @@ public class VendorAPI: APIBase {
 
 
     /**
-     
      Delete a vendor
-     
      - DELETE /beta/vendor/{vendorId}
      - Deletes the vendor identified by the specified id.
      - API Key:
@@ -212,28 +207,30 @@ public class VendorAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteVendorWithRequestBuilder(vendorId vendorId: Int) -> RequestBuilder<Void> {
+    public class func deleteVendorWithRequestBuilder(vendorId vendorId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/vendor/{vendorId}"
         path = path.stringByReplacingOccurrencesOfString("{vendorId}", withString: "\(vendorId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for a vendor.
      
      - parameter vendorId: (path) Id of the vendor to remove tag from 
      - parameter vendorTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteVendorTag(vendorId vendorId: Int, vendorTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteVendorTag(vendorId vendorId: Int32, vendorTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteVendorTagWithRequestBuilder(vendorId: vendorId, vendorTag: vendorTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -241,9 +238,7 @@ public class VendorAPI: APIBase {
 
 
     /**
-     
      Delete a tag for a vendor.
-     
      - DELETE /beta/vendor/{vendorId}/tag/{vendorTag}
      - Deletes an existing vendor tag using the specified data.
      - API Key:
@@ -255,28 +250,30 @@ public class VendorAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteVendorTagWithRequestBuilder(vendorId vendorId: Int, vendorTag: String) -> RequestBuilder<Void> {
+    public class func deleteVendorTagWithRequestBuilder(vendorId vendorId: Int32, vendorTag: String) -> RequestBuilder<Void> {
         var path = "/beta/vendor/{vendorId}/tag/{vendorTag}"
         path = path.stringByReplacingOccurrencesOfString("{vendorId}", withString: "\(vendorId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{vendorTag}", withString: "\(vendorTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated a vendor by id
      
      - parameter vendorId: (path) Id of the vendor to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateVendorById(vendorId vendorId: Int, completion: ((data: Vendor?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateVendorById(vendorId vendorId: Int32, completion: ((data: Vendor?, error: ErrorType?) -> Void)) {
         getDuplicateVendorByIdWithRequestBuilder(vendorId: vendorId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -284,81 +281,81 @@ public class VendorAPI: APIBase {
 
 
     /**
-     
      Get a duplicated a vendor by id
-     
      - GET /beta/vendor/duplicate/{vendorId}
      - Returns a duplicated vendor identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "country" : "aeiou",
-  "zipCode" : "aeiou",
-  "product9" : 123,
-  "product8" : 123,
-  "requestDays" : 123,
-  "product7" : 123,
-  "city" : "aeiou",
+  "country" : "country",
+  "zipCode" : "zipCode",
+  "product9" : 1,
+  "product8" : 1,
+  "requestDays" : 5,
+  "product7" : 1,
+  "city" : "city",
   "customFields" : {
     "key" : "{}"
   },
-  "product2" : 123,
-  "product1" : 123,
-  "orderAttach" : "aeiou",
-  "orderEmail" : "aeiou",
-  "product6" : 123,
-  "minority" : "aeiou",
-  "product5" : 123,
-  "product4" : 123,
-  "sendQuantityType" : "aeiou",
-  "product3" : 123,
-  "shipVia" : 123,
-  "inactive" : "aeiou",
-  "terms" : "aeiou",
-  "street" : "aeiou",
-  "contact" : "aeiou",
-  "id" : 123,
-  "street2" : "aeiou",
-  "state" : "aeiou",
-  "fax" : "aeiou",
-  "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "actualDays" : 123,
-  "vendorNo" : 123,
-  "sendOutside" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "podOrderSuffix" : 123,
-  "salesTaxCode" : "aeiou",
-  "externalId" : "aeiou",
-  "chargeOut" : "aeiou",
-  "podEmail" : "aeiou",
-  "arEmail" : "aeiou",
-  "phone" : "aeiou",
-  "name" : "aeiou",
-  "fob" : "aeiou",
-  "podDays" : 123
+  "product2" : 9,
+  "product1" : 7,
+  "orderAttach" : "orderAttach",
+  "orderEmail" : "orderEmail",
+  "product6" : 7,
+  "minority" : "minority",
+  "product5" : 4,
+  "product4" : 2,
+  "sendQuantityType" : "sendQuantityType",
+  "product3" : 3,
+  "shipVia" : 5,
+  "inactive" : "inactive",
+  "terms" : "terms",
+  "street" : "street",
+  "contact" : "contact",
+  "id" : 0,
+  "street2" : "street2",
+  "state" : "state",
+  "fax" : "fax",
+  "lobId" : 1,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "actualDays" : 2,
+  "vendorNo" : 6,
+  "sendOutside" : "sendOutside",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "podOrderSuffix" : 7,
+  "salesTaxCode" : "salesTaxCode",
+  "externalId" : "externalId",
+  "chargeOut" : "chargeOut",
+  "podEmail" : "podEmail",
+  "arEmail" : "arEmail",
+  "phone" : "phone",
+  "name" : "name",
+  "fob" : "fob",
+  "podDays" : 6
 }}]
      
      - parameter vendorId: (path) Id of the vendor to be duplicated. 
 
      - returns: RequestBuilder<Vendor> 
      */
-    public class func getDuplicateVendorByIdWithRequestBuilder(vendorId vendorId: Int) -> RequestBuilder<Vendor> {
+    public class func getDuplicateVendorByIdWithRequestBuilder(vendorId vendorId: Int32) -> RequestBuilder<Vendor> {
         var path = "/beta/vendor/duplicate/{vendorId}"
         path = path.stringByReplacingOccurrencesOfString("{vendorId}", withString: "\(vendorId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Vendor>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search vendors by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -367,7 +364,7 @@ public class VendorAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getVendorByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [Vendor]?, error: ErrorType?) -> Void)) {
+    public class func getVendorByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [Vendor]?, error: ErrorType?) -> Void)) {
         getVendorByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -375,60 +372,104 @@ public class VendorAPI: APIBase {
 
 
     /**
-     
      Search vendors by filter
-     
      - GET /beta/vendor/search
      - Returns the list of vendors that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "country" : "aeiou",
-  "zipCode" : "aeiou",
-  "product9" : 123,
-  "product8" : 123,
-  "requestDays" : 123,
-  "product7" : 123,
-  "city" : "aeiou",
+  "country" : "country",
+  "zipCode" : "zipCode",
+  "product9" : 1,
+  "product8" : 1,
+  "requestDays" : 5,
+  "product7" : 1,
+  "city" : "city",
   "customFields" : {
     "key" : "{}"
   },
-  "product2" : 123,
-  "product1" : 123,
-  "orderAttach" : "aeiou",
-  "orderEmail" : "aeiou",
-  "product6" : 123,
-  "minority" : "aeiou",
-  "product5" : 123,
-  "product4" : 123,
-  "sendQuantityType" : "aeiou",
-  "product3" : 123,
-  "shipVia" : 123,
-  "inactive" : "aeiou",
-  "terms" : "aeiou",
-  "street" : "aeiou",
-  "contact" : "aeiou",
-  "id" : 123,
-  "street2" : "aeiou",
-  "state" : "aeiou",
-  "fax" : "aeiou",
-  "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "actualDays" : 123,
-  "vendorNo" : 123,
-  "sendOutside" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "podOrderSuffix" : 123,
-  "salesTaxCode" : "aeiou",
-  "externalId" : "aeiou",
-  "chargeOut" : "aeiou",
-  "podEmail" : "aeiou",
-  "arEmail" : "aeiou",
-  "phone" : "aeiou",
-  "name" : "aeiou",
-  "fob" : "aeiou",
-  "podDays" : 123
+  "product2" : 9,
+  "product1" : 7,
+  "orderAttach" : "orderAttach",
+  "orderEmail" : "orderEmail",
+  "product6" : 7,
+  "minority" : "minority",
+  "product5" : 4,
+  "product4" : 2,
+  "sendQuantityType" : "sendQuantityType",
+  "product3" : 3,
+  "shipVia" : 5,
+  "inactive" : "inactive",
+  "terms" : "terms",
+  "street" : "street",
+  "contact" : "contact",
+  "id" : 0,
+  "street2" : "street2",
+  "state" : "state",
+  "fax" : "fax",
+  "lobId" : 1,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "actualDays" : 2,
+  "vendorNo" : 6,
+  "sendOutside" : "sendOutside",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "podOrderSuffix" : 7,
+  "salesTaxCode" : "salesTaxCode",
+  "externalId" : "externalId",
+  "chargeOut" : "chargeOut",
+  "podEmail" : "podEmail",
+  "arEmail" : "arEmail",
+  "phone" : "phone",
+  "name" : "name",
+  "fob" : "fob",
+  "podDays" : 6
+}, {
+  "country" : "country",
+  "zipCode" : "zipCode",
+  "product9" : 1,
+  "product8" : 1,
+  "requestDays" : 5,
+  "product7" : 1,
+  "city" : "city",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "product2" : 9,
+  "product1" : 7,
+  "orderAttach" : "orderAttach",
+  "orderEmail" : "orderEmail",
+  "product6" : 7,
+  "minority" : "minority",
+  "product5" : 4,
+  "product4" : 2,
+  "sendQuantityType" : "sendQuantityType",
+  "product3" : 3,
+  "shipVia" : 5,
+  "inactive" : "inactive",
+  "terms" : "terms",
+  "street" : "street",
+  "contact" : "contact",
+  "id" : 0,
+  "street2" : "street2",
+  "state" : "state",
+  "fax" : "fax",
+  "lobId" : 1,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "actualDays" : 2,
+  "vendorNo" : 6,
+  "sendOutside" : "sendOutside",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "podOrderSuffix" : 7,
+  "salesTaxCode" : "salesTaxCode",
+  "externalId" : "externalId",
+  "chargeOut" : "chargeOut",
+  "podEmail" : "podEmail",
+  "arEmail" : "arEmail",
+  "phone" : "phone",
+  "name" : "name",
+  "fob" : "fob",
+  "podDays" : 6
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -438,31 +479,33 @@ public class VendorAPI: APIBase {
 
      - returns: RequestBuilder<[Vendor]> 
      */
-    public class func getVendorByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Vendor]> {
+    public class func getVendorByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[Vendor]> {
         let path = "/beta/vendor/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[Vendor]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get a vendor by id
      
      - parameter vendorId: (path) Id of the vendor to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getVendorById(vendorId vendorId: Int, completion: ((data: Vendor?, error: ErrorType?) -> Void)) {
+    public class func getVendorById(vendorId vendorId: Int32, completion: ((data: Vendor?, error: ErrorType?) -> Void)) {
         getVendorByIdWithRequestBuilder(vendorId: vendorId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -470,87 +513,87 @@ public class VendorAPI: APIBase {
 
 
     /**
-     
      Get a vendor by id
-     
      - GET /beta/vendor/{vendorId}
      - Returns the vendor identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "country" : "aeiou",
-  "zipCode" : "aeiou",
-  "product9" : 123,
-  "product8" : 123,
-  "requestDays" : 123,
-  "product7" : 123,
-  "city" : "aeiou",
+  "country" : "country",
+  "zipCode" : "zipCode",
+  "product9" : 1,
+  "product8" : 1,
+  "requestDays" : 5,
+  "product7" : 1,
+  "city" : "city",
   "customFields" : {
     "key" : "{}"
   },
-  "product2" : 123,
-  "product1" : 123,
-  "orderAttach" : "aeiou",
-  "orderEmail" : "aeiou",
-  "product6" : 123,
-  "minority" : "aeiou",
-  "product5" : 123,
-  "product4" : 123,
-  "sendQuantityType" : "aeiou",
-  "product3" : 123,
-  "shipVia" : 123,
-  "inactive" : "aeiou",
-  "terms" : "aeiou",
-  "street" : "aeiou",
-  "contact" : "aeiou",
-  "id" : 123,
-  "street2" : "aeiou",
-  "state" : "aeiou",
-  "fax" : "aeiou",
-  "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "actualDays" : 123,
-  "vendorNo" : 123,
-  "sendOutside" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "podOrderSuffix" : 123,
-  "salesTaxCode" : "aeiou",
-  "externalId" : "aeiou",
-  "chargeOut" : "aeiou",
-  "podEmail" : "aeiou",
-  "arEmail" : "aeiou",
-  "phone" : "aeiou",
-  "name" : "aeiou",
-  "fob" : "aeiou",
-  "podDays" : 123
+  "product2" : 9,
+  "product1" : 7,
+  "orderAttach" : "orderAttach",
+  "orderEmail" : "orderEmail",
+  "product6" : 7,
+  "minority" : "minority",
+  "product5" : 4,
+  "product4" : 2,
+  "sendQuantityType" : "sendQuantityType",
+  "product3" : 3,
+  "shipVia" : 5,
+  "inactive" : "inactive",
+  "terms" : "terms",
+  "street" : "street",
+  "contact" : "contact",
+  "id" : 0,
+  "street2" : "street2",
+  "state" : "state",
+  "fax" : "fax",
+  "lobId" : 1,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "actualDays" : 2,
+  "vendorNo" : 6,
+  "sendOutside" : "sendOutside",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "podOrderSuffix" : 7,
+  "salesTaxCode" : "salesTaxCode",
+  "externalId" : "externalId",
+  "chargeOut" : "chargeOut",
+  "podEmail" : "podEmail",
+  "arEmail" : "arEmail",
+  "phone" : "phone",
+  "name" : "name",
+  "fob" : "fob",
+  "podDays" : 6
 }}]
      
      - parameter vendorId: (path) Id of the vendor to be returned. 
 
      - returns: RequestBuilder<Vendor> 
      */
-    public class func getVendorByIdWithRequestBuilder(vendorId vendorId: Int) -> RequestBuilder<Vendor> {
+    public class func getVendorByIdWithRequestBuilder(vendorId vendorId: Int32) -> RequestBuilder<Vendor> {
         var path = "/beta/vendor/{vendorId}"
         path = path.stringByReplacingOccurrencesOfString("{vendorId}", withString: "\(vendorId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Vendor>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for a vendor.
      
      - parameter vendorId: (path) Id of the vendor to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getVendorTags(vendorId vendorId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getVendorTags(vendorId vendorId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getVendorTagsWithRequestBuilder(vendorId: vendorId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -558,9 +601,7 @@ public class VendorAPI: APIBase {
 
 
     /**
-     
      Get the tags for a vendor.
-     
      - GET /beta/vendor/{vendorId}/tag
      - Get all existing vendor tags.
      - API Key:
@@ -571,21 +612,23 @@ public class VendorAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getVendorTagsWithRequestBuilder(vendorId vendorId: Int) -> RequestBuilder<Void> {
+    public class func getVendorTagsWithRequestBuilder(vendorId vendorId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/vendor/{vendorId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{vendorId}", withString: "\(vendorId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a vendor
      
      - parameter body: (body) Vendor to be updated. 
@@ -599,9 +642,7 @@ public class VendorAPI: APIBase {
 
 
     /**
-     
      Update a vendor
-     
      - PUT /beta/vendor
      - Updates an existing vendor using the specified data.
      - API Key:
@@ -615,16 +656,16 @@ public class VendorAPI: APIBase {
     public class func updateVendorWithRequestBuilder(body body: Vendor) -> RequestBuilder<Void> {
         let path = "/beta/vendor"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a vendor custom fields
      
      - parameter body: (body) Vendor to be updated. 
@@ -638,9 +679,7 @@ public class VendorAPI: APIBase {
 
 
     /**
-     
      Update a vendor custom fields
-     
      - PUT /beta/vendor/customFields
      - Updates an existing vendor custom fields using the specified data.
      - API Key:
@@ -654,12 +693,13 @@ public class VendorAPI: APIBase {
     public class func updateVendorCustomFieldsWithRequestBuilder(body body: Vendor) -> RequestBuilder<Void> {
         let path = "/beta/vendor/customFields"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

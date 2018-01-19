@@ -9,9 +9,8 @@ import Foundation
 
 
 public class Zone: JSONEncodable {
-
-    public var id: Int?
-    public var warehouseId: Int?
+    public var id: Int32?
+    public var warehouseId: Int32?
     public var name: String?
     public var address: String?
     public var isClimateControlled: Bool?
@@ -22,15 +21,14 @@ public class Zone: JSONEncodable {
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
-        nillableDictionary["warehouseId"] = self.warehouseId
+        nillableDictionary["id"] = self.id?.encodeToJSON()
+        nillableDictionary["warehouseId"] = self.warehouseId?.encodeToJSON()
         nillableDictionary["name"] = self.name
         nillableDictionary["address"] = self.address
         nillableDictionary["isClimateControlled"] = self.isClimateControlled

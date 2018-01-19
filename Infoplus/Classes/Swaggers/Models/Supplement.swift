@@ -9,30 +9,28 @@ import Foundation
 
 
 public class Supplement: JSONEncodable {
-
-    public var lobId: Int?
-    public var id: Int?
+    public var lobId: Int32?
+    public var id: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
-    public var originalSKUId: Int?
-    public var supplementSKUId: Int?
-    public var _type: String?
+    public var originalSKUId: Int32?
+    public var supplementSKUId: Int32?
+    public var type: String?
     public var supplementQuantity: Double?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["lobId"] = self.lobId
-        nillableDictionary["id"] = self.id
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
-        nillableDictionary["originalSKUId"] = self.originalSKUId
-        nillableDictionary["supplementSKUId"] = self.supplementSKUId
-        nillableDictionary["type"] = self._type
+        nillableDictionary["originalSKUId"] = self.originalSKUId?.encodeToJSON()
+        nillableDictionary["supplementSKUId"] = self.supplementSKUId?.encodeToJSON()
+        nillableDictionary["type"] = self.type
         nillableDictionary["supplementQuantity"] = self.supplementQuantity
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

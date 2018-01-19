@@ -9,16 +9,15 @@ import Foundation
 
 
 public class OrderLine: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var orderNo: Double?
-    public var lobId: Int?
+    public var lobId: Int32?
     public var sku: String?
-    public var poNoId: Int?
-    public var orderedQty: Int?
-    public var allowedQty: Int?
-    public var shippedQty: Int?
-    public var backorderQty: Int?
+    public var poNoId: Int32?
+    public var orderedQty: Int32?
+    public var allowedQty: Int32?
+    public var shippedQty: Int32?
+    public var backorderQty: Int32?
     public var revDate: String?
     public var chargeCode: String?
     public var distributionCode: String?
@@ -37,29 +36,28 @@ public class OrderLine: JSONEncodable {
     public var weightPerWrap: Double?
     public var sector: String?
     public var orderAssemblyInstructions: String?
-    public var itemAccountCodeId: Int?
-    public var itemLegacyLowStockContactId: Int?
-    public var itemMajorGroupId: Int?
-    public var itemSubGroupId: Int?
-    public var itemProductCodeId: Int?
-    public var itemSummaryCodeId: Int?
+    public var itemAccountCodeId: Int32?
+    public var itemLegacyLowStockContactId: Int32?
+    public var itemMajorGroupId: Int32?
+    public var itemSubGroupId: Int32?
+    public var itemProductCodeId: Int32?
+    public var itemSummaryCodeId: Int32?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["orderNo"] = self.orderNo
-        nillableDictionary["lobId"] = self.lobId
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
         nillableDictionary["sku"] = self.sku
-        nillableDictionary["poNoId"] = self.poNoId
-        nillableDictionary["orderedQty"] = self.orderedQty
-        nillableDictionary["allowedQty"] = self.allowedQty
-        nillableDictionary["shippedQty"] = self.shippedQty
-        nillableDictionary["backorderQty"] = self.backorderQty
+        nillableDictionary["poNoId"] = self.poNoId?.encodeToJSON()
+        nillableDictionary["orderedQty"] = self.orderedQty?.encodeToJSON()
+        nillableDictionary["allowedQty"] = self.allowedQty?.encodeToJSON()
+        nillableDictionary["shippedQty"] = self.shippedQty?.encodeToJSON()
+        nillableDictionary["backorderQty"] = self.backorderQty?.encodeToJSON()
         nillableDictionary["revDate"] = self.revDate
         nillableDictionary["chargeCode"] = self.chargeCode
         nillableDictionary["distributionCode"] = self.distributionCode
@@ -78,12 +76,12 @@ public class OrderLine: JSONEncodable {
         nillableDictionary["weightPerWrap"] = self.weightPerWrap
         nillableDictionary["sector"] = self.sector
         nillableDictionary["orderAssemblyInstructions"] = self.orderAssemblyInstructions
-        nillableDictionary["itemAccountCodeId"] = self.itemAccountCodeId
-        nillableDictionary["itemLegacyLowStockContactId"] = self.itemLegacyLowStockContactId
-        nillableDictionary["itemMajorGroupId"] = self.itemMajorGroupId
-        nillableDictionary["itemSubGroupId"] = self.itemSubGroupId
-        nillableDictionary["itemProductCodeId"] = self.itemProductCodeId
-        nillableDictionary["itemSummaryCodeId"] = self.itemSummaryCodeId
+        nillableDictionary["itemAccountCodeId"] = self.itemAccountCodeId?.encodeToJSON()
+        nillableDictionary["itemLegacyLowStockContactId"] = self.itemLegacyLowStockContactId?.encodeToJSON()
+        nillableDictionary["itemMajorGroupId"] = self.itemMajorGroupId?.encodeToJSON()
+        nillableDictionary["itemSubGroupId"] = self.itemSubGroupId?.encodeToJSON()
+        nillableDictionary["itemProductCodeId"] = self.itemProductCodeId?.encodeToJSON()
+        nillableDictionary["itemSummaryCodeId"] = self.itemSummaryCodeId?.encodeToJSON()
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

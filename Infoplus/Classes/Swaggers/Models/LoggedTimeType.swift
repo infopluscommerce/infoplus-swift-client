@@ -9,18 +9,16 @@ import Foundation
 
 
 public class LoggedTimeType: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var label: String?
     public var fullEntityClassName: String?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["label"] = self.label
         nillableDictionary["fullEntityClassName"] = self.fullEntityClassName
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

@@ -9,30 +9,28 @@ import Foundation
 
 
 public class Replenishment: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
-    public var replenishmentProcess: Int?
-    public var pickFaceAssignment: Int?
-    public var locationId: Int?
-    public var quantity: Int?
+    public var replenishmentProcess: Int32?
+    public var pickFaceAssignment: Int32?
+    public var locationId: Int32?
+    public var quantity: Int32?
     public var customFields: [String:AnyObject]?
     public var sku: String?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
-        nillableDictionary["replenishmentProcess"] = self.replenishmentProcess
-        nillableDictionary["pickFaceAssignment"] = self.pickFaceAssignment
-        nillableDictionary["locationId"] = self.locationId
-        nillableDictionary["quantity"] = self.quantity
+        nillableDictionary["replenishmentProcess"] = self.replenishmentProcess?.encodeToJSON()
+        nillableDictionary["pickFaceAssignment"] = self.pickFaceAssignment?.encodeToJSON()
+        nillableDictionary["locationId"] = self.locationId?.encodeToJSON()
+        nillableDictionary["quantity"] = self.quantity?.encodeToJSON()
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         nillableDictionary["sku"] = self.sku
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

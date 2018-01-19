@@ -11,14 +11,13 @@ import Alamofire
 
 public class PerpetualInventoryLogAPI: APIBase {
     /**
-     
      Add new audit for a perpetualInventoryLog
      
      - parameter perpetualInventoryLogId: (path) Id of the perpetualInventoryLog to add an audit to 
      - parameter perpetualInventoryLogAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addPerpetualInventoryLogAudit(perpetualInventoryLogId perpetualInventoryLogId: Int, perpetualInventoryLogAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addPerpetualInventoryLogAudit(perpetualInventoryLogId perpetualInventoryLogId: Int32, perpetualInventoryLogAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addPerpetualInventoryLogAuditWithRequestBuilder(perpetualInventoryLogId: perpetualInventoryLogId, perpetualInventoryLogAudit: perpetualInventoryLogAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -26,9 +25,7 @@ public class PerpetualInventoryLogAPI: APIBase {
 
 
     /**
-     
      Add new audit for a perpetualInventoryLog
-     
      - PUT /beta/perpetualInventoryLog/{perpetualInventoryLogId}/audit/{perpetualInventoryLogAudit}
      - Adds an audit to an existing perpetualInventoryLog.
      - API Key:
@@ -40,29 +37,31 @@ public class PerpetualInventoryLogAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addPerpetualInventoryLogAuditWithRequestBuilder(perpetualInventoryLogId perpetualInventoryLogId: Int, perpetualInventoryLogAudit: String) -> RequestBuilder<Void> {
+    public class func addPerpetualInventoryLogAuditWithRequestBuilder(perpetualInventoryLogId perpetualInventoryLogId: Int32, perpetualInventoryLogAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/perpetualInventoryLog/{perpetualInventoryLogId}/audit/{perpetualInventoryLogAudit}"
         path = path.stringByReplacingOccurrencesOfString("{perpetualInventoryLogId}", withString: "\(perpetualInventoryLogId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{perpetualInventoryLogAudit}", withString: "\(perpetualInventoryLogAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for a perpetualInventoryLog.
      
      - parameter perpetualInventoryLogId: (path) Id of the perpetualInventoryLog to add a tag to 
      - parameter perpetualInventoryLogTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addPerpetualInventoryLogTag(perpetualInventoryLogId perpetualInventoryLogId: Int, perpetualInventoryLogTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addPerpetualInventoryLogTag(perpetualInventoryLogId perpetualInventoryLogId: Int32, perpetualInventoryLogTag: String, completion: ((error: ErrorType?) -> Void)) {
         addPerpetualInventoryLogTagWithRequestBuilder(perpetualInventoryLogId: perpetualInventoryLogId, perpetualInventoryLogTag: perpetualInventoryLogTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -70,9 +69,7 @@ public class PerpetualInventoryLogAPI: APIBase {
 
 
     /**
-     
      Add new tags for a perpetualInventoryLog.
-     
      - PUT /beta/perpetualInventoryLog/{perpetualInventoryLogId}/tag/{perpetualInventoryLogTag}
      - Adds a tag to an existing perpetualInventoryLog.
      - API Key:
@@ -84,29 +81,31 @@ public class PerpetualInventoryLogAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addPerpetualInventoryLogTagWithRequestBuilder(perpetualInventoryLogId perpetualInventoryLogId: Int, perpetualInventoryLogTag: String) -> RequestBuilder<Void> {
+    public class func addPerpetualInventoryLogTagWithRequestBuilder(perpetualInventoryLogId perpetualInventoryLogId: Int32, perpetualInventoryLogTag: String) -> RequestBuilder<Void> {
         var path = "/beta/perpetualInventoryLog/{perpetualInventoryLogId}/tag/{perpetualInventoryLogTag}"
         path = path.stringByReplacingOccurrencesOfString("{perpetualInventoryLogId}", withString: "\(perpetualInventoryLogId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{perpetualInventoryLogTag}", withString: "\(perpetualInventoryLogTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for a perpetualInventoryLog.
      
      - parameter perpetualInventoryLogId: (path) Id of the perpetualInventoryLog to remove tag from 
      - parameter perpetualInventoryLogTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deletePerpetualInventoryLogTag(perpetualInventoryLogId perpetualInventoryLogId: Int, perpetualInventoryLogTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deletePerpetualInventoryLogTag(perpetualInventoryLogId perpetualInventoryLogId: Int32, perpetualInventoryLogTag: String, completion: ((error: ErrorType?) -> Void)) {
         deletePerpetualInventoryLogTagWithRequestBuilder(perpetualInventoryLogId: perpetualInventoryLogId, perpetualInventoryLogTag: perpetualInventoryLogTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -114,9 +113,7 @@ public class PerpetualInventoryLogAPI: APIBase {
 
 
     /**
-     
      Delete a tag for a perpetualInventoryLog.
-     
      - DELETE /beta/perpetualInventoryLog/{perpetualInventoryLogId}/tag/{perpetualInventoryLogTag}
      - Deletes an existing perpetualInventoryLog tag using the specified data.
      - API Key:
@@ -128,28 +125,30 @@ public class PerpetualInventoryLogAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deletePerpetualInventoryLogTagWithRequestBuilder(perpetualInventoryLogId perpetualInventoryLogId: Int, perpetualInventoryLogTag: String) -> RequestBuilder<Void> {
+    public class func deletePerpetualInventoryLogTagWithRequestBuilder(perpetualInventoryLogId perpetualInventoryLogId: Int32, perpetualInventoryLogTag: String) -> RequestBuilder<Void> {
         var path = "/beta/perpetualInventoryLog/{perpetualInventoryLogId}/tag/{perpetualInventoryLogTag}"
         path = path.stringByReplacingOccurrencesOfString("{perpetualInventoryLogId}", withString: "\(perpetualInventoryLogId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{perpetualInventoryLogTag}", withString: "\(perpetualInventoryLogTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated a perpetualInventoryLog by id
      
      - parameter perpetualInventoryLogId: (path) Id of the perpetualInventoryLog to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicatePerpetualInventoryLogById(perpetualInventoryLogId perpetualInventoryLogId: Int, completion: ((data: PerpetualInventoryLog?, error: ErrorType?) -> Void)) {
+    public class func getDuplicatePerpetualInventoryLogById(perpetualInventoryLogId perpetualInventoryLogId: Int32, completion: ((data: PerpetualInventoryLog?, error: ErrorType?) -> Void)) {
         getDuplicatePerpetualInventoryLogByIdWithRequestBuilder(perpetualInventoryLogId: perpetualInventoryLogId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -157,125 +156,125 @@ public class PerpetualInventoryLogAPI: APIBase {
 
 
     /**
-     
      Get a duplicated a perpetualInventoryLog by id
-     
      - GET /beta/perpetualInventoryLog/duplicate/{perpetualInventoryLogId}
      - Returns a duplicated perpetualInventoryLog identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "sampleTo" : "aeiou",
-  "budgetCode" : "aeiou",
-  "interimFact" : 1.3579000000000001069366817318950779736042022705078125,
-  "legacyPoNo" : "aeiou",
-  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-  "vendorId" : 123,
-  "itemAllocationRule" : "aeiou",
-  "oddQuantity" : 123,
-  "orderQuantity" : 123,
-  "voidDate" : "2000-01-23T04:56:07.000+0000",
-  "revDate" : "aeiou",
-  "unitsPerCase" : 123,
-  "itemStorageLotMixingRule" : "aeiou",
-  "lineNo" : 123,
-  "unitCode" : "aeiou",
-  "id" : 123,
-  "sku" : "aeiou",
-  "itemForwardItemMixingRule" : "aeiou",
-  "currentQuantity" : 123,
-  "pricingPer" : "aeiou",
-  "receivedDate" : "2000-01-23T04:56:07.000+0000",
-  "skuId" : 123,
-  "mlCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "lobId" : 123,
-  "height" : 1.3579000000000001069366817318950779736042022705078125,
-  "updatedAt" : "2000-01-23T04:56:07.000+0000",
-  "chargeFreight" : "aeiou",
-  "itemWarehouseDisplayField" : "aeiou",
-  "accountingCode" : "aeiou",
-  "taxExempt" : "aeiou",
-  "itemForwardLotMixingRule" : "aeiou",
-  "artBack" : "aeiou",
-  "lastAct" : "2000-01-23T04:56:07.000+0000",
-  "itemBarcodeField" : "aeiou",
-  "capitalize" : "aeiou",
-  "itemReceiptLocationId" : 123,
-  "warehouseId" : 123,
-  "maxUnders" : 123,
-  "interimQuantity" : 123,
-  "receivedQuantity" : 123,
-  "receiptNo" : 123,
-  "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
-  "itemStorageItemMixingRule" : "aeiou",
-  "asnId" : 123,
-  "dockDate" : "2000-01-23T04:56:07.000+0000",
-  "asnLine" : 123,
-  "itemProductIdTagSchemeId" : 123,
-  "orderDate" : "2000-01-23T04:56:07.000+0000",
-  "receiptStatus" : "aeiou",
-  "factCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "endQuantity" : 123,
-  "maxFreight" : 1.3579000000000001069366817318950779736042022705078125,
-  "norcs" : "aeiou",
-  "mlVendor" : 123,
+  "sampleTo" : "sampleTo",
+  "budgetCode" : "budgetCode",
+  "interimFact" : 6.77832496304801335185175048536621034145355224609375,
+  "legacyPoNo" : "legacyPoNo",
+  "weightPerWrap" : 6.87805222012787620400331434211693704128265380859375,
+  "vendorId" : 5,
+  "itemAllocationRule" : "itemAllocationRule",
+  "oddQuantity" : 9,
+  "orderQuantity" : 7,
+  "voidDate" : "2000-01-23T04:56:07.000+00:00",
+  "revDate" : "revDate",
+  "unitsPerCase" : 0,
+  "itemStorageLotMixingRule" : "itemStorageLotMixingRule",
+  "lineNo" : 7,
+  "unitCode" : "unitCode",
+  "id" : 0,
+  "sku" : "sku",
+  "itemForwardItemMixingRule" : "itemForwardItemMixingRule",
+  "currentQuantity" : 9,
+  "pricingPer" : "pricingPer",
+  "receivedDate" : "2000-01-23T04:56:07.000+00:00",
+  "skuId" : 5,
+  "mlCost" : 4.1456080298839363962315474054776132106781005859375,
+  "lobId" : 2,
+  "height" : 6.51918095101838179772357761976309120655059814453125,
+  "updatedAt" : "2000-01-23T04:56:07.000+00:00",
+  "chargeFreight" : "chargeFreight",
+  "itemWarehouseDisplayField" : "itemWarehouseDisplayField",
+  "accountingCode" : "accountingCode",
+  "taxExempt" : "taxExempt",
+  "itemForwardLotMixingRule" : "itemForwardLotMixingRule",
+  "artBack" : "artBack",
+  "lastAct" : "2000-01-23T04:56:07.000+00:00",
+  "itemBarcodeField" : "itemBarcodeField",
+  "capitalize" : "capitalize",
+  "itemReceiptLocationId" : 6,
+  "warehouseId" : 7,
+  "maxUnders" : 5,
+  "interimQuantity" : 1,
+  "receivedQuantity" : 8,
+  "receiptNo" : 3,
+  "requestedDeliveryDate" : "2000-01-23T04:56:07.000+00:00",
+  "itemStorageItemMixingRule" : "itemStorageItemMixingRule",
+  "asnId" : 5,
+  "dockDate" : "2000-01-23T04:56:07.000+00:00",
+  "asnLine" : 7,
+  "itemProductIdTagSchemeId" : 3,
+  "orderDate" : "2000-01-23T04:56:07.000+00:00",
+  "receiptStatus" : "receiptStatus",
+  "factCost" : 2.027123023002321833274663731572218239307403564453125,
+  "endQuantity" : 6,
+  "maxFreight" : 6.8468526983526398765889098285697400569915771484375,
+  "norcs" : "norcs",
+  "mlVendor" : 3,
   "customFields" : {
     "key" : "{}"
   },
-  "origin" : "aeiou",
-  "warehouseLocationId" : 123,
-  "endFact" : 1.3579000000000001069366817318950779736042022705078125,
-  "enteredBy" : "aeiou",
-  "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "locationStatus" : "aeiou",
-  "distDate" : "2000-01-23T04:56:07.000+0000",
-  "endVal" : 1.3579000000000001069366817318950779736042022705078125,
-  "wrapCode" : "aeiou",
-  "sfpComplete" : "aeiou",
-  "bsVendor" : 123,
-  "receivedBy" : "aeiou",
-  "unitsPerWrap" : 123,
-  "address" : "aeiou",
-  "cost" : 1.3579000000000001069366817318950779736042022705078125,
-  "interimVal" : 1.3579000000000001069366817318950779736042022705078125,
-  "sell" : 1.3579000000000001069366817318950779736042022705078125,
-  "length" : 1.3579000000000001069366817318950779736042022705078125,
-  "maxOvers" : 123,
-  "productIdTag" : "aeiou",
-  "impressions" : 123,
-  "sample" : 123,
-  "fromProd" : 123,
-  "paidFull" : "aeiou",
-  "prodLot" : "aeiou",
-  "width" : 1.3579000000000001069366817318950779736042022705078125,
-  "receivedSfp" : 123,
-  "accrual" : "aeiou",
-  "freightCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "itemReceiptId" : 123,
-  "maxOther" : 1.3579000000000001069366817318950779736042022705078125,
-  "freezeAction" : "aeiou"
+  "origin" : "origin",
+  "warehouseLocationId" : 3,
+  "endFact" : 6.96511769763884558415156789124011993408203125,
+  "enteredBy" : "enteredBy",
+  "caseWeight" : 7.05877035158235610623478351044468581676483154296875,
+  "locationStatus" : "locationStatus",
+  "distDate" : "2000-01-23T04:56:07.000+00:00",
+  "endVal" : 3.557195227068097320710649000830017030239105224609375,
+  "wrapCode" : "wrapCode",
+  "sfpComplete" : "sfpComplete",
+  "bsVendor" : 6,
+  "receivedBy" : "receivedBy",
+  "unitsPerWrap" : 1,
+  "address" : "address",
+  "cost" : 1.024645700144157789424070870154537260532379150390625,
+  "interimVal" : 2.884162126668780246063761296682059764862060546875,
+  "sell" : 1.489415909854170383397331534069962799549102783203125,
+  "length" : 4.6523964329332461176136348512955009937286376953125,
+  "maxOvers" : 4,
+  "productIdTag" : "productIdTag",
+  "impressions" : 8,
+  "sample" : 1,
+  "fromProd" : 9,
+  "paidFull" : "paidFull",
+  "prodLot" : "prodLot",
+  "width" : 0.10263654006109401706225980888120830059051513671875,
+  "receivedSfp" : 9,
+  "accrual" : "accrual",
+  "freightCost" : 6.683562403749608193948006373830139636993408203125,
+  "itemReceiptId" : 1,
+  "maxOther" : 7.4577447736837658709418974467553198337554931640625,
+  "freezeAction" : "freezeAction"
 }}]
      
      - parameter perpetualInventoryLogId: (path) Id of the perpetualInventoryLog to be duplicated. 
 
      - returns: RequestBuilder<PerpetualInventoryLog> 
      */
-    public class func getDuplicatePerpetualInventoryLogByIdWithRequestBuilder(perpetualInventoryLogId perpetualInventoryLogId: Int) -> RequestBuilder<PerpetualInventoryLog> {
+    public class func getDuplicatePerpetualInventoryLogByIdWithRequestBuilder(perpetualInventoryLogId perpetualInventoryLogId: Int32) -> RequestBuilder<PerpetualInventoryLog> {
         var path = "/beta/perpetualInventoryLog/duplicate/{perpetualInventoryLogId}"
         path = path.stringByReplacingOccurrencesOfString("{perpetualInventoryLogId}", withString: "\(perpetualInventoryLogId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<PerpetualInventoryLog>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search perpetualInventoryLogs by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -284,7 +283,7 @@ public class PerpetualInventoryLogAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getPerpetualInventoryLogByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [PerpetualInventoryLog]?, error: ErrorType?) -> Void)) {
+    public class func getPerpetualInventoryLogByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [PerpetualInventoryLog]?, error: ErrorType?) -> Void)) {
         getPerpetualInventoryLogByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -292,104 +291,192 @@ public class PerpetualInventoryLogAPI: APIBase {
 
 
     /**
-     
      Search perpetualInventoryLogs by filter
-     
      - GET /beta/perpetualInventoryLog/search
      - Returns the list of perpetualInventoryLogs that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "sampleTo" : "aeiou",
-  "budgetCode" : "aeiou",
-  "interimFact" : 1.3579000000000001069366817318950779736042022705078125,
-  "legacyPoNo" : "aeiou",
-  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-  "vendorId" : 123,
-  "itemAllocationRule" : "aeiou",
-  "oddQuantity" : 123,
-  "orderQuantity" : 123,
-  "voidDate" : "2000-01-23T04:56:07.000+0000",
-  "revDate" : "aeiou",
-  "unitsPerCase" : 123,
-  "itemStorageLotMixingRule" : "aeiou",
-  "lineNo" : 123,
-  "unitCode" : "aeiou",
-  "id" : 123,
-  "sku" : "aeiou",
-  "itemForwardItemMixingRule" : "aeiou",
-  "currentQuantity" : 123,
-  "pricingPer" : "aeiou",
-  "receivedDate" : "2000-01-23T04:56:07.000+0000",
-  "skuId" : 123,
-  "mlCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "lobId" : 123,
-  "height" : 1.3579000000000001069366817318950779736042022705078125,
-  "updatedAt" : "2000-01-23T04:56:07.000+0000",
-  "chargeFreight" : "aeiou",
-  "itemWarehouseDisplayField" : "aeiou",
-  "accountingCode" : "aeiou",
-  "taxExempt" : "aeiou",
-  "itemForwardLotMixingRule" : "aeiou",
-  "artBack" : "aeiou",
-  "lastAct" : "2000-01-23T04:56:07.000+0000",
-  "itemBarcodeField" : "aeiou",
-  "capitalize" : "aeiou",
-  "itemReceiptLocationId" : 123,
-  "warehouseId" : 123,
-  "maxUnders" : 123,
-  "interimQuantity" : 123,
-  "receivedQuantity" : 123,
-  "receiptNo" : 123,
-  "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
-  "itemStorageItemMixingRule" : "aeiou",
-  "asnId" : 123,
-  "dockDate" : "2000-01-23T04:56:07.000+0000",
-  "asnLine" : 123,
-  "itemProductIdTagSchemeId" : 123,
-  "orderDate" : "2000-01-23T04:56:07.000+0000",
-  "receiptStatus" : "aeiou",
-  "factCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "endQuantity" : 123,
-  "maxFreight" : 1.3579000000000001069366817318950779736042022705078125,
-  "norcs" : "aeiou",
-  "mlVendor" : 123,
+  "sampleTo" : "sampleTo",
+  "budgetCode" : "budgetCode",
+  "interimFact" : 6.77832496304801335185175048536621034145355224609375,
+  "legacyPoNo" : "legacyPoNo",
+  "weightPerWrap" : 6.87805222012787620400331434211693704128265380859375,
+  "vendorId" : 5,
+  "itemAllocationRule" : "itemAllocationRule",
+  "oddQuantity" : 9,
+  "orderQuantity" : 7,
+  "voidDate" : "2000-01-23T04:56:07.000+00:00",
+  "revDate" : "revDate",
+  "unitsPerCase" : 0,
+  "itemStorageLotMixingRule" : "itemStorageLotMixingRule",
+  "lineNo" : 7,
+  "unitCode" : "unitCode",
+  "id" : 0,
+  "sku" : "sku",
+  "itemForwardItemMixingRule" : "itemForwardItemMixingRule",
+  "currentQuantity" : 9,
+  "pricingPer" : "pricingPer",
+  "receivedDate" : "2000-01-23T04:56:07.000+00:00",
+  "skuId" : 5,
+  "mlCost" : 4.1456080298839363962315474054776132106781005859375,
+  "lobId" : 2,
+  "height" : 6.51918095101838179772357761976309120655059814453125,
+  "updatedAt" : "2000-01-23T04:56:07.000+00:00",
+  "chargeFreight" : "chargeFreight",
+  "itemWarehouseDisplayField" : "itemWarehouseDisplayField",
+  "accountingCode" : "accountingCode",
+  "taxExempt" : "taxExempt",
+  "itemForwardLotMixingRule" : "itemForwardLotMixingRule",
+  "artBack" : "artBack",
+  "lastAct" : "2000-01-23T04:56:07.000+00:00",
+  "itemBarcodeField" : "itemBarcodeField",
+  "capitalize" : "capitalize",
+  "itemReceiptLocationId" : 6,
+  "warehouseId" : 7,
+  "maxUnders" : 5,
+  "interimQuantity" : 1,
+  "receivedQuantity" : 8,
+  "receiptNo" : 3,
+  "requestedDeliveryDate" : "2000-01-23T04:56:07.000+00:00",
+  "itemStorageItemMixingRule" : "itemStorageItemMixingRule",
+  "asnId" : 5,
+  "dockDate" : "2000-01-23T04:56:07.000+00:00",
+  "asnLine" : 7,
+  "itemProductIdTagSchemeId" : 3,
+  "orderDate" : "2000-01-23T04:56:07.000+00:00",
+  "receiptStatus" : "receiptStatus",
+  "factCost" : 2.027123023002321833274663731572218239307403564453125,
+  "endQuantity" : 6,
+  "maxFreight" : 6.8468526983526398765889098285697400569915771484375,
+  "norcs" : "norcs",
+  "mlVendor" : 3,
   "customFields" : {
     "key" : "{}"
   },
-  "origin" : "aeiou",
-  "warehouseLocationId" : 123,
-  "endFact" : 1.3579000000000001069366817318950779736042022705078125,
-  "enteredBy" : "aeiou",
-  "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "locationStatus" : "aeiou",
-  "distDate" : "2000-01-23T04:56:07.000+0000",
-  "endVal" : 1.3579000000000001069366817318950779736042022705078125,
-  "wrapCode" : "aeiou",
-  "sfpComplete" : "aeiou",
-  "bsVendor" : 123,
-  "receivedBy" : "aeiou",
-  "unitsPerWrap" : 123,
-  "address" : "aeiou",
-  "cost" : 1.3579000000000001069366817318950779736042022705078125,
-  "interimVal" : 1.3579000000000001069366817318950779736042022705078125,
-  "sell" : 1.3579000000000001069366817318950779736042022705078125,
-  "length" : 1.3579000000000001069366817318950779736042022705078125,
-  "maxOvers" : 123,
-  "productIdTag" : "aeiou",
-  "impressions" : 123,
-  "sample" : 123,
-  "fromProd" : 123,
-  "paidFull" : "aeiou",
-  "prodLot" : "aeiou",
-  "width" : 1.3579000000000001069366817318950779736042022705078125,
-  "receivedSfp" : 123,
-  "accrual" : "aeiou",
-  "freightCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "itemReceiptId" : 123,
-  "maxOther" : 1.3579000000000001069366817318950779736042022705078125,
-  "freezeAction" : "aeiou"
+  "origin" : "origin",
+  "warehouseLocationId" : 3,
+  "endFact" : 6.96511769763884558415156789124011993408203125,
+  "enteredBy" : "enteredBy",
+  "caseWeight" : 7.05877035158235610623478351044468581676483154296875,
+  "locationStatus" : "locationStatus",
+  "distDate" : "2000-01-23T04:56:07.000+00:00",
+  "endVal" : 3.557195227068097320710649000830017030239105224609375,
+  "wrapCode" : "wrapCode",
+  "sfpComplete" : "sfpComplete",
+  "bsVendor" : 6,
+  "receivedBy" : "receivedBy",
+  "unitsPerWrap" : 1,
+  "address" : "address",
+  "cost" : 1.024645700144157789424070870154537260532379150390625,
+  "interimVal" : 2.884162126668780246063761296682059764862060546875,
+  "sell" : 1.489415909854170383397331534069962799549102783203125,
+  "length" : 4.6523964329332461176136348512955009937286376953125,
+  "maxOvers" : 4,
+  "productIdTag" : "productIdTag",
+  "impressions" : 8,
+  "sample" : 1,
+  "fromProd" : 9,
+  "paidFull" : "paidFull",
+  "prodLot" : "prodLot",
+  "width" : 0.10263654006109401706225980888120830059051513671875,
+  "receivedSfp" : 9,
+  "accrual" : "accrual",
+  "freightCost" : 6.683562403749608193948006373830139636993408203125,
+  "itemReceiptId" : 1,
+  "maxOther" : 7.4577447736837658709418974467553198337554931640625,
+  "freezeAction" : "freezeAction"
+}, {
+  "sampleTo" : "sampleTo",
+  "budgetCode" : "budgetCode",
+  "interimFact" : 6.77832496304801335185175048536621034145355224609375,
+  "legacyPoNo" : "legacyPoNo",
+  "weightPerWrap" : 6.87805222012787620400331434211693704128265380859375,
+  "vendorId" : 5,
+  "itemAllocationRule" : "itemAllocationRule",
+  "oddQuantity" : 9,
+  "orderQuantity" : 7,
+  "voidDate" : "2000-01-23T04:56:07.000+00:00",
+  "revDate" : "revDate",
+  "unitsPerCase" : 0,
+  "itemStorageLotMixingRule" : "itemStorageLotMixingRule",
+  "lineNo" : 7,
+  "unitCode" : "unitCode",
+  "id" : 0,
+  "sku" : "sku",
+  "itemForwardItemMixingRule" : "itemForwardItemMixingRule",
+  "currentQuantity" : 9,
+  "pricingPer" : "pricingPer",
+  "receivedDate" : "2000-01-23T04:56:07.000+00:00",
+  "skuId" : 5,
+  "mlCost" : 4.1456080298839363962315474054776132106781005859375,
+  "lobId" : 2,
+  "height" : 6.51918095101838179772357761976309120655059814453125,
+  "updatedAt" : "2000-01-23T04:56:07.000+00:00",
+  "chargeFreight" : "chargeFreight",
+  "itemWarehouseDisplayField" : "itemWarehouseDisplayField",
+  "accountingCode" : "accountingCode",
+  "taxExempt" : "taxExempt",
+  "itemForwardLotMixingRule" : "itemForwardLotMixingRule",
+  "artBack" : "artBack",
+  "lastAct" : "2000-01-23T04:56:07.000+00:00",
+  "itemBarcodeField" : "itemBarcodeField",
+  "capitalize" : "capitalize",
+  "itemReceiptLocationId" : 6,
+  "warehouseId" : 7,
+  "maxUnders" : 5,
+  "interimQuantity" : 1,
+  "receivedQuantity" : 8,
+  "receiptNo" : 3,
+  "requestedDeliveryDate" : "2000-01-23T04:56:07.000+00:00",
+  "itemStorageItemMixingRule" : "itemStorageItemMixingRule",
+  "asnId" : 5,
+  "dockDate" : "2000-01-23T04:56:07.000+00:00",
+  "asnLine" : 7,
+  "itemProductIdTagSchemeId" : 3,
+  "orderDate" : "2000-01-23T04:56:07.000+00:00",
+  "receiptStatus" : "receiptStatus",
+  "factCost" : 2.027123023002321833274663731572218239307403564453125,
+  "endQuantity" : 6,
+  "maxFreight" : 6.8468526983526398765889098285697400569915771484375,
+  "norcs" : "norcs",
+  "mlVendor" : 3,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "origin" : "origin",
+  "warehouseLocationId" : 3,
+  "endFact" : 6.96511769763884558415156789124011993408203125,
+  "enteredBy" : "enteredBy",
+  "caseWeight" : 7.05877035158235610623478351044468581676483154296875,
+  "locationStatus" : "locationStatus",
+  "distDate" : "2000-01-23T04:56:07.000+00:00",
+  "endVal" : 3.557195227068097320710649000830017030239105224609375,
+  "wrapCode" : "wrapCode",
+  "sfpComplete" : "sfpComplete",
+  "bsVendor" : 6,
+  "receivedBy" : "receivedBy",
+  "unitsPerWrap" : 1,
+  "address" : "address",
+  "cost" : 1.024645700144157789424070870154537260532379150390625,
+  "interimVal" : 2.884162126668780246063761296682059764862060546875,
+  "sell" : 1.489415909854170383397331534069962799549102783203125,
+  "length" : 4.6523964329332461176136348512955009937286376953125,
+  "maxOvers" : 4,
+  "productIdTag" : "productIdTag",
+  "impressions" : 8,
+  "sample" : 1,
+  "fromProd" : 9,
+  "paidFull" : "paidFull",
+  "prodLot" : "prodLot",
+  "width" : 0.10263654006109401706225980888120830059051513671875,
+  "receivedSfp" : 9,
+  "accrual" : "accrual",
+  "freightCost" : 6.683562403749608193948006373830139636993408203125,
+  "itemReceiptId" : 1,
+  "maxOther" : 7.4577447736837658709418974467553198337554931640625,
+  "freezeAction" : "freezeAction"
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -399,31 +486,33 @@ public class PerpetualInventoryLogAPI: APIBase {
 
      - returns: RequestBuilder<[PerpetualInventoryLog]> 
      */
-    public class func getPerpetualInventoryLogByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[PerpetualInventoryLog]> {
+    public class func getPerpetualInventoryLogByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[PerpetualInventoryLog]> {
         let path = "/beta/perpetualInventoryLog/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[PerpetualInventoryLog]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get a perpetualInventoryLog by id
      
      - parameter perpetualInventoryLogId: (path) Id of the perpetualInventoryLog to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getPerpetualInventoryLogById(perpetualInventoryLogId perpetualInventoryLogId: Int, completion: ((data: PerpetualInventoryLog?, error: ErrorType?) -> Void)) {
+    public class func getPerpetualInventoryLogById(perpetualInventoryLogId perpetualInventoryLogId: Int32, completion: ((data: PerpetualInventoryLog?, error: ErrorType?) -> Void)) {
         getPerpetualInventoryLogByIdWithRequestBuilder(perpetualInventoryLogId: perpetualInventoryLogId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -431,131 +520,131 @@ public class PerpetualInventoryLogAPI: APIBase {
 
 
     /**
-     
      Get a perpetualInventoryLog by id
-     
      - GET /beta/perpetualInventoryLog/{perpetualInventoryLogId}
      - Returns the perpetualInventoryLog identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "sampleTo" : "aeiou",
-  "budgetCode" : "aeiou",
-  "interimFact" : 1.3579000000000001069366817318950779736042022705078125,
-  "legacyPoNo" : "aeiou",
-  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-  "vendorId" : 123,
-  "itemAllocationRule" : "aeiou",
-  "oddQuantity" : 123,
-  "orderQuantity" : 123,
-  "voidDate" : "2000-01-23T04:56:07.000+0000",
-  "revDate" : "aeiou",
-  "unitsPerCase" : 123,
-  "itemStorageLotMixingRule" : "aeiou",
-  "lineNo" : 123,
-  "unitCode" : "aeiou",
-  "id" : 123,
-  "sku" : "aeiou",
-  "itemForwardItemMixingRule" : "aeiou",
-  "currentQuantity" : 123,
-  "pricingPer" : "aeiou",
-  "receivedDate" : "2000-01-23T04:56:07.000+0000",
-  "skuId" : 123,
-  "mlCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "lobId" : 123,
-  "height" : 1.3579000000000001069366817318950779736042022705078125,
-  "updatedAt" : "2000-01-23T04:56:07.000+0000",
-  "chargeFreight" : "aeiou",
-  "itemWarehouseDisplayField" : "aeiou",
-  "accountingCode" : "aeiou",
-  "taxExempt" : "aeiou",
-  "itemForwardLotMixingRule" : "aeiou",
-  "artBack" : "aeiou",
-  "lastAct" : "2000-01-23T04:56:07.000+0000",
-  "itemBarcodeField" : "aeiou",
-  "capitalize" : "aeiou",
-  "itemReceiptLocationId" : 123,
-  "warehouseId" : 123,
-  "maxUnders" : 123,
-  "interimQuantity" : 123,
-  "receivedQuantity" : 123,
-  "receiptNo" : 123,
-  "requestedDeliveryDate" : "2000-01-23T04:56:07.000+0000",
-  "itemStorageItemMixingRule" : "aeiou",
-  "asnId" : 123,
-  "dockDate" : "2000-01-23T04:56:07.000+0000",
-  "asnLine" : 123,
-  "itemProductIdTagSchemeId" : 123,
-  "orderDate" : "2000-01-23T04:56:07.000+0000",
-  "receiptStatus" : "aeiou",
-  "factCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "endQuantity" : 123,
-  "maxFreight" : 1.3579000000000001069366817318950779736042022705078125,
-  "norcs" : "aeiou",
-  "mlVendor" : 123,
+  "sampleTo" : "sampleTo",
+  "budgetCode" : "budgetCode",
+  "interimFact" : 6.77832496304801335185175048536621034145355224609375,
+  "legacyPoNo" : "legacyPoNo",
+  "weightPerWrap" : 6.87805222012787620400331434211693704128265380859375,
+  "vendorId" : 5,
+  "itemAllocationRule" : "itemAllocationRule",
+  "oddQuantity" : 9,
+  "orderQuantity" : 7,
+  "voidDate" : "2000-01-23T04:56:07.000+00:00",
+  "revDate" : "revDate",
+  "unitsPerCase" : 0,
+  "itemStorageLotMixingRule" : "itemStorageLotMixingRule",
+  "lineNo" : 7,
+  "unitCode" : "unitCode",
+  "id" : 0,
+  "sku" : "sku",
+  "itemForwardItemMixingRule" : "itemForwardItemMixingRule",
+  "currentQuantity" : 9,
+  "pricingPer" : "pricingPer",
+  "receivedDate" : "2000-01-23T04:56:07.000+00:00",
+  "skuId" : 5,
+  "mlCost" : 4.1456080298839363962315474054776132106781005859375,
+  "lobId" : 2,
+  "height" : 6.51918095101838179772357761976309120655059814453125,
+  "updatedAt" : "2000-01-23T04:56:07.000+00:00",
+  "chargeFreight" : "chargeFreight",
+  "itemWarehouseDisplayField" : "itemWarehouseDisplayField",
+  "accountingCode" : "accountingCode",
+  "taxExempt" : "taxExempt",
+  "itemForwardLotMixingRule" : "itemForwardLotMixingRule",
+  "artBack" : "artBack",
+  "lastAct" : "2000-01-23T04:56:07.000+00:00",
+  "itemBarcodeField" : "itemBarcodeField",
+  "capitalize" : "capitalize",
+  "itemReceiptLocationId" : 6,
+  "warehouseId" : 7,
+  "maxUnders" : 5,
+  "interimQuantity" : 1,
+  "receivedQuantity" : 8,
+  "receiptNo" : 3,
+  "requestedDeliveryDate" : "2000-01-23T04:56:07.000+00:00",
+  "itemStorageItemMixingRule" : "itemStorageItemMixingRule",
+  "asnId" : 5,
+  "dockDate" : "2000-01-23T04:56:07.000+00:00",
+  "asnLine" : 7,
+  "itemProductIdTagSchemeId" : 3,
+  "orderDate" : "2000-01-23T04:56:07.000+00:00",
+  "receiptStatus" : "receiptStatus",
+  "factCost" : 2.027123023002321833274663731572218239307403564453125,
+  "endQuantity" : 6,
+  "maxFreight" : 6.8468526983526398765889098285697400569915771484375,
+  "norcs" : "norcs",
+  "mlVendor" : 3,
   "customFields" : {
     "key" : "{}"
   },
-  "origin" : "aeiou",
-  "warehouseLocationId" : 123,
-  "endFact" : 1.3579000000000001069366817318950779736042022705078125,
-  "enteredBy" : "aeiou",
-  "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "locationStatus" : "aeiou",
-  "distDate" : "2000-01-23T04:56:07.000+0000",
-  "endVal" : 1.3579000000000001069366817318950779736042022705078125,
-  "wrapCode" : "aeiou",
-  "sfpComplete" : "aeiou",
-  "bsVendor" : 123,
-  "receivedBy" : "aeiou",
-  "unitsPerWrap" : 123,
-  "address" : "aeiou",
-  "cost" : 1.3579000000000001069366817318950779736042022705078125,
-  "interimVal" : 1.3579000000000001069366817318950779736042022705078125,
-  "sell" : 1.3579000000000001069366817318950779736042022705078125,
-  "length" : 1.3579000000000001069366817318950779736042022705078125,
-  "maxOvers" : 123,
-  "productIdTag" : "aeiou",
-  "impressions" : 123,
-  "sample" : 123,
-  "fromProd" : 123,
-  "paidFull" : "aeiou",
-  "prodLot" : "aeiou",
-  "width" : 1.3579000000000001069366817318950779736042022705078125,
-  "receivedSfp" : 123,
-  "accrual" : "aeiou",
-  "freightCost" : 1.3579000000000001069366817318950779736042022705078125,
-  "itemReceiptId" : 123,
-  "maxOther" : 1.3579000000000001069366817318950779736042022705078125,
-  "freezeAction" : "aeiou"
+  "origin" : "origin",
+  "warehouseLocationId" : 3,
+  "endFact" : 6.96511769763884558415156789124011993408203125,
+  "enteredBy" : "enteredBy",
+  "caseWeight" : 7.05877035158235610623478351044468581676483154296875,
+  "locationStatus" : "locationStatus",
+  "distDate" : "2000-01-23T04:56:07.000+00:00",
+  "endVal" : 3.557195227068097320710649000830017030239105224609375,
+  "wrapCode" : "wrapCode",
+  "sfpComplete" : "sfpComplete",
+  "bsVendor" : 6,
+  "receivedBy" : "receivedBy",
+  "unitsPerWrap" : 1,
+  "address" : "address",
+  "cost" : 1.024645700144157789424070870154537260532379150390625,
+  "interimVal" : 2.884162126668780246063761296682059764862060546875,
+  "sell" : 1.489415909854170383397331534069962799549102783203125,
+  "length" : 4.6523964329332461176136348512955009937286376953125,
+  "maxOvers" : 4,
+  "productIdTag" : "productIdTag",
+  "impressions" : 8,
+  "sample" : 1,
+  "fromProd" : 9,
+  "paidFull" : "paidFull",
+  "prodLot" : "prodLot",
+  "width" : 0.10263654006109401706225980888120830059051513671875,
+  "receivedSfp" : 9,
+  "accrual" : "accrual",
+  "freightCost" : 6.683562403749608193948006373830139636993408203125,
+  "itemReceiptId" : 1,
+  "maxOther" : 7.4577447736837658709418974467553198337554931640625,
+  "freezeAction" : "freezeAction"
 }}]
      
      - parameter perpetualInventoryLogId: (path) Id of the perpetualInventoryLog to be returned. 
 
      - returns: RequestBuilder<PerpetualInventoryLog> 
      */
-    public class func getPerpetualInventoryLogByIdWithRequestBuilder(perpetualInventoryLogId perpetualInventoryLogId: Int) -> RequestBuilder<PerpetualInventoryLog> {
+    public class func getPerpetualInventoryLogByIdWithRequestBuilder(perpetualInventoryLogId perpetualInventoryLogId: Int32) -> RequestBuilder<PerpetualInventoryLog> {
         var path = "/beta/perpetualInventoryLog/{perpetualInventoryLogId}"
         path = path.stringByReplacingOccurrencesOfString("{perpetualInventoryLogId}", withString: "\(perpetualInventoryLogId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<PerpetualInventoryLog>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for a perpetualInventoryLog.
      
      - parameter perpetualInventoryLogId: (path) Id of the perpetualInventoryLog to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getPerpetualInventoryLogTags(perpetualInventoryLogId perpetualInventoryLogId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getPerpetualInventoryLogTags(perpetualInventoryLogId perpetualInventoryLogId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getPerpetualInventoryLogTagsWithRequestBuilder(perpetualInventoryLogId: perpetualInventoryLogId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -563,9 +652,7 @@ public class PerpetualInventoryLogAPI: APIBase {
 
 
     /**
-     
      Get the tags for a perpetualInventoryLog.
-     
      - GET /beta/perpetualInventoryLog/{perpetualInventoryLogId}/tag
      - Get all existing perpetualInventoryLog tags.
      - API Key:
@@ -576,17 +663,20 @@ public class PerpetualInventoryLogAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getPerpetualInventoryLogTagsWithRequestBuilder(perpetualInventoryLogId perpetualInventoryLogId: Int) -> RequestBuilder<Void> {
+    public class func getPerpetualInventoryLogTagsWithRequestBuilder(perpetualInventoryLogId perpetualInventoryLogId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/perpetualInventoryLog/{perpetualInventoryLogId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{perpetualInventoryLogId}", withString: "\(perpetualInventoryLogId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

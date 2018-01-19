@@ -9,11 +9,10 @@ import Foundation
 
 
 public class BillOfLading: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
-    public var lobId: Int?
+    public var lobId: Int32?
     public var orderNo: Double?
     public var bolNo: String?
     public var bolDate: NSDate?
@@ -58,7 +57,7 @@ public class BillOfLading: JSONEncodable {
     public var collect: Bool?
     public var thirdParty: Bool?
     public var isThisAMasterBOL: Bool?
-    public var masterBOLId: Int?
+    public var masterBOLId: Int32?
     public var isFreightCountedByShipper: Bool?
     public var byDriverPallets: Bool?
     public var byDriverPieces: Bool?
@@ -66,17 +65,16 @@ public class BillOfLading: JSONEncodable {
     public var orderInfoLines: [BillOfLadingOrderInfoLine]?
     public var carrierInfoLines: [BillOfLadingCarrierInfoLine]?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
-        nillableDictionary["lobId"] = self.lobId
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
         nillableDictionary["orderNo"] = self.orderNo
         nillableDictionary["bolNo"] = self.bolNo
         nillableDictionary["bolDate"] = self.bolDate?.encodeToJSON()
@@ -121,7 +119,7 @@ public class BillOfLading: JSONEncodable {
         nillableDictionary["collect"] = self.collect
         nillableDictionary["thirdParty"] = self.thirdParty
         nillableDictionary["isThisAMasterBOL"] = self.isThisAMasterBOL
-        nillableDictionary["masterBOLId"] = self.masterBOLId
+        nillableDictionary["masterBOLId"] = self.masterBOLId?.encodeToJSON()
         nillableDictionary["isFreightCountedByShipper"] = self.isFreightCountedByShipper
         nillableDictionary["byDriverPallets"] = self.byDriverPallets
         nillableDictionary["byDriverPieces"] = self.byDriverPieces

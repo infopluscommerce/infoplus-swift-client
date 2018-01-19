@@ -9,9 +9,8 @@ import Foundation
 
 
 public class Alert: JSONEncodable {
-
-    public var id: Int?
-    public var _type: String?
+    public var id: Int32?
+    public var type: String?
     public var level: String?
     public var message: String?
     public var link: String?
@@ -21,15 +20,14 @@ public class Alert: JSONEncodable {
     public var expirationDate: NSDate?
     public var acknowledgeDate: NSDate?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
-        nillableDictionary["type"] = self._type
+        nillableDictionary["id"] = self.id?.encodeToJSON()
+        nillableDictionary["type"] = self.type
         nillableDictionary["level"] = self.level
         nillableDictionary["message"] = self.message
         nillableDictionary["link"] = self.link

@@ -11,7 +11,6 @@ import Alamofire
 
 public class JobTimeActivityAPI: APIBase {
     /**
-     
      Create a jobTimeActivity
      
      - parameter body: (body) JobTimeActivity to be inserted. 
@@ -25,30 +24,28 @@ public class JobTimeActivityAPI: APIBase {
 
 
     /**
-     
      Create a jobTimeActivity
-     
      - POST /beta/jobTimeActivity
      - Inserts a new jobTimeActivity using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "date" : "2000-01-23T04:56:07.000+0000",
-  "note" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "jobTypeName" : "aeiou",
+  "date" : "2000-01-23T04:56:07.000+00:00",
+  "note" : "note",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "jobTypeName" : "jobTypeName",
   "customFields" : {
     "key" : "{}"
   },
-  "importedId" : 123,
-  "userId" : 123,
-  "secondDuration" : 123,
-  "id" : 123,
-  "jobTypeId" : 123,
-  "email" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
+  "importedId" : 6,
+  "userId" : 5,
+  "secondDuration" : 1,
+  "id" : 0,
+  "jobTypeId" : 2,
+  "email" : "email",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 5
 }}]
      
      - parameter body: (body) JobTimeActivity to be inserted. 
@@ -58,23 +55,23 @@ public class JobTimeActivityAPI: APIBase {
     public class func addJobTimeActivityWithRequestBuilder(body body: JobTimeActivity) -> RequestBuilder<JobTimeActivity> {
         let path = "/beta/jobTimeActivity"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<JobTimeActivity>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new audit for a jobTimeActivity
      
      - parameter jobTimeActivityId: (path) Id of the jobTimeActivity to add an audit to 
      - parameter jobTimeActivityAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addJobTimeActivityAudit(jobTimeActivityId jobTimeActivityId: Int, jobTimeActivityAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addJobTimeActivityAudit(jobTimeActivityId jobTimeActivityId: Int32, jobTimeActivityAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addJobTimeActivityAuditWithRequestBuilder(jobTimeActivityId: jobTimeActivityId, jobTimeActivityAudit: jobTimeActivityAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -82,9 +79,7 @@ public class JobTimeActivityAPI: APIBase {
 
 
     /**
-     
      Add new audit for a jobTimeActivity
-     
      - PUT /beta/jobTimeActivity/{jobTimeActivityId}/audit/{jobTimeActivityAudit}
      - Adds an audit to an existing jobTimeActivity.
      - API Key:
@@ -96,29 +91,31 @@ public class JobTimeActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addJobTimeActivityAuditWithRequestBuilder(jobTimeActivityId jobTimeActivityId: Int, jobTimeActivityAudit: String) -> RequestBuilder<Void> {
+    public class func addJobTimeActivityAuditWithRequestBuilder(jobTimeActivityId jobTimeActivityId: Int32, jobTimeActivityAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/jobTimeActivity/{jobTimeActivityId}/audit/{jobTimeActivityAudit}"
         path = path.stringByReplacingOccurrencesOfString("{jobTimeActivityId}", withString: "\(jobTimeActivityId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{jobTimeActivityAudit}", withString: "\(jobTimeActivityAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for a jobTimeActivity.
      
      - parameter jobTimeActivityId: (path) Id of the jobTimeActivity to add a tag to 
      - parameter jobTimeActivityTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addJobTimeActivityTag(jobTimeActivityId jobTimeActivityId: Int, jobTimeActivityTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addJobTimeActivityTag(jobTimeActivityId jobTimeActivityId: Int32, jobTimeActivityTag: String, completion: ((error: ErrorType?) -> Void)) {
         addJobTimeActivityTagWithRequestBuilder(jobTimeActivityId: jobTimeActivityId, jobTimeActivityTag: jobTimeActivityTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -126,9 +123,7 @@ public class JobTimeActivityAPI: APIBase {
 
 
     /**
-     
      Add new tags for a jobTimeActivity.
-     
      - PUT /beta/jobTimeActivity/{jobTimeActivityId}/tag/{jobTimeActivityTag}
      - Adds a tag to an existing jobTimeActivity.
      - API Key:
@@ -140,28 +135,30 @@ public class JobTimeActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addJobTimeActivityTagWithRequestBuilder(jobTimeActivityId jobTimeActivityId: Int, jobTimeActivityTag: String) -> RequestBuilder<Void> {
+    public class func addJobTimeActivityTagWithRequestBuilder(jobTimeActivityId jobTimeActivityId: Int32, jobTimeActivityTag: String) -> RequestBuilder<Void> {
         var path = "/beta/jobTimeActivity/{jobTimeActivityId}/tag/{jobTimeActivityTag}"
         path = path.stringByReplacingOccurrencesOfString("{jobTimeActivityId}", withString: "\(jobTimeActivityId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{jobTimeActivityTag}", withString: "\(jobTimeActivityTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a jobTimeActivity
      
      - parameter jobTimeActivityId: (path) Id of the jobTimeActivity to be deleted. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteJobTimeActivity(jobTimeActivityId jobTimeActivityId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteJobTimeActivity(jobTimeActivityId jobTimeActivityId: Int32, completion: ((error: ErrorType?) -> Void)) {
         deleteJobTimeActivityWithRequestBuilder(jobTimeActivityId: jobTimeActivityId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -169,9 +166,7 @@ public class JobTimeActivityAPI: APIBase {
 
 
     /**
-     
      Delete a jobTimeActivity
-     
      - DELETE /beta/jobTimeActivity/{jobTimeActivityId}
      - Deletes the jobTimeActivity identified by the specified id.
      - API Key:
@@ -182,28 +177,30 @@ public class JobTimeActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteJobTimeActivityWithRequestBuilder(jobTimeActivityId jobTimeActivityId: Int) -> RequestBuilder<Void> {
+    public class func deleteJobTimeActivityWithRequestBuilder(jobTimeActivityId jobTimeActivityId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/jobTimeActivity/{jobTimeActivityId}"
         path = path.stringByReplacingOccurrencesOfString("{jobTimeActivityId}", withString: "\(jobTimeActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for a jobTimeActivity.
      
      - parameter jobTimeActivityId: (path) Id of the jobTimeActivity to remove tag from 
      - parameter jobTimeActivityTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteJobTimeActivityTag(jobTimeActivityId jobTimeActivityId: Int, jobTimeActivityTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteJobTimeActivityTag(jobTimeActivityId jobTimeActivityId: Int32, jobTimeActivityTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteJobTimeActivityTagWithRequestBuilder(jobTimeActivityId: jobTimeActivityId, jobTimeActivityTag: jobTimeActivityTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -211,9 +208,7 @@ public class JobTimeActivityAPI: APIBase {
 
 
     /**
-     
      Delete a tag for a jobTimeActivity.
-     
      - DELETE /beta/jobTimeActivity/{jobTimeActivityId}/tag/{jobTimeActivityTag}
      - Deletes an existing jobTimeActivity tag using the specified data.
      - API Key:
@@ -225,28 +220,30 @@ public class JobTimeActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteJobTimeActivityTagWithRequestBuilder(jobTimeActivityId jobTimeActivityId: Int, jobTimeActivityTag: String) -> RequestBuilder<Void> {
+    public class func deleteJobTimeActivityTagWithRequestBuilder(jobTimeActivityId jobTimeActivityId: Int32, jobTimeActivityTag: String) -> RequestBuilder<Void> {
         var path = "/beta/jobTimeActivity/{jobTimeActivityId}/tag/{jobTimeActivityTag}"
         path = path.stringByReplacingOccurrencesOfString("{jobTimeActivityId}", withString: "\(jobTimeActivityId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{jobTimeActivityTag}", withString: "\(jobTimeActivityTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated a jobTimeActivity by id
      
      - parameter jobTimeActivityId: (path) Id of the jobTimeActivity to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateJobTimeActivityById(jobTimeActivityId jobTimeActivityId: Int, completion: ((data: JobTimeActivity?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateJobTimeActivityById(jobTimeActivityId jobTimeActivityId: Int32, completion: ((data: JobTimeActivity?, error: ErrorType?) -> Void)) {
         getDuplicateJobTimeActivityByIdWithRequestBuilder(jobTimeActivityId: jobTimeActivityId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -254,51 +251,51 @@ public class JobTimeActivityAPI: APIBase {
 
 
     /**
-     
      Get a duplicated a jobTimeActivity by id
-     
      - GET /beta/jobTimeActivity/duplicate/{jobTimeActivityId}
      - Returns a duplicated jobTimeActivity identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "date" : "2000-01-23T04:56:07.000+0000",
-  "note" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "jobTypeName" : "aeiou",
+  "date" : "2000-01-23T04:56:07.000+00:00",
+  "note" : "note",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "jobTypeName" : "jobTypeName",
   "customFields" : {
     "key" : "{}"
   },
-  "importedId" : 123,
-  "userId" : 123,
-  "secondDuration" : 123,
-  "id" : 123,
-  "jobTypeId" : 123,
-  "email" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
+  "importedId" : 6,
+  "userId" : 5,
+  "secondDuration" : 1,
+  "id" : 0,
+  "jobTypeId" : 2,
+  "email" : "email",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 5
 }}]
      
      - parameter jobTimeActivityId: (path) Id of the jobTimeActivity to be duplicated. 
 
      - returns: RequestBuilder<JobTimeActivity> 
      */
-    public class func getDuplicateJobTimeActivityByIdWithRequestBuilder(jobTimeActivityId jobTimeActivityId: Int) -> RequestBuilder<JobTimeActivity> {
+    public class func getDuplicateJobTimeActivityByIdWithRequestBuilder(jobTimeActivityId jobTimeActivityId: Int32) -> RequestBuilder<JobTimeActivity> {
         var path = "/beta/jobTimeActivity/duplicate/{jobTimeActivityId}"
         path = path.stringByReplacingOccurrencesOfString("{jobTimeActivityId}", withString: "\(jobTimeActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<JobTimeActivity>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search jobTimeActivitys by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -307,7 +304,7 @@ public class JobTimeActivityAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getJobTimeActivityByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [JobTimeActivity]?, error: ErrorType?) -> Void)) {
+    public class func getJobTimeActivityByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [JobTimeActivity]?, error: ErrorType?) -> Void)) {
         getJobTimeActivityByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -315,30 +312,44 @@ public class JobTimeActivityAPI: APIBase {
 
 
     /**
-     
      Search jobTimeActivitys by filter
-     
      - GET /beta/jobTimeActivity/search
      - Returns the list of jobTimeActivitys that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "date" : "2000-01-23T04:56:07.000+0000",
-  "note" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "jobTypeName" : "aeiou",
+  "date" : "2000-01-23T04:56:07.000+00:00",
+  "note" : "note",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "jobTypeName" : "jobTypeName",
   "customFields" : {
     "key" : "{}"
   },
-  "importedId" : 123,
-  "userId" : 123,
-  "secondDuration" : 123,
-  "id" : 123,
-  "jobTypeId" : 123,
-  "email" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
+  "importedId" : 6,
+  "userId" : 5,
+  "secondDuration" : 1,
+  "id" : 0,
+  "jobTypeId" : 2,
+  "email" : "email",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 5
+}, {
+  "date" : "2000-01-23T04:56:07.000+00:00",
+  "note" : "note",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "jobTypeName" : "jobTypeName",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "importedId" : 6,
+  "userId" : 5,
+  "secondDuration" : 1,
+  "id" : 0,
+  "jobTypeId" : 2,
+  "email" : "email",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 5
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -348,31 +359,33 @@ public class JobTimeActivityAPI: APIBase {
 
      - returns: RequestBuilder<[JobTimeActivity]> 
      */
-    public class func getJobTimeActivityByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[JobTimeActivity]> {
+    public class func getJobTimeActivityByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[JobTimeActivity]> {
         let path = "/beta/jobTimeActivity/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[JobTimeActivity]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get a jobTimeActivity by id
      
      - parameter jobTimeActivityId: (path) Id of the jobTimeActivity to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getJobTimeActivityById(jobTimeActivityId jobTimeActivityId: Int, completion: ((data: JobTimeActivity?, error: ErrorType?) -> Void)) {
+    public class func getJobTimeActivityById(jobTimeActivityId jobTimeActivityId: Int32, completion: ((data: JobTimeActivity?, error: ErrorType?) -> Void)) {
         getJobTimeActivityByIdWithRequestBuilder(jobTimeActivityId: jobTimeActivityId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -380,57 +393,57 @@ public class JobTimeActivityAPI: APIBase {
 
 
     /**
-     
      Get a jobTimeActivity by id
-     
      - GET /beta/jobTimeActivity/{jobTimeActivityId}
      - Returns the jobTimeActivity identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "date" : "2000-01-23T04:56:07.000+0000",
-  "note" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "jobTypeName" : "aeiou",
+  "date" : "2000-01-23T04:56:07.000+00:00",
+  "note" : "note",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "jobTypeName" : "jobTypeName",
   "customFields" : {
     "key" : "{}"
   },
-  "importedId" : 123,
-  "userId" : 123,
-  "secondDuration" : 123,
-  "id" : 123,
-  "jobTypeId" : 123,
-  "email" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
+  "importedId" : 6,
+  "userId" : 5,
+  "secondDuration" : 1,
+  "id" : 0,
+  "jobTypeId" : 2,
+  "email" : "email",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 5
 }}]
      
      - parameter jobTimeActivityId: (path) Id of the jobTimeActivity to be returned. 
 
      - returns: RequestBuilder<JobTimeActivity> 
      */
-    public class func getJobTimeActivityByIdWithRequestBuilder(jobTimeActivityId jobTimeActivityId: Int) -> RequestBuilder<JobTimeActivity> {
+    public class func getJobTimeActivityByIdWithRequestBuilder(jobTimeActivityId jobTimeActivityId: Int32) -> RequestBuilder<JobTimeActivity> {
         var path = "/beta/jobTimeActivity/{jobTimeActivityId}"
         path = path.stringByReplacingOccurrencesOfString("{jobTimeActivityId}", withString: "\(jobTimeActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<JobTimeActivity>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for a jobTimeActivity.
      
      - parameter jobTimeActivityId: (path) Id of the jobTimeActivity to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getJobTimeActivityTags(jobTimeActivityId jobTimeActivityId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getJobTimeActivityTags(jobTimeActivityId jobTimeActivityId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getJobTimeActivityTagsWithRequestBuilder(jobTimeActivityId: jobTimeActivityId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -438,9 +451,7 @@ public class JobTimeActivityAPI: APIBase {
 
 
     /**
-     
      Get the tags for a jobTimeActivity.
-     
      - GET /beta/jobTimeActivity/{jobTimeActivityId}/tag
      - Get all existing jobTimeActivity tags.
      - API Key:
@@ -451,21 +462,23 @@ public class JobTimeActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getJobTimeActivityTagsWithRequestBuilder(jobTimeActivityId jobTimeActivityId: Int) -> RequestBuilder<Void> {
+    public class func getJobTimeActivityTagsWithRequestBuilder(jobTimeActivityId jobTimeActivityId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/jobTimeActivity/{jobTimeActivityId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{jobTimeActivityId}", withString: "\(jobTimeActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a jobTimeActivity
      
      - parameter body: (body) JobTimeActivity to be updated. 
@@ -479,9 +492,7 @@ public class JobTimeActivityAPI: APIBase {
 
 
     /**
-     
      Update a jobTimeActivity
-     
      - PUT /beta/jobTimeActivity
      - Updates an existing jobTimeActivity using the specified data.
      - API Key:
@@ -495,12 +506,13 @@ public class JobTimeActivityAPI: APIBase {
     public class func updateJobTimeActivityWithRequestBuilder(body body: JobTimeActivity) -> RequestBuilder<Void> {
         let path = "/beta/jobTimeActivity"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

@@ -9,9 +9,8 @@ import Foundation
 
 
 public class Warehouse: JSONEncodable {
-
-    public var id: Int?
-    public var client: Int?
+    public var id: Int32?
+    public var client: Int32?
     public var name: String?
     public var address: String?
     public var company: String?
@@ -28,15 +27,14 @@ public class Warehouse: JSONEncodable {
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
-        nillableDictionary["client"] = self.client
+        nillableDictionary["id"] = self.id?.encodeToJSON()
+        nillableDictionary["client"] = self.client?.encodeToJSON()
         nillableDictionary["name"] = self.name
         nillableDictionary["address"] = self.address
         nillableDictionary["company"] = self.company

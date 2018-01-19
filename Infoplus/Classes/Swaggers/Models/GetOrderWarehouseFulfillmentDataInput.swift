@@ -9,9 +9,7 @@ import Foundation
 
 
 public class GetOrderWarehouseFulfillmentDataInput: JSONEncodable {
-
     public var orderNo: String?
-    
 
     public init() {}
 

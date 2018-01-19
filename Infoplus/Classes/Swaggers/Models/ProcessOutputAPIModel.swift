@@ -9,11 +9,9 @@ import Foundation
 
 
 public class ProcessOutputAPIModel: JSONEncodable {
-
     public var id: AnyObject?
     public var status: String?
     public var messageList: [String]?
-    
 
     public init() {}
 

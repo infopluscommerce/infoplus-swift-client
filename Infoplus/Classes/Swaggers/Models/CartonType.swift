@@ -9,8 +9,7 @@ import Foundation
 
 
 public class CartonType: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var abbreviation: String?
     public var name: String?
     public var lengthIn: Double?
@@ -20,18 +19,17 @@ public class CartonType: JSONEncodable {
     public var innerWidthIn: Double?
     public var innerHeightIn: Double?
     public var weightLbs: Double?
-    public var lobId: Int?
+    public var lobId: Int32?
     public var isActive: Bool?
-    public var predefinedPackageTypeId: Int?
+    public var predefinedPackageTypeId: Int32?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["abbreviation"] = self.abbreviation
         nillableDictionary["name"] = self.name
         nillableDictionary["lengthIn"] = self.lengthIn
@@ -41,9 +39,9 @@ public class CartonType: JSONEncodable {
         nillableDictionary["innerWidthIn"] = self.innerWidthIn
         nillableDictionary["innerHeightIn"] = self.innerHeightIn
         nillableDictionary["weightLbs"] = self.weightLbs
-        nillableDictionary["lobId"] = self.lobId
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
         nillableDictionary["isActive"] = self.isActive
-        nillableDictionary["predefinedPackageTypeId"] = self.predefinedPackageTypeId
+        nillableDictionary["predefinedPackageTypeId"] = self.predefinedPackageTypeId?.encodeToJSON()
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

@@ -11,14 +11,13 @@ import Alamofire
 
 public class LoggedTimeAPI: APIBase {
     /**
-     
      Add new audit for a loggedTime
      
      - parameter loggedTimeId: (path) Id of the loggedTime to add an audit to 
      - parameter loggedTimeAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addLoggedTimeAudit(loggedTimeId loggedTimeId: Int, loggedTimeAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addLoggedTimeAudit(loggedTimeId loggedTimeId: Int32, loggedTimeAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addLoggedTimeAuditWithRequestBuilder(loggedTimeId: loggedTimeId, loggedTimeAudit: loggedTimeAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -26,9 +25,7 @@ public class LoggedTimeAPI: APIBase {
 
 
     /**
-     
      Add new audit for a loggedTime
-     
      - PUT /beta/loggedTime/{loggedTimeId}/audit/{loggedTimeAudit}
      - Adds an audit to an existing loggedTime.
      - API Key:
@@ -40,29 +37,31 @@ public class LoggedTimeAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addLoggedTimeAuditWithRequestBuilder(loggedTimeId loggedTimeId: Int, loggedTimeAudit: String) -> RequestBuilder<Void> {
+    public class func addLoggedTimeAuditWithRequestBuilder(loggedTimeId loggedTimeId: Int32, loggedTimeAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/loggedTime/{loggedTimeId}/audit/{loggedTimeAudit}"
         path = path.stringByReplacingOccurrencesOfString("{loggedTimeId}", withString: "\(loggedTimeId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{loggedTimeAudit}", withString: "\(loggedTimeAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for a loggedTime.
      
      - parameter loggedTimeId: (path) Id of the loggedTime to add a tag to 
      - parameter loggedTimeTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addLoggedTimeTag(loggedTimeId loggedTimeId: Int, loggedTimeTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addLoggedTimeTag(loggedTimeId loggedTimeId: Int32, loggedTimeTag: String, completion: ((error: ErrorType?) -> Void)) {
         addLoggedTimeTagWithRequestBuilder(loggedTimeId: loggedTimeId, loggedTimeTag: loggedTimeTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -70,9 +69,7 @@ public class LoggedTimeAPI: APIBase {
 
 
     /**
-     
      Add new tags for a loggedTime.
-     
      - PUT /beta/loggedTime/{loggedTimeId}/tag/{loggedTimeTag}
      - Adds a tag to an existing loggedTime.
      - API Key:
@@ -84,29 +81,31 @@ public class LoggedTimeAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addLoggedTimeTagWithRequestBuilder(loggedTimeId loggedTimeId: Int, loggedTimeTag: String) -> RequestBuilder<Void> {
+    public class func addLoggedTimeTagWithRequestBuilder(loggedTimeId loggedTimeId: Int32, loggedTimeTag: String) -> RequestBuilder<Void> {
         var path = "/beta/loggedTime/{loggedTimeId}/tag/{loggedTimeTag}"
         path = path.stringByReplacingOccurrencesOfString("{loggedTimeId}", withString: "\(loggedTimeId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{loggedTimeTag}", withString: "\(loggedTimeTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for a loggedTime.
      
      - parameter loggedTimeId: (path) Id of the loggedTime to remove tag from 
      - parameter loggedTimeTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteLoggedTimeTag(loggedTimeId loggedTimeId: Int, loggedTimeTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteLoggedTimeTag(loggedTimeId loggedTimeId: Int32, loggedTimeTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteLoggedTimeTagWithRequestBuilder(loggedTimeId: loggedTimeId, loggedTimeTag: loggedTimeTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -114,9 +113,7 @@ public class LoggedTimeAPI: APIBase {
 
 
     /**
-     
      Delete a tag for a loggedTime.
-     
      - DELETE /beta/loggedTime/{loggedTimeId}/tag/{loggedTimeTag}
      - Deletes an existing loggedTime tag using the specified data.
      - API Key:
@@ -128,28 +125,30 @@ public class LoggedTimeAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteLoggedTimeTagWithRequestBuilder(loggedTimeId loggedTimeId: Int, loggedTimeTag: String) -> RequestBuilder<Void> {
+    public class func deleteLoggedTimeTagWithRequestBuilder(loggedTimeId loggedTimeId: Int32, loggedTimeTag: String) -> RequestBuilder<Void> {
         var path = "/beta/loggedTime/{loggedTimeId}/tag/{loggedTimeTag}"
         path = path.stringByReplacingOccurrencesOfString("{loggedTimeId}", withString: "\(loggedTimeId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{loggedTimeTag}", withString: "\(loggedTimeTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated a loggedTime by id
      
      - parameter loggedTimeId: (path) Id of the loggedTime to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateLoggedTimeById(loggedTimeId loggedTimeId: Int, completion: ((data: LoggedTime?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateLoggedTimeById(loggedTimeId loggedTimeId: Int32, completion: ((data: LoggedTime?, error: ErrorType?) -> Void)) {
         getDuplicateLoggedTimeByIdWithRequestBuilder(loggedTimeId: loggedTimeId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -157,52 +156,52 @@ public class LoggedTimeAPI: APIBase {
 
 
     /**
-     
      Get a duplicated a loggedTime by id
-     
      - GET /beta/loggedTime/duplicate/{loggedTimeId}
      - Returns a duplicated loggedTime identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "loggedTimeTypeId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "loggedTimeTypeId" : 7,
   "customFields" : {
     "key" : "{}"
   },
-  "start" : "2000-01-23T04:56:07.000+0000",
-  "description" : "aeiou",
-  "userId" : 123,
-  "duration" : 123,
-  "warehouseId" : 123,
-  "appId" : 123,
-  "client" : 123,
-  "end" : "2000-01-23T04:56:07.000+0000",
-  "id" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
+  "start" : "2000-01-23T04:56:07.000+00:00",
+  "description" : "description",
+  "userId" : 5,
+  "duration" : 6,
+  "warehouseId" : 2,
+  "appId" : 9,
+  "client" : 1,
+  "end" : "2000-01-23T04:56:07.000+00:00",
+  "id" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 5
 }}]
      
      - parameter loggedTimeId: (path) Id of the loggedTime to be duplicated. 
 
      - returns: RequestBuilder<LoggedTime> 
      */
-    public class func getDuplicateLoggedTimeByIdWithRequestBuilder(loggedTimeId loggedTimeId: Int) -> RequestBuilder<LoggedTime> {
+    public class func getDuplicateLoggedTimeByIdWithRequestBuilder(loggedTimeId loggedTimeId: Int32) -> RequestBuilder<LoggedTime> {
         var path = "/beta/loggedTime/duplicate/{loggedTimeId}"
         path = path.stringByReplacingOccurrencesOfString("{loggedTimeId}", withString: "\(loggedTimeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<LoggedTime>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search loggedTimes by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -211,7 +210,7 @@ public class LoggedTimeAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getLoggedTimeByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [LoggedTime]?, error: ErrorType?) -> Void)) {
+    public class func getLoggedTimeByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [LoggedTime]?, error: ErrorType?) -> Void)) {
         getLoggedTimeByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -219,31 +218,46 @@ public class LoggedTimeAPI: APIBase {
 
 
     /**
-     
      Search loggedTimes by filter
-     
      - GET /beta/loggedTime/search
      - Returns the list of loggedTimes that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "loggedTimeTypeId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "loggedTimeTypeId" : 7,
   "customFields" : {
     "key" : "{}"
   },
-  "start" : "2000-01-23T04:56:07.000+0000",
-  "description" : "aeiou",
-  "userId" : 123,
-  "duration" : 123,
-  "warehouseId" : 123,
-  "appId" : 123,
-  "client" : 123,
-  "end" : "2000-01-23T04:56:07.000+0000",
-  "id" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
+  "start" : "2000-01-23T04:56:07.000+00:00",
+  "description" : "description",
+  "userId" : 5,
+  "duration" : 6,
+  "warehouseId" : 2,
+  "appId" : 9,
+  "client" : 1,
+  "end" : "2000-01-23T04:56:07.000+00:00",
+  "id" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 5
+}, {
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "loggedTimeTypeId" : 7,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "start" : "2000-01-23T04:56:07.000+00:00",
+  "description" : "description",
+  "userId" : 5,
+  "duration" : 6,
+  "warehouseId" : 2,
+  "appId" : 9,
+  "client" : 1,
+  "end" : "2000-01-23T04:56:07.000+00:00",
+  "id" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 5
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -253,31 +267,33 @@ public class LoggedTimeAPI: APIBase {
 
      - returns: RequestBuilder<[LoggedTime]> 
      */
-    public class func getLoggedTimeByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[LoggedTime]> {
+    public class func getLoggedTimeByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[LoggedTime]> {
         let path = "/beta/loggedTime/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[LoggedTime]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get a loggedTime by id
      
      - parameter loggedTimeId: (path) Id of the loggedTime to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getLoggedTimeById(loggedTimeId loggedTimeId: Int, completion: ((data: LoggedTime?, error: ErrorType?) -> Void)) {
+    public class func getLoggedTimeById(loggedTimeId loggedTimeId: Int32, completion: ((data: LoggedTime?, error: ErrorType?) -> Void)) {
         getLoggedTimeByIdWithRequestBuilder(loggedTimeId: loggedTimeId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -285,58 +301,58 @@ public class LoggedTimeAPI: APIBase {
 
 
     /**
-     
      Get a loggedTime by id
-     
      - GET /beta/loggedTime/{loggedTimeId}
      - Returns the loggedTime identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "loggedTimeTypeId" : 123,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "loggedTimeTypeId" : 7,
   "customFields" : {
     "key" : "{}"
   },
-  "start" : "2000-01-23T04:56:07.000+0000",
-  "description" : "aeiou",
-  "userId" : 123,
-  "duration" : 123,
-  "warehouseId" : 123,
-  "appId" : 123,
-  "client" : 123,
-  "end" : "2000-01-23T04:56:07.000+0000",
-  "id" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
+  "start" : "2000-01-23T04:56:07.000+00:00",
+  "description" : "description",
+  "userId" : 5,
+  "duration" : 6,
+  "warehouseId" : 2,
+  "appId" : 9,
+  "client" : 1,
+  "end" : "2000-01-23T04:56:07.000+00:00",
+  "id" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 5
 }}]
      
      - parameter loggedTimeId: (path) Id of the loggedTime to be returned. 
 
      - returns: RequestBuilder<LoggedTime> 
      */
-    public class func getLoggedTimeByIdWithRequestBuilder(loggedTimeId loggedTimeId: Int) -> RequestBuilder<LoggedTime> {
+    public class func getLoggedTimeByIdWithRequestBuilder(loggedTimeId loggedTimeId: Int32) -> RequestBuilder<LoggedTime> {
         var path = "/beta/loggedTime/{loggedTimeId}"
         path = path.stringByReplacingOccurrencesOfString("{loggedTimeId}", withString: "\(loggedTimeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<LoggedTime>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for a loggedTime.
      
      - parameter loggedTimeId: (path) Id of the loggedTime to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getLoggedTimeTags(loggedTimeId loggedTimeId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getLoggedTimeTags(loggedTimeId loggedTimeId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getLoggedTimeTagsWithRequestBuilder(loggedTimeId: loggedTimeId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -344,9 +360,7 @@ public class LoggedTimeAPI: APIBase {
 
 
     /**
-     
      Get the tags for a loggedTime.
-     
      - GET /beta/loggedTime/{loggedTimeId}/tag
      - Get all existing loggedTime tags.
      - API Key:
@@ -357,21 +371,23 @@ public class LoggedTimeAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getLoggedTimeTagsWithRequestBuilder(loggedTimeId loggedTimeId: Int) -> RequestBuilder<Void> {
+    public class func getLoggedTimeTagsWithRequestBuilder(loggedTimeId loggedTimeId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/loggedTime/{loggedTimeId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{loggedTimeId}", withString: "\(loggedTimeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a loggedTime custom fields
      
      - parameter body: (body) LoggedTime to be updated. 
@@ -385,9 +401,7 @@ public class LoggedTimeAPI: APIBase {
 
 
     /**
-     
      Update a loggedTime custom fields
-     
      - PUT /beta/loggedTime/customFields
      - Updates an existing loggedTime custom fields using the specified data.
      - API Key:
@@ -401,12 +415,13 @@ public class LoggedTimeAPI: APIBase {
     public class func updateLoggedTimeCustomFieldsWithRequestBuilder(body body: LoggedTime) -> RequestBuilder<Void> {
         let path = "/beta/loggedTime/customFields"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

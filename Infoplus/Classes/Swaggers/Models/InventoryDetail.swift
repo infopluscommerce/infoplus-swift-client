@@ -9,37 +9,35 @@ import Foundation
 
 
 public class InventoryDetail: JSONEncodable {
-
-    public var id: Int?
-    public var warehouseLocationId: Int?
-    public var quantity: Int?
+    public var id: Int32?
+    public var warehouseLocationId: Int32?
+    public var quantity: Int32?
     public var distributionDate: NSDate?
-    public var unitsPerCase: Int?
-    public var unitsPerWrap: Int?
+    public var unitsPerCase: Int32?
+    public var unitsPerWrap: Int32?
     public var revisionDate: String?
     public var productionLot: String?
     public var oldestReceiptDate: NSDate?
-    public var lobId: Int?
+    public var lobId: Int32?
     public var poNo: String?
     public var customFields: [String:AnyObject]?
     public var sku: String?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
-        nillableDictionary["warehouseLocationId"] = self.warehouseLocationId
-        nillableDictionary["quantity"] = self.quantity
+        nillableDictionary["id"] = self.id?.encodeToJSON()
+        nillableDictionary["warehouseLocationId"] = self.warehouseLocationId?.encodeToJSON()
+        nillableDictionary["quantity"] = self.quantity?.encodeToJSON()
         nillableDictionary["distributionDate"] = self.distributionDate?.encodeToJSON()
-        nillableDictionary["unitsPerCase"] = self.unitsPerCase
-        nillableDictionary["unitsPerWrap"] = self.unitsPerWrap
+        nillableDictionary["unitsPerCase"] = self.unitsPerCase?.encodeToJSON()
+        nillableDictionary["unitsPerWrap"] = self.unitsPerWrap?.encodeToJSON()
         nillableDictionary["revisionDate"] = self.revisionDate
         nillableDictionary["productionLot"] = self.productionLot
         nillableDictionary["oldestReceiptDate"] = self.oldestReceiptDate?.encodeToJSON()
-        nillableDictionary["lobId"] = self.lobId
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
         nillableDictionary["poNo"] = self.poNo
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         nillableDictionary["sku"] = self.sku

@@ -9,41 +9,39 @@ import Foundation
 
 
 public class LoggedTime: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var start: NSDate?
     public var end: NSDate?
-    public var duration: Int?
+    public var duration: Int32?
     public var description: String?
-    public var client: Int?
-    public var userId: Int?
-    public var lobId: Int?
-    public var warehouseId: Int?
-    public var loggedTimeTypeId: Int?
-    public var appId: Int?
+    public var client: Int32?
+    public var userId: Int32?
+    public var lobId: Int32?
+    public var warehouseId: Int32?
+    public var loggedTimeTypeId: Int32?
+    public var appId: Int32?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["start"] = self.start?.encodeToJSON()
         nillableDictionary["end"] = self.end?.encodeToJSON()
-        nillableDictionary["duration"] = self.duration
+        nillableDictionary["duration"] = self.duration?.encodeToJSON()
         nillableDictionary["description"] = self.description
-        nillableDictionary["client"] = self.client
-        nillableDictionary["userId"] = self.userId
-        nillableDictionary["lobId"] = self.lobId
-        nillableDictionary["warehouseId"] = self.warehouseId
-        nillableDictionary["loggedTimeTypeId"] = self.loggedTimeTypeId
-        nillableDictionary["appId"] = self.appId
+        nillableDictionary["client"] = self.client?.encodeToJSON()
+        nillableDictionary["userId"] = self.userId?.encodeToJSON()
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
+        nillableDictionary["warehouseId"] = self.warehouseId?.encodeToJSON()
+        nillableDictionary["loggedTimeTypeId"] = self.loggedTimeTypeId?.encodeToJSON()
+        nillableDictionary["appId"] = self.appId?.encodeToJSON()
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

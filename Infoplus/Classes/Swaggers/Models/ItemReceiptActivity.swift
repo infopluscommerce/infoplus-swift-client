@@ -9,28 +9,27 @@ import Foundation
 
 
 public class ItemReceiptActivity: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var receiptASNCreateDate: NSDate?
     public var receiptModifyDate: NSDate?
-    public var itemReceiptId: Int?
-    public var lobId: Int?
+    public var itemReceiptId: Int32?
+    public var lobId: Int32?
     public var poNo: String?
     public var receiptDistributionDate: NSDate?
-    public var receiptUnitsPerWrap: Int?
-    public var receiptUnitsPerCase: Int?
+    public var receiptUnitsPerWrap: Int32?
+    public var receiptUnitsPerCase: Int32?
     public var receiptRevisionDate: String?
     public var receiptProductionLot: String?
     public var receiptReceiveDate: NSDate?
-    public var receiptReceiveQuantity: Int?
-    public var receiptNumberOfCases: Int?
+    public var receiptReceiveQuantity: Int32?
+    public var receiptNumberOfCases: Int32?
     public var receiptStatus: String?
     public var receiptStatusName: String?
-    public var receiptUnitCode: Int?
+    public var receiptUnitCode: Int32?
     public var receiptUnitCodeText: String?
-    public var receiptWrapCode: Int?
+    public var receiptWrapCode: Int32?
     public var receiptWrapCodeText: String?
     public var receiptWrapUnitWeight: Double?
     public var receiptCaseWeight: Double?
@@ -38,21 +37,21 @@ public class ItemReceiptActivity: JSONEncodable {
     public var receiptEnteredBy: String?
     public var receiptReceivedBy: String?
     public var receiptType: String?
-    public var warehouseId: Int?
+    public var warehouseId: Int32?
     public var warehouseName: String?
-    public var itemId: Int?
+    public var itemId: Int32?
     public var sku: String?
     public var itemVendorSku: String?
     public var itemUPC: String?
-    public var itemMajorGroup: Int?
+    public var itemMajorGroup: Int32?
     public var itemMajorGroupName: String?
-    public var itemSubGroup: Int?
+    public var itemSubGroup: Int32?
     public var itemSubGroupName: String?
-    public var itemProductCode: Int?
+    public var itemProductCode: Int32?
     public var itemProductCodeName: String?
     public var itemAccountCode: String?
     public var itemAccountCodeName: String?
-    public var itemSummaryCode: Int?
+    public var itemSummaryCode: Int32?
     public var itemSummaryCodeName: String?
     public var itemSector: String?
     public var vendorComplianceSurveyAnswer1: String?
@@ -75,14 +74,14 @@ public class ItemReceiptActivity: JSONEncodable {
     public var vendorComplianceSurveyAnswer18: String?
     public var vendorComplianceSurveyAnswer19: String?
     public var vendorComplianceSurveyAnswer20: String?
-    public var alcoholTypeId: Int?
+    public var alcoholTypeId: Int32?
     public var alcoholTypeName: String?
     public var alcoholContent: Double?
-    public var alcoholContainerId: Int?
+    public var alcoholContainerId: Int32?
     public var alcoholContainerName: String?
-    public var alcoholContainerVolume: Int?
+    public var alcoholContainerVolume: Int32?
     public var alcoholVintageYear: String?
-    public var alcoholCountryId: Int?
+    public var alcoholCountryId: Int32?
     public var alcoholCountryName: String?
     public var alcoholState: String?
     public var alcoholRegion: String?
@@ -92,34 +91,33 @@ public class ItemReceiptActivity: JSONEncodable {
     public var alcoholUNIMERCCode: String?
     public var alcoholSCCCode: String?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["receiptASNCreateDate"] = self.receiptASNCreateDate?.encodeToJSON()
         nillableDictionary["receiptModifyDate"] = self.receiptModifyDate?.encodeToJSON()
-        nillableDictionary["itemReceiptId"] = self.itemReceiptId
-        nillableDictionary["lobId"] = self.lobId
+        nillableDictionary["itemReceiptId"] = self.itemReceiptId?.encodeToJSON()
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
         nillableDictionary["poNo"] = self.poNo
         nillableDictionary["receiptDistributionDate"] = self.receiptDistributionDate?.encodeToJSON()
-        nillableDictionary["receiptUnitsPerWrap"] = self.receiptUnitsPerWrap
-        nillableDictionary["receiptUnitsPerCase"] = self.receiptUnitsPerCase
+        nillableDictionary["receiptUnitsPerWrap"] = self.receiptUnitsPerWrap?.encodeToJSON()
+        nillableDictionary["receiptUnitsPerCase"] = self.receiptUnitsPerCase?.encodeToJSON()
         nillableDictionary["receiptRevisionDate"] = self.receiptRevisionDate
         nillableDictionary["receiptProductionLot"] = self.receiptProductionLot
         nillableDictionary["receiptReceiveDate"] = self.receiptReceiveDate?.encodeToJSON()
-        nillableDictionary["receiptReceiveQuantity"] = self.receiptReceiveQuantity
-        nillableDictionary["receiptNumberOfCases"] = self.receiptNumberOfCases
+        nillableDictionary["receiptReceiveQuantity"] = self.receiptReceiveQuantity?.encodeToJSON()
+        nillableDictionary["receiptNumberOfCases"] = self.receiptNumberOfCases?.encodeToJSON()
         nillableDictionary["receiptStatus"] = self.receiptStatus
         nillableDictionary["receiptStatusName"] = self.receiptStatusName
-        nillableDictionary["receiptUnitCode"] = self.receiptUnitCode
+        nillableDictionary["receiptUnitCode"] = self.receiptUnitCode?.encodeToJSON()
         nillableDictionary["receiptUnitCodeText"] = self.receiptUnitCodeText
-        nillableDictionary["receiptWrapCode"] = self.receiptWrapCode
+        nillableDictionary["receiptWrapCode"] = self.receiptWrapCode?.encodeToJSON()
         nillableDictionary["receiptWrapCodeText"] = self.receiptWrapCodeText
         nillableDictionary["receiptWrapUnitWeight"] = self.receiptWrapUnitWeight
         nillableDictionary["receiptCaseWeight"] = self.receiptCaseWeight
@@ -127,21 +125,21 @@ public class ItemReceiptActivity: JSONEncodable {
         nillableDictionary["receiptEnteredBy"] = self.receiptEnteredBy
         nillableDictionary["receiptReceivedBy"] = self.receiptReceivedBy
         nillableDictionary["receiptType"] = self.receiptType
-        nillableDictionary["warehouseId"] = self.warehouseId
+        nillableDictionary["warehouseId"] = self.warehouseId?.encodeToJSON()
         nillableDictionary["warehouseName"] = self.warehouseName
-        nillableDictionary["itemId"] = self.itemId
+        nillableDictionary["itemId"] = self.itemId?.encodeToJSON()
         nillableDictionary["sku"] = self.sku
         nillableDictionary["itemVendorSku"] = self.itemVendorSku
         nillableDictionary["itemUPC"] = self.itemUPC
-        nillableDictionary["itemMajorGroup"] = self.itemMajorGroup
+        nillableDictionary["itemMajorGroup"] = self.itemMajorGroup?.encodeToJSON()
         nillableDictionary["itemMajorGroupName"] = self.itemMajorGroupName
-        nillableDictionary["itemSubGroup"] = self.itemSubGroup
+        nillableDictionary["itemSubGroup"] = self.itemSubGroup?.encodeToJSON()
         nillableDictionary["itemSubGroupName"] = self.itemSubGroupName
-        nillableDictionary["itemProductCode"] = self.itemProductCode
+        nillableDictionary["itemProductCode"] = self.itemProductCode?.encodeToJSON()
         nillableDictionary["itemProductCodeName"] = self.itemProductCodeName
         nillableDictionary["itemAccountCode"] = self.itemAccountCode
         nillableDictionary["itemAccountCodeName"] = self.itemAccountCodeName
-        nillableDictionary["itemSummaryCode"] = self.itemSummaryCode
+        nillableDictionary["itemSummaryCode"] = self.itemSummaryCode?.encodeToJSON()
         nillableDictionary["itemSummaryCodeName"] = self.itemSummaryCodeName
         nillableDictionary["itemSector"] = self.itemSector
         nillableDictionary["vendorComplianceSurveyAnswer1"] = self.vendorComplianceSurveyAnswer1
@@ -164,14 +162,14 @@ public class ItemReceiptActivity: JSONEncodable {
         nillableDictionary["vendorComplianceSurveyAnswer18"] = self.vendorComplianceSurveyAnswer18
         nillableDictionary["vendorComplianceSurveyAnswer19"] = self.vendorComplianceSurveyAnswer19
         nillableDictionary["vendorComplianceSurveyAnswer20"] = self.vendorComplianceSurveyAnswer20
-        nillableDictionary["alcoholTypeId"] = self.alcoholTypeId
+        nillableDictionary["alcoholTypeId"] = self.alcoholTypeId?.encodeToJSON()
         nillableDictionary["alcoholTypeName"] = self.alcoholTypeName
         nillableDictionary["alcoholContent"] = self.alcoholContent
-        nillableDictionary["alcoholContainerId"] = self.alcoholContainerId
+        nillableDictionary["alcoholContainerId"] = self.alcoholContainerId?.encodeToJSON()
         nillableDictionary["alcoholContainerName"] = self.alcoholContainerName
-        nillableDictionary["alcoholContainerVolume"] = self.alcoholContainerVolume
+        nillableDictionary["alcoholContainerVolume"] = self.alcoholContainerVolume?.encodeToJSON()
         nillableDictionary["alcoholVintageYear"] = self.alcoholVintageYear
-        nillableDictionary["alcoholCountryId"] = self.alcoholCountryId
+        nillableDictionary["alcoholCountryId"] = self.alcoholCountryId?.encodeToJSON()
         nillableDictionary["alcoholCountryName"] = self.alcoholCountryName
         nillableDictionary["alcoholState"] = self.alcoholState
         nillableDictionary["alcoholRegion"] = self.alcoholRegion

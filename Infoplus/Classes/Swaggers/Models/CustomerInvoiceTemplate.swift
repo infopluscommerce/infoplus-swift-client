@@ -9,8 +9,7 @@ import Foundation
 
 
 public class CustomerInvoiceTemplate: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var name: String?
@@ -20,7 +19,7 @@ public class CustomerInvoiceTemplate: JSONEncodable {
     public var notes: String?
     public var terms: String?
     public var specialInstructions: String?
-    public var lobId: Int?
+    public var lobId: Int32?
     public var billingPeriod: String?
     public var remitToAttention: String?
     public var remitToCompany: String?
@@ -45,14 +44,13 @@ public class CustomerInvoiceTemplate: JSONEncodable {
     public var billToPhone: String?
     public var billToEmail: String?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["name"] = self.name
@@ -62,7 +60,7 @@ public class CustomerInvoiceTemplate: JSONEncodable {
         nillableDictionary["notes"] = self.notes
         nillableDictionary["terms"] = self.terms
         nillableDictionary["specialInstructions"] = self.specialInstructions
-        nillableDictionary["lobId"] = self.lobId
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
         nillableDictionary["billingPeriod"] = self.billingPeriod
         nillableDictionary["remitToAttention"] = self.remitToAttention
         nillableDictionary["remitToCompany"] = self.remitToCompany

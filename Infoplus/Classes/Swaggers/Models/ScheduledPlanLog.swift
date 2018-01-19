@@ -9,11 +9,10 @@ import Foundation
 
 
 public class ScheduledPlanLog: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
-    public var scheduledPlanId: Int?
+    public var scheduledPlanId: Int32?
     public var startTime: NSDate?
     public var endTime: NSDate?
     public var status: String?
@@ -21,17 +20,16 @@ public class ScheduledPlanLog: JSONEncodable {
     public var linkURL: String?
     public var linkText: String?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
-        nillableDictionary["scheduledPlanId"] = self.scheduledPlanId
+        nillableDictionary["scheduledPlanId"] = self.scheduledPlanId?.encodeToJSON()
         nillableDictionary["startTime"] = self.startTime?.encodeToJSON()
         nillableDictionary["endTime"] = self.endTime?.encodeToJSON()
         nillableDictionary["status"] = self.status

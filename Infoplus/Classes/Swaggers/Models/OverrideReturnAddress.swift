@@ -9,13 +9,12 @@ import Foundation
 
 
 public class OverrideReturnAddress: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
-    public var lobId: Int?
-    public var warehouseId: Int?
-    public var orderSourceId: Int?
+    public var lobId: Int32?
+    public var warehouseId: Int32?
+    public var orderSourceId: Int32?
     public var name: String?
     public var attention: String?
     public var street: String?
@@ -26,19 +25,18 @@ public class OverrideReturnAddress: JSONEncodable {
     public var country: String?
     public var phone: String?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
-        nillableDictionary["lobId"] = self.lobId
-        nillableDictionary["warehouseId"] = self.warehouseId
-        nillableDictionary["orderSourceId"] = self.orderSourceId
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
+        nillableDictionary["warehouseId"] = self.warehouseId?.encodeToJSON()
+        nillableDictionary["orderSourceId"] = self.orderSourceId?.encodeToJSON()
         nillableDictionary["name"] = self.name
         nillableDictionary["attention"] = self.attention
         nillableDictionary["street"] = self.street

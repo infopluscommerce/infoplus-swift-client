@@ -11,7 +11,6 @@ import Alamofire
 
 public class IntegrationPartnerAPI: APIBase {
     /**
-     
      Get an integrationPartner by id
      
      - parameter integrationPartnerId: (path) Id of integrationPartner to be returned. 
@@ -25,18 +24,16 @@ public class IntegrationPartnerAPI: APIBase {
 
 
     /**
-     
      Get an integrationPartner by id
-     
      - GET /beta/integrationPartner/{integrationPartnerId}
      - Returns the integrationPartner identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "fullEntityClassName" : "aeiou",
-  "id" : 123,
-  "label" : "aeiou"
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : 0,
+  "label" : "label"
 }}]
      
      - parameter integrationPartnerId: (path) Id of integrationPartner to be returned. 
@@ -47,17 +44,19 @@ public class IntegrationPartnerAPI: APIBase {
         var path = "/beta/integrationPartner/{integrationPartnerId}"
         path = path.stringByReplacingOccurrencesOfString("{integrationPartnerId}", withString: "\(integrationPartnerId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<IntegrationPartner>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search integrationPartners
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
@@ -65,7 +64,7 @@ public class IntegrationPartnerAPI: APIBase {
      - parameter limit: (query) Maximum results per page.  Defaults to 20.  Max allowed value is 250. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getIntegrationPartnerBySearchText(searchText searchText: String?, page: Int?, limit: Int?, completion: ((data: [IntegrationPartner]?, error: ErrorType?) -> Void)) {
+    public class func getIntegrationPartnerBySearchText(searchText searchText: String? = nil, page: Int32? = nil, limit: Int32? = nil, completion: ((data: [IntegrationPartner]?, error: ErrorType?) -> Void)) {
         getIntegrationPartnerBySearchTextWithRequestBuilder(searchText: searchText, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -73,18 +72,20 @@ public class IntegrationPartnerAPI: APIBase {
 
 
     /**
-     
      Search integrationPartners
-     
      - GET /beta/integrationPartner/search
      - Returns the list of integrationPartners that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "fullEntityClassName" : "aeiou",
-  "id" : 123,
-  "label" : "aeiou"
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : 0,
+  "label" : "label"
+}, {
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : 0,
+  "label" : "label"
 } ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
@@ -93,20 +94,23 @@ public class IntegrationPartnerAPI: APIBase {
 
      - returns: RequestBuilder<[IntegrationPartner]> 
      */
-    public class func getIntegrationPartnerBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[IntegrationPartner]> {
+    public class func getIntegrationPartnerBySearchTextWithRequestBuilder(searchText searchText: String? = nil, page: Int32? = nil, limit: Int32? = nil) -> RequestBuilder<[IntegrationPartner]> {
         let path = "/beta/integrationPartner/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "searchText": searchText,
-            "page": page,
-            "limit": limit
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON()
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[IntegrationPartner]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
 }

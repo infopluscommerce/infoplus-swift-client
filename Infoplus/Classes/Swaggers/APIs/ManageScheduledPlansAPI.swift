@@ -11,7 +11,6 @@ import Alamofire
 
 public class ManageScheduledPlansAPI: APIBase {
     /**
-     
      Create a manageScheduledPlans
      
      - parameter body: (body) ManageScheduledPlans to be inserted. 
@@ -25,28 +24,26 @@ public class ManageScheduledPlansAPI: APIBase {
 
 
     /**
-     
      Create a manageScheduledPlans
-     
      - POST /beta/manageScheduledPlans
      - Inserts a new manageScheduledPlans using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "scheduledplantypeid" : 123,
-  "deleted" : true,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
+  "scheduledplantypeid" : 6,
+  "deleted" : false,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "warehouseId" : 5,
   "customFields" : {
     "key" : "{}"
   },
-  "description" : "aeiou",
-  "active" : true,
-  "planid" : 123,
-  "id" : 123,
-  "user" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "description" : "description",
+  "active" : false,
+  "planid" : 1,
+  "id" : 0,
+  "user" : 5,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 }}]
      
      - parameter body: (body) ManageScheduledPlans to be inserted. 
@@ -56,23 +53,23 @@ public class ManageScheduledPlansAPI: APIBase {
     public class func addManageScheduledPlansWithRequestBuilder(body body: ManageScheduledPlans) -> RequestBuilder<ManageScheduledPlans> {
         let path = "/beta/manageScheduledPlans"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<ManageScheduledPlans>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new audit for a manageScheduledPlans
      
      - parameter manageScheduledPlansId: (path) Id of the manageScheduledPlans to add an audit to 
      - parameter manageScheduledPlansAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addManageScheduledPlansAudit(manageScheduledPlansId manageScheduledPlansId: Int, manageScheduledPlansAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addManageScheduledPlansAudit(manageScheduledPlansId manageScheduledPlansId: Int32, manageScheduledPlansAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addManageScheduledPlansAuditWithRequestBuilder(manageScheduledPlansId: manageScheduledPlansId, manageScheduledPlansAudit: manageScheduledPlansAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -80,9 +77,7 @@ public class ManageScheduledPlansAPI: APIBase {
 
 
     /**
-     
      Add new audit for a manageScheduledPlans
-     
      - PUT /beta/manageScheduledPlans/{manageScheduledPlansId}/audit/{manageScheduledPlansAudit}
      - Adds an audit to an existing manageScheduledPlans.
      - API Key:
@@ -94,29 +89,31 @@ public class ManageScheduledPlansAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addManageScheduledPlansAuditWithRequestBuilder(manageScheduledPlansId manageScheduledPlansId: Int, manageScheduledPlansAudit: String) -> RequestBuilder<Void> {
+    public class func addManageScheduledPlansAuditWithRequestBuilder(manageScheduledPlansId manageScheduledPlansId: Int32, manageScheduledPlansAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/manageScheduledPlans/{manageScheduledPlansId}/audit/{manageScheduledPlansAudit}"
         path = path.stringByReplacingOccurrencesOfString("{manageScheduledPlansId}", withString: "\(manageScheduledPlansId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{manageScheduledPlansAudit}", withString: "\(manageScheduledPlansAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for a manageScheduledPlans.
      
      - parameter manageScheduledPlansId: (path) Id of the manageScheduledPlans to add a tag to 
      - parameter manageScheduledPlansTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addManageScheduledPlansTag(manageScheduledPlansId manageScheduledPlansId: Int, manageScheduledPlansTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addManageScheduledPlansTag(manageScheduledPlansId manageScheduledPlansId: Int32, manageScheduledPlansTag: String, completion: ((error: ErrorType?) -> Void)) {
         addManageScheduledPlansTagWithRequestBuilder(manageScheduledPlansId: manageScheduledPlansId, manageScheduledPlansTag: manageScheduledPlansTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -124,9 +121,7 @@ public class ManageScheduledPlansAPI: APIBase {
 
 
     /**
-     
      Add new tags for a manageScheduledPlans.
-     
      - PUT /beta/manageScheduledPlans/{manageScheduledPlansId}/tag/{manageScheduledPlansTag}
      - Adds a tag to an existing manageScheduledPlans.
      - API Key:
@@ -138,28 +133,30 @@ public class ManageScheduledPlansAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addManageScheduledPlansTagWithRequestBuilder(manageScheduledPlansId manageScheduledPlansId: Int, manageScheduledPlansTag: String) -> RequestBuilder<Void> {
+    public class func addManageScheduledPlansTagWithRequestBuilder(manageScheduledPlansId manageScheduledPlansId: Int32, manageScheduledPlansTag: String) -> RequestBuilder<Void> {
         var path = "/beta/manageScheduledPlans/{manageScheduledPlansId}/tag/{manageScheduledPlansTag}"
         path = path.stringByReplacingOccurrencesOfString("{manageScheduledPlansId}", withString: "\(manageScheduledPlansId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{manageScheduledPlansTag}", withString: "\(manageScheduledPlansTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a manageScheduledPlans
      
      - parameter manageScheduledPlansId: (path) Id of the manageScheduledPlans to be deleted. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteManageScheduledPlans(manageScheduledPlansId manageScheduledPlansId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteManageScheduledPlans(manageScheduledPlansId manageScheduledPlansId: Int32, completion: ((error: ErrorType?) -> Void)) {
         deleteManageScheduledPlansWithRequestBuilder(manageScheduledPlansId: manageScheduledPlansId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -167,9 +164,7 @@ public class ManageScheduledPlansAPI: APIBase {
 
 
     /**
-     
      Delete a manageScheduledPlans
-     
      - DELETE /beta/manageScheduledPlans/{manageScheduledPlansId}
      - Deletes the manageScheduledPlans identified by the specified id.
      - API Key:
@@ -180,28 +175,30 @@ public class ManageScheduledPlansAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteManageScheduledPlansWithRequestBuilder(manageScheduledPlansId manageScheduledPlansId: Int) -> RequestBuilder<Void> {
+    public class func deleteManageScheduledPlansWithRequestBuilder(manageScheduledPlansId manageScheduledPlansId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/manageScheduledPlans/{manageScheduledPlansId}"
         path = path.stringByReplacingOccurrencesOfString("{manageScheduledPlansId}", withString: "\(manageScheduledPlansId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for a manageScheduledPlans.
      
      - parameter manageScheduledPlansId: (path) Id of the manageScheduledPlans to remove tag from 
      - parameter manageScheduledPlansTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteManageScheduledPlansTag(manageScheduledPlansId manageScheduledPlansId: Int, manageScheduledPlansTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteManageScheduledPlansTag(manageScheduledPlansId manageScheduledPlansId: Int32, manageScheduledPlansTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteManageScheduledPlansTagWithRequestBuilder(manageScheduledPlansId: manageScheduledPlansId, manageScheduledPlansTag: manageScheduledPlansTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -209,9 +206,7 @@ public class ManageScheduledPlansAPI: APIBase {
 
 
     /**
-     
      Delete a tag for a manageScheduledPlans.
-     
      - DELETE /beta/manageScheduledPlans/{manageScheduledPlansId}/tag/{manageScheduledPlansTag}
      - Deletes an existing manageScheduledPlans tag using the specified data.
      - API Key:
@@ -223,28 +218,30 @@ public class ManageScheduledPlansAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteManageScheduledPlansTagWithRequestBuilder(manageScheduledPlansId manageScheduledPlansId: Int, manageScheduledPlansTag: String) -> RequestBuilder<Void> {
+    public class func deleteManageScheduledPlansTagWithRequestBuilder(manageScheduledPlansId manageScheduledPlansId: Int32, manageScheduledPlansTag: String) -> RequestBuilder<Void> {
         var path = "/beta/manageScheduledPlans/{manageScheduledPlansId}/tag/{manageScheduledPlansTag}"
         path = path.stringByReplacingOccurrencesOfString("{manageScheduledPlansId}", withString: "\(manageScheduledPlansId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{manageScheduledPlansTag}", withString: "\(manageScheduledPlansTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated a manageScheduledPlans by id
      
      - parameter manageScheduledPlansId: (path) Id of the manageScheduledPlans to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateManageScheduledPlansById(manageScheduledPlansId manageScheduledPlansId: Int, completion: ((data: ManageScheduledPlans?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateManageScheduledPlansById(manageScheduledPlansId manageScheduledPlansId: Int32, completion: ((data: ManageScheduledPlans?, error: ErrorType?) -> Void)) {
         getDuplicateManageScheduledPlansByIdWithRequestBuilder(manageScheduledPlansId: manageScheduledPlansId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -252,49 +249,49 @@ public class ManageScheduledPlansAPI: APIBase {
 
 
     /**
-     
      Get a duplicated a manageScheduledPlans by id
-     
      - GET /beta/manageScheduledPlans/duplicate/{manageScheduledPlansId}
      - Returns a duplicated manageScheduledPlans identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "scheduledplantypeid" : 123,
-  "deleted" : true,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
+  "scheduledplantypeid" : 6,
+  "deleted" : false,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "warehouseId" : 5,
   "customFields" : {
     "key" : "{}"
   },
-  "description" : "aeiou",
-  "active" : true,
-  "planid" : 123,
-  "id" : 123,
-  "user" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "description" : "description",
+  "active" : false,
+  "planid" : 1,
+  "id" : 0,
+  "user" : 5,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 }}]
      
      - parameter manageScheduledPlansId: (path) Id of the manageScheduledPlans to be duplicated. 
 
      - returns: RequestBuilder<ManageScheduledPlans> 
      */
-    public class func getDuplicateManageScheduledPlansByIdWithRequestBuilder(manageScheduledPlansId manageScheduledPlansId: Int) -> RequestBuilder<ManageScheduledPlans> {
+    public class func getDuplicateManageScheduledPlansByIdWithRequestBuilder(manageScheduledPlansId manageScheduledPlansId: Int32) -> RequestBuilder<ManageScheduledPlans> {
         var path = "/beta/manageScheduledPlans/duplicate/{manageScheduledPlansId}"
         path = path.stringByReplacingOccurrencesOfString("{manageScheduledPlansId}", withString: "\(manageScheduledPlansId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<ManageScheduledPlans>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search manageScheduledPlanses by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -303,7 +300,7 @@ public class ManageScheduledPlansAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getManageScheduledPlansByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [ManageScheduledPlans]?, error: ErrorType?) -> Void)) {
+    public class func getManageScheduledPlansByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [ManageScheduledPlans]?, error: ErrorType?) -> Void)) {
         getManageScheduledPlansByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -311,28 +308,40 @@ public class ManageScheduledPlansAPI: APIBase {
 
 
     /**
-     
      Search manageScheduledPlanses by filter
-     
      - GET /beta/manageScheduledPlans/search
      - Returns the list of manageScheduledPlanses that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "scheduledplantypeid" : 123,
-  "deleted" : true,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
+  "scheduledplantypeid" : 6,
+  "deleted" : false,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "warehouseId" : 5,
   "customFields" : {
     "key" : "{}"
   },
-  "description" : "aeiou",
-  "active" : true,
-  "planid" : 123,
-  "id" : 123,
-  "user" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "description" : "description",
+  "active" : false,
+  "planid" : 1,
+  "id" : 0,
+  "user" : 5,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
+}, {
+  "scheduledplantypeid" : 6,
+  "deleted" : false,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "warehouseId" : 5,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "description" : "description",
+  "active" : false,
+  "planid" : 1,
+  "id" : 0,
+  "user" : 5,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -342,31 +351,33 @@ public class ManageScheduledPlansAPI: APIBase {
 
      - returns: RequestBuilder<[ManageScheduledPlans]> 
      */
-    public class func getManageScheduledPlansByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ManageScheduledPlans]> {
+    public class func getManageScheduledPlansByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[ManageScheduledPlans]> {
         let path = "/beta/manageScheduledPlans/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[ManageScheduledPlans]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get a manageScheduledPlans by id
      
      - parameter manageScheduledPlansId: (path) Id of the manageScheduledPlans to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getManageScheduledPlansById(manageScheduledPlansId manageScheduledPlansId: Int, completion: ((data: ManageScheduledPlans?, error: ErrorType?) -> Void)) {
+    public class func getManageScheduledPlansById(manageScheduledPlansId manageScheduledPlansId: Int32, completion: ((data: ManageScheduledPlans?, error: ErrorType?) -> Void)) {
         getManageScheduledPlansByIdWithRequestBuilder(manageScheduledPlansId: manageScheduledPlansId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -374,55 +385,55 @@ public class ManageScheduledPlansAPI: APIBase {
 
 
     /**
-     
      Get a manageScheduledPlans by id
-     
      - GET /beta/manageScheduledPlans/{manageScheduledPlansId}
      - Returns the manageScheduledPlans identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "scheduledplantypeid" : 123,
-  "deleted" : true,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
+  "scheduledplantypeid" : 6,
+  "deleted" : false,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "warehouseId" : 5,
   "customFields" : {
     "key" : "{}"
   },
-  "description" : "aeiou",
-  "active" : true,
-  "planid" : 123,
-  "id" : 123,
-  "user" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "description" : "description",
+  "active" : false,
+  "planid" : 1,
+  "id" : 0,
+  "user" : 5,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 }}]
      
      - parameter manageScheduledPlansId: (path) Id of the manageScheduledPlans to be returned. 
 
      - returns: RequestBuilder<ManageScheduledPlans> 
      */
-    public class func getManageScheduledPlansByIdWithRequestBuilder(manageScheduledPlansId manageScheduledPlansId: Int) -> RequestBuilder<ManageScheduledPlans> {
+    public class func getManageScheduledPlansByIdWithRequestBuilder(manageScheduledPlansId manageScheduledPlansId: Int32) -> RequestBuilder<ManageScheduledPlans> {
         var path = "/beta/manageScheduledPlans/{manageScheduledPlansId}"
         path = path.stringByReplacingOccurrencesOfString("{manageScheduledPlansId}", withString: "\(manageScheduledPlansId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<ManageScheduledPlans>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for a manageScheduledPlans.
      
      - parameter manageScheduledPlansId: (path) Id of the manageScheduledPlans to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getManageScheduledPlansTags(manageScheduledPlansId manageScheduledPlansId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getManageScheduledPlansTags(manageScheduledPlansId manageScheduledPlansId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getManageScheduledPlansTagsWithRequestBuilder(manageScheduledPlansId: manageScheduledPlansId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -430,9 +441,7 @@ public class ManageScheduledPlansAPI: APIBase {
 
 
     /**
-     
      Get the tags for a manageScheduledPlans.
-     
      - GET /beta/manageScheduledPlans/{manageScheduledPlansId}/tag
      - Get all existing manageScheduledPlans tags.
      - API Key:
@@ -443,21 +452,23 @@ public class ManageScheduledPlansAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getManageScheduledPlansTagsWithRequestBuilder(manageScheduledPlansId manageScheduledPlansId: Int) -> RequestBuilder<Void> {
+    public class func getManageScheduledPlansTagsWithRequestBuilder(manageScheduledPlansId manageScheduledPlansId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/manageScheduledPlans/{manageScheduledPlansId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{manageScheduledPlansId}", withString: "\(manageScheduledPlansId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a manageScheduledPlans
      
      - parameter body: (body) ManageScheduledPlans to be updated. 
@@ -471,9 +482,7 @@ public class ManageScheduledPlansAPI: APIBase {
 
 
     /**
-     
      Update a manageScheduledPlans
-     
      - PUT /beta/manageScheduledPlans
      - Updates an existing manageScheduledPlans using the specified data.
      - API Key:
@@ -487,12 +496,13 @@ public class ManageScheduledPlansAPI: APIBase {
     public class func updateManageScheduledPlansWithRequestBuilder(body body: ManageScheduledPlans) -> RequestBuilder<Void> {
         let path = "/beta/manageScheduledPlans"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

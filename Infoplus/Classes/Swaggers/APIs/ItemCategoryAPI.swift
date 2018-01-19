@@ -11,7 +11,6 @@ import Alamofire
 
 public class ItemCategoryAPI: APIBase {
     /**
-     
      Create an itemCategory
      
      - parameter body: (body) ItemCategory to be inserted. 
@@ -25,22 +24,20 @@ public class ItemCategoryAPI: APIBase {
 
 
     /**
-     
      Create an itemCategory
-     
      - POST /beta/itemCategory
      - Inserts a new itemCategory using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "internalId" : 123,
+  "internalId" : 6,
   "customFields" : {
     "key" : "{}"
   },
-  "name" : "aeiou",
-  "id" : "aeiou",
-  "lobId" : 123
+  "name" : "name",
+  "id" : "id",
+  "lobId" : 0
 }}]
      
      - parameter body: (body) ItemCategory to be inserted. 
@@ -50,23 +47,23 @@ public class ItemCategoryAPI: APIBase {
     public class func addItemCategoryWithRequestBuilder(body body: ItemCategory) -> RequestBuilder<ItemCategory> {
         let path = "/beta/itemCategory"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<ItemCategory>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new audit for an itemCategory
      
      - parameter itemCategoryId: (path) Id of the itemCategory to add an audit to 
      - parameter itemCategoryAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addItemCategoryAudit(itemCategoryId itemCategoryId: Int, itemCategoryAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addItemCategoryAudit(itemCategoryId itemCategoryId: Int32, itemCategoryAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addItemCategoryAuditWithRequestBuilder(itemCategoryId: itemCategoryId, itemCategoryAudit: itemCategoryAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -74,9 +71,7 @@ public class ItemCategoryAPI: APIBase {
 
 
     /**
-     
      Add new audit for an itemCategory
-     
      - PUT /beta/itemCategory/{itemCategoryId}/audit/{itemCategoryAudit}
      - Adds an audit to an existing itemCategory.
      - API Key:
@@ -88,29 +83,31 @@ public class ItemCategoryAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addItemCategoryAuditWithRequestBuilder(itemCategoryId itemCategoryId: Int, itemCategoryAudit: String) -> RequestBuilder<Void> {
+    public class func addItemCategoryAuditWithRequestBuilder(itemCategoryId itemCategoryId: Int32, itemCategoryAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/itemCategory/{itemCategoryId}/audit/{itemCategoryAudit}"
         path = path.stringByReplacingOccurrencesOfString("{itemCategoryId}", withString: "\(itemCategoryId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{itemCategoryAudit}", withString: "\(itemCategoryAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for an itemCategory.
      
      - parameter itemCategoryId: (path) Id of the itemCategory to add a tag to 
      - parameter itemCategoryTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addItemCategoryTag(itemCategoryId itemCategoryId: Int, itemCategoryTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addItemCategoryTag(itemCategoryId itemCategoryId: Int32, itemCategoryTag: String, completion: ((error: ErrorType?) -> Void)) {
         addItemCategoryTagWithRequestBuilder(itemCategoryId: itemCategoryId, itemCategoryTag: itemCategoryTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -118,9 +115,7 @@ public class ItemCategoryAPI: APIBase {
 
 
     /**
-     
      Add new tags for an itemCategory.
-     
      - PUT /beta/itemCategory/{itemCategoryId}/tag/{itemCategoryTag}
      - Adds a tag to an existing itemCategory.
      - API Key:
@@ -132,28 +127,30 @@ public class ItemCategoryAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addItemCategoryTagWithRequestBuilder(itemCategoryId itemCategoryId: Int, itemCategoryTag: String) -> RequestBuilder<Void> {
+    public class func addItemCategoryTagWithRequestBuilder(itemCategoryId itemCategoryId: Int32, itemCategoryTag: String) -> RequestBuilder<Void> {
         var path = "/beta/itemCategory/{itemCategoryId}/tag/{itemCategoryTag}"
         path = path.stringByReplacingOccurrencesOfString("{itemCategoryId}", withString: "\(itemCategoryId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{itemCategoryTag}", withString: "\(itemCategoryTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete an itemCategory
      
      - parameter itemCategoryId: (path) Id of the itemCategory to be deleted. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteItemCategory(itemCategoryId itemCategoryId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteItemCategory(itemCategoryId itemCategoryId: Int32, completion: ((error: ErrorType?) -> Void)) {
         deleteItemCategoryWithRequestBuilder(itemCategoryId: itemCategoryId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -161,9 +158,7 @@ public class ItemCategoryAPI: APIBase {
 
 
     /**
-     
      Delete an itemCategory
-     
      - DELETE /beta/itemCategory/{itemCategoryId}
      - Deletes the itemCategory identified by the specified id.
      - API Key:
@@ -174,28 +169,30 @@ public class ItemCategoryAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteItemCategoryWithRequestBuilder(itemCategoryId itemCategoryId: Int) -> RequestBuilder<Void> {
+    public class func deleteItemCategoryWithRequestBuilder(itemCategoryId itemCategoryId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/itemCategory/{itemCategoryId}"
         path = path.stringByReplacingOccurrencesOfString("{itemCategoryId}", withString: "\(itemCategoryId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for an itemCategory.
      
      - parameter itemCategoryId: (path) Id of the itemCategory to remove tag from 
      - parameter itemCategoryTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteItemCategoryTag(itemCategoryId itemCategoryId: Int, itemCategoryTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteItemCategoryTag(itemCategoryId itemCategoryId: Int32, itemCategoryTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteItemCategoryTagWithRequestBuilder(itemCategoryId: itemCategoryId, itemCategoryTag: itemCategoryTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -203,9 +200,7 @@ public class ItemCategoryAPI: APIBase {
 
 
     /**
-     
      Delete a tag for an itemCategory.
-     
      - DELETE /beta/itemCategory/{itemCategoryId}/tag/{itemCategoryTag}
      - Deletes an existing itemCategory tag using the specified data.
      - API Key:
@@ -217,28 +212,30 @@ public class ItemCategoryAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteItemCategoryTagWithRequestBuilder(itemCategoryId itemCategoryId: Int, itemCategoryTag: String) -> RequestBuilder<Void> {
+    public class func deleteItemCategoryTagWithRequestBuilder(itemCategoryId itemCategoryId: Int32, itemCategoryTag: String) -> RequestBuilder<Void> {
         var path = "/beta/itemCategory/{itemCategoryId}/tag/{itemCategoryTag}"
         path = path.stringByReplacingOccurrencesOfString("{itemCategoryId}", withString: "\(itemCategoryId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{itemCategoryTag}", withString: "\(itemCategoryTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated an itemCategory by id
      
      - parameter itemCategoryId: (path) Id of the itemCategory to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateItemCategoryById(itemCategoryId itemCategoryId: Int, completion: ((data: ItemCategory?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateItemCategoryById(itemCategoryId itemCategoryId: Int32, completion: ((data: ItemCategory?, error: ErrorType?) -> Void)) {
         getDuplicateItemCategoryByIdWithRequestBuilder(itemCategoryId: itemCategoryId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -246,43 +243,43 @@ public class ItemCategoryAPI: APIBase {
 
 
     /**
-     
      Get a duplicated an itemCategory by id
-     
      - GET /beta/itemCategory/duplicate/{itemCategoryId}
      - Returns a duplicated itemCategory identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "internalId" : 123,
+  "internalId" : 6,
   "customFields" : {
     "key" : "{}"
   },
-  "name" : "aeiou",
-  "id" : "aeiou",
-  "lobId" : 123
+  "name" : "name",
+  "id" : "id",
+  "lobId" : 0
 }}]
      
      - parameter itemCategoryId: (path) Id of the itemCategory to be duplicated. 
 
      - returns: RequestBuilder<ItemCategory> 
      */
-    public class func getDuplicateItemCategoryByIdWithRequestBuilder(itemCategoryId itemCategoryId: Int) -> RequestBuilder<ItemCategory> {
+    public class func getDuplicateItemCategoryByIdWithRequestBuilder(itemCategoryId itemCategoryId: Int32) -> RequestBuilder<ItemCategory> {
         var path = "/beta/itemCategory/duplicate/{itemCategoryId}"
         path = path.stringByReplacingOccurrencesOfString("{itemCategoryId}", withString: "\(itemCategoryId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<ItemCategory>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search itemCategorys by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -291,7 +288,7 @@ public class ItemCategoryAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getItemCategoryByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [ItemCategory]?, error: ErrorType?) -> Void)) {
+    public class func getItemCategoryByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [ItemCategory]?, error: ErrorType?) -> Void)) {
         getItemCategoryByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -299,22 +296,28 @@ public class ItemCategoryAPI: APIBase {
 
 
     /**
-     
      Search itemCategorys by filter
-     
      - GET /beta/itemCategory/search
      - Returns the list of itemCategorys that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "internalId" : 123,
+  "internalId" : 6,
   "customFields" : {
     "key" : "{}"
   },
-  "name" : "aeiou",
-  "id" : "aeiou",
-  "lobId" : 123
+  "name" : "name",
+  "id" : "id",
+  "lobId" : 0
+}, {
+  "internalId" : 6,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "name",
+  "id" : "id",
+  "lobId" : 0
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -324,31 +327,33 @@ public class ItemCategoryAPI: APIBase {
 
      - returns: RequestBuilder<[ItemCategory]> 
      */
-    public class func getItemCategoryByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ItemCategory]> {
+    public class func getItemCategoryByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[ItemCategory]> {
         let path = "/beta/itemCategory/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[ItemCategory]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get an itemCategory by id
      
      - parameter itemCategoryId: (path) Id of the itemCategory to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getItemCategoryById(itemCategoryId itemCategoryId: Int, completion: ((data: ItemCategory?, error: ErrorType?) -> Void)) {
+    public class func getItemCategoryById(itemCategoryId itemCategoryId: Int32, completion: ((data: ItemCategory?, error: ErrorType?) -> Void)) {
         getItemCategoryByIdWithRequestBuilder(itemCategoryId: itemCategoryId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -356,49 +361,49 @@ public class ItemCategoryAPI: APIBase {
 
 
     /**
-     
      Get an itemCategory by id
-     
      - GET /beta/itemCategory/{itemCategoryId}
      - Returns the itemCategory identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "internalId" : 123,
+  "internalId" : 6,
   "customFields" : {
     "key" : "{}"
   },
-  "name" : "aeiou",
-  "id" : "aeiou",
-  "lobId" : 123
+  "name" : "name",
+  "id" : "id",
+  "lobId" : 0
 }}]
      
      - parameter itemCategoryId: (path) Id of the itemCategory to be returned. 
 
      - returns: RequestBuilder<ItemCategory> 
      */
-    public class func getItemCategoryByIdWithRequestBuilder(itemCategoryId itemCategoryId: Int) -> RequestBuilder<ItemCategory> {
+    public class func getItemCategoryByIdWithRequestBuilder(itemCategoryId itemCategoryId: Int32) -> RequestBuilder<ItemCategory> {
         var path = "/beta/itemCategory/{itemCategoryId}"
         path = path.stringByReplacingOccurrencesOfString("{itemCategoryId}", withString: "\(itemCategoryId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<ItemCategory>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for an itemCategory.
      
      - parameter itemCategoryId: (path) Id of the itemCategory to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getItemCategoryTags(itemCategoryId itemCategoryId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getItemCategoryTags(itemCategoryId itemCategoryId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getItemCategoryTagsWithRequestBuilder(itemCategoryId: itemCategoryId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -406,9 +411,7 @@ public class ItemCategoryAPI: APIBase {
 
 
     /**
-     
      Get the tags for an itemCategory.
-     
      - GET /beta/itemCategory/{itemCategoryId}/tag
      - Get all existing itemCategory tags.
      - API Key:
@@ -419,21 +422,23 @@ public class ItemCategoryAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getItemCategoryTagsWithRequestBuilder(itemCategoryId itemCategoryId: Int) -> RequestBuilder<Void> {
+    public class func getItemCategoryTagsWithRequestBuilder(itemCategoryId itemCategoryId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/itemCategory/{itemCategoryId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{itemCategoryId}", withString: "\(itemCategoryId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update an itemCategory
      
      - parameter body: (body) ItemCategory to be updated. 
@@ -447,9 +452,7 @@ public class ItemCategoryAPI: APIBase {
 
 
     /**
-     
      Update an itemCategory
-     
      - PUT /beta/itemCategory
      - Updates an existing itemCategory using the specified data.
      - API Key:
@@ -463,12 +466,13 @@ public class ItemCategoryAPI: APIBase {
     public class func updateItemCategoryWithRequestBuilder(body body: ItemCategory) -> RequestBuilder<Void> {
         let path = "/beta/itemCategory"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

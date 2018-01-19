@@ -9,34 +9,32 @@ import Foundation
 
 
 public class BillingCode: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
-    public var quantity: Int?
+    public var quantity: Int32?
     public var date: NSDate?
-    public var userId: Int?
-    public var lobId: Int?
-    public var billingCodeTypeId: Int?
+    public var userId: Int32?
+    public var lobId: Int32?
+    public var billingCodeTypeId: Int32?
     public var recordType: String?
     public var recordId: String?
     public var note: String?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
-        nillableDictionary["quantity"] = self.quantity
+        nillableDictionary["quantity"] = self.quantity?.encodeToJSON()
         nillableDictionary["date"] = self.date?.encodeToJSON()
-        nillableDictionary["userId"] = self.userId
-        nillableDictionary["lobId"] = self.lobId
-        nillableDictionary["billingCodeTypeId"] = self.billingCodeTypeId
+        nillableDictionary["userId"] = self.userId?.encodeToJSON()
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
+        nillableDictionary["billingCodeTypeId"] = self.billingCodeTypeId?.encodeToJSON()
         nillableDictionary["recordType"] = self.recordType
         nillableDictionary["recordId"] = self.recordId
         nillableDictionary["note"] = self.note

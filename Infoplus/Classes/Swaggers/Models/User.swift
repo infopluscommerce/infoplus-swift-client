@@ -9,18 +9,16 @@ import Foundation
 
 
 public class User: JSONEncodable {
-
-    public var userId: Int?
+    public var userId: Int32?
     public var label: String?
     public var fullEntityClassName: String?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["userId"] = self.userId
+        nillableDictionary["userId"] = self.userId?.encodeToJSON()
         nillableDictionary["label"] = self.label
         nillableDictionary["fullEntityClassName"] = self.fullEntityClassName
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

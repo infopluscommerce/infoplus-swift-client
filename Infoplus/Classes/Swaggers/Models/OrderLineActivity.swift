@@ -9,26 +9,25 @@ import Foundation
 
 
 public class OrderLineActivity: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var orderNo: Double?
-    public var lobId: Int?
+    public var lobId: Int32?
     public var sku: String?
-    public var poNoId: Int?
+    public var poNoId: Int32?
     public var orderCreateDate: NSDate?
     public var orderModifyDate: NSDate?
-    public var crossDock: Int?
-    public var processNoId: Int?
-    public var orderedQty: Int?
-    public var allowedQty: Int?
-    public var shippedQty: Int?
-    public var backorderQty: Int?
-    public var adjustCode: Int?
+    public var crossDock: Int32?
+    public var processNoId: Int32?
+    public var orderedQty: Int32?
+    public var allowedQty: Int32?
+    public var shippedQty: Int32?
+    public var backorderQty: Int32?
+    public var adjustCode: Int32?
     public var processFlag: String?
     public var revDate: String?
-    public var restrictionRule: Int?
+    public var restrictionRule: Int32?
     public var unitCost: Double?
     public var unitSell: Double?
     public var unitDiscount: Double?
@@ -42,33 +41,33 @@ public class OrderLineActivity: JSONEncodable {
     public var upc: String?
     public var vendorSKU: String?
     public var orderSourceSKU: String?
-    public var itemMajorGroupId: Int?
+    public var itemMajorGroupId: Int32?
     public var masterMajorGroupName: String?
-    public var itemSubGroupId: Int?
+    public var itemSubGroupId: Int32?
     public var masterSubGroupName: String?
-    public var itemProductCodeId: Int?
+    public var itemProductCodeId: Int32?
     public var masterProductionCodeName: String?
-    public var itemAccountCodeId: Int?
+    public var itemAccountCodeId: Int32?
     public var masterAccountCodeName: String?
-    public var itemSummaryCodeId: Int?
+    public var itemSummaryCodeId: Int32?
     public var masterSummaryCodeName: String?
-    public var itemLegacyLowStockContactId: Int?
+    public var itemLegacyLowStockContactId: Int32?
     public var lowStockContactName: String?
     public var sector: String?
     public var weightPerWrap: Double?
     public var itemWeight: Double?
     public var productionLot: String?
-    public var numberOfWraps: Int?
-    public var numberOfCases: Int?
-    public var numberOfTouches: Int?
-    public var alcoholTypeId: Int?
+    public var numberOfWraps: Int32?
+    public var numberOfCases: Int32?
+    public var numberOfTouches: Int32?
+    public var alcoholTypeId: Int32?
     public var alcoholTypeName: String?
     public var alcoholContent: Double?
-    public var alcoholContainerId: Int?
+    public var alcoholContainerId: Int32?
     public var alcoholContainerName: String?
-    public var alcoholContainerVolume: Int?
+    public var alcoholContainerVolume: Int32?
     public var alcoholVintageYear: String?
-    public var alcoholCountryId: Int?
+    public var alcoholCountryId: Int32?
     public var alcoholCountryName: String?
     public var alcoholState: String?
     public var alcoholRegion: String?
@@ -81,7 +80,7 @@ public class OrderLineActivity: JSONEncodable {
     public var groupOrderId: Double?
     public var orderStatus: String?
     public var orderStatusName: String?
-    public var carrierId: Int?
+    public var carrierId: Int32?
     public var carrierName: String?
     public var mediaCode: String?
     public var legacyRestrictionType: String?
@@ -91,22 +90,22 @@ public class OrderLineActivity: JSONEncodable {
     public var alcoholOrderType: String?
     public var distributionChannel: String?
     public var distributionChannelName: String?
-    public var priorityCode: Int?
+    public var priorityCode: Int32?
     public var orderDate: NSDate?
     public var enteredBy: String?
-    public var orderReason: Int?
+    public var orderReason: Int32?
     public var customerOrderNo: String?
     public var priceLevel: String?
     public var shipBy: NSDate?
     public var stopBackOrders: String?
-    public var orderSourceId: Int?
+    public var orderSourceId: Int32?
     public var orderSourceName: String?
-    public var integrationPartnerId: Int?
+    public var integrationPartnerId: Int32?
     public var integrationPartnerName: String?
-    public var orderLoadProgramId: Int?
+    public var orderLoadProgramId: Int32?
     public var orderLoadProgramName: String?
-    public var omsOrderNo: Int?
-    public var omsCustomerId: Int?
+    public var omsOrderNo: Int32?
+    public var omsCustomerId: Int32?
     public var shipToAttention: String?
     public var shipToCompany: String?
     public var shipToStreet: String?
@@ -133,13 +132,13 @@ public class OrderLineActivity: JSONEncodable {
     public var freight: Double?
     public var orderWeightLbs: Double?
     public var orderEstimatedWeightLbs: Double?
-    public var numberOfPallets: Int?
-    public var numberOfLineItems: Int?
+    public var numberOfPallets: Int32?
+    public var numberOfLineItems: Int32?
     public var completionStatus: String?
     public var holdCode: String?
     public var shipCode: String?
     public var orderMessage: String?
-    public var division: Int?
+    public var division: Int32?
     public var costCenter: String?
     public var authorizedBy: String?
     public var batchNo: String?
@@ -159,8 +158,8 @@ public class OrderLineActivity: JSONEncodable {
     public var distributionCharges: Double?
     public var shippingCharge: Double?
     public var totalDiscount: Double?
-    public var parcelAccountId: Int?
-    public var packingSlipTemplateId: Int?
+    public var parcelAccountId: Int32?
+    public var packingSlipTemplateId: Int32?
     public var giftMessage: String?
     public var branchSector: String?
     public var branchArea: String?
@@ -168,39 +167,38 @@ public class OrderLineActivity: JSONEncodable {
     public var branchId: String?
     public var orderCode: String?
     public var leadPackageId: String?
-    public var totalQty: Int?
-    public var estimatedNumberOfPicks: Int?
-    public var orderConfirmationEmailTemplateId: Int?
-    public var shipmentConfirmationEmailTemplateId: Int?
-    public var orderInvoiceTemplateId: Int?
+    public var totalQty: Int32?
+    public var estimatedNumberOfPicks: Int32?
+    public var orderConfirmationEmailTemplateId: Int32?
+    public var shipmentConfirmationEmailTemplateId: Int32?
+    public var orderInvoiceTemplateId: Int32?
     public var priceMode: String?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["orderNo"] = self.orderNo
-        nillableDictionary["lobId"] = self.lobId
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
         nillableDictionary["sku"] = self.sku
-        nillableDictionary["poNoId"] = self.poNoId
+        nillableDictionary["poNoId"] = self.poNoId?.encodeToJSON()
         nillableDictionary["orderCreateDate"] = self.orderCreateDate?.encodeToJSON()
         nillableDictionary["orderModifyDate"] = self.orderModifyDate?.encodeToJSON()
-        nillableDictionary["crossDock"] = self.crossDock
-        nillableDictionary["processNoId"] = self.processNoId
-        nillableDictionary["orderedQty"] = self.orderedQty
-        nillableDictionary["allowedQty"] = self.allowedQty
-        nillableDictionary["shippedQty"] = self.shippedQty
-        nillableDictionary["backorderQty"] = self.backorderQty
-        nillableDictionary["adjustCode"] = self.adjustCode
+        nillableDictionary["crossDock"] = self.crossDock?.encodeToJSON()
+        nillableDictionary["processNoId"] = self.processNoId?.encodeToJSON()
+        nillableDictionary["orderedQty"] = self.orderedQty?.encodeToJSON()
+        nillableDictionary["allowedQty"] = self.allowedQty?.encodeToJSON()
+        nillableDictionary["shippedQty"] = self.shippedQty?.encodeToJSON()
+        nillableDictionary["backorderQty"] = self.backorderQty?.encodeToJSON()
+        nillableDictionary["adjustCode"] = self.adjustCode?.encodeToJSON()
         nillableDictionary["processFlag"] = self.processFlag
         nillableDictionary["revDate"] = self.revDate
-        nillableDictionary["restrictionRule"] = self.restrictionRule
+        nillableDictionary["restrictionRule"] = self.restrictionRule?.encodeToJSON()
         nillableDictionary["unitCost"] = self.unitCost
         nillableDictionary["unitSell"] = self.unitSell
         nillableDictionary["unitDiscount"] = self.unitDiscount
@@ -214,33 +212,33 @@ public class OrderLineActivity: JSONEncodable {
         nillableDictionary["upc"] = self.upc
         nillableDictionary["vendorSKU"] = self.vendorSKU
         nillableDictionary["orderSourceSKU"] = self.orderSourceSKU
-        nillableDictionary["itemMajorGroupId"] = self.itemMajorGroupId
+        nillableDictionary["itemMajorGroupId"] = self.itemMajorGroupId?.encodeToJSON()
         nillableDictionary["masterMajorGroupName"] = self.masterMajorGroupName
-        nillableDictionary["itemSubGroupId"] = self.itemSubGroupId
+        nillableDictionary["itemSubGroupId"] = self.itemSubGroupId?.encodeToJSON()
         nillableDictionary["masterSubGroupName"] = self.masterSubGroupName
-        nillableDictionary["itemProductCodeId"] = self.itemProductCodeId
+        nillableDictionary["itemProductCodeId"] = self.itemProductCodeId?.encodeToJSON()
         nillableDictionary["masterProductionCodeName"] = self.masterProductionCodeName
-        nillableDictionary["itemAccountCodeId"] = self.itemAccountCodeId
+        nillableDictionary["itemAccountCodeId"] = self.itemAccountCodeId?.encodeToJSON()
         nillableDictionary["masterAccountCodeName"] = self.masterAccountCodeName
-        nillableDictionary["itemSummaryCodeId"] = self.itemSummaryCodeId
+        nillableDictionary["itemSummaryCodeId"] = self.itemSummaryCodeId?.encodeToJSON()
         nillableDictionary["masterSummaryCodeName"] = self.masterSummaryCodeName
-        nillableDictionary["itemLegacyLowStockContactId"] = self.itemLegacyLowStockContactId
+        nillableDictionary["itemLegacyLowStockContactId"] = self.itemLegacyLowStockContactId?.encodeToJSON()
         nillableDictionary["lowStockContactName"] = self.lowStockContactName
         nillableDictionary["sector"] = self.sector
         nillableDictionary["weightPerWrap"] = self.weightPerWrap
         nillableDictionary["itemWeight"] = self.itemWeight
         nillableDictionary["productionLot"] = self.productionLot
-        nillableDictionary["numberOfWraps"] = self.numberOfWraps
-        nillableDictionary["numberOfCases"] = self.numberOfCases
-        nillableDictionary["numberOfTouches"] = self.numberOfTouches
-        nillableDictionary["alcoholTypeId"] = self.alcoholTypeId
+        nillableDictionary["numberOfWraps"] = self.numberOfWraps?.encodeToJSON()
+        nillableDictionary["numberOfCases"] = self.numberOfCases?.encodeToJSON()
+        nillableDictionary["numberOfTouches"] = self.numberOfTouches?.encodeToJSON()
+        nillableDictionary["alcoholTypeId"] = self.alcoholTypeId?.encodeToJSON()
         nillableDictionary["alcoholTypeName"] = self.alcoholTypeName
         nillableDictionary["alcoholContent"] = self.alcoholContent
-        nillableDictionary["alcoholContainerId"] = self.alcoholContainerId
+        nillableDictionary["alcoholContainerId"] = self.alcoholContainerId?.encodeToJSON()
         nillableDictionary["alcoholContainerName"] = self.alcoholContainerName
-        nillableDictionary["alcoholContainerVolume"] = self.alcoholContainerVolume
+        nillableDictionary["alcoholContainerVolume"] = self.alcoholContainerVolume?.encodeToJSON()
         nillableDictionary["alcoholVintageYear"] = self.alcoholVintageYear
-        nillableDictionary["alcoholCountryId"] = self.alcoholCountryId
+        nillableDictionary["alcoholCountryId"] = self.alcoholCountryId?.encodeToJSON()
         nillableDictionary["alcoholCountryName"] = self.alcoholCountryName
         nillableDictionary["alcoholState"] = self.alcoholState
         nillableDictionary["alcoholRegion"] = self.alcoholRegion
@@ -253,7 +251,7 @@ public class OrderLineActivity: JSONEncodable {
         nillableDictionary["groupOrderId"] = self.groupOrderId
         nillableDictionary["orderStatus"] = self.orderStatus
         nillableDictionary["orderStatusName"] = self.orderStatusName
-        nillableDictionary["carrierId"] = self.carrierId
+        nillableDictionary["carrierId"] = self.carrierId?.encodeToJSON()
         nillableDictionary["carrierName"] = self.carrierName
         nillableDictionary["mediaCode"] = self.mediaCode
         nillableDictionary["legacyRestrictionType"] = self.legacyRestrictionType
@@ -263,22 +261,22 @@ public class OrderLineActivity: JSONEncodable {
         nillableDictionary["alcoholOrderType"] = self.alcoholOrderType
         nillableDictionary["distributionChannel"] = self.distributionChannel
         nillableDictionary["distributionChannelName"] = self.distributionChannelName
-        nillableDictionary["priorityCode"] = self.priorityCode
+        nillableDictionary["priorityCode"] = self.priorityCode?.encodeToJSON()
         nillableDictionary["orderDate"] = self.orderDate?.encodeToJSON()
         nillableDictionary["enteredBy"] = self.enteredBy
-        nillableDictionary["orderReason"] = self.orderReason
+        nillableDictionary["orderReason"] = self.orderReason?.encodeToJSON()
         nillableDictionary["customerOrderNo"] = self.customerOrderNo
         nillableDictionary["priceLevel"] = self.priceLevel
         nillableDictionary["shipBy"] = self.shipBy?.encodeToJSON()
         nillableDictionary["stopBackOrders"] = self.stopBackOrders
-        nillableDictionary["orderSourceId"] = self.orderSourceId
+        nillableDictionary["orderSourceId"] = self.orderSourceId?.encodeToJSON()
         nillableDictionary["orderSourceName"] = self.orderSourceName
-        nillableDictionary["integrationPartnerId"] = self.integrationPartnerId
+        nillableDictionary["integrationPartnerId"] = self.integrationPartnerId?.encodeToJSON()
         nillableDictionary["integrationPartnerName"] = self.integrationPartnerName
-        nillableDictionary["orderLoadProgramId"] = self.orderLoadProgramId
+        nillableDictionary["orderLoadProgramId"] = self.orderLoadProgramId?.encodeToJSON()
         nillableDictionary["orderLoadProgramName"] = self.orderLoadProgramName
-        nillableDictionary["omsOrderNo"] = self.omsOrderNo
-        nillableDictionary["omsCustomerId"] = self.omsCustomerId
+        nillableDictionary["omsOrderNo"] = self.omsOrderNo?.encodeToJSON()
+        nillableDictionary["omsCustomerId"] = self.omsCustomerId?.encodeToJSON()
         nillableDictionary["shipToAttention"] = self.shipToAttention
         nillableDictionary["shipToCompany"] = self.shipToCompany
         nillableDictionary["shipToStreet"] = self.shipToStreet
@@ -305,13 +303,13 @@ public class OrderLineActivity: JSONEncodable {
         nillableDictionary["freight"] = self.freight
         nillableDictionary["orderWeightLbs"] = self.orderWeightLbs
         nillableDictionary["orderEstimatedWeightLbs"] = self.orderEstimatedWeightLbs
-        nillableDictionary["numberOfPallets"] = self.numberOfPallets
-        nillableDictionary["numberOfLineItems"] = self.numberOfLineItems
+        nillableDictionary["numberOfPallets"] = self.numberOfPallets?.encodeToJSON()
+        nillableDictionary["numberOfLineItems"] = self.numberOfLineItems?.encodeToJSON()
         nillableDictionary["completionStatus"] = self.completionStatus
         nillableDictionary["holdCode"] = self.holdCode
         nillableDictionary["shipCode"] = self.shipCode
         nillableDictionary["orderMessage"] = self.orderMessage
-        nillableDictionary["division"] = self.division
+        nillableDictionary["division"] = self.division?.encodeToJSON()
         nillableDictionary["costCenter"] = self.costCenter
         nillableDictionary["authorizedBy"] = self.authorizedBy
         nillableDictionary["batchNo"] = self.batchNo
@@ -331,8 +329,8 @@ public class OrderLineActivity: JSONEncodable {
         nillableDictionary["distributionCharges"] = self.distributionCharges
         nillableDictionary["shippingCharge"] = self.shippingCharge
         nillableDictionary["totalDiscount"] = self.totalDiscount
-        nillableDictionary["parcelAccountId"] = self.parcelAccountId
-        nillableDictionary["packingSlipTemplateId"] = self.packingSlipTemplateId
+        nillableDictionary["parcelAccountId"] = self.parcelAccountId?.encodeToJSON()
+        nillableDictionary["packingSlipTemplateId"] = self.packingSlipTemplateId?.encodeToJSON()
         nillableDictionary["giftMessage"] = self.giftMessage
         nillableDictionary["branchSector"] = self.branchSector
         nillableDictionary["branchArea"] = self.branchArea
@@ -340,11 +338,11 @@ public class OrderLineActivity: JSONEncodable {
         nillableDictionary["branchId"] = self.branchId
         nillableDictionary["orderCode"] = self.orderCode
         nillableDictionary["leadPackageId"] = self.leadPackageId
-        nillableDictionary["totalQty"] = self.totalQty
-        nillableDictionary["estimatedNumberOfPicks"] = self.estimatedNumberOfPicks
-        nillableDictionary["orderConfirmationEmailTemplateId"] = self.orderConfirmationEmailTemplateId
-        nillableDictionary["shipmentConfirmationEmailTemplateId"] = self.shipmentConfirmationEmailTemplateId
-        nillableDictionary["orderInvoiceTemplateId"] = self.orderInvoiceTemplateId
+        nillableDictionary["totalQty"] = self.totalQty?.encodeToJSON()
+        nillableDictionary["estimatedNumberOfPicks"] = self.estimatedNumberOfPicks?.encodeToJSON()
+        nillableDictionary["orderConfirmationEmailTemplateId"] = self.orderConfirmationEmailTemplateId?.encodeToJSON()
+        nillableDictionary["shipmentConfirmationEmailTemplateId"] = self.shipmentConfirmationEmailTemplateId?.encodeToJSON()
+        nillableDictionary["orderInvoiceTemplateId"] = self.orderInvoiceTemplateId?.encodeToJSON()
         nillableDictionary["priceMode"] = self.priceMode
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

@@ -11,7 +11,6 @@ import Alamofire
 
 public class QuickReceiptAPI: APIBase {
     /**
-     
      Create a quickReceipt
      
      - parameter body: (body) QuickReceipt to be inserted. 
@@ -25,50 +24,48 @@ public class QuickReceiptAPI: APIBase {
 
 
     /**
-     
      Create a quickReceipt
-     
      - POST /beta/quickReceipt
      - Inserts a new quickReceipt using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-  "revisionDate" : "aeiou",
+  "weightPerWrap" : 9.301444243932575517419536481611430644989013671875,
+  "revisionDate" : "revisionDate",
   "customFields" : {
     "key" : "{}"
   },
-  "origin" : "aeiou",
-  "vendorId" : 123,
-  "sellPrice" : 1.3579000000000001069366817318950779736042022705078125,
-  "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
-  "unitsPerCase" : 123,
-  "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "cartonLength" : 1.3579000000000001069366817318950779736042022705078125,
-  "wrapCode" : "aeiou",
-  "locationId" : 123,
-  "unitCode" : "aeiou",
-  "generatedItemReceiptId" : 123,
-  "id" : 123,
-  "sku" : "aeiou",
-  "pricingPer" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123,
-  "unitsPerWrap" : 123,
-  "quantity" : 123,
-  "cost" : 1.3579000000000001069366817318950779736042022705078125,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "casesPerPallet" : 123,
-  "productionLot" : "aeiou",
-  "productIdTag" : "aeiou",
-  "carrier" : "aeiou",
-  "generatedASNId" : 123,
-  "createdBy" : 123,
-  "warehouseId" : 123,
-  "cartonHeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "dockDate" : "2000-01-23T04:56:07.000+0000",
-  "status" : "aeiou"
+  "origin" : "origin",
+  "vendorId" : 7,
+  "sellPrice" : 7.4577447736837658709418974467553198337554931640625,
+  "cartonWidth" : 1.024645700144157789424070870154537260532379150390625,
+  "unitsPerCase" : 2,
+  "caseWeight" : 7.3862819483858839220147274318151175975799560546875,
+  "cartonLength" : 1.231513536777255612975068288506008684635162353515625,
+  "wrapCode" : "wrapCode",
+  "locationId" : 5,
+  "unitCode" : "unitCode",
+  "generatedItemReceiptId" : 1,
+  "id" : 0,
+  "sku" : "sku",
+  "pricingPer" : "pricingPer",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 5,
+  "unitsPerWrap" : 3,
+  "quantity" : 2,
+  "cost" : 6.8468526983526398765889098285697400569915771484375,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "casesPerPallet" : 4,
+  "productionLot" : "productionLot",
+  "productIdTag" : "productIdTag",
+  "carrier" : "carrier",
+  "generatedASNId" : 4,
+  "createdBy" : 6,
+  "warehouseId" : 1,
+  "cartonHeight" : 1.489415909854170383397331534069962799549102783203125,
+  "dockDate" : "2000-01-23T04:56:07.000+00:00",
+  "status" : "status"
 }}]
      
      - parameter body: (body) QuickReceipt to be inserted. 
@@ -78,23 +75,23 @@ public class QuickReceiptAPI: APIBase {
     public class func addQuickReceiptWithRequestBuilder(body body: QuickReceipt) -> RequestBuilder<QuickReceipt> {
         let path = "/beta/quickReceipt"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<QuickReceipt>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new audit for a quickReceipt
      
      - parameter quickReceiptId: (path) Id of the quickReceipt to add an audit to 
      - parameter quickReceiptAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addQuickReceiptAudit(quickReceiptId quickReceiptId: Int, quickReceiptAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addQuickReceiptAudit(quickReceiptId quickReceiptId: Int32, quickReceiptAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addQuickReceiptAuditWithRequestBuilder(quickReceiptId: quickReceiptId, quickReceiptAudit: quickReceiptAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -102,9 +99,7 @@ public class QuickReceiptAPI: APIBase {
 
 
     /**
-     
      Add new audit for a quickReceipt
-     
      - PUT /beta/quickReceipt/{quickReceiptId}/audit/{quickReceiptAudit}
      - Adds an audit to an existing quickReceipt.
      - API Key:
@@ -116,29 +111,31 @@ public class QuickReceiptAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addQuickReceiptAuditWithRequestBuilder(quickReceiptId quickReceiptId: Int, quickReceiptAudit: String) -> RequestBuilder<Void> {
+    public class func addQuickReceiptAuditWithRequestBuilder(quickReceiptId quickReceiptId: Int32, quickReceiptAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/quickReceipt/{quickReceiptId}/audit/{quickReceiptAudit}"
         path = path.stringByReplacingOccurrencesOfString("{quickReceiptId}", withString: "\(quickReceiptId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{quickReceiptAudit}", withString: "\(quickReceiptAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for a quickReceipt.
      
      - parameter quickReceiptId: (path) Id of the quickReceipt to add a tag to 
      - parameter quickReceiptTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addQuickReceiptTag(quickReceiptId quickReceiptId: Int, quickReceiptTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addQuickReceiptTag(quickReceiptId quickReceiptId: Int32, quickReceiptTag: String, completion: ((error: ErrorType?) -> Void)) {
         addQuickReceiptTagWithRequestBuilder(quickReceiptId: quickReceiptId, quickReceiptTag: quickReceiptTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -146,9 +143,7 @@ public class QuickReceiptAPI: APIBase {
 
 
     /**
-     
      Add new tags for a quickReceipt.
-     
      - PUT /beta/quickReceipt/{quickReceiptId}/tag/{quickReceiptTag}
      - Adds a tag to an existing quickReceipt.
      - API Key:
@@ -160,28 +155,30 @@ public class QuickReceiptAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addQuickReceiptTagWithRequestBuilder(quickReceiptId quickReceiptId: Int, quickReceiptTag: String) -> RequestBuilder<Void> {
+    public class func addQuickReceiptTagWithRequestBuilder(quickReceiptId quickReceiptId: Int32, quickReceiptTag: String) -> RequestBuilder<Void> {
         var path = "/beta/quickReceipt/{quickReceiptId}/tag/{quickReceiptTag}"
         path = path.stringByReplacingOccurrencesOfString("{quickReceiptId}", withString: "\(quickReceiptId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{quickReceiptTag}", withString: "\(quickReceiptTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a quickReceipt
      
      - parameter quickReceiptId: (path) Id of the quickReceipt to be deleted. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteQuickReceipt(quickReceiptId quickReceiptId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteQuickReceipt(quickReceiptId quickReceiptId: Int32, completion: ((error: ErrorType?) -> Void)) {
         deleteQuickReceiptWithRequestBuilder(quickReceiptId: quickReceiptId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -189,9 +186,7 @@ public class QuickReceiptAPI: APIBase {
 
 
     /**
-     
      Delete a quickReceipt
-     
      - DELETE /beta/quickReceipt/{quickReceiptId}
      - Deletes the quickReceipt identified by the specified id.
      - API Key:
@@ -202,28 +197,30 @@ public class QuickReceiptAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteQuickReceiptWithRequestBuilder(quickReceiptId quickReceiptId: Int) -> RequestBuilder<Void> {
+    public class func deleteQuickReceiptWithRequestBuilder(quickReceiptId quickReceiptId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/quickReceipt/{quickReceiptId}"
         path = path.stringByReplacingOccurrencesOfString("{quickReceiptId}", withString: "\(quickReceiptId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for a quickReceipt.
      
      - parameter quickReceiptId: (path) Id of the quickReceipt to remove tag from 
      - parameter quickReceiptTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteQuickReceiptTag(quickReceiptId quickReceiptId: Int, quickReceiptTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteQuickReceiptTag(quickReceiptId quickReceiptId: Int32, quickReceiptTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteQuickReceiptTagWithRequestBuilder(quickReceiptId: quickReceiptId, quickReceiptTag: quickReceiptTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -231,9 +228,7 @@ public class QuickReceiptAPI: APIBase {
 
 
     /**
-     
      Delete a tag for a quickReceipt.
-     
      - DELETE /beta/quickReceipt/{quickReceiptId}/tag/{quickReceiptTag}
      - Deletes an existing quickReceipt tag using the specified data.
      - API Key:
@@ -245,22 +240,24 @@ public class QuickReceiptAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteQuickReceiptTagWithRequestBuilder(quickReceiptId quickReceiptId: Int, quickReceiptTag: String) -> RequestBuilder<Void> {
+    public class func deleteQuickReceiptTagWithRequestBuilder(quickReceiptId quickReceiptId: Int32, quickReceiptTag: String) -> RequestBuilder<Void> {
         var path = "/beta/quickReceipt/{quickReceiptId}/tag/{quickReceiptTag}"
         path = path.stringByReplacingOccurrencesOfString("{quickReceiptId}", withString: "\(quickReceiptId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{quickReceiptTag}", withString: "\(quickReceiptTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Run the ExecuteQuickReceipt process.
      
      - parameter body: (body) Input data for ExecuteQuickReceipt process. 
@@ -274,18 +271,20 @@ public class QuickReceiptAPI: APIBase {
 
 
     /**
-     
      Run the ExecuteQuickReceipt process.
-     
      - POST /beta/quickReceipt/executeQuickReceipt
      - 
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "messageList" : [ "aeiou" ],
+  "messageList" : [ "messageList", "messageList" ],
   "id" : "{}",
-  "status" : "aeiou"
+  "status" : "status"
+}, {
+  "messageList" : [ "messageList", "messageList" ],
+  "id" : "{}",
+  "status" : "status"
 } ]}]
      
      - parameter body: (body) Input data for ExecuteQuickReceipt process. 
@@ -295,22 +294,22 @@ public class QuickReceiptAPI: APIBase {
     public class func executeQuickReceiptWithRequestBuilder(body body: ExecuteQuickReceiptInputAPIModel) -> RequestBuilder<[ProcessOutputAPIModel]> {
         let path = "/beta/quickReceipt/executeQuickReceipt"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[ProcessOutputAPIModel]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated a quickReceipt by id
      
      - parameter quickReceiptId: (path) Id of the quickReceipt to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateQuickReceiptById(quickReceiptId quickReceiptId: Int, completion: ((data: QuickReceipt?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateQuickReceiptById(quickReceiptId quickReceiptId: Int32, completion: ((data: QuickReceipt?, error: ErrorType?) -> Void)) {
         getDuplicateQuickReceiptByIdWithRequestBuilder(quickReceiptId: quickReceiptId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -318,71 +317,71 @@ public class QuickReceiptAPI: APIBase {
 
 
     /**
-     
      Get a duplicated a quickReceipt by id
-     
      - GET /beta/quickReceipt/duplicate/{quickReceiptId}
      - Returns a duplicated quickReceipt identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-  "revisionDate" : "aeiou",
+  "weightPerWrap" : 9.301444243932575517419536481611430644989013671875,
+  "revisionDate" : "revisionDate",
   "customFields" : {
     "key" : "{}"
   },
-  "origin" : "aeiou",
-  "vendorId" : 123,
-  "sellPrice" : 1.3579000000000001069366817318950779736042022705078125,
-  "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
-  "unitsPerCase" : 123,
-  "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "cartonLength" : 1.3579000000000001069366817318950779736042022705078125,
-  "wrapCode" : "aeiou",
-  "locationId" : 123,
-  "unitCode" : "aeiou",
-  "generatedItemReceiptId" : 123,
-  "id" : 123,
-  "sku" : "aeiou",
-  "pricingPer" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123,
-  "unitsPerWrap" : 123,
-  "quantity" : 123,
-  "cost" : 1.3579000000000001069366817318950779736042022705078125,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "casesPerPallet" : 123,
-  "productionLot" : "aeiou",
-  "productIdTag" : "aeiou",
-  "carrier" : "aeiou",
-  "generatedASNId" : 123,
-  "createdBy" : 123,
-  "warehouseId" : 123,
-  "cartonHeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "dockDate" : "2000-01-23T04:56:07.000+0000",
-  "status" : "aeiou"
+  "origin" : "origin",
+  "vendorId" : 7,
+  "sellPrice" : 7.4577447736837658709418974467553198337554931640625,
+  "cartonWidth" : 1.024645700144157789424070870154537260532379150390625,
+  "unitsPerCase" : 2,
+  "caseWeight" : 7.3862819483858839220147274318151175975799560546875,
+  "cartonLength" : 1.231513536777255612975068288506008684635162353515625,
+  "wrapCode" : "wrapCode",
+  "locationId" : 5,
+  "unitCode" : "unitCode",
+  "generatedItemReceiptId" : 1,
+  "id" : 0,
+  "sku" : "sku",
+  "pricingPer" : "pricingPer",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 5,
+  "unitsPerWrap" : 3,
+  "quantity" : 2,
+  "cost" : 6.8468526983526398765889098285697400569915771484375,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "casesPerPallet" : 4,
+  "productionLot" : "productionLot",
+  "productIdTag" : "productIdTag",
+  "carrier" : "carrier",
+  "generatedASNId" : 4,
+  "createdBy" : 6,
+  "warehouseId" : 1,
+  "cartonHeight" : 1.489415909854170383397331534069962799549102783203125,
+  "dockDate" : "2000-01-23T04:56:07.000+00:00",
+  "status" : "status"
 }}]
      
      - parameter quickReceiptId: (path) Id of the quickReceipt to be duplicated. 
 
      - returns: RequestBuilder<QuickReceipt> 
      */
-    public class func getDuplicateQuickReceiptByIdWithRequestBuilder(quickReceiptId quickReceiptId: Int) -> RequestBuilder<QuickReceipt> {
+    public class func getDuplicateQuickReceiptByIdWithRequestBuilder(quickReceiptId quickReceiptId: Int32) -> RequestBuilder<QuickReceipt> {
         var path = "/beta/quickReceipt/duplicate/{quickReceiptId}"
         path = path.stringByReplacingOccurrencesOfString("{quickReceiptId}", withString: "\(quickReceiptId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<QuickReceipt>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search quickReceipts by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -391,7 +390,7 @@ public class QuickReceiptAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getQuickReceiptByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [QuickReceipt]?, error: ErrorType?) -> Void)) {
+    public class func getQuickReceiptByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [QuickReceipt]?, error: ErrorType?) -> Void)) {
         getQuickReceiptByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -399,50 +398,84 @@ public class QuickReceiptAPI: APIBase {
 
 
     /**
-     
      Search quickReceipts by filter
-     
      - GET /beta/quickReceipt/search
      - Returns the list of quickReceipts that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-  "revisionDate" : "aeiou",
+  "weightPerWrap" : 9.301444243932575517419536481611430644989013671875,
+  "revisionDate" : "revisionDate",
   "customFields" : {
     "key" : "{}"
   },
-  "origin" : "aeiou",
-  "vendorId" : 123,
-  "sellPrice" : 1.3579000000000001069366817318950779736042022705078125,
-  "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
-  "unitsPerCase" : 123,
-  "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "cartonLength" : 1.3579000000000001069366817318950779736042022705078125,
-  "wrapCode" : "aeiou",
-  "locationId" : 123,
-  "unitCode" : "aeiou",
-  "generatedItemReceiptId" : 123,
-  "id" : 123,
-  "sku" : "aeiou",
-  "pricingPer" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123,
-  "unitsPerWrap" : 123,
-  "quantity" : 123,
-  "cost" : 1.3579000000000001069366817318950779736042022705078125,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "casesPerPallet" : 123,
-  "productionLot" : "aeiou",
-  "productIdTag" : "aeiou",
-  "carrier" : "aeiou",
-  "generatedASNId" : 123,
-  "createdBy" : 123,
-  "warehouseId" : 123,
-  "cartonHeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "dockDate" : "2000-01-23T04:56:07.000+0000",
-  "status" : "aeiou"
+  "origin" : "origin",
+  "vendorId" : 7,
+  "sellPrice" : 7.4577447736837658709418974467553198337554931640625,
+  "cartonWidth" : 1.024645700144157789424070870154537260532379150390625,
+  "unitsPerCase" : 2,
+  "caseWeight" : 7.3862819483858839220147274318151175975799560546875,
+  "cartonLength" : 1.231513536777255612975068288506008684635162353515625,
+  "wrapCode" : "wrapCode",
+  "locationId" : 5,
+  "unitCode" : "unitCode",
+  "generatedItemReceiptId" : 1,
+  "id" : 0,
+  "sku" : "sku",
+  "pricingPer" : "pricingPer",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 5,
+  "unitsPerWrap" : 3,
+  "quantity" : 2,
+  "cost" : 6.8468526983526398765889098285697400569915771484375,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "casesPerPallet" : 4,
+  "productionLot" : "productionLot",
+  "productIdTag" : "productIdTag",
+  "carrier" : "carrier",
+  "generatedASNId" : 4,
+  "createdBy" : 6,
+  "warehouseId" : 1,
+  "cartonHeight" : 1.489415909854170383397331534069962799549102783203125,
+  "dockDate" : "2000-01-23T04:56:07.000+00:00",
+  "status" : "status"
+}, {
+  "weightPerWrap" : 9.301444243932575517419536481611430644989013671875,
+  "revisionDate" : "revisionDate",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "origin" : "origin",
+  "vendorId" : 7,
+  "sellPrice" : 7.4577447736837658709418974467553198337554931640625,
+  "cartonWidth" : 1.024645700144157789424070870154537260532379150390625,
+  "unitsPerCase" : 2,
+  "caseWeight" : 7.3862819483858839220147274318151175975799560546875,
+  "cartonLength" : 1.231513536777255612975068288506008684635162353515625,
+  "wrapCode" : "wrapCode",
+  "locationId" : 5,
+  "unitCode" : "unitCode",
+  "generatedItemReceiptId" : 1,
+  "id" : 0,
+  "sku" : "sku",
+  "pricingPer" : "pricingPer",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 5,
+  "unitsPerWrap" : 3,
+  "quantity" : 2,
+  "cost" : 6.8468526983526398765889098285697400569915771484375,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "casesPerPallet" : 4,
+  "productionLot" : "productionLot",
+  "productIdTag" : "productIdTag",
+  "carrier" : "carrier",
+  "generatedASNId" : 4,
+  "createdBy" : 6,
+  "warehouseId" : 1,
+  "cartonHeight" : 1.489415909854170383397331534069962799549102783203125,
+  "dockDate" : "2000-01-23T04:56:07.000+00:00",
+  "status" : "status"
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -452,31 +485,33 @@ public class QuickReceiptAPI: APIBase {
 
      - returns: RequestBuilder<[QuickReceipt]> 
      */
-    public class func getQuickReceiptByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[QuickReceipt]> {
+    public class func getQuickReceiptByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[QuickReceipt]> {
         let path = "/beta/quickReceipt/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[QuickReceipt]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get a quickReceipt by id
      
      - parameter quickReceiptId: (path) Id of the quickReceipt to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getQuickReceiptById(quickReceiptId quickReceiptId: Int, completion: ((data: QuickReceipt?, error: ErrorType?) -> Void)) {
+    public class func getQuickReceiptById(quickReceiptId quickReceiptId: Int32, completion: ((data: QuickReceipt?, error: ErrorType?) -> Void)) {
         getQuickReceiptByIdWithRequestBuilder(quickReceiptId: quickReceiptId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -484,77 +519,77 @@ public class QuickReceiptAPI: APIBase {
 
 
     /**
-     
      Get a quickReceipt by id
-     
      - GET /beta/quickReceipt/{quickReceiptId}
      - Returns the quickReceipt identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-  "revisionDate" : "aeiou",
+  "weightPerWrap" : 9.301444243932575517419536481611430644989013671875,
+  "revisionDate" : "revisionDate",
   "customFields" : {
     "key" : "{}"
   },
-  "origin" : "aeiou",
-  "vendorId" : 123,
-  "sellPrice" : 1.3579000000000001069366817318950779736042022705078125,
-  "cartonWidth" : 1.3579000000000001069366817318950779736042022705078125,
-  "unitsPerCase" : 123,
-  "caseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "cartonLength" : 1.3579000000000001069366817318950779736042022705078125,
-  "wrapCode" : "aeiou",
-  "locationId" : 123,
-  "unitCode" : "aeiou",
-  "generatedItemReceiptId" : 123,
-  "id" : 123,
-  "sku" : "aeiou",
-  "pricingPer" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123,
-  "unitsPerWrap" : 123,
-  "quantity" : 123,
-  "cost" : 1.3579000000000001069366817318950779736042022705078125,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "casesPerPallet" : 123,
-  "productionLot" : "aeiou",
-  "productIdTag" : "aeiou",
-  "carrier" : "aeiou",
-  "generatedASNId" : 123,
-  "createdBy" : 123,
-  "warehouseId" : 123,
-  "cartonHeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "dockDate" : "2000-01-23T04:56:07.000+0000",
-  "status" : "aeiou"
+  "origin" : "origin",
+  "vendorId" : 7,
+  "sellPrice" : 7.4577447736837658709418974467553198337554931640625,
+  "cartonWidth" : 1.024645700144157789424070870154537260532379150390625,
+  "unitsPerCase" : 2,
+  "caseWeight" : 7.3862819483858839220147274318151175975799560546875,
+  "cartonLength" : 1.231513536777255612975068288506008684635162353515625,
+  "wrapCode" : "wrapCode",
+  "locationId" : 5,
+  "unitCode" : "unitCode",
+  "generatedItemReceiptId" : 1,
+  "id" : 0,
+  "sku" : "sku",
+  "pricingPer" : "pricingPer",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 5,
+  "unitsPerWrap" : 3,
+  "quantity" : 2,
+  "cost" : 6.8468526983526398765889098285697400569915771484375,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "casesPerPallet" : 4,
+  "productionLot" : "productionLot",
+  "productIdTag" : "productIdTag",
+  "carrier" : "carrier",
+  "generatedASNId" : 4,
+  "createdBy" : 6,
+  "warehouseId" : 1,
+  "cartonHeight" : 1.489415909854170383397331534069962799549102783203125,
+  "dockDate" : "2000-01-23T04:56:07.000+00:00",
+  "status" : "status"
 }}]
      
      - parameter quickReceiptId: (path) Id of the quickReceipt to be returned. 
 
      - returns: RequestBuilder<QuickReceipt> 
      */
-    public class func getQuickReceiptByIdWithRequestBuilder(quickReceiptId quickReceiptId: Int) -> RequestBuilder<QuickReceipt> {
+    public class func getQuickReceiptByIdWithRequestBuilder(quickReceiptId quickReceiptId: Int32) -> RequestBuilder<QuickReceipt> {
         var path = "/beta/quickReceipt/{quickReceiptId}"
         path = path.stringByReplacingOccurrencesOfString("{quickReceiptId}", withString: "\(quickReceiptId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<QuickReceipt>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for a quickReceipt.
      
      - parameter quickReceiptId: (path) Id of the quickReceipt to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getQuickReceiptTags(quickReceiptId quickReceiptId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getQuickReceiptTags(quickReceiptId quickReceiptId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getQuickReceiptTagsWithRequestBuilder(quickReceiptId: quickReceiptId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -562,9 +597,7 @@ public class QuickReceiptAPI: APIBase {
 
 
     /**
-     
      Get the tags for a quickReceipt.
-     
      - GET /beta/quickReceipt/{quickReceiptId}/tag
      - Get all existing quickReceipt tags.
      - API Key:
@@ -575,21 +608,23 @@ public class QuickReceiptAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getQuickReceiptTagsWithRequestBuilder(quickReceiptId quickReceiptId: Int) -> RequestBuilder<Void> {
+    public class func getQuickReceiptTagsWithRequestBuilder(quickReceiptId quickReceiptId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/quickReceipt/{quickReceiptId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{quickReceiptId}", withString: "\(quickReceiptId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a quickReceipt
      
      - parameter body: (body) QuickReceipt to be updated. 
@@ -603,9 +638,7 @@ public class QuickReceiptAPI: APIBase {
 
 
     /**
-     
      Update a quickReceipt
-     
      - PUT /beta/quickReceipt
      - Updates an existing quickReceipt using the specified data.
      - API Key:
@@ -619,16 +652,16 @@ public class QuickReceiptAPI: APIBase {
     public class func updateQuickReceiptWithRequestBuilder(body body: QuickReceipt) -> RequestBuilder<Void> {
         let path = "/beta/quickReceipt"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a quickReceipt custom fields
      
      - parameter body: (body) QuickReceipt to be updated. 
@@ -642,9 +675,7 @@ public class QuickReceiptAPI: APIBase {
 
 
     /**
-     
      Update a quickReceipt custom fields
-     
      - PUT /beta/quickReceipt/customFields
      - Updates an existing quickReceipt custom fields using the specified data.
      - API Key:
@@ -658,12 +689,13 @@ public class QuickReceiptAPI: APIBase {
     public class func updateQuickReceiptCustomFieldsWithRequestBuilder(body body: QuickReceipt) -> RequestBuilder<Void> {
         let path = "/beta/quickReceipt/customFields"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

@@ -11,14 +11,13 @@ import Alamofire
 
 public class ParcelInvoiceLineAPI: APIBase {
     /**
-     
      Add new audit for a parcelInvoiceLine
      
      - parameter parcelInvoiceLineId: (path) Id of the parcelInvoiceLine to add an audit to 
      - parameter parcelInvoiceLineAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addParcelInvoiceLineAudit(parcelInvoiceLineId parcelInvoiceLineId: Int, parcelInvoiceLineAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addParcelInvoiceLineAudit(parcelInvoiceLineId parcelInvoiceLineId: Int32, parcelInvoiceLineAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addParcelInvoiceLineAuditWithRequestBuilder(parcelInvoiceLineId: parcelInvoiceLineId, parcelInvoiceLineAudit: parcelInvoiceLineAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -26,9 +25,7 @@ public class ParcelInvoiceLineAPI: APIBase {
 
 
     /**
-     
      Add new audit for a parcelInvoiceLine
-     
      - PUT /beta/parcelInvoiceLine/{parcelInvoiceLineId}/audit/{parcelInvoiceLineAudit}
      - Adds an audit to an existing parcelInvoiceLine.
      - API Key:
@@ -40,29 +37,31 @@ public class ParcelInvoiceLineAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addParcelInvoiceLineAuditWithRequestBuilder(parcelInvoiceLineId parcelInvoiceLineId: Int, parcelInvoiceLineAudit: String) -> RequestBuilder<Void> {
+    public class func addParcelInvoiceLineAuditWithRequestBuilder(parcelInvoiceLineId parcelInvoiceLineId: Int32, parcelInvoiceLineAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/parcelInvoiceLine/{parcelInvoiceLineId}/audit/{parcelInvoiceLineAudit}"
         path = path.stringByReplacingOccurrencesOfString("{parcelInvoiceLineId}", withString: "\(parcelInvoiceLineId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{parcelInvoiceLineAudit}", withString: "\(parcelInvoiceLineAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for a parcelInvoiceLine.
      
      - parameter parcelInvoiceLineId: (path) Id of the parcelInvoiceLine to add a tag to 
      - parameter parcelInvoiceLineTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addParcelInvoiceLineTag(parcelInvoiceLineId parcelInvoiceLineId: Int, parcelInvoiceLineTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addParcelInvoiceLineTag(parcelInvoiceLineId parcelInvoiceLineId: Int32, parcelInvoiceLineTag: String, completion: ((error: ErrorType?) -> Void)) {
         addParcelInvoiceLineTagWithRequestBuilder(parcelInvoiceLineId: parcelInvoiceLineId, parcelInvoiceLineTag: parcelInvoiceLineTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -70,9 +69,7 @@ public class ParcelInvoiceLineAPI: APIBase {
 
 
     /**
-     
      Add new tags for a parcelInvoiceLine.
-     
      - PUT /beta/parcelInvoiceLine/{parcelInvoiceLineId}/tag/{parcelInvoiceLineTag}
      - Adds a tag to an existing parcelInvoiceLine.
      - API Key:
@@ -84,29 +81,31 @@ public class ParcelInvoiceLineAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addParcelInvoiceLineTagWithRequestBuilder(parcelInvoiceLineId parcelInvoiceLineId: Int, parcelInvoiceLineTag: String) -> RequestBuilder<Void> {
+    public class func addParcelInvoiceLineTagWithRequestBuilder(parcelInvoiceLineId parcelInvoiceLineId: Int32, parcelInvoiceLineTag: String) -> RequestBuilder<Void> {
         var path = "/beta/parcelInvoiceLine/{parcelInvoiceLineId}/tag/{parcelInvoiceLineTag}"
         path = path.stringByReplacingOccurrencesOfString("{parcelInvoiceLineId}", withString: "\(parcelInvoiceLineId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{parcelInvoiceLineTag}", withString: "\(parcelInvoiceLineTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for a parcelInvoiceLine.
      
      - parameter parcelInvoiceLineId: (path) Id of the parcelInvoiceLine to remove tag from 
      - parameter parcelInvoiceLineTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteParcelInvoiceLineTag(parcelInvoiceLineId parcelInvoiceLineId: Int, parcelInvoiceLineTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteParcelInvoiceLineTag(parcelInvoiceLineId parcelInvoiceLineId: Int32, parcelInvoiceLineTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteParcelInvoiceLineTagWithRequestBuilder(parcelInvoiceLineId: parcelInvoiceLineId, parcelInvoiceLineTag: parcelInvoiceLineTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -114,9 +113,7 @@ public class ParcelInvoiceLineAPI: APIBase {
 
 
     /**
-     
      Delete a tag for a parcelInvoiceLine.
-     
      - DELETE /beta/parcelInvoiceLine/{parcelInvoiceLineId}/tag/{parcelInvoiceLineTag}
      - Deletes an existing parcelInvoiceLine tag using the specified data.
      - API Key:
@@ -128,28 +125,30 @@ public class ParcelInvoiceLineAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteParcelInvoiceLineTagWithRequestBuilder(parcelInvoiceLineId parcelInvoiceLineId: Int, parcelInvoiceLineTag: String) -> RequestBuilder<Void> {
+    public class func deleteParcelInvoiceLineTagWithRequestBuilder(parcelInvoiceLineId parcelInvoiceLineId: Int32, parcelInvoiceLineTag: String) -> RequestBuilder<Void> {
         var path = "/beta/parcelInvoiceLine/{parcelInvoiceLineId}/tag/{parcelInvoiceLineTag}"
         path = path.stringByReplacingOccurrencesOfString("{parcelInvoiceLineId}", withString: "\(parcelInvoiceLineId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{parcelInvoiceLineTag}", withString: "\(parcelInvoiceLineTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated a parcelInvoiceLine by id
      
      - parameter parcelInvoiceLineId: (path) Id of the parcelInvoiceLine to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateParcelInvoiceLineById(parcelInvoiceLineId parcelInvoiceLineId: Int, completion: ((data: ParcelInvoiceLine?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateParcelInvoiceLineById(parcelInvoiceLineId parcelInvoiceLineId: Int32, completion: ((data: ParcelInvoiceLine?, error: ErrorType?) -> Void)) {
         getDuplicateParcelInvoiceLineByIdWithRequestBuilder(parcelInvoiceLineId: parcelInvoiceLineId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -157,165 +156,165 @@ public class ParcelInvoiceLineAPI: APIBase {
 
 
     /**
-     
      Get a duplicated a parcelInvoiceLine by id
-     
      - GET /beta/parcelInvoiceLine/duplicate/{parcelInvoiceLineId}
      - Returns a duplicated parcelInvoiceLine identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "baseFreight" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge18Name" : "aeiou",
-  "orderId" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge15Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "soldToCompany" : "aeiou",
-  "actualWeightUnit" : "aeiou",
-  "extraCharge4Name" : "aeiou",
-  "originalShipToState" : "aeiou",
-  "grossCharges" : 1.3579000000000001069366817318950779736042022705078125,
-  "soldToStreet2" : "aeiou",
-  "extraCharge9Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "invoiceNoId" : 123,
-  "customerReference" : "aeiou",
-  "id" : 123,
-  "thirdPartyCountry" : "aeiou",
-  "shipToState" : "aeiou",
-  "extraCharge16Name" : "aeiou",
-  "extraCharge2Name" : "aeiou",
-  "extraCharge22Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipDate" : "2000-01-23T04:56:07.000+0000",
-  "extraCharge6Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "soldToStreet1" : "aeiou",
-  "extraCharge10Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge3Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge25Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "deliveryAreaChargeExtended" : 1.3579000000000001069366817318950779736042022705078125,
-  "netCharges" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge23Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge13Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "thirdPartyStreet1" : "aeiou",
-  "soldToState" : "aeiou",
-  "shipToCompany" : "aeiou",
-  "actualWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "soldToCity" : "aeiou",
-  "shipToZip" : "aeiou",
-  "soldToCountry" : "aeiou",
-  "extraCharge4Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge17Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "thirdPartyStreet2" : "aeiou",
-  "billedWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge22Name" : "aeiou",
-  "extraCharge13Name" : "aeiou",
-  "shipFromCompany" : "aeiou",
-  "shipFromStreet2" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "shipFromStreet1" : "aeiou",
-  "extraCharge24Name" : "aeiou",
-  "thirdPartyState" : "aeiou",
-  "extraCharge7Name" : "aeiou",
-  "thirdPartyZip" : "aeiou",
-  "extraCharge12Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "originalShipToZip" : "aeiou",
-  "originalShipToCountry" : "aeiou",
-  "adultSignatureCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "trackingNo" : "aeiou",
-  "extraCharge18Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToName" : "aeiou",
-  "extraCharge11Name" : "aeiou",
-  "shipmentReference" : "aeiou",
-  "extraCharge5Name" : "aeiou",
-  "dim3" : 1.3579000000000001069366817318950779736042022705078125,
-  "dim2" : 1.3579000000000001069366817318950779736042022705078125,
-  "dim1" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge5Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipFromCountry" : "aeiou",
-  "extraCharge2Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge21Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToCity" : "aeiou",
-  "residentialCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge11Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge17Name" : "aeiou",
-  "zone" : "aeiou",
-  "extraCharge3Name" : "aeiou",
-  "extraCharge14Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge24Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "lobId" : 123,
-  "shipToStreet2" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "shipFromState" : "aeiou",
-  "extraCharge19Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "enteredWeightUnit" : "aeiou",
-  "soldToName" : "aeiou",
-  "billedWeightUnit" : "aeiou",
-  "shipToStreet1" : "aeiou",
-  "deliveryAreaCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge16Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge20Name" : "aeiou",
-  "extraCharge9Name" : "aeiou",
-  "fuelCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge15Name" : "aeiou",
-  "extraCharge1Name" : "aeiou",
-  "reference7" : "aeiou",
-  "reference3" : "aeiou",
-  "originalShipToCompany" : "aeiou",
-  "addressCorrectionCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "reference4" : "aeiou",
-  "originalShipToCity" : "aeiou",
-  "reference5" : "aeiou",
+  "baseFreight" : 1.231513536777255612975068288506008684635162353515625,
+  "extraCharge18Name" : "extraCharge18Name",
+  "orderId" : 5.962133916683182377482808078639209270477294921875,
+  "extraCharge15Amount" : 3.35319334701124294184637619764544069766998291015625,
+  "soldToCompany" : "soldToCompany",
+  "actualWeightUnit" : "actualWeightUnit",
+  "extraCharge4Name" : "extraCharge4Name",
+  "originalShipToState" : "originalShipToState",
+  "grossCharges" : 1.024645700144157789424070870154537260532379150390625,
+  "soldToStreet2" : "soldToStreet2",
+  "extraCharge9Amount" : 1.2846590061165319429647979632136411964893341064453125,
+  "invoiceNoId" : 6,
+  "customerReference" : "customerReference",
+  "id" : 0,
+  "thirdPartyCountry" : "thirdPartyCountry",
+  "shipToState" : "shipToState",
+  "extraCharge16Name" : "extraCharge16Name",
+  "extraCharge2Name" : "extraCharge2Name",
+  "extraCharge22Amount" : 4.6523964329332461176136348512955009937286376953125,
+  "shipDate" : "2000-01-23T04:56:07.000+00:00",
+  "extraCharge6Amount" : 6.438423552598546706349225132726132869720458984375,
+  "soldToStreet1" : "soldToStreet1",
+  "extraCharge10Amount" : 2.884162126668780246063761296682059764862060546875,
+  "extraCharge3Amount" : 6.683562403749608193948006373830139636993408203125,
+  "extraCharge25Amount" : 3.02057969929162428712743349024094641208648681640625,
+  "deliveryAreaChargeExtended" : 4.9652184929849543237878606305457651615142822265625,
+  "netCharges" : 7.3862819483858839220147274318151175975799560546875,
+  "extraCharge23Amount" : 8.9695787981969115065794539987109601497650146484375,
+  "extraCharge13Amount" : 5.94489560761401580890606055618263781070709228515625,
+  "thirdPartyStreet1" : "thirdPartyStreet1",
+  "soldToState" : "soldToState",
+  "shipToCompany" : "shipToCompany",
+  "actualWeight" : 2.027123023002321833274663731572218239307403564453125,
+  "soldToCity" : "soldToCity",
+  "shipToZip" : "shipToZip",
+  "soldToCountry" : "soldToCountry",
+  "extraCharge4Amount" : 8.7620420127490010742121739895083010196685791015625,
+  "extraCharge17Amount" : 7.14353804701230643559028976596891880035400390625,
+  "thirdPartyStreet2" : "thirdPartyStreet2",
+  "billedWeight" : 4.1456080298839363962315474054776132106781005859375,
+  "extraCharge22Name" : "extraCharge22Name",
+  "extraCharge13Name" : "extraCharge13Name",
+  "shipFromCompany" : "shipFromCompany",
+  "shipFromStreet2" : "shipFromStreet2",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipFromStreet1" : "shipFromStreet1",
+  "extraCharge24Name" : "extraCharge24Name",
+  "thirdPartyState" : "thirdPartyState",
+  "extraCharge7Name" : "extraCharge7Name",
+  "thirdPartyZip" : "thirdPartyZip",
+  "extraCharge12Amount" : 6.87805222012787620400331434211693704128265380859375,
+  "originalShipToZip" : "originalShipToZip",
+  "originalShipToCountry" : "originalShipToCountry",
+  "adultSignatureCharge" : 7.4577447736837658709418974467553198337554931640625,
+  "trackingNo" : "trackingNo",
+  "extraCharge18Amount" : 0.885137473901165261480628032586537301540374755859375,
+  "shipToName" : "shipToName",
+  "extraCharge11Name" : "extraCharge11Name",
+  "shipmentReference" : "shipmentReference",
+  "extraCharge5Name" : "extraCharge5Name",
+  "dim3" : 9.301444243932575517419536481611430644989013671875,
+  "dim2" : 7.061401241503109105224211816675961017608642578125,
+  "dim1" : 2.3021358869347654518833223846741020679473876953125,
+  "extraCharge5Amount" : 9.0183481860707832566959041287191212177276611328125,
+  "shipFromCountry" : "shipFromCountry",
+  "extraCharge2Amount" : 9.3693102714106686335071572102606296539306640625,
+  "extraCharge21Amount" : 0.10263654006109401706225980888120830059051513671875,
+  "shipToCity" : "shipToCity",
+  "residentialCharge" : 6.8468526983526398765889098285697400569915771484375,
+  "extraCharge11Amount" : 6.77832496304801335185175048536621034145355224609375,
+  "extraCharge17Name" : "extraCharge17Name",
+  "zone" : "zone",
+  "extraCharge3Name" : "extraCharge3Name",
+  "extraCharge14Amount" : 6.70401929795003592715829654480330646038055419921875,
+  "extraCharge24Amount" : 7.7403518187411730622216055053286254405975341796875,
+  "lobId" : 1,
+  "shipToStreet2" : "shipToStreet2",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipFromState" : "shipFromState",
+  "extraCharge19Amount" : 7.05877035158235610623478351044468581676483154296875,
+  "enteredWeightUnit" : "enteredWeightUnit",
+  "soldToName" : "soldToName",
+  "billedWeightUnit" : "billedWeightUnit",
+  "shipToStreet1" : "shipToStreet1",
+  "deliveryAreaCharge" : 1.173074250955943309548956676735542714595794677734375,
+  "extraCharge16Amount" : 3.093745262666447448651751983561553061008453369140625,
+  "extraCharge20Name" : "extraCharge20Name",
+  "extraCharge9Name" : "extraCharge9Name",
+  "fuelCharge" : 1.489415909854170383397331534069962799549102783203125,
+  "extraCharge15Name" : "extraCharge15Name",
+  "extraCharge1Name" : "extraCharge1Name",
+  "reference7" : "reference7",
+  "reference3" : "reference3",
+  "originalShipToCompany" : "originalShipToCompany",
+  "addressCorrectionCharge" : 5.02500479152029466689555192715488374233245849609375,
+  "reference4" : "reference4",
+  "originalShipToCity" : "originalShipToCity",
+  "reference5" : "reference5",
   "customFields" : {
     "key" : "{}"
   },
-  "reference6" : "aeiou",
-  "extraCharge7Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipFromZip" : "aeiou",
-  "extraCharge21Name" : "aeiou",
-  "extraCharge14Name" : "aeiou",
-  "soldToZip" : "aeiou",
-  "extraCharge8Name" : "aeiou",
-  "originalShipToStreet1" : "aeiou",
-  "enteredWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "originalShipToStreet2" : "aeiou",
-  "shipFromName" : "aeiou",
-  "thirdPartyCity" : "aeiou",
-  "extraCharge1Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToCountry" : "aeiou",
-  "thirdPartyCompany" : "aeiou",
-  "originalShipToName" : "aeiou",
-  "extraCharge25Name" : "aeiou",
-  "extraCharge10Name" : "aeiou",
-  "extraCharge12Name" : "aeiou",
-  "extraCharge20Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge6Name" : "aeiou",
-  "freightServiceType" : "aeiou",
-  "extraCharge23Name" : "aeiou",
-  "thirdPartyName" : "aeiou",
-  "extraCharge19Name" : "aeiou",
-  "shipmentId" : 123,
-  "shipFromCity" : "aeiou",
-  "extraCharge8Amount" : 1.3579000000000001069366817318950779736042022705078125
+  "reference6" : "reference6",
+  "extraCharge7Amount" : 3.557195227068097320710649000830017030239105224609375,
+  "shipFromZip" : "shipFromZip",
+  "extraCharge21Name" : "extraCharge21Name",
+  "extraCharge14Name" : "extraCharge14Name",
+  "soldToZip" : "soldToZip",
+  "extraCharge8Name" : "extraCharge8Name",
+  "originalShipToStreet1" : "originalShipToStreet1",
+  "enteredWeight" : 3.61607674925191080461672754609026014804840087890625,
+  "originalShipToStreet2" : "originalShipToStreet2",
+  "shipFromName" : "shipFromName",
+  "thirdPartyCity" : "thirdPartyCity",
+  "extraCharge1Amount" : 9.965781217890562260208753286860883235931396484375,
+  "shipToCountry" : "shipToCountry",
+  "thirdPartyCompany" : "thirdPartyCompany",
+  "originalShipToName" : "originalShipToName",
+  "extraCharge25Name" : "extraCharge25Name",
+  "extraCharge10Name" : "extraCharge10Name",
+  "extraCharge12Name" : "extraCharge12Name",
+  "extraCharge20Amount" : 6.51918095101838179772357761976309120655059814453125,
+  "extraCharge6Name" : "extraCharge6Name",
+  "freightServiceType" : "freightServiceType",
+  "extraCharge23Name" : "extraCharge23Name",
+  "thirdPartyName" : "thirdPartyName",
+  "extraCharge19Name" : "extraCharge19Name",
+  "shipmentId" : 5,
+  "shipFromCity" : "shipFromCity",
+  "extraCharge8Amount" : 6.96511769763884558415156789124011993408203125
 }}]
      
      - parameter parcelInvoiceLineId: (path) Id of the parcelInvoiceLine to be duplicated. 
 
      - returns: RequestBuilder<ParcelInvoiceLine> 
      */
-    public class func getDuplicateParcelInvoiceLineByIdWithRequestBuilder(parcelInvoiceLineId parcelInvoiceLineId: Int) -> RequestBuilder<ParcelInvoiceLine> {
+    public class func getDuplicateParcelInvoiceLineByIdWithRequestBuilder(parcelInvoiceLineId parcelInvoiceLineId: Int32) -> RequestBuilder<ParcelInvoiceLine> {
         var path = "/beta/parcelInvoiceLine/duplicate/{parcelInvoiceLineId}"
         path = path.stringByReplacingOccurrencesOfString("{parcelInvoiceLineId}", withString: "\(parcelInvoiceLineId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<ParcelInvoiceLine>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search parcelInvoiceLines by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -324,7 +323,7 @@ public class ParcelInvoiceLineAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getParcelInvoiceLineByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [ParcelInvoiceLine]?, error: ErrorType?) -> Void)) {
+    public class func getParcelInvoiceLineByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [ParcelInvoiceLine]?, error: ErrorType?) -> Void)) {
         getParcelInvoiceLineByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -332,144 +331,272 @@ public class ParcelInvoiceLineAPI: APIBase {
 
 
     /**
-     
      Search parcelInvoiceLines by filter
-     
      - GET /beta/parcelInvoiceLine/search
      - Returns the list of parcelInvoiceLines that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "baseFreight" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge18Name" : "aeiou",
-  "orderId" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge15Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "soldToCompany" : "aeiou",
-  "actualWeightUnit" : "aeiou",
-  "extraCharge4Name" : "aeiou",
-  "originalShipToState" : "aeiou",
-  "grossCharges" : 1.3579000000000001069366817318950779736042022705078125,
-  "soldToStreet2" : "aeiou",
-  "extraCharge9Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "invoiceNoId" : 123,
-  "customerReference" : "aeiou",
-  "id" : 123,
-  "thirdPartyCountry" : "aeiou",
-  "shipToState" : "aeiou",
-  "extraCharge16Name" : "aeiou",
-  "extraCharge2Name" : "aeiou",
-  "extraCharge22Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipDate" : "2000-01-23T04:56:07.000+0000",
-  "extraCharge6Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "soldToStreet1" : "aeiou",
-  "extraCharge10Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge3Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge25Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "deliveryAreaChargeExtended" : 1.3579000000000001069366817318950779736042022705078125,
-  "netCharges" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge23Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge13Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "thirdPartyStreet1" : "aeiou",
-  "soldToState" : "aeiou",
-  "shipToCompany" : "aeiou",
-  "actualWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "soldToCity" : "aeiou",
-  "shipToZip" : "aeiou",
-  "soldToCountry" : "aeiou",
-  "extraCharge4Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge17Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "thirdPartyStreet2" : "aeiou",
-  "billedWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge22Name" : "aeiou",
-  "extraCharge13Name" : "aeiou",
-  "shipFromCompany" : "aeiou",
-  "shipFromStreet2" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "shipFromStreet1" : "aeiou",
-  "extraCharge24Name" : "aeiou",
-  "thirdPartyState" : "aeiou",
-  "extraCharge7Name" : "aeiou",
-  "thirdPartyZip" : "aeiou",
-  "extraCharge12Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "originalShipToZip" : "aeiou",
-  "originalShipToCountry" : "aeiou",
-  "adultSignatureCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "trackingNo" : "aeiou",
-  "extraCharge18Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToName" : "aeiou",
-  "extraCharge11Name" : "aeiou",
-  "shipmentReference" : "aeiou",
-  "extraCharge5Name" : "aeiou",
-  "dim3" : 1.3579000000000001069366817318950779736042022705078125,
-  "dim2" : 1.3579000000000001069366817318950779736042022705078125,
-  "dim1" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge5Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipFromCountry" : "aeiou",
-  "extraCharge2Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge21Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToCity" : "aeiou",
-  "residentialCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge11Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge17Name" : "aeiou",
-  "zone" : "aeiou",
-  "extraCharge3Name" : "aeiou",
-  "extraCharge14Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge24Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "lobId" : 123,
-  "shipToStreet2" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "shipFromState" : "aeiou",
-  "extraCharge19Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "enteredWeightUnit" : "aeiou",
-  "soldToName" : "aeiou",
-  "billedWeightUnit" : "aeiou",
-  "shipToStreet1" : "aeiou",
-  "deliveryAreaCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge16Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge20Name" : "aeiou",
-  "extraCharge9Name" : "aeiou",
-  "fuelCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge15Name" : "aeiou",
-  "extraCharge1Name" : "aeiou",
-  "reference7" : "aeiou",
-  "reference3" : "aeiou",
-  "originalShipToCompany" : "aeiou",
-  "addressCorrectionCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "reference4" : "aeiou",
-  "originalShipToCity" : "aeiou",
-  "reference5" : "aeiou",
+  "baseFreight" : 1.231513536777255612975068288506008684635162353515625,
+  "extraCharge18Name" : "extraCharge18Name",
+  "orderId" : 5.962133916683182377482808078639209270477294921875,
+  "extraCharge15Amount" : 3.35319334701124294184637619764544069766998291015625,
+  "soldToCompany" : "soldToCompany",
+  "actualWeightUnit" : "actualWeightUnit",
+  "extraCharge4Name" : "extraCharge4Name",
+  "originalShipToState" : "originalShipToState",
+  "grossCharges" : 1.024645700144157789424070870154537260532379150390625,
+  "soldToStreet2" : "soldToStreet2",
+  "extraCharge9Amount" : 1.2846590061165319429647979632136411964893341064453125,
+  "invoiceNoId" : 6,
+  "customerReference" : "customerReference",
+  "id" : 0,
+  "thirdPartyCountry" : "thirdPartyCountry",
+  "shipToState" : "shipToState",
+  "extraCharge16Name" : "extraCharge16Name",
+  "extraCharge2Name" : "extraCharge2Name",
+  "extraCharge22Amount" : 4.6523964329332461176136348512955009937286376953125,
+  "shipDate" : "2000-01-23T04:56:07.000+00:00",
+  "extraCharge6Amount" : 6.438423552598546706349225132726132869720458984375,
+  "soldToStreet1" : "soldToStreet1",
+  "extraCharge10Amount" : 2.884162126668780246063761296682059764862060546875,
+  "extraCharge3Amount" : 6.683562403749608193948006373830139636993408203125,
+  "extraCharge25Amount" : 3.02057969929162428712743349024094641208648681640625,
+  "deliveryAreaChargeExtended" : 4.9652184929849543237878606305457651615142822265625,
+  "netCharges" : 7.3862819483858839220147274318151175975799560546875,
+  "extraCharge23Amount" : 8.9695787981969115065794539987109601497650146484375,
+  "extraCharge13Amount" : 5.94489560761401580890606055618263781070709228515625,
+  "thirdPartyStreet1" : "thirdPartyStreet1",
+  "soldToState" : "soldToState",
+  "shipToCompany" : "shipToCompany",
+  "actualWeight" : 2.027123023002321833274663731572218239307403564453125,
+  "soldToCity" : "soldToCity",
+  "shipToZip" : "shipToZip",
+  "soldToCountry" : "soldToCountry",
+  "extraCharge4Amount" : 8.7620420127490010742121739895083010196685791015625,
+  "extraCharge17Amount" : 7.14353804701230643559028976596891880035400390625,
+  "thirdPartyStreet2" : "thirdPartyStreet2",
+  "billedWeight" : 4.1456080298839363962315474054776132106781005859375,
+  "extraCharge22Name" : "extraCharge22Name",
+  "extraCharge13Name" : "extraCharge13Name",
+  "shipFromCompany" : "shipFromCompany",
+  "shipFromStreet2" : "shipFromStreet2",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipFromStreet1" : "shipFromStreet1",
+  "extraCharge24Name" : "extraCharge24Name",
+  "thirdPartyState" : "thirdPartyState",
+  "extraCharge7Name" : "extraCharge7Name",
+  "thirdPartyZip" : "thirdPartyZip",
+  "extraCharge12Amount" : 6.87805222012787620400331434211693704128265380859375,
+  "originalShipToZip" : "originalShipToZip",
+  "originalShipToCountry" : "originalShipToCountry",
+  "adultSignatureCharge" : 7.4577447736837658709418974467553198337554931640625,
+  "trackingNo" : "trackingNo",
+  "extraCharge18Amount" : 0.885137473901165261480628032586537301540374755859375,
+  "shipToName" : "shipToName",
+  "extraCharge11Name" : "extraCharge11Name",
+  "shipmentReference" : "shipmentReference",
+  "extraCharge5Name" : "extraCharge5Name",
+  "dim3" : 9.301444243932575517419536481611430644989013671875,
+  "dim2" : 7.061401241503109105224211816675961017608642578125,
+  "dim1" : 2.3021358869347654518833223846741020679473876953125,
+  "extraCharge5Amount" : 9.0183481860707832566959041287191212177276611328125,
+  "shipFromCountry" : "shipFromCountry",
+  "extraCharge2Amount" : 9.3693102714106686335071572102606296539306640625,
+  "extraCharge21Amount" : 0.10263654006109401706225980888120830059051513671875,
+  "shipToCity" : "shipToCity",
+  "residentialCharge" : 6.8468526983526398765889098285697400569915771484375,
+  "extraCharge11Amount" : 6.77832496304801335185175048536621034145355224609375,
+  "extraCharge17Name" : "extraCharge17Name",
+  "zone" : "zone",
+  "extraCharge3Name" : "extraCharge3Name",
+  "extraCharge14Amount" : 6.70401929795003592715829654480330646038055419921875,
+  "extraCharge24Amount" : 7.7403518187411730622216055053286254405975341796875,
+  "lobId" : 1,
+  "shipToStreet2" : "shipToStreet2",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipFromState" : "shipFromState",
+  "extraCharge19Amount" : 7.05877035158235610623478351044468581676483154296875,
+  "enteredWeightUnit" : "enteredWeightUnit",
+  "soldToName" : "soldToName",
+  "billedWeightUnit" : "billedWeightUnit",
+  "shipToStreet1" : "shipToStreet1",
+  "deliveryAreaCharge" : 1.173074250955943309548956676735542714595794677734375,
+  "extraCharge16Amount" : 3.093745262666447448651751983561553061008453369140625,
+  "extraCharge20Name" : "extraCharge20Name",
+  "extraCharge9Name" : "extraCharge9Name",
+  "fuelCharge" : 1.489415909854170383397331534069962799549102783203125,
+  "extraCharge15Name" : "extraCharge15Name",
+  "extraCharge1Name" : "extraCharge1Name",
+  "reference7" : "reference7",
+  "reference3" : "reference3",
+  "originalShipToCompany" : "originalShipToCompany",
+  "addressCorrectionCharge" : 5.02500479152029466689555192715488374233245849609375,
+  "reference4" : "reference4",
+  "originalShipToCity" : "originalShipToCity",
+  "reference5" : "reference5",
   "customFields" : {
     "key" : "{}"
   },
-  "reference6" : "aeiou",
-  "extraCharge7Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipFromZip" : "aeiou",
-  "extraCharge21Name" : "aeiou",
-  "extraCharge14Name" : "aeiou",
-  "soldToZip" : "aeiou",
-  "extraCharge8Name" : "aeiou",
-  "originalShipToStreet1" : "aeiou",
-  "enteredWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "originalShipToStreet2" : "aeiou",
-  "shipFromName" : "aeiou",
-  "thirdPartyCity" : "aeiou",
-  "extraCharge1Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToCountry" : "aeiou",
-  "thirdPartyCompany" : "aeiou",
-  "originalShipToName" : "aeiou",
-  "extraCharge25Name" : "aeiou",
-  "extraCharge10Name" : "aeiou",
-  "extraCharge12Name" : "aeiou",
-  "extraCharge20Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge6Name" : "aeiou",
-  "freightServiceType" : "aeiou",
-  "extraCharge23Name" : "aeiou",
-  "thirdPartyName" : "aeiou",
-  "extraCharge19Name" : "aeiou",
-  "shipmentId" : 123,
-  "shipFromCity" : "aeiou",
-  "extraCharge8Amount" : 1.3579000000000001069366817318950779736042022705078125
+  "reference6" : "reference6",
+  "extraCharge7Amount" : 3.557195227068097320710649000830017030239105224609375,
+  "shipFromZip" : "shipFromZip",
+  "extraCharge21Name" : "extraCharge21Name",
+  "extraCharge14Name" : "extraCharge14Name",
+  "soldToZip" : "soldToZip",
+  "extraCharge8Name" : "extraCharge8Name",
+  "originalShipToStreet1" : "originalShipToStreet1",
+  "enteredWeight" : 3.61607674925191080461672754609026014804840087890625,
+  "originalShipToStreet2" : "originalShipToStreet2",
+  "shipFromName" : "shipFromName",
+  "thirdPartyCity" : "thirdPartyCity",
+  "extraCharge1Amount" : 9.965781217890562260208753286860883235931396484375,
+  "shipToCountry" : "shipToCountry",
+  "thirdPartyCompany" : "thirdPartyCompany",
+  "originalShipToName" : "originalShipToName",
+  "extraCharge25Name" : "extraCharge25Name",
+  "extraCharge10Name" : "extraCharge10Name",
+  "extraCharge12Name" : "extraCharge12Name",
+  "extraCharge20Amount" : 6.51918095101838179772357761976309120655059814453125,
+  "extraCharge6Name" : "extraCharge6Name",
+  "freightServiceType" : "freightServiceType",
+  "extraCharge23Name" : "extraCharge23Name",
+  "thirdPartyName" : "thirdPartyName",
+  "extraCharge19Name" : "extraCharge19Name",
+  "shipmentId" : 5,
+  "shipFromCity" : "shipFromCity",
+  "extraCharge8Amount" : 6.96511769763884558415156789124011993408203125
+}, {
+  "baseFreight" : 1.231513536777255612975068288506008684635162353515625,
+  "extraCharge18Name" : "extraCharge18Name",
+  "orderId" : 5.962133916683182377482808078639209270477294921875,
+  "extraCharge15Amount" : 3.35319334701124294184637619764544069766998291015625,
+  "soldToCompany" : "soldToCompany",
+  "actualWeightUnit" : "actualWeightUnit",
+  "extraCharge4Name" : "extraCharge4Name",
+  "originalShipToState" : "originalShipToState",
+  "grossCharges" : 1.024645700144157789424070870154537260532379150390625,
+  "soldToStreet2" : "soldToStreet2",
+  "extraCharge9Amount" : 1.2846590061165319429647979632136411964893341064453125,
+  "invoiceNoId" : 6,
+  "customerReference" : "customerReference",
+  "id" : 0,
+  "thirdPartyCountry" : "thirdPartyCountry",
+  "shipToState" : "shipToState",
+  "extraCharge16Name" : "extraCharge16Name",
+  "extraCharge2Name" : "extraCharge2Name",
+  "extraCharge22Amount" : 4.6523964329332461176136348512955009937286376953125,
+  "shipDate" : "2000-01-23T04:56:07.000+00:00",
+  "extraCharge6Amount" : 6.438423552598546706349225132726132869720458984375,
+  "soldToStreet1" : "soldToStreet1",
+  "extraCharge10Amount" : 2.884162126668780246063761296682059764862060546875,
+  "extraCharge3Amount" : 6.683562403749608193948006373830139636993408203125,
+  "extraCharge25Amount" : 3.02057969929162428712743349024094641208648681640625,
+  "deliveryAreaChargeExtended" : 4.9652184929849543237878606305457651615142822265625,
+  "netCharges" : 7.3862819483858839220147274318151175975799560546875,
+  "extraCharge23Amount" : 8.9695787981969115065794539987109601497650146484375,
+  "extraCharge13Amount" : 5.94489560761401580890606055618263781070709228515625,
+  "thirdPartyStreet1" : "thirdPartyStreet1",
+  "soldToState" : "soldToState",
+  "shipToCompany" : "shipToCompany",
+  "actualWeight" : 2.027123023002321833274663731572218239307403564453125,
+  "soldToCity" : "soldToCity",
+  "shipToZip" : "shipToZip",
+  "soldToCountry" : "soldToCountry",
+  "extraCharge4Amount" : 8.7620420127490010742121739895083010196685791015625,
+  "extraCharge17Amount" : 7.14353804701230643559028976596891880035400390625,
+  "thirdPartyStreet2" : "thirdPartyStreet2",
+  "billedWeight" : 4.1456080298839363962315474054776132106781005859375,
+  "extraCharge22Name" : "extraCharge22Name",
+  "extraCharge13Name" : "extraCharge13Name",
+  "shipFromCompany" : "shipFromCompany",
+  "shipFromStreet2" : "shipFromStreet2",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipFromStreet1" : "shipFromStreet1",
+  "extraCharge24Name" : "extraCharge24Name",
+  "thirdPartyState" : "thirdPartyState",
+  "extraCharge7Name" : "extraCharge7Name",
+  "thirdPartyZip" : "thirdPartyZip",
+  "extraCharge12Amount" : 6.87805222012787620400331434211693704128265380859375,
+  "originalShipToZip" : "originalShipToZip",
+  "originalShipToCountry" : "originalShipToCountry",
+  "adultSignatureCharge" : 7.4577447736837658709418974467553198337554931640625,
+  "trackingNo" : "trackingNo",
+  "extraCharge18Amount" : 0.885137473901165261480628032586537301540374755859375,
+  "shipToName" : "shipToName",
+  "extraCharge11Name" : "extraCharge11Name",
+  "shipmentReference" : "shipmentReference",
+  "extraCharge5Name" : "extraCharge5Name",
+  "dim3" : 9.301444243932575517419536481611430644989013671875,
+  "dim2" : 7.061401241503109105224211816675961017608642578125,
+  "dim1" : 2.3021358869347654518833223846741020679473876953125,
+  "extraCharge5Amount" : 9.0183481860707832566959041287191212177276611328125,
+  "shipFromCountry" : "shipFromCountry",
+  "extraCharge2Amount" : 9.3693102714106686335071572102606296539306640625,
+  "extraCharge21Amount" : 0.10263654006109401706225980888120830059051513671875,
+  "shipToCity" : "shipToCity",
+  "residentialCharge" : 6.8468526983526398765889098285697400569915771484375,
+  "extraCharge11Amount" : 6.77832496304801335185175048536621034145355224609375,
+  "extraCharge17Name" : "extraCharge17Name",
+  "zone" : "zone",
+  "extraCharge3Name" : "extraCharge3Name",
+  "extraCharge14Amount" : 6.70401929795003592715829654480330646038055419921875,
+  "extraCharge24Amount" : 7.7403518187411730622216055053286254405975341796875,
+  "lobId" : 1,
+  "shipToStreet2" : "shipToStreet2",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipFromState" : "shipFromState",
+  "extraCharge19Amount" : 7.05877035158235610623478351044468581676483154296875,
+  "enteredWeightUnit" : "enteredWeightUnit",
+  "soldToName" : "soldToName",
+  "billedWeightUnit" : "billedWeightUnit",
+  "shipToStreet1" : "shipToStreet1",
+  "deliveryAreaCharge" : 1.173074250955943309548956676735542714595794677734375,
+  "extraCharge16Amount" : 3.093745262666447448651751983561553061008453369140625,
+  "extraCharge20Name" : "extraCharge20Name",
+  "extraCharge9Name" : "extraCharge9Name",
+  "fuelCharge" : 1.489415909854170383397331534069962799549102783203125,
+  "extraCharge15Name" : "extraCharge15Name",
+  "extraCharge1Name" : "extraCharge1Name",
+  "reference7" : "reference7",
+  "reference3" : "reference3",
+  "originalShipToCompany" : "originalShipToCompany",
+  "addressCorrectionCharge" : 5.02500479152029466689555192715488374233245849609375,
+  "reference4" : "reference4",
+  "originalShipToCity" : "originalShipToCity",
+  "reference5" : "reference5",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "reference6" : "reference6",
+  "extraCharge7Amount" : 3.557195227068097320710649000830017030239105224609375,
+  "shipFromZip" : "shipFromZip",
+  "extraCharge21Name" : "extraCharge21Name",
+  "extraCharge14Name" : "extraCharge14Name",
+  "soldToZip" : "soldToZip",
+  "extraCharge8Name" : "extraCharge8Name",
+  "originalShipToStreet1" : "originalShipToStreet1",
+  "enteredWeight" : 3.61607674925191080461672754609026014804840087890625,
+  "originalShipToStreet2" : "originalShipToStreet2",
+  "shipFromName" : "shipFromName",
+  "thirdPartyCity" : "thirdPartyCity",
+  "extraCharge1Amount" : 9.965781217890562260208753286860883235931396484375,
+  "shipToCountry" : "shipToCountry",
+  "thirdPartyCompany" : "thirdPartyCompany",
+  "originalShipToName" : "originalShipToName",
+  "extraCharge25Name" : "extraCharge25Name",
+  "extraCharge10Name" : "extraCharge10Name",
+  "extraCharge12Name" : "extraCharge12Name",
+  "extraCharge20Amount" : 6.51918095101838179772357761976309120655059814453125,
+  "extraCharge6Name" : "extraCharge6Name",
+  "freightServiceType" : "freightServiceType",
+  "extraCharge23Name" : "extraCharge23Name",
+  "thirdPartyName" : "thirdPartyName",
+  "extraCharge19Name" : "extraCharge19Name",
+  "shipmentId" : 5,
+  "shipFromCity" : "shipFromCity",
+  "extraCharge8Amount" : 6.96511769763884558415156789124011993408203125
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -479,31 +606,33 @@ public class ParcelInvoiceLineAPI: APIBase {
 
      - returns: RequestBuilder<[ParcelInvoiceLine]> 
      */
-    public class func getParcelInvoiceLineByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ParcelInvoiceLine]> {
+    public class func getParcelInvoiceLineByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[ParcelInvoiceLine]> {
         let path = "/beta/parcelInvoiceLine/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[ParcelInvoiceLine]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get a parcelInvoiceLine by id
      
      - parameter parcelInvoiceLineId: (path) Id of the parcelInvoiceLine to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getParcelInvoiceLineById(parcelInvoiceLineId parcelInvoiceLineId: Int, completion: ((data: ParcelInvoiceLine?, error: ErrorType?) -> Void)) {
+    public class func getParcelInvoiceLineById(parcelInvoiceLineId parcelInvoiceLineId: Int32, completion: ((data: ParcelInvoiceLine?, error: ErrorType?) -> Void)) {
         getParcelInvoiceLineByIdWithRequestBuilder(parcelInvoiceLineId: parcelInvoiceLineId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -511,171 +640,171 @@ public class ParcelInvoiceLineAPI: APIBase {
 
 
     /**
-     
      Get a parcelInvoiceLine by id
-     
      - GET /beta/parcelInvoiceLine/{parcelInvoiceLineId}
      - Returns the parcelInvoiceLine identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "baseFreight" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge18Name" : "aeiou",
-  "orderId" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge15Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "soldToCompany" : "aeiou",
-  "actualWeightUnit" : "aeiou",
-  "extraCharge4Name" : "aeiou",
-  "originalShipToState" : "aeiou",
-  "grossCharges" : 1.3579000000000001069366817318950779736042022705078125,
-  "soldToStreet2" : "aeiou",
-  "extraCharge9Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "invoiceNoId" : 123,
-  "customerReference" : "aeiou",
-  "id" : 123,
-  "thirdPartyCountry" : "aeiou",
-  "shipToState" : "aeiou",
-  "extraCharge16Name" : "aeiou",
-  "extraCharge2Name" : "aeiou",
-  "extraCharge22Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipDate" : "2000-01-23T04:56:07.000+0000",
-  "extraCharge6Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "soldToStreet1" : "aeiou",
-  "extraCharge10Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge3Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge25Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "deliveryAreaChargeExtended" : 1.3579000000000001069366817318950779736042022705078125,
-  "netCharges" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge23Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge13Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "thirdPartyStreet1" : "aeiou",
-  "soldToState" : "aeiou",
-  "shipToCompany" : "aeiou",
-  "actualWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "soldToCity" : "aeiou",
-  "shipToZip" : "aeiou",
-  "soldToCountry" : "aeiou",
-  "extraCharge4Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge17Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "thirdPartyStreet2" : "aeiou",
-  "billedWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge22Name" : "aeiou",
-  "extraCharge13Name" : "aeiou",
-  "shipFromCompany" : "aeiou",
-  "shipFromStreet2" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "shipFromStreet1" : "aeiou",
-  "extraCharge24Name" : "aeiou",
-  "thirdPartyState" : "aeiou",
-  "extraCharge7Name" : "aeiou",
-  "thirdPartyZip" : "aeiou",
-  "extraCharge12Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "originalShipToZip" : "aeiou",
-  "originalShipToCountry" : "aeiou",
-  "adultSignatureCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "trackingNo" : "aeiou",
-  "extraCharge18Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToName" : "aeiou",
-  "extraCharge11Name" : "aeiou",
-  "shipmentReference" : "aeiou",
-  "extraCharge5Name" : "aeiou",
-  "dim3" : 1.3579000000000001069366817318950779736042022705078125,
-  "dim2" : 1.3579000000000001069366817318950779736042022705078125,
-  "dim1" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge5Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipFromCountry" : "aeiou",
-  "extraCharge2Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge21Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToCity" : "aeiou",
-  "residentialCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge11Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge17Name" : "aeiou",
-  "zone" : "aeiou",
-  "extraCharge3Name" : "aeiou",
-  "extraCharge14Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge24Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "lobId" : 123,
-  "shipToStreet2" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "shipFromState" : "aeiou",
-  "extraCharge19Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "enteredWeightUnit" : "aeiou",
-  "soldToName" : "aeiou",
-  "billedWeightUnit" : "aeiou",
-  "shipToStreet1" : "aeiou",
-  "deliveryAreaCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge16Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge20Name" : "aeiou",
-  "extraCharge9Name" : "aeiou",
-  "fuelCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge15Name" : "aeiou",
-  "extraCharge1Name" : "aeiou",
-  "reference7" : "aeiou",
-  "reference3" : "aeiou",
-  "originalShipToCompany" : "aeiou",
-  "addressCorrectionCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "reference4" : "aeiou",
-  "originalShipToCity" : "aeiou",
-  "reference5" : "aeiou",
+  "baseFreight" : 1.231513536777255612975068288506008684635162353515625,
+  "extraCharge18Name" : "extraCharge18Name",
+  "orderId" : 5.962133916683182377482808078639209270477294921875,
+  "extraCharge15Amount" : 3.35319334701124294184637619764544069766998291015625,
+  "soldToCompany" : "soldToCompany",
+  "actualWeightUnit" : "actualWeightUnit",
+  "extraCharge4Name" : "extraCharge4Name",
+  "originalShipToState" : "originalShipToState",
+  "grossCharges" : 1.024645700144157789424070870154537260532379150390625,
+  "soldToStreet2" : "soldToStreet2",
+  "extraCharge9Amount" : 1.2846590061165319429647979632136411964893341064453125,
+  "invoiceNoId" : 6,
+  "customerReference" : "customerReference",
+  "id" : 0,
+  "thirdPartyCountry" : "thirdPartyCountry",
+  "shipToState" : "shipToState",
+  "extraCharge16Name" : "extraCharge16Name",
+  "extraCharge2Name" : "extraCharge2Name",
+  "extraCharge22Amount" : 4.6523964329332461176136348512955009937286376953125,
+  "shipDate" : "2000-01-23T04:56:07.000+00:00",
+  "extraCharge6Amount" : 6.438423552598546706349225132726132869720458984375,
+  "soldToStreet1" : "soldToStreet1",
+  "extraCharge10Amount" : 2.884162126668780246063761296682059764862060546875,
+  "extraCharge3Amount" : 6.683562403749608193948006373830139636993408203125,
+  "extraCharge25Amount" : 3.02057969929162428712743349024094641208648681640625,
+  "deliveryAreaChargeExtended" : 4.9652184929849543237878606305457651615142822265625,
+  "netCharges" : 7.3862819483858839220147274318151175975799560546875,
+  "extraCharge23Amount" : 8.9695787981969115065794539987109601497650146484375,
+  "extraCharge13Amount" : 5.94489560761401580890606055618263781070709228515625,
+  "thirdPartyStreet1" : "thirdPartyStreet1",
+  "soldToState" : "soldToState",
+  "shipToCompany" : "shipToCompany",
+  "actualWeight" : 2.027123023002321833274663731572218239307403564453125,
+  "soldToCity" : "soldToCity",
+  "shipToZip" : "shipToZip",
+  "soldToCountry" : "soldToCountry",
+  "extraCharge4Amount" : 8.7620420127490010742121739895083010196685791015625,
+  "extraCharge17Amount" : 7.14353804701230643559028976596891880035400390625,
+  "thirdPartyStreet2" : "thirdPartyStreet2",
+  "billedWeight" : 4.1456080298839363962315474054776132106781005859375,
+  "extraCharge22Name" : "extraCharge22Name",
+  "extraCharge13Name" : "extraCharge13Name",
+  "shipFromCompany" : "shipFromCompany",
+  "shipFromStreet2" : "shipFromStreet2",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipFromStreet1" : "shipFromStreet1",
+  "extraCharge24Name" : "extraCharge24Name",
+  "thirdPartyState" : "thirdPartyState",
+  "extraCharge7Name" : "extraCharge7Name",
+  "thirdPartyZip" : "thirdPartyZip",
+  "extraCharge12Amount" : 6.87805222012787620400331434211693704128265380859375,
+  "originalShipToZip" : "originalShipToZip",
+  "originalShipToCountry" : "originalShipToCountry",
+  "adultSignatureCharge" : 7.4577447736837658709418974467553198337554931640625,
+  "trackingNo" : "trackingNo",
+  "extraCharge18Amount" : 0.885137473901165261480628032586537301540374755859375,
+  "shipToName" : "shipToName",
+  "extraCharge11Name" : "extraCharge11Name",
+  "shipmentReference" : "shipmentReference",
+  "extraCharge5Name" : "extraCharge5Name",
+  "dim3" : 9.301444243932575517419536481611430644989013671875,
+  "dim2" : 7.061401241503109105224211816675961017608642578125,
+  "dim1" : 2.3021358869347654518833223846741020679473876953125,
+  "extraCharge5Amount" : 9.0183481860707832566959041287191212177276611328125,
+  "shipFromCountry" : "shipFromCountry",
+  "extraCharge2Amount" : 9.3693102714106686335071572102606296539306640625,
+  "extraCharge21Amount" : 0.10263654006109401706225980888120830059051513671875,
+  "shipToCity" : "shipToCity",
+  "residentialCharge" : 6.8468526983526398765889098285697400569915771484375,
+  "extraCharge11Amount" : 6.77832496304801335185175048536621034145355224609375,
+  "extraCharge17Name" : "extraCharge17Name",
+  "zone" : "zone",
+  "extraCharge3Name" : "extraCharge3Name",
+  "extraCharge14Amount" : 6.70401929795003592715829654480330646038055419921875,
+  "extraCharge24Amount" : 7.7403518187411730622216055053286254405975341796875,
+  "lobId" : 1,
+  "shipToStreet2" : "shipToStreet2",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipFromState" : "shipFromState",
+  "extraCharge19Amount" : 7.05877035158235610623478351044468581676483154296875,
+  "enteredWeightUnit" : "enteredWeightUnit",
+  "soldToName" : "soldToName",
+  "billedWeightUnit" : "billedWeightUnit",
+  "shipToStreet1" : "shipToStreet1",
+  "deliveryAreaCharge" : 1.173074250955943309548956676735542714595794677734375,
+  "extraCharge16Amount" : 3.093745262666447448651751983561553061008453369140625,
+  "extraCharge20Name" : "extraCharge20Name",
+  "extraCharge9Name" : "extraCharge9Name",
+  "fuelCharge" : 1.489415909854170383397331534069962799549102783203125,
+  "extraCharge15Name" : "extraCharge15Name",
+  "extraCharge1Name" : "extraCharge1Name",
+  "reference7" : "reference7",
+  "reference3" : "reference3",
+  "originalShipToCompany" : "originalShipToCompany",
+  "addressCorrectionCharge" : 5.02500479152029466689555192715488374233245849609375,
+  "reference4" : "reference4",
+  "originalShipToCity" : "originalShipToCity",
+  "reference5" : "reference5",
   "customFields" : {
     "key" : "{}"
   },
-  "reference6" : "aeiou",
-  "extraCharge7Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipFromZip" : "aeiou",
-  "extraCharge21Name" : "aeiou",
-  "extraCharge14Name" : "aeiou",
-  "soldToZip" : "aeiou",
-  "extraCharge8Name" : "aeiou",
-  "originalShipToStreet1" : "aeiou",
-  "enteredWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "originalShipToStreet2" : "aeiou",
-  "shipFromName" : "aeiou",
-  "thirdPartyCity" : "aeiou",
-  "extraCharge1Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToCountry" : "aeiou",
-  "thirdPartyCompany" : "aeiou",
-  "originalShipToName" : "aeiou",
-  "extraCharge25Name" : "aeiou",
-  "extraCharge10Name" : "aeiou",
-  "extraCharge12Name" : "aeiou",
-  "extraCharge20Amount" : 1.3579000000000001069366817318950779736042022705078125,
-  "extraCharge6Name" : "aeiou",
-  "freightServiceType" : "aeiou",
-  "extraCharge23Name" : "aeiou",
-  "thirdPartyName" : "aeiou",
-  "extraCharge19Name" : "aeiou",
-  "shipmentId" : 123,
-  "shipFromCity" : "aeiou",
-  "extraCharge8Amount" : 1.3579000000000001069366817318950779736042022705078125
+  "reference6" : "reference6",
+  "extraCharge7Amount" : 3.557195227068097320710649000830017030239105224609375,
+  "shipFromZip" : "shipFromZip",
+  "extraCharge21Name" : "extraCharge21Name",
+  "extraCharge14Name" : "extraCharge14Name",
+  "soldToZip" : "soldToZip",
+  "extraCharge8Name" : "extraCharge8Name",
+  "originalShipToStreet1" : "originalShipToStreet1",
+  "enteredWeight" : 3.61607674925191080461672754609026014804840087890625,
+  "originalShipToStreet2" : "originalShipToStreet2",
+  "shipFromName" : "shipFromName",
+  "thirdPartyCity" : "thirdPartyCity",
+  "extraCharge1Amount" : 9.965781217890562260208753286860883235931396484375,
+  "shipToCountry" : "shipToCountry",
+  "thirdPartyCompany" : "thirdPartyCompany",
+  "originalShipToName" : "originalShipToName",
+  "extraCharge25Name" : "extraCharge25Name",
+  "extraCharge10Name" : "extraCharge10Name",
+  "extraCharge12Name" : "extraCharge12Name",
+  "extraCharge20Amount" : 6.51918095101838179772357761976309120655059814453125,
+  "extraCharge6Name" : "extraCharge6Name",
+  "freightServiceType" : "freightServiceType",
+  "extraCharge23Name" : "extraCharge23Name",
+  "thirdPartyName" : "thirdPartyName",
+  "extraCharge19Name" : "extraCharge19Name",
+  "shipmentId" : 5,
+  "shipFromCity" : "shipFromCity",
+  "extraCharge8Amount" : 6.96511769763884558415156789124011993408203125
 }}]
      
      - parameter parcelInvoiceLineId: (path) Id of the parcelInvoiceLine to be returned. 
 
      - returns: RequestBuilder<ParcelInvoiceLine> 
      */
-    public class func getParcelInvoiceLineByIdWithRequestBuilder(parcelInvoiceLineId parcelInvoiceLineId: Int) -> RequestBuilder<ParcelInvoiceLine> {
+    public class func getParcelInvoiceLineByIdWithRequestBuilder(parcelInvoiceLineId parcelInvoiceLineId: Int32) -> RequestBuilder<ParcelInvoiceLine> {
         var path = "/beta/parcelInvoiceLine/{parcelInvoiceLineId}"
         path = path.stringByReplacingOccurrencesOfString("{parcelInvoiceLineId}", withString: "\(parcelInvoiceLineId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<ParcelInvoiceLine>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for a parcelInvoiceLine.
      
      - parameter parcelInvoiceLineId: (path) Id of the parcelInvoiceLine to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getParcelInvoiceLineTags(parcelInvoiceLineId parcelInvoiceLineId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getParcelInvoiceLineTags(parcelInvoiceLineId parcelInvoiceLineId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getParcelInvoiceLineTagsWithRequestBuilder(parcelInvoiceLineId: parcelInvoiceLineId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -683,9 +812,7 @@ public class ParcelInvoiceLineAPI: APIBase {
 
 
     /**
-     
      Get the tags for a parcelInvoiceLine.
-     
      - GET /beta/parcelInvoiceLine/{parcelInvoiceLineId}/tag
      - Get all existing parcelInvoiceLine tags.
      - API Key:
@@ -696,21 +823,23 @@ public class ParcelInvoiceLineAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getParcelInvoiceLineTagsWithRequestBuilder(parcelInvoiceLineId parcelInvoiceLineId: Int) -> RequestBuilder<Void> {
+    public class func getParcelInvoiceLineTagsWithRequestBuilder(parcelInvoiceLineId parcelInvoiceLineId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/parcelInvoiceLine/{parcelInvoiceLineId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{parcelInvoiceLineId}", withString: "\(parcelInvoiceLineId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a parcelInvoiceLine
      
      - parameter body: (body) ParcelInvoiceLine to be updated. 
@@ -724,9 +853,7 @@ public class ParcelInvoiceLineAPI: APIBase {
 
 
     /**
-     
      Update a parcelInvoiceLine
-     
      - PUT /beta/parcelInvoiceLine
      - Updates an existing parcelInvoiceLine using the specified data.
      - API Key:
@@ -740,12 +867,13 @@ public class ParcelInvoiceLineAPI: APIBase {
     public class func updateParcelInvoiceLineWithRequestBuilder(body body: ParcelInvoiceLine) -> RequestBuilder<Void> {
         let path = "/beta/parcelInvoiceLine"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

@@ -9,9 +9,8 @@ import Foundation
 
 
 public class BillingCodeType: JSONEncodable {
-
-    public var id: Int?
-    public var clientId: Int?
+    public var id: Int32?
+    public var clientId: Int32?
     public var billingCode: String?
     public var name: String?
     public var description: String?
@@ -19,15 +18,14 @@ public class BillingCodeType: JSONEncodable {
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
-        nillableDictionary["clientId"] = self.clientId
+        nillableDictionary["id"] = self.id?.encodeToJSON()
+        nillableDictionary["clientId"] = self.clientId?.encodeToJSON()
         nillableDictionary["billingCode"] = self.billingCode
         nillableDictionary["name"] = self.name
         nillableDictionary["description"] = self.description

@@ -11,14 +11,13 @@ import Alamofire
 
 public class FulfillmentProcessAPI: APIBase {
     /**
-     
      Add new audit for a fulfillmentProcess
      
      - parameter fulfillmentProcessId: (path) Id of the fulfillmentProcess to add an audit to 
      - parameter fulfillmentProcessAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addFulfillmentProcessAudit(fulfillmentProcessId fulfillmentProcessId: Int, fulfillmentProcessAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addFulfillmentProcessAudit(fulfillmentProcessId fulfillmentProcessId: Int32, fulfillmentProcessAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addFulfillmentProcessAuditWithRequestBuilder(fulfillmentProcessId: fulfillmentProcessId, fulfillmentProcessAudit: fulfillmentProcessAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -26,9 +25,7 @@ public class FulfillmentProcessAPI: APIBase {
 
 
     /**
-     
      Add new audit for a fulfillmentProcess
-     
      - PUT /beta/fulfillmentProcess/{fulfillmentProcessId}/audit/{fulfillmentProcessAudit}
      - Adds an audit to an existing fulfillmentProcess.
      - API Key:
@@ -40,29 +37,31 @@ public class FulfillmentProcessAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addFulfillmentProcessAuditWithRequestBuilder(fulfillmentProcessId fulfillmentProcessId: Int, fulfillmentProcessAudit: String) -> RequestBuilder<Void> {
+    public class func addFulfillmentProcessAuditWithRequestBuilder(fulfillmentProcessId fulfillmentProcessId: Int32, fulfillmentProcessAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/fulfillmentProcess/{fulfillmentProcessId}/audit/{fulfillmentProcessAudit}"
         path = path.stringByReplacingOccurrencesOfString("{fulfillmentProcessId}", withString: "\(fulfillmentProcessId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{fulfillmentProcessAudit}", withString: "\(fulfillmentProcessAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for a fulfillmentProcess.
      
      - parameter fulfillmentProcessId: (path) Id of the fulfillmentProcess to add a tag to 
      - parameter fulfillmentProcessTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addFulfillmentProcessTag(fulfillmentProcessId fulfillmentProcessId: Int, fulfillmentProcessTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addFulfillmentProcessTag(fulfillmentProcessId fulfillmentProcessId: Int32, fulfillmentProcessTag: String, completion: ((error: ErrorType?) -> Void)) {
         addFulfillmentProcessTagWithRequestBuilder(fulfillmentProcessId: fulfillmentProcessId, fulfillmentProcessTag: fulfillmentProcessTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -70,9 +69,7 @@ public class FulfillmentProcessAPI: APIBase {
 
 
     /**
-     
      Add new tags for a fulfillmentProcess.
-     
      - PUT /beta/fulfillmentProcess/{fulfillmentProcessId}/tag/{fulfillmentProcessTag}
      - Adds a tag to an existing fulfillmentProcess.
      - API Key:
@@ -84,29 +81,31 @@ public class FulfillmentProcessAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addFulfillmentProcessTagWithRequestBuilder(fulfillmentProcessId fulfillmentProcessId: Int, fulfillmentProcessTag: String) -> RequestBuilder<Void> {
+    public class func addFulfillmentProcessTagWithRequestBuilder(fulfillmentProcessId fulfillmentProcessId: Int32, fulfillmentProcessTag: String) -> RequestBuilder<Void> {
         var path = "/beta/fulfillmentProcess/{fulfillmentProcessId}/tag/{fulfillmentProcessTag}"
         path = path.stringByReplacingOccurrencesOfString("{fulfillmentProcessId}", withString: "\(fulfillmentProcessId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{fulfillmentProcessTag}", withString: "\(fulfillmentProcessTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for a fulfillmentProcess.
      
      - parameter fulfillmentProcessId: (path) Id of the fulfillmentProcess to remove tag from 
      - parameter fulfillmentProcessTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteFulfillmentProcessTag(fulfillmentProcessId fulfillmentProcessId: Int, fulfillmentProcessTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteFulfillmentProcessTag(fulfillmentProcessId fulfillmentProcessId: Int32, fulfillmentProcessTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteFulfillmentProcessTagWithRequestBuilder(fulfillmentProcessId: fulfillmentProcessId, fulfillmentProcessTag: fulfillmentProcessTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -114,9 +113,7 @@ public class FulfillmentProcessAPI: APIBase {
 
 
     /**
-     
      Delete a tag for a fulfillmentProcess.
-     
      - DELETE /beta/fulfillmentProcess/{fulfillmentProcessId}/tag/{fulfillmentProcessTag}
      - Deletes an existing fulfillmentProcess tag using the specified data.
      - API Key:
@@ -128,28 +125,30 @@ public class FulfillmentProcessAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteFulfillmentProcessTagWithRequestBuilder(fulfillmentProcessId fulfillmentProcessId: Int, fulfillmentProcessTag: String) -> RequestBuilder<Void> {
+    public class func deleteFulfillmentProcessTagWithRequestBuilder(fulfillmentProcessId fulfillmentProcessId: Int32, fulfillmentProcessTag: String) -> RequestBuilder<Void> {
         var path = "/beta/fulfillmentProcess/{fulfillmentProcessId}/tag/{fulfillmentProcessTag}"
         path = path.stringByReplacingOccurrencesOfString("{fulfillmentProcessId}", withString: "\(fulfillmentProcessId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{fulfillmentProcessTag}", withString: "\(fulfillmentProcessTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated a fulfillmentProcess by id
      
      - parameter fulfillmentProcessId: (path) Id of the fulfillmentProcess to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateFulfillmentProcessById(fulfillmentProcessId fulfillmentProcessId: Int, completion: ((data: FulfillmentProcess?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateFulfillmentProcessById(fulfillmentProcessId fulfillmentProcessId: Int32, completion: ((data: FulfillmentProcess?, error: ErrorType?) -> Void)) {
         getDuplicateFulfillmentProcessByIdWithRequestBuilder(fulfillmentProcessId: fulfillmentProcessId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -157,90 +156,90 @@ public class FulfillmentProcessAPI: APIBase {
 
 
     /**
-     
      Get a duplicated a fulfillmentProcess by id
-     
      - GET /beta/fulfillmentProcess/duplicate/{fulfillmentProcessId}
      - Returns a duplicated fulfillmentProcess identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "createPickWork" : true,
-  "pickingRule" : "aeiou",
-  "createOrderInvoice" : "aeiou",
-  "pickSummaryLayout" : "aeiou",
-  "pickListSort" : "aeiou",
-  "locationSmartFilterId" : 123,
-  "totalPicks" : 123,
-  "workBatchId" : 123,
-  "pickSortRule" : "aeiou",
-  "totalOrdersToShip" : 123,
-  "layoutRule" : "aeiou",
-  "id" : 123,
-  "pickListFormat" : "aeiou",
-  "pickScanSchemeId" : 123,
-  "pickListGroup" : "aeiou",
-  "externalShippingSystemId" : 123,
-  "shippedCasebreaks" : 123,
-  "createPickList" : true,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "shipDate" : "2000-01-23T04:56:07.000+0000",
-  "version" : "aeiou",
-  "processNo" : 123,
-  "pickSummarySort" : "aeiou",
-  "warehouseId" : 123,
-  "completedPicks" : 123,
-  "status" : "aeiou",
-  "pickListLayout" : "aeiou",
+  "createPickWork" : false,
+  "pickingRule" : "pickingRule",
+  "createOrderInvoice" : "createOrderInvoice",
+  "pickSummaryLayout" : "pickSummaryLayout",
+  "pickListSort" : "pickListSort",
+  "locationSmartFilterId" : 9,
+  "totalPicks" : 6,
+  "workBatchId" : 1,
+  "pickSortRule" : "pickSortRule",
+  "totalOrdersToShip" : 5,
+  "layoutRule" : "layoutRule",
+  "id" : 0,
+  "pickListFormat" : "pickListFormat",
+  "pickScanSchemeId" : 2,
+  "pickListGroup" : "pickListGroup",
+  "externalShippingSystemId" : 6,
+  "shippedCasebreaks" : 7,
+  "createPickList" : false,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipDate" : "2000-01-23T04:56:07.000+00:00",
+  "version" : "version",
+  "processNo" : 6,
+  "pickSummarySort" : "pickSummarySort",
+  "warehouseId" : 5,
+  "completedPicks" : 1,
+  "status" : "status",
+  "pickListLayout" : "pickListLayout",
   "customFields" : {
     "key" : "{}"
   },
-  "createPickSummary" : true,
-  "sendToExternalShippingSystem" : true,
-  "numberOfOrders" : 123,
-  "maxOrders" : 123,
-  "fulfillmentPlanId" : 123,
-  "firstPickPosition" : 123,
-  "fulfillmentProcessGroup" : 123,
-  "pickSummaryFormat" : "aeiou",
-  "numberOfSKUs" : 123,
-  "cartonizeOrders" : true,
-  "totalToDo" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "createOrderAssemblyGuide" : true,
-  "numberOfLines" : 123,
-  "createPackingSlip" : "aeiou",
-  "shippedOrders" : 123,
-  "completedToDo" : 123,
-  "overrideOrderInvoiceTemplateId" : 123,
-  "preGenerateParcelLabels" : true,
-  "totalCasebreaksToShip" : 123,
-  "overridePackingSlipTemplateId" : 123,
-  "autoShipCasebreakCartons" : true,
-  "batchSize" : 123,
-  "orderSmartFilterId" : 123
+  "createPickSummary" : false,
+  "sendToExternalShippingSystem" : false,
+  "numberOfOrders" : 7,
+  "maxOrders" : 3,
+  "fulfillmentPlanId" : 5,
+  "firstPickPosition" : 6,
+  "fulfillmentProcessGroup" : 4,
+  "pickSummaryFormat" : "pickSummaryFormat",
+  "numberOfSKUs" : 1,
+  "cartonizeOrders" : false,
+  "totalToDo" : 9,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "createOrderAssemblyGuide" : false,
+  "numberOfLines" : 1,
+  "createPackingSlip" : "createPackingSlip",
+  "shippedOrders" : 4,
+  "completedToDo" : 9,
+  "overrideOrderInvoiceTemplateId" : 9,
+  "preGenerateParcelLabels" : false,
+  "totalCasebreaksToShip" : 1,
+  "overridePackingSlipTemplateId" : 8,
+  "autoShipCasebreakCartons" : false,
+  "batchSize" : 2,
+  "orderSmartFilterId" : 7
 }}]
      
      - parameter fulfillmentProcessId: (path) Id of the fulfillmentProcess to be duplicated. 
 
      - returns: RequestBuilder<FulfillmentProcess> 
      */
-    public class func getDuplicateFulfillmentProcessByIdWithRequestBuilder(fulfillmentProcessId fulfillmentProcessId: Int) -> RequestBuilder<FulfillmentProcess> {
+    public class func getDuplicateFulfillmentProcessByIdWithRequestBuilder(fulfillmentProcessId fulfillmentProcessId: Int32) -> RequestBuilder<FulfillmentProcess> {
         var path = "/beta/fulfillmentProcess/duplicate/{fulfillmentProcessId}"
         path = path.stringByReplacingOccurrencesOfString("{fulfillmentProcessId}", withString: "\(fulfillmentProcessId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<FulfillmentProcess>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search fulfillmentProcesses by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -249,7 +248,7 @@ public class FulfillmentProcessAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getFulfillmentProcessByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [FulfillmentProcess]?, error: ErrorType?) -> Void)) {
+    public class func getFulfillmentProcessByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [FulfillmentProcess]?, error: ErrorType?) -> Void)) {
         getFulfillmentProcessByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -257,69 +256,122 @@ public class FulfillmentProcessAPI: APIBase {
 
 
     /**
-     
      Search fulfillmentProcesses by filter
-     
      - GET /beta/fulfillmentProcess/search
      - Returns the list of fulfillmentProcesses that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "createPickWork" : true,
-  "pickingRule" : "aeiou",
-  "createOrderInvoice" : "aeiou",
-  "pickSummaryLayout" : "aeiou",
-  "pickListSort" : "aeiou",
-  "locationSmartFilterId" : 123,
-  "totalPicks" : 123,
-  "workBatchId" : 123,
-  "pickSortRule" : "aeiou",
-  "totalOrdersToShip" : 123,
-  "layoutRule" : "aeiou",
-  "id" : 123,
-  "pickListFormat" : "aeiou",
-  "pickScanSchemeId" : 123,
-  "pickListGroup" : "aeiou",
-  "externalShippingSystemId" : 123,
-  "shippedCasebreaks" : 123,
-  "createPickList" : true,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "shipDate" : "2000-01-23T04:56:07.000+0000",
-  "version" : "aeiou",
-  "processNo" : 123,
-  "pickSummarySort" : "aeiou",
-  "warehouseId" : 123,
-  "completedPicks" : 123,
-  "status" : "aeiou",
-  "pickListLayout" : "aeiou",
+  "createPickWork" : false,
+  "pickingRule" : "pickingRule",
+  "createOrderInvoice" : "createOrderInvoice",
+  "pickSummaryLayout" : "pickSummaryLayout",
+  "pickListSort" : "pickListSort",
+  "locationSmartFilterId" : 9,
+  "totalPicks" : 6,
+  "workBatchId" : 1,
+  "pickSortRule" : "pickSortRule",
+  "totalOrdersToShip" : 5,
+  "layoutRule" : "layoutRule",
+  "id" : 0,
+  "pickListFormat" : "pickListFormat",
+  "pickScanSchemeId" : 2,
+  "pickListGroup" : "pickListGroup",
+  "externalShippingSystemId" : 6,
+  "shippedCasebreaks" : 7,
+  "createPickList" : false,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipDate" : "2000-01-23T04:56:07.000+00:00",
+  "version" : "version",
+  "processNo" : 6,
+  "pickSummarySort" : "pickSummarySort",
+  "warehouseId" : 5,
+  "completedPicks" : 1,
+  "status" : "status",
+  "pickListLayout" : "pickListLayout",
   "customFields" : {
     "key" : "{}"
   },
-  "createPickSummary" : true,
-  "sendToExternalShippingSystem" : true,
-  "numberOfOrders" : 123,
-  "maxOrders" : 123,
-  "fulfillmentPlanId" : 123,
-  "firstPickPosition" : 123,
-  "fulfillmentProcessGroup" : 123,
-  "pickSummaryFormat" : "aeiou",
-  "numberOfSKUs" : 123,
-  "cartonizeOrders" : true,
-  "totalToDo" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "createOrderAssemblyGuide" : true,
-  "numberOfLines" : 123,
-  "createPackingSlip" : "aeiou",
-  "shippedOrders" : 123,
-  "completedToDo" : 123,
-  "overrideOrderInvoiceTemplateId" : 123,
-  "preGenerateParcelLabels" : true,
-  "totalCasebreaksToShip" : 123,
-  "overridePackingSlipTemplateId" : 123,
-  "autoShipCasebreakCartons" : true,
-  "batchSize" : 123,
-  "orderSmartFilterId" : 123
+  "createPickSummary" : false,
+  "sendToExternalShippingSystem" : false,
+  "numberOfOrders" : 7,
+  "maxOrders" : 3,
+  "fulfillmentPlanId" : 5,
+  "firstPickPosition" : 6,
+  "fulfillmentProcessGroup" : 4,
+  "pickSummaryFormat" : "pickSummaryFormat",
+  "numberOfSKUs" : 1,
+  "cartonizeOrders" : false,
+  "totalToDo" : 9,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "createOrderAssemblyGuide" : false,
+  "numberOfLines" : 1,
+  "createPackingSlip" : "createPackingSlip",
+  "shippedOrders" : 4,
+  "completedToDo" : 9,
+  "overrideOrderInvoiceTemplateId" : 9,
+  "preGenerateParcelLabels" : false,
+  "totalCasebreaksToShip" : 1,
+  "overridePackingSlipTemplateId" : 8,
+  "autoShipCasebreakCartons" : false,
+  "batchSize" : 2,
+  "orderSmartFilterId" : 7
+}, {
+  "createPickWork" : false,
+  "pickingRule" : "pickingRule",
+  "createOrderInvoice" : "createOrderInvoice",
+  "pickSummaryLayout" : "pickSummaryLayout",
+  "pickListSort" : "pickListSort",
+  "locationSmartFilterId" : 9,
+  "totalPicks" : 6,
+  "workBatchId" : 1,
+  "pickSortRule" : "pickSortRule",
+  "totalOrdersToShip" : 5,
+  "layoutRule" : "layoutRule",
+  "id" : 0,
+  "pickListFormat" : "pickListFormat",
+  "pickScanSchemeId" : 2,
+  "pickListGroup" : "pickListGroup",
+  "externalShippingSystemId" : 6,
+  "shippedCasebreaks" : 7,
+  "createPickList" : false,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipDate" : "2000-01-23T04:56:07.000+00:00",
+  "version" : "version",
+  "processNo" : 6,
+  "pickSummarySort" : "pickSummarySort",
+  "warehouseId" : 5,
+  "completedPicks" : 1,
+  "status" : "status",
+  "pickListLayout" : "pickListLayout",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "createPickSummary" : false,
+  "sendToExternalShippingSystem" : false,
+  "numberOfOrders" : 7,
+  "maxOrders" : 3,
+  "fulfillmentPlanId" : 5,
+  "firstPickPosition" : 6,
+  "fulfillmentProcessGroup" : 4,
+  "pickSummaryFormat" : "pickSummaryFormat",
+  "numberOfSKUs" : 1,
+  "cartonizeOrders" : false,
+  "totalToDo" : 9,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "createOrderAssemblyGuide" : false,
+  "numberOfLines" : 1,
+  "createPackingSlip" : "createPackingSlip",
+  "shippedOrders" : 4,
+  "completedToDo" : 9,
+  "overrideOrderInvoiceTemplateId" : 9,
+  "preGenerateParcelLabels" : false,
+  "totalCasebreaksToShip" : 1,
+  "overridePackingSlipTemplateId" : 8,
+  "autoShipCasebreakCartons" : false,
+  "batchSize" : 2,
+  "orderSmartFilterId" : 7
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -329,31 +381,33 @@ public class FulfillmentProcessAPI: APIBase {
 
      - returns: RequestBuilder<[FulfillmentProcess]> 
      */
-    public class func getFulfillmentProcessByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[FulfillmentProcess]> {
+    public class func getFulfillmentProcessByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[FulfillmentProcess]> {
         let path = "/beta/fulfillmentProcess/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[FulfillmentProcess]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get a fulfillmentProcess by id
      
      - parameter fulfillmentProcessId: (path) Id of the fulfillmentProcess to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getFulfillmentProcessById(fulfillmentProcessId fulfillmentProcessId: Int, completion: ((data: FulfillmentProcess?, error: ErrorType?) -> Void)) {
+    public class func getFulfillmentProcessById(fulfillmentProcessId fulfillmentProcessId: Int32, completion: ((data: FulfillmentProcess?, error: ErrorType?) -> Void)) {
         getFulfillmentProcessByIdWithRequestBuilder(fulfillmentProcessId: fulfillmentProcessId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -361,96 +415,96 @@ public class FulfillmentProcessAPI: APIBase {
 
 
     /**
-     
      Get a fulfillmentProcess by id
-     
      - GET /beta/fulfillmentProcess/{fulfillmentProcessId}
      - Returns the fulfillmentProcess identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "createPickWork" : true,
-  "pickingRule" : "aeiou",
-  "createOrderInvoice" : "aeiou",
-  "pickSummaryLayout" : "aeiou",
-  "pickListSort" : "aeiou",
-  "locationSmartFilterId" : 123,
-  "totalPicks" : 123,
-  "workBatchId" : 123,
-  "pickSortRule" : "aeiou",
-  "totalOrdersToShip" : 123,
-  "layoutRule" : "aeiou",
-  "id" : 123,
-  "pickListFormat" : "aeiou",
-  "pickScanSchemeId" : 123,
-  "pickListGroup" : "aeiou",
-  "externalShippingSystemId" : 123,
-  "shippedCasebreaks" : 123,
-  "createPickList" : true,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "shipDate" : "2000-01-23T04:56:07.000+0000",
-  "version" : "aeiou",
-  "processNo" : 123,
-  "pickSummarySort" : "aeiou",
-  "warehouseId" : 123,
-  "completedPicks" : 123,
-  "status" : "aeiou",
-  "pickListLayout" : "aeiou",
+  "createPickWork" : false,
+  "pickingRule" : "pickingRule",
+  "createOrderInvoice" : "createOrderInvoice",
+  "pickSummaryLayout" : "pickSummaryLayout",
+  "pickListSort" : "pickListSort",
+  "locationSmartFilterId" : 9,
+  "totalPicks" : 6,
+  "workBatchId" : 1,
+  "pickSortRule" : "pickSortRule",
+  "totalOrdersToShip" : 5,
+  "layoutRule" : "layoutRule",
+  "id" : 0,
+  "pickListFormat" : "pickListFormat",
+  "pickScanSchemeId" : 2,
+  "pickListGroup" : "pickListGroup",
+  "externalShippingSystemId" : 6,
+  "shippedCasebreaks" : 7,
+  "createPickList" : false,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipDate" : "2000-01-23T04:56:07.000+00:00",
+  "version" : "version",
+  "processNo" : 6,
+  "pickSummarySort" : "pickSummarySort",
+  "warehouseId" : 5,
+  "completedPicks" : 1,
+  "status" : "status",
+  "pickListLayout" : "pickListLayout",
   "customFields" : {
     "key" : "{}"
   },
-  "createPickSummary" : true,
-  "sendToExternalShippingSystem" : true,
-  "numberOfOrders" : 123,
-  "maxOrders" : 123,
-  "fulfillmentPlanId" : 123,
-  "firstPickPosition" : 123,
-  "fulfillmentProcessGroup" : 123,
-  "pickSummaryFormat" : "aeiou",
-  "numberOfSKUs" : 123,
-  "cartonizeOrders" : true,
-  "totalToDo" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "createOrderAssemblyGuide" : true,
-  "numberOfLines" : 123,
-  "createPackingSlip" : "aeiou",
-  "shippedOrders" : 123,
-  "completedToDo" : 123,
-  "overrideOrderInvoiceTemplateId" : 123,
-  "preGenerateParcelLabels" : true,
-  "totalCasebreaksToShip" : 123,
-  "overridePackingSlipTemplateId" : 123,
-  "autoShipCasebreakCartons" : true,
-  "batchSize" : 123,
-  "orderSmartFilterId" : 123
+  "createPickSummary" : false,
+  "sendToExternalShippingSystem" : false,
+  "numberOfOrders" : 7,
+  "maxOrders" : 3,
+  "fulfillmentPlanId" : 5,
+  "firstPickPosition" : 6,
+  "fulfillmentProcessGroup" : 4,
+  "pickSummaryFormat" : "pickSummaryFormat",
+  "numberOfSKUs" : 1,
+  "cartonizeOrders" : false,
+  "totalToDo" : 9,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "createOrderAssemblyGuide" : false,
+  "numberOfLines" : 1,
+  "createPackingSlip" : "createPackingSlip",
+  "shippedOrders" : 4,
+  "completedToDo" : 9,
+  "overrideOrderInvoiceTemplateId" : 9,
+  "preGenerateParcelLabels" : false,
+  "totalCasebreaksToShip" : 1,
+  "overridePackingSlipTemplateId" : 8,
+  "autoShipCasebreakCartons" : false,
+  "batchSize" : 2,
+  "orderSmartFilterId" : 7
 }}]
      
      - parameter fulfillmentProcessId: (path) Id of the fulfillmentProcess to be returned. 
 
      - returns: RequestBuilder<FulfillmentProcess> 
      */
-    public class func getFulfillmentProcessByIdWithRequestBuilder(fulfillmentProcessId fulfillmentProcessId: Int) -> RequestBuilder<FulfillmentProcess> {
+    public class func getFulfillmentProcessByIdWithRequestBuilder(fulfillmentProcessId fulfillmentProcessId: Int32) -> RequestBuilder<FulfillmentProcess> {
         var path = "/beta/fulfillmentProcess/{fulfillmentProcessId}"
         path = path.stringByReplacingOccurrencesOfString("{fulfillmentProcessId}", withString: "\(fulfillmentProcessId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<FulfillmentProcess>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for a fulfillmentProcess.
      
      - parameter fulfillmentProcessId: (path) Id of the fulfillmentProcess to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getFulfillmentProcessTags(fulfillmentProcessId fulfillmentProcessId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getFulfillmentProcessTags(fulfillmentProcessId fulfillmentProcessId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getFulfillmentProcessTagsWithRequestBuilder(fulfillmentProcessId: fulfillmentProcessId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -458,9 +512,7 @@ public class FulfillmentProcessAPI: APIBase {
 
 
     /**
-     
      Get the tags for a fulfillmentProcess.
-     
      - GET /beta/fulfillmentProcess/{fulfillmentProcessId}/tag
      - Get all existing fulfillmentProcess tags.
      - API Key:
@@ -471,21 +523,23 @@ public class FulfillmentProcessAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getFulfillmentProcessTagsWithRequestBuilder(fulfillmentProcessId fulfillmentProcessId: Int) -> RequestBuilder<Void> {
+    public class func getFulfillmentProcessTagsWithRequestBuilder(fulfillmentProcessId fulfillmentProcessId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/fulfillmentProcess/{fulfillmentProcessId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{fulfillmentProcessId}", withString: "\(fulfillmentProcessId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a fulfillmentProcess custom fields
      
      - parameter body: (body) FulfillmentProcess to be updated. 
@@ -499,9 +553,7 @@ public class FulfillmentProcessAPI: APIBase {
 
 
     /**
-     
      Update a fulfillmentProcess custom fields
-     
      - PUT /beta/fulfillmentProcess/customFields
      - Updates an existing fulfillmentProcess custom fields using the specified data.
      - API Key:
@@ -515,12 +567,13 @@ public class FulfillmentProcessAPI: APIBase {
     public class func updateFulfillmentProcessCustomFieldsWithRequestBuilder(body body: FulfillmentProcess) -> RequestBuilder<Void> {
         let path = "/beta/fulfillmentProcess/customFields"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

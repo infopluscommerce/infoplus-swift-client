@@ -11,7 +11,6 @@ import Alamofire
 
 public class InvoiceWorksheetLineAPI: APIBase {
     /**
-     
      Create an invoiceWorksheetLine
      
      - parameter body: (body) InvoiceWorksheetLine to be inserted. 
@@ -25,34 +24,32 @@ public class InvoiceWorksheetLineAPI: APIBase {
 
 
     /**
-     
      Create an invoiceWorksheetLine
-     
      - POST /beta/invoiceWorksheetLine
      - Inserts a new invoiceWorksheetLine using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "accountCode" : "aeiou",
-  "quantity" : 1.3579000000000001069366817318950779736042022705078125,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "seqNo" : 123,
-  "invoiceTemplateLineId" : 123,
+  "accountCode" : "accountCode",
+  "quantity" : 9.301444243932575517419536481611430644989013671875,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "seqNo" : 7,
+  "invoiceTemplateLineId" : 1,
   "customFields" : {
     "key" : "{}"
   },
-  "itemCode" : "aeiou",
-  "description" : "aeiou",
-  "invoiceWorksheetId" : 123,
-  "chargeRate" : 1.3579000000000001069366817318950779736042022705078125,
-  "backupFile" : 123,
-  "backupFileUrl" : "aeiou",
-  "id" : 123,
-  "department" : "aeiou",
-  "extendedCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
+  "itemCode" : "itemCode",
+  "description" : "description",
+  "invoiceWorksheetId" : 7,
+  "chargeRate" : 3.61607674925191080461672754609026014804840087890625,
+  "backupFile" : 4,
+  "backupFileUrl" : "backupFileUrl",
+  "id" : 5,
+  "department" : "department",
+  "extendedCharge" : 2.027123023002321833274663731572218239307403564453125,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 2
 }}]
      
      - parameter body: (body) InvoiceWorksheetLine to be inserted. 
@@ -62,23 +59,23 @@ public class InvoiceWorksheetLineAPI: APIBase {
     public class func addInvoiceWorksheetLineWithRequestBuilder(body body: InvoiceWorksheetLine) -> RequestBuilder<InvoiceWorksheetLine> {
         let path = "/beta/invoiceWorksheetLine"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<InvoiceWorksheetLine>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new audit for an invoiceWorksheetLine
      
      - parameter invoiceWorksheetLineId: (path) Id of the invoiceWorksheetLine to add an audit to 
      - parameter invoiceWorksheetLineAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addInvoiceWorksheetLineAudit(invoiceWorksheetLineId invoiceWorksheetLineId: Int, invoiceWorksheetLineAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addInvoiceWorksheetLineAudit(invoiceWorksheetLineId invoiceWorksheetLineId: Int32, invoiceWorksheetLineAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addInvoiceWorksheetLineAuditWithRequestBuilder(invoiceWorksheetLineId: invoiceWorksheetLineId, invoiceWorksheetLineAudit: invoiceWorksheetLineAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -86,9 +83,7 @@ public class InvoiceWorksheetLineAPI: APIBase {
 
 
     /**
-     
      Add new audit for an invoiceWorksheetLine
-     
      - PUT /beta/invoiceWorksheetLine/{invoiceWorksheetLineId}/audit/{invoiceWorksheetLineAudit}
      - Adds an audit to an existing invoiceWorksheetLine.
      - API Key:
@@ -100,29 +95,31 @@ public class InvoiceWorksheetLineAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addInvoiceWorksheetLineAuditWithRequestBuilder(invoiceWorksheetLineId invoiceWorksheetLineId: Int, invoiceWorksheetLineAudit: String) -> RequestBuilder<Void> {
+    public class func addInvoiceWorksheetLineAuditWithRequestBuilder(invoiceWorksheetLineId invoiceWorksheetLineId: Int32, invoiceWorksheetLineAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/invoiceWorksheetLine/{invoiceWorksheetLineId}/audit/{invoiceWorksheetLineAudit}"
         path = path.stringByReplacingOccurrencesOfString("{invoiceWorksheetLineId}", withString: "\(invoiceWorksheetLineId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{invoiceWorksheetLineAudit}", withString: "\(invoiceWorksheetLineAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for an invoiceWorksheetLine.
      
      - parameter invoiceWorksheetLineId: (path) Id of the invoiceWorksheetLine to add a tag to 
      - parameter invoiceWorksheetLineTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addInvoiceWorksheetLineTag(invoiceWorksheetLineId invoiceWorksheetLineId: Int, invoiceWorksheetLineTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addInvoiceWorksheetLineTag(invoiceWorksheetLineId invoiceWorksheetLineId: Int32, invoiceWorksheetLineTag: String, completion: ((error: ErrorType?) -> Void)) {
         addInvoiceWorksheetLineTagWithRequestBuilder(invoiceWorksheetLineId: invoiceWorksheetLineId, invoiceWorksheetLineTag: invoiceWorksheetLineTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -130,9 +127,7 @@ public class InvoiceWorksheetLineAPI: APIBase {
 
 
     /**
-     
      Add new tags for an invoiceWorksheetLine.
-     
      - PUT /beta/invoiceWorksheetLine/{invoiceWorksheetLineId}/tag/{invoiceWorksheetLineTag}
      - Adds a tag to an existing invoiceWorksheetLine.
      - API Key:
@@ -144,28 +139,30 @@ public class InvoiceWorksheetLineAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addInvoiceWorksheetLineTagWithRequestBuilder(invoiceWorksheetLineId invoiceWorksheetLineId: Int, invoiceWorksheetLineTag: String) -> RequestBuilder<Void> {
+    public class func addInvoiceWorksheetLineTagWithRequestBuilder(invoiceWorksheetLineId invoiceWorksheetLineId: Int32, invoiceWorksheetLineTag: String) -> RequestBuilder<Void> {
         var path = "/beta/invoiceWorksheetLine/{invoiceWorksheetLineId}/tag/{invoiceWorksheetLineTag}"
         path = path.stringByReplacingOccurrencesOfString("{invoiceWorksheetLineId}", withString: "\(invoiceWorksheetLineId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{invoiceWorksheetLineTag}", withString: "\(invoiceWorksheetLineTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete an invoiceWorksheetLine
      
      - parameter invoiceWorksheetLineId: (path) Id of the invoiceWorksheetLine to be deleted. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteInvoiceWorksheetLine(invoiceWorksheetLineId invoiceWorksheetLineId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteInvoiceWorksheetLine(invoiceWorksheetLineId invoiceWorksheetLineId: Int32, completion: ((error: ErrorType?) -> Void)) {
         deleteInvoiceWorksheetLineWithRequestBuilder(invoiceWorksheetLineId: invoiceWorksheetLineId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -173,9 +170,7 @@ public class InvoiceWorksheetLineAPI: APIBase {
 
 
     /**
-     
      Delete an invoiceWorksheetLine
-     
      - DELETE /beta/invoiceWorksheetLine/{invoiceWorksheetLineId}
      - Deletes the invoiceWorksheetLine identified by the specified id.
      - API Key:
@@ -186,28 +181,30 @@ public class InvoiceWorksheetLineAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteInvoiceWorksheetLineWithRequestBuilder(invoiceWorksheetLineId invoiceWorksheetLineId: Int) -> RequestBuilder<Void> {
+    public class func deleteInvoiceWorksheetLineWithRequestBuilder(invoiceWorksheetLineId invoiceWorksheetLineId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/invoiceWorksheetLine/{invoiceWorksheetLineId}"
         path = path.stringByReplacingOccurrencesOfString("{invoiceWorksheetLineId}", withString: "\(invoiceWorksheetLineId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for an invoiceWorksheetLine.
      
      - parameter invoiceWorksheetLineId: (path) Id of the invoiceWorksheetLine to remove tag from 
      - parameter invoiceWorksheetLineTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteInvoiceWorksheetLineTag(invoiceWorksheetLineId invoiceWorksheetLineId: Int, invoiceWorksheetLineTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteInvoiceWorksheetLineTag(invoiceWorksheetLineId invoiceWorksheetLineId: Int32, invoiceWorksheetLineTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteInvoiceWorksheetLineTagWithRequestBuilder(invoiceWorksheetLineId: invoiceWorksheetLineId, invoiceWorksheetLineTag: invoiceWorksheetLineTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -215,9 +212,7 @@ public class InvoiceWorksheetLineAPI: APIBase {
 
 
     /**
-     
      Delete a tag for an invoiceWorksheetLine.
-     
      - DELETE /beta/invoiceWorksheetLine/{invoiceWorksheetLineId}/tag/{invoiceWorksheetLineTag}
      - Deletes an existing invoiceWorksheetLine tag using the specified data.
      - API Key:
@@ -229,28 +224,30 @@ public class InvoiceWorksheetLineAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteInvoiceWorksheetLineTagWithRequestBuilder(invoiceWorksheetLineId invoiceWorksheetLineId: Int, invoiceWorksheetLineTag: String) -> RequestBuilder<Void> {
+    public class func deleteInvoiceWorksheetLineTagWithRequestBuilder(invoiceWorksheetLineId invoiceWorksheetLineId: Int32, invoiceWorksheetLineTag: String) -> RequestBuilder<Void> {
         var path = "/beta/invoiceWorksheetLine/{invoiceWorksheetLineId}/tag/{invoiceWorksheetLineTag}"
         path = path.stringByReplacingOccurrencesOfString("{invoiceWorksheetLineId}", withString: "\(invoiceWorksheetLineId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{invoiceWorksheetLineTag}", withString: "\(invoiceWorksheetLineTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated an invoiceWorksheetLine by id
      
      - parameter invoiceWorksheetLineId: (path) Id of the invoiceWorksheetLine to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateInvoiceWorksheetLineById(invoiceWorksheetLineId invoiceWorksheetLineId: Int, completion: ((data: InvoiceWorksheetLine?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateInvoiceWorksheetLineById(invoiceWorksheetLineId invoiceWorksheetLineId: Int32, completion: ((data: InvoiceWorksheetLine?, error: ErrorType?) -> Void)) {
         getDuplicateInvoiceWorksheetLineByIdWithRequestBuilder(invoiceWorksheetLineId: invoiceWorksheetLineId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -258,55 +255,55 @@ public class InvoiceWorksheetLineAPI: APIBase {
 
 
     /**
-     
      Get a duplicated an invoiceWorksheetLine by id
-     
      - GET /beta/invoiceWorksheetLine/duplicate/{invoiceWorksheetLineId}
      - Returns a duplicated invoiceWorksheetLine identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "accountCode" : "aeiou",
-  "quantity" : 1.3579000000000001069366817318950779736042022705078125,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "seqNo" : 123,
-  "invoiceTemplateLineId" : 123,
+  "accountCode" : "accountCode",
+  "quantity" : 9.301444243932575517419536481611430644989013671875,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "seqNo" : 7,
+  "invoiceTemplateLineId" : 1,
   "customFields" : {
     "key" : "{}"
   },
-  "itemCode" : "aeiou",
-  "description" : "aeiou",
-  "invoiceWorksheetId" : 123,
-  "chargeRate" : 1.3579000000000001069366817318950779736042022705078125,
-  "backupFile" : 123,
-  "backupFileUrl" : "aeiou",
-  "id" : 123,
-  "department" : "aeiou",
-  "extendedCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
+  "itemCode" : "itemCode",
+  "description" : "description",
+  "invoiceWorksheetId" : 7,
+  "chargeRate" : 3.61607674925191080461672754609026014804840087890625,
+  "backupFile" : 4,
+  "backupFileUrl" : "backupFileUrl",
+  "id" : 5,
+  "department" : "department",
+  "extendedCharge" : 2.027123023002321833274663731572218239307403564453125,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 2
 }}]
      
      - parameter invoiceWorksheetLineId: (path) Id of the invoiceWorksheetLine to be duplicated. 
 
      - returns: RequestBuilder<InvoiceWorksheetLine> 
      */
-    public class func getDuplicateInvoiceWorksheetLineByIdWithRequestBuilder(invoiceWorksheetLineId invoiceWorksheetLineId: Int) -> RequestBuilder<InvoiceWorksheetLine> {
+    public class func getDuplicateInvoiceWorksheetLineByIdWithRequestBuilder(invoiceWorksheetLineId invoiceWorksheetLineId: Int32) -> RequestBuilder<InvoiceWorksheetLine> {
         var path = "/beta/invoiceWorksheetLine/duplicate/{invoiceWorksheetLineId}"
         path = path.stringByReplacingOccurrencesOfString("{invoiceWorksheetLineId}", withString: "\(invoiceWorksheetLineId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<InvoiceWorksheetLine>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search invoiceWorksheetLines by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -315,7 +312,7 @@ public class InvoiceWorksheetLineAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getInvoiceWorksheetLineByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [InvoiceWorksheetLine]?, error: ErrorType?) -> Void)) {
+    public class func getInvoiceWorksheetLineByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [InvoiceWorksheetLine]?, error: ErrorType?) -> Void)) {
         getInvoiceWorksheetLineByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -323,34 +320,52 @@ public class InvoiceWorksheetLineAPI: APIBase {
 
 
     /**
-     
      Search invoiceWorksheetLines by filter
-     
      - GET /beta/invoiceWorksheetLine/search
      - Returns the list of invoiceWorksheetLines that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "accountCode" : "aeiou",
-  "quantity" : 1.3579000000000001069366817318950779736042022705078125,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "seqNo" : 123,
-  "invoiceTemplateLineId" : 123,
+  "accountCode" : "accountCode",
+  "quantity" : 9.301444243932575517419536481611430644989013671875,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "seqNo" : 7,
+  "invoiceTemplateLineId" : 1,
   "customFields" : {
     "key" : "{}"
   },
-  "itemCode" : "aeiou",
-  "description" : "aeiou",
-  "invoiceWorksheetId" : 123,
-  "chargeRate" : 1.3579000000000001069366817318950779736042022705078125,
-  "backupFile" : 123,
-  "backupFileUrl" : "aeiou",
-  "id" : 123,
-  "department" : "aeiou",
-  "extendedCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
+  "itemCode" : "itemCode",
+  "description" : "description",
+  "invoiceWorksheetId" : 7,
+  "chargeRate" : 3.61607674925191080461672754609026014804840087890625,
+  "backupFile" : 4,
+  "backupFileUrl" : "backupFileUrl",
+  "id" : 5,
+  "department" : "department",
+  "extendedCharge" : 2.027123023002321833274663731572218239307403564453125,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 2
+}, {
+  "accountCode" : "accountCode",
+  "quantity" : 9.301444243932575517419536481611430644989013671875,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "seqNo" : 7,
+  "invoiceTemplateLineId" : 1,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "itemCode" : "itemCode",
+  "description" : "description",
+  "invoiceWorksheetId" : 7,
+  "chargeRate" : 3.61607674925191080461672754609026014804840087890625,
+  "backupFile" : 4,
+  "backupFileUrl" : "backupFileUrl",
+  "id" : 5,
+  "department" : "department",
+  "extendedCharge" : 2.027123023002321833274663731572218239307403564453125,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 2
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -360,31 +375,33 @@ public class InvoiceWorksheetLineAPI: APIBase {
 
      - returns: RequestBuilder<[InvoiceWorksheetLine]> 
      */
-    public class func getInvoiceWorksheetLineByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[InvoiceWorksheetLine]> {
+    public class func getInvoiceWorksheetLineByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[InvoiceWorksheetLine]> {
         let path = "/beta/invoiceWorksheetLine/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[InvoiceWorksheetLine]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get an invoiceWorksheetLine by id
      
      - parameter invoiceWorksheetLineId: (path) Id of the invoiceWorksheetLine to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getInvoiceWorksheetLineById(invoiceWorksheetLineId invoiceWorksheetLineId: Int, completion: ((data: InvoiceWorksheetLine?, error: ErrorType?) -> Void)) {
+    public class func getInvoiceWorksheetLineById(invoiceWorksheetLineId invoiceWorksheetLineId: Int32, completion: ((data: InvoiceWorksheetLine?, error: ErrorType?) -> Void)) {
         getInvoiceWorksheetLineByIdWithRequestBuilder(invoiceWorksheetLineId: invoiceWorksheetLineId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -392,61 +409,61 @@ public class InvoiceWorksheetLineAPI: APIBase {
 
 
     /**
-     
      Get an invoiceWorksheetLine by id
-     
      - GET /beta/invoiceWorksheetLine/{invoiceWorksheetLineId}
      - Returns the invoiceWorksheetLine identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "accountCode" : "aeiou",
-  "quantity" : 1.3579000000000001069366817318950779736042022705078125,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "seqNo" : 123,
-  "invoiceTemplateLineId" : 123,
+  "accountCode" : "accountCode",
+  "quantity" : 9.301444243932575517419536481611430644989013671875,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "seqNo" : 7,
+  "invoiceTemplateLineId" : 1,
   "customFields" : {
     "key" : "{}"
   },
-  "itemCode" : "aeiou",
-  "description" : "aeiou",
-  "invoiceWorksheetId" : 123,
-  "chargeRate" : 1.3579000000000001069366817318950779736042022705078125,
-  "backupFile" : 123,
-  "backupFileUrl" : "aeiou",
-  "id" : 123,
-  "department" : "aeiou",
-  "extendedCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123
+  "itemCode" : "itemCode",
+  "description" : "description",
+  "invoiceWorksheetId" : 7,
+  "chargeRate" : 3.61607674925191080461672754609026014804840087890625,
+  "backupFile" : 4,
+  "backupFileUrl" : "backupFileUrl",
+  "id" : 5,
+  "department" : "department",
+  "extendedCharge" : 2.027123023002321833274663731572218239307403564453125,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 2
 }}]
      
      - parameter invoiceWorksheetLineId: (path) Id of the invoiceWorksheetLine to be returned. 
 
      - returns: RequestBuilder<InvoiceWorksheetLine> 
      */
-    public class func getInvoiceWorksheetLineByIdWithRequestBuilder(invoiceWorksheetLineId invoiceWorksheetLineId: Int) -> RequestBuilder<InvoiceWorksheetLine> {
+    public class func getInvoiceWorksheetLineByIdWithRequestBuilder(invoiceWorksheetLineId invoiceWorksheetLineId: Int32) -> RequestBuilder<InvoiceWorksheetLine> {
         var path = "/beta/invoiceWorksheetLine/{invoiceWorksheetLineId}"
         path = path.stringByReplacingOccurrencesOfString("{invoiceWorksheetLineId}", withString: "\(invoiceWorksheetLineId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<InvoiceWorksheetLine>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for an invoiceWorksheetLine.
      
      - parameter invoiceWorksheetLineId: (path) Id of the invoiceWorksheetLine to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getInvoiceWorksheetLineTags(invoiceWorksheetLineId invoiceWorksheetLineId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getInvoiceWorksheetLineTags(invoiceWorksheetLineId invoiceWorksheetLineId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getInvoiceWorksheetLineTagsWithRequestBuilder(invoiceWorksheetLineId: invoiceWorksheetLineId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -454,9 +471,7 @@ public class InvoiceWorksheetLineAPI: APIBase {
 
 
     /**
-     
      Get the tags for an invoiceWorksheetLine.
-     
      - GET /beta/invoiceWorksheetLine/{invoiceWorksheetLineId}/tag
      - Get all existing invoiceWorksheetLine tags.
      - API Key:
@@ -467,21 +482,23 @@ public class InvoiceWorksheetLineAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getInvoiceWorksheetLineTagsWithRequestBuilder(invoiceWorksheetLineId invoiceWorksheetLineId: Int) -> RequestBuilder<Void> {
+    public class func getInvoiceWorksheetLineTagsWithRequestBuilder(invoiceWorksheetLineId invoiceWorksheetLineId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/invoiceWorksheetLine/{invoiceWorksheetLineId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{invoiceWorksheetLineId}", withString: "\(invoiceWorksheetLineId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update an invoiceWorksheetLine
      
      - parameter body: (body) InvoiceWorksheetLine to be updated. 
@@ -495,9 +512,7 @@ public class InvoiceWorksheetLineAPI: APIBase {
 
 
     /**
-     
      Update an invoiceWorksheetLine
-     
      - PUT /beta/invoiceWorksheetLine
      - Updates an existing invoiceWorksheetLine using the specified data.
      - API Key:
@@ -511,12 +526,13 @@ public class InvoiceWorksheetLineAPI: APIBase {
     public class func updateInvoiceWorksheetLineWithRequestBuilder(body body: InvoiceWorksheetLine) -> RequestBuilder<Void> {
         let path = "/beta/invoiceWorksheetLine"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

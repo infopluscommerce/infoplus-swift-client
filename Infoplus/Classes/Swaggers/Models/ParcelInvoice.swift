@@ -9,8 +9,7 @@ import Foundation
 
 
 public class ParcelInvoice: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var carrier: String?
@@ -19,14 +18,13 @@ public class ParcelInvoice: JSONEncodable {
     public var invoiceDate: NSDate?
     public var invoiceAmount: Double?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["carrier"] = self.carrier

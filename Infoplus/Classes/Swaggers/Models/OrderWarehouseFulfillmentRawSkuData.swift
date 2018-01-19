@@ -9,17 +9,15 @@ import Foundation
 
 
 public class OrderWarehouseFulfillmentRawSkuData: JSONEncodable {
-
-    public var quantity: Int?
+    public var quantity: Int32?
     public var canFulfill: Bool?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["quantity"] = self.quantity
+        nillableDictionary["quantity"] = self.quantity?.encodeToJSON()
         nillableDictionary["canFulfill"] = self.canFulfill
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

@@ -11,7 +11,6 @@ import Alamofire
 
 public class LocationBillingTypeAPI: APIBase {
     /**
-     
      Create a locationBillingType
      
      - parameter body: (body) LocationBillingType to be inserted. 
@@ -25,23 +24,21 @@ public class LocationBillingTypeAPI: APIBase {
 
 
     /**
-     
      Create a locationBillingType
-     
      - POST /beta/locationBillingType
      - Inserts a new locationBillingType using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "clientId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "clientId" : 6,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
   },
-  "name" : "aeiou",
-  "id" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "name" : "name",
+  "id" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 }}]
      
      - parameter body: (body) LocationBillingType to be inserted. 
@@ -51,23 +48,23 @@ public class LocationBillingTypeAPI: APIBase {
     public class func addLocationBillingTypeWithRequestBuilder(body body: LocationBillingType) -> RequestBuilder<LocationBillingType> {
         let path = "/beta/locationBillingType"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<LocationBillingType>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new audit for a locationBillingType
      
      - parameter locationBillingTypeId: (path) Id of the locationBillingType to add an audit to 
      - parameter locationBillingTypeAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addLocationBillingTypeAudit(locationBillingTypeId locationBillingTypeId: Int, locationBillingTypeAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addLocationBillingTypeAudit(locationBillingTypeId locationBillingTypeId: Int32, locationBillingTypeAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addLocationBillingTypeAuditWithRequestBuilder(locationBillingTypeId: locationBillingTypeId, locationBillingTypeAudit: locationBillingTypeAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -75,9 +72,7 @@ public class LocationBillingTypeAPI: APIBase {
 
 
     /**
-     
      Add new audit for a locationBillingType
-     
      - PUT /beta/locationBillingType/{locationBillingTypeId}/audit/{locationBillingTypeAudit}
      - Adds an audit to an existing locationBillingType.
      - API Key:
@@ -89,29 +84,31 @@ public class LocationBillingTypeAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addLocationBillingTypeAuditWithRequestBuilder(locationBillingTypeId locationBillingTypeId: Int, locationBillingTypeAudit: String) -> RequestBuilder<Void> {
+    public class func addLocationBillingTypeAuditWithRequestBuilder(locationBillingTypeId locationBillingTypeId: Int32, locationBillingTypeAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/locationBillingType/{locationBillingTypeId}/audit/{locationBillingTypeAudit}"
         path = path.stringByReplacingOccurrencesOfString("{locationBillingTypeId}", withString: "\(locationBillingTypeId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{locationBillingTypeAudit}", withString: "\(locationBillingTypeAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for a locationBillingType.
      
      - parameter locationBillingTypeId: (path) Id of the locationBillingType to add a tag to 
      - parameter locationBillingTypeTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addLocationBillingTypeTag(locationBillingTypeId locationBillingTypeId: Int, locationBillingTypeTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addLocationBillingTypeTag(locationBillingTypeId locationBillingTypeId: Int32, locationBillingTypeTag: String, completion: ((error: ErrorType?) -> Void)) {
         addLocationBillingTypeTagWithRequestBuilder(locationBillingTypeId: locationBillingTypeId, locationBillingTypeTag: locationBillingTypeTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -119,9 +116,7 @@ public class LocationBillingTypeAPI: APIBase {
 
 
     /**
-     
      Add new tags for a locationBillingType.
-     
      - PUT /beta/locationBillingType/{locationBillingTypeId}/tag/{locationBillingTypeTag}
      - Adds a tag to an existing locationBillingType.
      - API Key:
@@ -133,28 +128,30 @@ public class LocationBillingTypeAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addLocationBillingTypeTagWithRequestBuilder(locationBillingTypeId locationBillingTypeId: Int, locationBillingTypeTag: String) -> RequestBuilder<Void> {
+    public class func addLocationBillingTypeTagWithRequestBuilder(locationBillingTypeId locationBillingTypeId: Int32, locationBillingTypeTag: String) -> RequestBuilder<Void> {
         var path = "/beta/locationBillingType/{locationBillingTypeId}/tag/{locationBillingTypeTag}"
         path = path.stringByReplacingOccurrencesOfString("{locationBillingTypeId}", withString: "\(locationBillingTypeId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{locationBillingTypeTag}", withString: "\(locationBillingTypeTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a locationBillingType
      
      - parameter locationBillingTypeId: (path) Id of the locationBillingType to be deleted. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteLocationBillingType(locationBillingTypeId locationBillingTypeId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteLocationBillingType(locationBillingTypeId locationBillingTypeId: Int32, completion: ((error: ErrorType?) -> Void)) {
         deleteLocationBillingTypeWithRequestBuilder(locationBillingTypeId: locationBillingTypeId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -162,9 +159,7 @@ public class LocationBillingTypeAPI: APIBase {
 
 
     /**
-     
      Delete a locationBillingType
-     
      - DELETE /beta/locationBillingType/{locationBillingTypeId}
      - Deletes the locationBillingType identified by the specified id.
      - API Key:
@@ -175,28 +170,30 @@ public class LocationBillingTypeAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteLocationBillingTypeWithRequestBuilder(locationBillingTypeId locationBillingTypeId: Int) -> RequestBuilder<Void> {
+    public class func deleteLocationBillingTypeWithRequestBuilder(locationBillingTypeId locationBillingTypeId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/locationBillingType/{locationBillingTypeId}"
         path = path.stringByReplacingOccurrencesOfString("{locationBillingTypeId}", withString: "\(locationBillingTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for a locationBillingType.
      
      - parameter locationBillingTypeId: (path) Id of the locationBillingType to remove tag from 
      - parameter locationBillingTypeTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteLocationBillingTypeTag(locationBillingTypeId locationBillingTypeId: Int, locationBillingTypeTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteLocationBillingTypeTag(locationBillingTypeId locationBillingTypeId: Int32, locationBillingTypeTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteLocationBillingTypeTagWithRequestBuilder(locationBillingTypeId: locationBillingTypeId, locationBillingTypeTag: locationBillingTypeTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -204,9 +201,7 @@ public class LocationBillingTypeAPI: APIBase {
 
 
     /**
-     
      Delete a tag for a locationBillingType.
-     
      - DELETE /beta/locationBillingType/{locationBillingTypeId}/tag/{locationBillingTypeTag}
      - Deletes an existing locationBillingType tag using the specified data.
      - API Key:
@@ -218,28 +213,30 @@ public class LocationBillingTypeAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteLocationBillingTypeTagWithRequestBuilder(locationBillingTypeId locationBillingTypeId: Int, locationBillingTypeTag: String) -> RequestBuilder<Void> {
+    public class func deleteLocationBillingTypeTagWithRequestBuilder(locationBillingTypeId locationBillingTypeId: Int32, locationBillingTypeTag: String) -> RequestBuilder<Void> {
         var path = "/beta/locationBillingType/{locationBillingTypeId}/tag/{locationBillingTypeTag}"
         path = path.stringByReplacingOccurrencesOfString("{locationBillingTypeId}", withString: "\(locationBillingTypeId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{locationBillingTypeTag}", withString: "\(locationBillingTypeTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated a locationBillingType by id
      
      - parameter locationBillingTypeId: (path) Id of the locationBillingType to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateLocationBillingTypeById(locationBillingTypeId locationBillingTypeId: Int, completion: ((data: LocationBillingType?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateLocationBillingTypeById(locationBillingTypeId locationBillingTypeId: Int32, completion: ((data: LocationBillingType?, error: ErrorType?) -> Void)) {
         getDuplicateLocationBillingTypeByIdWithRequestBuilder(locationBillingTypeId: locationBillingTypeId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -247,44 +244,44 @@ public class LocationBillingTypeAPI: APIBase {
 
 
     /**
-     
      Get a duplicated a locationBillingType by id
-     
      - GET /beta/locationBillingType/duplicate/{locationBillingTypeId}
      - Returns a duplicated locationBillingType identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "clientId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "clientId" : 6,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
   },
-  "name" : "aeiou",
-  "id" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "name" : "name",
+  "id" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 }}]
      
      - parameter locationBillingTypeId: (path) Id of the locationBillingType to be duplicated. 
 
      - returns: RequestBuilder<LocationBillingType> 
      */
-    public class func getDuplicateLocationBillingTypeByIdWithRequestBuilder(locationBillingTypeId locationBillingTypeId: Int) -> RequestBuilder<LocationBillingType> {
+    public class func getDuplicateLocationBillingTypeByIdWithRequestBuilder(locationBillingTypeId locationBillingTypeId: Int32) -> RequestBuilder<LocationBillingType> {
         var path = "/beta/locationBillingType/duplicate/{locationBillingTypeId}"
         path = path.stringByReplacingOccurrencesOfString("{locationBillingTypeId}", withString: "\(locationBillingTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<LocationBillingType>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search locationBillingTypes by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -293,7 +290,7 @@ public class LocationBillingTypeAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getLocationBillingTypeByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [LocationBillingType]?, error: ErrorType?) -> Void)) {
+    public class func getLocationBillingTypeByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [LocationBillingType]?, error: ErrorType?) -> Void)) {
         getLocationBillingTypeByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -301,23 +298,30 @@ public class LocationBillingTypeAPI: APIBase {
 
 
     /**
-     
      Search locationBillingTypes by filter
-     
      - GET /beta/locationBillingType/search
      - Returns the list of locationBillingTypes that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "clientId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "clientId" : 6,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
   },
-  "name" : "aeiou",
-  "id" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "name" : "name",
+  "id" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
+}, {
+  "clientId" : 6,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "name",
+  "id" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -327,31 +331,33 @@ public class LocationBillingTypeAPI: APIBase {
 
      - returns: RequestBuilder<[LocationBillingType]> 
      */
-    public class func getLocationBillingTypeByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[LocationBillingType]> {
+    public class func getLocationBillingTypeByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[LocationBillingType]> {
         let path = "/beta/locationBillingType/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[LocationBillingType]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get a locationBillingType by id
      
      - parameter locationBillingTypeId: (path) Id of the locationBillingType to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getLocationBillingTypeById(locationBillingTypeId locationBillingTypeId: Int, completion: ((data: LocationBillingType?, error: ErrorType?) -> Void)) {
+    public class func getLocationBillingTypeById(locationBillingTypeId locationBillingTypeId: Int32, completion: ((data: LocationBillingType?, error: ErrorType?) -> Void)) {
         getLocationBillingTypeByIdWithRequestBuilder(locationBillingTypeId: locationBillingTypeId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -359,50 +365,50 @@ public class LocationBillingTypeAPI: APIBase {
 
 
     /**
-     
      Get a locationBillingType by id
-     
      - GET /beta/locationBillingType/{locationBillingTypeId}
      - Returns the locationBillingType identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "clientId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "clientId" : 6,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
   },
-  "name" : "aeiou",
-  "id" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "name" : "name",
+  "id" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 }}]
      
      - parameter locationBillingTypeId: (path) Id of the locationBillingType to be returned. 
 
      - returns: RequestBuilder<LocationBillingType> 
      */
-    public class func getLocationBillingTypeByIdWithRequestBuilder(locationBillingTypeId locationBillingTypeId: Int) -> RequestBuilder<LocationBillingType> {
+    public class func getLocationBillingTypeByIdWithRequestBuilder(locationBillingTypeId locationBillingTypeId: Int32) -> RequestBuilder<LocationBillingType> {
         var path = "/beta/locationBillingType/{locationBillingTypeId}"
         path = path.stringByReplacingOccurrencesOfString("{locationBillingTypeId}", withString: "\(locationBillingTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<LocationBillingType>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for a locationBillingType.
      
      - parameter locationBillingTypeId: (path) Id of the locationBillingType to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getLocationBillingTypeTags(locationBillingTypeId locationBillingTypeId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getLocationBillingTypeTags(locationBillingTypeId locationBillingTypeId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getLocationBillingTypeTagsWithRequestBuilder(locationBillingTypeId: locationBillingTypeId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -410,9 +416,7 @@ public class LocationBillingTypeAPI: APIBase {
 
 
     /**
-     
      Get the tags for a locationBillingType.
-     
      - GET /beta/locationBillingType/{locationBillingTypeId}/tag
      - Get all existing locationBillingType tags.
      - API Key:
@@ -423,21 +427,23 @@ public class LocationBillingTypeAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getLocationBillingTypeTagsWithRequestBuilder(locationBillingTypeId locationBillingTypeId: Int) -> RequestBuilder<Void> {
+    public class func getLocationBillingTypeTagsWithRequestBuilder(locationBillingTypeId locationBillingTypeId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/locationBillingType/{locationBillingTypeId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{locationBillingTypeId}", withString: "\(locationBillingTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a locationBillingType
      
      - parameter body: (body) LocationBillingType to be updated. 
@@ -451,9 +457,7 @@ public class LocationBillingTypeAPI: APIBase {
 
 
     /**
-     
      Update a locationBillingType
-     
      - PUT /beta/locationBillingType
      - Updates an existing locationBillingType using the specified data.
      - API Key:
@@ -467,16 +471,16 @@ public class LocationBillingTypeAPI: APIBase {
     public class func updateLocationBillingTypeWithRequestBuilder(body body: LocationBillingType) -> RequestBuilder<Void> {
         let path = "/beta/locationBillingType"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a locationBillingType custom fields
      
      - parameter body: (body) LocationBillingType to be updated. 
@@ -490,9 +494,7 @@ public class LocationBillingTypeAPI: APIBase {
 
 
     /**
-     
      Update a locationBillingType custom fields
-     
      - PUT /beta/locationBillingType/customFields
      - Updates an existing locationBillingType custom fields using the specified data.
      - API Key:
@@ -506,12 +508,13 @@ public class LocationBillingTypeAPI: APIBase {
     public class func updateLocationBillingTypeCustomFieldsWithRequestBuilder(body body: LocationBillingType) -> RequestBuilder<Void> {
         let path = "/beta/locationBillingType/customFields"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

@@ -11,7 +11,6 @@ import Alamofire
 
 public class OrderLoadProgramAPI: APIBase {
     /**
-     
      Search orderLoadPrograms
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
@@ -19,7 +18,7 @@ public class OrderLoadProgramAPI: APIBase {
      - parameter limit: (query) Maximum results per page.  Defaults to 20.  Max allowed value is 250. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getOrderLoadProgramBySearchText(searchText searchText: String?, page: Int?, limit: Int?, completion: ((data: [OrderLoadProgram]?, error: ErrorType?) -> Void)) {
+    public class func getOrderLoadProgramBySearchText(searchText searchText: String? = nil, page: Int32? = nil, limit: Int32? = nil, completion: ((data: [OrderLoadProgram]?, error: ErrorType?) -> Void)) {
         getOrderLoadProgramBySearchTextWithRequestBuilder(searchText: searchText, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -27,18 +26,20 @@ public class OrderLoadProgramAPI: APIBase {
 
 
     /**
-     
      Search orderLoadPrograms
-     
      - GET /beta/orderLoadProgram/search
      - Returns the list of orderLoadPrograms that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "fullEntityClassName" : "aeiou",
-  "id" : 123,
-  "label" : "aeiou"
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : 0,
+  "label" : "label"
+}, {
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : 0,
+  "label" : "label"
 } ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
@@ -47,24 +48,26 @@ public class OrderLoadProgramAPI: APIBase {
 
      - returns: RequestBuilder<[OrderLoadProgram]> 
      */
-    public class func getOrderLoadProgramBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[OrderLoadProgram]> {
+    public class func getOrderLoadProgramBySearchTextWithRequestBuilder(searchText searchText: String? = nil, page: Int32? = nil, limit: Int32? = nil) -> RequestBuilder<[OrderLoadProgram]> {
         let path = "/beta/orderLoadProgram/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "searchText": searchText,
-            "page": page,
-            "limit": limit
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON()
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[OrderLoadProgram]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get an orderLoadProgram by id
      
      - parameter orderLoadProgramId: (path) Id of orderLoadProgram to be returned. 
@@ -78,18 +81,16 @@ public class OrderLoadProgramAPI: APIBase {
 
 
     /**
-     
      Get an orderLoadProgram by id
-     
      - GET /beta/orderLoadProgram/{orderLoadProgramId}
      - Returns the orderLoadProgram identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "fullEntityClassName" : "aeiou",
-  "id" : 123,
-  "label" : "aeiou"
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : 0,
+  "label" : "label"
 }}]
      
      - parameter orderLoadProgramId: (path) Id of orderLoadProgram to be returned. 
@@ -100,13 +101,16 @@ public class OrderLoadProgramAPI: APIBase {
         var path = "/beta/orderLoadProgram/{orderLoadProgramId}"
         path = path.stringByReplacingOccurrencesOfString("{orderLoadProgramId}", withString: "\(orderLoadProgramId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<OrderLoadProgram>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

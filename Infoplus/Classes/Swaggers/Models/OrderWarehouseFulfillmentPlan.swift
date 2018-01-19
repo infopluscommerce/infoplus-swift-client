@@ -9,17 +9,15 @@ import Foundation
 
 
 public class OrderWarehouseFulfillmentPlan: JSONEncodable {
-
-    public var score: Int?
+    public var score: Int32?
     public var planDetailList: [OrderWarehouseFulfillmentPlanDetail]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["score"] = self.score
+        nillableDictionary["score"] = self.score?.encodeToJSON()
         nillableDictionary["planDetailList"] = self.planDetailList?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

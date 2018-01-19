@@ -9,14 +9,13 @@ import Foundation
 
 
 public class ParcelInvoiceLine: JSONEncodable {
-
-    public var id: Int?
-    public var invoiceNoId: Int?
+    public var id: Int32?
+    public var invoiceNoId: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
-    public var lobId: Int?
+    public var lobId: Int32?
     public var orderId: Double?
-    public var shipmentId: Int?
+    public var shipmentId: Int32?
     public var trackingNo: String?
     public var shipDate: NSDate?
     public var zone: String?
@@ -137,20 +136,19 @@ public class ParcelInvoiceLine: JSONEncodable {
     public var extraCharge25Name: String?
     public var extraCharge25Amount: Double?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
-        nillableDictionary["invoiceNoId"] = self.invoiceNoId
+        nillableDictionary["id"] = self.id?.encodeToJSON()
+        nillableDictionary["invoiceNoId"] = self.invoiceNoId?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
-        nillableDictionary["lobId"] = self.lobId
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
         nillableDictionary["orderId"] = self.orderId
-        nillableDictionary["shipmentId"] = self.shipmentId
+        nillableDictionary["shipmentId"] = self.shipmentId?.encodeToJSON()
         nillableDictionary["trackingNo"] = self.trackingNo
         nillableDictionary["shipDate"] = self.shipDate?.encodeToJSON()
         nillableDictionary["zone"] = self.zone

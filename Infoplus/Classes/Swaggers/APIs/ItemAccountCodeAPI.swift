@@ -11,7 +11,6 @@ import Alamofire
 
 public class ItemAccountCodeAPI: APIBase {
     /**
-     
      Create an itemAccountCode
      
      - parameter body: (body) ItemAccountCode to be inserted. 
@@ -25,22 +24,20 @@ public class ItemAccountCodeAPI: APIBase {
 
 
     /**
-     
      Create an itemAccountCode
-     
      - POST /beta/itemAccountCode
      - Inserts a new itemAccountCode using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "internalId" : 123,
+  "internalId" : 6,
   "customFields" : {
     "key" : "{}"
   },
-  "name" : "aeiou",
-  "id" : "aeiou",
-  "lobId" : 123
+  "name" : "name",
+  "id" : "id",
+  "lobId" : 0
 }}]
      
      - parameter body: (body) ItemAccountCode to be inserted. 
@@ -50,23 +47,23 @@ public class ItemAccountCodeAPI: APIBase {
     public class func addItemAccountCodeWithRequestBuilder(body body: ItemAccountCode) -> RequestBuilder<ItemAccountCode> {
         let path = "/beta/itemAccountCode"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<ItemAccountCode>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new audit for an itemAccountCode
      
      - parameter itemAccountCodeId: (path) Id of the itemAccountCode to add an audit to 
      - parameter itemAccountCodeAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addItemAccountCodeAudit(itemAccountCodeId itemAccountCodeId: Int, itemAccountCodeAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addItemAccountCodeAudit(itemAccountCodeId itemAccountCodeId: Int32, itemAccountCodeAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addItemAccountCodeAuditWithRequestBuilder(itemAccountCodeId: itemAccountCodeId, itemAccountCodeAudit: itemAccountCodeAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -74,9 +71,7 @@ public class ItemAccountCodeAPI: APIBase {
 
 
     /**
-     
      Add new audit for an itemAccountCode
-     
      - PUT /beta/itemAccountCode/{itemAccountCodeId}/audit/{itemAccountCodeAudit}
      - Adds an audit to an existing itemAccountCode.
      - API Key:
@@ -88,29 +83,31 @@ public class ItemAccountCodeAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addItemAccountCodeAuditWithRequestBuilder(itemAccountCodeId itemAccountCodeId: Int, itemAccountCodeAudit: String) -> RequestBuilder<Void> {
+    public class func addItemAccountCodeAuditWithRequestBuilder(itemAccountCodeId itemAccountCodeId: Int32, itemAccountCodeAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/itemAccountCode/{itemAccountCodeId}/audit/{itemAccountCodeAudit}"
         path = path.stringByReplacingOccurrencesOfString("{itemAccountCodeId}", withString: "\(itemAccountCodeId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{itemAccountCodeAudit}", withString: "\(itemAccountCodeAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for an itemAccountCode.
      
      - parameter itemAccountCodeId: (path) Id of the itemAccountCode to add a tag to 
      - parameter itemAccountCodeTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addItemAccountCodeTag(itemAccountCodeId itemAccountCodeId: Int, itemAccountCodeTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addItemAccountCodeTag(itemAccountCodeId itemAccountCodeId: Int32, itemAccountCodeTag: String, completion: ((error: ErrorType?) -> Void)) {
         addItemAccountCodeTagWithRequestBuilder(itemAccountCodeId: itemAccountCodeId, itemAccountCodeTag: itemAccountCodeTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -118,9 +115,7 @@ public class ItemAccountCodeAPI: APIBase {
 
 
     /**
-     
      Add new tags for an itemAccountCode.
-     
      - PUT /beta/itemAccountCode/{itemAccountCodeId}/tag/{itemAccountCodeTag}
      - Adds a tag to an existing itemAccountCode.
      - API Key:
@@ -132,28 +127,30 @@ public class ItemAccountCodeAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addItemAccountCodeTagWithRequestBuilder(itemAccountCodeId itemAccountCodeId: Int, itemAccountCodeTag: String) -> RequestBuilder<Void> {
+    public class func addItemAccountCodeTagWithRequestBuilder(itemAccountCodeId itemAccountCodeId: Int32, itemAccountCodeTag: String) -> RequestBuilder<Void> {
         var path = "/beta/itemAccountCode/{itemAccountCodeId}/tag/{itemAccountCodeTag}"
         path = path.stringByReplacingOccurrencesOfString("{itemAccountCodeId}", withString: "\(itemAccountCodeId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{itemAccountCodeTag}", withString: "\(itemAccountCodeTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete an itemAccountCode
      
      - parameter itemAccountCodeId: (path) Id of the itemAccountCode to be deleted. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteItemAccountCode(itemAccountCodeId itemAccountCodeId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteItemAccountCode(itemAccountCodeId itemAccountCodeId: Int32, completion: ((error: ErrorType?) -> Void)) {
         deleteItemAccountCodeWithRequestBuilder(itemAccountCodeId: itemAccountCodeId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -161,9 +158,7 @@ public class ItemAccountCodeAPI: APIBase {
 
 
     /**
-     
      Delete an itemAccountCode
-     
      - DELETE /beta/itemAccountCode/{itemAccountCodeId}
      - Deletes the itemAccountCode identified by the specified id.
      - API Key:
@@ -174,28 +169,30 @@ public class ItemAccountCodeAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteItemAccountCodeWithRequestBuilder(itemAccountCodeId itemAccountCodeId: Int) -> RequestBuilder<Void> {
+    public class func deleteItemAccountCodeWithRequestBuilder(itemAccountCodeId itemAccountCodeId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/itemAccountCode/{itemAccountCodeId}"
         path = path.stringByReplacingOccurrencesOfString("{itemAccountCodeId}", withString: "\(itemAccountCodeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for an itemAccountCode.
      
      - parameter itemAccountCodeId: (path) Id of the itemAccountCode to remove tag from 
      - parameter itemAccountCodeTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteItemAccountCodeTag(itemAccountCodeId itemAccountCodeId: Int, itemAccountCodeTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteItemAccountCodeTag(itemAccountCodeId itemAccountCodeId: Int32, itemAccountCodeTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteItemAccountCodeTagWithRequestBuilder(itemAccountCodeId: itemAccountCodeId, itemAccountCodeTag: itemAccountCodeTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -203,9 +200,7 @@ public class ItemAccountCodeAPI: APIBase {
 
 
     /**
-     
      Delete a tag for an itemAccountCode.
-     
      - DELETE /beta/itemAccountCode/{itemAccountCodeId}/tag/{itemAccountCodeTag}
      - Deletes an existing itemAccountCode tag using the specified data.
      - API Key:
@@ -217,28 +212,30 @@ public class ItemAccountCodeAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteItemAccountCodeTagWithRequestBuilder(itemAccountCodeId itemAccountCodeId: Int, itemAccountCodeTag: String) -> RequestBuilder<Void> {
+    public class func deleteItemAccountCodeTagWithRequestBuilder(itemAccountCodeId itemAccountCodeId: Int32, itemAccountCodeTag: String) -> RequestBuilder<Void> {
         var path = "/beta/itemAccountCode/{itemAccountCodeId}/tag/{itemAccountCodeTag}"
         path = path.stringByReplacingOccurrencesOfString("{itemAccountCodeId}", withString: "\(itemAccountCodeId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{itemAccountCodeTag}", withString: "\(itemAccountCodeTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated an itemAccountCode by id
      
      - parameter itemAccountCodeId: (path) Id of the itemAccountCode to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateItemAccountCodeById(itemAccountCodeId itemAccountCodeId: Int, completion: ((data: ItemAccountCode?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateItemAccountCodeById(itemAccountCodeId itemAccountCodeId: Int32, completion: ((data: ItemAccountCode?, error: ErrorType?) -> Void)) {
         getDuplicateItemAccountCodeByIdWithRequestBuilder(itemAccountCodeId: itemAccountCodeId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -246,43 +243,43 @@ public class ItemAccountCodeAPI: APIBase {
 
 
     /**
-     
      Get a duplicated an itemAccountCode by id
-     
      - GET /beta/itemAccountCode/duplicate/{itemAccountCodeId}
      - Returns a duplicated itemAccountCode identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "internalId" : 123,
+  "internalId" : 6,
   "customFields" : {
     "key" : "{}"
   },
-  "name" : "aeiou",
-  "id" : "aeiou",
-  "lobId" : 123
+  "name" : "name",
+  "id" : "id",
+  "lobId" : 0
 }}]
      
      - parameter itemAccountCodeId: (path) Id of the itemAccountCode to be duplicated. 
 
      - returns: RequestBuilder<ItemAccountCode> 
      */
-    public class func getDuplicateItemAccountCodeByIdWithRequestBuilder(itemAccountCodeId itemAccountCodeId: Int) -> RequestBuilder<ItemAccountCode> {
+    public class func getDuplicateItemAccountCodeByIdWithRequestBuilder(itemAccountCodeId itemAccountCodeId: Int32) -> RequestBuilder<ItemAccountCode> {
         var path = "/beta/itemAccountCode/duplicate/{itemAccountCodeId}"
         path = path.stringByReplacingOccurrencesOfString("{itemAccountCodeId}", withString: "\(itemAccountCodeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<ItemAccountCode>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search itemAccountCodes by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -291,7 +288,7 @@ public class ItemAccountCodeAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getItemAccountCodeByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [ItemAccountCode]?, error: ErrorType?) -> Void)) {
+    public class func getItemAccountCodeByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [ItemAccountCode]?, error: ErrorType?) -> Void)) {
         getItemAccountCodeByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -299,22 +296,28 @@ public class ItemAccountCodeAPI: APIBase {
 
 
     /**
-     
      Search itemAccountCodes by filter
-     
      - GET /beta/itemAccountCode/search
      - Returns the list of itemAccountCodes that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "internalId" : 123,
+  "internalId" : 6,
   "customFields" : {
     "key" : "{}"
   },
-  "name" : "aeiou",
-  "id" : "aeiou",
-  "lobId" : 123
+  "name" : "name",
+  "id" : "id",
+  "lobId" : 0
+}, {
+  "internalId" : 6,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "name",
+  "id" : "id",
+  "lobId" : 0
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -324,31 +327,33 @@ public class ItemAccountCodeAPI: APIBase {
 
      - returns: RequestBuilder<[ItemAccountCode]> 
      */
-    public class func getItemAccountCodeByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ItemAccountCode]> {
+    public class func getItemAccountCodeByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[ItemAccountCode]> {
         let path = "/beta/itemAccountCode/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[ItemAccountCode]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get an itemAccountCode by id
      
      - parameter itemAccountCodeId: (path) Id of the itemAccountCode to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getItemAccountCodeById(itemAccountCodeId itemAccountCodeId: Int, completion: ((data: ItemAccountCode?, error: ErrorType?) -> Void)) {
+    public class func getItemAccountCodeById(itemAccountCodeId itemAccountCodeId: Int32, completion: ((data: ItemAccountCode?, error: ErrorType?) -> Void)) {
         getItemAccountCodeByIdWithRequestBuilder(itemAccountCodeId: itemAccountCodeId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -356,49 +361,49 @@ public class ItemAccountCodeAPI: APIBase {
 
 
     /**
-     
      Get an itemAccountCode by id
-     
      - GET /beta/itemAccountCode/{itemAccountCodeId}
      - Returns the itemAccountCode identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "internalId" : 123,
+  "internalId" : 6,
   "customFields" : {
     "key" : "{}"
   },
-  "name" : "aeiou",
-  "id" : "aeiou",
-  "lobId" : 123
+  "name" : "name",
+  "id" : "id",
+  "lobId" : 0
 }}]
      
      - parameter itemAccountCodeId: (path) Id of the itemAccountCode to be returned. 
 
      - returns: RequestBuilder<ItemAccountCode> 
      */
-    public class func getItemAccountCodeByIdWithRequestBuilder(itemAccountCodeId itemAccountCodeId: Int) -> RequestBuilder<ItemAccountCode> {
+    public class func getItemAccountCodeByIdWithRequestBuilder(itemAccountCodeId itemAccountCodeId: Int32) -> RequestBuilder<ItemAccountCode> {
         var path = "/beta/itemAccountCode/{itemAccountCodeId}"
         path = path.stringByReplacingOccurrencesOfString("{itemAccountCodeId}", withString: "\(itemAccountCodeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<ItemAccountCode>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for an itemAccountCode.
      
      - parameter itemAccountCodeId: (path) Id of the itemAccountCode to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getItemAccountCodeTags(itemAccountCodeId itemAccountCodeId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getItemAccountCodeTags(itemAccountCodeId itemAccountCodeId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getItemAccountCodeTagsWithRequestBuilder(itemAccountCodeId: itemAccountCodeId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -406,9 +411,7 @@ public class ItemAccountCodeAPI: APIBase {
 
 
     /**
-     
      Get the tags for an itemAccountCode.
-     
      - GET /beta/itemAccountCode/{itemAccountCodeId}/tag
      - Get all existing itemAccountCode tags.
      - API Key:
@@ -419,21 +422,23 @@ public class ItemAccountCodeAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getItemAccountCodeTagsWithRequestBuilder(itemAccountCodeId itemAccountCodeId: Int) -> RequestBuilder<Void> {
+    public class func getItemAccountCodeTagsWithRequestBuilder(itemAccountCodeId itemAccountCodeId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/itemAccountCode/{itemAccountCodeId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{itemAccountCodeId}", withString: "\(itemAccountCodeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update an itemAccountCode
      
      - parameter body: (body) ItemAccountCode to be updated. 
@@ -447,9 +452,7 @@ public class ItemAccountCodeAPI: APIBase {
 
 
     /**
-     
      Update an itemAccountCode
-     
      - PUT /beta/itemAccountCode
      - Updates an existing itemAccountCode using the specified data.
      - API Key:
@@ -463,12 +466,13 @@ public class ItemAccountCodeAPI: APIBase {
     public class func updateItemAccountCodeWithRequestBuilder(body body: ItemAccountCode) -> RequestBuilder<Void> {
         let path = "/beta/itemAccountCode"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

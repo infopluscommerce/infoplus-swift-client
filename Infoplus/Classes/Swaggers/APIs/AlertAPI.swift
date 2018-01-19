@@ -11,14 +11,13 @@ import Alamofire
 
 public class AlertAPI: APIBase {
     /**
-     
      Add new audit for an alert
      
      - parameter alertId: (path) Id of the alert to add an audit to 
      - parameter alertAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addAlertAudit(alertId alertId: Int, alertAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addAlertAudit(alertId alertId: Int32, alertAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addAlertAuditWithRequestBuilder(alertId: alertId, alertAudit: alertAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -26,9 +25,7 @@ public class AlertAPI: APIBase {
 
 
     /**
-     
      Add new audit for an alert
-     
      - PUT /beta/alert/{alertId}/audit/{alertAudit}
      - Adds an audit to an existing alert.
      - API Key:
@@ -40,29 +37,31 @@ public class AlertAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addAlertAuditWithRequestBuilder(alertId alertId: Int, alertAudit: String) -> RequestBuilder<Void> {
+    public class func addAlertAuditWithRequestBuilder(alertId alertId: Int32, alertAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/alert/{alertId}/audit/{alertAudit}"
         path = path.stringByReplacingOccurrencesOfString("{alertId}", withString: "\(alertId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{alertAudit}", withString: "\(alertAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for an alert.
      
      - parameter alertId: (path) Id of the alert to add a tag to 
      - parameter alertTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addAlertTag(alertId alertId: Int, alertTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addAlertTag(alertId alertId: Int32, alertTag: String, completion: ((error: ErrorType?) -> Void)) {
         addAlertTagWithRequestBuilder(alertId: alertId, alertTag: alertTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -70,9 +69,7 @@ public class AlertAPI: APIBase {
 
 
     /**
-     
      Add new tags for an alert.
-     
      - PUT /beta/alert/{alertId}/tag/{alertTag}
      - Adds a tag to an existing alert.
      - API Key:
@@ -84,29 +81,31 @@ public class AlertAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addAlertTagWithRequestBuilder(alertId alertId: Int, alertTag: String) -> RequestBuilder<Void> {
+    public class func addAlertTagWithRequestBuilder(alertId alertId: Int32, alertTag: String) -> RequestBuilder<Void> {
         var path = "/beta/alert/{alertId}/tag/{alertTag}"
         path = path.stringByReplacingOccurrencesOfString("{alertId}", withString: "\(alertId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{alertTag}", withString: "\(alertTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for an alert.
      
      - parameter alertId: (path) Id of the alert to remove tag from 
      - parameter alertTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteAlertTag(alertId alertId: Int, alertTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteAlertTag(alertId alertId: Int32, alertTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteAlertTagWithRequestBuilder(alertId: alertId, alertTag: alertTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -114,9 +113,7 @@ public class AlertAPI: APIBase {
 
 
     /**
-     
      Delete a tag for an alert.
-     
      - DELETE /beta/alert/{alertId}/tag/{alertTag}
      - Deletes an existing alert tag using the specified data.
      - API Key:
@@ -128,22 +125,24 @@ public class AlertAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteAlertTagWithRequestBuilder(alertId alertId: Int, alertTag: String) -> RequestBuilder<Void> {
+    public class func deleteAlertTagWithRequestBuilder(alertId alertId: Int32, alertTag: String) -> RequestBuilder<Void> {
         var path = "/beta/alert/{alertId}/tag/{alertTag}"
         path = path.stringByReplacingOccurrencesOfString("{alertId}", withString: "\(alertId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{alertTag}", withString: "\(alertTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search alerts by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -152,7 +151,7 @@ public class AlertAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getAlertByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [Alert]?, error: ErrorType?) -> Void)) {
+    public class func getAlertByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [Alert]?, error: ErrorType?) -> Void)) {
         getAlertByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -160,28 +159,40 @@ public class AlertAPI: APIBase {
 
 
     /**
-     
      Search alerts by filter
-     
      - GET /beta/alert/search
      - Returns the list of alerts that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "level" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "level" : "level",
   "customFields" : {
     "key" : "{}"
   },
-  "link" : "aeiou",
-  "linkText" : "aeiou",
-  "id" : 123,
-  "type" : "aeiou",
-  "message" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "expirationDate" : "2000-01-23T04:56:07.000+0000",
-  "acknowledgeDate" : "2000-01-23T04:56:07.000+0000"
+  "link" : "link",
+  "linkText" : "linkText",
+  "id" : 0,
+  "type" : "type",
+  "message" : "message",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "expirationDate" : "2000-01-23T04:56:07.000+00:00",
+  "acknowledgeDate" : "2000-01-23T04:56:07.000+00:00"
+}, {
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "level" : "level",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "link" : "link",
+  "linkText" : "linkText",
+  "id" : 0,
+  "type" : "type",
+  "message" : "message",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "expirationDate" : "2000-01-23T04:56:07.000+00:00",
+  "acknowledgeDate" : "2000-01-23T04:56:07.000+00:00"
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -191,31 +202,33 @@ public class AlertAPI: APIBase {
 
      - returns: RequestBuilder<[Alert]> 
      */
-    public class func getAlertByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Alert]> {
+    public class func getAlertByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[Alert]> {
         let path = "/beta/alert/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[Alert]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get an alert by id
      
      - parameter alertId: (path) Id of the alert to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getAlertById(alertId alertId: Int, completion: ((data: Alert?, error: ErrorType?) -> Void)) {
+    public class func getAlertById(alertId alertId: Int32, completion: ((data: Alert?, error: ErrorType?) -> Void)) {
         getAlertByIdWithRequestBuilder(alertId: alertId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -223,55 +236,55 @@ public class AlertAPI: APIBase {
 
 
     /**
-     
      Get an alert by id
-     
      - GET /beta/alert/{alertId}
      - Returns the alert identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "level" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "level" : "level",
   "customFields" : {
     "key" : "{}"
   },
-  "link" : "aeiou",
-  "linkText" : "aeiou",
-  "id" : 123,
-  "type" : "aeiou",
-  "message" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "expirationDate" : "2000-01-23T04:56:07.000+0000",
-  "acknowledgeDate" : "2000-01-23T04:56:07.000+0000"
+  "link" : "link",
+  "linkText" : "linkText",
+  "id" : 0,
+  "type" : "type",
+  "message" : "message",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "expirationDate" : "2000-01-23T04:56:07.000+00:00",
+  "acknowledgeDate" : "2000-01-23T04:56:07.000+00:00"
 }}]
      
      - parameter alertId: (path) Id of the alert to be returned. 
 
      - returns: RequestBuilder<Alert> 
      */
-    public class func getAlertByIdWithRequestBuilder(alertId alertId: Int) -> RequestBuilder<Alert> {
+    public class func getAlertByIdWithRequestBuilder(alertId alertId: Int32) -> RequestBuilder<Alert> {
         var path = "/beta/alert/{alertId}"
         path = path.stringByReplacingOccurrencesOfString("{alertId}", withString: "\(alertId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Alert>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for an alert.
      
      - parameter alertId: (path) Id of the alert to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getAlertTags(alertId alertId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getAlertTags(alertId alertId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getAlertTagsWithRequestBuilder(alertId: alertId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -279,9 +292,7 @@ public class AlertAPI: APIBase {
 
 
     /**
-     
      Get the tags for an alert.
-     
      - GET /beta/alert/{alertId}/tag
      - Get all existing alert tags.
      - API Key:
@@ -292,27 +303,29 @@ public class AlertAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getAlertTagsWithRequestBuilder(alertId alertId: Int) -> RequestBuilder<Void> {
+    public class func getAlertTagsWithRequestBuilder(alertId alertId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/alert/{alertId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{alertId}", withString: "\(alertId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated an alert by id
      
      - parameter alertId: (path) Id of the alert to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateAlertById(alertId alertId: Int, completion: ((data: Alert?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateAlertById(alertId alertId: Int32, completion: ((data: Alert?, error: ErrorType?) -> Void)) {
         getDuplicateAlertByIdWithRequestBuilder(alertId: alertId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -320,49 +333,49 @@ public class AlertAPI: APIBase {
 
 
     /**
-     
      Get a duplicated an alert by id
-     
      - GET /beta/alert/duplicate/{alertId}
      - Returns a duplicated alert identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "level" : "aeiou",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "level" : "level",
   "customFields" : {
     "key" : "{}"
   },
-  "link" : "aeiou",
-  "linkText" : "aeiou",
-  "id" : 123,
-  "type" : "aeiou",
-  "message" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "expirationDate" : "2000-01-23T04:56:07.000+0000",
-  "acknowledgeDate" : "2000-01-23T04:56:07.000+0000"
+  "link" : "link",
+  "linkText" : "linkText",
+  "id" : 0,
+  "type" : "type",
+  "message" : "message",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "expirationDate" : "2000-01-23T04:56:07.000+00:00",
+  "acknowledgeDate" : "2000-01-23T04:56:07.000+00:00"
 }}]
      
      - parameter alertId: (path) Id of the alert to be duplicated. 
 
      - returns: RequestBuilder<Alert> 
      */
-    public class func getDuplicateAlertByIdWithRequestBuilder(alertId alertId: Int) -> RequestBuilder<Alert> {
+    public class func getDuplicateAlertByIdWithRequestBuilder(alertId alertId: Int32) -> RequestBuilder<Alert> {
         var path = "/beta/alert/duplicate/{alertId}"
         path = path.stringByReplacingOccurrencesOfString("{alertId}", withString: "\(alertId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Alert>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update an alert custom fields
      
      - parameter body: (body) Alert to be updated. 
@@ -376,9 +389,7 @@ public class AlertAPI: APIBase {
 
 
     /**
-     
      Update an alert custom fields
-     
      - PUT /beta/alert/customFields
      - Updates an existing alert custom fields using the specified data.
      - API Key:
@@ -392,12 +403,13 @@ public class AlertAPI: APIBase {
     public class func updateAlertCustomFieldsWithRequestBuilder(body body: Alert) -> RequestBuilder<Void> {
         let path = "/beta/alert/customFields"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

@@ -11,7 +11,6 @@ import Alamofire
 
 public class ItemActivityTypeAPI: APIBase {
     /**
-     
      Get an itemActivityType by id
      
      - parameter itemActivityTypeId: (path) Id of itemActivityType to be returned. 
@@ -25,18 +24,16 @@ public class ItemActivityTypeAPI: APIBase {
 
 
     /**
-     
      Get an itemActivityType by id
-     
      - GET /beta/itemActivityType/{itemActivityTypeId}
      - Returns the itemActivityType identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "fullEntityClassName" : "aeiou",
-  "id" : 123,
-  "label" : "aeiou"
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : 0,
+  "label" : "label"
 }}]
      
      - parameter itemActivityTypeId: (path) Id of itemActivityType to be returned. 
@@ -47,17 +44,19 @@ public class ItemActivityTypeAPI: APIBase {
         var path = "/beta/itemActivityType/{itemActivityTypeId}"
         path = path.stringByReplacingOccurrencesOfString("{itemActivityTypeId}", withString: "\(itemActivityTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<ItemActivityType>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search itemActivityTypes
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
@@ -65,7 +64,7 @@ public class ItemActivityTypeAPI: APIBase {
      - parameter limit: (query) Maximum results per page.  Defaults to 20.  Max allowed value is 250. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getItemActivityTypeBySearchText(searchText searchText: String?, page: Int?, limit: Int?, completion: ((data: [ItemActivityType]?, error: ErrorType?) -> Void)) {
+    public class func getItemActivityTypeBySearchText(searchText searchText: String? = nil, page: Int32? = nil, limit: Int32? = nil, completion: ((data: [ItemActivityType]?, error: ErrorType?) -> Void)) {
         getItemActivityTypeBySearchTextWithRequestBuilder(searchText: searchText, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -73,18 +72,20 @@ public class ItemActivityTypeAPI: APIBase {
 
 
     /**
-     
      Search itemActivityTypes
-     
      - GET /beta/itemActivityType/search
      - Returns the list of itemActivityTypes that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "fullEntityClassName" : "aeiou",
-  "id" : 123,
-  "label" : "aeiou"
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : 0,
+  "label" : "label"
+}, {
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : 0,
+  "label" : "label"
 } ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
@@ -93,20 +94,23 @@ public class ItemActivityTypeAPI: APIBase {
 
      - returns: RequestBuilder<[ItemActivityType]> 
      */
-    public class func getItemActivityTypeBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[ItemActivityType]> {
+    public class func getItemActivityTypeBySearchTextWithRequestBuilder(searchText searchText: String? = nil, page: Int32? = nil, limit: Int32? = nil) -> RequestBuilder<[ItemActivityType]> {
         let path = "/beta/itemActivityType/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "searchText": searchText,
-            "page": page,
-            "limit": limit
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON()
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[ItemActivityType]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
 }

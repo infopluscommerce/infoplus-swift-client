@@ -9,22 +9,20 @@ import Foundation
 
 
 public class VendorComplianceSurvey: JSONEncodable {
-
-    public var id: Int?
-    public var worksheetId: Int?
+    public var id: Int32?
+    public var worksheetId: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var surveyQuestions: String?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
-        nillableDictionary["worksheetId"] = self.worksheetId
+        nillableDictionary["id"] = self.id?.encodeToJSON()
+        nillableDictionary["worksheetId"] = self.worksheetId?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["surveyQuestions"] = self.surveyQuestions

@@ -11,7 +11,6 @@ import Alamofire
 
 public class BuildingAPI: APIBase {
     /**
-     
      Create a building
      
      - parameter body: (body) Building to be inserted. 
@@ -25,24 +24,22 @@ public class BuildingAPI: APIBase {
 
 
     /**
-     
      Create a building
-     
      - POST /beta/building
      - Inserts a new building using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "address" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
+  "address" : "address",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "warehouseId" : 6,
   "customFields" : {
     "key" : "{}"
   },
-  "name" : "aeiou",
-  "id" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "name" : "name",
+  "id" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 }}]
      
      - parameter body: (body) Building to be inserted. 
@@ -52,23 +49,23 @@ public class BuildingAPI: APIBase {
     public class func addBuildingWithRequestBuilder(body body: Building) -> RequestBuilder<Building> {
         let path = "/beta/building"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Building>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new audit for a building
      
      - parameter buildingId: (path) Id of the building to add an audit to 
      - parameter buildingAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addBuildingAudit(buildingId buildingId: Int, buildingAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addBuildingAudit(buildingId buildingId: Int32, buildingAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addBuildingAuditWithRequestBuilder(buildingId: buildingId, buildingAudit: buildingAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -76,9 +73,7 @@ public class BuildingAPI: APIBase {
 
 
     /**
-     
      Add new audit for a building
-     
      - PUT /beta/building/{buildingId}/audit/{buildingAudit}
      - Adds an audit to an existing building.
      - API Key:
@@ -90,29 +85,31 @@ public class BuildingAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addBuildingAuditWithRequestBuilder(buildingId buildingId: Int, buildingAudit: String) -> RequestBuilder<Void> {
+    public class func addBuildingAuditWithRequestBuilder(buildingId buildingId: Int32, buildingAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/building/{buildingId}/audit/{buildingAudit}"
         path = path.stringByReplacingOccurrencesOfString("{buildingId}", withString: "\(buildingId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{buildingAudit}", withString: "\(buildingAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for a building.
      
      - parameter buildingId: (path) Id of the building to add a tag to 
      - parameter buildingTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addBuildingTag(buildingId buildingId: Int, buildingTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addBuildingTag(buildingId buildingId: Int32, buildingTag: String, completion: ((error: ErrorType?) -> Void)) {
         addBuildingTagWithRequestBuilder(buildingId: buildingId, buildingTag: buildingTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -120,9 +117,7 @@ public class BuildingAPI: APIBase {
 
 
     /**
-     
      Add new tags for a building.
-     
      - PUT /beta/building/{buildingId}/tag/{buildingTag}
      - Adds a tag to an existing building.
      - API Key:
@@ -134,28 +129,30 @@ public class BuildingAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addBuildingTagWithRequestBuilder(buildingId buildingId: Int, buildingTag: String) -> RequestBuilder<Void> {
+    public class func addBuildingTagWithRequestBuilder(buildingId buildingId: Int32, buildingTag: String) -> RequestBuilder<Void> {
         var path = "/beta/building/{buildingId}/tag/{buildingTag}"
         path = path.stringByReplacingOccurrencesOfString("{buildingId}", withString: "\(buildingId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{buildingTag}", withString: "\(buildingTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a building
      
      - parameter buildingId: (path) Id of the building to be deleted. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteBuilding(buildingId buildingId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteBuilding(buildingId buildingId: Int32, completion: ((error: ErrorType?) -> Void)) {
         deleteBuildingWithRequestBuilder(buildingId: buildingId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -163,9 +160,7 @@ public class BuildingAPI: APIBase {
 
 
     /**
-     
      Delete a building
-     
      - DELETE /beta/building/{buildingId}
      - Deletes the building identified by the specified id.
      - API Key:
@@ -176,28 +171,30 @@ public class BuildingAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteBuildingWithRequestBuilder(buildingId buildingId: Int) -> RequestBuilder<Void> {
+    public class func deleteBuildingWithRequestBuilder(buildingId buildingId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/building/{buildingId}"
         path = path.stringByReplacingOccurrencesOfString("{buildingId}", withString: "\(buildingId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for a building.
      
      - parameter buildingId: (path) Id of the building to remove tag from 
      - parameter buildingTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteBuildingTag(buildingId buildingId: Int, buildingTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteBuildingTag(buildingId buildingId: Int32, buildingTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteBuildingTagWithRequestBuilder(buildingId: buildingId, buildingTag: buildingTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -205,9 +202,7 @@ public class BuildingAPI: APIBase {
 
 
     /**
-     
      Delete a tag for a building.
-     
      - DELETE /beta/building/{buildingId}/tag/{buildingTag}
      - Deletes an existing building tag using the specified data.
      - API Key:
@@ -219,22 +214,24 @@ public class BuildingAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteBuildingTagWithRequestBuilder(buildingId buildingId: Int, buildingTag: String) -> RequestBuilder<Void> {
+    public class func deleteBuildingTagWithRequestBuilder(buildingId buildingId: Int32, buildingTag: String) -> RequestBuilder<Void> {
         var path = "/beta/building/{buildingId}/tag/{buildingTag}"
         path = path.stringByReplacingOccurrencesOfString("{buildingId}", withString: "\(buildingId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{buildingTag}", withString: "\(buildingTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search buildings by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -243,7 +240,7 @@ public class BuildingAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getBuildingByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [Building]?, error: ErrorType?) -> Void)) {
+    public class func getBuildingByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [Building]?, error: ErrorType?) -> Void)) {
         getBuildingByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -251,24 +248,32 @@ public class BuildingAPI: APIBase {
 
 
     /**
-     
      Search buildings by filter
-     
      - GET /beta/building/search
      - Returns the list of buildings that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "address" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
+  "address" : "address",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "warehouseId" : 6,
   "customFields" : {
     "key" : "{}"
   },
-  "name" : "aeiou",
-  "id" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "name" : "name",
+  "id" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
+}, {
+  "address" : "address",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "warehouseId" : 6,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "name",
+  "id" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -278,31 +283,33 @@ public class BuildingAPI: APIBase {
 
      - returns: RequestBuilder<[Building]> 
      */
-    public class func getBuildingByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Building]> {
+    public class func getBuildingByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[Building]> {
         let path = "/beta/building/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[Building]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get a building by id
      
      - parameter buildingId: (path) Id of the building to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getBuildingById(buildingId buildingId: Int, completion: ((data: Building?, error: ErrorType?) -> Void)) {
+    public class func getBuildingById(buildingId buildingId: Int32, completion: ((data: Building?, error: ErrorType?) -> Void)) {
         getBuildingByIdWithRequestBuilder(buildingId: buildingId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -310,51 +317,51 @@ public class BuildingAPI: APIBase {
 
 
     /**
-     
      Get a building by id
-     
      - GET /beta/building/{buildingId}
      - Returns the building identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "address" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
+  "address" : "address",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "warehouseId" : 6,
   "customFields" : {
     "key" : "{}"
   },
-  "name" : "aeiou",
-  "id" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "name" : "name",
+  "id" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 }}]
      
      - parameter buildingId: (path) Id of the building to be returned. 
 
      - returns: RequestBuilder<Building> 
      */
-    public class func getBuildingByIdWithRequestBuilder(buildingId buildingId: Int) -> RequestBuilder<Building> {
+    public class func getBuildingByIdWithRequestBuilder(buildingId buildingId: Int32) -> RequestBuilder<Building> {
         var path = "/beta/building/{buildingId}"
         path = path.stringByReplacingOccurrencesOfString("{buildingId}", withString: "\(buildingId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Building>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for a building.
      
      - parameter buildingId: (path) Id of the building to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getBuildingTags(buildingId buildingId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getBuildingTags(buildingId buildingId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getBuildingTagsWithRequestBuilder(buildingId: buildingId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -362,9 +369,7 @@ public class BuildingAPI: APIBase {
 
 
     /**
-     
      Get the tags for a building.
-     
      - GET /beta/building/{buildingId}/tag
      - Get all existing building tags.
      - API Key:
@@ -375,27 +380,29 @@ public class BuildingAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getBuildingTagsWithRequestBuilder(buildingId buildingId: Int) -> RequestBuilder<Void> {
+    public class func getBuildingTagsWithRequestBuilder(buildingId buildingId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/building/{buildingId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{buildingId}", withString: "\(buildingId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated a building by id
      
      - parameter buildingId: (path) Id of the building to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateBuildingById(buildingId buildingId: Int, completion: ((data: Building?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateBuildingById(buildingId buildingId: Int32, completion: ((data: Building?, error: ErrorType?) -> Void)) {
         getDuplicateBuildingByIdWithRequestBuilder(buildingId: buildingId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -403,45 +410,45 @@ public class BuildingAPI: APIBase {
 
 
     /**
-     
      Get a duplicated a building by id
-     
      - GET /beta/building/duplicate/{buildingId}
      - Returns a duplicated building identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "address" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseId" : 123,
+  "address" : "address",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "warehouseId" : 6,
   "customFields" : {
     "key" : "{}"
   },
-  "name" : "aeiou",
-  "id" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "name" : "name",
+  "id" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 }}]
      
      - parameter buildingId: (path) Id of the building to be duplicated. 
 
      - returns: RequestBuilder<Building> 
      */
-    public class func getDuplicateBuildingByIdWithRequestBuilder(buildingId buildingId: Int) -> RequestBuilder<Building> {
+    public class func getDuplicateBuildingByIdWithRequestBuilder(buildingId buildingId: Int32) -> RequestBuilder<Building> {
         var path = "/beta/building/duplicate/{buildingId}"
         path = path.stringByReplacingOccurrencesOfString("{buildingId}", withString: "\(buildingId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Building>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a building
      
      - parameter body: (body) Building to be updated. 
@@ -455,9 +462,7 @@ public class BuildingAPI: APIBase {
 
 
     /**
-     
      Update a building
-     
      - PUT /beta/building
      - Updates an existing building using the specified data.
      - API Key:
@@ -471,16 +476,16 @@ public class BuildingAPI: APIBase {
     public class func updateBuildingWithRequestBuilder(body body: Building) -> RequestBuilder<Void> {
         let path = "/beta/building"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a building custom fields
      
      - parameter body: (body) Building to be updated. 
@@ -494,9 +499,7 @@ public class BuildingAPI: APIBase {
 
 
     /**
-     
      Update a building custom fields
-     
      - PUT /beta/building/customFields
      - Updates an existing building custom fields using the specified data.
      - API Key:
@@ -510,12 +513,13 @@ public class BuildingAPI: APIBase {
     public class func updateBuildingCustomFieldsWithRequestBuilder(body body: Building) -> RequestBuilder<Void> {
         let path = "/beta/building/customFields"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

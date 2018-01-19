@@ -9,8 +9,7 @@ import Foundation
 
 
 public class InvoiceWorksheet: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var name: String?
@@ -22,8 +21,8 @@ public class InvoiceWorksheet: JSONEncodable {
     public var terms: String?
     public var specialInstructions: String?
     public var total: Double?
-    public var lobId: Int?
-    public var customerInvoiceTemplateId: Int?
+    public var lobId: Int32?
+    public var customerInvoiceTemplateId: Int32?
     public var startDate: NSDate?
     public var endDate: NSDate?
     public var issueDate: NSDate?
@@ -52,14 +51,13 @@ public class InvoiceWorksheet: JSONEncodable {
     public var billToEmail: String?
     public var invoiceWorksheetLineItemList: [InvoiceWorksheetLine]?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["name"] = self.name
@@ -71,8 +69,8 @@ public class InvoiceWorksheet: JSONEncodable {
         nillableDictionary["terms"] = self.terms
         nillableDictionary["specialInstructions"] = self.specialInstructions
         nillableDictionary["total"] = self.total
-        nillableDictionary["lobId"] = self.lobId
-        nillableDictionary["customerInvoiceTemplateId"] = self.customerInvoiceTemplateId
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
+        nillableDictionary["customerInvoiceTemplateId"] = self.customerInvoiceTemplateId?.encodeToJSON()
         nillableDictionary["startDate"] = self.startDate?.encodeToJSON()
         nillableDictionary["endDate"] = self.endDate?.encodeToJSON()
         nillableDictionary["issueDate"] = self.issueDate?.encodeToJSON()

@@ -9,10 +9,9 @@ import Foundation
 
 
 public class Vendor: JSONEncodable {
-
-    public var id: Int?
-    public var vendorNo: Int?
-    public var lobId: Int?
+    public var id: Int32?
+    public var vendorNo: Int32?
+    public var lobId: Int32?
     public var name: String?
     public var street: String?
     public var street2: String?
@@ -26,20 +25,20 @@ public class Vendor: JSONEncodable {
     public var externalId: String?
     public var terms: String?
     public var fob: String?
-    public var shipVia: Int?
-    public var requestDays: Int?
-    public var actualDays: Int?
+    public var shipVia: Int32?
+    public var requestDays: Int32?
+    public var actualDays: Int32?
     public var salesTaxCode: String?
-    public var product1: Int?
-    public var product2: Int?
-    public var product3: Int?
-    public var product4: Int?
-    public var product5: Int?
-    public var product6: Int?
-    public var product7: Int?
-    public var product8: Int?
-    public var product9: Int?
-    public var podDays: Int?
+    public var product1: Int32?
+    public var product2: Int32?
+    public var product3: Int32?
+    public var product4: Int32?
+    public var product5: Int32?
+    public var product6: Int32?
+    public var product7: Int32?
+    public var product8: Int32?
+    public var product9: Int32?
+    public var podDays: Int32?
     public var chargeOut: String?
     public var arEmail: String?
     public var orderEmail: String?
@@ -47,22 +46,21 @@ public class Vendor: JSONEncodable {
     public var sendQuantityType: String?
     public var minority: String?
     public var sendOutside: String?
-    public var podOrderSuffix: Int?
+    public var podOrderSuffix: Int32?
     public var podEmail: String?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var inactive: String?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
-        nillableDictionary["vendorNo"] = self.vendorNo
-        nillableDictionary["lobId"] = self.lobId
+        nillableDictionary["id"] = self.id?.encodeToJSON()
+        nillableDictionary["vendorNo"] = self.vendorNo?.encodeToJSON()
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
         nillableDictionary["name"] = self.name
         nillableDictionary["street"] = self.street
         nillableDictionary["street2"] = self.street2
@@ -76,20 +74,20 @@ public class Vendor: JSONEncodable {
         nillableDictionary["externalId"] = self.externalId
         nillableDictionary["terms"] = self.terms
         nillableDictionary["fob"] = self.fob
-        nillableDictionary["shipVia"] = self.shipVia
-        nillableDictionary["requestDays"] = self.requestDays
-        nillableDictionary["actualDays"] = self.actualDays
+        nillableDictionary["shipVia"] = self.shipVia?.encodeToJSON()
+        nillableDictionary["requestDays"] = self.requestDays?.encodeToJSON()
+        nillableDictionary["actualDays"] = self.actualDays?.encodeToJSON()
         nillableDictionary["salesTaxCode"] = self.salesTaxCode
-        nillableDictionary["product1"] = self.product1
-        nillableDictionary["product2"] = self.product2
-        nillableDictionary["product3"] = self.product3
-        nillableDictionary["product4"] = self.product4
-        nillableDictionary["product5"] = self.product5
-        nillableDictionary["product6"] = self.product6
-        nillableDictionary["product7"] = self.product7
-        nillableDictionary["product8"] = self.product8
-        nillableDictionary["product9"] = self.product9
-        nillableDictionary["podDays"] = self.podDays
+        nillableDictionary["product1"] = self.product1?.encodeToJSON()
+        nillableDictionary["product2"] = self.product2?.encodeToJSON()
+        nillableDictionary["product3"] = self.product3?.encodeToJSON()
+        nillableDictionary["product4"] = self.product4?.encodeToJSON()
+        nillableDictionary["product5"] = self.product5?.encodeToJSON()
+        nillableDictionary["product6"] = self.product6?.encodeToJSON()
+        nillableDictionary["product7"] = self.product7?.encodeToJSON()
+        nillableDictionary["product8"] = self.product8?.encodeToJSON()
+        nillableDictionary["product9"] = self.product9?.encodeToJSON()
+        nillableDictionary["podDays"] = self.podDays?.encodeToJSON()
         nillableDictionary["chargeOut"] = self.chargeOut
         nillableDictionary["arEmail"] = self.arEmail
         nillableDictionary["orderEmail"] = self.orderEmail
@@ -97,7 +95,7 @@ public class Vendor: JSONEncodable {
         nillableDictionary["sendQuantityType"] = self.sendQuantityType
         nillableDictionary["minority"] = self.minority
         nillableDictionary["sendOutside"] = self.sendOutside
-        nillableDictionary["podOrderSuffix"] = self.podOrderSuffix
+        nillableDictionary["podOrderSuffix"] = self.podOrderSuffix?.encodeToJSON()
         nillableDictionary["podEmail"] = self.podEmail
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()

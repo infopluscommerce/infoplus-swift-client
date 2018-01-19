@@ -9,18 +9,16 @@ import Foundation
 
 
 public class OrderWarehouseFulfillmentRawData: JSONEncodable {
-
-    public var warehouseId: Int?
+    public var warehouseId: Int32?
     public var canFulfill: Bool?
     public var skuMap: [String:OrderWarehouseFulfillmentRawSkuData]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["warehouseId"] = self.warehouseId
+        nillableDictionary["warehouseId"] = self.warehouseId?.encodeToJSON()
         nillableDictionary["canFulfill"] = self.canFulfill
         nillableDictionary["skuMap"] = self.skuMap?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

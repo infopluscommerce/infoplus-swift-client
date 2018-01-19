@@ -9,24 +9,23 @@ import Foundation
 
 
 public class QuickReceipt: JSONEncodable {
-
-    public var id: Int?
-    public var createdBy: Int?
+    public var id: Int32?
+    public var createdBy: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
-    public var warehouseId: Int?
-    public var lobId: Int?
-    public var locationId: Int?
-    public var quantity: Int?
-    public var vendorId: Int?
+    public var warehouseId: Int32?
+    public var lobId: Int32?
+    public var locationId: Int32?
+    public var quantity: Int32?
+    public var vendorId: Int32?
     public var carrier: String?
     public var status: String?
     public var unitCode: String?
     public var wrapCode: String?
     public var weightPerWrap: Double?
-    public var unitsPerWrap: Int?
-    public var unitsPerCase: Int?
-    public var casesPerPallet: Int?
+    public var unitsPerWrap: Int32?
+    public var unitsPerCase: Int32?
+    public var casesPerPallet: Int32?
     public var caseWeight: Double?
     public var productionLot: String?
     public var revisionDate: String?
@@ -37,36 +36,35 @@ public class QuickReceipt: JSONEncodable {
     public var cost: Double?
     public var sellPrice: Double?
     public var pricingPer: String?
-    public var generatedItemReceiptId: Int?
-    public var generatedASNId: Int?
+    public var generatedItemReceiptId: Int32?
+    public var generatedASNId: Int32?
     public var dockDate: NSDate?
     public var productIdTag: String?
     public var customFields: [String:AnyObject]?
     public var sku: String?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
-        nillableDictionary["createdBy"] = self.createdBy
+        nillableDictionary["id"] = self.id?.encodeToJSON()
+        nillableDictionary["createdBy"] = self.createdBy?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
-        nillableDictionary["warehouseId"] = self.warehouseId
-        nillableDictionary["lobId"] = self.lobId
-        nillableDictionary["locationId"] = self.locationId
-        nillableDictionary["quantity"] = self.quantity
-        nillableDictionary["vendorId"] = self.vendorId
+        nillableDictionary["warehouseId"] = self.warehouseId?.encodeToJSON()
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
+        nillableDictionary["locationId"] = self.locationId?.encodeToJSON()
+        nillableDictionary["quantity"] = self.quantity?.encodeToJSON()
+        nillableDictionary["vendorId"] = self.vendorId?.encodeToJSON()
         nillableDictionary["carrier"] = self.carrier
         nillableDictionary["status"] = self.status
         nillableDictionary["unitCode"] = self.unitCode
         nillableDictionary["wrapCode"] = self.wrapCode
         nillableDictionary["weightPerWrap"] = self.weightPerWrap
-        nillableDictionary["unitsPerWrap"] = self.unitsPerWrap
-        nillableDictionary["unitsPerCase"] = self.unitsPerCase
-        nillableDictionary["casesPerPallet"] = self.casesPerPallet
+        nillableDictionary["unitsPerWrap"] = self.unitsPerWrap?.encodeToJSON()
+        nillableDictionary["unitsPerCase"] = self.unitsPerCase?.encodeToJSON()
+        nillableDictionary["casesPerPallet"] = self.casesPerPallet?.encodeToJSON()
         nillableDictionary["caseWeight"] = self.caseWeight
         nillableDictionary["productionLot"] = self.productionLot
         nillableDictionary["revisionDate"] = self.revisionDate
@@ -77,8 +75,8 @@ public class QuickReceipt: JSONEncodable {
         nillableDictionary["cost"] = self.cost
         nillableDictionary["sellPrice"] = self.sellPrice
         nillableDictionary["pricingPer"] = self.pricingPer
-        nillableDictionary["generatedItemReceiptId"] = self.generatedItemReceiptId
-        nillableDictionary["generatedASNId"] = self.generatedASNId
+        nillableDictionary["generatedItemReceiptId"] = self.generatedItemReceiptId?.encodeToJSON()
+        nillableDictionary["generatedASNId"] = self.generatedASNId?.encodeToJSON()
         nillableDictionary["dockDate"] = self.dockDate?.encodeToJSON()
         nillableDictionary["productIdTag"] = self.productIdTag
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()

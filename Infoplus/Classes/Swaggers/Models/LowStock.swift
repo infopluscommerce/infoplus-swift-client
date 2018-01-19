@@ -9,9 +9,8 @@ import Foundation
 
 
 public class LowStock: JSONEncodable {
-
-    public var id: Int?
-    public var warehouseId: Int?
+    public var id: Int32?
+    public var warehouseId: Int32?
     public var lowLevelDate: NSDate?
     public var lowStockMessage: String?
     public var printFlag: String?
@@ -20,15 +19,14 @@ public class LowStock: JSONEncodable {
     public var modifyDate: NSDate?
     public var customFields: [String:AnyObject]?
     public var sku: String?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
-        nillableDictionary["warehouseId"] = self.warehouseId
+        nillableDictionary["id"] = self.id?.encodeToJSON()
+        nillableDictionary["warehouseId"] = self.warehouseId?.encodeToJSON()
         nillableDictionary["lowLevelDate"] = self.lowLevelDate?.encodeToJSON()
         nillableDictionary["lowStockMessage"] = self.lowStockMessage
         nillableDictionary["printFlag"] = self.printFlag

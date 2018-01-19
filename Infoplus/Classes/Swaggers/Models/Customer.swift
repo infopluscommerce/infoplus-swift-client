@@ -9,9 +9,8 @@ import Foundation
 
 
 public class Customer: JSONEncodable {
-
-    public var id: Int?
-    public var lobId: Int?
+    public var id: Int32?
+    public var lobId: Int32?
     public var customerNo: String?
     public var name: String?
     public var attention: String?
@@ -26,11 +25,11 @@ public class Customer: JSONEncodable {
     public var fax: String?
     public var email: String?
     public var bossBranch: String?
-    public var packageCarrierId: Int?
-    public var truckCarrierId: Int?
-    public var weightBreak: Int?
+    public var packageCarrierId: Int32?
+    public var truckCarrierId: Int32?
+    public var weightBreak: Int32?
     public var sector: String?
-    public var division: Int?
+    public var division: Int32?
     public var costCenter: String?
     public var county: String?
     public var area: String?
@@ -40,11 +39,11 @@ public class Customer: JSONEncodable {
     public var priceLevel: String?
     public var openDate: NSDate?
     public var closeDate: NSDate?
-    public var restrictionPercent: Int?
+    public var restrictionPercent: Int32?
     public var externalId: String?
     public var cycleDate: NSDate?
     public var manager: String?
-    public var alternateInventory: Int?
+    public var alternateInventory: Int32?
     public var pin: String?
     public var faxGone: String?
     public var residential: String?
@@ -52,22 +51,21 @@ public class Customer: JSONEncodable {
     public var extrinsicText1: String?
     public var extrinsicText2: String?
     public var extrinsicText3: String?
-    public var extrinsicNumber1: Int?
-    public var extrinsicNumber2: Int?
+    public var extrinsicNumber1: Int32?
+    public var extrinsicNumber2: Int32?
     public var extrinsicDecimal1: Double?
     public var extrinsicDecimal2: Double?
     public var modifyDate: NSDate?
-    public var omsCustomerId: Int?
+    public var omsCustomerId: Int32?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
-        nillableDictionary["lobId"] = self.lobId
+        nillableDictionary["id"] = self.id?.encodeToJSON()
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
         nillableDictionary["customerNo"] = self.customerNo
         nillableDictionary["name"] = self.name
         nillableDictionary["attention"] = self.attention
@@ -82,11 +80,11 @@ public class Customer: JSONEncodable {
         nillableDictionary["fax"] = self.fax
         nillableDictionary["email"] = self.email
         nillableDictionary["bossBranch"] = self.bossBranch
-        nillableDictionary["packageCarrierId"] = self.packageCarrierId
-        nillableDictionary["truckCarrierId"] = self.truckCarrierId
-        nillableDictionary["weightBreak"] = self.weightBreak
+        nillableDictionary["packageCarrierId"] = self.packageCarrierId?.encodeToJSON()
+        nillableDictionary["truckCarrierId"] = self.truckCarrierId?.encodeToJSON()
+        nillableDictionary["weightBreak"] = self.weightBreak?.encodeToJSON()
         nillableDictionary["sector"] = self.sector
-        nillableDictionary["division"] = self.division
+        nillableDictionary["division"] = self.division?.encodeToJSON()
         nillableDictionary["costCenter"] = self.costCenter
         nillableDictionary["county"] = self.county
         nillableDictionary["area"] = self.area
@@ -96,11 +94,11 @@ public class Customer: JSONEncodable {
         nillableDictionary["priceLevel"] = self.priceLevel
         nillableDictionary["openDate"] = self.openDate?.encodeToJSON()
         nillableDictionary["closeDate"] = self.closeDate?.encodeToJSON()
-        nillableDictionary["restrictionPercent"] = self.restrictionPercent
+        nillableDictionary["restrictionPercent"] = self.restrictionPercent?.encodeToJSON()
         nillableDictionary["externalId"] = self.externalId
         nillableDictionary["cycleDate"] = self.cycleDate?.encodeToJSON()
         nillableDictionary["manager"] = self.manager
-        nillableDictionary["alternateInventory"] = self.alternateInventory
+        nillableDictionary["alternateInventory"] = self.alternateInventory?.encodeToJSON()
         nillableDictionary["pin"] = self.pin
         nillableDictionary["faxGone"] = self.faxGone
         nillableDictionary["residential"] = self.residential
@@ -108,12 +106,12 @@ public class Customer: JSONEncodable {
         nillableDictionary["extrinsicText1"] = self.extrinsicText1
         nillableDictionary["extrinsicText2"] = self.extrinsicText2
         nillableDictionary["extrinsicText3"] = self.extrinsicText3
-        nillableDictionary["extrinsicNumber1"] = self.extrinsicNumber1
-        nillableDictionary["extrinsicNumber2"] = self.extrinsicNumber2
+        nillableDictionary["extrinsicNumber1"] = self.extrinsicNumber1?.encodeToJSON()
+        nillableDictionary["extrinsicNumber2"] = self.extrinsicNumber2?.encodeToJSON()
         nillableDictionary["extrinsicDecimal1"] = self.extrinsicDecimal1
         nillableDictionary["extrinsicDecimal2"] = self.extrinsicDecimal2
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
-        nillableDictionary["omsCustomerId"] = self.omsCustomerId
+        nillableDictionary["omsCustomerId"] = self.omsCustomerId?.encodeToJSON()
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

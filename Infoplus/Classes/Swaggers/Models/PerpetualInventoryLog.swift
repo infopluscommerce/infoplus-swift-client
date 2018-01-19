@@ -9,29 +9,28 @@ import Foundation
 
 
 public class PerpetualInventoryLog: JSONEncodable {
-
-    public var id: Int?
-    public var itemReceiptLocationId: Int?
-    public var itemReceiptId: Int?
-    public var skuId: Int?
-    public var asnId: Int?
-    public var lobId: Int?
+    public var id: Int32?
+    public var itemReceiptLocationId: Int32?
+    public var itemReceiptId: Int32?
+    public var skuId: Int32?
+    public var asnId: Int32?
+    public var lobId: Int32?
     public var legacyPoNo: String?
-    public var warehouseId: Int?
-    public var currentQuantity: Int?
+    public var warehouseId: Int32?
+    public var currentQuantity: Int32?
     public var address: String?
-    public var warehouseLocationId: Int?
+    public var warehouseLocationId: Int32?
     public var locationStatus: String?
     public var orderDate: NSDate?
     public var receiptStatus: String?
     public var factCost: Double?
     public var mlCost: Double?
     public var sku: String?
-    public var orderQuantity: Int?
+    public var orderQuantity: Int32?
     public var requestedDeliveryDate: NSDate?
     public var unitCode: String?
     public var wrapCode: String?
-    public var unitsPerWrap: Int?
+    public var unitsPerWrap: Int32?
     public var cost: Double?
     public var sell: Double?
     public var pricingPer: String?
@@ -44,49 +43,49 @@ public class PerpetualInventoryLog: JSONEncodable {
     public var revDate: String?
     public var artBack: String?
     public var origin: String?
-    public var sample: Int?
+    public var sample: Int32?
     public var sampleTo: String?
-    public var maxOvers: Int?
-    public var maxUnders: Int?
-    public var receivedSfp: Int?
+    public var maxOvers: Int32?
+    public var maxUnders: Int32?
+    public var receivedSfp: Int32?
     public var budgetCode: String?
     public var accountingCode: String?
     public var taxExempt: String?
     public var capitalize: String?
     public var accrual: String?
-    public var oddQuantity: Int?
+    public var oddQuantity: Int32?
     public var freightCost: Double?
     public var receivedDate: NSDate?
-    public var receivedQuantity: Int?
-    public var fromProd: Int?
+    public var receivedQuantity: Int32?
+    public var fromProd: Int32?
     public var sfpComplete: String?
-    public var endQuantity: Int?
+    public var endQuantity: Int32?
     public var endVal: Double?
     public var endFact: Double?
-    public var interimQuantity: Int?
+    public var interimQuantity: Int32?
     public var interimVal: Double?
     public var interimFact: Double?
     public var lastAct: NSDate?
     public var weightPerWrap: Double?
     public var norcs: String?
-    public var vendorId: Int?
-    public var bsVendor: Int?
-    public var mlVendor: Int?
-    public var receiptNo: Int?
+    public var vendorId: Int32?
+    public var bsVendor: Int32?
+    public var mlVendor: Int32?
+    public var receiptNo: Int32?
     public var paidFull: String?
     public var enteredBy: String?
     public var receivedBy: String?
-    public var lineNo: Int?
+    public var lineNo: Int32?
     public var prodLot: String?
     public var productIdTag: String?
-    public var unitsPerCase: Int?
+    public var unitsPerCase: Int32?
     public var caseWeight: Double?
     public var height: Double?
     public var width: Double?
     public var length: Double?
     public var dockDate: NSDate?
-    public var impressions: Int?
-    public var asnLine: Int?
+    public var impressions: Int32?
+    public var asnLine: Int32?
     public var updatedAt: NSDate?
     public var itemForwardLotMixingRule: String?
     public var itemStorageLotMixingRule: String?
@@ -95,37 +94,36 @@ public class PerpetualInventoryLog: JSONEncodable {
     public var itemAllocationRule: String?
     public var itemBarcodeField: String?
     public var itemWarehouseDisplayField: String?
-    public var itemProductIdTagSchemeId: Int?
+    public var itemProductIdTagSchemeId: Int32?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
-        nillableDictionary["itemReceiptLocationId"] = self.itemReceiptLocationId
-        nillableDictionary["itemReceiptId"] = self.itemReceiptId
-        nillableDictionary["skuId"] = self.skuId
-        nillableDictionary["asnId"] = self.asnId
-        nillableDictionary["lobId"] = self.lobId
+        nillableDictionary["id"] = self.id?.encodeToJSON()
+        nillableDictionary["itemReceiptLocationId"] = self.itemReceiptLocationId?.encodeToJSON()
+        nillableDictionary["itemReceiptId"] = self.itemReceiptId?.encodeToJSON()
+        nillableDictionary["skuId"] = self.skuId?.encodeToJSON()
+        nillableDictionary["asnId"] = self.asnId?.encodeToJSON()
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
         nillableDictionary["legacyPoNo"] = self.legacyPoNo
-        nillableDictionary["warehouseId"] = self.warehouseId
-        nillableDictionary["currentQuantity"] = self.currentQuantity
+        nillableDictionary["warehouseId"] = self.warehouseId?.encodeToJSON()
+        nillableDictionary["currentQuantity"] = self.currentQuantity?.encodeToJSON()
         nillableDictionary["address"] = self.address
-        nillableDictionary["warehouseLocationId"] = self.warehouseLocationId
+        nillableDictionary["warehouseLocationId"] = self.warehouseLocationId?.encodeToJSON()
         nillableDictionary["locationStatus"] = self.locationStatus
         nillableDictionary["orderDate"] = self.orderDate?.encodeToJSON()
         nillableDictionary["receiptStatus"] = self.receiptStatus
         nillableDictionary["factCost"] = self.factCost
         nillableDictionary["mlCost"] = self.mlCost
         nillableDictionary["sku"] = self.sku
-        nillableDictionary["orderQuantity"] = self.orderQuantity
+        nillableDictionary["orderQuantity"] = self.orderQuantity?.encodeToJSON()
         nillableDictionary["requestedDeliveryDate"] = self.requestedDeliveryDate?.encodeToJSON()
         nillableDictionary["unitCode"] = self.unitCode
         nillableDictionary["wrapCode"] = self.wrapCode
-        nillableDictionary["unitsPerWrap"] = self.unitsPerWrap
+        nillableDictionary["unitsPerWrap"] = self.unitsPerWrap?.encodeToJSON()
         nillableDictionary["cost"] = self.cost
         nillableDictionary["sell"] = self.sell
         nillableDictionary["pricingPer"] = self.pricingPer
@@ -138,49 +136,49 @@ public class PerpetualInventoryLog: JSONEncodable {
         nillableDictionary["revDate"] = self.revDate
         nillableDictionary["artBack"] = self.artBack
         nillableDictionary["origin"] = self.origin
-        nillableDictionary["sample"] = self.sample
+        nillableDictionary["sample"] = self.sample?.encodeToJSON()
         nillableDictionary["sampleTo"] = self.sampleTo
-        nillableDictionary["maxOvers"] = self.maxOvers
-        nillableDictionary["maxUnders"] = self.maxUnders
-        nillableDictionary["receivedSfp"] = self.receivedSfp
+        nillableDictionary["maxOvers"] = self.maxOvers?.encodeToJSON()
+        nillableDictionary["maxUnders"] = self.maxUnders?.encodeToJSON()
+        nillableDictionary["receivedSfp"] = self.receivedSfp?.encodeToJSON()
         nillableDictionary["budgetCode"] = self.budgetCode
         nillableDictionary["accountingCode"] = self.accountingCode
         nillableDictionary["taxExempt"] = self.taxExempt
         nillableDictionary["capitalize"] = self.capitalize
         nillableDictionary["accrual"] = self.accrual
-        nillableDictionary["oddQuantity"] = self.oddQuantity
+        nillableDictionary["oddQuantity"] = self.oddQuantity?.encodeToJSON()
         nillableDictionary["freightCost"] = self.freightCost
         nillableDictionary["receivedDate"] = self.receivedDate?.encodeToJSON()
-        nillableDictionary["receivedQuantity"] = self.receivedQuantity
-        nillableDictionary["fromProd"] = self.fromProd
+        nillableDictionary["receivedQuantity"] = self.receivedQuantity?.encodeToJSON()
+        nillableDictionary["fromProd"] = self.fromProd?.encodeToJSON()
         nillableDictionary["sfpComplete"] = self.sfpComplete
-        nillableDictionary["endQuantity"] = self.endQuantity
+        nillableDictionary["endQuantity"] = self.endQuantity?.encodeToJSON()
         nillableDictionary["endVal"] = self.endVal
         nillableDictionary["endFact"] = self.endFact
-        nillableDictionary["interimQuantity"] = self.interimQuantity
+        nillableDictionary["interimQuantity"] = self.interimQuantity?.encodeToJSON()
         nillableDictionary["interimVal"] = self.interimVal
         nillableDictionary["interimFact"] = self.interimFact
         nillableDictionary["lastAct"] = self.lastAct?.encodeToJSON()
         nillableDictionary["weightPerWrap"] = self.weightPerWrap
         nillableDictionary["norcs"] = self.norcs
-        nillableDictionary["vendorId"] = self.vendorId
-        nillableDictionary["bsVendor"] = self.bsVendor
-        nillableDictionary["mlVendor"] = self.mlVendor
-        nillableDictionary["receiptNo"] = self.receiptNo
+        nillableDictionary["vendorId"] = self.vendorId?.encodeToJSON()
+        nillableDictionary["bsVendor"] = self.bsVendor?.encodeToJSON()
+        nillableDictionary["mlVendor"] = self.mlVendor?.encodeToJSON()
+        nillableDictionary["receiptNo"] = self.receiptNo?.encodeToJSON()
         nillableDictionary["paidFull"] = self.paidFull
         nillableDictionary["enteredBy"] = self.enteredBy
         nillableDictionary["receivedBy"] = self.receivedBy
-        nillableDictionary["lineNo"] = self.lineNo
+        nillableDictionary["lineNo"] = self.lineNo?.encodeToJSON()
         nillableDictionary["prodLot"] = self.prodLot
         nillableDictionary["productIdTag"] = self.productIdTag
-        nillableDictionary["unitsPerCase"] = self.unitsPerCase
+        nillableDictionary["unitsPerCase"] = self.unitsPerCase?.encodeToJSON()
         nillableDictionary["caseWeight"] = self.caseWeight
         nillableDictionary["height"] = self.height
         nillableDictionary["width"] = self.width
         nillableDictionary["length"] = self.length
         nillableDictionary["dockDate"] = self.dockDate?.encodeToJSON()
-        nillableDictionary["impressions"] = self.impressions
-        nillableDictionary["asnLine"] = self.asnLine
+        nillableDictionary["impressions"] = self.impressions?.encodeToJSON()
+        nillableDictionary["asnLine"] = self.asnLine?.encodeToJSON()
         nillableDictionary["updatedAt"] = self.updatedAt?.encodeToJSON()
         nillableDictionary["itemForwardLotMixingRule"] = self.itemForwardLotMixingRule
         nillableDictionary["itemStorageLotMixingRule"] = self.itemStorageLotMixingRule
@@ -189,7 +187,7 @@ public class PerpetualInventoryLog: JSONEncodable {
         nillableDictionary["itemAllocationRule"] = self.itemAllocationRule
         nillableDictionary["itemBarcodeField"] = self.itemBarcodeField
         nillableDictionary["itemWarehouseDisplayField"] = self.itemWarehouseDisplayField
-        nillableDictionary["itemProductIdTagSchemeId"] = self.itemProductIdTagSchemeId
+        nillableDictionary["itemProductIdTagSchemeId"] = self.itemProductIdTagSchemeId?.encodeToJSON()
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

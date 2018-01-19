@@ -11,7 +11,6 @@ import Alamofire
 
 public class ShoppingCartConnectionAPI: APIBase {
     /**
-     
      Create a shoppingCartConnection
      
      - parameter body: (body) ShoppingCartConnection to be inserted. 
@@ -25,69 +24,88 @@ public class ShoppingCartConnectionAPI: APIBase {
 
 
     /**
-     
      Create a shoppingCartConnection
-     
      - POST /beta/shoppingCartConnection
      - Inserts a new shoppingCartConnection using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "syncInventory" : true,
-  "syncInventoryLevelsLastRunTime" : "2000-01-23T04:56:07.000+0000",
-  "syncOrders" : true,
+  "syncInventory" : false,
+  "syncInventoryLevelsLastRunTime" : "2000-01-23T04:56:07.000+00:00",
+  "syncOrders" : false,
   "customFields" : {
     "key" : "{}"
   },
-  "integrationPartnerId" : 123,
-  "connectionType" : "aeiou",
-  "syncTrackingData" : true,
-  "password" : "aeiou",
-  "accessCode" : "aeiou",
-  "id" : 123,
-  "itemFilterId" : 123,
-  "orderShipmentLevel" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123,
-  "orderSourceId" : 123,
-  "clientId" : 123,
+  "integrationPartnerId" : 5,
+  "connectionType" : "connectionType",
+  "syncTrackingData" : false,
+  "password" : "password",
+  "accessCode" : "accessCode",
+  "id" : 0,
+  "itemFilterId" : 2,
+  "orderShipmentLevel" : "orderShipmentLevel",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 1,
+  "orderSourceId" : 5,
+  "clientId" : 6,
   "warehouseList" : [ {
-    "zip" : "aeiou",
-    "country" : "aeiou",
-    "address" : "aeiou",
-    "street3" : "aeiou",
-    "modifyDate" : "2000-01-23T04:56:07.000+0000",
-    "city" : "aeiou",
+    "zip" : "zip",
+    "country" : "country",
+    "address" : "address",
+    "street3" : "street3",
+    "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+    "city" : "city",
     "customFields" : {
       "key" : "{}"
     },
-    "phone" : "aeiou",
-    "lpnPrefix" : "aeiou",
-    "name" : "aeiou",
-    "client" : 123,
-    "company" : "aeiou",
-    "street1" : "aeiou",
-    "id" : 123,
-    "street2" : "aeiou",
-    "state" : "aeiou",
-    "locationBarcodePrefix" : "aeiou",
-    "createDate" : "2000-01-23T04:56:07.000+0000"
+    "phone" : "phone",
+    "lpnPrefix" : "lpnPrefix",
+    "name" : "name",
+    "client" : 2,
+    "company" : "company",
+    "street1" : "street1",
+    "id" : 3,
+    "street2" : "street2",
+    "state" : "state",
+    "locationBarcodePrefix" : "locationBarcodePrefix",
+    "createDate" : "2000-01-23T04:56:07.000+00:00"
+  }, {
+    "zip" : "zip",
+    "country" : "country",
+    "address" : "address",
+    "street3" : "street3",
+    "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+    "city" : "city",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "phone" : "phone",
+    "lpnPrefix" : "lpnPrefix",
+    "name" : "name",
+    "client" : 2,
+    "company" : "company",
+    "street1" : "street1",
+    "id" : 3,
+    "street2" : "street2",
+    "state" : "state",
+    "locationBarcodePrefix" : "locationBarcodePrefix",
+    "createDate" : "2000-01-23T04:56:07.000+00:00"
   } ],
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "infoplusSKUFieldToMap" : "aeiou",
-  "accessToken" : "aeiou",
-  "fulfillAllItems" : true,
-  "nonce" : "aeiou",
-  "createInvoices" : true,
-  "syncOrdersLastRunTime" : "2000-01-23T04:56:07.000+0000",
-  "defaultCarrierId" : 123,
-  "scriptId" : 123,
-  "shoppingCartStoreURL" : "aeiou",
-  "name" : "aeiou",
-  "shoppingCartSKUFieldToMap" : "aeiou",
-  "inventoryLevelWarehouseControls" : "aeiou",
-  "username" : "aeiou"
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "infoplusSKUFieldToMap" : "infoplusSKUFieldToMap",
+  "accessToken" : "accessToken",
+  "fulfillAllItems" : false,
+  "nonce" : "nonce",
+  "createInvoices" : false,
+  "syncOrdersLastRunTime" : "2000-01-23T04:56:07.000+00:00",
+  "defaultCarrierId" : 9,
+  "scriptId" : 7,
+  "shoppingCartStoreURL" : "shoppingCartStoreURL",
+  "name" : "name",
+  "shoppingCartSKUFieldToMap" : "shoppingCartSKUFieldToMap",
+  "inventoryLevelWarehouseControls" : "inventoryLevelWarehouseControls",
+  "username" : "username"
 }}]
      
      - parameter body: (body) ShoppingCartConnection to be inserted. 
@@ -97,23 +115,23 @@ public class ShoppingCartConnectionAPI: APIBase {
     public class func addShoppingCartConnectionWithRequestBuilder(body body: ShoppingCartConnection) -> RequestBuilder<ShoppingCartConnection> {
         let path = "/beta/shoppingCartConnection"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<ShoppingCartConnection>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new audit for a shoppingCartConnection
      
      - parameter shoppingCartConnectionId: (path) Id of the shoppingCartConnection to add an audit to 
      - parameter shoppingCartConnectionAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addShoppingCartConnectionAudit(shoppingCartConnectionId shoppingCartConnectionId: Int, shoppingCartConnectionAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addShoppingCartConnectionAudit(shoppingCartConnectionId shoppingCartConnectionId: Int32, shoppingCartConnectionAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addShoppingCartConnectionAuditWithRequestBuilder(shoppingCartConnectionId: shoppingCartConnectionId, shoppingCartConnectionAudit: shoppingCartConnectionAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -121,9 +139,7 @@ public class ShoppingCartConnectionAPI: APIBase {
 
 
     /**
-     
      Add new audit for a shoppingCartConnection
-     
      - PUT /beta/shoppingCartConnection/{shoppingCartConnectionId}/audit/{shoppingCartConnectionAudit}
      - Adds an audit to an existing shoppingCartConnection.
      - API Key:
@@ -135,29 +151,31 @@ public class ShoppingCartConnectionAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addShoppingCartConnectionAuditWithRequestBuilder(shoppingCartConnectionId shoppingCartConnectionId: Int, shoppingCartConnectionAudit: String) -> RequestBuilder<Void> {
+    public class func addShoppingCartConnectionAuditWithRequestBuilder(shoppingCartConnectionId shoppingCartConnectionId: Int32, shoppingCartConnectionAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/shoppingCartConnection/{shoppingCartConnectionId}/audit/{shoppingCartConnectionAudit}"
         path = path.stringByReplacingOccurrencesOfString("{shoppingCartConnectionId}", withString: "\(shoppingCartConnectionId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{shoppingCartConnectionAudit}", withString: "\(shoppingCartConnectionAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for a shoppingCartConnection.
      
      - parameter shoppingCartConnectionId: (path) Id of the shoppingCartConnection to add a tag to 
      - parameter shoppingCartConnectionTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addShoppingCartConnectionTag(shoppingCartConnectionId shoppingCartConnectionId: Int, shoppingCartConnectionTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addShoppingCartConnectionTag(shoppingCartConnectionId shoppingCartConnectionId: Int32, shoppingCartConnectionTag: String, completion: ((error: ErrorType?) -> Void)) {
         addShoppingCartConnectionTagWithRequestBuilder(shoppingCartConnectionId: shoppingCartConnectionId, shoppingCartConnectionTag: shoppingCartConnectionTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -165,9 +183,7 @@ public class ShoppingCartConnectionAPI: APIBase {
 
 
     /**
-     
      Add new tags for a shoppingCartConnection.
-     
      - PUT /beta/shoppingCartConnection/{shoppingCartConnectionId}/tag/{shoppingCartConnectionTag}
      - Adds a tag to an existing shoppingCartConnection.
      - API Key:
@@ -179,28 +195,30 @@ public class ShoppingCartConnectionAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addShoppingCartConnectionTagWithRequestBuilder(shoppingCartConnectionId shoppingCartConnectionId: Int, shoppingCartConnectionTag: String) -> RequestBuilder<Void> {
+    public class func addShoppingCartConnectionTagWithRequestBuilder(shoppingCartConnectionId shoppingCartConnectionId: Int32, shoppingCartConnectionTag: String) -> RequestBuilder<Void> {
         var path = "/beta/shoppingCartConnection/{shoppingCartConnectionId}/tag/{shoppingCartConnectionTag}"
         path = path.stringByReplacingOccurrencesOfString("{shoppingCartConnectionId}", withString: "\(shoppingCartConnectionId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{shoppingCartConnectionTag}", withString: "\(shoppingCartConnectionTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a shoppingCartConnection
      
      - parameter shoppingCartConnectionId: (path) Id of the shoppingCartConnection to be deleted. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteShoppingCartConnection(shoppingCartConnectionId shoppingCartConnectionId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteShoppingCartConnection(shoppingCartConnectionId shoppingCartConnectionId: Int32, completion: ((error: ErrorType?) -> Void)) {
         deleteShoppingCartConnectionWithRequestBuilder(shoppingCartConnectionId: shoppingCartConnectionId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -208,9 +226,7 @@ public class ShoppingCartConnectionAPI: APIBase {
 
 
     /**
-     
      Delete a shoppingCartConnection
-     
      - DELETE /beta/shoppingCartConnection/{shoppingCartConnectionId}
      - Deletes the shoppingCartConnection identified by the specified id.
      - API Key:
@@ -221,28 +237,30 @@ public class ShoppingCartConnectionAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteShoppingCartConnectionWithRequestBuilder(shoppingCartConnectionId shoppingCartConnectionId: Int) -> RequestBuilder<Void> {
+    public class func deleteShoppingCartConnectionWithRequestBuilder(shoppingCartConnectionId shoppingCartConnectionId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/shoppingCartConnection/{shoppingCartConnectionId}"
         path = path.stringByReplacingOccurrencesOfString("{shoppingCartConnectionId}", withString: "\(shoppingCartConnectionId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for a shoppingCartConnection.
      
      - parameter shoppingCartConnectionId: (path) Id of the shoppingCartConnection to remove tag from 
      - parameter shoppingCartConnectionTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteShoppingCartConnectionTag(shoppingCartConnectionId shoppingCartConnectionId: Int, shoppingCartConnectionTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteShoppingCartConnectionTag(shoppingCartConnectionId shoppingCartConnectionId: Int32, shoppingCartConnectionTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteShoppingCartConnectionTagWithRequestBuilder(shoppingCartConnectionId: shoppingCartConnectionId, shoppingCartConnectionTag: shoppingCartConnectionTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -250,9 +268,7 @@ public class ShoppingCartConnectionAPI: APIBase {
 
 
     /**
-     
      Delete a tag for a shoppingCartConnection.
-     
      - DELETE /beta/shoppingCartConnection/{shoppingCartConnectionId}/tag/{shoppingCartConnectionTag}
      - Deletes an existing shoppingCartConnection tag using the specified data.
      - API Key:
@@ -264,28 +280,30 @@ public class ShoppingCartConnectionAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteShoppingCartConnectionTagWithRequestBuilder(shoppingCartConnectionId shoppingCartConnectionId: Int, shoppingCartConnectionTag: String) -> RequestBuilder<Void> {
+    public class func deleteShoppingCartConnectionTagWithRequestBuilder(shoppingCartConnectionId shoppingCartConnectionId: Int32, shoppingCartConnectionTag: String) -> RequestBuilder<Void> {
         var path = "/beta/shoppingCartConnection/{shoppingCartConnectionId}/tag/{shoppingCartConnectionTag}"
         path = path.stringByReplacingOccurrencesOfString("{shoppingCartConnectionId}", withString: "\(shoppingCartConnectionId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{shoppingCartConnectionTag}", withString: "\(shoppingCartConnectionTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated a shoppingCartConnection by id
      
      - parameter shoppingCartConnectionId: (path) Id of the shoppingCartConnection to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateShoppingCartConnectionById(shoppingCartConnectionId shoppingCartConnectionId: Int, completion: ((data: ShoppingCartConnection?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateShoppingCartConnectionById(shoppingCartConnectionId shoppingCartConnectionId: Int32, completion: ((data: ShoppingCartConnection?, error: ErrorType?) -> Void)) {
         getDuplicateShoppingCartConnectionByIdWithRequestBuilder(shoppingCartConnectionId: shoppingCartConnectionId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -293,90 +311,111 @@ public class ShoppingCartConnectionAPI: APIBase {
 
 
     /**
-     
      Get a duplicated a shoppingCartConnection by id
-     
      - GET /beta/shoppingCartConnection/duplicate/{shoppingCartConnectionId}
      - Returns a duplicated shoppingCartConnection identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "syncInventory" : true,
-  "syncInventoryLevelsLastRunTime" : "2000-01-23T04:56:07.000+0000",
-  "syncOrders" : true,
+  "syncInventory" : false,
+  "syncInventoryLevelsLastRunTime" : "2000-01-23T04:56:07.000+00:00",
+  "syncOrders" : false,
   "customFields" : {
     "key" : "{}"
   },
-  "integrationPartnerId" : 123,
-  "connectionType" : "aeiou",
-  "syncTrackingData" : true,
-  "password" : "aeiou",
-  "accessCode" : "aeiou",
-  "id" : 123,
-  "itemFilterId" : 123,
-  "orderShipmentLevel" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123,
-  "orderSourceId" : 123,
-  "clientId" : 123,
+  "integrationPartnerId" : 5,
+  "connectionType" : "connectionType",
+  "syncTrackingData" : false,
+  "password" : "password",
+  "accessCode" : "accessCode",
+  "id" : 0,
+  "itemFilterId" : 2,
+  "orderShipmentLevel" : "orderShipmentLevel",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 1,
+  "orderSourceId" : 5,
+  "clientId" : 6,
   "warehouseList" : [ {
-    "zip" : "aeiou",
-    "country" : "aeiou",
-    "address" : "aeiou",
-    "street3" : "aeiou",
-    "modifyDate" : "2000-01-23T04:56:07.000+0000",
-    "city" : "aeiou",
+    "zip" : "zip",
+    "country" : "country",
+    "address" : "address",
+    "street3" : "street3",
+    "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+    "city" : "city",
     "customFields" : {
       "key" : "{}"
     },
-    "phone" : "aeiou",
-    "lpnPrefix" : "aeiou",
-    "name" : "aeiou",
-    "client" : 123,
-    "company" : "aeiou",
-    "street1" : "aeiou",
-    "id" : 123,
-    "street2" : "aeiou",
-    "state" : "aeiou",
-    "locationBarcodePrefix" : "aeiou",
-    "createDate" : "2000-01-23T04:56:07.000+0000"
+    "phone" : "phone",
+    "lpnPrefix" : "lpnPrefix",
+    "name" : "name",
+    "client" : 2,
+    "company" : "company",
+    "street1" : "street1",
+    "id" : 3,
+    "street2" : "street2",
+    "state" : "state",
+    "locationBarcodePrefix" : "locationBarcodePrefix",
+    "createDate" : "2000-01-23T04:56:07.000+00:00"
+  }, {
+    "zip" : "zip",
+    "country" : "country",
+    "address" : "address",
+    "street3" : "street3",
+    "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+    "city" : "city",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "phone" : "phone",
+    "lpnPrefix" : "lpnPrefix",
+    "name" : "name",
+    "client" : 2,
+    "company" : "company",
+    "street1" : "street1",
+    "id" : 3,
+    "street2" : "street2",
+    "state" : "state",
+    "locationBarcodePrefix" : "locationBarcodePrefix",
+    "createDate" : "2000-01-23T04:56:07.000+00:00"
   } ],
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "infoplusSKUFieldToMap" : "aeiou",
-  "accessToken" : "aeiou",
-  "fulfillAllItems" : true,
-  "nonce" : "aeiou",
-  "createInvoices" : true,
-  "syncOrdersLastRunTime" : "2000-01-23T04:56:07.000+0000",
-  "defaultCarrierId" : 123,
-  "scriptId" : 123,
-  "shoppingCartStoreURL" : "aeiou",
-  "name" : "aeiou",
-  "shoppingCartSKUFieldToMap" : "aeiou",
-  "inventoryLevelWarehouseControls" : "aeiou",
-  "username" : "aeiou"
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "infoplusSKUFieldToMap" : "infoplusSKUFieldToMap",
+  "accessToken" : "accessToken",
+  "fulfillAllItems" : false,
+  "nonce" : "nonce",
+  "createInvoices" : false,
+  "syncOrdersLastRunTime" : "2000-01-23T04:56:07.000+00:00",
+  "defaultCarrierId" : 9,
+  "scriptId" : 7,
+  "shoppingCartStoreURL" : "shoppingCartStoreURL",
+  "name" : "name",
+  "shoppingCartSKUFieldToMap" : "shoppingCartSKUFieldToMap",
+  "inventoryLevelWarehouseControls" : "inventoryLevelWarehouseControls",
+  "username" : "username"
 }}]
      
      - parameter shoppingCartConnectionId: (path) Id of the shoppingCartConnection to be duplicated. 
 
      - returns: RequestBuilder<ShoppingCartConnection> 
      */
-    public class func getDuplicateShoppingCartConnectionByIdWithRequestBuilder(shoppingCartConnectionId shoppingCartConnectionId: Int) -> RequestBuilder<ShoppingCartConnection> {
+    public class func getDuplicateShoppingCartConnectionByIdWithRequestBuilder(shoppingCartConnectionId shoppingCartConnectionId: Int32) -> RequestBuilder<ShoppingCartConnection> {
         var path = "/beta/shoppingCartConnection/duplicate/{shoppingCartConnectionId}"
         path = path.stringByReplacingOccurrencesOfString("{shoppingCartConnectionId}", withString: "\(shoppingCartConnectionId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<ShoppingCartConnection>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search shoppingCartConnections by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -385,7 +424,7 @@ public class ShoppingCartConnectionAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getShoppingCartConnectionByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [ShoppingCartConnection]?, error: ErrorType?) -> Void)) {
+    public class func getShoppingCartConnectionByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [ShoppingCartConnection]?, error: ErrorType?) -> Void)) {
         getShoppingCartConnectionByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -393,69 +432,164 @@ public class ShoppingCartConnectionAPI: APIBase {
 
 
     /**
-     
      Search shoppingCartConnections by filter
-     
      - GET /beta/shoppingCartConnection/search
      - Returns the list of shoppingCartConnections that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "syncInventory" : true,
-  "syncInventoryLevelsLastRunTime" : "2000-01-23T04:56:07.000+0000",
-  "syncOrders" : true,
+  "syncInventory" : false,
+  "syncInventoryLevelsLastRunTime" : "2000-01-23T04:56:07.000+00:00",
+  "syncOrders" : false,
   "customFields" : {
     "key" : "{}"
   },
-  "integrationPartnerId" : 123,
-  "connectionType" : "aeiou",
-  "syncTrackingData" : true,
-  "password" : "aeiou",
-  "accessCode" : "aeiou",
-  "id" : 123,
-  "itemFilterId" : 123,
-  "orderShipmentLevel" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123,
-  "orderSourceId" : 123,
-  "clientId" : 123,
+  "integrationPartnerId" : 5,
+  "connectionType" : "connectionType",
+  "syncTrackingData" : false,
+  "password" : "password",
+  "accessCode" : "accessCode",
+  "id" : 0,
+  "itemFilterId" : 2,
+  "orderShipmentLevel" : "orderShipmentLevel",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 1,
+  "orderSourceId" : 5,
+  "clientId" : 6,
   "warehouseList" : [ {
-    "zip" : "aeiou",
-    "country" : "aeiou",
-    "address" : "aeiou",
-    "street3" : "aeiou",
-    "modifyDate" : "2000-01-23T04:56:07.000+0000",
-    "city" : "aeiou",
+    "zip" : "zip",
+    "country" : "country",
+    "address" : "address",
+    "street3" : "street3",
+    "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+    "city" : "city",
     "customFields" : {
       "key" : "{}"
     },
-    "phone" : "aeiou",
-    "lpnPrefix" : "aeiou",
-    "name" : "aeiou",
-    "client" : 123,
-    "company" : "aeiou",
-    "street1" : "aeiou",
-    "id" : 123,
-    "street2" : "aeiou",
-    "state" : "aeiou",
-    "locationBarcodePrefix" : "aeiou",
-    "createDate" : "2000-01-23T04:56:07.000+0000"
+    "phone" : "phone",
+    "lpnPrefix" : "lpnPrefix",
+    "name" : "name",
+    "client" : 2,
+    "company" : "company",
+    "street1" : "street1",
+    "id" : 3,
+    "street2" : "street2",
+    "state" : "state",
+    "locationBarcodePrefix" : "locationBarcodePrefix",
+    "createDate" : "2000-01-23T04:56:07.000+00:00"
+  }, {
+    "zip" : "zip",
+    "country" : "country",
+    "address" : "address",
+    "street3" : "street3",
+    "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+    "city" : "city",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "phone" : "phone",
+    "lpnPrefix" : "lpnPrefix",
+    "name" : "name",
+    "client" : 2,
+    "company" : "company",
+    "street1" : "street1",
+    "id" : 3,
+    "street2" : "street2",
+    "state" : "state",
+    "locationBarcodePrefix" : "locationBarcodePrefix",
+    "createDate" : "2000-01-23T04:56:07.000+00:00"
   } ],
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "infoplusSKUFieldToMap" : "aeiou",
-  "accessToken" : "aeiou",
-  "fulfillAllItems" : true,
-  "nonce" : "aeiou",
-  "createInvoices" : true,
-  "syncOrdersLastRunTime" : "2000-01-23T04:56:07.000+0000",
-  "defaultCarrierId" : 123,
-  "scriptId" : 123,
-  "shoppingCartStoreURL" : "aeiou",
-  "name" : "aeiou",
-  "shoppingCartSKUFieldToMap" : "aeiou",
-  "inventoryLevelWarehouseControls" : "aeiou",
-  "username" : "aeiou"
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "infoplusSKUFieldToMap" : "infoplusSKUFieldToMap",
+  "accessToken" : "accessToken",
+  "fulfillAllItems" : false,
+  "nonce" : "nonce",
+  "createInvoices" : false,
+  "syncOrdersLastRunTime" : "2000-01-23T04:56:07.000+00:00",
+  "defaultCarrierId" : 9,
+  "scriptId" : 7,
+  "shoppingCartStoreURL" : "shoppingCartStoreURL",
+  "name" : "name",
+  "shoppingCartSKUFieldToMap" : "shoppingCartSKUFieldToMap",
+  "inventoryLevelWarehouseControls" : "inventoryLevelWarehouseControls",
+  "username" : "username"
+}, {
+  "syncInventory" : false,
+  "syncInventoryLevelsLastRunTime" : "2000-01-23T04:56:07.000+00:00",
+  "syncOrders" : false,
+  "customFields" : {
+    "key" : "{}"
+  },
+  "integrationPartnerId" : 5,
+  "connectionType" : "connectionType",
+  "syncTrackingData" : false,
+  "password" : "password",
+  "accessCode" : "accessCode",
+  "id" : 0,
+  "itemFilterId" : 2,
+  "orderShipmentLevel" : "orderShipmentLevel",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 1,
+  "orderSourceId" : 5,
+  "clientId" : 6,
+  "warehouseList" : [ {
+    "zip" : "zip",
+    "country" : "country",
+    "address" : "address",
+    "street3" : "street3",
+    "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+    "city" : "city",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "phone" : "phone",
+    "lpnPrefix" : "lpnPrefix",
+    "name" : "name",
+    "client" : 2,
+    "company" : "company",
+    "street1" : "street1",
+    "id" : 3,
+    "street2" : "street2",
+    "state" : "state",
+    "locationBarcodePrefix" : "locationBarcodePrefix",
+    "createDate" : "2000-01-23T04:56:07.000+00:00"
+  }, {
+    "zip" : "zip",
+    "country" : "country",
+    "address" : "address",
+    "street3" : "street3",
+    "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+    "city" : "city",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "phone" : "phone",
+    "lpnPrefix" : "lpnPrefix",
+    "name" : "name",
+    "client" : 2,
+    "company" : "company",
+    "street1" : "street1",
+    "id" : 3,
+    "street2" : "street2",
+    "state" : "state",
+    "locationBarcodePrefix" : "locationBarcodePrefix",
+    "createDate" : "2000-01-23T04:56:07.000+00:00"
+  } ],
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "infoplusSKUFieldToMap" : "infoplusSKUFieldToMap",
+  "accessToken" : "accessToken",
+  "fulfillAllItems" : false,
+  "nonce" : "nonce",
+  "createInvoices" : false,
+  "syncOrdersLastRunTime" : "2000-01-23T04:56:07.000+00:00",
+  "defaultCarrierId" : 9,
+  "scriptId" : 7,
+  "shoppingCartStoreURL" : "shoppingCartStoreURL",
+  "name" : "name",
+  "shoppingCartSKUFieldToMap" : "shoppingCartSKUFieldToMap",
+  "inventoryLevelWarehouseControls" : "inventoryLevelWarehouseControls",
+  "username" : "username"
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -465,31 +599,33 @@ public class ShoppingCartConnectionAPI: APIBase {
 
      - returns: RequestBuilder<[ShoppingCartConnection]> 
      */
-    public class func getShoppingCartConnectionByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[ShoppingCartConnection]> {
+    public class func getShoppingCartConnectionByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[ShoppingCartConnection]> {
         let path = "/beta/shoppingCartConnection/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[ShoppingCartConnection]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get a shoppingCartConnection by id
      
      - parameter shoppingCartConnectionId: (path) Id of the shoppingCartConnection to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getShoppingCartConnectionById(shoppingCartConnectionId shoppingCartConnectionId: Int, completion: ((data: ShoppingCartConnection?, error: ErrorType?) -> Void)) {
+    public class func getShoppingCartConnectionById(shoppingCartConnectionId shoppingCartConnectionId: Int32, completion: ((data: ShoppingCartConnection?, error: ErrorType?) -> Void)) {
         getShoppingCartConnectionByIdWithRequestBuilder(shoppingCartConnectionId: shoppingCartConnectionId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -497,96 +633,117 @@ public class ShoppingCartConnectionAPI: APIBase {
 
 
     /**
-     
      Get a shoppingCartConnection by id
-     
      - GET /beta/shoppingCartConnection/{shoppingCartConnectionId}
      - Returns the shoppingCartConnection identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "syncInventory" : true,
-  "syncInventoryLevelsLastRunTime" : "2000-01-23T04:56:07.000+0000",
-  "syncOrders" : true,
+  "syncInventory" : false,
+  "syncInventoryLevelsLastRunTime" : "2000-01-23T04:56:07.000+00:00",
+  "syncOrders" : false,
   "customFields" : {
     "key" : "{}"
   },
-  "integrationPartnerId" : 123,
-  "connectionType" : "aeiou",
-  "syncTrackingData" : true,
-  "password" : "aeiou",
-  "accessCode" : "aeiou",
-  "id" : 123,
-  "itemFilterId" : 123,
-  "orderShipmentLevel" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123,
-  "orderSourceId" : 123,
-  "clientId" : 123,
+  "integrationPartnerId" : 5,
+  "connectionType" : "connectionType",
+  "syncTrackingData" : false,
+  "password" : "password",
+  "accessCode" : "accessCode",
+  "id" : 0,
+  "itemFilterId" : 2,
+  "orderShipmentLevel" : "orderShipmentLevel",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 1,
+  "orderSourceId" : 5,
+  "clientId" : 6,
   "warehouseList" : [ {
-    "zip" : "aeiou",
-    "country" : "aeiou",
-    "address" : "aeiou",
-    "street3" : "aeiou",
-    "modifyDate" : "2000-01-23T04:56:07.000+0000",
-    "city" : "aeiou",
+    "zip" : "zip",
+    "country" : "country",
+    "address" : "address",
+    "street3" : "street3",
+    "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+    "city" : "city",
     "customFields" : {
       "key" : "{}"
     },
-    "phone" : "aeiou",
-    "lpnPrefix" : "aeiou",
-    "name" : "aeiou",
-    "client" : 123,
-    "company" : "aeiou",
-    "street1" : "aeiou",
-    "id" : 123,
-    "street2" : "aeiou",
-    "state" : "aeiou",
-    "locationBarcodePrefix" : "aeiou",
-    "createDate" : "2000-01-23T04:56:07.000+0000"
+    "phone" : "phone",
+    "lpnPrefix" : "lpnPrefix",
+    "name" : "name",
+    "client" : 2,
+    "company" : "company",
+    "street1" : "street1",
+    "id" : 3,
+    "street2" : "street2",
+    "state" : "state",
+    "locationBarcodePrefix" : "locationBarcodePrefix",
+    "createDate" : "2000-01-23T04:56:07.000+00:00"
+  }, {
+    "zip" : "zip",
+    "country" : "country",
+    "address" : "address",
+    "street3" : "street3",
+    "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+    "city" : "city",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "phone" : "phone",
+    "lpnPrefix" : "lpnPrefix",
+    "name" : "name",
+    "client" : 2,
+    "company" : "company",
+    "street1" : "street1",
+    "id" : 3,
+    "street2" : "street2",
+    "state" : "state",
+    "locationBarcodePrefix" : "locationBarcodePrefix",
+    "createDate" : "2000-01-23T04:56:07.000+00:00"
   } ],
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "infoplusSKUFieldToMap" : "aeiou",
-  "accessToken" : "aeiou",
-  "fulfillAllItems" : true,
-  "nonce" : "aeiou",
-  "createInvoices" : true,
-  "syncOrdersLastRunTime" : "2000-01-23T04:56:07.000+0000",
-  "defaultCarrierId" : 123,
-  "scriptId" : 123,
-  "shoppingCartStoreURL" : "aeiou",
-  "name" : "aeiou",
-  "shoppingCartSKUFieldToMap" : "aeiou",
-  "inventoryLevelWarehouseControls" : "aeiou",
-  "username" : "aeiou"
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "infoplusSKUFieldToMap" : "infoplusSKUFieldToMap",
+  "accessToken" : "accessToken",
+  "fulfillAllItems" : false,
+  "nonce" : "nonce",
+  "createInvoices" : false,
+  "syncOrdersLastRunTime" : "2000-01-23T04:56:07.000+00:00",
+  "defaultCarrierId" : 9,
+  "scriptId" : 7,
+  "shoppingCartStoreURL" : "shoppingCartStoreURL",
+  "name" : "name",
+  "shoppingCartSKUFieldToMap" : "shoppingCartSKUFieldToMap",
+  "inventoryLevelWarehouseControls" : "inventoryLevelWarehouseControls",
+  "username" : "username"
 }}]
      
      - parameter shoppingCartConnectionId: (path) Id of the shoppingCartConnection to be returned. 
 
      - returns: RequestBuilder<ShoppingCartConnection> 
      */
-    public class func getShoppingCartConnectionByIdWithRequestBuilder(shoppingCartConnectionId shoppingCartConnectionId: Int) -> RequestBuilder<ShoppingCartConnection> {
+    public class func getShoppingCartConnectionByIdWithRequestBuilder(shoppingCartConnectionId shoppingCartConnectionId: Int32) -> RequestBuilder<ShoppingCartConnection> {
         var path = "/beta/shoppingCartConnection/{shoppingCartConnectionId}"
         path = path.stringByReplacingOccurrencesOfString("{shoppingCartConnectionId}", withString: "\(shoppingCartConnectionId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<ShoppingCartConnection>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for a shoppingCartConnection.
      
      - parameter shoppingCartConnectionId: (path) Id of the shoppingCartConnection to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getShoppingCartConnectionTags(shoppingCartConnectionId shoppingCartConnectionId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getShoppingCartConnectionTags(shoppingCartConnectionId shoppingCartConnectionId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getShoppingCartConnectionTagsWithRequestBuilder(shoppingCartConnectionId: shoppingCartConnectionId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -594,9 +751,7 @@ public class ShoppingCartConnectionAPI: APIBase {
 
 
     /**
-     
      Get the tags for a shoppingCartConnection.
-     
      - GET /beta/shoppingCartConnection/{shoppingCartConnectionId}/tag
      - Get all existing shoppingCartConnection tags.
      - API Key:
@@ -607,21 +762,23 @@ public class ShoppingCartConnectionAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getShoppingCartConnectionTagsWithRequestBuilder(shoppingCartConnectionId shoppingCartConnectionId: Int) -> RequestBuilder<Void> {
+    public class func getShoppingCartConnectionTagsWithRequestBuilder(shoppingCartConnectionId shoppingCartConnectionId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/shoppingCartConnection/{shoppingCartConnectionId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{shoppingCartConnectionId}", withString: "\(shoppingCartConnectionId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a shoppingCartConnection
      
      - parameter body: (body) ShoppingCartConnection to be updated. 
@@ -635,9 +792,7 @@ public class ShoppingCartConnectionAPI: APIBase {
 
 
     /**
-     
      Update a shoppingCartConnection
-     
      - PUT /beta/shoppingCartConnection
      - Updates an existing shoppingCartConnection using the specified data.
      - API Key:
@@ -651,16 +806,16 @@ public class ShoppingCartConnectionAPI: APIBase {
     public class func updateShoppingCartConnectionWithRequestBuilder(body body: ShoppingCartConnection) -> RequestBuilder<Void> {
         let path = "/beta/shoppingCartConnection"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a shoppingCartConnection custom fields
      
      - parameter body: (body) ShoppingCartConnection to be updated. 
@@ -674,9 +829,7 @@ public class ShoppingCartConnectionAPI: APIBase {
 
 
     /**
-     
      Update a shoppingCartConnection custom fields
-     
      - PUT /beta/shoppingCartConnection/customFields
      - Updates an existing shoppingCartConnection custom fields using the specified data.
      - API Key:
@@ -690,12 +843,13 @@ public class ShoppingCartConnectionAPI: APIBase {
     public class func updateShoppingCartConnectionCustomFieldsWithRequestBuilder(body body: ShoppingCartConnection) -> RequestBuilder<Void> {
         let path = "/beta/shoppingCartConnection/customFields"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

@@ -9,13 +9,11 @@ import Foundation
 
 
 public class OrderExtraOrderData: JSONEncodable {
-
     public var sequence: String?
     public var category: String?
     public var code: String?
     public var value: String?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 

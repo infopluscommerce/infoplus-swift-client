@@ -9,8 +9,7 @@ import Foundation
 
 
 public class ExternalShippingSystem: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var name: String?
     public var systemType: String?
     public var apiKey: String?
@@ -18,14 +17,13 @@ public class ExternalShippingSystem: JSONEncodable {
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["name"] = self.name
         nillableDictionary["systemType"] = self.systemType
         nillableDictionary["apiKey"] = self.apiKey

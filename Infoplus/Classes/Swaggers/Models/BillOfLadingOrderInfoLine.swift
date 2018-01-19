@@ -9,14 +9,12 @@ import Foundation
 
 
 public class BillOfLadingOrderInfoLine: JSONEncodable {
-
     public var customerOrderNo: String?
-    public var noPackages: Int?
-    public var weight: Int?
+    public var noPackages: Int32?
+    public var weight: Int32?
     public var palletslip: Bool?
     public var additionalShipperInfo: String?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
@@ -24,8 +22,8 @@ public class BillOfLadingOrderInfoLine: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["customerOrderNo"] = self.customerOrderNo
-        nillableDictionary["noPackages"] = self.noPackages
-        nillableDictionary["weight"] = self.weight
+        nillableDictionary["noPackages"] = self.noPackages?.encodeToJSON()
+        nillableDictionary["weight"] = self.weight?.encodeToJSON()
         nillableDictionary["palletslip"] = self.palletslip
         nillableDictionary["additionalShipperInfo"] = self.additionalShipperInfo
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()

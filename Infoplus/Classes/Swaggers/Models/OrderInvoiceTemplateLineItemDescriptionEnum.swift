@@ -9,11 +9,9 @@ import Foundation
 
 
 public class OrderInvoiceTemplateLineItemDescriptionEnum: JSONEncodable {
-
     public var id: String?
     public var label: String?
     public var fullEntityClassName: String?
-    
 
     public init() {}
 

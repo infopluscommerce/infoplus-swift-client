@@ -9,27 +9,26 @@ import Foundation
 
 
 public class ShoppingCartConnection: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
-    public var clientId: Int?
+    public var clientId: Int32?
     public var nonce: String?
-    public var lobId: Int?
-    public var orderSourceId: Int?
-    public var integrationPartnerId: Int?
+    public var lobId: Int32?
+    public var orderSourceId: Int32?
+    public var integrationPartnerId: Int32?
     public var connectionType: String?
-    public var itemFilterId: Int?
+    public var itemFilterId: Int32?
     public var infoplusSKUFieldToMap: String?
     public var shoppingCartSKUFieldToMap: String?
-    public var scriptId: Int?
+    public var scriptId: Int32?
     public var name: String?
     public var shoppingCartStoreURL: String?
     public var accessCode: String?
     public var accessToken: String?
     public var username: String?
     public var password: String?
-    public var defaultCarrierId: Int?
+    public var defaultCarrierId: Int32?
     public var orderShipmentLevel: String?
     public var createInvoices: Bool?
     public var syncOrders: Bool?
@@ -41,33 +40,32 @@ public class ShoppingCartConnection: JSONEncodable {
     public var inventoryLevelWarehouseControls: String?
     public var warehouseList: [Warehouse]?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
-        nillableDictionary["clientId"] = self.clientId
+        nillableDictionary["clientId"] = self.clientId?.encodeToJSON()
         nillableDictionary["nonce"] = self.nonce
-        nillableDictionary["lobId"] = self.lobId
-        nillableDictionary["orderSourceId"] = self.orderSourceId
-        nillableDictionary["integrationPartnerId"] = self.integrationPartnerId
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
+        nillableDictionary["orderSourceId"] = self.orderSourceId?.encodeToJSON()
+        nillableDictionary["integrationPartnerId"] = self.integrationPartnerId?.encodeToJSON()
         nillableDictionary["connectionType"] = self.connectionType
-        nillableDictionary["itemFilterId"] = self.itemFilterId
+        nillableDictionary["itemFilterId"] = self.itemFilterId?.encodeToJSON()
         nillableDictionary["infoplusSKUFieldToMap"] = self.infoplusSKUFieldToMap
         nillableDictionary["shoppingCartSKUFieldToMap"] = self.shoppingCartSKUFieldToMap
-        nillableDictionary["scriptId"] = self.scriptId
+        nillableDictionary["scriptId"] = self.scriptId?.encodeToJSON()
         nillableDictionary["name"] = self.name
         nillableDictionary["shoppingCartStoreURL"] = self.shoppingCartStoreURL
         nillableDictionary["accessCode"] = self.accessCode
         nillableDictionary["accessToken"] = self.accessToken
         nillableDictionary["username"] = self.username
         nillableDictionary["password"] = self.password
-        nillableDictionary["defaultCarrierId"] = self.defaultCarrierId
+        nillableDictionary["defaultCarrierId"] = self.defaultCarrierId?.encodeToJSON()
         nillableDictionary["orderShipmentLevel"] = self.orderShipmentLevel
         nillableDictionary["createInvoices"] = self.createInvoices
         nillableDictionary["syncOrders"] = self.syncOrders

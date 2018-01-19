@@ -9,45 +9,43 @@ import Foundation
 
 
 public class Work: JSONEncodable {
-
-    public var id: Int?
-    public var sourceWarehouseId: Int?
-    public var sourceBuildingId: Int?
+    public var id: Int32?
+    public var sourceWarehouseId: Int32?
+    public var sourceBuildingId: Int32?
     public var sourceLocation: String?
-    public var destinationWarehouseId: Int?
-    public var destinationBuildingId: Int?
+    public var destinationWarehouseId: Int32?
+    public var destinationBuildingId: Int32?
     public var destinationLocation: String?
-    public var _type: String?
+    public var type: String?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
-    public var priorityCode: Int?
+    public var priorityCode: Int32?
     public var status: String?
-    public var userId: Int?
-    public var lobId: Int?
-    public var workBatchId: Int?
+    public var userId: Int32?
+    public var lobId: Int32?
+    public var workBatchId: Int32?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
-        nillableDictionary["sourceWarehouseId"] = self.sourceWarehouseId
-        nillableDictionary["sourceBuildingId"] = self.sourceBuildingId
+        nillableDictionary["id"] = self.id?.encodeToJSON()
+        nillableDictionary["sourceWarehouseId"] = self.sourceWarehouseId?.encodeToJSON()
+        nillableDictionary["sourceBuildingId"] = self.sourceBuildingId?.encodeToJSON()
         nillableDictionary["sourceLocation"] = self.sourceLocation
-        nillableDictionary["destinationWarehouseId"] = self.destinationWarehouseId
-        nillableDictionary["destinationBuildingId"] = self.destinationBuildingId
+        nillableDictionary["destinationWarehouseId"] = self.destinationWarehouseId?.encodeToJSON()
+        nillableDictionary["destinationBuildingId"] = self.destinationBuildingId?.encodeToJSON()
         nillableDictionary["destinationLocation"] = self.destinationLocation
-        nillableDictionary["type"] = self._type
+        nillableDictionary["type"] = self.type
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
-        nillableDictionary["priorityCode"] = self.priorityCode
+        nillableDictionary["priorityCode"] = self.priorityCode?.encodeToJSON()
         nillableDictionary["status"] = self.status
-        nillableDictionary["userId"] = self.userId
-        nillableDictionary["lobId"] = self.lobId
-        nillableDictionary["workBatchId"] = self.workBatchId
+        nillableDictionary["userId"] = self.userId?.encodeToJSON()
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
+        nillableDictionary["workBatchId"] = self.workBatchId?.encodeToJSON()
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

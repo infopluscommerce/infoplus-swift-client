@@ -9,9 +9,7 @@ import Foundation
 
 
 public class ExecuteQuickAdjustmentInputAPIModel: JSONEncodable {
-
-    public var idList: [Int]?
-    
+    public var idList: [Int32]?
 
     public init() {}
 

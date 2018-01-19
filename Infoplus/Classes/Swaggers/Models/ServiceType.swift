@@ -9,11 +9,9 @@ import Foundation
 
 
 public class ServiceType: JSONEncodable {
-
     public var serviceType: String?
     public var label: String?
     public var fullEntityClassName: String?
-    
 
     public init() {}
 

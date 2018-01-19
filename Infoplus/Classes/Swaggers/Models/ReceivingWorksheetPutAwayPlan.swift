@@ -9,17 +9,15 @@ import Foundation
 
 
 public class ReceivingWorksheetPutAwayPlan: JSONEncodable {
-
-    public var quantity: Int?
+    public var quantity: Int32?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["quantity"] = self.quantity
+        nillableDictionary["quantity"] = self.quantity?.encodeToJSON()
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

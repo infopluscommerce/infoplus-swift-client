@@ -11,7 +11,6 @@ import Alamofire
 
 public class OrderActivityAPI: APIBase {
     /**
-     
      Create an orderActivity
      
      - parameter body: (body) OrderActivity to be inserted. 
@@ -25,130 +24,128 @@ public class OrderActivityAPI: APIBase {
 
 
     /**
-     
      Create an orderActivity
-     
      - POST /beta/orderActivity
      - Inserts a new orderActivity using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "priceLevel" : "aeiou",
-  "integrationPartnerId" : 123,
-  "omsCustomerId" : 123,
-  "shipToStreet" : "aeiou",
-  "division" : 123,
-  "billToZip" : "aeiou",
-  "numberOfWraps" : 123,
-  "shipToEmail" : "aeiou",
-  "numberOfCases" : 123,
-  "billToStreet" : "aeiou",
-  "shipToState" : "aeiou",
-  "branchId" : "aeiou",
-  "reqStatusName" : "aeiou",
-  "giftMessage" : "aeiou",
-  "costCenter" : "aeiou",
-  "shipDate" : "2000-01-23T04:56:07.000+0000",
-  "reqTypeName" : "aeiou",
-  "orderMessage" : "aeiou",
-  "firstShipDate" : "2000-01-23T04:56:07.000+0000",
-  "shippingSystemName" : "aeiou",
-  "warehouseId" : 123,
-  "billToAttention" : "aeiou",
-  "subtotal" : 1.3579000000000001069366817318950779736042022705078125,
-  "integrationPartnerName" : "aeiou",
-  "status" : "aeiou",
-  "alternateUsage" : "aeiou",
-  "authorizationAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "freight" : 1.3579000000000001069366817318950779736042022705078125,
-  "billToCompany" : "aeiou",
-  "taxOnFreight" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToCompany" : "aeiou",
-  "numberOfCartons" : 123,
-  "shipToZip" : "aeiou",
-  "customerPONo" : "aeiou",
-  "lastShipDate" : "2000-01-23T04:56:07.000+0000",
-  "shipToAttention" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "distributionCharges" : 1.3579000000000001069366817318950779736042022705078125,
-  "numberOfPallets" : 123,
-  "legacyRestrictionType" : "aeiou",
-  "shipToPhone" : "aeiou",
-  "needByDate" : "2000-01-23T04:56:07.000+0000",
-  "shipCode" : "aeiou",
-  "orderModifyDate" : "2000-01-23T04:56:07.000+0000",
-  "authorizedBy" : "aeiou",
-  "holdCode" : "aeiou",
-  "deliverOnDate" : "2000-01-23T04:56:07.000+0000",
-  "totalDiscount" : 1.3579000000000001069366817318950779736042022705078125,
-  "priorityCode" : 123,
-  "completionStatus" : "aeiou",
-  "mediaCode" : "aeiou",
-  "customerOrderNo" : "aeiou",
-  "packingSlipTemplateId" : 123,
-  "estimatedNumberOfPicks" : 123,
-  "branchCustomerType" : "aeiou",
-  "totalQty" : 123,
-  "orderConfirmationEmailTemplateId" : 123,
-  "billToState" : "aeiou",
-  "fulfillmentProcessId" : 123,
-  "billToCity" : "aeiou",
-  "deliveredDate" : "2000-01-23T04:56:07.000+0000",
-  "shipToCity" : "aeiou",
-  "orderReason" : 123,
-  "carrierName" : "aeiou",
-  "leadPackageId" : "aeiou",
-  "shipBy" : "2000-01-23T04:56:07.000+0000",
-  "shippingCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "distributionChannel" : "aeiou",
-  "externalShippingSystemId" : 123,
-  "lobId" : 123,
-  "orderSourceId" : 123,
-  "shipToStreet2" : "aeiou",
-  "batchNo" : "aeiou",
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToStreet3" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "billToEmail" : "aeiou",
-  "totalPaid" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderSourceName" : "aeiou",
-  "tax" : 1.3579000000000001069366817318950779736042022705078125,
-  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderInvoiceTemplateId" : 123,
-  "billToCountry" : "aeiou",
-  "branchSector" : "aeiou",
-  "billToPhone" : "aeiou",
-  "serviceTypeName" : "aeiou",
-  "orderDate" : "2000-01-23T04:56:07.000+0000",
-  "numberOfLineItems" : 123,
-  "numberOfTouches" : 123,
-  "priceMode" : "aeiou",
+  "priceLevel" : "priceLevel",
+  "integrationPartnerId" : 2,
+  "omsCustomerId" : 1,
+  "shipToStreet" : "shipToStreet",
+  "division" : 5,
+  "billToZip" : "billToZip",
+  "numberOfWraps" : 6,
+  "shipToEmail" : "shipToEmail",
+  "numberOfCases" : 3,
+  "billToStreet" : "billToStreet",
+  "shipToState" : "shipToState",
+  "branchId" : "branchId",
+  "reqStatusName" : "reqStatusName",
+  "giftMessage" : "giftMessage",
+  "costCenter" : "costCenter",
+  "shipDate" : "2000-01-23T04:56:07.000+00:00",
+  "reqTypeName" : "reqTypeName",
+  "orderMessage" : "orderMessage",
+  "firstShipDate" : "2000-01-23T04:56:07.000+00:00",
+  "shippingSystemName" : "shippingSystemName",
+  "warehouseId" : 9,
+  "billToAttention" : "billToAttention",
+  "subtotal" : 9.0183481860707832566959041287191212177276611328125,
+  "integrationPartnerName" : "integrationPartnerName",
+  "status" : "status",
+  "alternateUsage" : "alternateUsage",
+  "authorizationAmount" : 8.7620420127490010742121739895083010196685791015625,
+  "freight" : 1.024645700144157789424070870154537260532379150390625,
+  "billToCompany" : "billToCompany",
+  "taxOnFreight" : 6.438423552598546706349225132726132869720458984375,
+  "shipToCompany" : "shipToCompany",
+  "numberOfCartons" : 7,
+  "shipToZip" : "shipToZip",
+  "customerPONo" : "customerPONo",
+  "lastShipDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipToAttention" : "shipToAttention",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "distributionCharges" : 6.96511769763884558415156789124011993408203125,
+  "numberOfPallets" : 1,
+  "legacyRestrictionType" : "legacyRestrictionType",
+  "shipToPhone" : "shipToPhone",
+  "needByDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipCode" : "shipCode",
+  "orderModifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "authorizedBy" : "authorizedBy",
+  "holdCode" : "holdCode",
+  "deliverOnDate" : "2000-01-23T04:56:07.000+00:00",
+  "totalDiscount" : 2.884162126668780246063761296682059764862060546875,
+  "priorityCode" : 2,
+  "completionStatus" : "completionStatus",
+  "mediaCode" : "mediaCode",
+  "customerOrderNo" : "customerOrderNo",
+  "packingSlipTemplateId" : 6,
+  "estimatedNumberOfPicks" : 7,
+  "branchCustomerType" : "branchCustomerType",
+  "totalQty" : 5,
+  "orderConfirmationEmailTemplateId" : 0,
+  "billToState" : "billToState",
+  "fulfillmentProcessId" : 1,
+  "billToCity" : "billToCity",
+  "deliveredDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipToCity" : "shipToCity",
+  "orderReason" : 7,
+  "carrierName" : "carrierName",
+  "leadPackageId" : "leadPackageId",
+  "shipBy" : "2000-01-23T04:56:07.000+00:00",
+  "shippingCharge" : 1.2846590061165319429647979632136411964893341064453125,
+  "distributionChannel" : "distributionChannel",
+  "externalShippingSystemId" : 6,
+  "lobId" : 5,
+  "orderSourceId" : 3,
+  "shipToStreet2" : "shipToStreet2",
+  "batchNo" : "batchNo",
+  "orderNo" : 0.80082819046101150206595775671303272247314453125,
+  "shipToStreet3" : "shipToStreet3",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "billToEmail" : "billToEmail",
+  "totalPaid" : 6.683562403749608193948006373830139636993408203125,
+  "orderSourceName" : "orderSourceName",
+  "tax" : 3.557195227068097320710649000830017030239105224609375,
+  "groupOrderId" : 6.02745618307040320615897144307382404804229736328125,
+  "orderInvoiceTemplateId" : 0,
+  "billToCountry" : "billToCountry",
+  "branchSector" : "branchSector",
+  "billToPhone" : "billToPhone",
+  "serviceTypeName" : "serviceTypeName",
+  "orderDate" : "2000-01-23T04:56:07.000+00:00",
+  "numberOfLineItems" : 4,
+  "numberOfTouches" : 3,
+  "priceMode" : "priceMode",
   "customFields" : {
     "key" : "{}"
   },
-  "orderLoadProgramName" : "aeiou",
-  "stopBackOrders" : "aeiou",
-  "shipmentConfirmationEmailTemplateId" : 123,
-  "parcelAccountId" : 123,
-  "enteredBy" : "aeiou",
-  "branchArea" : "aeiou",
-  "orderCreateDate" : "2000-01-23T04:56:07.000+0000",
-  "shipVia" : "aeiou",
-  "total" : 1.3579000000000001069366817318950779736042022705078125,
-  "serviceTypeId" : "aeiou",
-  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "estimatedWeightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToCountry" : "aeiou",
-  "balanceDue" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderLoadProgramId" : 123,
-  "alcoholOrderType" : "aeiou",
-  "billToStreet2" : "aeiou",
-  "billToStreet3" : "aeiou",
-  "omsOrderNo" : 123,
-  "distributionChannelName" : "aeiou",
-  "orderCode" : "aeiou",
-  "carrierId" : 123
+  "orderLoadProgramName" : "orderLoadProgramName",
+  "stopBackOrders" : "stopBackOrders",
+  "shipmentConfirmationEmailTemplateId" : 7,
+  "parcelAccountId" : 6,
+  "enteredBy" : "enteredBy",
+  "branchArea" : "branchArea",
+  "orderCreateDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipVia" : "shipVia",
+  "total" : 9.965781217890562260208753286860883235931396484375,
+  "serviceTypeId" : "serviceTypeId",
+  "weightLbs" : 1.489415909854170383397331534069962799549102783203125,
+  "estimatedWeightLbs" : 6.8468526983526398765889098285697400569915771484375,
+  "shipToCountry" : "shipToCountry",
+  "balanceDue" : 9.3693102714106686335071572102606296539306640625,
+  "orderLoadProgramId" : 4,
+  "alcoholOrderType" : "alcoholOrderType",
+  "billToStreet2" : "billToStreet2",
+  "billToStreet3" : "billToStreet3",
+  "omsOrderNo" : 7,
+  "distributionChannelName" : "distributionChannelName",
+  "orderCode" : "orderCode",
+  "carrierId" : 5
 }}]
      
      - parameter body: (body) OrderActivity to be inserted. 
@@ -158,16 +155,16 @@ public class OrderActivityAPI: APIBase {
     public class func addOrderActivityWithRequestBuilder(body body: OrderActivity) -> RequestBuilder<OrderActivity> {
         let path = "/beta/orderActivity"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<OrderActivity>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new audit for an orderActivity
      
      - parameter orderActivityId: (path) Id of the orderActivity to add an audit to 
@@ -182,9 +179,7 @@ public class OrderActivityAPI: APIBase {
 
 
     /**
-     
      Add new audit for an orderActivity
-     
      - PUT /beta/orderActivity/{orderActivityId}/audit/{orderActivityAudit}
      - Adds an audit to an existing orderActivity.
      - API Key:
@@ -201,17 +196,19 @@ public class OrderActivityAPI: APIBase {
         path = path.stringByReplacingOccurrencesOfString("{orderActivityId}", withString: "\(orderActivityId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{orderActivityAudit}", withString: "\(orderActivityAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for an orderActivity.
      
      - parameter orderActivityId: (path) Id of the orderActivity to add a tag to 
@@ -226,9 +223,7 @@ public class OrderActivityAPI: APIBase {
 
 
     /**
-     
      Add new tags for an orderActivity.
-     
      - PUT /beta/orderActivity/{orderActivityId}/tag/{orderActivityTag}
      - Adds a tag to an existing orderActivity.
      - API Key:
@@ -245,17 +240,19 @@ public class OrderActivityAPI: APIBase {
         path = path.stringByReplacingOccurrencesOfString("{orderActivityId}", withString: "\(orderActivityId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{orderActivityTag}", withString: "\(orderActivityTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete an orderActivity
      
      - parameter orderActivityId: (path) Id of the orderActivity to be deleted. 
@@ -269,9 +266,7 @@ public class OrderActivityAPI: APIBase {
 
 
     /**
-     
      Delete an orderActivity
-     
      - DELETE /beta/orderActivity/{orderActivityId}
      - Deletes the orderActivity identified by the specified id.
      - API Key:
@@ -286,17 +281,19 @@ public class OrderActivityAPI: APIBase {
         var path = "/beta/orderActivity/{orderActivityId}"
         path = path.stringByReplacingOccurrencesOfString("{orderActivityId}", withString: "\(orderActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for an orderActivity.
      
      - parameter orderActivityId: (path) Id of the orderActivity to remove tag from 
@@ -311,9 +308,7 @@ public class OrderActivityAPI: APIBase {
 
 
     /**
-     
      Delete a tag for an orderActivity.
-     
      - DELETE /beta/orderActivity/{orderActivityId}/tag/{orderActivityTag}
      - Deletes an existing orderActivity tag using the specified data.
      - API Key:
@@ -330,17 +325,19 @@ public class OrderActivityAPI: APIBase {
         path = path.stringByReplacingOccurrencesOfString("{orderActivityId}", withString: "\(orderActivityId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{orderActivityTag}", withString: "\(orderActivityTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated an orderActivity by id
      
      - parameter orderActivityId: (path) Id of the orderActivity to be duplicated. 
@@ -354,130 +351,128 @@ public class OrderActivityAPI: APIBase {
 
 
     /**
-     
      Get a duplicated an orderActivity by id
-     
      - GET /beta/orderActivity/duplicate/{orderActivityId}
      - Returns a duplicated orderActivity identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "priceLevel" : "aeiou",
-  "integrationPartnerId" : 123,
-  "omsCustomerId" : 123,
-  "shipToStreet" : "aeiou",
-  "division" : 123,
-  "billToZip" : "aeiou",
-  "numberOfWraps" : 123,
-  "shipToEmail" : "aeiou",
-  "numberOfCases" : 123,
-  "billToStreet" : "aeiou",
-  "shipToState" : "aeiou",
-  "branchId" : "aeiou",
-  "reqStatusName" : "aeiou",
-  "giftMessage" : "aeiou",
-  "costCenter" : "aeiou",
-  "shipDate" : "2000-01-23T04:56:07.000+0000",
-  "reqTypeName" : "aeiou",
-  "orderMessage" : "aeiou",
-  "firstShipDate" : "2000-01-23T04:56:07.000+0000",
-  "shippingSystemName" : "aeiou",
-  "warehouseId" : 123,
-  "billToAttention" : "aeiou",
-  "subtotal" : 1.3579000000000001069366817318950779736042022705078125,
-  "integrationPartnerName" : "aeiou",
-  "status" : "aeiou",
-  "alternateUsage" : "aeiou",
-  "authorizationAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "freight" : 1.3579000000000001069366817318950779736042022705078125,
-  "billToCompany" : "aeiou",
-  "taxOnFreight" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToCompany" : "aeiou",
-  "numberOfCartons" : 123,
-  "shipToZip" : "aeiou",
-  "customerPONo" : "aeiou",
-  "lastShipDate" : "2000-01-23T04:56:07.000+0000",
-  "shipToAttention" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "distributionCharges" : 1.3579000000000001069366817318950779736042022705078125,
-  "numberOfPallets" : 123,
-  "legacyRestrictionType" : "aeiou",
-  "shipToPhone" : "aeiou",
-  "needByDate" : "2000-01-23T04:56:07.000+0000",
-  "shipCode" : "aeiou",
-  "orderModifyDate" : "2000-01-23T04:56:07.000+0000",
-  "authorizedBy" : "aeiou",
-  "holdCode" : "aeiou",
-  "deliverOnDate" : "2000-01-23T04:56:07.000+0000",
-  "totalDiscount" : 1.3579000000000001069366817318950779736042022705078125,
-  "priorityCode" : 123,
-  "completionStatus" : "aeiou",
-  "mediaCode" : "aeiou",
-  "customerOrderNo" : "aeiou",
-  "packingSlipTemplateId" : 123,
-  "estimatedNumberOfPicks" : 123,
-  "branchCustomerType" : "aeiou",
-  "totalQty" : 123,
-  "orderConfirmationEmailTemplateId" : 123,
-  "billToState" : "aeiou",
-  "fulfillmentProcessId" : 123,
-  "billToCity" : "aeiou",
-  "deliveredDate" : "2000-01-23T04:56:07.000+0000",
-  "shipToCity" : "aeiou",
-  "orderReason" : 123,
-  "carrierName" : "aeiou",
-  "leadPackageId" : "aeiou",
-  "shipBy" : "2000-01-23T04:56:07.000+0000",
-  "shippingCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "distributionChannel" : "aeiou",
-  "externalShippingSystemId" : 123,
-  "lobId" : 123,
-  "orderSourceId" : 123,
-  "shipToStreet2" : "aeiou",
-  "batchNo" : "aeiou",
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToStreet3" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "billToEmail" : "aeiou",
-  "totalPaid" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderSourceName" : "aeiou",
-  "tax" : 1.3579000000000001069366817318950779736042022705078125,
-  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderInvoiceTemplateId" : 123,
-  "billToCountry" : "aeiou",
-  "branchSector" : "aeiou",
-  "billToPhone" : "aeiou",
-  "serviceTypeName" : "aeiou",
-  "orderDate" : "2000-01-23T04:56:07.000+0000",
-  "numberOfLineItems" : 123,
-  "numberOfTouches" : 123,
-  "priceMode" : "aeiou",
+  "priceLevel" : "priceLevel",
+  "integrationPartnerId" : 2,
+  "omsCustomerId" : 1,
+  "shipToStreet" : "shipToStreet",
+  "division" : 5,
+  "billToZip" : "billToZip",
+  "numberOfWraps" : 6,
+  "shipToEmail" : "shipToEmail",
+  "numberOfCases" : 3,
+  "billToStreet" : "billToStreet",
+  "shipToState" : "shipToState",
+  "branchId" : "branchId",
+  "reqStatusName" : "reqStatusName",
+  "giftMessage" : "giftMessage",
+  "costCenter" : "costCenter",
+  "shipDate" : "2000-01-23T04:56:07.000+00:00",
+  "reqTypeName" : "reqTypeName",
+  "orderMessage" : "orderMessage",
+  "firstShipDate" : "2000-01-23T04:56:07.000+00:00",
+  "shippingSystemName" : "shippingSystemName",
+  "warehouseId" : 9,
+  "billToAttention" : "billToAttention",
+  "subtotal" : 9.0183481860707832566959041287191212177276611328125,
+  "integrationPartnerName" : "integrationPartnerName",
+  "status" : "status",
+  "alternateUsage" : "alternateUsage",
+  "authorizationAmount" : 8.7620420127490010742121739895083010196685791015625,
+  "freight" : 1.024645700144157789424070870154537260532379150390625,
+  "billToCompany" : "billToCompany",
+  "taxOnFreight" : 6.438423552598546706349225132726132869720458984375,
+  "shipToCompany" : "shipToCompany",
+  "numberOfCartons" : 7,
+  "shipToZip" : "shipToZip",
+  "customerPONo" : "customerPONo",
+  "lastShipDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipToAttention" : "shipToAttention",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "distributionCharges" : 6.96511769763884558415156789124011993408203125,
+  "numberOfPallets" : 1,
+  "legacyRestrictionType" : "legacyRestrictionType",
+  "shipToPhone" : "shipToPhone",
+  "needByDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipCode" : "shipCode",
+  "orderModifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "authorizedBy" : "authorizedBy",
+  "holdCode" : "holdCode",
+  "deliverOnDate" : "2000-01-23T04:56:07.000+00:00",
+  "totalDiscount" : 2.884162126668780246063761296682059764862060546875,
+  "priorityCode" : 2,
+  "completionStatus" : "completionStatus",
+  "mediaCode" : "mediaCode",
+  "customerOrderNo" : "customerOrderNo",
+  "packingSlipTemplateId" : 6,
+  "estimatedNumberOfPicks" : 7,
+  "branchCustomerType" : "branchCustomerType",
+  "totalQty" : 5,
+  "orderConfirmationEmailTemplateId" : 0,
+  "billToState" : "billToState",
+  "fulfillmentProcessId" : 1,
+  "billToCity" : "billToCity",
+  "deliveredDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipToCity" : "shipToCity",
+  "orderReason" : 7,
+  "carrierName" : "carrierName",
+  "leadPackageId" : "leadPackageId",
+  "shipBy" : "2000-01-23T04:56:07.000+00:00",
+  "shippingCharge" : 1.2846590061165319429647979632136411964893341064453125,
+  "distributionChannel" : "distributionChannel",
+  "externalShippingSystemId" : 6,
+  "lobId" : 5,
+  "orderSourceId" : 3,
+  "shipToStreet2" : "shipToStreet2",
+  "batchNo" : "batchNo",
+  "orderNo" : 0.80082819046101150206595775671303272247314453125,
+  "shipToStreet3" : "shipToStreet3",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "billToEmail" : "billToEmail",
+  "totalPaid" : 6.683562403749608193948006373830139636993408203125,
+  "orderSourceName" : "orderSourceName",
+  "tax" : 3.557195227068097320710649000830017030239105224609375,
+  "groupOrderId" : 6.02745618307040320615897144307382404804229736328125,
+  "orderInvoiceTemplateId" : 0,
+  "billToCountry" : "billToCountry",
+  "branchSector" : "branchSector",
+  "billToPhone" : "billToPhone",
+  "serviceTypeName" : "serviceTypeName",
+  "orderDate" : "2000-01-23T04:56:07.000+00:00",
+  "numberOfLineItems" : 4,
+  "numberOfTouches" : 3,
+  "priceMode" : "priceMode",
   "customFields" : {
     "key" : "{}"
   },
-  "orderLoadProgramName" : "aeiou",
-  "stopBackOrders" : "aeiou",
-  "shipmentConfirmationEmailTemplateId" : 123,
-  "parcelAccountId" : 123,
-  "enteredBy" : "aeiou",
-  "branchArea" : "aeiou",
-  "orderCreateDate" : "2000-01-23T04:56:07.000+0000",
-  "shipVia" : "aeiou",
-  "total" : 1.3579000000000001069366817318950779736042022705078125,
-  "serviceTypeId" : "aeiou",
-  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "estimatedWeightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToCountry" : "aeiou",
-  "balanceDue" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderLoadProgramId" : 123,
-  "alcoholOrderType" : "aeiou",
-  "billToStreet2" : "aeiou",
-  "billToStreet3" : "aeiou",
-  "omsOrderNo" : 123,
-  "distributionChannelName" : "aeiou",
-  "orderCode" : "aeiou",
-  "carrierId" : 123
+  "orderLoadProgramName" : "orderLoadProgramName",
+  "stopBackOrders" : "stopBackOrders",
+  "shipmentConfirmationEmailTemplateId" : 7,
+  "parcelAccountId" : 6,
+  "enteredBy" : "enteredBy",
+  "branchArea" : "branchArea",
+  "orderCreateDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipVia" : "shipVia",
+  "total" : 9.965781217890562260208753286860883235931396484375,
+  "serviceTypeId" : "serviceTypeId",
+  "weightLbs" : 1.489415909854170383397331534069962799549102783203125,
+  "estimatedWeightLbs" : 6.8468526983526398765889098285697400569915771484375,
+  "shipToCountry" : "shipToCountry",
+  "balanceDue" : 9.3693102714106686335071572102606296539306640625,
+  "orderLoadProgramId" : 4,
+  "alcoholOrderType" : "alcoholOrderType",
+  "billToStreet2" : "billToStreet2",
+  "billToStreet3" : "billToStreet3",
+  "omsOrderNo" : 7,
+  "distributionChannelName" : "distributionChannelName",
+  "orderCode" : "orderCode",
+  "carrierId" : 5
 }}]
      
      - parameter orderActivityId: (path) Id of the orderActivity to be duplicated. 
@@ -488,17 +483,19 @@ public class OrderActivityAPI: APIBase {
         var path = "/beta/orderActivity/duplicate/{orderActivityId}"
         path = path.stringByReplacingOccurrencesOfString("{orderActivityId}", withString: "\(orderActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<OrderActivity>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search orderActivitys by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -507,7 +504,7 @@ public class OrderActivityAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getOrderActivityByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [OrderActivity]?, error: ErrorType?) -> Void)) {
+    public class func getOrderActivityByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [OrderActivity]?, error: ErrorType?) -> Void)) {
         getOrderActivityByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -515,130 +512,244 @@ public class OrderActivityAPI: APIBase {
 
 
     /**
-     
      Search orderActivitys by filter
-     
      - GET /beta/orderActivity/search
      - Returns the list of orderActivitys that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "priceLevel" : "aeiou",
-  "integrationPartnerId" : 123,
-  "omsCustomerId" : 123,
-  "shipToStreet" : "aeiou",
-  "division" : 123,
-  "billToZip" : "aeiou",
-  "numberOfWraps" : 123,
-  "shipToEmail" : "aeiou",
-  "numberOfCases" : 123,
-  "billToStreet" : "aeiou",
-  "shipToState" : "aeiou",
-  "branchId" : "aeiou",
-  "reqStatusName" : "aeiou",
-  "giftMessage" : "aeiou",
-  "costCenter" : "aeiou",
-  "shipDate" : "2000-01-23T04:56:07.000+0000",
-  "reqTypeName" : "aeiou",
-  "orderMessage" : "aeiou",
-  "firstShipDate" : "2000-01-23T04:56:07.000+0000",
-  "shippingSystemName" : "aeiou",
-  "warehouseId" : 123,
-  "billToAttention" : "aeiou",
-  "subtotal" : 1.3579000000000001069366817318950779736042022705078125,
-  "integrationPartnerName" : "aeiou",
-  "status" : "aeiou",
-  "alternateUsage" : "aeiou",
-  "authorizationAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "freight" : 1.3579000000000001069366817318950779736042022705078125,
-  "billToCompany" : "aeiou",
-  "taxOnFreight" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToCompany" : "aeiou",
-  "numberOfCartons" : 123,
-  "shipToZip" : "aeiou",
-  "customerPONo" : "aeiou",
-  "lastShipDate" : "2000-01-23T04:56:07.000+0000",
-  "shipToAttention" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "distributionCharges" : 1.3579000000000001069366817318950779736042022705078125,
-  "numberOfPallets" : 123,
-  "legacyRestrictionType" : "aeiou",
-  "shipToPhone" : "aeiou",
-  "needByDate" : "2000-01-23T04:56:07.000+0000",
-  "shipCode" : "aeiou",
-  "orderModifyDate" : "2000-01-23T04:56:07.000+0000",
-  "authorizedBy" : "aeiou",
-  "holdCode" : "aeiou",
-  "deliverOnDate" : "2000-01-23T04:56:07.000+0000",
-  "totalDiscount" : 1.3579000000000001069366817318950779736042022705078125,
-  "priorityCode" : 123,
-  "completionStatus" : "aeiou",
-  "mediaCode" : "aeiou",
-  "customerOrderNo" : "aeiou",
-  "packingSlipTemplateId" : 123,
-  "estimatedNumberOfPicks" : 123,
-  "branchCustomerType" : "aeiou",
-  "totalQty" : 123,
-  "orderConfirmationEmailTemplateId" : 123,
-  "billToState" : "aeiou",
-  "fulfillmentProcessId" : 123,
-  "billToCity" : "aeiou",
-  "deliveredDate" : "2000-01-23T04:56:07.000+0000",
-  "shipToCity" : "aeiou",
-  "orderReason" : 123,
-  "carrierName" : "aeiou",
-  "leadPackageId" : "aeiou",
-  "shipBy" : "2000-01-23T04:56:07.000+0000",
-  "shippingCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "distributionChannel" : "aeiou",
-  "externalShippingSystemId" : 123,
-  "lobId" : 123,
-  "orderSourceId" : 123,
-  "shipToStreet2" : "aeiou",
-  "batchNo" : "aeiou",
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToStreet3" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "billToEmail" : "aeiou",
-  "totalPaid" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderSourceName" : "aeiou",
-  "tax" : 1.3579000000000001069366817318950779736042022705078125,
-  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderInvoiceTemplateId" : 123,
-  "billToCountry" : "aeiou",
-  "branchSector" : "aeiou",
-  "billToPhone" : "aeiou",
-  "serviceTypeName" : "aeiou",
-  "orderDate" : "2000-01-23T04:56:07.000+0000",
-  "numberOfLineItems" : 123,
-  "numberOfTouches" : 123,
-  "priceMode" : "aeiou",
+  "priceLevel" : "priceLevel",
+  "integrationPartnerId" : 2,
+  "omsCustomerId" : 1,
+  "shipToStreet" : "shipToStreet",
+  "division" : 5,
+  "billToZip" : "billToZip",
+  "numberOfWraps" : 6,
+  "shipToEmail" : "shipToEmail",
+  "numberOfCases" : 3,
+  "billToStreet" : "billToStreet",
+  "shipToState" : "shipToState",
+  "branchId" : "branchId",
+  "reqStatusName" : "reqStatusName",
+  "giftMessage" : "giftMessage",
+  "costCenter" : "costCenter",
+  "shipDate" : "2000-01-23T04:56:07.000+00:00",
+  "reqTypeName" : "reqTypeName",
+  "orderMessage" : "orderMessage",
+  "firstShipDate" : "2000-01-23T04:56:07.000+00:00",
+  "shippingSystemName" : "shippingSystemName",
+  "warehouseId" : 9,
+  "billToAttention" : "billToAttention",
+  "subtotal" : 9.0183481860707832566959041287191212177276611328125,
+  "integrationPartnerName" : "integrationPartnerName",
+  "status" : "status",
+  "alternateUsage" : "alternateUsage",
+  "authorizationAmount" : 8.7620420127490010742121739895083010196685791015625,
+  "freight" : 1.024645700144157789424070870154537260532379150390625,
+  "billToCompany" : "billToCompany",
+  "taxOnFreight" : 6.438423552598546706349225132726132869720458984375,
+  "shipToCompany" : "shipToCompany",
+  "numberOfCartons" : 7,
+  "shipToZip" : "shipToZip",
+  "customerPONo" : "customerPONo",
+  "lastShipDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipToAttention" : "shipToAttention",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "distributionCharges" : 6.96511769763884558415156789124011993408203125,
+  "numberOfPallets" : 1,
+  "legacyRestrictionType" : "legacyRestrictionType",
+  "shipToPhone" : "shipToPhone",
+  "needByDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipCode" : "shipCode",
+  "orderModifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "authorizedBy" : "authorizedBy",
+  "holdCode" : "holdCode",
+  "deliverOnDate" : "2000-01-23T04:56:07.000+00:00",
+  "totalDiscount" : 2.884162126668780246063761296682059764862060546875,
+  "priorityCode" : 2,
+  "completionStatus" : "completionStatus",
+  "mediaCode" : "mediaCode",
+  "customerOrderNo" : "customerOrderNo",
+  "packingSlipTemplateId" : 6,
+  "estimatedNumberOfPicks" : 7,
+  "branchCustomerType" : "branchCustomerType",
+  "totalQty" : 5,
+  "orderConfirmationEmailTemplateId" : 0,
+  "billToState" : "billToState",
+  "fulfillmentProcessId" : 1,
+  "billToCity" : "billToCity",
+  "deliveredDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipToCity" : "shipToCity",
+  "orderReason" : 7,
+  "carrierName" : "carrierName",
+  "leadPackageId" : "leadPackageId",
+  "shipBy" : "2000-01-23T04:56:07.000+00:00",
+  "shippingCharge" : 1.2846590061165319429647979632136411964893341064453125,
+  "distributionChannel" : "distributionChannel",
+  "externalShippingSystemId" : 6,
+  "lobId" : 5,
+  "orderSourceId" : 3,
+  "shipToStreet2" : "shipToStreet2",
+  "batchNo" : "batchNo",
+  "orderNo" : 0.80082819046101150206595775671303272247314453125,
+  "shipToStreet3" : "shipToStreet3",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "billToEmail" : "billToEmail",
+  "totalPaid" : 6.683562403749608193948006373830139636993408203125,
+  "orderSourceName" : "orderSourceName",
+  "tax" : 3.557195227068097320710649000830017030239105224609375,
+  "groupOrderId" : 6.02745618307040320615897144307382404804229736328125,
+  "orderInvoiceTemplateId" : 0,
+  "billToCountry" : "billToCountry",
+  "branchSector" : "branchSector",
+  "billToPhone" : "billToPhone",
+  "serviceTypeName" : "serviceTypeName",
+  "orderDate" : "2000-01-23T04:56:07.000+00:00",
+  "numberOfLineItems" : 4,
+  "numberOfTouches" : 3,
+  "priceMode" : "priceMode",
   "customFields" : {
     "key" : "{}"
   },
-  "orderLoadProgramName" : "aeiou",
-  "stopBackOrders" : "aeiou",
-  "shipmentConfirmationEmailTemplateId" : 123,
-  "parcelAccountId" : 123,
-  "enteredBy" : "aeiou",
-  "branchArea" : "aeiou",
-  "orderCreateDate" : "2000-01-23T04:56:07.000+0000",
-  "shipVia" : "aeiou",
-  "total" : 1.3579000000000001069366817318950779736042022705078125,
-  "serviceTypeId" : "aeiou",
-  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "estimatedWeightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToCountry" : "aeiou",
-  "balanceDue" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderLoadProgramId" : 123,
-  "alcoholOrderType" : "aeiou",
-  "billToStreet2" : "aeiou",
-  "billToStreet3" : "aeiou",
-  "omsOrderNo" : 123,
-  "distributionChannelName" : "aeiou",
-  "orderCode" : "aeiou",
-  "carrierId" : 123
+  "orderLoadProgramName" : "orderLoadProgramName",
+  "stopBackOrders" : "stopBackOrders",
+  "shipmentConfirmationEmailTemplateId" : 7,
+  "parcelAccountId" : 6,
+  "enteredBy" : "enteredBy",
+  "branchArea" : "branchArea",
+  "orderCreateDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipVia" : "shipVia",
+  "total" : 9.965781217890562260208753286860883235931396484375,
+  "serviceTypeId" : "serviceTypeId",
+  "weightLbs" : 1.489415909854170383397331534069962799549102783203125,
+  "estimatedWeightLbs" : 6.8468526983526398765889098285697400569915771484375,
+  "shipToCountry" : "shipToCountry",
+  "balanceDue" : 9.3693102714106686335071572102606296539306640625,
+  "orderLoadProgramId" : 4,
+  "alcoholOrderType" : "alcoholOrderType",
+  "billToStreet2" : "billToStreet2",
+  "billToStreet3" : "billToStreet3",
+  "omsOrderNo" : 7,
+  "distributionChannelName" : "distributionChannelName",
+  "orderCode" : "orderCode",
+  "carrierId" : 5
+}, {
+  "priceLevel" : "priceLevel",
+  "integrationPartnerId" : 2,
+  "omsCustomerId" : 1,
+  "shipToStreet" : "shipToStreet",
+  "division" : 5,
+  "billToZip" : "billToZip",
+  "numberOfWraps" : 6,
+  "shipToEmail" : "shipToEmail",
+  "numberOfCases" : 3,
+  "billToStreet" : "billToStreet",
+  "shipToState" : "shipToState",
+  "branchId" : "branchId",
+  "reqStatusName" : "reqStatusName",
+  "giftMessage" : "giftMessage",
+  "costCenter" : "costCenter",
+  "shipDate" : "2000-01-23T04:56:07.000+00:00",
+  "reqTypeName" : "reqTypeName",
+  "orderMessage" : "orderMessage",
+  "firstShipDate" : "2000-01-23T04:56:07.000+00:00",
+  "shippingSystemName" : "shippingSystemName",
+  "warehouseId" : 9,
+  "billToAttention" : "billToAttention",
+  "subtotal" : 9.0183481860707832566959041287191212177276611328125,
+  "integrationPartnerName" : "integrationPartnerName",
+  "status" : "status",
+  "alternateUsage" : "alternateUsage",
+  "authorizationAmount" : 8.7620420127490010742121739895083010196685791015625,
+  "freight" : 1.024645700144157789424070870154537260532379150390625,
+  "billToCompany" : "billToCompany",
+  "taxOnFreight" : 6.438423552598546706349225132726132869720458984375,
+  "shipToCompany" : "shipToCompany",
+  "numberOfCartons" : 7,
+  "shipToZip" : "shipToZip",
+  "customerPONo" : "customerPONo",
+  "lastShipDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipToAttention" : "shipToAttention",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "distributionCharges" : 6.96511769763884558415156789124011993408203125,
+  "numberOfPallets" : 1,
+  "legacyRestrictionType" : "legacyRestrictionType",
+  "shipToPhone" : "shipToPhone",
+  "needByDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipCode" : "shipCode",
+  "orderModifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "authorizedBy" : "authorizedBy",
+  "holdCode" : "holdCode",
+  "deliverOnDate" : "2000-01-23T04:56:07.000+00:00",
+  "totalDiscount" : 2.884162126668780246063761296682059764862060546875,
+  "priorityCode" : 2,
+  "completionStatus" : "completionStatus",
+  "mediaCode" : "mediaCode",
+  "customerOrderNo" : "customerOrderNo",
+  "packingSlipTemplateId" : 6,
+  "estimatedNumberOfPicks" : 7,
+  "branchCustomerType" : "branchCustomerType",
+  "totalQty" : 5,
+  "orderConfirmationEmailTemplateId" : 0,
+  "billToState" : "billToState",
+  "fulfillmentProcessId" : 1,
+  "billToCity" : "billToCity",
+  "deliveredDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipToCity" : "shipToCity",
+  "orderReason" : 7,
+  "carrierName" : "carrierName",
+  "leadPackageId" : "leadPackageId",
+  "shipBy" : "2000-01-23T04:56:07.000+00:00",
+  "shippingCharge" : 1.2846590061165319429647979632136411964893341064453125,
+  "distributionChannel" : "distributionChannel",
+  "externalShippingSystemId" : 6,
+  "lobId" : 5,
+  "orderSourceId" : 3,
+  "shipToStreet2" : "shipToStreet2",
+  "batchNo" : "batchNo",
+  "orderNo" : 0.80082819046101150206595775671303272247314453125,
+  "shipToStreet3" : "shipToStreet3",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "billToEmail" : "billToEmail",
+  "totalPaid" : 6.683562403749608193948006373830139636993408203125,
+  "orderSourceName" : "orderSourceName",
+  "tax" : 3.557195227068097320710649000830017030239105224609375,
+  "groupOrderId" : 6.02745618307040320615897144307382404804229736328125,
+  "orderInvoiceTemplateId" : 0,
+  "billToCountry" : "billToCountry",
+  "branchSector" : "branchSector",
+  "billToPhone" : "billToPhone",
+  "serviceTypeName" : "serviceTypeName",
+  "orderDate" : "2000-01-23T04:56:07.000+00:00",
+  "numberOfLineItems" : 4,
+  "numberOfTouches" : 3,
+  "priceMode" : "priceMode",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "orderLoadProgramName" : "orderLoadProgramName",
+  "stopBackOrders" : "stopBackOrders",
+  "shipmentConfirmationEmailTemplateId" : 7,
+  "parcelAccountId" : 6,
+  "enteredBy" : "enteredBy",
+  "branchArea" : "branchArea",
+  "orderCreateDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipVia" : "shipVia",
+  "total" : 9.965781217890562260208753286860883235931396484375,
+  "serviceTypeId" : "serviceTypeId",
+  "weightLbs" : 1.489415909854170383397331534069962799549102783203125,
+  "estimatedWeightLbs" : 6.8468526983526398765889098285697400569915771484375,
+  "shipToCountry" : "shipToCountry",
+  "balanceDue" : 9.3693102714106686335071572102606296539306640625,
+  "orderLoadProgramId" : 4,
+  "alcoholOrderType" : "alcoholOrderType",
+  "billToStreet2" : "billToStreet2",
+  "billToStreet3" : "billToStreet3",
+  "omsOrderNo" : 7,
+  "distributionChannelName" : "distributionChannelName",
+  "orderCode" : "orderCode",
+  "carrierId" : 5
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -648,25 +759,27 @@ public class OrderActivityAPI: APIBase {
 
      - returns: RequestBuilder<[OrderActivity]> 
      */
-    public class func getOrderActivityByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[OrderActivity]> {
+    public class func getOrderActivityByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[OrderActivity]> {
         let path = "/beta/orderActivity/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[OrderActivity]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get an orderActivity by id
      
      - parameter orderActivityId: (path) Id of the orderActivity to be returned. 
@@ -680,130 +793,128 @@ public class OrderActivityAPI: APIBase {
 
 
     /**
-     
      Get an orderActivity by id
-     
      - GET /beta/orderActivity/{orderActivityId}
      - Returns the orderActivity identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "priceLevel" : "aeiou",
-  "integrationPartnerId" : 123,
-  "omsCustomerId" : 123,
-  "shipToStreet" : "aeiou",
-  "division" : 123,
-  "billToZip" : "aeiou",
-  "numberOfWraps" : 123,
-  "shipToEmail" : "aeiou",
-  "numberOfCases" : 123,
-  "billToStreet" : "aeiou",
-  "shipToState" : "aeiou",
-  "branchId" : "aeiou",
-  "reqStatusName" : "aeiou",
-  "giftMessage" : "aeiou",
-  "costCenter" : "aeiou",
-  "shipDate" : "2000-01-23T04:56:07.000+0000",
-  "reqTypeName" : "aeiou",
-  "orderMessage" : "aeiou",
-  "firstShipDate" : "2000-01-23T04:56:07.000+0000",
-  "shippingSystemName" : "aeiou",
-  "warehouseId" : 123,
-  "billToAttention" : "aeiou",
-  "subtotal" : 1.3579000000000001069366817318950779736042022705078125,
-  "integrationPartnerName" : "aeiou",
-  "status" : "aeiou",
-  "alternateUsage" : "aeiou",
-  "authorizationAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "freight" : 1.3579000000000001069366817318950779736042022705078125,
-  "billToCompany" : "aeiou",
-  "taxOnFreight" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToCompany" : "aeiou",
-  "numberOfCartons" : 123,
-  "shipToZip" : "aeiou",
-  "customerPONo" : "aeiou",
-  "lastShipDate" : "2000-01-23T04:56:07.000+0000",
-  "shipToAttention" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "distributionCharges" : 1.3579000000000001069366817318950779736042022705078125,
-  "numberOfPallets" : 123,
-  "legacyRestrictionType" : "aeiou",
-  "shipToPhone" : "aeiou",
-  "needByDate" : "2000-01-23T04:56:07.000+0000",
-  "shipCode" : "aeiou",
-  "orderModifyDate" : "2000-01-23T04:56:07.000+0000",
-  "authorizedBy" : "aeiou",
-  "holdCode" : "aeiou",
-  "deliverOnDate" : "2000-01-23T04:56:07.000+0000",
-  "totalDiscount" : 1.3579000000000001069366817318950779736042022705078125,
-  "priorityCode" : 123,
-  "completionStatus" : "aeiou",
-  "mediaCode" : "aeiou",
-  "customerOrderNo" : "aeiou",
-  "packingSlipTemplateId" : 123,
-  "estimatedNumberOfPicks" : 123,
-  "branchCustomerType" : "aeiou",
-  "totalQty" : 123,
-  "orderConfirmationEmailTemplateId" : 123,
-  "billToState" : "aeiou",
-  "fulfillmentProcessId" : 123,
-  "billToCity" : "aeiou",
-  "deliveredDate" : "2000-01-23T04:56:07.000+0000",
-  "shipToCity" : "aeiou",
-  "orderReason" : 123,
-  "carrierName" : "aeiou",
-  "leadPackageId" : "aeiou",
-  "shipBy" : "2000-01-23T04:56:07.000+0000",
-  "shippingCharge" : 1.3579000000000001069366817318950779736042022705078125,
-  "distributionChannel" : "aeiou",
-  "externalShippingSystemId" : 123,
-  "lobId" : 123,
-  "orderSourceId" : 123,
-  "shipToStreet2" : "aeiou",
-  "batchNo" : "aeiou",
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToStreet3" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "billToEmail" : "aeiou",
-  "totalPaid" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderSourceName" : "aeiou",
-  "tax" : 1.3579000000000001069366817318950779736042022705078125,
-  "groupOrderId" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderInvoiceTemplateId" : 123,
-  "billToCountry" : "aeiou",
-  "branchSector" : "aeiou",
-  "billToPhone" : "aeiou",
-  "serviceTypeName" : "aeiou",
-  "orderDate" : "2000-01-23T04:56:07.000+0000",
-  "numberOfLineItems" : 123,
-  "numberOfTouches" : 123,
-  "priceMode" : "aeiou",
+  "priceLevel" : "priceLevel",
+  "integrationPartnerId" : 2,
+  "omsCustomerId" : 1,
+  "shipToStreet" : "shipToStreet",
+  "division" : 5,
+  "billToZip" : "billToZip",
+  "numberOfWraps" : 6,
+  "shipToEmail" : "shipToEmail",
+  "numberOfCases" : 3,
+  "billToStreet" : "billToStreet",
+  "shipToState" : "shipToState",
+  "branchId" : "branchId",
+  "reqStatusName" : "reqStatusName",
+  "giftMessage" : "giftMessage",
+  "costCenter" : "costCenter",
+  "shipDate" : "2000-01-23T04:56:07.000+00:00",
+  "reqTypeName" : "reqTypeName",
+  "orderMessage" : "orderMessage",
+  "firstShipDate" : "2000-01-23T04:56:07.000+00:00",
+  "shippingSystemName" : "shippingSystemName",
+  "warehouseId" : 9,
+  "billToAttention" : "billToAttention",
+  "subtotal" : 9.0183481860707832566959041287191212177276611328125,
+  "integrationPartnerName" : "integrationPartnerName",
+  "status" : "status",
+  "alternateUsage" : "alternateUsage",
+  "authorizationAmount" : 8.7620420127490010742121739895083010196685791015625,
+  "freight" : 1.024645700144157789424070870154537260532379150390625,
+  "billToCompany" : "billToCompany",
+  "taxOnFreight" : 6.438423552598546706349225132726132869720458984375,
+  "shipToCompany" : "shipToCompany",
+  "numberOfCartons" : 7,
+  "shipToZip" : "shipToZip",
+  "customerPONo" : "customerPONo",
+  "lastShipDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipToAttention" : "shipToAttention",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "distributionCharges" : 6.96511769763884558415156789124011993408203125,
+  "numberOfPallets" : 1,
+  "legacyRestrictionType" : "legacyRestrictionType",
+  "shipToPhone" : "shipToPhone",
+  "needByDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipCode" : "shipCode",
+  "orderModifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "authorizedBy" : "authorizedBy",
+  "holdCode" : "holdCode",
+  "deliverOnDate" : "2000-01-23T04:56:07.000+00:00",
+  "totalDiscount" : 2.884162126668780246063761296682059764862060546875,
+  "priorityCode" : 2,
+  "completionStatus" : "completionStatus",
+  "mediaCode" : "mediaCode",
+  "customerOrderNo" : "customerOrderNo",
+  "packingSlipTemplateId" : 6,
+  "estimatedNumberOfPicks" : 7,
+  "branchCustomerType" : "branchCustomerType",
+  "totalQty" : 5,
+  "orderConfirmationEmailTemplateId" : 0,
+  "billToState" : "billToState",
+  "fulfillmentProcessId" : 1,
+  "billToCity" : "billToCity",
+  "deliveredDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipToCity" : "shipToCity",
+  "orderReason" : 7,
+  "carrierName" : "carrierName",
+  "leadPackageId" : "leadPackageId",
+  "shipBy" : "2000-01-23T04:56:07.000+00:00",
+  "shippingCharge" : 1.2846590061165319429647979632136411964893341064453125,
+  "distributionChannel" : "distributionChannel",
+  "externalShippingSystemId" : 6,
+  "lobId" : 5,
+  "orderSourceId" : 3,
+  "shipToStreet2" : "shipToStreet2",
+  "batchNo" : "batchNo",
+  "orderNo" : 0.80082819046101150206595775671303272247314453125,
+  "shipToStreet3" : "shipToStreet3",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "billToEmail" : "billToEmail",
+  "totalPaid" : 6.683562403749608193948006373830139636993408203125,
+  "orderSourceName" : "orderSourceName",
+  "tax" : 3.557195227068097320710649000830017030239105224609375,
+  "groupOrderId" : 6.02745618307040320615897144307382404804229736328125,
+  "orderInvoiceTemplateId" : 0,
+  "billToCountry" : "billToCountry",
+  "branchSector" : "branchSector",
+  "billToPhone" : "billToPhone",
+  "serviceTypeName" : "serviceTypeName",
+  "orderDate" : "2000-01-23T04:56:07.000+00:00",
+  "numberOfLineItems" : 4,
+  "numberOfTouches" : 3,
+  "priceMode" : "priceMode",
   "customFields" : {
     "key" : "{}"
   },
-  "orderLoadProgramName" : "aeiou",
-  "stopBackOrders" : "aeiou",
-  "shipmentConfirmationEmailTemplateId" : 123,
-  "parcelAccountId" : 123,
-  "enteredBy" : "aeiou",
-  "branchArea" : "aeiou",
-  "orderCreateDate" : "2000-01-23T04:56:07.000+0000",
-  "shipVia" : "aeiou",
-  "total" : 1.3579000000000001069366817318950779736042022705078125,
-  "serviceTypeId" : "aeiou",
-  "weightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "estimatedWeightLbs" : 1.3579000000000001069366817318950779736042022705078125,
-  "shipToCountry" : "aeiou",
-  "balanceDue" : 1.3579000000000001069366817318950779736042022705078125,
-  "orderLoadProgramId" : 123,
-  "alcoholOrderType" : "aeiou",
-  "billToStreet2" : "aeiou",
-  "billToStreet3" : "aeiou",
-  "omsOrderNo" : 123,
-  "distributionChannelName" : "aeiou",
-  "orderCode" : "aeiou",
-  "carrierId" : 123
+  "orderLoadProgramName" : "orderLoadProgramName",
+  "stopBackOrders" : "stopBackOrders",
+  "shipmentConfirmationEmailTemplateId" : 7,
+  "parcelAccountId" : 6,
+  "enteredBy" : "enteredBy",
+  "branchArea" : "branchArea",
+  "orderCreateDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipVia" : "shipVia",
+  "total" : 9.965781217890562260208753286860883235931396484375,
+  "serviceTypeId" : "serviceTypeId",
+  "weightLbs" : 1.489415909854170383397331534069962799549102783203125,
+  "estimatedWeightLbs" : 6.8468526983526398765889098285697400569915771484375,
+  "shipToCountry" : "shipToCountry",
+  "balanceDue" : 9.3693102714106686335071572102606296539306640625,
+  "orderLoadProgramId" : 4,
+  "alcoholOrderType" : "alcoholOrderType",
+  "billToStreet2" : "billToStreet2",
+  "billToStreet3" : "billToStreet3",
+  "omsOrderNo" : 7,
+  "distributionChannelName" : "distributionChannelName",
+  "orderCode" : "orderCode",
+  "carrierId" : 5
 }}]
      
      - parameter orderActivityId: (path) Id of the orderActivity to be returned. 
@@ -814,17 +925,19 @@ public class OrderActivityAPI: APIBase {
         var path = "/beta/orderActivity/{orderActivityId}"
         path = path.stringByReplacingOccurrencesOfString("{orderActivityId}", withString: "\(orderActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<OrderActivity>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for an orderActivity.
      
      - parameter orderActivityId: (path) Id of the orderActivity to get tags for 
@@ -838,9 +951,7 @@ public class OrderActivityAPI: APIBase {
 
 
     /**
-     
      Get the tags for an orderActivity.
-     
      - GET /beta/orderActivity/{orderActivityId}/tag
      - Get all existing orderActivity tags.
      - API Key:
@@ -855,17 +966,19 @@ public class OrderActivityAPI: APIBase {
         var path = "/beta/orderActivity/{orderActivityId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{orderActivityId}", withString: "\(orderActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update an orderActivity
      
      - parameter body: (body) OrderActivity to be updated. 
@@ -879,9 +992,7 @@ public class OrderActivityAPI: APIBase {
 
 
     /**
-     
      Update an orderActivity
-     
      - PUT /beta/orderActivity
      - Updates an existing orderActivity using the specified data.
      - API Key:
@@ -895,12 +1006,13 @@ public class OrderActivityAPI: APIBase {
     public class func updateOrderActivityWithRequestBuilder(body body: OrderActivity) -> RequestBuilder<Void> {
         let path = "/beta/orderActivity"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

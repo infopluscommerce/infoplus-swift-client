@@ -9,14 +9,13 @@ import Foundation
 
 
 public class ExternalShipment: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var orderId: Double?
-    public var carrierId: Int?
-    public var parcelAccountId: Int?
-    public var thirdPartyParcelAccountId: Int?
+    public var carrierId: Int32?
+    public var parcelAccountId: Int32?
+    public var thirdPartyParcelAccountId: Int32?
     public var freight: Double?
     public var trackingNo: String?
     public var dim1In: Double?
@@ -28,20 +27,19 @@ public class ExternalShipment: JSONEncodable {
     public var zone: String?
     public var status: String?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["orderId"] = self.orderId
-        nillableDictionary["carrierId"] = self.carrierId
-        nillableDictionary["parcelAccountId"] = self.parcelAccountId
-        nillableDictionary["thirdPartyParcelAccountId"] = self.thirdPartyParcelAccountId
+        nillableDictionary["carrierId"] = self.carrierId?.encodeToJSON()
+        nillableDictionary["parcelAccountId"] = self.parcelAccountId?.encodeToJSON()
+        nillableDictionary["thirdPartyParcelAccountId"] = self.thirdPartyParcelAccountId?.encodeToJSON()
         nillableDictionary["freight"] = self.freight
         nillableDictionary["trackingNo"] = self.trackingNo
         nillableDictionary["dim1In"] = self.dim1In

@@ -9,10 +9,8 @@ import Foundation
 
 
 public class GetOrderWarehouseFulfillmentDataOutput: JSONEncodable {
-
     public var rawData: [String:OrderWarehouseFulfillmentRawData]?
     public var planList: [OrderWarehouseFulfillmentPlan]?
-    
 
     public init() {}
 

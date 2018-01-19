@@ -11,14 +11,13 @@ import Alamofire
 
 public class WarehouseDocumentTypeAPI: APIBase {
     /**
-     
      Add new audit for a warehouseDocumentType
      
      - parameter warehouseDocumentTypeId: (path) Id of the warehouseDocumentType to add an audit to 
      - parameter warehouseDocumentTypeAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addWarehouseDocumentTypeAudit(warehouseDocumentTypeId warehouseDocumentTypeId: Int, warehouseDocumentTypeAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addWarehouseDocumentTypeAudit(warehouseDocumentTypeId warehouseDocumentTypeId: Int32, warehouseDocumentTypeAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addWarehouseDocumentTypeAuditWithRequestBuilder(warehouseDocumentTypeId: warehouseDocumentTypeId, warehouseDocumentTypeAudit: warehouseDocumentTypeAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -26,9 +25,7 @@ public class WarehouseDocumentTypeAPI: APIBase {
 
 
     /**
-     
      Add new audit for a warehouseDocumentType
-     
      - PUT /beta/warehouseDocumentType/{warehouseDocumentTypeId}/audit/{warehouseDocumentTypeAudit}
      - Adds an audit to an existing warehouseDocumentType.
      - API Key:
@@ -40,29 +37,31 @@ public class WarehouseDocumentTypeAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addWarehouseDocumentTypeAuditWithRequestBuilder(warehouseDocumentTypeId warehouseDocumentTypeId: Int, warehouseDocumentTypeAudit: String) -> RequestBuilder<Void> {
+    public class func addWarehouseDocumentTypeAuditWithRequestBuilder(warehouseDocumentTypeId warehouseDocumentTypeId: Int32, warehouseDocumentTypeAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/warehouseDocumentType/{warehouseDocumentTypeId}/audit/{warehouseDocumentTypeAudit}"
         path = path.stringByReplacingOccurrencesOfString("{warehouseDocumentTypeId}", withString: "\(warehouseDocumentTypeId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{warehouseDocumentTypeAudit}", withString: "\(warehouseDocumentTypeAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for a warehouseDocumentType.
      
      - parameter warehouseDocumentTypeId: (path) Id of the warehouseDocumentType to add a tag to 
      - parameter warehouseDocumentTypeTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addWarehouseDocumentTypeTag(warehouseDocumentTypeId warehouseDocumentTypeId: Int, warehouseDocumentTypeTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addWarehouseDocumentTypeTag(warehouseDocumentTypeId warehouseDocumentTypeId: Int32, warehouseDocumentTypeTag: String, completion: ((error: ErrorType?) -> Void)) {
         addWarehouseDocumentTypeTagWithRequestBuilder(warehouseDocumentTypeId: warehouseDocumentTypeId, warehouseDocumentTypeTag: warehouseDocumentTypeTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -70,9 +69,7 @@ public class WarehouseDocumentTypeAPI: APIBase {
 
 
     /**
-     
      Add new tags for a warehouseDocumentType.
-     
      - PUT /beta/warehouseDocumentType/{warehouseDocumentTypeId}/tag/{warehouseDocumentTypeTag}
      - Adds a tag to an existing warehouseDocumentType.
      - API Key:
@@ -84,29 +81,31 @@ public class WarehouseDocumentTypeAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addWarehouseDocumentTypeTagWithRequestBuilder(warehouseDocumentTypeId warehouseDocumentTypeId: Int, warehouseDocumentTypeTag: String) -> RequestBuilder<Void> {
+    public class func addWarehouseDocumentTypeTagWithRequestBuilder(warehouseDocumentTypeId warehouseDocumentTypeId: Int32, warehouseDocumentTypeTag: String) -> RequestBuilder<Void> {
         var path = "/beta/warehouseDocumentType/{warehouseDocumentTypeId}/tag/{warehouseDocumentTypeTag}"
         path = path.stringByReplacingOccurrencesOfString("{warehouseDocumentTypeId}", withString: "\(warehouseDocumentTypeId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{warehouseDocumentTypeTag}", withString: "\(warehouseDocumentTypeTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for a warehouseDocumentType.
      
      - parameter warehouseDocumentTypeId: (path) Id of the warehouseDocumentType to remove tag from 
      - parameter warehouseDocumentTypeTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteWarehouseDocumentTypeTag(warehouseDocumentTypeId warehouseDocumentTypeId: Int, warehouseDocumentTypeTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteWarehouseDocumentTypeTag(warehouseDocumentTypeId warehouseDocumentTypeId: Int32, warehouseDocumentTypeTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteWarehouseDocumentTypeTagWithRequestBuilder(warehouseDocumentTypeId: warehouseDocumentTypeId, warehouseDocumentTypeTag: warehouseDocumentTypeTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -114,9 +113,7 @@ public class WarehouseDocumentTypeAPI: APIBase {
 
 
     /**
-     
      Delete a tag for a warehouseDocumentType.
-     
      - DELETE /beta/warehouseDocumentType/{warehouseDocumentTypeId}/tag/{warehouseDocumentTypeTag}
      - Deletes an existing warehouseDocumentType tag using the specified data.
      - API Key:
@@ -128,28 +125,30 @@ public class WarehouseDocumentTypeAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteWarehouseDocumentTypeTagWithRequestBuilder(warehouseDocumentTypeId warehouseDocumentTypeId: Int, warehouseDocumentTypeTag: String) -> RequestBuilder<Void> {
+    public class func deleteWarehouseDocumentTypeTagWithRequestBuilder(warehouseDocumentTypeId warehouseDocumentTypeId: Int32, warehouseDocumentTypeTag: String) -> RequestBuilder<Void> {
         var path = "/beta/warehouseDocumentType/{warehouseDocumentTypeId}/tag/{warehouseDocumentTypeTag}"
         path = path.stringByReplacingOccurrencesOfString("{warehouseDocumentTypeId}", withString: "\(warehouseDocumentTypeId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{warehouseDocumentTypeTag}", withString: "\(warehouseDocumentTypeTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated a warehouseDocumentType by id
      
      - parameter warehouseDocumentTypeId: (path) Id of the warehouseDocumentType to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateWarehouseDocumentTypeById(warehouseDocumentTypeId warehouseDocumentTypeId: Int, completion: ((data: WarehouseDocumentType?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateWarehouseDocumentTypeById(warehouseDocumentTypeId warehouseDocumentTypeId: Int32, completion: ((data: WarehouseDocumentType?, error: ErrorType?) -> Void)) {
         getDuplicateWarehouseDocumentTypeByIdWithRequestBuilder(warehouseDocumentTypeId: warehouseDocumentTypeId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -157,43 +156,43 @@ public class WarehouseDocumentTypeAPI: APIBase {
 
 
     /**
-     
      Get a duplicated a warehouseDocumentType by id
-     
      - GET /beta/warehouseDocumentType/duplicate/{warehouseDocumentTypeId}
      - Returns a duplicated warehouseDocumentType identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
   },
-  "name" : "aeiou",
-  "id" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "name" : "name",
+  "id" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 }}]
      
      - parameter warehouseDocumentTypeId: (path) Id of the warehouseDocumentType to be duplicated. 
 
      - returns: RequestBuilder<WarehouseDocumentType> 
      */
-    public class func getDuplicateWarehouseDocumentTypeByIdWithRequestBuilder(warehouseDocumentTypeId warehouseDocumentTypeId: Int) -> RequestBuilder<WarehouseDocumentType> {
+    public class func getDuplicateWarehouseDocumentTypeByIdWithRequestBuilder(warehouseDocumentTypeId warehouseDocumentTypeId: Int32) -> RequestBuilder<WarehouseDocumentType> {
         var path = "/beta/warehouseDocumentType/duplicate/{warehouseDocumentTypeId}"
         path = path.stringByReplacingOccurrencesOfString("{warehouseDocumentTypeId}", withString: "\(warehouseDocumentTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<WarehouseDocumentType>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search warehouseDocumentTypes by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -202,7 +201,7 @@ public class WarehouseDocumentTypeAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getWarehouseDocumentTypeByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [WarehouseDocumentType]?, error: ErrorType?) -> Void)) {
+    public class func getWarehouseDocumentTypeByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [WarehouseDocumentType]?, error: ErrorType?) -> Void)) {
         getWarehouseDocumentTypeByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -210,22 +209,28 @@ public class WarehouseDocumentTypeAPI: APIBase {
 
 
     /**
-     
      Search warehouseDocumentTypes by filter
-     
      - GET /beta/warehouseDocumentType/search
      - Returns the list of warehouseDocumentTypes that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
   },
-  "name" : "aeiou",
-  "id" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "name" : "name",
+  "id" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
+}, {
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "name" : "name",
+  "id" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -235,31 +240,33 @@ public class WarehouseDocumentTypeAPI: APIBase {
 
      - returns: RequestBuilder<[WarehouseDocumentType]> 
      */
-    public class func getWarehouseDocumentTypeByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[WarehouseDocumentType]> {
+    public class func getWarehouseDocumentTypeByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[WarehouseDocumentType]> {
         let path = "/beta/warehouseDocumentType/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[WarehouseDocumentType]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get a warehouseDocumentType by id
      
      - parameter warehouseDocumentTypeId: (path) Id of the warehouseDocumentType to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getWarehouseDocumentTypeById(warehouseDocumentTypeId warehouseDocumentTypeId: Int, completion: ((data: WarehouseDocumentType?, error: ErrorType?) -> Void)) {
+    public class func getWarehouseDocumentTypeById(warehouseDocumentTypeId warehouseDocumentTypeId: Int32, completion: ((data: WarehouseDocumentType?, error: ErrorType?) -> Void)) {
         getWarehouseDocumentTypeByIdWithRequestBuilder(warehouseDocumentTypeId: warehouseDocumentTypeId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -267,49 +274,49 @@ public class WarehouseDocumentTypeAPI: APIBase {
 
 
     /**
-     
      Get a warehouseDocumentType by id
-     
      - GET /beta/warehouseDocumentType/{warehouseDocumentTypeId}
      - Returns the warehouseDocumentType identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
   },
-  "name" : "aeiou",
-  "id" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "name" : "name",
+  "id" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 }}]
      
      - parameter warehouseDocumentTypeId: (path) Id of the warehouseDocumentType to be returned. 
 
      - returns: RequestBuilder<WarehouseDocumentType> 
      */
-    public class func getWarehouseDocumentTypeByIdWithRequestBuilder(warehouseDocumentTypeId warehouseDocumentTypeId: Int) -> RequestBuilder<WarehouseDocumentType> {
+    public class func getWarehouseDocumentTypeByIdWithRequestBuilder(warehouseDocumentTypeId warehouseDocumentTypeId: Int32) -> RequestBuilder<WarehouseDocumentType> {
         var path = "/beta/warehouseDocumentType/{warehouseDocumentTypeId}"
         path = path.stringByReplacingOccurrencesOfString("{warehouseDocumentTypeId}", withString: "\(warehouseDocumentTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<WarehouseDocumentType>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for a warehouseDocumentType.
      
      - parameter warehouseDocumentTypeId: (path) Id of the warehouseDocumentType to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getWarehouseDocumentTypeTags(warehouseDocumentTypeId warehouseDocumentTypeId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getWarehouseDocumentTypeTags(warehouseDocumentTypeId warehouseDocumentTypeId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getWarehouseDocumentTypeTagsWithRequestBuilder(warehouseDocumentTypeId: warehouseDocumentTypeId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -317,9 +324,7 @@ public class WarehouseDocumentTypeAPI: APIBase {
 
 
     /**
-     
      Get the tags for a warehouseDocumentType.
-     
      - GET /beta/warehouseDocumentType/{warehouseDocumentTypeId}/tag
      - Get all existing warehouseDocumentType tags.
      - API Key:
@@ -330,17 +335,20 @@ public class WarehouseDocumentTypeAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getWarehouseDocumentTypeTagsWithRequestBuilder(warehouseDocumentTypeId warehouseDocumentTypeId: Int) -> RequestBuilder<Void> {
+    public class func getWarehouseDocumentTypeTagsWithRequestBuilder(warehouseDocumentTypeId warehouseDocumentTypeId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/warehouseDocumentType/{warehouseDocumentTypeId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{warehouseDocumentTypeId}", withString: "\(warehouseDocumentTypeId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

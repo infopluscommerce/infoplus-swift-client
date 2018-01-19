@@ -9,29 +9,27 @@ import Foundation
 
 
 public class ParcelAccount: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var carrier: String?
     public var accountNo: String?
-    public var client: Int?
+    public var client: Int32?
     public var name: String?
     public var manifestPartnerId: String?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["carrier"] = self.carrier
         nillableDictionary["accountNo"] = self.accountNo
-        nillableDictionary["client"] = self.client
+        nillableDictionary["client"] = self.client?.encodeToJSON()
         nillableDictionary["name"] = self.name
         nillableDictionary["manifestPartnerId"] = self.manifestPartnerId
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()

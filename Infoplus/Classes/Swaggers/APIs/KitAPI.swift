@@ -11,7 +11,6 @@ import Alamofire
 
 public class KitAPI: APIBase {
     /**
-     
      Create a kit
      
      - parameter body: (body) Kit to be inserted. 
@@ -25,50 +24,57 @@ public class KitAPI: APIBase {
 
 
     /**
-     
      Create a kit
-     
      - POST /beta/kit
      - Inserts a new kit using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "line7" : "aeiou",
-  "line6" : "aeiou",
-  "other" : "aeiou",
-  "line5" : "aeiou",
+  "line7" : "line7",
+  "line6" : "line6",
+  "other" : "other",
+  "line5" : "line5",
   "kitComponentList" : [ {
-    "additionalServices" : "aeiou",
-    "instructions" : "aeiou",
-    "quantity" : 123,
-    "critical" : "aeiou",
+    "additionalServices" : "additionalServices",
+    "instructions" : "instructions",
+    "quantity" : 9,
+    "critical" : "critical",
     "customFields" : {
       "key" : "{}"
     },
-    "sku" : "aeiou"
+    "sku" : "sku"
+  }, {
+    "additionalServices" : "additionalServices",
+    "instructions" : "instructions",
+    "quantity" : 9,
+    "critical" : "critical",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "sku" : "sku"
   } ],
-  "line4" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "line4" : "line4",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
   },
-  "line8" : "aeiou",
-  "midInvQty" : 123,
-  "numberOfComponents" : 123,
-  "isKOD" : "aeiou",
-  "touches" : 123,
-  "kitSKU" : "aeiou",
-  "minInvQty" : 123,
-  "kodType" : "aeiou",
-  "id" : 123,
-  "line3" : "aeiou",
-  "line2" : "aeiou",
-  "packagingType" : "aeiou",
-  "line1" : "aeiou",
-  "maxInvQty" : 123,
-  "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "line8" : "line8",
+  "midInvQty" : 2,
+  "numberOfComponents" : 1,
+  "isKOD" : "isKOD",
+  "touches" : 5,
+  "kitSKU" : "kitSKU",
+  "minInvQty" : 5,
+  "kodType" : "kodType",
+  "id" : 6,
+  "line3" : "line3",
+  "line2" : "line2",
+  "packagingType" : "packagingType",
+  "line1" : "line1",
+  "maxInvQty" : 7,
+  "lobId" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 }}]
      
      - parameter body: (body) Kit to be inserted. 
@@ -78,23 +84,23 @@ public class KitAPI: APIBase {
     public class func addKitWithRequestBuilder(body body: Kit) -> RequestBuilder<Kit> {
         let path = "/beta/kit"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Kit>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new audit for a kit
      
      - parameter kitId: (path) Id of the kit to add an audit to 
      - parameter kitAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addKitAudit(kitId kitId: Int, kitAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addKitAudit(kitId kitId: Int32, kitAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addKitAuditWithRequestBuilder(kitId: kitId, kitAudit: kitAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -102,9 +108,7 @@ public class KitAPI: APIBase {
 
 
     /**
-     
      Add new audit for a kit
-     
      - PUT /beta/kit/{kitId}/audit/{kitAudit}
      - Adds an audit to an existing kit.
      - API Key:
@@ -116,29 +120,31 @@ public class KitAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addKitAuditWithRequestBuilder(kitId kitId: Int, kitAudit: String) -> RequestBuilder<Void> {
+    public class func addKitAuditWithRequestBuilder(kitId kitId: Int32, kitAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/kit/{kitId}/audit/{kitAudit}"
         path = path.stringByReplacingOccurrencesOfString("{kitId}", withString: "\(kitId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{kitAudit}", withString: "\(kitAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for a kit.
      
      - parameter kitId: (path) Id of the kit to add a tag to 
      - parameter kitTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addKitTag(kitId kitId: Int, kitTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addKitTag(kitId kitId: Int32, kitTag: String, completion: ((error: ErrorType?) -> Void)) {
         addKitTagWithRequestBuilder(kitId: kitId, kitTag: kitTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -146,9 +152,7 @@ public class KitAPI: APIBase {
 
 
     /**
-     
      Add new tags for a kit.
-     
      - PUT /beta/kit/{kitId}/tag/{kitTag}
      - Adds a tag to an existing kit.
      - API Key:
@@ -160,28 +164,30 @@ public class KitAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addKitTagWithRequestBuilder(kitId kitId: Int, kitTag: String) -> RequestBuilder<Void> {
+    public class func addKitTagWithRequestBuilder(kitId kitId: Int32, kitTag: String) -> RequestBuilder<Void> {
         var path = "/beta/kit/{kitId}/tag/{kitTag}"
         path = path.stringByReplacingOccurrencesOfString("{kitId}", withString: "\(kitId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{kitTag}", withString: "\(kitTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a kit
      
      - parameter kitId: (path) Id of the kit to be deleted. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteKit(kitId kitId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteKit(kitId kitId: Int32, completion: ((error: ErrorType?) -> Void)) {
         deleteKitWithRequestBuilder(kitId: kitId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -189,9 +195,7 @@ public class KitAPI: APIBase {
 
 
     /**
-     
      Delete a kit
-     
      - DELETE /beta/kit/{kitId}
      - Deletes the kit identified by the specified id.
      - API Key:
@@ -202,28 +206,30 @@ public class KitAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteKitWithRequestBuilder(kitId kitId: Int) -> RequestBuilder<Void> {
+    public class func deleteKitWithRequestBuilder(kitId kitId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/kit/{kitId}"
         path = path.stringByReplacingOccurrencesOfString("{kitId}", withString: "\(kitId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for a kit.
      
      - parameter kitId: (path) Id of the kit to remove tag from 
      - parameter kitTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteKitTag(kitId kitId: Int, kitTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteKitTag(kitId kitId: Int32, kitTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteKitTagWithRequestBuilder(kitId: kitId, kitTag: kitTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -231,9 +237,7 @@ public class KitAPI: APIBase {
 
 
     /**
-     
      Delete a tag for a kit.
-     
      - DELETE /beta/kit/{kitId}/tag/{kitTag}
      - Deletes an existing kit tag using the specified data.
      - API Key:
@@ -245,28 +249,30 @@ public class KitAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteKitTagWithRequestBuilder(kitId kitId: Int, kitTag: String) -> RequestBuilder<Void> {
+    public class func deleteKitTagWithRequestBuilder(kitId kitId: Int32, kitTag: String) -> RequestBuilder<Void> {
         var path = "/beta/kit/{kitId}/tag/{kitTag}"
         path = path.stringByReplacingOccurrencesOfString("{kitId}", withString: "\(kitId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{kitTag}", withString: "\(kitTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated a kit by id
      
      - parameter kitId: (path) Id of the kit to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateKitById(kitId kitId: Int, completion: ((data: Kit?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateKitById(kitId kitId: Int32, completion: ((data: Kit?, error: ErrorType?) -> Void)) {
         getDuplicateKitByIdWithRequestBuilder(kitId: kitId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -274,71 +280,80 @@ public class KitAPI: APIBase {
 
 
     /**
-     
      Get a duplicated a kit by id
-     
      - GET /beta/kit/duplicate/{kitId}
      - Returns a duplicated kit identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "line7" : "aeiou",
-  "line6" : "aeiou",
-  "other" : "aeiou",
-  "line5" : "aeiou",
+  "line7" : "line7",
+  "line6" : "line6",
+  "other" : "other",
+  "line5" : "line5",
   "kitComponentList" : [ {
-    "additionalServices" : "aeiou",
-    "instructions" : "aeiou",
-    "quantity" : 123,
-    "critical" : "aeiou",
+    "additionalServices" : "additionalServices",
+    "instructions" : "instructions",
+    "quantity" : 9,
+    "critical" : "critical",
     "customFields" : {
       "key" : "{}"
     },
-    "sku" : "aeiou"
+    "sku" : "sku"
+  }, {
+    "additionalServices" : "additionalServices",
+    "instructions" : "instructions",
+    "quantity" : 9,
+    "critical" : "critical",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "sku" : "sku"
   } ],
-  "line4" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "line4" : "line4",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
   },
-  "line8" : "aeiou",
-  "midInvQty" : 123,
-  "numberOfComponents" : 123,
-  "isKOD" : "aeiou",
-  "touches" : 123,
-  "kitSKU" : "aeiou",
-  "minInvQty" : 123,
-  "kodType" : "aeiou",
-  "id" : 123,
-  "line3" : "aeiou",
-  "line2" : "aeiou",
-  "packagingType" : "aeiou",
-  "line1" : "aeiou",
-  "maxInvQty" : 123,
-  "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "line8" : "line8",
+  "midInvQty" : 2,
+  "numberOfComponents" : 1,
+  "isKOD" : "isKOD",
+  "touches" : 5,
+  "kitSKU" : "kitSKU",
+  "minInvQty" : 5,
+  "kodType" : "kodType",
+  "id" : 6,
+  "line3" : "line3",
+  "line2" : "line2",
+  "packagingType" : "packagingType",
+  "line1" : "line1",
+  "maxInvQty" : 7,
+  "lobId" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 }}]
      
      - parameter kitId: (path) Id of the kit to be duplicated. 
 
      - returns: RequestBuilder<Kit> 
      */
-    public class func getDuplicateKitByIdWithRequestBuilder(kitId kitId: Int) -> RequestBuilder<Kit> {
+    public class func getDuplicateKitByIdWithRequestBuilder(kitId kitId: Int32) -> RequestBuilder<Kit> {
         var path = "/beta/kit/duplicate/{kitId}"
         path = path.stringByReplacingOccurrencesOfString("{kitId}", withString: "\(kitId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Kit>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search kits by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -347,7 +362,7 @@ public class KitAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getKitByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [Kit]?, error: ErrorType?) -> Void)) {
+    public class func getKitByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [Kit]?, error: ErrorType?) -> Void)) {
         getKitByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -355,50 +370,102 @@ public class KitAPI: APIBase {
 
 
     /**
-     
      Search kits by filter
-     
      - GET /beta/kit/search
      - Returns the list of kits that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "line7" : "aeiou",
-  "line6" : "aeiou",
-  "other" : "aeiou",
-  "line5" : "aeiou",
+  "line7" : "line7",
+  "line6" : "line6",
+  "other" : "other",
+  "line5" : "line5",
   "kitComponentList" : [ {
-    "additionalServices" : "aeiou",
-    "instructions" : "aeiou",
-    "quantity" : 123,
-    "critical" : "aeiou",
+    "additionalServices" : "additionalServices",
+    "instructions" : "instructions",
+    "quantity" : 9,
+    "critical" : "critical",
     "customFields" : {
       "key" : "{}"
     },
-    "sku" : "aeiou"
+    "sku" : "sku"
+  }, {
+    "additionalServices" : "additionalServices",
+    "instructions" : "instructions",
+    "quantity" : 9,
+    "critical" : "critical",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "sku" : "sku"
   } ],
-  "line4" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "line4" : "line4",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
   },
-  "line8" : "aeiou",
-  "midInvQty" : 123,
-  "numberOfComponents" : 123,
-  "isKOD" : "aeiou",
-  "touches" : 123,
-  "kitSKU" : "aeiou",
-  "minInvQty" : 123,
-  "kodType" : "aeiou",
-  "id" : 123,
-  "line3" : "aeiou",
-  "line2" : "aeiou",
-  "packagingType" : "aeiou",
-  "line1" : "aeiou",
-  "maxInvQty" : 123,
-  "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "line8" : "line8",
+  "midInvQty" : 2,
+  "numberOfComponents" : 1,
+  "isKOD" : "isKOD",
+  "touches" : 5,
+  "kitSKU" : "kitSKU",
+  "minInvQty" : 5,
+  "kodType" : "kodType",
+  "id" : 6,
+  "line3" : "line3",
+  "line2" : "line2",
+  "packagingType" : "packagingType",
+  "line1" : "line1",
+  "maxInvQty" : 7,
+  "lobId" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
+}, {
+  "line7" : "line7",
+  "line6" : "line6",
+  "other" : "other",
+  "line5" : "line5",
+  "kitComponentList" : [ {
+    "additionalServices" : "additionalServices",
+    "instructions" : "instructions",
+    "quantity" : 9,
+    "critical" : "critical",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "sku" : "sku"
+  }, {
+    "additionalServices" : "additionalServices",
+    "instructions" : "instructions",
+    "quantity" : 9,
+    "critical" : "critical",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "sku" : "sku"
+  } ],
+  "line4" : "line4",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "line8" : "line8",
+  "midInvQty" : 2,
+  "numberOfComponents" : 1,
+  "isKOD" : "isKOD",
+  "touches" : 5,
+  "kitSKU" : "kitSKU",
+  "minInvQty" : 5,
+  "kodType" : "kodType",
+  "id" : 6,
+  "line3" : "line3",
+  "line2" : "line2",
+  "packagingType" : "packagingType",
+  "line1" : "line1",
+  "maxInvQty" : 7,
+  "lobId" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -408,31 +475,33 @@ public class KitAPI: APIBase {
 
      - returns: RequestBuilder<[Kit]> 
      */
-    public class func getKitByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Kit]> {
+    public class func getKitByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[Kit]> {
         let path = "/beta/kit/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[Kit]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get a kit by id
      
      - parameter kitId: (path) Id of the kit to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getKitById(kitId kitId: Int, completion: ((data: Kit?, error: ErrorType?) -> Void)) {
+    public class func getKitById(kitId kitId: Int32, completion: ((data: Kit?, error: ErrorType?) -> Void)) {
         getKitByIdWithRequestBuilder(kitId: kitId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -440,77 +509,86 @@ public class KitAPI: APIBase {
 
 
     /**
-     
      Get a kit by id
-     
      - GET /beta/kit/{kitId}
      - Returns the kit identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "line7" : "aeiou",
-  "line6" : "aeiou",
-  "other" : "aeiou",
-  "line5" : "aeiou",
+  "line7" : "line7",
+  "line6" : "line6",
+  "other" : "other",
+  "line5" : "line5",
   "kitComponentList" : [ {
-    "additionalServices" : "aeiou",
-    "instructions" : "aeiou",
-    "quantity" : 123,
-    "critical" : "aeiou",
+    "additionalServices" : "additionalServices",
+    "instructions" : "instructions",
+    "quantity" : 9,
+    "critical" : "critical",
     "customFields" : {
       "key" : "{}"
     },
-    "sku" : "aeiou"
+    "sku" : "sku"
+  }, {
+    "additionalServices" : "additionalServices",
+    "instructions" : "instructions",
+    "quantity" : 9,
+    "critical" : "critical",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "sku" : "sku"
   } ],
-  "line4" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "line4" : "line4",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
   },
-  "line8" : "aeiou",
-  "midInvQty" : 123,
-  "numberOfComponents" : 123,
-  "isKOD" : "aeiou",
-  "touches" : 123,
-  "kitSKU" : "aeiou",
-  "minInvQty" : 123,
-  "kodType" : "aeiou",
-  "id" : 123,
-  "line3" : "aeiou",
-  "line2" : "aeiou",
-  "packagingType" : "aeiou",
-  "line1" : "aeiou",
-  "maxInvQty" : 123,
-  "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "line8" : "line8",
+  "midInvQty" : 2,
+  "numberOfComponents" : 1,
+  "isKOD" : "isKOD",
+  "touches" : 5,
+  "kitSKU" : "kitSKU",
+  "minInvQty" : 5,
+  "kodType" : "kodType",
+  "id" : 6,
+  "line3" : "line3",
+  "line2" : "line2",
+  "packagingType" : "packagingType",
+  "line1" : "line1",
+  "maxInvQty" : 7,
+  "lobId" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 }}]
      
      - parameter kitId: (path) Id of the kit to be returned. 
 
      - returns: RequestBuilder<Kit> 
      */
-    public class func getKitByIdWithRequestBuilder(kitId kitId: Int) -> RequestBuilder<Kit> {
+    public class func getKitByIdWithRequestBuilder(kitId kitId: Int32) -> RequestBuilder<Kit> {
         var path = "/beta/kit/{kitId}"
         path = path.stringByReplacingOccurrencesOfString("{kitId}", withString: "\(kitId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Kit>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for a kit.
      
      - parameter kitId: (path) Id of the kit to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getKitTags(kitId kitId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getKitTags(kitId kitId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getKitTagsWithRequestBuilder(kitId: kitId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -518,9 +596,7 @@ public class KitAPI: APIBase {
 
 
     /**
-     
      Get the tags for a kit.
-     
      - GET /beta/kit/{kitId}/tag
      - Get all existing kit tags.
      - API Key:
@@ -531,21 +607,23 @@ public class KitAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getKitTagsWithRequestBuilder(kitId kitId: Int) -> RequestBuilder<Void> {
+    public class func getKitTagsWithRequestBuilder(kitId kitId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/kit/{kitId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{kitId}", withString: "\(kitId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a kit
      
      - parameter body: (body) Kit to be updated. 
@@ -559,9 +637,7 @@ public class KitAPI: APIBase {
 
 
     /**
-     
      Update a kit
-     
      - PUT /beta/kit
      - Updates an existing kit using the specified data.
      - API Key:
@@ -575,16 +651,16 @@ public class KitAPI: APIBase {
     public class func updateKitWithRequestBuilder(body body: Kit) -> RequestBuilder<Void> {
         let path = "/beta/kit"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a kit custom fields
      
      - parameter body: (body) Kit to be updated. 
@@ -598,9 +674,7 @@ public class KitAPI: APIBase {
 
 
     /**
-     
      Update a kit custom fields
-     
      - PUT /beta/kit/customFields
      - Updates an existing kit custom fields using the specified data.
      - API Key:
@@ -614,12 +688,13 @@ public class KitAPI: APIBase {
     public class func updateKitCustomFieldsWithRequestBuilder(body body: Kit) -> RequestBuilder<Void> {
         let path = "/beta/kit/customFields"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

@@ -11,7 +11,6 @@ import Alamofire
 
 public class BillingCodeActivityAPI: APIBase {
     /**
-     
      Create a billingCodeActivity
      
      - parameter body: (body) BillingCodeActivity to be inserted. 
@@ -25,33 +24,31 @@ public class BillingCodeActivityAPI: APIBase {
 
 
     /**
-     
      Create a billingCodeActivity
-     
      - POST /beta/billingCodeActivity
      - Inserts a new billingCodeActivity using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "date" : "2000-01-23T04:56:07.000+0000",
-  "note" : "aeiou",
-  "quantity" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "date" : "2000-01-23T04:56:07.000+00:00",
+  "note" : "note",
+  "quantity" : 1,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
   },
-  "billingCodeTypeName" : "aeiou",
-  "billingCodeTypeId" : 123,
-  "importedId" : 123,
-  "userId" : 123,
-  "recordId" : "aeiou",
-  "recordTypeId" : 123,
-  "id" : 123,
-  "email" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123,
-  "recordTypeName" : "aeiou"
+  "billingCodeTypeName" : "billingCodeTypeName",
+  "billingCodeTypeId" : 2,
+  "importedId" : 6,
+  "userId" : 5,
+  "recordId" : "recordId",
+  "recordTypeId" : 7,
+  "id" : 0,
+  "email" : "email",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 5,
+  "recordTypeName" : "recordTypeName"
 }}]
      
      - parameter body: (body) BillingCodeActivity to be inserted. 
@@ -61,23 +58,23 @@ public class BillingCodeActivityAPI: APIBase {
     public class func addBillingCodeActivityWithRequestBuilder(body body: BillingCodeActivity) -> RequestBuilder<BillingCodeActivity> {
         let path = "/beta/billingCodeActivity"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<BillingCodeActivity>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new audit for a billingCodeActivity
      
      - parameter billingCodeActivityId: (path) Id of the billingCodeActivity to add an audit to 
      - parameter billingCodeActivityAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addBillingCodeActivityAudit(billingCodeActivityId billingCodeActivityId: Int, billingCodeActivityAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addBillingCodeActivityAudit(billingCodeActivityId billingCodeActivityId: Int32, billingCodeActivityAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addBillingCodeActivityAuditWithRequestBuilder(billingCodeActivityId: billingCodeActivityId, billingCodeActivityAudit: billingCodeActivityAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -85,9 +82,7 @@ public class BillingCodeActivityAPI: APIBase {
 
 
     /**
-     
      Add new audit for a billingCodeActivity
-     
      - PUT /beta/billingCodeActivity/{billingCodeActivityId}/audit/{billingCodeActivityAudit}
      - Adds an audit to an existing billingCodeActivity.
      - API Key:
@@ -99,29 +94,31 @@ public class BillingCodeActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addBillingCodeActivityAuditWithRequestBuilder(billingCodeActivityId billingCodeActivityId: Int, billingCodeActivityAudit: String) -> RequestBuilder<Void> {
+    public class func addBillingCodeActivityAuditWithRequestBuilder(billingCodeActivityId billingCodeActivityId: Int32, billingCodeActivityAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/billingCodeActivity/{billingCodeActivityId}/audit/{billingCodeActivityAudit}"
         path = path.stringByReplacingOccurrencesOfString("{billingCodeActivityId}", withString: "\(billingCodeActivityId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{billingCodeActivityAudit}", withString: "\(billingCodeActivityAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for a billingCodeActivity.
      
      - parameter billingCodeActivityId: (path) Id of the billingCodeActivity to add a tag to 
      - parameter billingCodeActivityTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addBillingCodeActivityTag(billingCodeActivityId billingCodeActivityId: Int, billingCodeActivityTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addBillingCodeActivityTag(billingCodeActivityId billingCodeActivityId: Int32, billingCodeActivityTag: String, completion: ((error: ErrorType?) -> Void)) {
         addBillingCodeActivityTagWithRequestBuilder(billingCodeActivityId: billingCodeActivityId, billingCodeActivityTag: billingCodeActivityTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -129,9 +126,7 @@ public class BillingCodeActivityAPI: APIBase {
 
 
     /**
-     
      Add new tags for a billingCodeActivity.
-     
      - PUT /beta/billingCodeActivity/{billingCodeActivityId}/tag/{billingCodeActivityTag}
      - Adds a tag to an existing billingCodeActivity.
      - API Key:
@@ -143,28 +138,30 @@ public class BillingCodeActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addBillingCodeActivityTagWithRequestBuilder(billingCodeActivityId billingCodeActivityId: Int, billingCodeActivityTag: String) -> RequestBuilder<Void> {
+    public class func addBillingCodeActivityTagWithRequestBuilder(billingCodeActivityId billingCodeActivityId: Int32, billingCodeActivityTag: String) -> RequestBuilder<Void> {
         var path = "/beta/billingCodeActivity/{billingCodeActivityId}/tag/{billingCodeActivityTag}"
         path = path.stringByReplacingOccurrencesOfString("{billingCodeActivityId}", withString: "\(billingCodeActivityId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{billingCodeActivityTag}", withString: "\(billingCodeActivityTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a billingCodeActivity
      
      - parameter billingCodeActivityId: (path) Id of the billingCodeActivity to be deleted. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteBillingCodeActivity(billingCodeActivityId billingCodeActivityId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteBillingCodeActivity(billingCodeActivityId billingCodeActivityId: Int32, completion: ((error: ErrorType?) -> Void)) {
         deleteBillingCodeActivityWithRequestBuilder(billingCodeActivityId: billingCodeActivityId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -172,9 +169,7 @@ public class BillingCodeActivityAPI: APIBase {
 
 
     /**
-     
      Delete a billingCodeActivity
-     
      - DELETE /beta/billingCodeActivity/{billingCodeActivityId}
      - Deletes the billingCodeActivity identified by the specified id.
      - API Key:
@@ -185,28 +180,30 @@ public class BillingCodeActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteBillingCodeActivityWithRequestBuilder(billingCodeActivityId billingCodeActivityId: Int) -> RequestBuilder<Void> {
+    public class func deleteBillingCodeActivityWithRequestBuilder(billingCodeActivityId billingCodeActivityId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/billingCodeActivity/{billingCodeActivityId}"
         path = path.stringByReplacingOccurrencesOfString("{billingCodeActivityId}", withString: "\(billingCodeActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for a billingCodeActivity.
      
      - parameter billingCodeActivityId: (path) Id of the billingCodeActivity to remove tag from 
      - parameter billingCodeActivityTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteBillingCodeActivityTag(billingCodeActivityId billingCodeActivityId: Int, billingCodeActivityTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteBillingCodeActivityTag(billingCodeActivityId billingCodeActivityId: Int32, billingCodeActivityTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteBillingCodeActivityTagWithRequestBuilder(billingCodeActivityId: billingCodeActivityId, billingCodeActivityTag: billingCodeActivityTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -214,9 +211,7 @@ public class BillingCodeActivityAPI: APIBase {
 
 
     /**
-     
      Delete a tag for a billingCodeActivity.
-     
      - DELETE /beta/billingCodeActivity/{billingCodeActivityId}/tag/{billingCodeActivityTag}
      - Deletes an existing billingCodeActivity tag using the specified data.
      - API Key:
@@ -228,22 +223,24 @@ public class BillingCodeActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteBillingCodeActivityTagWithRequestBuilder(billingCodeActivityId billingCodeActivityId: Int, billingCodeActivityTag: String) -> RequestBuilder<Void> {
+    public class func deleteBillingCodeActivityTagWithRequestBuilder(billingCodeActivityId billingCodeActivityId: Int32, billingCodeActivityTag: String) -> RequestBuilder<Void> {
         var path = "/beta/billingCodeActivity/{billingCodeActivityId}/tag/{billingCodeActivityTag}"
         path = path.stringByReplacingOccurrencesOfString("{billingCodeActivityId}", withString: "\(billingCodeActivityId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{billingCodeActivityTag}", withString: "\(billingCodeActivityTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search billingCodeActivitys by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -252,7 +249,7 @@ public class BillingCodeActivityAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getBillingCodeActivityByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [BillingCodeActivity]?, error: ErrorType?) -> Void)) {
+    public class func getBillingCodeActivityByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [BillingCodeActivity]?, error: ErrorType?) -> Void)) {
         getBillingCodeActivityByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -260,33 +257,50 @@ public class BillingCodeActivityAPI: APIBase {
 
 
     /**
-     
      Search billingCodeActivitys by filter
-     
      - GET /beta/billingCodeActivity/search
      - Returns the list of billingCodeActivitys that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "date" : "2000-01-23T04:56:07.000+0000",
-  "note" : "aeiou",
-  "quantity" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "date" : "2000-01-23T04:56:07.000+00:00",
+  "note" : "note",
+  "quantity" : 1,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
   },
-  "billingCodeTypeName" : "aeiou",
-  "billingCodeTypeId" : 123,
-  "importedId" : 123,
-  "userId" : 123,
-  "recordId" : "aeiou",
-  "recordTypeId" : 123,
-  "id" : 123,
-  "email" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123,
-  "recordTypeName" : "aeiou"
+  "billingCodeTypeName" : "billingCodeTypeName",
+  "billingCodeTypeId" : 2,
+  "importedId" : 6,
+  "userId" : 5,
+  "recordId" : "recordId",
+  "recordTypeId" : 7,
+  "id" : 0,
+  "email" : "email",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 5,
+  "recordTypeName" : "recordTypeName"
+}, {
+  "date" : "2000-01-23T04:56:07.000+00:00",
+  "note" : "note",
+  "quantity" : 1,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "billingCodeTypeName" : "billingCodeTypeName",
+  "billingCodeTypeId" : 2,
+  "importedId" : 6,
+  "userId" : 5,
+  "recordId" : "recordId",
+  "recordTypeId" : 7,
+  "id" : 0,
+  "email" : "email",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 5,
+  "recordTypeName" : "recordTypeName"
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -296,31 +310,33 @@ public class BillingCodeActivityAPI: APIBase {
 
      - returns: RequestBuilder<[BillingCodeActivity]> 
      */
-    public class func getBillingCodeActivityByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[BillingCodeActivity]> {
+    public class func getBillingCodeActivityByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[BillingCodeActivity]> {
         let path = "/beta/billingCodeActivity/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[BillingCodeActivity]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get a billingCodeActivity by id
      
      - parameter billingCodeActivityId: (path) Id of the billingCodeActivity to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getBillingCodeActivityById(billingCodeActivityId billingCodeActivityId: Int, completion: ((data: BillingCodeActivity?, error: ErrorType?) -> Void)) {
+    public class func getBillingCodeActivityById(billingCodeActivityId billingCodeActivityId: Int32, completion: ((data: BillingCodeActivity?, error: ErrorType?) -> Void)) {
         getBillingCodeActivityByIdWithRequestBuilder(billingCodeActivityId: billingCodeActivityId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -328,60 +344,60 @@ public class BillingCodeActivityAPI: APIBase {
 
 
     /**
-     
      Get a billingCodeActivity by id
-     
      - GET /beta/billingCodeActivity/{billingCodeActivityId}
      - Returns the billingCodeActivity identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "date" : "2000-01-23T04:56:07.000+0000",
-  "note" : "aeiou",
-  "quantity" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "date" : "2000-01-23T04:56:07.000+00:00",
+  "note" : "note",
+  "quantity" : 1,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
   },
-  "billingCodeTypeName" : "aeiou",
-  "billingCodeTypeId" : 123,
-  "importedId" : 123,
-  "userId" : 123,
-  "recordId" : "aeiou",
-  "recordTypeId" : 123,
-  "id" : 123,
-  "email" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123,
-  "recordTypeName" : "aeiou"
+  "billingCodeTypeName" : "billingCodeTypeName",
+  "billingCodeTypeId" : 2,
+  "importedId" : 6,
+  "userId" : 5,
+  "recordId" : "recordId",
+  "recordTypeId" : 7,
+  "id" : 0,
+  "email" : "email",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 5,
+  "recordTypeName" : "recordTypeName"
 }}]
      
      - parameter billingCodeActivityId: (path) Id of the billingCodeActivity to be returned. 
 
      - returns: RequestBuilder<BillingCodeActivity> 
      */
-    public class func getBillingCodeActivityByIdWithRequestBuilder(billingCodeActivityId billingCodeActivityId: Int) -> RequestBuilder<BillingCodeActivity> {
+    public class func getBillingCodeActivityByIdWithRequestBuilder(billingCodeActivityId billingCodeActivityId: Int32) -> RequestBuilder<BillingCodeActivity> {
         var path = "/beta/billingCodeActivity/{billingCodeActivityId}"
         path = path.stringByReplacingOccurrencesOfString("{billingCodeActivityId}", withString: "\(billingCodeActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<BillingCodeActivity>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for a billingCodeActivity.
      
      - parameter billingCodeActivityId: (path) Id of the billingCodeActivity to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getBillingCodeActivityTags(billingCodeActivityId billingCodeActivityId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getBillingCodeActivityTags(billingCodeActivityId billingCodeActivityId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getBillingCodeActivityTagsWithRequestBuilder(billingCodeActivityId: billingCodeActivityId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -389,9 +405,7 @@ public class BillingCodeActivityAPI: APIBase {
 
 
     /**
-     
      Get the tags for a billingCodeActivity.
-     
      - GET /beta/billingCodeActivity/{billingCodeActivityId}/tag
      - Get all existing billingCodeActivity tags.
      - API Key:
@@ -402,27 +416,29 @@ public class BillingCodeActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getBillingCodeActivityTagsWithRequestBuilder(billingCodeActivityId billingCodeActivityId: Int) -> RequestBuilder<Void> {
+    public class func getBillingCodeActivityTagsWithRequestBuilder(billingCodeActivityId billingCodeActivityId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/billingCodeActivity/{billingCodeActivityId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{billingCodeActivityId}", withString: "\(billingCodeActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated a billingCodeActivity by id
      
      - parameter billingCodeActivityId: (path) Id of the billingCodeActivity to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateBillingCodeActivityById(billingCodeActivityId billingCodeActivityId: Int, completion: ((data: BillingCodeActivity?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateBillingCodeActivityById(billingCodeActivityId billingCodeActivityId: Int32, completion: ((data: BillingCodeActivity?, error: ErrorType?) -> Void)) {
         getDuplicateBillingCodeActivityByIdWithRequestBuilder(billingCodeActivityId: billingCodeActivityId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -430,54 +446,54 @@ public class BillingCodeActivityAPI: APIBase {
 
 
     /**
-     
      Get a duplicated a billingCodeActivity by id
-     
      - GET /beta/billingCodeActivity/duplicate/{billingCodeActivityId}
      - Returns a duplicated billingCodeActivity identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "date" : "2000-01-23T04:56:07.000+0000",
-  "note" : "aeiou",
-  "quantity" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "date" : "2000-01-23T04:56:07.000+00:00",
+  "note" : "note",
+  "quantity" : 1,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
   },
-  "billingCodeTypeName" : "aeiou",
-  "billingCodeTypeId" : 123,
-  "importedId" : 123,
-  "userId" : 123,
-  "recordId" : "aeiou",
-  "recordTypeId" : 123,
-  "id" : 123,
-  "email" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "lobId" : 123,
-  "recordTypeName" : "aeiou"
+  "billingCodeTypeName" : "billingCodeTypeName",
+  "billingCodeTypeId" : 2,
+  "importedId" : 6,
+  "userId" : 5,
+  "recordId" : "recordId",
+  "recordTypeId" : 7,
+  "id" : 0,
+  "email" : "email",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "lobId" : 5,
+  "recordTypeName" : "recordTypeName"
 }}]
      
      - parameter billingCodeActivityId: (path) Id of the billingCodeActivity to be duplicated. 
 
      - returns: RequestBuilder<BillingCodeActivity> 
      */
-    public class func getDuplicateBillingCodeActivityByIdWithRequestBuilder(billingCodeActivityId billingCodeActivityId: Int) -> RequestBuilder<BillingCodeActivity> {
+    public class func getDuplicateBillingCodeActivityByIdWithRequestBuilder(billingCodeActivityId billingCodeActivityId: Int32) -> RequestBuilder<BillingCodeActivity> {
         var path = "/beta/billingCodeActivity/duplicate/{billingCodeActivityId}"
         path = path.stringByReplacingOccurrencesOfString("{billingCodeActivityId}", withString: "\(billingCodeActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<BillingCodeActivity>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a billingCodeActivity
      
      - parameter body: (body) BillingCodeActivity to be updated. 
@@ -491,9 +507,7 @@ public class BillingCodeActivityAPI: APIBase {
 
 
     /**
-     
      Update a billingCodeActivity
-     
      - PUT /beta/billingCodeActivity
      - Updates an existing billingCodeActivity using the specified data.
      - API Key:
@@ -507,12 +521,13 @@ public class BillingCodeActivityAPI: APIBase {
     public class func updateBillingCodeActivityWithRequestBuilder(body body: BillingCodeActivity) -> RequestBuilder<Void> {
         let path = "/beta/billingCodeActivity"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

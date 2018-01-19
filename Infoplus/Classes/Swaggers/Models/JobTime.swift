@@ -9,32 +9,30 @@ import Foundation
 
 
 public class JobTime: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
-    public var secondDuration: Int?
+    public var secondDuration: Int32?
     public var date: NSDate?
-    public var userId: Int?
-    public var lobId: Int?
-    public var jobTypeId: Int?
+    public var userId: Int32?
+    public var lobId: Int32?
+    public var jobTypeId: Int32?
     public var note: String?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
-        nillableDictionary["secondDuration"] = self.secondDuration
+        nillableDictionary["secondDuration"] = self.secondDuration?.encodeToJSON()
         nillableDictionary["date"] = self.date?.encodeToJSON()
-        nillableDictionary["userId"] = self.userId
-        nillableDictionary["lobId"] = self.lobId
-        nillableDictionary["jobTypeId"] = self.jobTypeId
+        nillableDictionary["userId"] = self.userId?.encodeToJSON()
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
+        nillableDictionary["jobTypeId"] = self.jobTypeId?.encodeToJSON()
         nillableDictionary["note"] = self.note
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

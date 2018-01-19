@@ -9,38 +9,37 @@ import Foundation
 
 
 public class FulfillmentProcess: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
-    public var processNo: Int?
-    public var workBatchId: Int?
-    public var warehouseId: Int?
-    public var fulfillmentPlanId: Int?
-    public var pickScanSchemeId: Int?
+    public var processNo: Int32?
+    public var workBatchId: Int32?
+    public var warehouseId: Int32?
+    public var fulfillmentPlanId: Int32?
+    public var pickScanSchemeId: Int32?
     public var status: String?
-    public var orderSmartFilterId: Int?
-    public var locationSmartFilterId: Int?
-    public var maxOrders: Int?
-    public var batchSize: Int?
+    public var orderSmartFilterId: Int32?
+    public var locationSmartFilterId: Int32?
+    public var maxOrders: Int32?
+    public var batchSize: Int32?
     public var version: String?
-    public var fulfillmentProcessGroup: Int?
-    public var numberOfOrders: Int?
-    public var numberOfLines: Int?
-    public var numberOfSKUs: Int?
-    public var completedPicks: Int?
-    public var totalPicks: Int?
-    public var shippedCasebreaks: Int?
-    public var totalCasebreaksToShip: Int?
-    public var shippedOrders: Int?
-    public var totalOrdersToShip: Int?
-    public var completedToDo: Int?
-    public var totalToDo: Int?
+    public var fulfillmentProcessGroup: Int32?
+    public var numberOfOrders: Int32?
+    public var numberOfLines: Int32?
+    public var numberOfSKUs: Int32?
+    public var completedPicks: Int32?
+    public var totalPicks: Int32?
+    public var shippedCasebreaks: Int32?
+    public var totalCasebreaksToShip: Int32?
+    public var shippedOrders: Int32?
+    public var totalOrdersToShip: Int32?
+    public var completedToDo: Int32?
+    public var totalToDo: Int32?
     public var createPickWork: Bool?
     public var pickingRule: String?
     public var layoutRule: String?
     public var pickSortRule: String?
-    public var firstPickPosition: Int?
+    public var firstPickPosition: Int32?
     public var pickListFormat: String?
     public var pickListLayout: String?
     public var pickListGroup: String?
@@ -55,51 +54,50 @@ public class FulfillmentProcess: JSONEncodable {
     public var autoShipCasebreakCartons: Bool?
     public var cartonizeOrders: Bool?
     public var createPackingSlip: String?
-    public var overridePackingSlipTemplateId: Int?
+    public var overridePackingSlipTemplateId: Int32?
     public var createOrderAssemblyGuide: Bool?
     public var createOrderInvoice: String?
-    public var overrideOrderInvoiceTemplateId: Int?
+    public var overrideOrderInvoiceTemplateId: Int32?
     public var sendToExternalShippingSystem: Bool?
-    public var externalShippingSystemId: Int?
+    public var externalShippingSystemId: Int32?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
-        nillableDictionary["processNo"] = self.processNo
-        nillableDictionary["workBatchId"] = self.workBatchId
-        nillableDictionary["warehouseId"] = self.warehouseId
-        nillableDictionary["fulfillmentPlanId"] = self.fulfillmentPlanId
-        nillableDictionary["pickScanSchemeId"] = self.pickScanSchemeId
+        nillableDictionary["processNo"] = self.processNo?.encodeToJSON()
+        nillableDictionary["workBatchId"] = self.workBatchId?.encodeToJSON()
+        nillableDictionary["warehouseId"] = self.warehouseId?.encodeToJSON()
+        nillableDictionary["fulfillmentPlanId"] = self.fulfillmentPlanId?.encodeToJSON()
+        nillableDictionary["pickScanSchemeId"] = self.pickScanSchemeId?.encodeToJSON()
         nillableDictionary["status"] = self.status
-        nillableDictionary["orderSmartFilterId"] = self.orderSmartFilterId
-        nillableDictionary["locationSmartFilterId"] = self.locationSmartFilterId
-        nillableDictionary["maxOrders"] = self.maxOrders
-        nillableDictionary["batchSize"] = self.batchSize
+        nillableDictionary["orderSmartFilterId"] = self.orderSmartFilterId?.encodeToJSON()
+        nillableDictionary["locationSmartFilterId"] = self.locationSmartFilterId?.encodeToJSON()
+        nillableDictionary["maxOrders"] = self.maxOrders?.encodeToJSON()
+        nillableDictionary["batchSize"] = self.batchSize?.encodeToJSON()
         nillableDictionary["version"] = self.version
-        nillableDictionary["fulfillmentProcessGroup"] = self.fulfillmentProcessGroup
-        nillableDictionary["numberOfOrders"] = self.numberOfOrders
-        nillableDictionary["numberOfLines"] = self.numberOfLines
-        nillableDictionary["numberOfSKUs"] = self.numberOfSKUs
-        nillableDictionary["completedPicks"] = self.completedPicks
-        nillableDictionary["totalPicks"] = self.totalPicks
-        nillableDictionary["shippedCasebreaks"] = self.shippedCasebreaks
-        nillableDictionary["totalCasebreaksToShip"] = self.totalCasebreaksToShip
-        nillableDictionary["shippedOrders"] = self.shippedOrders
-        nillableDictionary["totalOrdersToShip"] = self.totalOrdersToShip
-        nillableDictionary["completedToDo"] = self.completedToDo
-        nillableDictionary["totalToDo"] = self.totalToDo
+        nillableDictionary["fulfillmentProcessGroup"] = self.fulfillmentProcessGroup?.encodeToJSON()
+        nillableDictionary["numberOfOrders"] = self.numberOfOrders?.encodeToJSON()
+        nillableDictionary["numberOfLines"] = self.numberOfLines?.encodeToJSON()
+        nillableDictionary["numberOfSKUs"] = self.numberOfSKUs?.encodeToJSON()
+        nillableDictionary["completedPicks"] = self.completedPicks?.encodeToJSON()
+        nillableDictionary["totalPicks"] = self.totalPicks?.encodeToJSON()
+        nillableDictionary["shippedCasebreaks"] = self.shippedCasebreaks?.encodeToJSON()
+        nillableDictionary["totalCasebreaksToShip"] = self.totalCasebreaksToShip?.encodeToJSON()
+        nillableDictionary["shippedOrders"] = self.shippedOrders?.encodeToJSON()
+        nillableDictionary["totalOrdersToShip"] = self.totalOrdersToShip?.encodeToJSON()
+        nillableDictionary["completedToDo"] = self.completedToDo?.encodeToJSON()
+        nillableDictionary["totalToDo"] = self.totalToDo?.encodeToJSON()
         nillableDictionary["createPickWork"] = self.createPickWork
         nillableDictionary["pickingRule"] = self.pickingRule
         nillableDictionary["layoutRule"] = self.layoutRule
         nillableDictionary["pickSortRule"] = self.pickSortRule
-        nillableDictionary["firstPickPosition"] = self.firstPickPosition
+        nillableDictionary["firstPickPosition"] = self.firstPickPosition?.encodeToJSON()
         nillableDictionary["pickListFormat"] = self.pickListFormat
         nillableDictionary["pickListLayout"] = self.pickListLayout
         nillableDictionary["pickListGroup"] = self.pickListGroup
@@ -114,12 +112,12 @@ public class FulfillmentProcess: JSONEncodable {
         nillableDictionary["autoShipCasebreakCartons"] = self.autoShipCasebreakCartons
         nillableDictionary["cartonizeOrders"] = self.cartonizeOrders
         nillableDictionary["createPackingSlip"] = self.createPackingSlip
-        nillableDictionary["overridePackingSlipTemplateId"] = self.overridePackingSlipTemplateId
+        nillableDictionary["overridePackingSlipTemplateId"] = self.overridePackingSlipTemplateId?.encodeToJSON()
         nillableDictionary["createOrderAssemblyGuide"] = self.createOrderAssemblyGuide
         nillableDictionary["createOrderInvoice"] = self.createOrderInvoice
-        nillableDictionary["overrideOrderInvoiceTemplateId"] = self.overrideOrderInvoiceTemplateId
+        nillableDictionary["overrideOrderInvoiceTemplateId"] = self.overrideOrderInvoiceTemplateId?.encodeToJSON()
         nillableDictionary["sendToExternalShippingSystem"] = self.sendToExternalShippingSystem
-        nillableDictionary["externalShippingSystemId"] = self.externalShippingSystemId
+        nillableDictionary["externalShippingSystemId"] = self.externalShippingSystemId?.encodeToJSON()
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

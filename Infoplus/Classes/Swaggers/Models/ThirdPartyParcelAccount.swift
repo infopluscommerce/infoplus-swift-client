@@ -9,9 +9,8 @@ import Foundation
 
 
 public class ThirdPartyParcelAccount: JSONEncodable {
-
-    public var id: Int?
-    public var lobId: Int?
+    public var id: Int32?
+    public var lobId: Int32?
     public var carrier: String?
     public var accountNo: String?
     public var accountName: String?
@@ -29,15 +28,14 @@ public class ThirdPartyParcelAccount: JSONEncodable {
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
-        nillableDictionary["lobId"] = self.lobId
+        nillableDictionary["id"] = self.id?.encodeToJSON()
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
         nillableDictionary["carrier"] = self.carrier
         nillableDictionary["accountNo"] = self.accountNo
         nillableDictionary["accountName"] = self.accountName

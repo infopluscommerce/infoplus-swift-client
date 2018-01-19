@@ -11,7 +11,6 @@ import Alamofire
 
 public class WorkActivityAPI: APIBase {
     /**
-     
      Create a workActivity
      
      - parameter body: (body) WorkActivity to be inserted. 
@@ -25,170 +24,168 @@ public class WorkActivityAPI: APIBase {
 
 
     /**
-     
      Create a workActivity
-     
      - POST /beta/workActivity
      - Inserts a new workActivity using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "destinationBillingTypeName" : "aeiou",
-  "alcoholTypeId" : 123,
-  "destinationBuildingId" : 123,
-  "type" : "aeiou",
-  "voidDate" : "2000-01-23T04:56:07.000+0000",
-  "sourceOrigin" : 123,
-  "lowStockContactId" : 123,
-  "alcoholContainerVolume" : 123,
-  "destinationCost" : 123,
-  "absoluteMax" : "aeiou",
-  "numberOfWraps" : 123,
-  "criticalAmount" : 123,
-  "alcoholContent" : 1.3579000000000001069366817318950779736042022705078125,
-  "unitCode" : "aeiou",
-  "numberOfCases" : 123,
-  "id" : 123,
-  "sku" : "aeiou",
-  "alcoholState" : "aeiou",
-  "productCodeId" : 123,
-  "sourceBuildingName" : "aeiou",
-  "sourceFootprintName" : "aeiou",
-  "maxCycle" : 123,
-  "upc" : "aeiou",
-  "alcoholContainerName" : "aeiou",
-  "sourceZoneId" : 123,
-  "extrinsicNumber2" : 123,
-  "extrinsicNumber1" : 123,
-  "alcoholCountryId" : 123,
-  "extrinsicText1" : "aeiou",
-  "sourceCost" : 123,
-  "extrinsicText3" : "aeiou",
-  "extrinsicText2" : "aeiou",
-  "alcoholUPCCode" : "aeiou",
-  "destinationOrigin" : 123,
-  "sourceAisleId" : 123,
-  "sourceBay" : 123,
-  "classRestriction" : "aeiou",
-  "overallLeadTime" : 123,
-  "status" : "aeiou",
-  "sourceFootprintDepth" : 123,
-  "legacyLowLevelContactId" : 123,
-  "seasonalItem" : "aeiou",
-  "overallFixedReorderPoint" : 123,
-  "destinationBay" : 123,
-  "typeName" : "aeiou",
-  "destinationAllowItemMixing" : true,
-  "masterRef" : 123,
-  "serialCode" : "aeiou",
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "maxInterim" : 123,
-  "wrapCode" : "aeiou",
-  "additionalDescription" : "aeiou",
-  "lowStockCodeId" : 123,
-  "alcoholBrand" : "aeiou",
-  "statusName" : "aeiou",
-  "destinationBehaviorType" : "aeiou",
-  "majorGroupId" : 123,
-  "email" : "aeiou",
-  "lotControlFlag" : "aeiou",
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "alcoholVintageYear" : "aeiou",
-  "workParentId" : 123,
-  "podOrderSuffix" : 123,
-  "destinationAisleAddress" : "aeiou",
-  "destinationBuildingName" : "aeiou",
-  "destinationAddressSchemeName" : "aeiou",
-  "destinationFootprintName" : "aeiou",
-  "destinationWarehouseName" : "aeiou",
-  "sourceWarehouseName" : "aeiou",
-  "userId" : 123,
-  "sourceBillingTypeId" : 123,
-  "requiresProductionLot" : "aeiou",
-  "casebreakEnabled" : "aeiou",
-  "destinationFootprintHeight" : 123,
-  "summaryCodeId" : 123,
-  "priorityCode" : 123,
-  "sourceAisleAddress" : "aeiou",
-  "listPrice" : 1.3579000000000001069366817318950779736042022705078125,
-  "sourceOriginName" : "aeiou",
-  "sourceBehaviorType" : "aeiou",
-  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-  "destinationAddressSchemeId" : 123,
-  "sourceAllowItemMixing" : true,
-  "destinationBillingTypeId" : 123,
-  "secure" : "aeiou",
-  "buyerId" : 123,
-  "sourceBehaviorTypeName" : "aeiou",
-  "destinationAisleId" : 123,
-  "qualityControlIndicator" : "aeiou",
-  "workBatchId" : 123,
-  "podRevDate" : "aeiou",
-  "commodityCode" : "aeiou",
-  "sourceFootprintHeight" : 123,
-  "pickTouches" : 123,
-  "itemDescription" : "aeiou",
-  "sector" : "aeiou",
-  "destinationPriorityCode" : 123,
-  "alcoholTypeName" : "aeiou",
-  "lobId" : 123,
-  "assetCode" : "aeiou",
-  "packingSlipDescription" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "destinationOnline" : true,
-  "compCode" : 123,
-  "destinationNumber" : 123,
-  "alcoholContainerId" : 123,
-  "importedRecordId" : 123,
-  "foreignId" : 123,
-  "backorder" : "aeiou",
-  "outsideVendor" : 123,
-  "sourceOnline" : true,
-  "subGroupId" : 123,
-  "workCreateDate" : "2000-01-23T04:56:07.000+0000",
-  "destinationOriginName" : "aeiou",
-  "alcoholRegion" : "aeiou",
-  "chargeCode" : "aeiou",
-  "sourceAddressSchemeName" : "aeiou",
-  "destinationWarehouseId" : 123,
-  "alcoholSCCCode" : "aeiou",
+  "destinationBillingTypeName" : "destinationBillingTypeName",
+  "alcoholTypeId" : 6,
+  "destinationBuildingId" : 6,
+  "type" : "type",
+  "voidDate" : "2000-01-23T04:56:07.000+00:00",
+  "sourceOrigin" : 1,
+  "lowStockContactId" : 9,
+  "alcoholContainerVolume" : 9,
+  "destinationCost" : 6,
+  "absoluteMax" : "absoluteMax",
+  "numberOfWraps" : 3,
+  "criticalAmount" : 8,
+  "alcoholContent" : 4.57393626423225096999658489949069917201995849609375,
+  "unitCode" : "unitCode",
+  "numberOfCases" : 7,
+  "id" : 0,
+  "sku" : "sku",
+  "alcoholState" : "alcoholState",
+  "productCodeId" : 5,
+  "sourceBuildingName" : "sourceBuildingName",
+  "sourceFootprintName" : "sourceFootprintName",
+  "maxCycle" : 3,
+  "upc" : "upc",
+  "alcoholContainerName" : "alcoholContainerName",
+  "sourceZoneId" : 4,
+  "extrinsicNumber2" : 2,
+  "extrinsicNumber1" : 0,
+  "alcoholCountryId" : 1,
+  "extrinsicText1" : "extrinsicText1",
+  "sourceCost" : 8,
+  "extrinsicText3" : "extrinsicText3",
+  "extrinsicText2" : "extrinsicText2",
+  "alcoholUPCCode" : "alcoholUPCCode",
+  "destinationOrigin" : 1,
+  "sourceAisleId" : 7,
+  "sourceBay" : 9,
+  "classRestriction" : "classRestriction",
+  "overallLeadTime" : 6,
+  "status" : "status",
+  "sourceFootprintDepth" : 1,
+  "legacyLowLevelContactId" : 0,
+  "seasonalItem" : "seasonalItem",
+  "overallFixedReorderPoint" : 4,
+  "destinationBay" : 7,
+  "typeName" : "typeName",
+  "destinationAllowItemMixing" : false,
+  "masterRef" : 0,
+  "serialCode" : "serialCode",
+  "extrinsicDecimal2" : 8.289659398142969592981899040751159191131591796875,
+  "maxInterim" : 4,
+  "wrapCode" : "wrapCode",
+  "additionalDescription" : "additionalDescription",
+  "lowStockCodeId" : 9,
+  "alcoholBrand" : "alcoholBrand",
+  "statusName" : "statusName",
+  "destinationBehaviorType" : "destinationBehaviorType",
+  "majorGroupId" : 0,
+  "email" : "email",
+  "lotControlFlag" : "lotControlFlag",
+  "extrinsicDecimal1" : 1.7325933120207193116613098027301020920276641845703125,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "alcoholVintageYear" : "alcoholVintageYear",
+  "workParentId" : 2,
+  "podOrderSuffix" : 1,
+  "destinationAisleAddress" : "destinationAisleAddress",
+  "destinationBuildingName" : "destinationBuildingName",
+  "destinationAddressSchemeName" : "destinationAddressSchemeName",
+  "destinationFootprintName" : "destinationFootprintName",
+  "destinationWarehouseName" : "destinationWarehouseName",
+  "sourceWarehouseName" : "sourceWarehouseName",
+  "userId" : 5,
+  "sourceBillingTypeId" : 1,
+  "requiresProductionLot" : "requiresProductionLot",
+  "casebreakEnabled" : "casebreakEnabled",
+  "destinationFootprintHeight" : 6,
+  "summaryCodeId" : 7,
+  "priorityCode" : 7,
+  "sourceAisleAddress" : "sourceAisleAddress",
+  "listPrice" : 4.4596050349586793259959449642337858676910400390625,
+  "sourceOriginName" : "sourceOriginName",
+  "sourceBehaviorType" : "sourceBehaviorType",
+  "weightPerWrap" : 4.6523964329332461176136348512955009937286376953125,
+  "destinationAddressSchemeId" : 3,
+  "sourceAllowItemMixing" : false,
+  "destinationBillingTypeId" : 2,
+  "secure" : "secure",
+  "buyerId" : 4,
+  "sourceBehaviorTypeName" : "sourceBehaviorTypeName",
+  "destinationAisleId" : 6,
+  "qualityControlIndicator" : "qualityControlIndicator",
+  "workBatchId" : 5,
+  "podRevDate" : "podRevDate",
+  "commodityCode" : "commodityCode",
+  "sourceFootprintHeight" : 6,
+  "pickTouches" : 5,
+  "itemDescription" : "itemDescription",
+  "sector" : "sector",
+  "destinationPriorityCode" : 7,
+  "alcoholTypeName" : "alcoholTypeName",
+  "lobId" : 1,
+  "assetCode" : "assetCode",
+  "packingSlipDescription" : "packingSlipDescription",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "destinationOnline" : false,
+  "compCode" : 6,
+  "destinationNumber" : 0,
+  "alcoholContainerId" : 8,
+  "importedRecordId" : 6,
+  "foreignId" : 9,
+  "backorder" : "backorder",
+  "outsideVendor" : 3,
+  "sourceOnline" : false,
+  "subGroupId" : 7,
+  "workCreateDate" : "2000-01-23T04:56:07.000+00:00",
+  "destinationOriginName" : "destinationOriginName",
+  "alcoholRegion" : "alcoholRegion",
+  "chargeCode" : "chargeCode",
+  "sourceAddressSchemeName" : "sourceAddressSchemeName",
+  "destinationWarehouseId" : 9,
+  "alcoholSCCCode" : "alcoholSCCCode",
   "customFields" : {
     "key" : "{}"
   },
-  "sourceBillingTypeName" : "aeiou",
-  "destinationLocation" : "aeiou",
-  "sourceAddressSchemeId" : 123,
-  "sourceLevel" : 123,
-  "sourceFootprintWidth" : 123,
-  "destinationLevel" : 123,
-  "sourceZoneName" : "aeiou",
-  "itemStatus" : "aeiou",
-  "pickNo" : "aeiou",
-  "destinationFootprintWidth" : 123,
-  "productType" : 123,
-  "workModifyDate" : "2000-01-23T04:56:07.000+0000",
-  "unitsPerWrap" : 123,
-  "destinationZoneName" : "aeiou",
-  "quantity" : 123,
-  "alcoholCountryName" : "aeiou",
-  "accountCodeId" : 123,
-  "alcoholNABCACode" : "aeiou",
-  "alcoholUNIMERCCode" : "aeiou",
-  "destinationZoneId" : 123,
-  "sourceNumber" : 123,
-  "destinationFootprintDepth" : 123,
-  "sourcePriorityCode" : 123,
-  "vendorSKU" : "aeiou",
-  "sourceFootprintId" : 123,
-  "sourceWarehouseId" : 123,
-  "sourceBuildingId" : 123,
-  "productCodeFlag" : "aeiou",
-  "destinationBehaviorTypeName" : "aeiou",
-  "sourceLocation" : "aeiou",
-  "destinationFootprintId" : 123,
-  "numericSortOrder" : 123
+  "sourceBillingTypeName" : "sourceBillingTypeName",
+  "destinationLocation" : "destinationLocation",
+  "sourceAddressSchemeId" : 4,
+  "sourceLevel" : 5,
+  "sourceFootprintWidth" : 7,
+  "destinationLevel" : 3,
+  "sourceZoneName" : "sourceZoneName",
+  "itemStatus" : "itemStatus",
+  "pickNo" : "pickNo",
+  "destinationFootprintWidth" : 5,
+  "productType" : 0,
+  "workModifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "unitsPerWrap" : 7,
+  "destinationZoneName" : "destinationZoneName",
+  "quantity" : 3,
+  "alcoholCountryName" : "alcoholCountryName",
+  "accountCodeId" : 4,
+  "alcoholNABCACode" : "alcoholNABCACode",
+  "alcoholUNIMERCCode" : "alcoholUNIMERCCode",
+  "destinationZoneId" : 3,
+  "sourceNumber" : 9,
+  "destinationFootprintDepth" : 6,
+  "sourcePriorityCode" : 6,
+  "vendorSKU" : "vendorSKU",
+  "sourceFootprintId" : 1,
+  "sourceWarehouseId" : 3,
+  "sourceBuildingId" : 2,
+  "productCodeFlag" : "productCodeFlag",
+  "destinationBehaviorTypeName" : "destinationBehaviorTypeName",
+  "sourceLocation" : "sourceLocation",
+  "destinationFootprintId" : 6,
+  "numericSortOrder" : 8
 }}]
      
      - parameter body: (body) WorkActivity to be inserted. 
@@ -198,23 +195,23 @@ public class WorkActivityAPI: APIBase {
     public class func addWorkActivityWithRequestBuilder(body body: WorkActivity) -> RequestBuilder<WorkActivity> {
         let path = "/beta/workActivity"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<WorkActivity>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new audit for a workActivity
      
      - parameter workActivityId: (path) Id of the workActivity to add an audit to 
      - parameter workActivityAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addWorkActivityAudit(workActivityId workActivityId: Int, workActivityAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addWorkActivityAudit(workActivityId workActivityId: Int32, workActivityAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addWorkActivityAuditWithRequestBuilder(workActivityId: workActivityId, workActivityAudit: workActivityAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -222,9 +219,7 @@ public class WorkActivityAPI: APIBase {
 
 
     /**
-     
      Add new audit for a workActivity
-     
      - PUT /beta/workActivity/{workActivityId}/audit/{workActivityAudit}
      - Adds an audit to an existing workActivity.
      - API Key:
@@ -236,29 +231,31 @@ public class WorkActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addWorkActivityAuditWithRequestBuilder(workActivityId workActivityId: Int, workActivityAudit: String) -> RequestBuilder<Void> {
+    public class func addWorkActivityAuditWithRequestBuilder(workActivityId workActivityId: Int32, workActivityAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/workActivity/{workActivityId}/audit/{workActivityAudit}"
         path = path.stringByReplacingOccurrencesOfString("{workActivityId}", withString: "\(workActivityId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{workActivityAudit}", withString: "\(workActivityAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for a workActivity.
      
      - parameter workActivityId: (path) Id of the workActivity to add a tag to 
      - parameter workActivityTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addWorkActivityTag(workActivityId workActivityId: Int, workActivityTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addWorkActivityTag(workActivityId workActivityId: Int32, workActivityTag: String, completion: ((error: ErrorType?) -> Void)) {
         addWorkActivityTagWithRequestBuilder(workActivityId: workActivityId, workActivityTag: workActivityTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -266,9 +263,7 @@ public class WorkActivityAPI: APIBase {
 
 
     /**
-     
      Add new tags for a workActivity.
-     
      - PUT /beta/workActivity/{workActivityId}/tag/{workActivityTag}
      - Adds a tag to an existing workActivity.
      - API Key:
@@ -280,28 +275,30 @@ public class WorkActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addWorkActivityTagWithRequestBuilder(workActivityId workActivityId: Int, workActivityTag: String) -> RequestBuilder<Void> {
+    public class func addWorkActivityTagWithRequestBuilder(workActivityId workActivityId: Int32, workActivityTag: String) -> RequestBuilder<Void> {
         var path = "/beta/workActivity/{workActivityId}/tag/{workActivityTag}"
         path = path.stringByReplacingOccurrencesOfString("{workActivityId}", withString: "\(workActivityId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{workActivityTag}", withString: "\(workActivityTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a workActivity
      
      - parameter workActivityId: (path) Id of the workActivity to be deleted. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteWorkActivity(workActivityId workActivityId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteWorkActivity(workActivityId workActivityId: Int32, completion: ((error: ErrorType?) -> Void)) {
         deleteWorkActivityWithRequestBuilder(workActivityId: workActivityId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -309,9 +306,7 @@ public class WorkActivityAPI: APIBase {
 
 
     /**
-     
      Delete a workActivity
-     
      - DELETE /beta/workActivity/{workActivityId}
      - Deletes the workActivity identified by the specified id.
      - API Key:
@@ -322,28 +317,30 @@ public class WorkActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteWorkActivityWithRequestBuilder(workActivityId workActivityId: Int) -> RequestBuilder<Void> {
+    public class func deleteWorkActivityWithRequestBuilder(workActivityId workActivityId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/workActivity/{workActivityId}"
         path = path.stringByReplacingOccurrencesOfString("{workActivityId}", withString: "\(workActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for a workActivity.
      
      - parameter workActivityId: (path) Id of the workActivity to remove tag from 
      - parameter workActivityTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteWorkActivityTag(workActivityId workActivityId: Int, workActivityTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteWorkActivityTag(workActivityId workActivityId: Int32, workActivityTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteWorkActivityTagWithRequestBuilder(workActivityId: workActivityId, workActivityTag: workActivityTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -351,9 +348,7 @@ public class WorkActivityAPI: APIBase {
 
 
     /**
-     
      Delete a tag for a workActivity.
-     
      - DELETE /beta/workActivity/{workActivityId}/tag/{workActivityTag}
      - Deletes an existing workActivity tag using the specified data.
      - API Key:
@@ -365,28 +360,30 @@ public class WorkActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteWorkActivityTagWithRequestBuilder(workActivityId workActivityId: Int, workActivityTag: String) -> RequestBuilder<Void> {
+    public class func deleteWorkActivityTagWithRequestBuilder(workActivityId workActivityId: Int32, workActivityTag: String) -> RequestBuilder<Void> {
         var path = "/beta/workActivity/{workActivityId}/tag/{workActivityTag}"
         path = path.stringByReplacingOccurrencesOfString("{workActivityId}", withString: "\(workActivityId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{workActivityTag}", withString: "\(workActivityTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated a workActivity by id
      
      - parameter workActivityId: (path) Id of the workActivity to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateWorkActivityById(workActivityId workActivityId: Int, completion: ((data: WorkActivity?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateWorkActivityById(workActivityId workActivityId: Int32, completion: ((data: WorkActivity?, error: ErrorType?) -> Void)) {
         getDuplicateWorkActivityByIdWithRequestBuilder(workActivityId: workActivityId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -394,191 +391,191 @@ public class WorkActivityAPI: APIBase {
 
 
     /**
-     
      Get a duplicated a workActivity by id
-     
      - GET /beta/workActivity/duplicate/{workActivityId}
      - Returns a duplicated workActivity identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "destinationBillingTypeName" : "aeiou",
-  "alcoholTypeId" : 123,
-  "destinationBuildingId" : 123,
-  "type" : "aeiou",
-  "voidDate" : "2000-01-23T04:56:07.000+0000",
-  "sourceOrigin" : 123,
-  "lowStockContactId" : 123,
-  "alcoholContainerVolume" : 123,
-  "destinationCost" : 123,
-  "absoluteMax" : "aeiou",
-  "numberOfWraps" : 123,
-  "criticalAmount" : 123,
-  "alcoholContent" : 1.3579000000000001069366817318950779736042022705078125,
-  "unitCode" : "aeiou",
-  "numberOfCases" : 123,
-  "id" : 123,
-  "sku" : "aeiou",
-  "alcoholState" : "aeiou",
-  "productCodeId" : 123,
-  "sourceBuildingName" : "aeiou",
-  "sourceFootprintName" : "aeiou",
-  "maxCycle" : 123,
-  "upc" : "aeiou",
-  "alcoholContainerName" : "aeiou",
-  "sourceZoneId" : 123,
-  "extrinsicNumber2" : 123,
-  "extrinsicNumber1" : 123,
-  "alcoholCountryId" : 123,
-  "extrinsicText1" : "aeiou",
-  "sourceCost" : 123,
-  "extrinsicText3" : "aeiou",
-  "extrinsicText2" : "aeiou",
-  "alcoholUPCCode" : "aeiou",
-  "destinationOrigin" : 123,
-  "sourceAisleId" : 123,
-  "sourceBay" : 123,
-  "classRestriction" : "aeiou",
-  "overallLeadTime" : 123,
-  "status" : "aeiou",
-  "sourceFootprintDepth" : 123,
-  "legacyLowLevelContactId" : 123,
-  "seasonalItem" : "aeiou",
-  "overallFixedReorderPoint" : 123,
-  "destinationBay" : 123,
-  "typeName" : "aeiou",
-  "destinationAllowItemMixing" : true,
-  "masterRef" : 123,
-  "serialCode" : "aeiou",
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "maxInterim" : 123,
-  "wrapCode" : "aeiou",
-  "additionalDescription" : "aeiou",
-  "lowStockCodeId" : 123,
-  "alcoholBrand" : "aeiou",
-  "statusName" : "aeiou",
-  "destinationBehaviorType" : "aeiou",
-  "majorGroupId" : 123,
-  "email" : "aeiou",
-  "lotControlFlag" : "aeiou",
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "alcoholVintageYear" : "aeiou",
-  "workParentId" : 123,
-  "podOrderSuffix" : 123,
-  "destinationAisleAddress" : "aeiou",
-  "destinationBuildingName" : "aeiou",
-  "destinationAddressSchemeName" : "aeiou",
-  "destinationFootprintName" : "aeiou",
-  "destinationWarehouseName" : "aeiou",
-  "sourceWarehouseName" : "aeiou",
-  "userId" : 123,
-  "sourceBillingTypeId" : 123,
-  "requiresProductionLot" : "aeiou",
-  "casebreakEnabled" : "aeiou",
-  "destinationFootprintHeight" : 123,
-  "summaryCodeId" : 123,
-  "priorityCode" : 123,
-  "sourceAisleAddress" : "aeiou",
-  "listPrice" : 1.3579000000000001069366817318950779736042022705078125,
-  "sourceOriginName" : "aeiou",
-  "sourceBehaviorType" : "aeiou",
-  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-  "destinationAddressSchemeId" : 123,
-  "sourceAllowItemMixing" : true,
-  "destinationBillingTypeId" : 123,
-  "secure" : "aeiou",
-  "buyerId" : 123,
-  "sourceBehaviorTypeName" : "aeiou",
-  "destinationAisleId" : 123,
-  "qualityControlIndicator" : "aeiou",
-  "workBatchId" : 123,
-  "podRevDate" : "aeiou",
-  "commodityCode" : "aeiou",
-  "sourceFootprintHeight" : 123,
-  "pickTouches" : 123,
-  "itemDescription" : "aeiou",
-  "sector" : "aeiou",
-  "destinationPriorityCode" : 123,
-  "alcoholTypeName" : "aeiou",
-  "lobId" : 123,
-  "assetCode" : "aeiou",
-  "packingSlipDescription" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "destinationOnline" : true,
-  "compCode" : 123,
-  "destinationNumber" : 123,
-  "alcoholContainerId" : 123,
-  "importedRecordId" : 123,
-  "foreignId" : 123,
-  "backorder" : "aeiou",
-  "outsideVendor" : 123,
-  "sourceOnline" : true,
-  "subGroupId" : 123,
-  "workCreateDate" : "2000-01-23T04:56:07.000+0000",
-  "destinationOriginName" : "aeiou",
-  "alcoholRegion" : "aeiou",
-  "chargeCode" : "aeiou",
-  "sourceAddressSchemeName" : "aeiou",
-  "destinationWarehouseId" : 123,
-  "alcoholSCCCode" : "aeiou",
+  "destinationBillingTypeName" : "destinationBillingTypeName",
+  "alcoholTypeId" : 6,
+  "destinationBuildingId" : 6,
+  "type" : "type",
+  "voidDate" : "2000-01-23T04:56:07.000+00:00",
+  "sourceOrigin" : 1,
+  "lowStockContactId" : 9,
+  "alcoholContainerVolume" : 9,
+  "destinationCost" : 6,
+  "absoluteMax" : "absoluteMax",
+  "numberOfWraps" : 3,
+  "criticalAmount" : 8,
+  "alcoholContent" : 4.57393626423225096999658489949069917201995849609375,
+  "unitCode" : "unitCode",
+  "numberOfCases" : 7,
+  "id" : 0,
+  "sku" : "sku",
+  "alcoholState" : "alcoholState",
+  "productCodeId" : 5,
+  "sourceBuildingName" : "sourceBuildingName",
+  "sourceFootprintName" : "sourceFootprintName",
+  "maxCycle" : 3,
+  "upc" : "upc",
+  "alcoholContainerName" : "alcoholContainerName",
+  "sourceZoneId" : 4,
+  "extrinsicNumber2" : 2,
+  "extrinsicNumber1" : 0,
+  "alcoholCountryId" : 1,
+  "extrinsicText1" : "extrinsicText1",
+  "sourceCost" : 8,
+  "extrinsicText3" : "extrinsicText3",
+  "extrinsicText2" : "extrinsicText2",
+  "alcoholUPCCode" : "alcoholUPCCode",
+  "destinationOrigin" : 1,
+  "sourceAisleId" : 7,
+  "sourceBay" : 9,
+  "classRestriction" : "classRestriction",
+  "overallLeadTime" : 6,
+  "status" : "status",
+  "sourceFootprintDepth" : 1,
+  "legacyLowLevelContactId" : 0,
+  "seasonalItem" : "seasonalItem",
+  "overallFixedReorderPoint" : 4,
+  "destinationBay" : 7,
+  "typeName" : "typeName",
+  "destinationAllowItemMixing" : false,
+  "masterRef" : 0,
+  "serialCode" : "serialCode",
+  "extrinsicDecimal2" : 8.289659398142969592981899040751159191131591796875,
+  "maxInterim" : 4,
+  "wrapCode" : "wrapCode",
+  "additionalDescription" : "additionalDescription",
+  "lowStockCodeId" : 9,
+  "alcoholBrand" : "alcoholBrand",
+  "statusName" : "statusName",
+  "destinationBehaviorType" : "destinationBehaviorType",
+  "majorGroupId" : 0,
+  "email" : "email",
+  "lotControlFlag" : "lotControlFlag",
+  "extrinsicDecimal1" : 1.7325933120207193116613098027301020920276641845703125,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "alcoholVintageYear" : "alcoholVintageYear",
+  "workParentId" : 2,
+  "podOrderSuffix" : 1,
+  "destinationAisleAddress" : "destinationAisleAddress",
+  "destinationBuildingName" : "destinationBuildingName",
+  "destinationAddressSchemeName" : "destinationAddressSchemeName",
+  "destinationFootprintName" : "destinationFootprintName",
+  "destinationWarehouseName" : "destinationWarehouseName",
+  "sourceWarehouseName" : "sourceWarehouseName",
+  "userId" : 5,
+  "sourceBillingTypeId" : 1,
+  "requiresProductionLot" : "requiresProductionLot",
+  "casebreakEnabled" : "casebreakEnabled",
+  "destinationFootprintHeight" : 6,
+  "summaryCodeId" : 7,
+  "priorityCode" : 7,
+  "sourceAisleAddress" : "sourceAisleAddress",
+  "listPrice" : 4.4596050349586793259959449642337858676910400390625,
+  "sourceOriginName" : "sourceOriginName",
+  "sourceBehaviorType" : "sourceBehaviorType",
+  "weightPerWrap" : 4.6523964329332461176136348512955009937286376953125,
+  "destinationAddressSchemeId" : 3,
+  "sourceAllowItemMixing" : false,
+  "destinationBillingTypeId" : 2,
+  "secure" : "secure",
+  "buyerId" : 4,
+  "sourceBehaviorTypeName" : "sourceBehaviorTypeName",
+  "destinationAisleId" : 6,
+  "qualityControlIndicator" : "qualityControlIndicator",
+  "workBatchId" : 5,
+  "podRevDate" : "podRevDate",
+  "commodityCode" : "commodityCode",
+  "sourceFootprintHeight" : 6,
+  "pickTouches" : 5,
+  "itemDescription" : "itemDescription",
+  "sector" : "sector",
+  "destinationPriorityCode" : 7,
+  "alcoholTypeName" : "alcoholTypeName",
+  "lobId" : 1,
+  "assetCode" : "assetCode",
+  "packingSlipDescription" : "packingSlipDescription",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "destinationOnline" : false,
+  "compCode" : 6,
+  "destinationNumber" : 0,
+  "alcoholContainerId" : 8,
+  "importedRecordId" : 6,
+  "foreignId" : 9,
+  "backorder" : "backorder",
+  "outsideVendor" : 3,
+  "sourceOnline" : false,
+  "subGroupId" : 7,
+  "workCreateDate" : "2000-01-23T04:56:07.000+00:00",
+  "destinationOriginName" : "destinationOriginName",
+  "alcoholRegion" : "alcoholRegion",
+  "chargeCode" : "chargeCode",
+  "sourceAddressSchemeName" : "sourceAddressSchemeName",
+  "destinationWarehouseId" : 9,
+  "alcoholSCCCode" : "alcoholSCCCode",
   "customFields" : {
     "key" : "{}"
   },
-  "sourceBillingTypeName" : "aeiou",
-  "destinationLocation" : "aeiou",
-  "sourceAddressSchemeId" : 123,
-  "sourceLevel" : 123,
-  "sourceFootprintWidth" : 123,
-  "destinationLevel" : 123,
-  "sourceZoneName" : "aeiou",
-  "itemStatus" : "aeiou",
-  "pickNo" : "aeiou",
-  "destinationFootprintWidth" : 123,
-  "productType" : 123,
-  "workModifyDate" : "2000-01-23T04:56:07.000+0000",
-  "unitsPerWrap" : 123,
-  "destinationZoneName" : "aeiou",
-  "quantity" : 123,
-  "alcoholCountryName" : "aeiou",
-  "accountCodeId" : 123,
-  "alcoholNABCACode" : "aeiou",
-  "alcoholUNIMERCCode" : "aeiou",
-  "destinationZoneId" : 123,
-  "sourceNumber" : 123,
-  "destinationFootprintDepth" : 123,
-  "sourcePriorityCode" : 123,
-  "vendorSKU" : "aeiou",
-  "sourceFootprintId" : 123,
-  "sourceWarehouseId" : 123,
-  "sourceBuildingId" : 123,
-  "productCodeFlag" : "aeiou",
-  "destinationBehaviorTypeName" : "aeiou",
-  "sourceLocation" : "aeiou",
-  "destinationFootprintId" : 123,
-  "numericSortOrder" : 123
+  "sourceBillingTypeName" : "sourceBillingTypeName",
+  "destinationLocation" : "destinationLocation",
+  "sourceAddressSchemeId" : 4,
+  "sourceLevel" : 5,
+  "sourceFootprintWidth" : 7,
+  "destinationLevel" : 3,
+  "sourceZoneName" : "sourceZoneName",
+  "itemStatus" : "itemStatus",
+  "pickNo" : "pickNo",
+  "destinationFootprintWidth" : 5,
+  "productType" : 0,
+  "workModifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "unitsPerWrap" : 7,
+  "destinationZoneName" : "destinationZoneName",
+  "quantity" : 3,
+  "alcoholCountryName" : "alcoholCountryName",
+  "accountCodeId" : 4,
+  "alcoholNABCACode" : "alcoholNABCACode",
+  "alcoholUNIMERCCode" : "alcoholUNIMERCCode",
+  "destinationZoneId" : 3,
+  "sourceNumber" : 9,
+  "destinationFootprintDepth" : 6,
+  "sourcePriorityCode" : 6,
+  "vendorSKU" : "vendorSKU",
+  "sourceFootprintId" : 1,
+  "sourceWarehouseId" : 3,
+  "sourceBuildingId" : 2,
+  "productCodeFlag" : "productCodeFlag",
+  "destinationBehaviorTypeName" : "destinationBehaviorTypeName",
+  "sourceLocation" : "sourceLocation",
+  "destinationFootprintId" : 6,
+  "numericSortOrder" : 8
 }}]
      
      - parameter workActivityId: (path) Id of the workActivity to be duplicated. 
 
      - returns: RequestBuilder<WorkActivity> 
      */
-    public class func getDuplicateWorkActivityByIdWithRequestBuilder(workActivityId workActivityId: Int) -> RequestBuilder<WorkActivity> {
+    public class func getDuplicateWorkActivityByIdWithRequestBuilder(workActivityId workActivityId: Int32) -> RequestBuilder<WorkActivity> {
         var path = "/beta/workActivity/duplicate/{workActivityId}"
         path = path.stringByReplacingOccurrencesOfString("{workActivityId}", withString: "\(workActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<WorkActivity>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search workActivitys by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -587,7 +584,7 @@ public class WorkActivityAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getWorkActivityByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [WorkActivity]?, error: ErrorType?) -> Void)) {
+    public class func getWorkActivityByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [WorkActivity]?, error: ErrorType?) -> Void)) {
         getWorkActivityByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -595,170 +592,324 @@ public class WorkActivityAPI: APIBase {
 
 
     /**
-     
      Search workActivitys by filter
-     
      - GET /beta/workActivity/search
      - Returns the list of workActivitys that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "destinationBillingTypeName" : "aeiou",
-  "alcoholTypeId" : 123,
-  "destinationBuildingId" : 123,
-  "type" : "aeiou",
-  "voidDate" : "2000-01-23T04:56:07.000+0000",
-  "sourceOrigin" : 123,
-  "lowStockContactId" : 123,
-  "alcoholContainerVolume" : 123,
-  "destinationCost" : 123,
-  "absoluteMax" : "aeiou",
-  "numberOfWraps" : 123,
-  "criticalAmount" : 123,
-  "alcoholContent" : 1.3579000000000001069366817318950779736042022705078125,
-  "unitCode" : "aeiou",
-  "numberOfCases" : 123,
-  "id" : 123,
-  "sku" : "aeiou",
-  "alcoholState" : "aeiou",
-  "productCodeId" : 123,
-  "sourceBuildingName" : "aeiou",
-  "sourceFootprintName" : "aeiou",
-  "maxCycle" : 123,
-  "upc" : "aeiou",
-  "alcoholContainerName" : "aeiou",
-  "sourceZoneId" : 123,
-  "extrinsicNumber2" : 123,
-  "extrinsicNumber1" : 123,
-  "alcoholCountryId" : 123,
-  "extrinsicText1" : "aeiou",
-  "sourceCost" : 123,
-  "extrinsicText3" : "aeiou",
-  "extrinsicText2" : "aeiou",
-  "alcoholUPCCode" : "aeiou",
-  "destinationOrigin" : 123,
-  "sourceAisleId" : 123,
-  "sourceBay" : 123,
-  "classRestriction" : "aeiou",
-  "overallLeadTime" : 123,
-  "status" : "aeiou",
-  "sourceFootprintDepth" : 123,
-  "legacyLowLevelContactId" : 123,
-  "seasonalItem" : "aeiou",
-  "overallFixedReorderPoint" : 123,
-  "destinationBay" : 123,
-  "typeName" : "aeiou",
-  "destinationAllowItemMixing" : true,
-  "masterRef" : 123,
-  "serialCode" : "aeiou",
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "maxInterim" : 123,
-  "wrapCode" : "aeiou",
-  "additionalDescription" : "aeiou",
-  "lowStockCodeId" : 123,
-  "alcoholBrand" : "aeiou",
-  "statusName" : "aeiou",
-  "destinationBehaviorType" : "aeiou",
-  "majorGroupId" : 123,
-  "email" : "aeiou",
-  "lotControlFlag" : "aeiou",
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "alcoholVintageYear" : "aeiou",
-  "workParentId" : 123,
-  "podOrderSuffix" : 123,
-  "destinationAisleAddress" : "aeiou",
-  "destinationBuildingName" : "aeiou",
-  "destinationAddressSchemeName" : "aeiou",
-  "destinationFootprintName" : "aeiou",
-  "destinationWarehouseName" : "aeiou",
-  "sourceWarehouseName" : "aeiou",
-  "userId" : 123,
-  "sourceBillingTypeId" : 123,
-  "requiresProductionLot" : "aeiou",
-  "casebreakEnabled" : "aeiou",
-  "destinationFootprintHeight" : 123,
-  "summaryCodeId" : 123,
-  "priorityCode" : 123,
-  "sourceAisleAddress" : "aeiou",
-  "listPrice" : 1.3579000000000001069366817318950779736042022705078125,
-  "sourceOriginName" : "aeiou",
-  "sourceBehaviorType" : "aeiou",
-  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-  "destinationAddressSchemeId" : 123,
-  "sourceAllowItemMixing" : true,
-  "destinationBillingTypeId" : 123,
-  "secure" : "aeiou",
-  "buyerId" : 123,
-  "sourceBehaviorTypeName" : "aeiou",
-  "destinationAisleId" : 123,
-  "qualityControlIndicator" : "aeiou",
-  "workBatchId" : 123,
-  "podRevDate" : "aeiou",
-  "commodityCode" : "aeiou",
-  "sourceFootprintHeight" : 123,
-  "pickTouches" : 123,
-  "itemDescription" : "aeiou",
-  "sector" : "aeiou",
-  "destinationPriorityCode" : 123,
-  "alcoholTypeName" : "aeiou",
-  "lobId" : 123,
-  "assetCode" : "aeiou",
-  "packingSlipDescription" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "destinationOnline" : true,
-  "compCode" : 123,
-  "destinationNumber" : 123,
-  "alcoholContainerId" : 123,
-  "importedRecordId" : 123,
-  "foreignId" : 123,
-  "backorder" : "aeiou",
-  "outsideVendor" : 123,
-  "sourceOnline" : true,
-  "subGroupId" : 123,
-  "workCreateDate" : "2000-01-23T04:56:07.000+0000",
-  "destinationOriginName" : "aeiou",
-  "alcoholRegion" : "aeiou",
-  "chargeCode" : "aeiou",
-  "sourceAddressSchemeName" : "aeiou",
-  "destinationWarehouseId" : 123,
-  "alcoholSCCCode" : "aeiou",
+  "destinationBillingTypeName" : "destinationBillingTypeName",
+  "alcoholTypeId" : 6,
+  "destinationBuildingId" : 6,
+  "type" : "type",
+  "voidDate" : "2000-01-23T04:56:07.000+00:00",
+  "sourceOrigin" : 1,
+  "lowStockContactId" : 9,
+  "alcoholContainerVolume" : 9,
+  "destinationCost" : 6,
+  "absoluteMax" : "absoluteMax",
+  "numberOfWraps" : 3,
+  "criticalAmount" : 8,
+  "alcoholContent" : 4.57393626423225096999658489949069917201995849609375,
+  "unitCode" : "unitCode",
+  "numberOfCases" : 7,
+  "id" : 0,
+  "sku" : "sku",
+  "alcoholState" : "alcoholState",
+  "productCodeId" : 5,
+  "sourceBuildingName" : "sourceBuildingName",
+  "sourceFootprintName" : "sourceFootprintName",
+  "maxCycle" : 3,
+  "upc" : "upc",
+  "alcoholContainerName" : "alcoholContainerName",
+  "sourceZoneId" : 4,
+  "extrinsicNumber2" : 2,
+  "extrinsicNumber1" : 0,
+  "alcoholCountryId" : 1,
+  "extrinsicText1" : "extrinsicText1",
+  "sourceCost" : 8,
+  "extrinsicText3" : "extrinsicText3",
+  "extrinsicText2" : "extrinsicText2",
+  "alcoholUPCCode" : "alcoholUPCCode",
+  "destinationOrigin" : 1,
+  "sourceAisleId" : 7,
+  "sourceBay" : 9,
+  "classRestriction" : "classRestriction",
+  "overallLeadTime" : 6,
+  "status" : "status",
+  "sourceFootprintDepth" : 1,
+  "legacyLowLevelContactId" : 0,
+  "seasonalItem" : "seasonalItem",
+  "overallFixedReorderPoint" : 4,
+  "destinationBay" : 7,
+  "typeName" : "typeName",
+  "destinationAllowItemMixing" : false,
+  "masterRef" : 0,
+  "serialCode" : "serialCode",
+  "extrinsicDecimal2" : 8.289659398142969592981899040751159191131591796875,
+  "maxInterim" : 4,
+  "wrapCode" : "wrapCode",
+  "additionalDescription" : "additionalDescription",
+  "lowStockCodeId" : 9,
+  "alcoholBrand" : "alcoholBrand",
+  "statusName" : "statusName",
+  "destinationBehaviorType" : "destinationBehaviorType",
+  "majorGroupId" : 0,
+  "email" : "email",
+  "lotControlFlag" : "lotControlFlag",
+  "extrinsicDecimal1" : 1.7325933120207193116613098027301020920276641845703125,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "alcoholVintageYear" : "alcoholVintageYear",
+  "workParentId" : 2,
+  "podOrderSuffix" : 1,
+  "destinationAisleAddress" : "destinationAisleAddress",
+  "destinationBuildingName" : "destinationBuildingName",
+  "destinationAddressSchemeName" : "destinationAddressSchemeName",
+  "destinationFootprintName" : "destinationFootprintName",
+  "destinationWarehouseName" : "destinationWarehouseName",
+  "sourceWarehouseName" : "sourceWarehouseName",
+  "userId" : 5,
+  "sourceBillingTypeId" : 1,
+  "requiresProductionLot" : "requiresProductionLot",
+  "casebreakEnabled" : "casebreakEnabled",
+  "destinationFootprintHeight" : 6,
+  "summaryCodeId" : 7,
+  "priorityCode" : 7,
+  "sourceAisleAddress" : "sourceAisleAddress",
+  "listPrice" : 4.4596050349586793259959449642337858676910400390625,
+  "sourceOriginName" : "sourceOriginName",
+  "sourceBehaviorType" : "sourceBehaviorType",
+  "weightPerWrap" : 4.6523964329332461176136348512955009937286376953125,
+  "destinationAddressSchemeId" : 3,
+  "sourceAllowItemMixing" : false,
+  "destinationBillingTypeId" : 2,
+  "secure" : "secure",
+  "buyerId" : 4,
+  "sourceBehaviorTypeName" : "sourceBehaviorTypeName",
+  "destinationAisleId" : 6,
+  "qualityControlIndicator" : "qualityControlIndicator",
+  "workBatchId" : 5,
+  "podRevDate" : "podRevDate",
+  "commodityCode" : "commodityCode",
+  "sourceFootprintHeight" : 6,
+  "pickTouches" : 5,
+  "itemDescription" : "itemDescription",
+  "sector" : "sector",
+  "destinationPriorityCode" : 7,
+  "alcoholTypeName" : "alcoholTypeName",
+  "lobId" : 1,
+  "assetCode" : "assetCode",
+  "packingSlipDescription" : "packingSlipDescription",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "destinationOnline" : false,
+  "compCode" : 6,
+  "destinationNumber" : 0,
+  "alcoholContainerId" : 8,
+  "importedRecordId" : 6,
+  "foreignId" : 9,
+  "backorder" : "backorder",
+  "outsideVendor" : 3,
+  "sourceOnline" : false,
+  "subGroupId" : 7,
+  "workCreateDate" : "2000-01-23T04:56:07.000+00:00",
+  "destinationOriginName" : "destinationOriginName",
+  "alcoholRegion" : "alcoholRegion",
+  "chargeCode" : "chargeCode",
+  "sourceAddressSchemeName" : "sourceAddressSchemeName",
+  "destinationWarehouseId" : 9,
+  "alcoholSCCCode" : "alcoholSCCCode",
   "customFields" : {
     "key" : "{}"
   },
-  "sourceBillingTypeName" : "aeiou",
-  "destinationLocation" : "aeiou",
-  "sourceAddressSchemeId" : 123,
-  "sourceLevel" : 123,
-  "sourceFootprintWidth" : 123,
-  "destinationLevel" : 123,
-  "sourceZoneName" : "aeiou",
-  "itemStatus" : "aeiou",
-  "pickNo" : "aeiou",
-  "destinationFootprintWidth" : 123,
-  "productType" : 123,
-  "workModifyDate" : "2000-01-23T04:56:07.000+0000",
-  "unitsPerWrap" : 123,
-  "destinationZoneName" : "aeiou",
-  "quantity" : 123,
-  "alcoholCountryName" : "aeiou",
-  "accountCodeId" : 123,
-  "alcoholNABCACode" : "aeiou",
-  "alcoholUNIMERCCode" : "aeiou",
-  "destinationZoneId" : 123,
-  "sourceNumber" : 123,
-  "destinationFootprintDepth" : 123,
-  "sourcePriorityCode" : 123,
-  "vendorSKU" : "aeiou",
-  "sourceFootprintId" : 123,
-  "sourceWarehouseId" : 123,
-  "sourceBuildingId" : 123,
-  "productCodeFlag" : "aeiou",
-  "destinationBehaviorTypeName" : "aeiou",
-  "sourceLocation" : "aeiou",
-  "destinationFootprintId" : 123,
-  "numericSortOrder" : 123
+  "sourceBillingTypeName" : "sourceBillingTypeName",
+  "destinationLocation" : "destinationLocation",
+  "sourceAddressSchemeId" : 4,
+  "sourceLevel" : 5,
+  "sourceFootprintWidth" : 7,
+  "destinationLevel" : 3,
+  "sourceZoneName" : "sourceZoneName",
+  "itemStatus" : "itemStatus",
+  "pickNo" : "pickNo",
+  "destinationFootprintWidth" : 5,
+  "productType" : 0,
+  "workModifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "unitsPerWrap" : 7,
+  "destinationZoneName" : "destinationZoneName",
+  "quantity" : 3,
+  "alcoholCountryName" : "alcoholCountryName",
+  "accountCodeId" : 4,
+  "alcoholNABCACode" : "alcoholNABCACode",
+  "alcoholUNIMERCCode" : "alcoholUNIMERCCode",
+  "destinationZoneId" : 3,
+  "sourceNumber" : 9,
+  "destinationFootprintDepth" : 6,
+  "sourcePriorityCode" : 6,
+  "vendorSKU" : "vendorSKU",
+  "sourceFootprintId" : 1,
+  "sourceWarehouseId" : 3,
+  "sourceBuildingId" : 2,
+  "productCodeFlag" : "productCodeFlag",
+  "destinationBehaviorTypeName" : "destinationBehaviorTypeName",
+  "sourceLocation" : "sourceLocation",
+  "destinationFootprintId" : 6,
+  "numericSortOrder" : 8
+}, {
+  "destinationBillingTypeName" : "destinationBillingTypeName",
+  "alcoholTypeId" : 6,
+  "destinationBuildingId" : 6,
+  "type" : "type",
+  "voidDate" : "2000-01-23T04:56:07.000+00:00",
+  "sourceOrigin" : 1,
+  "lowStockContactId" : 9,
+  "alcoholContainerVolume" : 9,
+  "destinationCost" : 6,
+  "absoluteMax" : "absoluteMax",
+  "numberOfWraps" : 3,
+  "criticalAmount" : 8,
+  "alcoholContent" : 4.57393626423225096999658489949069917201995849609375,
+  "unitCode" : "unitCode",
+  "numberOfCases" : 7,
+  "id" : 0,
+  "sku" : "sku",
+  "alcoholState" : "alcoholState",
+  "productCodeId" : 5,
+  "sourceBuildingName" : "sourceBuildingName",
+  "sourceFootprintName" : "sourceFootprintName",
+  "maxCycle" : 3,
+  "upc" : "upc",
+  "alcoholContainerName" : "alcoholContainerName",
+  "sourceZoneId" : 4,
+  "extrinsicNumber2" : 2,
+  "extrinsicNumber1" : 0,
+  "alcoholCountryId" : 1,
+  "extrinsicText1" : "extrinsicText1",
+  "sourceCost" : 8,
+  "extrinsicText3" : "extrinsicText3",
+  "extrinsicText2" : "extrinsicText2",
+  "alcoholUPCCode" : "alcoholUPCCode",
+  "destinationOrigin" : 1,
+  "sourceAisleId" : 7,
+  "sourceBay" : 9,
+  "classRestriction" : "classRestriction",
+  "overallLeadTime" : 6,
+  "status" : "status",
+  "sourceFootprintDepth" : 1,
+  "legacyLowLevelContactId" : 0,
+  "seasonalItem" : "seasonalItem",
+  "overallFixedReorderPoint" : 4,
+  "destinationBay" : 7,
+  "typeName" : "typeName",
+  "destinationAllowItemMixing" : false,
+  "masterRef" : 0,
+  "serialCode" : "serialCode",
+  "extrinsicDecimal2" : 8.289659398142969592981899040751159191131591796875,
+  "maxInterim" : 4,
+  "wrapCode" : "wrapCode",
+  "additionalDescription" : "additionalDescription",
+  "lowStockCodeId" : 9,
+  "alcoholBrand" : "alcoholBrand",
+  "statusName" : "statusName",
+  "destinationBehaviorType" : "destinationBehaviorType",
+  "majorGroupId" : 0,
+  "email" : "email",
+  "lotControlFlag" : "lotControlFlag",
+  "extrinsicDecimal1" : 1.7325933120207193116613098027301020920276641845703125,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "alcoholVintageYear" : "alcoholVintageYear",
+  "workParentId" : 2,
+  "podOrderSuffix" : 1,
+  "destinationAisleAddress" : "destinationAisleAddress",
+  "destinationBuildingName" : "destinationBuildingName",
+  "destinationAddressSchemeName" : "destinationAddressSchemeName",
+  "destinationFootprintName" : "destinationFootprintName",
+  "destinationWarehouseName" : "destinationWarehouseName",
+  "sourceWarehouseName" : "sourceWarehouseName",
+  "userId" : 5,
+  "sourceBillingTypeId" : 1,
+  "requiresProductionLot" : "requiresProductionLot",
+  "casebreakEnabled" : "casebreakEnabled",
+  "destinationFootprintHeight" : 6,
+  "summaryCodeId" : 7,
+  "priorityCode" : 7,
+  "sourceAisleAddress" : "sourceAisleAddress",
+  "listPrice" : 4.4596050349586793259959449642337858676910400390625,
+  "sourceOriginName" : "sourceOriginName",
+  "sourceBehaviorType" : "sourceBehaviorType",
+  "weightPerWrap" : 4.6523964329332461176136348512955009937286376953125,
+  "destinationAddressSchemeId" : 3,
+  "sourceAllowItemMixing" : false,
+  "destinationBillingTypeId" : 2,
+  "secure" : "secure",
+  "buyerId" : 4,
+  "sourceBehaviorTypeName" : "sourceBehaviorTypeName",
+  "destinationAisleId" : 6,
+  "qualityControlIndicator" : "qualityControlIndicator",
+  "workBatchId" : 5,
+  "podRevDate" : "podRevDate",
+  "commodityCode" : "commodityCode",
+  "sourceFootprintHeight" : 6,
+  "pickTouches" : 5,
+  "itemDescription" : "itemDescription",
+  "sector" : "sector",
+  "destinationPriorityCode" : 7,
+  "alcoholTypeName" : "alcoholTypeName",
+  "lobId" : 1,
+  "assetCode" : "assetCode",
+  "packingSlipDescription" : "packingSlipDescription",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "destinationOnline" : false,
+  "compCode" : 6,
+  "destinationNumber" : 0,
+  "alcoholContainerId" : 8,
+  "importedRecordId" : 6,
+  "foreignId" : 9,
+  "backorder" : "backorder",
+  "outsideVendor" : 3,
+  "sourceOnline" : false,
+  "subGroupId" : 7,
+  "workCreateDate" : "2000-01-23T04:56:07.000+00:00",
+  "destinationOriginName" : "destinationOriginName",
+  "alcoholRegion" : "alcoholRegion",
+  "chargeCode" : "chargeCode",
+  "sourceAddressSchemeName" : "sourceAddressSchemeName",
+  "destinationWarehouseId" : 9,
+  "alcoholSCCCode" : "alcoholSCCCode",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "sourceBillingTypeName" : "sourceBillingTypeName",
+  "destinationLocation" : "destinationLocation",
+  "sourceAddressSchemeId" : 4,
+  "sourceLevel" : 5,
+  "sourceFootprintWidth" : 7,
+  "destinationLevel" : 3,
+  "sourceZoneName" : "sourceZoneName",
+  "itemStatus" : "itemStatus",
+  "pickNo" : "pickNo",
+  "destinationFootprintWidth" : 5,
+  "productType" : 0,
+  "workModifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "unitsPerWrap" : 7,
+  "destinationZoneName" : "destinationZoneName",
+  "quantity" : 3,
+  "alcoholCountryName" : "alcoholCountryName",
+  "accountCodeId" : 4,
+  "alcoholNABCACode" : "alcoholNABCACode",
+  "alcoholUNIMERCCode" : "alcoholUNIMERCCode",
+  "destinationZoneId" : 3,
+  "sourceNumber" : 9,
+  "destinationFootprintDepth" : 6,
+  "sourcePriorityCode" : 6,
+  "vendorSKU" : "vendorSKU",
+  "sourceFootprintId" : 1,
+  "sourceWarehouseId" : 3,
+  "sourceBuildingId" : 2,
+  "productCodeFlag" : "productCodeFlag",
+  "destinationBehaviorTypeName" : "destinationBehaviorTypeName",
+  "sourceLocation" : "sourceLocation",
+  "destinationFootprintId" : 6,
+  "numericSortOrder" : 8
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -768,31 +919,33 @@ public class WorkActivityAPI: APIBase {
 
      - returns: RequestBuilder<[WorkActivity]> 
      */
-    public class func getWorkActivityByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[WorkActivity]> {
+    public class func getWorkActivityByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[WorkActivity]> {
         let path = "/beta/workActivity/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[WorkActivity]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get a workActivity by id
      
      - parameter workActivityId: (path) Id of the workActivity to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getWorkActivityById(workActivityId workActivityId: Int, completion: ((data: WorkActivity?, error: ErrorType?) -> Void)) {
+    public class func getWorkActivityById(workActivityId workActivityId: Int32, completion: ((data: WorkActivity?, error: ErrorType?) -> Void)) {
         getWorkActivityByIdWithRequestBuilder(workActivityId: workActivityId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -800,197 +953,197 @@ public class WorkActivityAPI: APIBase {
 
 
     /**
-     
      Get a workActivity by id
-     
      - GET /beta/workActivity/{workActivityId}
      - Returns the workActivity identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "destinationBillingTypeName" : "aeiou",
-  "alcoholTypeId" : 123,
-  "destinationBuildingId" : 123,
-  "type" : "aeiou",
-  "voidDate" : "2000-01-23T04:56:07.000+0000",
-  "sourceOrigin" : 123,
-  "lowStockContactId" : 123,
-  "alcoholContainerVolume" : 123,
-  "destinationCost" : 123,
-  "absoluteMax" : "aeiou",
-  "numberOfWraps" : 123,
-  "criticalAmount" : 123,
-  "alcoholContent" : 1.3579000000000001069366817318950779736042022705078125,
-  "unitCode" : "aeiou",
-  "numberOfCases" : 123,
-  "id" : 123,
-  "sku" : "aeiou",
-  "alcoholState" : "aeiou",
-  "productCodeId" : 123,
-  "sourceBuildingName" : "aeiou",
-  "sourceFootprintName" : "aeiou",
-  "maxCycle" : 123,
-  "upc" : "aeiou",
-  "alcoholContainerName" : "aeiou",
-  "sourceZoneId" : 123,
-  "extrinsicNumber2" : 123,
-  "extrinsicNumber1" : 123,
-  "alcoholCountryId" : 123,
-  "extrinsicText1" : "aeiou",
-  "sourceCost" : 123,
-  "extrinsicText3" : "aeiou",
-  "extrinsicText2" : "aeiou",
-  "alcoholUPCCode" : "aeiou",
-  "destinationOrigin" : 123,
-  "sourceAisleId" : 123,
-  "sourceBay" : 123,
-  "classRestriction" : "aeiou",
-  "overallLeadTime" : 123,
-  "status" : "aeiou",
-  "sourceFootprintDepth" : 123,
-  "legacyLowLevelContactId" : 123,
-  "seasonalItem" : "aeiou",
-  "overallFixedReorderPoint" : 123,
-  "destinationBay" : 123,
-  "typeName" : "aeiou",
-  "destinationAllowItemMixing" : true,
-  "masterRef" : 123,
-  "serialCode" : "aeiou",
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "maxInterim" : 123,
-  "wrapCode" : "aeiou",
-  "additionalDescription" : "aeiou",
-  "lowStockCodeId" : 123,
-  "alcoholBrand" : "aeiou",
-  "statusName" : "aeiou",
-  "destinationBehaviorType" : "aeiou",
-  "majorGroupId" : 123,
-  "email" : "aeiou",
-  "lotControlFlag" : "aeiou",
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "alcoholVintageYear" : "aeiou",
-  "workParentId" : 123,
-  "podOrderSuffix" : 123,
-  "destinationAisleAddress" : "aeiou",
-  "destinationBuildingName" : "aeiou",
-  "destinationAddressSchemeName" : "aeiou",
-  "destinationFootprintName" : "aeiou",
-  "destinationWarehouseName" : "aeiou",
-  "sourceWarehouseName" : "aeiou",
-  "userId" : 123,
-  "sourceBillingTypeId" : 123,
-  "requiresProductionLot" : "aeiou",
-  "casebreakEnabled" : "aeiou",
-  "destinationFootprintHeight" : 123,
-  "summaryCodeId" : 123,
-  "priorityCode" : 123,
-  "sourceAisleAddress" : "aeiou",
-  "listPrice" : 1.3579000000000001069366817318950779736042022705078125,
-  "sourceOriginName" : "aeiou",
-  "sourceBehaviorType" : "aeiou",
-  "weightPerWrap" : 1.3579000000000001069366817318950779736042022705078125,
-  "destinationAddressSchemeId" : 123,
-  "sourceAllowItemMixing" : true,
-  "destinationBillingTypeId" : 123,
-  "secure" : "aeiou",
-  "buyerId" : 123,
-  "sourceBehaviorTypeName" : "aeiou",
-  "destinationAisleId" : 123,
-  "qualityControlIndicator" : "aeiou",
-  "workBatchId" : 123,
-  "podRevDate" : "aeiou",
-  "commodityCode" : "aeiou",
-  "sourceFootprintHeight" : 123,
-  "pickTouches" : 123,
-  "itemDescription" : "aeiou",
-  "sector" : "aeiou",
-  "destinationPriorityCode" : 123,
-  "alcoholTypeName" : "aeiou",
-  "lobId" : 123,
-  "assetCode" : "aeiou",
-  "packingSlipDescription" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "destinationOnline" : true,
-  "compCode" : 123,
-  "destinationNumber" : 123,
-  "alcoholContainerId" : 123,
-  "importedRecordId" : 123,
-  "foreignId" : 123,
-  "backorder" : "aeiou",
-  "outsideVendor" : 123,
-  "sourceOnline" : true,
-  "subGroupId" : 123,
-  "workCreateDate" : "2000-01-23T04:56:07.000+0000",
-  "destinationOriginName" : "aeiou",
-  "alcoholRegion" : "aeiou",
-  "chargeCode" : "aeiou",
-  "sourceAddressSchemeName" : "aeiou",
-  "destinationWarehouseId" : 123,
-  "alcoholSCCCode" : "aeiou",
+  "destinationBillingTypeName" : "destinationBillingTypeName",
+  "alcoholTypeId" : 6,
+  "destinationBuildingId" : 6,
+  "type" : "type",
+  "voidDate" : "2000-01-23T04:56:07.000+00:00",
+  "sourceOrigin" : 1,
+  "lowStockContactId" : 9,
+  "alcoholContainerVolume" : 9,
+  "destinationCost" : 6,
+  "absoluteMax" : "absoluteMax",
+  "numberOfWraps" : 3,
+  "criticalAmount" : 8,
+  "alcoholContent" : 4.57393626423225096999658489949069917201995849609375,
+  "unitCode" : "unitCode",
+  "numberOfCases" : 7,
+  "id" : 0,
+  "sku" : "sku",
+  "alcoholState" : "alcoholState",
+  "productCodeId" : 5,
+  "sourceBuildingName" : "sourceBuildingName",
+  "sourceFootprintName" : "sourceFootprintName",
+  "maxCycle" : 3,
+  "upc" : "upc",
+  "alcoholContainerName" : "alcoholContainerName",
+  "sourceZoneId" : 4,
+  "extrinsicNumber2" : 2,
+  "extrinsicNumber1" : 0,
+  "alcoholCountryId" : 1,
+  "extrinsicText1" : "extrinsicText1",
+  "sourceCost" : 8,
+  "extrinsicText3" : "extrinsicText3",
+  "extrinsicText2" : "extrinsicText2",
+  "alcoholUPCCode" : "alcoholUPCCode",
+  "destinationOrigin" : 1,
+  "sourceAisleId" : 7,
+  "sourceBay" : 9,
+  "classRestriction" : "classRestriction",
+  "overallLeadTime" : 6,
+  "status" : "status",
+  "sourceFootprintDepth" : 1,
+  "legacyLowLevelContactId" : 0,
+  "seasonalItem" : "seasonalItem",
+  "overallFixedReorderPoint" : 4,
+  "destinationBay" : 7,
+  "typeName" : "typeName",
+  "destinationAllowItemMixing" : false,
+  "masterRef" : 0,
+  "serialCode" : "serialCode",
+  "extrinsicDecimal2" : 8.289659398142969592981899040751159191131591796875,
+  "maxInterim" : 4,
+  "wrapCode" : "wrapCode",
+  "additionalDescription" : "additionalDescription",
+  "lowStockCodeId" : 9,
+  "alcoholBrand" : "alcoholBrand",
+  "statusName" : "statusName",
+  "destinationBehaviorType" : "destinationBehaviorType",
+  "majorGroupId" : 0,
+  "email" : "email",
+  "lotControlFlag" : "lotControlFlag",
+  "extrinsicDecimal1" : 1.7325933120207193116613098027301020920276641845703125,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "alcoholVintageYear" : "alcoholVintageYear",
+  "workParentId" : 2,
+  "podOrderSuffix" : 1,
+  "destinationAisleAddress" : "destinationAisleAddress",
+  "destinationBuildingName" : "destinationBuildingName",
+  "destinationAddressSchemeName" : "destinationAddressSchemeName",
+  "destinationFootprintName" : "destinationFootprintName",
+  "destinationWarehouseName" : "destinationWarehouseName",
+  "sourceWarehouseName" : "sourceWarehouseName",
+  "userId" : 5,
+  "sourceBillingTypeId" : 1,
+  "requiresProductionLot" : "requiresProductionLot",
+  "casebreakEnabled" : "casebreakEnabled",
+  "destinationFootprintHeight" : 6,
+  "summaryCodeId" : 7,
+  "priorityCode" : 7,
+  "sourceAisleAddress" : "sourceAisleAddress",
+  "listPrice" : 4.4596050349586793259959449642337858676910400390625,
+  "sourceOriginName" : "sourceOriginName",
+  "sourceBehaviorType" : "sourceBehaviorType",
+  "weightPerWrap" : 4.6523964329332461176136348512955009937286376953125,
+  "destinationAddressSchemeId" : 3,
+  "sourceAllowItemMixing" : false,
+  "destinationBillingTypeId" : 2,
+  "secure" : "secure",
+  "buyerId" : 4,
+  "sourceBehaviorTypeName" : "sourceBehaviorTypeName",
+  "destinationAisleId" : 6,
+  "qualityControlIndicator" : "qualityControlIndicator",
+  "workBatchId" : 5,
+  "podRevDate" : "podRevDate",
+  "commodityCode" : "commodityCode",
+  "sourceFootprintHeight" : 6,
+  "pickTouches" : 5,
+  "itemDescription" : "itemDescription",
+  "sector" : "sector",
+  "destinationPriorityCode" : 7,
+  "alcoholTypeName" : "alcoholTypeName",
+  "lobId" : 1,
+  "assetCode" : "assetCode",
+  "packingSlipDescription" : "packingSlipDescription",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "destinationOnline" : false,
+  "compCode" : 6,
+  "destinationNumber" : 0,
+  "alcoholContainerId" : 8,
+  "importedRecordId" : 6,
+  "foreignId" : 9,
+  "backorder" : "backorder",
+  "outsideVendor" : 3,
+  "sourceOnline" : false,
+  "subGroupId" : 7,
+  "workCreateDate" : "2000-01-23T04:56:07.000+00:00",
+  "destinationOriginName" : "destinationOriginName",
+  "alcoholRegion" : "alcoholRegion",
+  "chargeCode" : "chargeCode",
+  "sourceAddressSchemeName" : "sourceAddressSchemeName",
+  "destinationWarehouseId" : 9,
+  "alcoholSCCCode" : "alcoholSCCCode",
   "customFields" : {
     "key" : "{}"
   },
-  "sourceBillingTypeName" : "aeiou",
-  "destinationLocation" : "aeiou",
-  "sourceAddressSchemeId" : 123,
-  "sourceLevel" : 123,
-  "sourceFootprintWidth" : 123,
-  "destinationLevel" : 123,
-  "sourceZoneName" : "aeiou",
-  "itemStatus" : "aeiou",
-  "pickNo" : "aeiou",
-  "destinationFootprintWidth" : 123,
-  "productType" : 123,
-  "workModifyDate" : "2000-01-23T04:56:07.000+0000",
-  "unitsPerWrap" : 123,
-  "destinationZoneName" : "aeiou",
-  "quantity" : 123,
-  "alcoholCountryName" : "aeiou",
-  "accountCodeId" : 123,
-  "alcoholNABCACode" : "aeiou",
-  "alcoholUNIMERCCode" : "aeiou",
-  "destinationZoneId" : 123,
-  "sourceNumber" : 123,
-  "destinationFootprintDepth" : 123,
-  "sourcePriorityCode" : 123,
-  "vendorSKU" : "aeiou",
-  "sourceFootprintId" : 123,
-  "sourceWarehouseId" : 123,
-  "sourceBuildingId" : 123,
-  "productCodeFlag" : "aeiou",
-  "destinationBehaviorTypeName" : "aeiou",
-  "sourceLocation" : "aeiou",
-  "destinationFootprintId" : 123,
-  "numericSortOrder" : 123
+  "sourceBillingTypeName" : "sourceBillingTypeName",
+  "destinationLocation" : "destinationLocation",
+  "sourceAddressSchemeId" : 4,
+  "sourceLevel" : 5,
+  "sourceFootprintWidth" : 7,
+  "destinationLevel" : 3,
+  "sourceZoneName" : "sourceZoneName",
+  "itemStatus" : "itemStatus",
+  "pickNo" : "pickNo",
+  "destinationFootprintWidth" : 5,
+  "productType" : 0,
+  "workModifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "unitsPerWrap" : 7,
+  "destinationZoneName" : "destinationZoneName",
+  "quantity" : 3,
+  "alcoholCountryName" : "alcoholCountryName",
+  "accountCodeId" : 4,
+  "alcoholNABCACode" : "alcoholNABCACode",
+  "alcoholUNIMERCCode" : "alcoholUNIMERCCode",
+  "destinationZoneId" : 3,
+  "sourceNumber" : 9,
+  "destinationFootprintDepth" : 6,
+  "sourcePriorityCode" : 6,
+  "vendorSKU" : "vendorSKU",
+  "sourceFootprintId" : 1,
+  "sourceWarehouseId" : 3,
+  "sourceBuildingId" : 2,
+  "productCodeFlag" : "productCodeFlag",
+  "destinationBehaviorTypeName" : "destinationBehaviorTypeName",
+  "sourceLocation" : "sourceLocation",
+  "destinationFootprintId" : 6,
+  "numericSortOrder" : 8
 }}]
      
      - parameter workActivityId: (path) Id of the workActivity to be returned. 
 
      - returns: RequestBuilder<WorkActivity> 
      */
-    public class func getWorkActivityByIdWithRequestBuilder(workActivityId workActivityId: Int) -> RequestBuilder<WorkActivity> {
+    public class func getWorkActivityByIdWithRequestBuilder(workActivityId workActivityId: Int32) -> RequestBuilder<WorkActivity> {
         var path = "/beta/workActivity/{workActivityId}"
         path = path.stringByReplacingOccurrencesOfString("{workActivityId}", withString: "\(workActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<WorkActivity>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for a workActivity.
      
      - parameter workActivityId: (path) Id of the workActivity to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getWorkActivityTags(workActivityId workActivityId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getWorkActivityTags(workActivityId workActivityId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getWorkActivityTagsWithRequestBuilder(workActivityId: workActivityId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -998,9 +1151,7 @@ public class WorkActivityAPI: APIBase {
 
 
     /**
-     
      Get the tags for a workActivity.
-     
      - GET /beta/workActivity/{workActivityId}/tag
      - Get all existing workActivity tags.
      - API Key:
@@ -1011,21 +1162,23 @@ public class WorkActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getWorkActivityTagsWithRequestBuilder(workActivityId workActivityId: Int) -> RequestBuilder<Void> {
+    public class func getWorkActivityTagsWithRequestBuilder(workActivityId workActivityId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/workActivity/{workActivityId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{workActivityId}", withString: "\(workActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a workActivity
      
      - parameter body: (body) WorkActivity to be updated. 
@@ -1039,9 +1192,7 @@ public class WorkActivityAPI: APIBase {
 
 
     /**
-     
      Update a workActivity
-     
      - PUT /beta/workActivity
      - Updates an existing workActivity using the specified data.
      - API Key:
@@ -1055,12 +1206,13 @@ public class WorkActivityAPI: APIBase {
     public class func updateWorkActivityWithRequestBuilder(body body: WorkActivity) -> RequestBuilder<Void> {
         let path = "/beta/workActivity"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

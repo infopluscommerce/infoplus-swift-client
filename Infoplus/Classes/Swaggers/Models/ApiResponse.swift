@@ -10,8 +10,6 @@ import Foundation
 
 public class ApiResponse: JSONEncodable {
 
-    
-
     public init() {}
 
     // MARK: JSONEncodable

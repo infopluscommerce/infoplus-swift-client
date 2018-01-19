@@ -9,12 +9,11 @@ import Foundation
 
 
 public class InvoiceWorksheetLine: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
-    public var lobId: Int?
-    public var seqNo: Int?
+    public var lobId: Int32?
+    public var seqNo: Int32?
     public var description: String?
     public var accountCode: String?
     public var department: String?
@@ -22,23 +21,22 @@ public class InvoiceWorksheetLine: JSONEncodable {
     public var quantity: Double?
     public var chargeRate: Double?
     public var extendedCharge: Double?
-    public var backupFile: Int?
+    public var backupFile: Int32?
     public var backupFileUrl: String?
-    public var invoiceWorksheetId: Int?
-    public var invoiceTemplateLineId: Int?
+    public var invoiceWorksheetId: Int32?
+    public var invoiceTemplateLineId: Int32?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
-        nillableDictionary["lobId"] = self.lobId
-        nillableDictionary["seqNo"] = self.seqNo
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
+        nillableDictionary["seqNo"] = self.seqNo?.encodeToJSON()
         nillableDictionary["description"] = self.description
         nillableDictionary["accountCode"] = self.accountCode
         nillableDictionary["department"] = self.department
@@ -46,10 +44,10 @@ public class InvoiceWorksheetLine: JSONEncodable {
         nillableDictionary["quantity"] = self.quantity
         nillableDictionary["chargeRate"] = self.chargeRate
         nillableDictionary["extendedCharge"] = self.extendedCharge
-        nillableDictionary["backupFile"] = self.backupFile
+        nillableDictionary["backupFile"] = self.backupFile?.encodeToJSON()
         nillableDictionary["backupFileUrl"] = self.backupFileUrl
-        nillableDictionary["invoiceWorksheetId"] = self.invoiceWorksheetId
-        nillableDictionary["invoiceTemplateLineId"] = self.invoiceTemplateLineId
+        nillableDictionary["invoiceWorksheetId"] = self.invoiceWorksheetId?.encodeToJSON()
+        nillableDictionary["invoiceTemplateLineId"] = self.invoiceTemplateLineId?.encodeToJSON()
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

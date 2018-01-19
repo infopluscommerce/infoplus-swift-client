@@ -11,7 +11,6 @@ import Alamofire
 
 public class LineOfBusinessAPI: APIBase {
     /**
-     
      Get a lineOfBusiness by id
      
      - parameter lineOfBusinessId: (path) Id of lineOfBusiness to be returned. 
@@ -25,18 +24,16 @@ public class LineOfBusinessAPI: APIBase {
 
 
     /**
-     
      Get a lineOfBusiness by id
-     
      - GET /beta/lineOfBusiness/{lineOfBusinessId}
      - Returns the lineOfBusiness identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "fullEntityClassName" : "aeiou",
-  "id" : 123,
-  "label" : "aeiou"
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : 0,
+  "label" : "label"
 }}]
      
      - parameter lineOfBusinessId: (path) Id of lineOfBusiness to be returned. 
@@ -47,17 +44,19 @@ public class LineOfBusinessAPI: APIBase {
         var path = "/beta/lineOfBusiness/{lineOfBusinessId}"
         path = path.stringByReplacingOccurrencesOfString("{lineOfBusinessId}", withString: "\(lineOfBusinessId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<LineOfBusiness>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search lineOfBusinesses
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
@@ -65,7 +64,7 @@ public class LineOfBusinessAPI: APIBase {
      - parameter limit: (query) Maximum results per page.  Defaults to 20.  Max allowed value is 250. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getLineOfBusinessBySearchText(searchText searchText: String?, page: Int?, limit: Int?, completion: ((data: [LineOfBusiness]?, error: ErrorType?) -> Void)) {
+    public class func getLineOfBusinessBySearchText(searchText searchText: String? = nil, page: Int32? = nil, limit: Int32? = nil, completion: ((data: [LineOfBusiness]?, error: ErrorType?) -> Void)) {
         getLineOfBusinessBySearchTextWithRequestBuilder(searchText: searchText, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -73,18 +72,20 @@ public class LineOfBusinessAPI: APIBase {
 
 
     /**
-     
      Search lineOfBusinesses
-     
      - GET /beta/lineOfBusiness/search
      - Returns the list of lineOfBusinesses that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "fullEntityClassName" : "aeiou",
-  "id" : 123,
-  "label" : "aeiou"
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : 0,
+  "label" : "label"
+}, {
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : 0,
+  "label" : "label"
 } ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
@@ -93,20 +94,23 @@ public class LineOfBusinessAPI: APIBase {
 
      - returns: RequestBuilder<[LineOfBusiness]> 
      */
-    public class func getLineOfBusinessBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[LineOfBusiness]> {
+    public class func getLineOfBusinessBySearchTextWithRequestBuilder(searchText searchText: String? = nil, page: Int32? = nil, limit: Int32? = nil) -> RequestBuilder<[LineOfBusiness]> {
         let path = "/beta/lineOfBusiness/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "searchText": searchText,
-            "page": page,
-            "limit": limit
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON()
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[LineOfBusiness]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
 }

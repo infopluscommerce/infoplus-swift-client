@@ -9,21 +9,19 @@ import Foundation
 
 
 public class ItemBuyer: JSONEncodable {
-
-    public var lobId: Int?
-    public var internalId: Int?
+    public var lobId: Int32?
+    public var internalId: Int32?
     public var id: String?
     public var name: String?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["lobId"] = self.lobId
-        nillableDictionary["internalId"] = self.internalId
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
+        nillableDictionary["internalId"] = self.internalId?.encodeToJSON()
         nillableDictionary["id"] = self.id
         nillableDictionary["name"] = self.name
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()

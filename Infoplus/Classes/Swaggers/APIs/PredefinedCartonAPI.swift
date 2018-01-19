@@ -11,7 +11,6 @@ import Alamofire
 
 public class PredefinedCartonAPI: APIBase {
     /**
-     
      Get a predefinedCarton by id
      
      - parameter predefinedCartonId: (path) Id of predefinedCarton to be returned. 
@@ -25,18 +24,16 @@ public class PredefinedCartonAPI: APIBase {
 
 
     /**
-     
      Get a predefinedCarton by id
-     
      - GET /beta/predefinedCarton/{predefinedCartonId}
      - Returns the predefinedCarton identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "fullEntityClassName" : "aeiou",
-  "id" : 123,
-  "label" : "aeiou"
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : 0,
+  "label" : "label"
 }}]
      
      - parameter predefinedCartonId: (path) Id of predefinedCarton to be returned. 
@@ -47,17 +44,19 @@ public class PredefinedCartonAPI: APIBase {
         var path = "/beta/predefinedCarton/{predefinedCartonId}"
         path = path.stringByReplacingOccurrencesOfString("{predefinedCartonId}", withString: "\(predefinedCartonId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<PredefinedCarton>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search predefinedCartons
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
@@ -65,7 +64,7 @@ public class PredefinedCartonAPI: APIBase {
      - parameter limit: (query) Maximum results per page.  Defaults to 20.  Max allowed value is 250. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getPredefinedCartonBySearchText(searchText searchText: String?, page: Int?, limit: Int?, completion: ((data: [PredefinedCarton]?, error: ErrorType?) -> Void)) {
+    public class func getPredefinedCartonBySearchText(searchText searchText: String? = nil, page: Int32? = nil, limit: Int32? = nil, completion: ((data: [PredefinedCarton]?, error: ErrorType?) -> Void)) {
         getPredefinedCartonBySearchTextWithRequestBuilder(searchText: searchText, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -73,18 +72,20 @@ public class PredefinedCartonAPI: APIBase {
 
 
     /**
-     
      Search predefinedCartons
-     
      - GET /beta/predefinedCarton/search
      - Returns the list of predefinedCartons that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "fullEntityClassName" : "aeiou",
-  "id" : 123,
-  "label" : "aeiou"
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : 0,
+  "label" : "label"
+}, {
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : 0,
+  "label" : "label"
 } ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
@@ -93,20 +94,23 @@ public class PredefinedCartonAPI: APIBase {
 
      - returns: RequestBuilder<[PredefinedCarton]> 
      */
-    public class func getPredefinedCartonBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[PredefinedCarton]> {
+    public class func getPredefinedCartonBySearchTextWithRequestBuilder(searchText searchText: String? = nil, page: Int32? = nil, limit: Int32? = nil) -> RequestBuilder<[PredefinedCarton]> {
         let path = "/beta/predefinedCarton/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "searchText": searchText,
-            "page": page,
-            "limit": limit
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON()
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[PredefinedCarton]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
 }

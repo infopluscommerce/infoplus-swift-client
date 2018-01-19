@@ -11,7 +11,6 @@ import Alamofire
 
 public class OrderInvoiceTemplateLineItemDescriptionEnumAPI: APIBase {
     /**
-     
      Get an orderInvoiceTemplateLineItemDescriptionEnum by id
      
      - parameter orderInvoiceTemplateLineItemDescriptionEnumId: (path) Id of orderInvoiceTemplateLineItemDescriptionEnum to be returned. 
@@ -25,18 +24,16 @@ public class OrderInvoiceTemplateLineItemDescriptionEnumAPI: APIBase {
 
 
     /**
-     
      Get an orderInvoiceTemplateLineItemDescriptionEnum by id
-     
      - GET /beta/orderInvoiceTemplateLineItemDescriptionEnum/{orderInvoiceTemplateLineItemDescriptionEnumId}
      - Returns the orderInvoiceTemplateLineItemDescriptionEnum identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "fullEntityClassName" : "aeiou",
-  "id" : "aeiou",
-  "label" : "aeiou"
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : "id",
+  "label" : "label"
 }}]
      
      - parameter orderInvoiceTemplateLineItemDescriptionEnumId: (path) Id of orderInvoiceTemplateLineItemDescriptionEnum to be returned. 
@@ -47,17 +44,19 @@ public class OrderInvoiceTemplateLineItemDescriptionEnumAPI: APIBase {
         var path = "/beta/orderInvoiceTemplateLineItemDescriptionEnum/{orderInvoiceTemplateLineItemDescriptionEnumId}"
         path = path.stringByReplacingOccurrencesOfString("{orderInvoiceTemplateLineItemDescriptionEnumId}", withString: "\(orderInvoiceTemplateLineItemDescriptionEnumId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<OrderInvoiceTemplateLineItemDescriptionEnum>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search orderInvoiceTemplateLineItemDescriptionEnums
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
@@ -65,7 +64,7 @@ public class OrderInvoiceTemplateLineItemDescriptionEnumAPI: APIBase {
      - parameter limit: (query) Maximum results per page.  Defaults to 20.  Max allowed value is 250. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getOrderInvoiceTemplateLineItemDescriptionEnumBySearchText(searchText searchText: String?, page: Int?, limit: Int?, completion: ((data: [OrderInvoiceTemplateLineItemDescriptionEnum]?, error: ErrorType?) -> Void)) {
+    public class func getOrderInvoiceTemplateLineItemDescriptionEnumBySearchText(searchText searchText: String? = nil, page: Int32? = nil, limit: Int32? = nil, completion: ((data: [OrderInvoiceTemplateLineItemDescriptionEnum]?, error: ErrorType?) -> Void)) {
         getOrderInvoiceTemplateLineItemDescriptionEnumBySearchTextWithRequestBuilder(searchText: searchText, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -73,18 +72,20 @@ public class OrderInvoiceTemplateLineItemDescriptionEnumAPI: APIBase {
 
 
     /**
-     
      Search orderInvoiceTemplateLineItemDescriptionEnums
-     
      - GET /beta/orderInvoiceTemplateLineItemDescriptionEnum/search
      - Returns the list of orderInvoiceTemplateLineItemDescriptionEnums that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "fullEntityClassName" : "aeiou",
-  "id" : "aeiou",
-  "label" : "aeiou"
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : "id",
+  "label" : "label"
+}, {
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : "id",
+  "label" : "label"
 } ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
@@ -93,20 +94,23 @@ public class OrderInvoiceTemplateLineItemDescriptionEnumAPI: APIBase {
 
      - returns: RequestBuilder<[OrderInvoiceTemplateLineItemDescriptionEnum]> 
      */
-    public class func getOrderInvoiceTemplateLineItemDescriptionEnumBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[OrderInvoiceTemplateLineItemDescriptionEnum]> {
+    public class func getOrderInvoiceTemplateLineItemDescriptionEnumBySearchTextWithRequestBuilder(searchText searchText: String? = nil, page: Int32? = nil, limit: Int32? = nil) -> RequestBuilder<[OrderInvoiceTemplateLineItemDescriptionEnum]> {
         let path = "/beta/orderInvoiceTemplateLineItemDescriptionEnum/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "searchText": searchText,
-            "page": page,
-            "limit": limit
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON()
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[OrderInvoiceTemplateLineItemDescriptionEnum]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
 }

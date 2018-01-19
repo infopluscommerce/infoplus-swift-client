@@ -11,7 +11,6 @@ import Alamofire
 
 public class BillOfLadingAPI: APIBase {
     /**
-     
      Create a billOfLading
      
      - parameter body: (body) BillOfLading to be inserted. 
@@ -25,96 +24,117 @@ public class BillOfLadingAPI: APIBase {
 
 
     /**
-     
      Create a billOfLading
-     
      - POST /beta/billOfLading
      - Inserts a new billOfLading using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "trailerNo" : "aeiou",
-  "billToState" : "aeiou",
-  "shipFromCountry" : "aeiou",
-  "isThisAMasterBOL" : true,
-  "isShipToFOB" : true,
-  "isTrailerLoadedByShipper" : true,
-  "billToCity" : "aeiou",
-  "thirdParty" : true,
-  "shipToCity" : "aeiou",
-  "proNo" : "aeiou",
-  "billToZip" : "aeiou",
-  "bolDate" : "2000-01-23T04:56:07.000+0000",
-  "carrierName" : "aeiou",
-  "id" : 123,
-  "shipToState" : "aeiou",
-  "lobId" : 123,
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "shipFromState" : "aeiou",
-  "isFreightCountedByShipper" : true,
-  "shipToLocationNo" : "aeiou",
-  "isShipFromFOB" : true,
-  "byDriverPallets" : true,
-  "shipFromAddress" : "aeiou",
-  "billToAttention" : "aeiou",
-  "billToCountry" : "aeiou",
-  "feeTermsCollect" : true,
-  "collect" : true,
-  "cid" : "aeiou",
-  "shipToAddress" : "aeiou",
+  "trailerNo" : "trailerNo",
+  "billToState" : "billToState",
+  "shipFromCountry" : "shipFromCountry",
+  "isThisAMasterBOL" : false,
+  "isShipToFOB" : false,
+  "isTrailerLoadedByShipper" : false,
+  "billToCity" : "billToCity",
+  "thirdParty" : false,
+  "shipToCity" : "shipToCity",
+  "proNo" : "proNo",
+  "billToZip" : "billToZip",
+  "bolDate" : "2000-01-23T04:56:07.000+00:00",
+  "carrierName" : "carrierName",
+  "id" : 0,
+  "shipToState" : "shipToState",
+  "lobId" : 6,
+  "orderNo" : 1.46581298050294517310021547018550336360931396484375,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipFromState" : "shipFromState",
+  "isFreightCountedByShipper" : false,
+  "shipToLocationNo" : "shipToLocationNo",
+  "isShipFromFOB" : false,
+  "byDriverPallets" : false,
+  "shipFromAddress" : "shipFromAddress",
+  "billToAttention" : "billToAttention",
+  "billToCountry" : "billToCountry",
+  "feeTermsCollect" : false,
+  "collect" : false,
+  "cid" : "cid",
+  "shipToAddress" : "shipToAddress",
   "customFields" : {
     "key" : "{}"
   },
-  "scac" : "aeiou",
-  "shipFromZip" : "aeiou",
-  "customerCheckAcceptable" : true,
-  "sid" : "aeiou",
-  "billToAddress" : "aeiou",
-  "shipToZip" : "aeiou",
-  "codAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "byDriver" : true,
-  "shipToAttention" : "aeiou",
-  "byDriverPieces" : true,
-  "shipFromName" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "scac" : "scac",
+  "shipFromZip" : "shipFromZip",
+  "customerCheckAcceptable" : false,
+  "sid" : "sid",
+  "billToAddress" : "billToAddress",
+  "shipToZip" : "shipToZip",
+  "codAmount" : 5.962133916683182377482808078639209270477294921875,
+  "byDriver" : false,
+  "shipToAttention" : "shipToAttention",
+  "byDriverPieces" : false,
+  "shipFromName" : "shipFromName",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
   "orderInfoLines" : [ {
-    "palletslip" : true,
+    "palletslip" : false,
     "customFields" : {
       "key" : "{}"
     },
-    "noPackages" : 123,
-    "weight" : 123,
-    "additionalShipperInfo" : "aeiou",
-    "customerOrderNo" : "aeiou"
+    "noPackages" : 2,
+    "weight" : 7,
+    "additionalShipperInfo" : "additionalShipperInfo",
+    "customerOrderNo" : "customerOrderNo"
+  }, {
+    "palletslip" : false,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "noPackages" : 2,
+    "weight" : 7,
+    "additionalShipperInfo" : "additionalShipperInfo",
+    "customerOrderNo" : "customerOrderNo"
   } ],
-  "shipToCountry" : "aeiou",
-  "sealNo" : "aeiou",
+  "shipToCountry" : "shipToCountry",
+  "sealNo" : "sealNo",
   "carrierInfoLines" : [ {
-    "seqNo" : 123,
-    "carrierClass" : "aeiou",
+    "seqNo" : 9,
+    "carrierClass" : "carrierClass",
     "customFields" : {
       "key" : "{}"
     },
-    "huQuantity" : 123,
-    "huType" : "aeiou",
-    "commodityDescription" : "aeiou",
-    "weight" : 123,
-    "nfmcNo" : "aeiou",
-    "packageQuantity" : 123,
-    "isHazardousMaterial" : true,
-    "packageType" : "aeiou"
+    "huQuantity" : 3,
+    "huType" : "huType",
+    "commodityDescription" : "commodityDescription",
+    "weight" : 4,
+    "nfmcNo" : "nfmcNo",
+    "packageQuantity" : 2,
+    "isHazardousMaterial" : false,
+    "packageType" : "packageType"
+  }, {
+    "seqNo" : 9,
+    "carrierClass" : "carrierClass",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "huQuantity" : 3,
+    "huType" : "huType",
+    "commodityDescription" : "commodityDescription",
+    "weight" : 4,
+    "nfmcNo" : "nfmcNo",
+    "packageQuantity" : 2,
+    "isHazardousMaterial" : false,
+    "packageType" : "packageType"
   } ],
-  "masterBOLId" : 123,
-  "prepaid" : true,
-  "billToName" : "aeiou",
-  "feeTermsPrepaid" : true,
-  "shipFromAttention" : "aeiou",
-  "specialInstructions" : "aeiou",
-  "bolNo" : "aeiou",
-  "shipFromCity" : "aeiou",
-  "shipToName" : "aeiou"
+  "masterBOLId" : 5,
+  "prepaid" : false,
+  "billToName" : "billToName",
+  "feeTermsPrepaid" : false,
+  "shipFromAttention" : "shipFromAttention",
+  "specialInstructions" : "specialInstructions",
+  "bolNo" : "bolNo",
+  "shipFromCity" : "shipFromCity",
+  "shipToName" : "shipToName"
 }}]
      
      - parameter body: (body) BillOfLading to be inserted. 
@@ -124,23 +144,23 @@ public class BillOfLadingAPI: APIBase {
     public class func addBillOfLadingWithRequestBuilder(body body: BillOfLading) -> RequestBuilder<BillOfLading> {
         let path = "/beta/billOfLading"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<BillOfLading>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new audit for a billOfLading
      
      - parameter billOfLadingId: (path) Id of the billOfLading to add an audit to 
      - parameter billOfLadingAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addBillOfLadingAudit(billOfLadingId billOfLadingId: Int, billOfLadingAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addBillOfLadingAudit(billOfLadingId billOfLadingId: Int32, billOfLadingAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addBillOfLadingAuditWithRequestBuilder(billOfLadingId: billOfLadingId, billOfLadingAudit: billOfLadingAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -148,9 +168,7 @@ public class BillOfLadingAPI: APIBase {
 
 
     /**
-     
      Add new audit for a billOfLading
-     
      - PUT /beta/billOfLading/{billOfLadingId}/audit/{billOfLadingAudit}
      - Adds an audit to an existing billOfLading.
      - API Key:
@@ -162,29 +180,31 @@ public class BillOfLadingAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addBillOfLadingAuditWithRequestBuilder(billOfLadingId billOfLadingId: Int, billOfLadingAudit: String) -> RequestBuilder<Void> {
+    public class func addBillOfLadingAuditWithRequestBuilder(billOfLadingId billOfLadingId: Int32, billOfLadingAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/billOfLading/{billOfLadingId}/audit/{billOfLadingAudit}"
         path = path.stringByReplacingOccurrencesOfString("{billOfLadingId}", withString: "\(billOfLadingId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{billOfLadingAudit}", withString: "\(billOfLadingAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for a billOfLading.
      
      - parameter billOfLadingId: (path) Id of the billOfLading to add a tag to 
      - parameter billOfLadingTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addBillOfLadingTag(billOfLadingId billOfLadingId: Int, billOfLadingTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addBillOfLadingTag(billOfLadingId billOfLadingId: Int32, billOfLadingTag: String, completion: ((error: ErrorType?) -> Void)) {
         addBillOfLadingTagWithRequestBuilder(billOfLadingId: billOfLadingId, billOfLadingTag: billOfLadingTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -192,9 +212,7 @@ public class BillOfLadingAPI: APIBase {
 
 
     /**
-     
      Add new tags for a billOfLading.
-     
      - PUT /beta/billOfLading/{billOfLadingId}/tag/{billOfLadingTag}
      - Adds a tag to an existing billOfLading.
      - API Key:
@@ -206,28 +224,30 @@ public class BillOfLadingAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addBillOfLadingTagWithRequestBuilder(billOfLadingId billOfLadingId: Int, billOfLadingTag: String) -> RequestBuilder<Void> {
+    public class func addBillOfLadingTagWithRequestBuilder(billOfLadingId billOfLadingId: Int32, billOfLadingTag: String) -> RequestBuilder<Void> {
         var path = "/beta/billOfLading/{billOfLadingId}/tag/{billOfLadingTag}"
         path = path.stringByReplacingOccurrencesOfString("{billOfLadingId}", withString: "\(billOfLadingId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{billOfLadingTag}", withString: "\(billOfLadingTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a billOfLading
      
      - parameter billOfLadingId: (path) Id of the billOfLading to be deleted. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteBillOfLading(billOfLadingId billOfLadingId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteBillOfLading(billOfLadingId billOfLadingId: Int32, completion: ((error: ErrorType?) -> Void)) {
         deleteBillOfLadingWithRequestBuilder(billOfLadingId: billOfLadingId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -235,9 +255,7 @@ public class BillOfLadingAPI: APIBase {
 
 
     /**
-     
      Delete a billOfLading
-     
      - DELETE /beta/billOfLading/{billOfLadingId}
      - Deletes the billOfLading identified by the specified id.
      - API Key:
@@ -248,28 +266,30 @@ public class BillOfLadingAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteBillOfLadingWithRequestBuilder(billOfLadingId billOfLadingId: Int) -> RequestBuilder<Void> {
+    public class func deleteBillOfLadingWithRequestBuilder(billOfLadingId billOfLadingId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/billOfLading/{billOfLadingId}"
         path = path.stringByReplacingOccurrencesOfString("{billOfLadingId}", withString: "\(billOfLadingId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for a billOfLading.
      
      - parameter billOfLadingId: (path) Id of the billOfLading to remove tag from 
      - parameter billOfLadingTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteBillOfLadingTag(billOfLadingId billOfLadingId: Int, billOfLadingTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteBillOfLadingTag(billOfLadingId billOfLadingId: Int32, billOfLadingTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteBillOfLadingTagWithRequestBuilder(billOfLadingId: billOfLadingId, billOfLadingTag: billOfLadingTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -277,9 +297,7 @@ public class BillOfLadingAPI: APIBase {
 
 
     /**
-     
      Delete a tag for a billOfLading.
-     
      - DELETE /beta/billOfLading/{billOfLadingId}/tag/{billOfLadingTag}
      - Deletes an existing billOfLading tag using the specified data.
      - API Key:
@@ -291,22 +309,24 @@ public class BillOfLadingAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteBillOfLadingTagWithRequestBuilder(billOfLadingId billOfLadingId: Int, billOfLadingTag: String) -> RequestBuilder<Void> {
+    public class func deleteBillOfLadingTagWithRequestBuilder(billOfLadingId billOfLadingId: Int32, billOfLadingTag: String) -> RequestBuilder<Void> {
         var path = "/beta/billOfLading/{billOfLadingId}/tag/{billOfLadingTag}"
         path = path.stringByReplacingOccurrencesOfString("{billOfLadingId}", withString: "\(billOfLadingId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{billOfLadingTag}", withString: "\(billOfLadingTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search billOfLadings by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -315,7 +335,7 @@ public class BillOfLadingAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getBillOfLadingByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [BillOfLading]?, error: ErrorType?) -> Void)) {
+    public class func getBillOfLadingByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [BillOfLading]?, error: ErrorType?) -> Void)) {
         getBillOfLadingByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -323,96 +343,222 @@ public class BillOfLadingAPI: APIBase {
 
 
     /**
-     
      Search billOfLadings by filter
-     
      - GET /beta/billOfLading/search
      - Returns the list of billOfLadings that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "trailerNo" : "aeiou",
-  "billToState" : "aeiou",
-  "shipFromCountry" : "aeiou",
-  "isThisAMasterBOL" : true,
-  "isShipToFOB" : true,
-  "isTrailerLoadedByShipper" : true,
-  "billToCity" : "aeiou",
-  "thirdParty" : true,
-  "shipToCity" : "aeiou",
-  "proNo" : "aeiou",
-  "billToZip" : "aeiou",
-  "bolDate" : "2000-01-23T04:56:07.000+0000",
-  "carrierName" : "aeiou",
-  "id" : 123,
-  "shipToState" : "aeiou",
-  "lobId" : 123,
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "shipFromState" : "aeiou",
-  "isFreightCountedByShipper" : true,
-  "shipToLocationNo" : "aeiou",
-  "isShipFromFOB" : true,
-  "byDriverPallets" : true,
-  "shipFromAddress" : "aeiou",
-  "billToAttention" : "aeiou",
-  "billToCountry" : "aeiou",
-  "feeTermsCollect" : true,
-  "collect" : true,
-  "cid" : "aeiou",
-  "shipToAddress" : "aeiou",
+  "trailerNo" : "trailerNo",
+  "billToState" : "billToState",
+  "shipFromCountry" : "shipFromCountry",
+  "isThisAMasterBOL" : false,
+  "isShipToFOB" : false,
+  "isTrailerLoadedByShipper" : false,
+  "billToCity" : "billToCity",
+  "thirdParty" : false,
+  "shipToCity" : "shipToCity",
+  "proNo" : "proNo",
+  "billToZip" : "billToZip",
+  "bolDate" : "2000-01-23T04:56:07.000+00:00",
+  "carrierName" : "carrierName",
+  "id" : 0,
+  "shipToState" : "shipToState",
+  "lobId" : 6,
+  "orderNo" : 1.46581298050294517310021547018550336360931396484375,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipFromState" : "shipFromState",
+  "isFreightCountedByShipper" : false,
+  "shipToLocationNo" : "shipToLocationNo",
+  "isShipFromFOB" : false,
+  "byDriverPallets" : false,
+  "shipFromAddress" : "shipFromAddress",
+  "billToAttention" : "billToAttention",
+  "billToCountry" : "billToCountry",
+  "feeTermsCollect" : false,
+  "collect" : false,
+  "cid" : "cid",
+  "shipToAddress" : "shipToAddress",
   "customFields" : {
     "key" : "{}"
   },
-  "scac" : "aeiou",
-  "shipFromZip" : "aeiou",
-  "customerCheckAcceptable" : true,
-  "sid" : "aeiou",
-  "billToAddress" : "aeiou",
-  "shipToZip" : "aeiou",
-  "codAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "byDriver" : true,
-  "shipToAttention" : "aeiou",
-  "byDriverPieces" : true,
-  "shipFromName" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "scac" : "scac",
+  "shipFromZip" : "shipFromZip",
+  "customerCheckAcceptable" : false,
+  "sid" : "sid",
+  "billToAddress" : "billToAddress",
+  "shipToZip" : "shipToZip",
+  "codAmount" : 5.962133916683182377482808078639209270477294921875,
+  "byDriver" : false,
+  "shipToAttention" : "shipToAttention",
+  "byDriverPieces" : false,
+  "shipFromName" : "shipFromName",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
   "orderInfoLines" : [ {
-    "palletslip" : true,
+    "palletslip" : false,
     "customFields" : {
       "key" : "{}"
     },
-    "noPackages" : 123,
-    "weight" : 123,
-    "additionalShipperInfo" : "aeiou",
-    "customerOrderNo" : "aeiou"
+    "noPackages" : 2,
+    "weight" : 7,
+    "additionalShipperInfo" : "additionalShipperInfo",
+    "customerOrderNo" : "customerOrderNo"
+  }, {
+    "palletslip" : false,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "noPackages" : 2,
+    "weight" : 7,
+    "additionalShipperInfo" : "additionalShipperInfo",
+    "customerOrderNo" : "customerOrderNo"
   } ],
-  "shipToCountry" : "aeiou",
-  "sealNo" : "aeiou",
+  "shipToCountry" : "shipToCountry",
+  "sealNo" : "sealNo",
   "carrierInfoLines" : [ {
-    "seqNo" : 123,
-    "carrierClass" : "aeiou",
+    "seqNo" : 9,
+    "carrierClass" : "carrierClass",
     "customFields" : {
       "key" : "{}"
     },
-    "huQuantity" : 123,
-    "huType" : "aeiou",
-    "commodityDescription" : "aeiou",
-    "weight" : 123,
-    "nfmcNo" : "aeiou",
-    "packageQuantity" : 123,
-    "isHazardousMaterial" : true,
-    "packageType" : "aeiou"
+    "huQuantity" : 3,
+    "huType" : "huType",
+    "commodityDescription" : "commodityDescription",
+    "weight" : 4,
+    "nfmcNo" : "nfmcNo",
+    "packageQuantity" : 2,
+    "isHazardousMaterial" : false,
+    "packageType" : "packageType"
+  }, {
+    "seqNo" : 9,
+    "carrierClass" : "carrierClass",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "huQuantity" : 3,
+    "huType" : "huType",
+    "commodityDescription" : "commodityDescription",
+    "weight" : 4,
+    "nfmcNo" : "nfmcNo",
+    "packageQuantity" : 2,
+    "isHazardousMaterial" : false,
+    "packageType" : "packageType"
   } ],
-  "masterBOLId" : 123,
-  "prepaid" : true,
-  "billToName" : "aeiou",
-  "feeTermsPrepaid" : true,
-  "shipFromAttention" : "aeiou",
-  "specialInstructions" : "aeiou",
-  "bolNo" : "aeiou",
-  "shipFromCity" : "aeiou",
-  "shipToName" : "aeiou"
+  "masterBOLId" : 5,
+  "prepaid" : false,
+  "billToName" : "billToName",
+  "feeTermsPrepaid" : false,
+  "shipFromAttention" : "shipFromAttention",
+  "specialInstructions" : "specialInstructions",
+  "bolNo" : "bolNo",
+  "shipFromCity" : "shipFromCity",
+  "shipToName" : "shipToName"
+}, {
+  "trailerNo" : "trailerNo",
+  "billToState" : "billToState",
+  "shipFromCountry" : "shipFromCountry",
+  "isThisAMasterBOL" : false,
+  "isShipToFOB" : false,
+  "isTrailerLoadedByShipper" : false,
+  "billToCity" : "billToCity",
+  "thirdParty" : false,
+  "shipToCity" : "shipToCity",
+  "proNo" : "proNo",
+  "billToZip" : "billToZip",
+  "bolDate" : "2000-01-23T04:56:07.000+00:00",
+  "carrierName" : "carrierName",
+  "id" : 0,
+  "shipToState" : "shipToState",
+  "lobId" : 6,
+  "orderNo" : 1.46581298050294517310021547018550336360931396484375,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipFromState" : "shipFromState",
+  "isFreightCountedByShipper" : false,
+  "shipToLocationNo" : "shipToLocationNo",
+  "isShipFromFOB" : false,
+  "byDriverPallets" : false,
+  "shipFromAddress" : "shipFromAddress",
+  "billToAttention" : "billToAttention",
+  "billToCountry" : "billToCountry",
+  "feeTermsCollect" : false,
+  "collect" : false,
+  "cid" : "cid",
+  "shipToAddress" : "shipToAddress",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "scac" : "scac",
+  "shipFromZip" : "shipFromZip",
+  "customerCheckAcceptable" : false,
+  "sid" : "sid",
+  "billToAddress" : "billToAddress",
+  "shipToZip" : "shipToZip",
+  "codAmount" : 5.962133916683182377482808078639209270477294921875,
+  "byDriver" : false,
+  "shipToAttention" : "shipToAttention",
+  "byDriverPieces" : false,
+  "shipFromName" : "shipFromName",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "orderInfoLines" : [ {
+    "palletslip" : false,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "noPackages" : 2,
+    "weight" : 7,
+    "additionalShipperInfo" : "additionalShipperInfo",
+    "customerOrderNo" : "customerOrderNo"
+  }, {
+    "palletslip" : false,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "noPackages" : 2,
+    "weight" : 7,
+    "additionalShipperInfo" : "additionalShipperInfo",
+    "customerOrderNo" : "customerOrderNo"
+  } ],
+  "shipToCountry" : "shipToCountry",
+  "sealNo" : "sealNo",
+  "carrierInfoLines" : [ {
+    "seqNo" : 9,
+    "carrierClass" : "carrierClass",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "huQuantity" : 3,
+    "huType" : "huType",
+    "commodityDescription" : "commodityDescription",
+    "weight" : 4,
+    "nfmcNo" : "nfmcNo",
+    "packageQuantity" : 2,
+    "isHazardousMaterial" : false,
+    "packageType" : "packageType"
+  }, {
+    "seqNo" : 9,
+    "carrierClass" : "carrierClass",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "huQuantity" : 3,
+    "huType" : "huType",
+    "commodityDescription" : "commodityDescription",
+    "weight" : 4,
+    "nfmcNo" : "nfmcNo",
+    "packageQuantity" : 2,
+    "isHazardousMaterial" : false,
+    "packageType" : "packageType"
+  } ],
+  "masterBOLId" : 5,
+  "prepaid" : false,
+  "billToName" : "billToName",
+  "feeTermsPrepaid" : false,
+  "shipFromAttention" : "shipFromAttention",
+  "specialInstructions" : "specialInstructions",
+  "bolNo" : "bolNo",
+  "shipFromCity" : "shipFromCity",
+  "shipToName" : "shipToName"
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -422,31 +568,33 @@ public class BillOfLadingAPI: APIBase {
 
      - returns: RequestBuilder<[BillOfLading]> 
      */
-    public class func getBillOfLadingByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[BillOfLading]> {
+    public class func getBillOfLadingByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[BillOfLading]> {
         let path = "/beta/billOfLading/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[BillOfLading]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get a billOfLading by id
      
      - parameter billOfLadingId: (path) Id of the billOfLading to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getBillOfLadingById(billOfLadingId billOfLadingId: Int, completion: ((data: BillOfLading?, error: ErrorType?) -> Void)) {
+    public class func getBillOfLadingById(billOfLadingId billOfLadingId: Int32, completion: ((data: BillOfLading?, error: ErrorType?) -> Void)) {
         getBillOfLadingByIdWithRequestBuilder(billOfLadingId: billOfLadingId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -454,123 +602,146 @@ public class BillOfLadingAPI: APIBase {
 
 
     /**
-     
      Get a billOfLading by id
-     
      - GET /beta/billOfLading/{billOfLadingId}
      - Returns the billOfLading identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "trailerNo" : "aeiou",
-  "billToState" : "aeiou",
-  "shipFromCountry" : "aeiou",
-  "isThisAMasterBOL" : true,
-  "isShipToFOB" : true,
-  "isTrailerLoadedByShipper" : true,
-  "billToCity" : "aeiou",
-  "thirdParty" : true,
-  "shipToCity" : "aeiou",
-  "proNo" : "aeiou",
-  "billToZip" : "aeiou",
-  "bolDate" : "2000-01-23T04:56:07.000+0000",
-  "carrierName" : "aeiou",
-  "id" : 123,
-  "shipToState" : "aeiou",
-  "lobId" : 123,
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "shipFromState" : "aeiou",
-  "isFreightCountedByShipper" : true,
-  "shipToLocationNo" : "aeiou",
-  "isShipFromFOB" : true,
-  "byDriverPallets" : true,
-  "shipFromAddress" : "aeiou",
-  "billToAttention" : "aeiou",
-  "billToCountry" : "aeiou",
-  "feeTermsCollect" : true,
-  "collect" : true,
-  "cid" : "aeiou",
-  "shipToAddress" : "aeiou",
+  "trailerNo" : "trailerNo",
+  "billToState" : "billToState",
+  "shipFromCountry" : "shipFromCountry",
+  "isThisAMasterBOL" : false,
+  "isShipToFOB" : false,
+  "isTrailerLoadedByShipper" : false,
+  "billToCity" : "billToCity",
+  "thirdParty" : false,
+  "shipToCity" : "shipToCity",
+  "proNo" : "proNo",
+  "billToZip" : "billToZip",
+  "bolDate" : "2000-01-23T04:56:07.000+00:00",
+  "carrierName" : "carrierName",
+  "id" : 0,
+  "shipToState" : "shipToState",
+  "lobId" : 6,
+  "orderNo" : 1.46581298050294517310021547018550336360931396484375,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipFromState" : "shipFromState",
+  "isFreightCountedByShipper" : false,
+  "shipToLocationNo" : "shipToLocationNo",
+  "isShipFromFOB" : false,
+  "byDriverPallets" : false,
+  "shipFromAddress" : "shipFromAddress",
+  "billToAttention" : "billToAttention",
+  "billToCountry" : "billToCountry",
+  "feeTermsCollect" : false,
+  "collect" : false,
+  "cid" : "cid",
+  "shipToAddress" : "shipToAddress",
   "customFields" : {
     "key" : "{}"
   },
-  "scac" : "aeiou",
-  "shipFromZip" : "aeiou",
-  "customerCheckAcceptable" : true,
-  "sid" : "aeiou",
-  "billToAddress" : "aeiou",
-  "shipToZip" : "aeiou",
-  "codAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "byDriver" : true,
-  "shipToAttention" : "aeiou",
-  "byDriverPieces" : true,
-  "shipFromName" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "scac" : "scac",
+  "shipFromZip" : "shipFromZip",
+  "customerCheckAcceptable" : false,
+  "sid" : "sid",
+  "billToAddress" : "billToAddress",
+  "shipToZip" : "shipToZip",
+  "codAmount" : 5.962133916683182377482808078639209270477294921875,
+  "byDriver" : false,
+  "shipToAttention" : "shipToAttention",
+  "byDriverPieces" : false,
+  "shipFromName" : "shipFromName",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
   "orderInfoLines" : [ {
-    "palletslip" : true,
+    "palletslip" : false,
     "customFields" : {
       "key" : "{}"
     },
-    "noPackages" : 123,
-    "weight" : 123,
-    "additionalShipperInfo" : "aeiou",
-    "customerOrderNo" : "aeiou"
+    "noPackages" : 2,
+    "weight" : 7,
+    "additionalShipperInfo" : "additionalShipperInfo",
+    "customerOrderNo" : "customerOrderNo"
+  }, {
+    "palletslip" : false,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "noPackages" : 2,
+    "weight" : 7,
+    "additionalShipperInfo" : "additionalShipperInfo",
+    "customerOrderNo" : "customerOrderNo"
   } ],
-  "shipToCountry" : "aeiou",
-  "sealNo" : "aeiou",
+  "shipToCountry" : "shipToCountry",
+  "sealNo" : "sealNo",
   "carrierInfoLines" : [ {
-    "seqNo" : 123,
-    "carrierClass" : "aeiou",
+    "seqNo" : 9,
+    "carrierClass" : "carrierClass",
     "customFields" : {
       "key" : "{}"
     },
-    "huQuantity" : 123,
-    "huType" : "aeiou",
-    "commodityDescription" : "aeiou",
-    "weight" : 123,
-    "nfmcNo" : "aeiou",
-    "packageQuantity" : 123,
-    "isHazardousMaterial" : true,
-    "packageType" : "aeiou"
+    "huQuantity" : 3,
+    "huType" : "huType",
+    "commodityDescription" : "commodityDescription",
+    "weight" : 4,
+    "nfmcNo" : "nfmcNo",
+    "packageQuantity" : 2,
+    "isHazardousMaterial" : false,
+    "packageType" : "packageType"
+  }, {
+    "seqNo" : 9,
+    "carrierClass" : "carrierClass",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "huQuantity" : 3,
+    "huType" : "huType",
+    "commodityDescription" : "commodityDescription",
+    "weight" : 4,
+    "nfmcNo" : "nfmcNo",
+    "packageQuantity" : 2,
+    "isHazardousMaterial" : false,
+    "packageType" : "packageType"
   } ],
-  "masterBOLId" : 123,
-  "prepaid" : true,
-  "billToName" : "aeiou",
-  "feeTermsPrepaid" : true,
-  "shipFromAttention" : "aeiou",
-  "specialInstructions" : "aeiou",
-  "bolNo" : "aeiou",
-  "shipFromCity" : "aeiou",
-  "shipToName" : "aeiou"
+  "masterBOLId" : 5,
+  "prepaid" : false,
+  "billToName" : "billToName",
+  "feeTermsPrepaid" : false,
+  "shipFromAttention" : "shipFromAttention",
+  "specialInstructions" : "specialInstructions",
+  "bolNo" : "bolNo",
+  "shipFromCity" : "shipFromCity",
+  "shipToName" : "shipToName"
 }}]
      
      - parameter billOfLadingId: (path) Id of the billOfLading to be returned. 
 
      - returns: RequestBuilder<BillOfLading> 
      */
-    public class func getBillOfLadingByIdWithRequestBuilder(billOfLadingId billOfLadingId: Int) -> RequestBuilder<BillOfLading> {
+    public class func getBillOfLadingByIdWithRequestBuilder(billOfLadingId billOfLadingId: Int32) -> RequestBuilder<BillOfLading> {
         var path = "/beta/billOfLading/{billOfLadingId}"
         path = path.stringByReplacingOccurrencesOfString("{billOfLadingId}", withString: "\(billOfLadingId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<BillOfLading>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for a billOfLading.
      
      - parameter billOfLadingId: (path) Id of the billOfLading to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getBillOfLadingTags(billOfLadingId billOfLadingId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getBillOfLadingTags(billOfLadingId billOfLadingId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getBillOfLadingTagsWithRequestBuilder(billOfLadingId: billOfLadingId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -578,9 +749,7 @@ public class BillOfLadingAPI: APIBase {
 
 
     /**
-     
      Get the tags for a billOfLading.
-     
      - GET /beta/billOfLading/{billOfLadingId}/tag
      - Get all existing billOfLading tags.
      - API Key:
@@ -591,27 +760,29 @@ public class BillOfLadingAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getBillOfLadingTagsWithRequestBuilder(billOfLadingId billOfLadingId: Int) -> RequestBuilder<Void> {
+    public class func getBillOfLadingTagsWithRequestBuilder(billOfLadingId billOfLadingId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/billOfLading/{billOfLadingId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{billOfLadingId}", withString: "\(billOfLadingId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated a billOfLading by id
      
      - parameter billOfLadingId: (path) Id of the billOfLading to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateBillOfLadingById(billOfLadingId billOfLadingId: Int, completion: ((data: BillOfLading?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateBillOfLadingById(billOfLadingId billOfLadingId: Int32, completion: ((data: BillOfLading?, error: ErrorType?) -> Void)) {
         getDuplicateBillOfLadingByIdWithRequestBuilder(billOfLadingId: billOfLadingId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -619,117 +790,140 @@ public class BillOfLadingAPI: APIBase {
 
 
     /**
-     
      Get a duplicated a billOfLading by id
-     
      - GET /beta/billOfLading/duplicate/{billOfLadingId}
      - Returns a duplicated billOfLading identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "trailerNo" : "aeiou",
-  "billToState" : "aeiou",
-  "shipFromCountry" : "aeiou",
-  "isThisAMasterBOL" : true,
-  "isShipToFOB" : true,
-  "isTrailerLoadedByShipper" : true,
-  "billToCity" : "aeiou",
-  "thirdParty" : true,
-  "shipToCity" : "aeiou",
-  "proNo" : "aeiou",
-  "billToZip" : "aeiou",
-  "bolDate" : "2000-01-23T04:56:07.000+0000",
-  "carrierName" : "aeiou",
-  "id" : 123,
-  "shipToState" : "aeiou",
-  "lobId" : 123,
-  "orderNo" : 1.3579000000000001069366817318950779736042022705078125,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "shipFromState" : "aeiou",
-  "isFreightCountedByShipper" : true,
-  "shipToLocationNo" : "aeiou",
-  "isShipFromFOB" : true,
-  "byDriverPallets" : true,
-  "shipFromAddress" : "aeiou",
-  "billToAttention" : "aeiou",
-  "billToCountry" : "aeiou",
-  "feeTermsCollect" : true,
-  "collect" : true,
-  "cid" : "aeiou",
-  "shipToAddress" : "aeiou",
+  "trailerNo" : "trailerNo",
+  "billToState" : "billToState",
+  "shipFromCountry" : "shipFromCountry",
+  "isThisAMasterBOL" : false,
+  "isShipToFOB" : false,
+  "isTrailerLoadedByShipper" : false,
+  "billToCity" : "billToCity",
+  "thirdParty" : false,
+  "shipToCity" : "shipToCity",
+  "proNo" : "proNo",
+  "billToZip" : "billToZip",
+  "bolDate" : "2000-01-23T04:56:07.000+00:00",
+  "carrierName" : "carrierName",
+  "id" : 0,
+  "shipToState" : "shipToState",
+  "lobId" : 6,
+  "orderNo" : 1.46581298050294517310021547018550336360931396484375,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "shipFromState" : "shipFromState",
+  "isFreightCountedByShipper" : false,
+  "shipToLocationNo" : "shipToLocationNo",
+  "isShipFromFOB" : false,
+  "byDriverPallets" : false,
+  "shipFromAddress" : "shipFromAddress",
+  "billToAttention" : "billToAttention",
+  "billToCountry" : "billToCountry",
+  "feeTermsCollect" : false,
+  "collect" : false,
+  "cid" : "cid",
+  "shipToAddress" : "shipToAddress",
   "customFields" : {
     "key" : "{}"
   },
-  "scac" : "aeiou",
-  "shipFromZip" : "aeiou",
-  "customerCheckAcceptable" : true,
-  "sid" : "aeiou",
-  "billToAddress" : "aeiou",
-  "shipToZip" : "aeiou",
-  "codAmount" : 1.3579000000000001069366817318950779736042022705078125,
-  "byDriver" : true,
-  "shipToAttention" : "aeiou",
-  "byDriverPieces" : true,
-  "shipFromName" : "aeiou",
-  "createDate" : "2000-01-23T04:56:07.000+0000",
+  "scac" : "scac",
+  "shipFromZip" : "shipFromZip",
+  "customerCheckAcceptable" : false,
+  "sid" : "sid",
+  "billToAddress" : "billToAddress",
+  "shipToZip" : "shipToZip",
+  "codAmount" : 5.962133916683182377482808078639209270477294921875,
+  "byDriver" : false,
+  "shipToAttention" : "shipToAttention",
+  "byDriverPieces" : false,
+  "shipFromName" : "shipFromName",
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
   "orderInfoLines" : [ {
-    "palletslip" : true,
+    "palletslip" : false,
     "customFields" : {
       "key" : "{}"
     },
-    "noPackages" : 123,
-    "weight" : 123,
-    "additionalShipperInfo" : "aeiou",
-    "customerOrderNo" : "aeiou"
+    "noPackages" : 2,
+    "weight" : 7,
+    "additionalShipperInfo" : "additionalShipperInfo",
+    "customerOrderNo" : "customerOrderNo"
+  }, {
+    "palletslip" : false,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "noPackages" : 2,
+    "weight" : 7,
+    "additionalShipperInfo" : "additionalShipperInfo",
+    "customerOrderNo" : "customerOrderNo"
   } ],
-  "shipToCountry" : "aeiou",
-  "sealNo" : "aeiou",
+  "shipToCountry" : "shipToCountry",
+  "sealNo" : "sealNo",
   "carrierInfoLines" : [ {
-    "seqNo" : 123,
-    "carrierClass" : "aeiou",
+    "seqNo" : 9,
+    "carrierClass" : "carrierClass",
     "customFields" : {
       "key" : "{}"
     },
-    "huQuantity" : 123,
-    "huType" : "aeiou",
-    "commodityDescription" : "aeiou",
-    "weight" : 123,
-    "nfmcNo" : "aeiou",
-    "packageQuantity" : 123,
-    "isHazardousMaterial" : true,
-    "packageType" : "aeiou"
+    "huQuantity" : 3,
+    "huType" : "huType",
+    "commodityDescription" : "commodityDescription",
+    "weight" : 4,
+    "nfmcNo" : "nfmcNo",
+    "packageQuantity" : 2,
+    "isHazardousMaterial" : false,
+    "packageType" : "packageType"
+  }, {
+    "seqNo" : 9,
+    "carrierClass" : "carrierClass",
+    "customFields" : {
+      "key" : "{}"
+    },
+    "huQuantity" : 3,
+    "huType" : "huType",
+    "commodityDescription" : "commodityDescription",
+    "weight" : 4,
+    "nfmcNo" : "nfmcNo",
+    "packageQuantity" : 2,
+    "isHazardousMaterial" : false,
+    "packageType" : "packageType"
   } ],
-  "masterBOLId" : 123,
-  "prepaid" : true,
-  "billToName" : "aeiou",
-  "feeTermsPrepaid" : true,
-  "shipFromAttention" : "aeiou",
-  "specialInstructions" : "aeiou",
-  "bolNo" : "aeiou",
-  "shipFromCity" : "aeiou",
-  "shipToName" : "aeiou"
+  "masterBOLId" : 5,
+  "prepaid" : false,
+  "billToName" : "billToName",
+  "feeTermsPrepaid" : false,
+  "shipFromAttention" : "shipFromAttention",
+  "specialInstructions" : "specialInstructions",
+  "bolNo" : "bolNo",
+  "shipFromCity" : "shipFromCity",
+  "shipToName" : "shipToName"
 }}]
      
      - parameter billOfLadingId: (path) Id of the billOfLading to be duplicated. 
 
      - returns: RequestBuilder<BillOfLading> 
      */
-    public class func getDuplicateBillOfLadingByIdWithRequestBuilder(billOfLadingId billOfLadingId: Int) -> RequestBuilder<BillOfLading> {
+    public class func getDuplicateBillOfLadingByIdWithRequestBuilder(billOfLadingId billOfLadingId: Int32) -> RequestBuilder<BillOfLading> {
         var path = "/beta/billOfLading/duplicate/{billOfLadingId}"
         path = path.stringByReplacingOccurrencesOfString("{billOfLadingId}", withString: "\(billOfLadingId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<BillOfLading>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a billOfLading
      
      - parameter body: (body) BillOfLading to be updated. 
@@ -743,9 +937,7 @@ public class BillOfLadingAPI: APIBase {
 
 
     /**
-     
      Update a billOfLading
-     
      - PUT /beta/billOfLading
      - Updates an existing billOfLading using the specified data.
      - API Key:
@@ -759,16 +951,16 @@ public class BillOfLadingAPI: APIBase {
     public class func updateBillOfLadingWithRequestBuilder(body body: BillOfLading) -> RequestBuilder<Void> {
         let path = "/beta/billOfLading"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a billOfLading custom fields
      
      - parameter body: (body) BillOfLading to be updated. 
@@ -782,9 +974,7 @@ public class BillOfLadingAPI: APIBase {
 
 
     /**
-     
      Update a billOfLading custom fields
-     
      - PUT /beta/billOfLading/customFields
      - Updates an existing billOfLading custom fields using the specified data.
      - API Key:
@@ -798,12 +988,13 @@ public class BillOfLadingAPI: APIBase {
     public class func updateBillOfLadingCustomFieldsWithRequestBuilder(body body: BillOfLading) -> RequestBuilder<Void> {
         let path = "/beta/billOfLading/customFields"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

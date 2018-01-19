@@ -9,16 +9,15 @@ import Foundation
 
 
 public class Asn: JSONEncodable {
-
-    public var id: Int?
+    public var id: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
-    public var lobId: Int?
+    public var lobId: Int32?
     public var poNo: String?
-    public var vendorId: Int?
-    public var warehouseId: Int?
+    public var vendorId: Int32?
+    public var warehouseId: Int32?
     public var orderDate: NSDate?
-    public var _type: String?
+    public var type: String?
     public var billingName: String?
     public var billingAttention: String?
     public var billingStreet1: String?
@@ -43,12 +42,12 @@ public class Asn: JSONEncodable {
     public var corporateState: String?
     public var corporateZipCode: String?
     public var accountCode: String?
-    public var buyer: Int?
-    public var carrier: Int?
+    public var buyer: Int32?
+    public var carrier: Int32?
     public var confTo: String?
     public var fob: String?
     public var printed: String?
-    public var projectNo: Int?
+    public var projectNo: Int32?
     public var remarks: String?
     public var requestBy: String?
     public var terms: String?
@@ -57,22 +56,21 @@ public class Asn: JSONEncodable {
     public var status: String?
     public var transferOrderId: Double?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
-        nillableDictionary["lobId"] = self.lobId
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
         nillableDictionary["poNo"] = self.poNo
-        nillableDictionary["vendorId"] = self.vendorId
-        nillableDictionary["warehouseId"] = self.warehouseId
+        nillableDictionary["vendorId"] = self.vendorId?.encodeToJSON()
+        nillableDictionary["warehouseId"] = self.warehouseId?.encodeToJSON()
         nillableDictionary["orderDate"] = self.orderDate?.encodeToJSON()
-        nillableDictionary["type"] = self._type
+        nillableDictionary["type"] = self.type
         nillableDictionary["billingName"] = self.billingName
         nillableDictionary["billingAttention"] = self.billingAttention
         nillableDictionary["billingStreet1"] = self.billingStreet1
@@ -97,12 +95,12 @@ public class Asn: JSONEncodable {
         nillableDictionary["corporateState"] = self.corporateState
         nillableDictionary["corporateZipCode"] = self.corporateZipCode
         nillableDictionary["accountCode"] = self.accountCode
-        nillableDictionary["buyer"] = self.buyer
-        nillableDictionary["carrier"] = self.carrier
+        nillableDictionary["buyer"] = self.buyer?.encodeToJSON()
+        nillableDictionary["carrier"] = self.carrier?.encodeToJSON()
         nillableDictionary["confTo"] = self.confTo
         nillableDictionary["fob"] = self.fob
         nillableDictionary["printed"] = self.printed
-        nillableDictionary["projectNo"] = self.projectNo
+        nillableDictionary["projectNo"] = self.projectNo?.encodeToJSON()
         nillableDictionary["remarks"] = self.remarks
         nillableDictionary["requestBy"] = self.requestBy
         nillableDictionary["terms"] = self.terms

@@ -11,7 +11,6 @@ import Alamofire
 
 public class SupplementAPI: APIBase {
     /**
-     
      Create a supplement
      
      - parameter body: (body) Supplement to be inserted. 
@@ -25,26 +24,24 @@ public class SupplementAPI: APIBase {
 
 
     /**
-     
      Create a supplement
-     
      - POST /beta/supplement
      - Inserts a new supplement using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "originalSKUId" : 123,
-  "supplementSKUId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "originalSKUId" : 1,
+  "supplementSKUId" : 5,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
   },
-  "supplementQuantity" : 1.3579000000000001069366817318950779736042022705078125,
-  "id" : 123,
-  "type" : "aeiou",
-  "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "supplementQuantity" : 5.63737665663332876420099637471139430999755859375,
+  "id" : 6,
+  "type" : "type",
+  "lobId" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 }}]
      
      - parameter body: (body) Supplement to be inserted. 
@@ -54,23 +51,23 @@ public class SupplementAPI: APIBase {
     public class func addSupplementWithRequestBuilder(body body: Supplement) -> RequestBuilder<Supplement> {
         let path = "/beta/supplement"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Supplement>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new audit for a supplement
      
      - parameter supplementId: (path) Id of the supplement to add an audit to 
      - parameter supplementAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addSupplementAudit(supplementId supplementId: Int, supplementAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addSupplementAudit(supplementId supplementId: Int32, supplementAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addSupplementAuditWithRequestBuilder(supplementId: supplementId, supplementAudit: supplementAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -78,9 +75,7 @@ public class SupplementAPI: APIBase {
 
 
     /**
-     
      Add new audit for a supplement
-     
      - PUT /beta/supplement/{supplementId}/audit/{supplementAudit}
      - Adds an audit to an existing supplement.
      - API Key:
@@ -92,29 +87,31 @@ public class SupplementAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addSupplementAuditWithRequestBuilder(supplementId supplementId: Int, supplementAudit: String) -> RequestBuilder<Void> {
+    public class func addSupplementAuditWithRequestBuilder(supplementId supplementId: Int32, supplementAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/supplement/{supplementId}/audit/{supplementAudit}"
         path = path.stringByReplacingOccurrencesOfString("{supplementId}", withString: "\(supplementId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{supplementAudit}", withString: "\(supplementAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for a supplement.
      
      - parameter supplementId: (path) Id of the supplement to add a tag to 
      - parameter supplementTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addSupplementTag(supplementId supplementId: Int, supplementTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addSupplementTag(supplementId supplementId: Int32, supplementTag: String, completion: ((error: ErrorType?) -> Void)) {
         addSupplementTagWithRequestBuilder(supplementId: supplementId, supplementTag: supplementTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -122,9 +119,7 @@ public class SupplementAPI: APIBase {
 
 
     /**
-     
      Add new tags for a supplement.
-     
      - PUT /beta/supplement/{supplementId}/tag/{supplementTag}
      - Adds a tag to an existing supplement.
      - API Key:
@@ -136,28 +131,30 @@ public class SupplementAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addSupplementTagWithRequestBuilder(supplementId supplementId: Int, supplementTag: String) -> RequestBuilder<Void> {
+    public class func addSupplementTagWithRequestBuilder(supplementId supplementId: Int32, supplementTag: String) -> RequestBuilder<Void> {
         var path = "/beta/supplement/{supplementId}/tag/{supplementTag}"
         path = path.stringByReplacingOccurrencesOfString("{supplementId}", withString: "\(supplementId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{supplementTag}", withString: "\(supplementTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a supplement
      
      - parameter supplementId: (path) Id of the supplement to be deleted. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteSupplement(supplementId supplementId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteSupplement(supplementId supplementId: Int32, completion: ((error: ErrorType?) -> Void)) {
         deleteSupplementWithRequestBuilder(supplementId: supplementId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -165,9 +162,7 @@ public class SupplementAPI: APIBase {
 
 
     /**
-     
      Delete a supplement
-     
      - DELETE /beta/supplement/{supplementId}
      - Deletes the supplement identified by the specified id.
      - API Key:
@@ -178,28 +173,30 @@ public class SupplementAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteSupplementWithRequestBuilder(supplementId supplementId: Int) -> RequestBuilder<Void> {
+    public class func deleteSupplementWithRequestBuilder(supplementId supplementId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/supplement/{supplementId}"
         path = path.stringByReplacingOccurrencesOfString("{supplementId}", withString: "\(supplementId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for a supplement.
      
      - parameter supplementId: (path) Id of the supplement to remove tag from 
      - parameter supplementTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteSupplementTag(supplementId supplementId: Int, supplementTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteSupplementTag(supplementId supplementId: Int32, supplementTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteSupplementTagWithRequestBuilder(supplementId: supplementId, supplementTag: supplementTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -207,9 +204,7 @@ public class SupplementAPI: APIBase {
 
 
     /**
-     
      Delete a tag for a supplement.
-     
      - DELETE /beta/supplement/{supplementId}/tag/{supplementTag}
      - Deletes an existing supplement tag using the specified data.
      - API Key:
@@ -221,28 +216,30 @@ public class SupplementAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteSupplementTagWithRequestBuilder(supplementId supplementId: Int, supplementTag: String) -> RequestBuilder<Void> {
+    public class func deleteSupplementTagWithRequestBuilder(supplementId supplementId: Int32, supplementTag: String) -> RequestBuilder<Void> {
         var path = "/beta/supplement/{supplementId}/tag/{supplementTag}"
         path = path.stringByReplacingOccurrencesOfString("{supplementId}", withString: "\(supplementId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{supplementTag}", withString: "\(supplementTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated a supplement by id
      
      - parameter supplementId: (path) Id of the supplement to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateSupplementById(supplementId supplementId: Int, completion: ((data: Supplement?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateSupplementById(supplementId supplementId: Int32, completion: ((data: Supplement?, error: ErrorType?) -> Void)) {
         getDuplicateSupplementByIdWithRequestBuilder(supplementId: supplementId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -250,47 +247,47 @@ public class SupplementAPI: APIBase {
 
 
     /**
-     
      Get a duplicated a supplement by id
-     
      - GET /beta/supplement/duplicate/{supplementId}
      - Returns a duplicated supplement identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "originalSKUId" : 123,
-  "supplementSKUId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "originalSKUId" : 1,
+  "supplementSKUId" : 5,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
   },
-  "supplementQuantity" : 1.3579000000000001069366817318950779736042022705078125,
-  "id" : 123,
-  "type" : "aeiou",
-  "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "supplementQuantity" : 5.63737665663332876420099637471139430999755859375,
+  "id" : 6,
+  "type" : "type",
+  "lobId" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 }}]
      
      - parameter supplementId: (path) Id of the supplement to be duplicated. 
 
      - returns: RequestBuilder<Supplement> 
      */
-    public class func getDuplicateSupplementByIdWithRequestBuilder(supplementId supplementId: Int) -> RequestBuilder<Supplement> {
+    public class func getDuplicateSupplementByIdWithRequestBuilder(supplementId supplementId: Int32) -> RequestBuilder<Supplement> {
         var path = "/beta/supplement/duplicate/{supplementId}"
         path = path.stringByReplacingOccurrencesOfString("{supplementId}", withString: "\(supplementId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Supplement>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search supplements by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -299,7 +296,7 @@ public class SupplementAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getSupplementByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [Supplement]?, error: ErrorType?) -> Void)) {
+    public class func getSupplementByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [Supplement]?, error: ErrorType?) -> Void)) {
         getSupplementByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -307,26 +304,36 @@ public class SupplementAPI: APIBase {
 
 
     /**
-     
      Search supplements by filter
-     
      - GET /beta/supplement/search
      - Returns the list of supplements that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "originalSKUId" : 123,
-  "supplementSKUId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "originalSKUId" : 1,
+  "supplementSKUId" : 5,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
   },
-  "supplementQuantity" : 1.3579000000000001069366817318950779736042022705078125,
-  "id" : 123,
-  "type" : "aeiou",
-  "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "supplementQuantity" : 5.63737665663332876420099637471139430999755859375,
+  "id" : 6,
+  "type" : "type",
+  "lobId" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
+}, {
+  "originalSKUId" : 1,
+  "supplementSKUId" : 5,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "supplementQuantity" : 5.63737665663332876420099637471139430999755859375,
+  "id" : 6,
+  "type" : "type",
+  "lobId" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -336,31 +343,33 @@ public class SupplementAPI: APIBase {
 
      - returns: RequestBuilder<[Supplement]> 
      */
-    public class func getSupplementByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Supplement]> {
+    public class func getSupplementByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[Supplement]> {
         let path = "/beta/supplement/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[Supplement]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get a supplement by id
      
      - parameter supplementId: (path) Id of the supplement to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getSupplementById(supplementId supplementId: Int, completion: ((data: Supplement?, error: ErrorType?) -> Void)) {
+    public class func getSupplementById(supplementId supplementId: Int32, completion: ((data: Supplement?, error: ErrorType?) -> Void)) {
         getSupplementByIdWithRequestBuilder(supplementId: supplementId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -368,53 +377,53 @@ public class SupplementAPI: APIBase {
 
 
     /**
-     
      Get a supplement by id
-     
      - GET /beta/supplement/{supplementId}
      - Returns the supplement identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "originalSKUId" : 123,
-  "supplementSKUId" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
+  "originalSKUId" : 1,
+  "supplementSKUId" : 5,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
   },
-  "supplementQuantity" : 1.3579000000000001069366817318950779736042022705078125,
-  "id" : 123,
-  "type" : "aeiou",
-  "lobId" : 123,
-  "createDate" : "2000-01-23T04:56:07.000+0000"
+  "supplementQuantity" : 5.63737665663332876420099637471139430999755859375,
+  "id" : 6,
+  "type" : "type",
+  "lobId" : 0,
+  "createDate" : "2000-01-23T04:56:07.000+00:00"
 }}]
      
      - parameter supplementId: (path) Id of the supplement to be returned. 
 
      - returns: RequestBuilder<Supplement> 
      */
-    public class func getSupplementByIdWithRequestBuilder(supplementId supplementId: Int) -> RequestBuilder<Supplement> {
+    public class func getSupplementByIdWithRequestBuilder(supplementId supplementId: Int32) -> RequestBuilder<Supplement> {
         var path = "/beta/supplement/{supplementId}"
         path = path.stringByReplacingOccurrencesOfString("{supplementId}", withString: "\(supplementId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Supplement>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for a supplement.
      
      - parameter supplementId: (path) Id of the supplement to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getSupplementTags(supplementId supplementId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getSupplementTags(supplementId supplementId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getSupplementTagsWithRequestBuilder(supplementId: supplementId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -422,9 +431,7 @@ public class SupplementAPI: APIBase {
 
 
     /**
-     
      Get the tags for a supplement.
-     
      - GET /beta/supplement/{supplementId}/tag
      - Get all existing supplement tags.
      - API Key:
@@ -435,21 +442,23 @@ public class SupplementAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getSupplementTagsWithRequestBuilder(supplementId supplementId: Int) -> RequestBuilder<Void> {
+    public class func getSupplementTagsWithRequestBuilder(supplementId supplementId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/supplement/{supplementId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{supplementId}", withString: "\(supplementId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a supplement
      
      - parameter body: (body) Supplement to be updated. 
@@ -463,9 +472,7 @@ public class SupplementAPI: APIBase {
 
 
     /**
-     
      Update a supplement
-     
      - PUT /beta/supplement
      - Updates an existing supplement using the specified data.
      - API Key:
@@ -479,16 +486,16 @@ public class SupplementAPI: APIBase {
     public class func updateSupplementWithRequestBuilder(body body: Supplement) -> RequestBuilder<Void> {
         let path = "/beta/supplement"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a supplement custom fields
      
      - parameter body: (body) Supplement to be updated. 
@@ -502,9 +509,7 @@ public class SupplementAPI: APIBase {
 
 
     /**
-     
      Update a supplement custom fields
-     
      - PUT /beta/supplement/customFields
      - Updates an existing supplement custom fields using the specified data.
      - API Key:
@@ -518,12 +523,13 @@ public class SupplementAPI: APIBase {
     public class func updateSupplementCustomFieldsWithRequestBuilder(body body: Supplement) -> RequestBuilder<Void> {
         let path = "/beta/supplement/customFields"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

@@ -9,29 +9,27 @@ import Foundation
 
 
 public class LocationFootprint: JSONEncodable {
-
-    public var id: Int?
-    public var clientId: Int?
+    public var id: Int32?
+    public var clientId: Int32?
     public var name: String?
-    public var width: Int?
-    public var depth: Int?
-    public var height: Int?
+    public var width: Int32?
+    public var depth: Int32?
+    public var height: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
-        nillableDictionary["clientId"] = self.clientId
+        nillableDictionary["id"] = self.id?.encodeToJSON()
+        nillableDictionary["clientId"] = self.clientId?.encodeToJSON()
         nillableDictionary["name"] = self.name
-        nillableDictionary["width"] = self.width
-        nillableDictionary["depth"] = self.depth
-        nillableDictionary["height"] = self.height
+        nillableDictionary["width"] = self.width?.encodeToJSON()
+        nillableDictionary["depth"] = self.depth?.encodeToJSON()
+        nillableDictionary["height"] = self.height?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()

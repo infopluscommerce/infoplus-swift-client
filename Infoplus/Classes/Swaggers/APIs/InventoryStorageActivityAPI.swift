@@ -11,7 +11,6 @@ import Alamofire
 
 public class InventoryStorageActivityAPI: APIBase {
     /**
-     
      Create an inventoryStorageActivity
      
      - parameter body: (body) InventoryStorageActivity to be inserted. 
@@ -25,104 +24,102 @@ public class InventoryStorageActivityAPI: APIBase {
 
 
     /**
-     
      Create an inventoryStorageActivity
-     
      - POST /beta/inventoryStorageActivity
      - Inserts a new inventoryStorageActivity using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "warehouseLocationPriorityCode" : 123,
-  "warehouseLocationFootprintHeight" : 123,
-  "warehouseLocationCost" : 123,
-  "itemSector" : "aeiou",
-  "alcoholTypeId" : 123,
-  "inventoryValue" : 1.3579000000000001069366817318950779736042022705078125,
-  "warehouseLocationOriginId" : 123,
-  "receiptDistributionDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseLocationAllowItemMixing" : true,
-  "warehouseLocationNumber" : 123,
-  "warehouseAisleAddress" : "aeiou",
-  "itemVendorSku" : "aeiou",
-  "itemSummaryCodeName" : "aeiou",
-  "alcoholContainerVolume" : 123,
-  "poNo" : "aeiou",
-  "alcoholContent" : 1.3579000000000001069366817318950779736042022705078125,
-  "receiptReceiveDate" : "2000-01-23T04:56:07.000+0000",
-  "numberOfCases" : 123,
-  "receiptUnitsPerCase" : 123,
-  "id" : 123,
-  "sku" : "aeiou",
-  "receiptProductionLot" : "aeiou",
-  "alcoholState" : "aeiou",
-  "alcoholTypeName" : "aeiou",
-  "lobId" : 123,
-  "receiptUnitCode" : 123,
-  "warehouseLocationOriginName" : "aeiou",
-  "warehouseZoneAddress" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "itemProductCodeName" : "aeiou",
-  "itemProductCode" : 123,
-  "warehouseZoneName" : "aeiou",
-  "warehouseBuildingId" : 123,
-  "receiptUnitsPerWrap" : 123,
-  "receiptUnitCodeText" : "aeiou",
-  "itemAccountCodeName" : "aeiou",
-  "warehouseLocationFootprintWidth" : 123,
-  "alcoholContainerName" : "aeiou",
-  "warehouseLocationBay" : 123,
-  "itemSubGroupName" : "aeiou",
-  "alcoholCountryId" : 123,
-  "alcoholContainerId" : 123,
-  "importedRecordId" : 123,
-  "itemId" : 123,
-  "itemMajorGroup" : 123,
-  "warehouseBuildingName" : "aeiou",
-  "warehouseLocationBillingTypeName" : "aeiou",
-  "warehouseLocationFootprintDepth" : 123,
-  "alcoholUPCCode" : "aeiou",
-  "warehouseId" : 123,
-  "warehouseLocationBehaviorTypeName" : "aeiou",
-  "itemUpc" : "aeiou",
-  "isMixedReceipts" : true,
-  "itemSummaryCode" : 123,
-  "warehouseLocationBehaviorTypeId" : 123,
-  "alcoholRegion" : "aeiou",
-  "receiptStatus" : "aeiou",
-  "receiptProductIdTag" : "aeiou",
-  "alcoholSCCCode" : "aeiou",
+  "warehouseLocationPriorityCode" : 8,
+  "warehouseLocationFootprintHeight" : 4,
+  "warehouseLocationCost" : 9,
+  "itemSector" : "itemSector",
+  "alcoholTypeId" : 3,
+  "inventoryValue" : 9.301444243932575517419536481611430644989013671875,
+  "warehouseLocationOriginId" : 1,
+  "receiptDistributionDate" : "2000-01-23T04:56:07.000+00:00",
+  "warehouseLocationAllowItemMixing" : false,
+  "warehouseLocationNumber" : 6,
+  "warehouseAisleAddress" : "warehouseAisleAddress",
+  "itemVendorSku" : "itemVendorSku",
+  "itemSummaryCodeName" : "itemSummaryCodeName",
+  "alcoholContainerVolume" : 0,
+  "poNo" : "poNo",
+  "alcoholContent" : 3.093745262666447448651751983561553061008453369140625,
+  "receiptReceiveDate" : "2000-01-23T04:56:07.000+00:00",
+  "numberOfCases" : 7,
+  "receiptUnitsPerCase" : 6,
+  "id" : 0,
+  "sku" : "sku",
+  "receiptProductionLot" : "receiptProductionLot",
+  "alcoholState" : "alcoholState",
+  "alcoholTypeName" : "alcoholTypeName",
+  "lobId" : 5,
+  "receiptUnitCode" : 6,
+  "warehouseLocationOriginName" : "warehouseLocationOriginName",
+  "warehouseZoneAddress" : "warehouseZoneAddress",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "itemProductCodeName" : "itemProductCodeName",
+  "itemProductCode" : 6,
+  "warehouseZoneName" : "warehouseZoneName",
+  "warehouseBuildingId" : 7,
+  "receiptUnitsPerWrap" : 2,
+  "receiptUnitCodeText" : "receiptUnitCodeText",
+  "itemAccountCodeName" : "itemAccountCodeName",
+  "warehouseLocationFootprintWidth" : 1,
+  "alcoholContainerName" : "alcoholContainerName",
+  "warehouseLocationBay" : 9,
+  "itemSubGroupName" : "itemSubGroupName",
+  "alcoholCountryId" : 7,
+  "alcoholContainerId" : 7,
+  "importedRecordId" : 6,
+  "itemId" : 5,
+  "itemMajorGroup" : 6,
+  "warehouseBuildingName" : "warehouseBuildingName",
+  "warehouseLocationBillingTypeName" : "warehouseLocationBillingTypeName",
+  "warehouseLocationFootprintDepth" : 5,
+  "alcoholUPCCode" : "alcoholUPCCode",
+  "warehouseId" : 2,
+  "warehouseLocationBehaviorTypeName" : "warehouseLocationBehaviorTypeName",
+  "itemUpc" : "itemUpc",
+  "isMixedReceipts" : false,
+  "itemSummaryCode" : 1,
+  "warehouseLocationBehaviorTypeId" : 6,
+  "alcoholRegion" : "alcoholRegion",
+  "receiptStatus" : "receiptStatus",
+  "receiptProductIdTag" : "receiptProductIdTag",
+  "alcoholSCCCode" : "alcoholSCCCode",
   "customFields" : {
     "key" : "{}"
   },
-  "warehouseLocationId" : 123,
-  "warehouseLocationLevel" : 123,
-  "receiptRevisionDate" : "aeiou",
-  "warehouseLocationFootprintName" : "aeiou",
-  "warehouseName" : "aeiou",
-  "warehouseLocationBillingTypeId" : 123,
-  "receiptStatusName" : "aeiou",
-  "warehouseZoneId" : 123,
-  "warehouseLocationOnline" : true,
-  "receiptWrapCodeText" : "aeiou",
-  "alcoholBrand" : "aeiou",
-  "receiptCaseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "inventoryAgeDays" : 123,
-  "snapshotDate" : "2000-01-23T04:56:07.000+0000",
-  "alcoholVintageYear" : "aeiou",
-  "quantity" : 123,
-  "address" : "aeiou",
-  "alcoholCountryName" : "aeiou",
-  "alcoholNABCACode" : "aeiou",
-  "alcoholUNIMERCCode" : "aeiou",
-  "receiptWrapCode" : 123,
-  "warehouseLocationFootprintId" : 123,
-  "itemAccountCode" : "aeiou",
-  "warehouseAisleId" : 123,
-  "itemSubGroup" : 123,
-  "itemMajorGroupName" : "aeiou"
+  "warehouseLocationId" : 1,
+  "warehouseLocationLevel" : 9,
+  "receiptRevisionDate" : "receiptRevisionDate",
+  "warehouseLocationFootprintName" : "warehouseLocationFootprintName",
+  "warehouseName" : "warehouseName",
+  "warehouseLocationBillingTypeId" : 1,
+  "receiptStatusName" : "receiptStatusName",
+  "warehouseZoneId" : 4,
+  "warehouseLocationOnline" : false,
+  "receiptWrapCodeText" : "receiptWrapCodeText",
+  "alcoholBrand" : "alcoholBrand",
+  "receiptCaseWeight" : 6.70401929795003592715829654480330646038055419921875,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "inventoryAgeDays" : 3,
+  "snapshotDate" : "2000-01-23T04:56:07.000+00:00",
+  "alcoholVintageYear" : "alcoholVintageYear",
+  "quantity" : 2,
+  "address" : "address",
+  "alcoholCountryName" : "alcoholCountryName",
+  "alcoholNABCACode" : "alcoholNABCACode",
+  "alcoholUNIMERCCode" : "alcoholUNIMERCCode",
+  "receiptWrapCode" : 5,
+  "warehouseLocationFootprintId" : 7,
+  "itemAccountCode" : "itemAccountCode",
+  "warehouseAisleId" : 1,
+  "itemSubGroup" : 3,
+  "itemMajorGroupName" : "itemMajorGroupName"
 }}]
      
      - parameter body: (body) InventoryStorageActivity to be inserted. 
@@ -132,23 +129,23 @@ public class InventoryStorageActivityAPI: APIBase {
     public class func addInventoryStorageActivityWithRequestBuilder(body body: InventoryStorageActivity) -> RequestBuilder<InventoryStorageActivity> {
         let path = "/beta/inventoryStorageActivity"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<InventoryStorageActivity>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new audit for an inventoryStorageActivity
      
      - parameter inventoryStorageActivityId: (path) Id of the inventoryStorageActivity to add an audit to 
      - parameter inventoryStorageActivityAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addInventoryStorageActivityAudit(inventoryStorageActivityId inventoryStorageActivityId: Int, inventoryStorageActivityAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addInventoryStorageActivityAudit(inventoryStorageActivityId inventoryStorageActivityId: Int32, inventoryStorageActivityAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addInventoryStorageActivityAuditWithRequestBuilder(inventoryStorageActivityId: inventoryStorageActivityId, inventoryStorageActivityAudit: inventoryStorageActivityAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -156,9 +153,7 @@ public class InventoryStorageActivityAPI: APIBase {
 
 
     /**
-     
      Add new audit for an inventoryStorageActivity
-     
      - PUT /beta/inventoryStorageActivity/{inventoryStorageActivityId}/audit/{inventoryStorageActivityAudit}
      - Adds an audit to an existing inventoryStorageActivity.
      - API Key:
@@ -170,29 +165,31 @@ public class InventoryStorageActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addInventoryStorageActivityAuditWithRequestBuilder(inventoryStorageActivityId inventoryStorageActivityId: Int, inventoryStorageActivityAudit: String) -> RequestBuilder<Void> {
+    public class func addInventoryStorageActivityAuditWithRequestBuilder(inventoryStorageActivityId inventoryStorageActivityId: Int32, inventoryStorageActivityAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/inventoryStorageActivity/{inventoryStorageActivityId}/audit/{inventoryStorageActivityAudit}"
         path = path.stringByReplacingOccurrencesOfString("{inventoryStorageActivityId}", withString: "\(inventoryStorageActivityId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{inventoryStorageActivityAudit}", withString: "\(inventoryStorageActivityAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for an inventoryStorageActivity.
      
      - parameter inventoryStorageActivityId: (path) Id of the inventoryStorageActivity to add a tag to 
      - parameter inventoryStorageActivityTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addInventoryStorageActivityTag(inventoryStorageActivityId inventoryStorageActivityId: Int, inventoryStorageActivityTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addInventoryStorageActivityTag(inventoryStorageActivityId inventoryStorageActivityId: Int32, inventoryStorageActivityTag: String, completion: ((error: ErrorType?) -> Void)) {
         addInventoryStorageActivityTagWithRequestBuilder(inventoryStorageActivityId: inventoryStorageActivityId, inventoryStorageActivityTag: inventoryStorageActivityTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -200,9 +197,7 @@ public class InventoryStorageActivityAPI: APIBase {
 
 
     /**
-     
      Add new tags for an inventoryStorageActivity.
-     
      - PUT /beta/inventoryStorageActivity/{inventoryStorageActivityId}/tag/{inventoryStorageActivityTag}
      - Adds a tag to an existing inventoryStorageActivity.
      - API Key:
@@ -214,28 +209,30 @@ public class InventoryStorageActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addInventoryStorageActivityTagWithRequestBuilder(inventoryStorageActivityId inventoryStorageActivityId: Int, inventoryStorageActivityTag: String) -> RequestBuilder<Void> {
+    public class func addInventoryStorageActivityTagWithRequestBuilder(inventoryStorageActivityId inventoryStorageActivityId: Int32, inventoryStorageActivityTag: String) -> RequestBuilder<Void> {
         var path = "/beta/inventoryStorageActivity/{inventoryStorageActivityId}/tag/{inventoryStorageActivityTag}"
         path = path.stringByReplacingOccurrencesOfString("{inventoryStorageActivityId}", withString: "\(inventoryStorageActivityId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{inventoryStorageActivityTag}", withString: "\(inventoryStorageActivityTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete an inventoryStorageActivity
      
      - parameter inventoryStorageActivityId: (path) Id of the inventoryStorageActivity to be deleted. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteInventoryStorageActivity(inventoryStorageActivityId inventoryStorageActivityId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteInventoryStorageActivity(inventoryStorageActivityId inventoryStorageActivityId: Int32, completion: ((error: ErrorType?) -> Void)) {
         deleteInventoryStorageActivityWithRequestBuilder(inventoryStorageActivityId: inventoryStorageActivityId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -243,9 +240,7 @@ public class InventoryStorageActivityAPI: APIBase {
 
 
     /**
-     
      Delete an inventoryStorageActivity
-     
      - DELETE /beta/inventoryStorageActivity/{inventoryStorageActivityId}
      - Deletes the inventoryStorageActivity identified by the specified id.
      - API Key:
@@ -256,28 +251,30 @@ public class InventoryStorageActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteInventoryStorageActivityWithRequestBuilder(inventoryStorageActivityId inventoryStorageActivityId: Int) -> RequestBuilder<Void> {
+    public class func deleteInventoryStorageActivityWithRequestBuilder(inventoryStorageActivityId inventoryStorageActivityId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/inventoryStorageActivity/{inventoryStorageActivityId}"
         path = path.stringByReplacingOccurrencesOfString("{inventoryStorageActivityId}", withString: "\(inventoryStorageActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for an inventoryStorageActivity.
      
      - parameter inventoryStorageActivityId: (path) Id of the inventoryStorageActivity to remove tag from 
      - parameter inventoryStorageActivityTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteInventoryStorageActivityTag(inventoryStorageActivityId inventoryStorageActivityId: Int, inventoryStorageActivityTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteInventoryStorageActivityTag(inventoryStorageActivityId inventoryStorageActivityId: Int32, inventoryStorageActivityTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteInventoryStorageActivityTagWithRequestBuilder(inventoryStorageActivityId: inventoryStorageActivityId, inventoryStorageActivityTag: inventoryStorageActivityTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -285,9 +282,7 @@ public class InventoryStorageActivityAPI: APIBase {
 
 
     /**
-     
      Delete a tag for an inventoryStorageActivity.
-     
      - DELETE /beta/inventoryStorageActivity/{inventoryStorageActivityId}/tag/{inventoryStorageActivityTag}
      - Deletes an existing inventoryStorageActivity tag using the specified data.
      - API Key:
@@ -299,28 +294,30 @@ public class InventoryStorageActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteInventoryStorageActivityTagWithRequestBuilder(inventoryStorageActivityId inventoryStorageActivityId: Int, inventoryStorageActivityTag: String) -> RequestBuilder<Void> {
+    public class func deleteInventoryStorageActivityTagWithRequestBuilder(inventoryStorageActivityId inventoryStorageActivityId: Int32, inventoryStorageActivityTag: String) -> RequestBuilder<Void> {
         var path = "/beta/inventoryStorageActivity/{inventoryStorageActivityId}/tag/{inventoryStorageActivityTag}"
         path = path.stringByReplacingOccurrencesOfString("{inventoryStorageActivityId}", withString: "\(inventoryStorageActivityId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{inventoryStorageActivityTag}", withString: "\(inventoryStorageActivityTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated an inventoryStorageActivity by id
      
      - parameter inventoryStorageActivityId: (path) Id of the inventoryStorageActivity to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateInventoryStorageActivityById(inventoryStorageActivityId inventoryStorageActivityId: Int, completion: ((data: InventoryStorageActivity?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateInventoryStorageActivityById(inventoryStorageActivityId inventoryStorageActivityId: Int32, completion: ((data: InventoryStorageActivity?, error: ErrorType?) -> Void)) {
         getDuplicateInventoryStorageActivityByIdWithRequestBuilder(inventoryStorageActivityId: inventoryStorageActivityId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -328,125 +325,125 @@ public class InventoryStorageActivityAPI: APIBase {
 
 
     /**
-     
      Get a duplicated an inventoryStorageActivity by id
-     
      - GET /beta/inventoryStorageActivity/duplicate/{inventoryStorageActivityId}
      - Returns a duplicated inventoryStorageActivity identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "warehouseLocationPriorityCode" : 123,
-  "warehouseLocationFootprintHeight" : 123,
-  "warehouseLocationCost" : 123,
-  "itemSector" : "aeiou",
-  "alcoholTypeId" : 123,
-  "inventoryValue" : 1.3579000000000001069366817318950779736042022705078125,
-  "warehouseLocationOriginId" : 123,
-  "receiptDistributionDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseLocationAllowItemMixing" : true,
-  "warehouseLocationNumber" : 123,
-  "warehouseAisleAddress" : "aeiou",
-  "itemVendorSku" : "aeiou",
-  "itemSummaryCodeName" : "aeiou",
-  "alcoholContainerVolume" : 123,
-  "poNo" : "aeiou",
-  "alcoholContent" : 1.3579000000000001069366817318950779736042022705078125,
-  "receiptReceiveDate" : "2000-01-23T04:56:07.000+0000",
-  "numberOfCases" : 123,
-  "receiptUnitsPerCase" : 123,
-  "id" : 123,
-  "sku" : "aeiou",
-  "receiptProductionLot" : "aeiou",
-  "alcoholState" : "aeiou",
-  "alcoholTypeName" : "aeiou",
-  "lobId" : 123,
-  "receiptUnitCode" : 123,
-  "warehouseLocationOriginName" : "aeiou",
-  "warehouseZoneAddress" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "itemProductCodeName" : "aeiou",
-  "itemProductCode" : 123,
-  "warehouseZoneName" : "aeiou",
-  "warehouseBuildingId" : 123,
-  "receiptUnitsPerWrap" : 123,
-  "receiptUnitCodeText" : "aeiou",
-  "itemAccountCodeName" : "aeiou",
-  "warehouseLocationFootprintWidth" : 123,
-  "alcoholContainerName" : "aeiou",
-  "warehouseLocationBay" : 123,
-  "itemSubGroupName" : "aeiou",
-  "alcoholCountryId" : 123,
-  "alcoholContainerId" : 123,
-  "importedRecordId" : 123,
-  "itemId" : 123,
-  "itemMajorGroup" : 123,
-  "warehouseBuildingName" : "aeiou",
-  "warehouseLocationBillingTypeName" : "aeiou",
-  "warehouseLocationFootprintDepth" : 123,
-  "alcoholUPCCode" : "aeiou",
-  "warehouseId" : 123,
-  "warehouseLocationBehaviorTypeName" : "aeiou",
-  "itemUpc" : "aeiou",
-  "isMixedReceipts" : true,
-  "itemSummaryCode" : 123,
-  "warehouseLocationBehaviorTypeId" : 123,
-  "alcoholRegion" : "aeiou",
-  "receiptStatus" : "aeiou",
-  "receiptProductIdTag" : "aeiou",
-  "alcoholSCCCode" : "aeiou",
+  "warehouseLocationPriorityCode" : 8,
+  "warehouseLocationFootprintHeight" : 4,
+  "warehouseLocationCost" : 9,
+  "itemSector" : "itemSector",
+  "alcoholTypeId" : 3,
+  "inventoryValue" : 9.301444243932575517419536481611430644989013671875,
+  "warehouseLocationOriginId" : 1,
+  "receiptDistributionDate" : "2000-01-23T04:56:07.000+00:00",
+  "warehouseLocationAllowItemMixing" : false,
+  "warehouseLocationNumber" : 6,
+  "warehouseAisleAddress" : "warehouseAisleAddress",
+  "itemVendorSku" : "itemVendorSku",
+  "itemSummaryCodeName" : "itemSummaryCodeName",
+  "alcoholContainerVolume" : 0,
+  "poNo" : "poNo",
+  "alcoholContent" : 3.093745262666447448651751983561553061008453369140625,
+  "receiptReceiveDate" : "2000-01-23T04:56:07.000+00:00",
+  "numberOfCases" : 7,
+  "receiptUnitsPerCase" : 6,
+  "id" : 0,
+  "sku" : "sku",
+  "receiptProductionLot" : "receiptProductionLot",
+  "alcoholState" : "alcoholState",
+  "alcoholTypeName" : "alcoholTypeName",
+  "lobId" : 5,
+  "receiptUnitCode" : 6,
+  "warehouseLocationOriginName" : "warehouseLocationOriginName",
+  "warehouseZoneAddress" : "warehouseZoneAddress",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "itemProductCodeName" : "itemProductCodeName",
+  "itemProductCode" : 6,
+  "warehouseZoneName" : "warehouseZoneName",
+  "warehouseBuildingId" : 7,
+  "receiptUnitsPerWrap" : 2,
+  "receiptUnitCodeText" : "receiptUnitCodeText",
+  "itemAccountCodeName" : "itemAccountCodeName",
+  "warehouseLocationFootprintWidth" : 1,
+  "alcoholContainerName" : "alcoholContainerName",
+  "warehouseLocationBay" : 9,
+  "itemSubGroupName" : "itemSubGroupName",
+  "alcoholCountryId" : 7,
+  "alcoholContainerId" : 7,
+  "importedRecordId" : 6,
+  "itemId" : 5,
+  "itemMajorGroup" : 6,
+  "warehouseBuildingName" : "warehouseBuildingName",
+  "warehouseLocationBillingTypeName" : "warehouseLocationBillingTypeName",
+  "warehouseLocationFootprintDepth" : 5,
+  "alcoholUPCCode" : "alcoholUPCCode",
+  "warehouseId" : 2,
+  "warehouseLocationBehaviorTypeName" : "warehouseLocationBehaviorTypeName",
+  "itemUpc" : "itemUpc",
+  "isMixedReceipts" : false,
+  "itemSummaryCode" : 1,
+  "warehouseLocationBehaviorTypeId" : 6,
+  "alcoholRegion" : "alcoholRegion",
+  "receiptStatus" : "receiptStatus",
+  "receiptProductIdTag" : "receiptProductIdTag",
+  "alcoholSCCCode" : "alcoholSCCCode",
   "customFields" : {
     "key" : "{}"
   },
-  "warehouseLocationId" : 123,
-  "warehouseLocationLevel" : 123,
-  "receiptRevisionDate" : "aeiou",
-  "warehouseLocationFootprintName" : "aeiou",
-  "warehouseName" : "aeiou",
-  "warehouseLocationBillingTypeId" : 123,
-  "receiptStatusName" : "aeiou",
-  "warehouseZoneId" : 123,
-  "warehouseLocationOnline" : true,
-  "receiptWrapCodeText" : "aeiou",
-  "alcoholBrand" : "aeiou",
-  "receiptCaseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "inventoryAgeDays" : 123,
-  "snapshotDate" : "2000-01-23T04:56:07.000+0000",
-  "alcoholVintageYear" : "aeiou",
-  "quantity" : 123,
-  "address" : "aeiou",
-  "alcoholCountryName" : "aeiou",
-  "alcoholNABCACode" : "aeiou",
-  "alcoholUNIMERCCode" : "aeiou",
-  "receiptWrapCode" : 123,
-  "warehouseLocationFootprintId" : 123,
-  "itemAccountCode" : "aeiou",
-  "warehouseAisleId" : 123,
-  "itemSubGroup" : 123,
-  "itemMajorGroupName" : "aeiou"
+  "warehouseLocationId" : 1,
+  "warehouseLocationLevel" : 9,
+  "receiptRevisionDate" : "receiptRevisionDate",
+  "warehouseLocationFootprintName" : "warehouseLocationFootprintName",
+  "warehouseName" : "warehouseName",
+  "warehouseLocationBillingTypeId" : 1,
+  "receiptStatusName" : "receiptStatusName",
+  "warehouseZoneId" : 4,
+  "warehouseLocationOnline" : false,
+  "receiptWrapCodeText" : "receiptWrapCodeText",
+  "alcoholBrand" : "alcoholBrand",
+  "receiptCaseWeight" : 6.70401929795003592715829654480330646038055419921875,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "inventoryAgeDays" : 3,
+  "snapshotDate" : "2000-01-23T04:56:07.000+00:00",
+  "alcoholVintageYear" : "alcoholVintageYear",
+  "quantity" : 2,
+  "address" : "address",
+  "alcoholCountryName" : "alcoholCountryName",
+  "alcoholNABCACode" : "alcoholNABCACode",
+  "alcoholUNIMERCCode" : "alcoholUNIMERCCode",
+  "receiptWrapCode" : 5,
+  "warehouseLocationFootprintId" : 7,
+  "itemAccountCode" : "itemAccountCode",
+  "warehouseAisleId" : 1,
+  "itemSubGroup" : 3,
+  "itemMajorGroupName" : "itemMajorGroupName"
 }}]
      
      - parameter inventoryStorageActivityId: (path) Id of the inventoryStorageActivity to be duplicated. 
 
      - returns: RequestBuilder<InventoryStorageActivity> 
      */
-    public class func getDuplicateInventoryStorageActivityByIdWithRequestBuilder(inventoryStorageActivityId inventoryStorageActivityId: Int) -> RequestBuilder<InventoryStorageActivity> {
+    public class func getDuplicateInventoryStorageActivityByIdWithRequestBuilder(inventoryStorageActivityId inventoryStorageActivityId: Int32) -> RequestBuilder<InventoryStorageActivity> {
         var path = "/beta/inventoryStorageActivity/duplicate/{inventoryStorageActivityId}"
         path = path.stringByReplacingOccurrencesOfString("{inventoryStorageActivityId}", withString: "\(inventoryStorageActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<InventoryStorageActivity>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search inventoryStorageActivitys by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -455,7 +452,7 @@ public class InventoryStorageActivityAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getInventoryStorageActivityByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [InventoryStorageActivity]?, error: ErrorType?) -> Void)) {
+    public class func getInventoryStorageActivityByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [InventoryStorageActivity]?, error: ErrorType?) -> Void)) {
         getInventoryStorageActivityByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -463,104 +460,192 @@ public class InventoryStorageActivityAPI: APIBase {
 
 
     /**
-     
      Search inventoryStorageActivitys by filter
-     
      - GET /beta/inventoryStorageActivity/search
      - Returns the list of inventoryStorageActivitys that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "warehouseLocationPriorityCode" : 123,
-  "warehouseLocationFootprintHeight" : 123,
-  "warehouseLocationCost" : 123,
-  "itemSector" : "aeiou",
-  "alcoholTypeId" : 123,
-  "inventoryValue" : 1.3579000000000001069366817318950779736042022705078125,
-  "warehouseLocationOriginId" : 123,
-  "receiptDistributionDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseLocationAllowItemMixing" : true,
-  "warehouseLocationNumber" : 123,
-  "warehouseAisleAddress" : "aeiou",
-  "itemVendorSku" : "aeiou",
-  "itemSummaryCodeName" : "aeiou",
-  "alcoholContainerVolume" : 123,
-  "poNo" : "aeiou",
-  "alcoholContent" : 1.3579000000000001069366817318950779736042022705078125,
-  "receiptReceiveDate" : "2000-01-23T04:56:07.000+0000",
-  "numberOfCases" : 123,
-  "receiptUnitsPerCase" : 123,
-  "id" : 123,
-  "sku" : "aeiou",
-  "receiptProductionLot" : "aeiou",
-  "alcoholState" : "aeiou",
-  "alcoholTypeName" : "aeiou",
-  "lobId" : 123,
-  "receiptUnitCode" : 123,
-  "warehouseLocationOriginName" : "aeiou",
-  "warehouseZoneAddress" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "itemProductCodeName" : "aeiou",
-  "itemProductCode" : 123,
-  "warehouseZoneName" : "aeiou",
-  "warehouseBuildingId" : 123,
-  "receiptUnitsPerWrap" : 123,
-  "receiptUnitCodeText" : "aeiou",
-  "itemAccountCodeName" : "aeiou",
-  "warehouseLocationFootprintWidth" : 123,
-  "alcoholContainerName" : "aeiou",
-  "warehouseLocationBay" : 123,
-  "itemSubGroupName" : "aeiou",
-  "alcoholCountryId" : 123,
-  "alcoholContainerId" : 123,
-  "importedRecordId" : 123,
-  "itemId" : 123,
-  "itemMajorGroup" : 123,
-  "warehouseBuildingName" : "aeiou",
-  "warehouseLocationBillingTypeName" : "aeiou",
-  "warehouseLocationFootprintDepth" : 123,
-  "alcoholUPCCode" : "aeiou",
-  "warehouseId" : 123,
-  "warehouseLocationBehaviorTypeName" : "aeiou",
-  "itemUpc" : "aeiou",
-  "isMixedReceipts" : true,
-  "itemSummaryCode" : 123,
-  "warehouseLocationBehaviorTypeId" : 123,
-  "alcoholRegion" : "aeiou",
-  "receiptStatus" : "aeiou",
-  "receiptProductIdTag" : "aeiou",
-  "alcoholSCCCode" : "aeiou",
+  "warehouseLocationPriorityCode" : 8,
+  "warehouseLocationFootprintHeight" : 4,
+  "warehouseLocationCost" : 9,
+  "itemSector" : "itemSector",
+  "alcoholTypeId" : 3,
+  "inventoryValue" : 9.301444243932575517419536481611430644989013671875,
+  "warehouseLocationOriginId" : 1,
+  "receiptDistributionDate" : "2000-01-23T04:56:07.000+00:00",
+  "warehouseLocationAllowItemMixing" : false,
+  "warehouseLocationNumber" : 6,
+  "warehouseAisleAddress" : "warehouseAisleAddress",
+  "itemVendorSku" : "itemVendorSku",
+  "itemSummaryCodeName" : "itemSummaryCodeName",
+  "alcoholContainerVolume" : 0,
+  "poNo" : "poNo",
+  "alcoholContent" : 3.093745262666447448651751983561553061008453369140625,
+  "receiptReceiveDate" : "2000-01-23T04:56:07.000+00:00",
+  "numberOfCases" : 7,
+  "receiptUnitsPerCase" : 6,
+  "id" : 0,
+  "sku" : "sku",
+  "receiptProductionLot" : "receiptProductionLot",
+  "alcoholState" : "alcoholState",
+  "alcoholTypeName" : "alcoholTypeName",
+  "lobId" : 5,
+  "receiptUnitCode" : 6,
+  "warehouseLocationOriginName" : "warehouseLocationOriginName",
+  "warehouseZoneAddress" : "warehouseZoneAddress",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "itemProductCodeName" : "itemProductCodeName",
+  "itemProductCode" : 6,
+  "warehouseZoneName" : "warehouseZoneName",
+  "warehouseBuildingId" : 7,
+  "receiptUnitsPerWrap" : 2,
+  "receiptUnitCodeText" : "receiptUnitCodeText",
+  "itemAccountCodeName" : "itemAccountCodeName",
+  "warehouseLocationFootprintWidth" : 1,
+  "alcoholContainerName" : "alcoholContainerName",
+  "warehouseLocationBay" : 9,
+  "itemSubGroupName" : "itemSubGroupName",
+  "alcoholCountryId" : 7,
+  "alcoholContainerId" : 7,
+  "importedRecordId" : 6,
+  "itemId" : 5,
+  "itemMajorGroup" : 6,
+  "warehouseBuildingName" : "warehouseBuildingName",
+  "warehouseLocationBillingTypeName" : "warehouseLocationBillingTypeName",
+  "warehouseLocationFootprintDepth" : 5,
+  "alcoholUPCCode" : "alcoholUPCCode",
+  "warehouseId" : 2,
+  "warehouseLocationBehaviorTypeName" : "warehouseLocationBehaviorTypeName",
+  "itemUpc" : "itemUpc",
+  "isMixedReceipts" : false,
+  "itemSummaryCode" : 1,
+  "warehouseLocationBehaviorTypeId" : 6,
+  "alcoholRegion" : "alcoholRegion",
+  "receiptStatus" : "receiptStatus",
+  "receiptProductIdTag" : "receiptProductIdTag",
+  "alcoholSCCCode" : "alcoholSCCCode",
   "customFields" : {
     "key" : "{}"
   },
-  "warehouseLocationId" : 123,
-  "warehouseLocationLevel" : 123,
-  "receiptRevisionDate" : "aeiou",
-  "warehouseLocationFootprintName" : "aeiou",
-  "warehouseName" : "aeiou",
-  "warehouseLocationBillingTypeId" : 123,
-  "receiptStatusName" : "aeiou",
-  "warehouseZoneId" : 123,
-  "warehouseLocationOnline" : true,
-  "receiptWrapCodeText" : "aeiou",
-  "alcoholBrand" : "aeiou",
-  "receiptCaseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "inventoryAgeDays" : 123,
-  "snapshotDate" : "2000-01-23T04:56:07.000+0000",
-  "alcoholVintageYear" : "aeiou",
-  "quantity" : 123,
-  "address" : "aeiou",
-  "alcoholCountryName" : "aeiou",
-  "alcoholNABCACode" : "aeiou",
-  "alcoholUNIMERCCode" : "aeiou",
-  "receiptWrapCode" : 123,
-  "warehouseLocationFootprintId" : 123,
-  "itemAccountCode" : "aeiou",
-  "warehouseAisleId" : 123,
-  "itemSubGroup" : 123,
-  "itemMajorGroupName" : "aeiou"
+  "warehouseLocationId" : 1,
+  "warehouseLocationLevel" : 9,
+  "receiptRevisionDate" : "receiptRevisionDate",
+  "warehouseLocationFootprintName" : "warehouseLocationFootprintName",
+  "warehouseName" : "warehouseName",
+  "warehouseLocationBillingTypeId" : 1,
+  "receiptStatusName" : "receiptStatusName",
+  "warehouseZoneId" : 4,
+  "warehouseLocationOnline" : false,
+  "receiptWrapCodeText" : "receiptWrapCodeText",
+  "alcoholBrand" : "alcoholBrand",
+  "receiptCaseWeight" : 6.70401929795003592715829654480330646038055419921875,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "inventoryAgeDays" : 3,
+  "snapshotDate" : "2000-01-23T04:56:07.000+00:00",
+  "alcoholVintageYear" : "alcoholVintageYear",
+  "quantity" : 2,
+  "address" : "address",
+  "alcoholCountryName" : "alcoholCountryName",
+  "alcoholNABCACode" : "alcoholNABCACode",
+  "alcoholUNIMERCCode" : "alcoholUNIMERCCode",
+  "receiptWrapCode" : 5,
+  "warehouseLocationFootprintId" : 7,
+  "itemAccountCode" : "itemAccountCode",
+  "warehouseAisleId" : 1,
+  "itemSubGroup" : 3,
+  "itemMajorGroupName" : "itemMajorGroupName"
+}, {
+  "warehouseLocationPriorityCode" : 8,
+  "warehouseLocationFootprintHeight" : 4,
+  "warehouseLocationCost" : 9,
+  "itemSector" : "itemSector",
+  "alcoholTypeId" : 3,
+  "inventoryValue" : 9.301444243932575517419536481611430644989013671875,
+  "warehouseLocationOriginId" : 1,
+  "receiptDistributionDate" : "2000-01-23T04:56:07.000+00:00",
+  "warehouseLocationAllowItemMixing" : false,
+  "warehouseLocationNumber" : 6,
+  "warehouseAisleAddress" : "warehouseAisleAddress",
+  "itemVendorSku" : "itemVendorSku",
+  "itemSummaryCodeName" : "itemSummaryCodeName",
+  "alcoholContainerVolume" : 0,
+  "poNo" : "poNo",
+  "alcoholContent" : 3.093745262666447448651751983561553061008453369140625,
+  "receiptReceiveDate" : "2000-01-23T04:56:07.000+00:00",
+  "numberOfCases" : 7,
+  "receiptUnitsPerCase" : 6,
+  "id" : 0,
+  "sku" : "sku",
+  "receiptProductionLot" : "receiptProductionLot",
+  "alcoholState" : "alcoholState",
+  "alcoholTypeName" : "alcoholTypeName",
+  "lobId" : 5,
+  "receiptUnitCode" : 6,
+  "warehouseLocationOriginName" : "warehouseLocationOriginName",
+  "warehouseZoneAddress" : "warehouseZoneAddress",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "itemProductCodeName" : "itemProductCodeName",
+  "itemProductCode" : 6,
+  "warehouseZoneName" : "warehouseZoneName",
+  "warehouseBuildingId" : 7,
+  "receiptUnitsPerWrap" : 2,
+  "receiptUnitCodeText" : "receiptUnitCodeText",
+  "itemAccountCodeName" : "itemAccountCodeName",
+  "warehouseLocationFootprintWidth" : 1,
+  "alcoholContainerName" : "alcoholContainerName",
+  "warehouseLocationBay" : 9,
+  "itemSubGroupName" : "itemSubGroupName",
+  "alcoholCountryId" : 7,
+  "alcoholContainerId" : 7,
+  "importedRecordId" : 6,
+  "itemId" : 5,
+  "itemMajorGroup" : 6,
+  "warehouseBuildingName" : "warehouseBuildingName",
+  "warehouseLocationBillingTypeName" : "warehouseLocationBillingTypeName",
+  "warehouseLocationFootprintDepth" : 5,
+  "alcoholUPCCode" : "alcoholUPCCode",
+  "warehouseId" : 2,
+  "warehouseLocationBehaviorTypeName" : "warehouseLocationBehaviorTypeName",
+  "itemUpc" : "itemUpc",
+  "isMixedReceipts" : false,
+  "itemSummaryCode" : 1,
+  "warehouseLocationBehaviorTypeId" : 6,
+  "alcoholRegion" : "alcoholRegion",
+  "receiptStatus" : "receiptStatus",
+  "receiptProductIdTag" : "receiptProductIdTag",
+  "alcoholSCCCode" : "alcoholSCCCode",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "warehouseLocationId" : 1,
+  "warehouseLocationLevel" : 9,
+  "receiptRevisionDate" : "receiptRevisionDate",
+  "warehouseLocationFootprintName" : "warehouseLocationFootprintName",
+  "warehouseName" : "warehouseName",
+  "warehouseLocationBillingTypeId" : 1,
+  "receiptStatusName" : "receiptStatusName",
+  "warehouseZoneId" : 4,
+  "warehouseLocationOnline" : false,
+  "receiptWrapCodeText" : "receiptWrapCodeText",
+  "alcoholBrand" : "alcoholBrand",
+  "receiptCaseWeight" : 6.70401929795003592715829654480330646038055419921875,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "inventoryAgeDays" : 3,
+  "snapshotDate" : "2000-01-23T04:56:07.000+00:00",
+  "alcoholVintageYear" : "alcoholVintageYear",
+  "quantity" : 2,
+  "address" : "address",
+  "alcoholCountryName" : "alcoholCountryName",
+  "alcoholNABCACode" : "alcoholNABCACode",
+  "alcoholUNIMERCCode" : "alcoholUNIMERCCode",
+  "receiptWrapCode" : 5,
+  "warehouseLocationFootprintId" : 7,
+  "itemAccountCode" : "itemAccountCode",
+  "warehouseAisleId" : 1,
+  "itemSubGroup" : 3,
+  "itemMajorGroupName" : "itemMajorGroupName"
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -570,31 +655,33 @@ public class InventoryStorageActivityAPI: APIBase {
 
      - returns: RequestBuilder<[InventoryStorageActivity]> 
      */
-    public class func getInventoryStorageActivityByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[InventoryStorageActivity]> {
+    public class func getInventoryStorageActivityByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[InventoryStorageActivity]> {
         let path = "/beta/inventoryStorageActivity/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[InventoryStorageActivity]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get an inventoryStorageActivity by id
      
      - parameter inventoryStorageActivityId: (path) Id of the inventoryStorageActivity to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getInventoryStorageActivityById(inventoryStorageActivityId inventoryStorageActivityId: Int, completion: ((data: InventoryStorageActivity?, error: ErrorType?) -> Void)) {
+    public class func getInventoryStorageActivityById(inventoryStorageActivityId inventoryStorageActivityId: Int32, completion: ((data: InventoryStorageActivity?, error: ErrorType?) -> Void)) {
         getInventoryStorageActivityByIdWithRequestBuilder(inventoryStorageActivityId: inventoryStorageActivityId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -602,131 +689,131 @@ public class InventoryStorageActivityAPI: APIBase {
 
 
     /**
-     
      Get an inventoryStorageActivity by id
-     
      - GET /beta/inventoryStorageActivity/{inventoryStorageActivityId}
      - Returns the inventoryStorageActivity identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "warehouseLocationPriorityCode" : 123,
-  "warehouseLocationFootprintHeight" : 123,
-  "warehouseLocationCost" : 123,
-  "itemSector" : "aeiou",
-  "alcoholTypeId" : 123,
-  "inventoryValue" : 1.3579000000000001069366817318950779736042022705078125,
-  "warehouseLocationOriginId" : 123,
-  "receiptDistributionDate" : "2000-01-23T04:56:07.000+0000",
-  "warehouseLocationAllowItemMixing" : true,
-  "warehouseLocationNumber" : 123,
-  "warehouseAisleAddress" : "aeiou",
-  "itemVendorSku" : "aeiou",
-  "itemSummaryCodeName" : "aeiou",
-  "alcoholContainerVolume" : 123,
-  "poNo" : "aeiou",
-  "alcoholContent" : 1.3579000000000001069366817318950779736042022705078125,
-  "receiptReceiveDate" : "2000-01-23T04:56:07.000+0000",
-  "numberOfCases" : 123,
-  "receiptUnitsPerCase" : 123,
-  "id" : 123,
-  "sku" : "aeiou",
-  "receiptProductionLot" : "aeiou",
-  "alcoholState" : "aeiou",
-  "alcoholTypeName" : "aeiou",
-  "lobId" : 123,
-  "receiptUnitCode" : 123,
-  "warehouseLocationOriginName" : "aeiou",
-  "warehouseZoneAddress" : "aeiou",
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "itemProductCodeName" : "aeiou",
-  "itemProductCode" : 123,
-  "warehouseZoneName" : "aeiou",
-  "warehouseBuildingId" : 123,
-  "receiptUnitsPerWrap" : 123,
-  "receiptUnitCodeText" : "aeiou",
-  "itemAccountCodeName" : "aeiou",
-  "warehouseLocationFootprintWidth" : 123,
-  "alcoholContainerName" : "aeiou",
-  "warehouseLocationBay" : 123,
-  "itemSubGroupName" : "aeiou",
-  "alcoholCountryId" : 123,
-  "alcoholContainerId" : 123,
-  "importedRecordId" : 123,
-  "itemId" : 123,
-  "itemMajorGroup" : 123,
-  "warehouseBuildingName" : "aeiou",
-  "warehouseLocationBillingTypeName" : "aeiou",
-  "warehouseLocationFootprintDepth" : 123,
-  "alcoholUPCCode" : "aeiou",
-  "warehouseId" : 123,
-  "warehouseLocationBehaviorTypeName" : "aeiou",
-  "itemUpc" : "aeiou",
-  "isMixedReceipts" : true,
-  "itemSummaryCode" : 123,
-  "warehouseLocationBehaviorTypeId" : 123,
-  "alcoholRegion" : "aeiou",
-  "receiptStatus" : "aeiou",
-  "receiptProductIdTag" : "aeiou",
-  "alcoholSCCCode" : "aeiou",
+  "warehouseLocationPriorityCode" : 8,
+  "warehouseLocationFootprintHeight" : 4,
+  "warehouseLocationCost" : 9,
+  "itemSector" : "itemSector",
+  "alcoholTypeId" : 3,
+  "inventoryValue" : 9.301444243932575517419536481611430644989013671875,
+  "warehouseLocationOriginId" : 1,
+  "receiptDistributionDate" : "2000-01-23T04:56:07.000+00:00",
+  "warehouseLocationAllowItemMixing" : false,
+  "warehouseLocationNumber" : 6,
+  "warehouseAisleAddress" : "warehouseAisleAddress",
+  "itemVendorSku" : "itemVendorSku",
+  "itemSummaryCodeName" : "itemSummaryCodeName",
+  "alcoholContainerVolume" : 0,
+  "poNo" : "poNo",
+  "alcoholContent" : 3.093745262666447448651751983561553061008453369140625,
+  "receiptReceiveDate" : "2000-01-23T04:56:07.000+00:00",
+  "numberOfCases" : 7,
+  "receiptUnitsPerCase" : 6,
+  "id" : 0,
+  "sku" : "sku",
+  "receiptProductionLot" : "receiptProductionLot",
+  "alcoholState" : "alcoholState",
+  "alcoholTypeName" : "alcoholTypeName",
+  "lobId" : 5,
+  "receiptUnitCode" : 6,
+  "warehouseLocationOriginName" : "warehouseLocationOriginName",
+  "warehouseZoneAddress" : "warehouseZoneAddress",
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "itemProductCodeName" : "itemProductCodeName",
+  "itemProductCode" : 6,
+  "warehouseZoneName" : "warehouseZoneName",
+  "warehouseBuildingId" : 7,
+  "receiptUnitsPerWrap" : 2,
+  "receiptUnitCodeText" : "receiptUnitCodeText",
+  "itemAccountCodeName" : "itemAccountCodeName",
+  "warehouseLocationFootprintWidth" : 1,
+  "alcoholContainerName" : "alcoholContainerName",
+  "warehouseLocationBay" : 9,
+  "itemSubGroupName" : "itemSubGroupName",
+  "alcoholCountryId" : 7,
+  "alcoholContainerId" : 7,
+  "importedRecordId" : 6,
+  "itemId" : 5,
+  "itemMajorGroup" : 6,
+  "warehouseBuildingName" : "warehouseBuildingName",
+  "warehouseLocationBillingTypeName" : "warehouseLocationBillingTypeName",
+  "warehouseLocationFootprintDepth" : 5,
+  "alcoholUPCCode" : "alcoholUPCCode",
+  "warehouseId" : 2,
+  "warehouseLocationBehaviorTypeName" : "warehouseLocationBehaviorTypeName",
+  "itemUpc" : "itemUpc",
+  "isMixedReceipts" : false,
+  "itemSummaryCode" : 1,
+  "warehouseLocationBehaviorTypeId" : 6,
+  "alcoholRegion" : "alcoholRegion",
+  "receiptStatus" : "receiptStatus",
+  "receiptProductIdTag" : "receiptProductIdTag",
+  "alcoholSCCCode" : "alcoholSCCCode",
   "customFields" : {
     "key" : "{}"
   },
-  "warehouseLocationId" : 123,
-  "warehouseLocationLevel" : 123,
-  "receiptRevisionDate" : "aeiou",
-  "warehouseLocationFootprintName" : "aeiou",
-  "warehouseName" : "aeiou",
-  "warehouseLocationBillingTypeId" : 123,
-  "receiptStatusName" : "aeiou",
-  "warehouseZoneId" : 123,
-  "warehouseLocationOnline" : true,
-  "receiptWrapCodeText" : "aeiou",
-  "alcoholBrand" : "aeiou",
-  "receiptCaseWeight" : 1.3579000000000001069366817318950779736042022705078125,
-  "createDate" : "2000-01-23T04:56:07.000+0000",
-  "inventoryAgeDays" : 123,
-  "snapshotDate" : "2000-01-23T04:56:07.000+0000",
-  "alcoholVintageYear" : "aeiou",
-  "quantity" : 123,
-  "address" : "aeiou",
-  "alcoholCountryName" : "aeiou",
-  "alcoholNABCACode" : "aeiou",
-  "alcoholUNIMERCCode" : "aeiou",
-  "receiptWrapCode" : 123,
-  "warehouseLocationFootprintId" : 123,
-  "itemAccountCode" : "aeiou",
-  "warehouseAisleId" : 123,
-  "itemSubGroup" : 123,
-  "itemMajorGroupName" : "aeiou"
+  "warehouseLocationId" : 1,
+  "warehouseLocationLevel" : 9,
+  "receiptRevisionDate" : "receiptRevisionDate",
+  "warehouseLocationFootprintName" : "warehouseLocationFootprintName",
+  "warehouseName" : "warehouseName",
+  "warehouseLocationBillingTypeId" : 1,
+  "receiptStatusName" : "receiptStatusName",
+  "warehouseZoneId" : 4,
+  "warehouseLocationOnline" : false,
+  "receiptWrapCodeText" : "receiptWrapCodeText",
+  "alcoholBrand" : "alcoholBrand",
+  "receiptCaseWeight" : 6.70401929795003592715829654480330646038055419921875,
+  "createDate" : "2000-01-23T04:56:07.000+00:00",
+  "inventoryAgeDays" : 3,
+  "snapshotDate" : "2000-01-23T04:56:07.000+00:00",
+  "alcoholVintageYear" : "alcoholVintageYear",
+  "quantity" : 2,
+  "address" : "address",
+  "alcoholCountryName" : "alcoholCountryName",
+  "alcoholNABCACode" : "alcoholNABCACode",
+  "alcoholUNIMERCCode" : "alcoholUNIMERCCode",
+  "receiptWrapCode" : 5,
+  "warehouseLocationFootprintId" : 7,
+  "itemAccountCode" : "itemAccountCode",
+  "warehouseAisleId" : 1,
+  "itemSubGroup" : 3,
+  "itemMajorGroupName" : "itemMajorGroupName"
 }}]
      
      - parameter inventoryStorageActivityId: (path) Id of the inventoryStorageActivity to be returned. 
 
      - returns: RequestBuilder<InventoryStorageActivity> 
      */
-    public class func getInventoryStorageActivityByIdWithRequestBuilder(inventoryStorageActivityId inventoryStorageActivityId: Int) -> RequestBuilder<InventoryStorageActivity> {
+    public class func getInventoryStorageActivityByIdWithRequestBuilder(inventoryStorageActivityId inventoryStorageActivityId: Int32) -> RequestBuilder<InventoryStorageActivity> {
         var path = "/beta/inventoryStorageActivity/{inventoryStorageActivityId}"
         path = path.stringByReplacingOccurrencesOfString("{inventoryStorageActivityId}", withString: "\(inventoryStorageActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<InventoryStorageActivity>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for an inventoryStorageActivity.
      
      - parameter inventoryStorageActivityId: (path) Id of the inventoryStorageActivity to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getInventoryStorageActivityTags(inventoryStorageActivityId inventoryStorageActivityId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getInventoryStorageActivityTags(inventoryStorageActivityId inventoryStorageActivityId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getInventoryStorageActivityTagsWithRequestBuilder(inventoryStorageActivityId: inventoryStorageActivityId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -734,9 +821,7 @@ public class InventoryStorageActivityAPI: APIBase {
 
 
     /**
-     
      Get the tags for an inventoryStorageActivity.
-     
      - GET /beta/inventoryStorageActivity/{inventoryStorageActivityId}/tag
      - Get all existing inventoryStorageActivity tags.
      - API Key:
@@ -747,21 +832,23 @@ public class InventoryStorageActivityAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getInventoryStorageActivityTagsWithRequestBuilder(inventoryStorageActivityId inventoryStorageActivityId: Int) -> RequestBuilder<Void> {
+    public class func getInventoryStorageActivityTagsWithRequestBuilder(inventoryStorageActivityId inventoryStorageActivityId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/inventoryStorageActivity/{inventoryStorageActivityId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{inventoryStorageActivityId}", withString: "\(inventoryStorageActivityId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update an inventoryStorageActivity
      
      - parameter body: (body) InventoryStorageActivity to be updated. 
@@ -775,9 +862,7 @@ public class InventoryStorageActivityAPI: APIBase {
 
 
     /**
-     
      Update an inventoryStorageActivity
-     
      - PUT /beta/inventoryStorageActivity
      - Updates an existing inventoryStorageActivity using the specified data.
      - API Key:
@@ -791,12 +876,13 @@ public class InventoryStorageActivityAPI: APIBase {
     public class func updateInventoryStorageActivityWithRequestBuilder(body body: InventoryStorageActivity) -> RequestBuilder<Void> {
         let path = "/beta/inventoryStorageActivity"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

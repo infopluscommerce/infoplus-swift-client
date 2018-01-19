@@ -11,7 +11,6 @@ import Alamofire
 
 public class CustomerAPI: APIBase {
     /**
-     
      Create a customer
      
      - parameter body: (body) Customer to be inserted. 
@@ -25,66 +24,64 @@ public class CustomerAPI: APIBase {
 
 
     /**
-     
      Create a customer
-     
      - POST /beta/customer
      - Inserts a new customer using the specified data.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "zipCode" : "aeiou",
-  "country" : "aeiou",
-  "packageCarrierId" : 123,
-  "county" : "aeiou",
-  "priceLevel" : "aeiou",
-  "omsCustomerId" : 123,
-  "massLevel" : "aeiou",
-  "division" : 123,
-  "customerType" : "aeiou",
-  "alternateInventory" : 123,
-  "pin" : "aeiou",
-  "id" : 123,
-  "state" : "aeiou",
-  "fax" : "aeiou",
-  "sector" : "aeiou",
-  "bossBranch" : "aeiou",
-  "lobId" : 123,
-  "area" : "aeiou",
-  "faxGone" : "aeiou",
-  "weightBreak" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "costCenter" : "aeiou",
-  "extrinsicNumber2" : 123,
-  "extrinsicNumber1" : 123,
-  "extrinsicText1" : "aeiou",
-  "extrinsicText3" : "aeiou",
-  "extrinsicText2" : "aeiou",
-  "phone" : "aeiou",
-  "name" : "aeiou",
-  "street3Province" : "aeiou",
-  "city" : "aeiou",
+  "zipCode" : "zipCode",
+  "country" : "country",
+  "packageCarrierId" : 1,
+  "county" : "county",
+  "priceLevel" : "priceLevel",
+  "omsCustomerId" : 1,
+  "massLevel" : "massLevel",
+  "division" : 2,
+  "customerType" : "customerType",
+  "alternateInventory" : 3,
+  "pin" : "pin",
+  "id" : 0,
+  "state" : "state",
+  "fax" : "fax",
+  "sector" : "sector",
+  "bossBranch" : "bossBranch",
+  "lobId" : 6,
+  "area" : "area",
+  "faxGone" : "faxGone",
+  "weightBreak" : 5,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "costCenter" : "costCenter",
+  "extrinsicNumber2" : 4,
+  "extrinsicNumber1" : 2,
+  "extrinsicText1" : "extrinsicText1",
+  "extrinsicText3" : "extrinsicText3",
+  "extrinsicText2" : "extrinsicText2",
+  "phone" : "phone",
+  "name" : "name",
+  "street3Province" : "street3Province",
+  "city" : "city",
   "customFields" : {
     "key" : "{}"
   },
-  "restrictionPercent" : 123,
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "street" : "aeiou",
-  "street2" : "aeiou",
-  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
-  "cycleDate" : "2000-01-23T04:56:07.000+0000",
-  "email" : "aeiou",
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "manager" : "aeiou",
-  "externalId" : "aeiou",
-  "closeDate" : "2000-01-23T04:56:07.000+0000",
-  "residential" : "aeiou",
-  "attention" : "aeiou",
-  "truckCarrierId" : 123,
-  "openDate" : "2000-01-23T04:56:07.000+0000",
-  "csrBranch" : "aeiou",
-  "customerNo" : "aeiou"
+  "restrictionPercent" : 9,
+  "extrinsicDecimal2" : 1.231513536777255612975068288506008684635162353515625,
+  "street" : "street",
+  "street2" : "street2",
+  "massFactor" : 7.061401241503109105224211816675961017608642578125,
+  "cycleDate" : "2000-01-23T04:56:07.000+00:00",
+  "email" : "email",
+  "extrinsicDecimal1" : 7.3862819483858839220147274318151175975799560546875,
+  "manager" : "manager",
+  "externalId" : "externalId",
+  "closeDate" : "2000-01-23T04:56:07.000+00:00",
+  "residential" : "residential",
+  "attention" : "attention",
+  "truckCarrierId" : 5,
+  "openDate" : "2000-01-23T04:56:07.000+00:00",
+  "csrBranch" : "csrBranch",
+  "customerNo" : "customerNo"
 }}]
      
      - parameter body: (body) Customer to be inserted. 
@@ -94,23 +91,23 @@ public class CustomerAPI: APIBase {
     public class func addCustomerWithRequestBuilder(body body: Customer) -> RequestBuilder<Customer> {
         let path = "/beta/customer"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Customer>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new audit for a customer
      
      - parameter customerId: (path) Id of the customer to add an audit to 
      - parameter customerAudit: (path) The audit to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addCustomerAudit(customerId customerId: Int, customerAudit: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addCustomerAudit(customerId customerId: Int32, customerAudit: String, completion: ((error: ErrorType?) -> Void)) {
         addCustomerAuditWithRequestBuilder(customerId: customerId, customerAudit: customerAudit).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -118,9 +115,7 @@ public class CustomerAPI: APIBase {
 
 
     /**
-     
      Add new audit for a customer
-     
      - PUT /beta/customer/{customerId}/audit/{customerAudit}
      - Adds an audit to an existing customer.
      - API Key:
@@ -132,29 +127,31 @@ public class CustomerAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addCustomerAuditWithRequestBuilder(customerId customerId: Int, customerAudit: String) -> RequestBuilder<Void> {
+    public class func addCustomerAuditWithRequestBuilder(customerId customerId: Int32, customerAudit: String) -> RequestBuilder<Void> {
         var path = "/beta/customer/{customerId}/audit/{customerAudit}"
         path = path.stringByReplacingOccurrencesOfString("{customerId}", withString: "\(customerId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{customerAudit}", withString: "\(customerAudit)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Add new tags for a customer.
      
      - parameter customerId: (path) Id of the customer to add a tag to 
      - parameter customerTag: (path) The tag to add 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func addCustomerTag(customerId customerId: Int, customerTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func addCustomerTag(customerId customerId: Int32, customerTag: String, completion: ((error: ErrorType?) -> Void)) {
         addCustomerTagWithRequestBuilder(customerId: customerId, customerTag: customerTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -162,9 +159,7 @@ public class CustomerAPI: APIBase {
 
 
     /**
-     
      Add new tags for a customer.
-     
      - PUT /beta/customer/{customerId}/tag/{customerTag}
      - Adds a tag to an existing customer.
      - API Key:
@@ -176,28 +171,30 @@ public class CustomerAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func addCustomerTagWithRequestBuilder(customerId customerId: Int, customerTag: String) -> RequestBuilder<Void> {
+    public class func addCustomerTagWithRequestBuilder(customerId customerId: Int32, customerTag: String) -> RequestBuilder<Void> {
         var path = "/beta/customer/{customerId}/tag/{customerTag}"
         path = path.stringByReplacingOccurrencesOfString("{customerId}", withString: "\(customerId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{customerTag}", withString: "\(customerTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a customer
      
      - parameter customerId: (path) Id of the customer to be deleted. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteCustomer(customerId customerId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteCustomer(customerId customerId: Int32, completion: ((error: ErrorType?) -> Void)) {
         deleteCustomerWithRequestBuilder(customerId: customerId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -205,9 +202,7 @@ public class CustomerAPI: APIBase {
 
 
     /**
-     
      Delete a customer
-     
      - DELETE /beta/customer/{customerId}
      - Deletes the customer identified by the specified id.
      - API Key:
@@ -218,28 +213,30 @@ public class CustomerAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteCustomerWithRequestBuilder(customerId customerId: Int) -> RequestBuilder<Void> {
+    public class func deleteCustomerWithRequestBuilder(customerId customerId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/customer/{customerId}"
         path = path.stringByReplacingOccurrencesOfString("{customerId}", withString: "\(customerId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Delete a tag for a customer.
      
      - parameter customerId: (path) Id of the customer to remove tag from 
      - parameter customerTag: (path) The tag to delete 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func deleteCustomerTag(customerId customerId: Int, customerTag: String, completion: ((error: ErrorType?) -> Void)) {
+    public class func deleteCustomerTag(customerId customerId: Int32, customerTag: String, completion: ((error: ErrorType?) -> Void)) {
         deleteCustomerTagWithRequestBuilder(customerId: customerId, customerTag: customerTag).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -247,9 +244,7 @@ public class CustomerAPI: APIBase {
 
 
     /**
-     
      Delete a tag for a customer.
-     
      - DELETE /beta/customer/{customerId}/tag/{customerTag}
      - Deletes an existing customer tag using the specified data.
      - API Key:
@@ -261,29 +256,31 @@ public class CustomerAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func deleteCustomerTagWithRequestBuilder(customerId customerId: Int, customerTag: String) -> RequestBuilder<Void> {
+    public class func deleteCustomerTagWithRequestBuilder(customerId customerId: Int32, customerTag: String) -> RequestBuilder<Void> {
         var path = "/beta/customer/{customerId}/tag/{customerTag}"
         path = path.stringByReplacingOccurrencesOfString("{customerId}", withString: "\(customerId)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{customerTag}", withString: "\(customerTag)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "DELETE", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a customer by Customer No
      
      - parameter lobId: (query) lobId of the customer to be returned. 
      - parameter customerNo: (query) customerNo of the customer to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getByCustomerNo(lobId lobId: Int, customerNo: String, completion: ((data: Customer?, error: ErrorType?) -> Void)) {
+    public class func getByCustomerNo(lobId lobId: Int32, customerNo: String, completion: ((data: Customer?, error: ErrorType?) -> Void)) {
         getByCustomerNoWithRequestBuilder(lobId: lobId, customerNo: customerNo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -291,66 +288,64 @@ public class CustomerAPI: APIBase {
 
 
     /**
-     
      Get a customer by Customer No
-     
      - GET /beta/customer/getByCustomerNo
      - Returns the customer identified by the specified parameters.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "zipCode" : "aeiou",
-  "country" : "aeiou",
-  "packageCarrierId" : 123,
-  "county" : "aeiou",
-  "priceLevel" : "aeiou",
-  "omsCustomerId" : 123,
-  "massLevel" : "aeiou",
-  "division" : 123,
-  "customerType" : "aeiou",
-  "alternateInventory" : 123,
-  "pin" : "aeiou",
-  "id" : 123,
-  "state" : "aeiou",
-  "fax" : "aeiou",
-  "sector" : "aeiou",
-  "bossBranch" : "aeiou",
-  "lobId" : 123,
-  "area" : "aeiou",
-  "faxGone" : "aeiou",
-  "weightBreak" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "costCenter" : "aeiou",
-  "extrinsicNumber2" : 123,
-  "extrinsicNumber1" : 123,
-  "extrinsicText1" : "aeiou",
-  "extrinsicText3" : "aeiou",
-  "extrinsicText2" : "aeiou",
-  "phone" : "aeiou",
-  "name" : "aeiou",
-  "street3Province" : "aeiou",
-  "city" : "aeiou",
+  "zipCode" : "zipCode",
+  "country" : "country",
+  "packageCarrierId" : 1,
+  "county" : "county",
+  "priceLevel" : "priceLevel",
+  "omsCustomerId" : 1,
+  "massLevel" : "massLevel",
+  "division" : 2,
+  "customerType" : "customerType",
+  "alternateInventory" : 3,
+  "pin" : "pin",
+  "id" : 0,
+  "state" : "state",
+  "fax" : "fax",
+  "sector" : "sector",
+  "bossBranch" : "bossBranch",
+  "lobId" : 6,
+  "area" : "area",
+  "faxGone" : "faxGone",
+  "weightBreak" : 5,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "costCenter" : "costCenter",
+  "extrinsicNumber2" : 4,
+  "extrinsicNumber1" : 2,
+  "extrinsicText1" : "extrinsicText1",
+  "extrinsicText3" : "extrinsicText3",
+  "extrinsicText2" : "extrinsicText2",
+  "phone" : "phone",
+  "name" : "name",
+  "street3Province" : "street3Province",
+  "city" : "city",
   "customFields" : {
     "key" : "{}"
   },
-  "restrictionPercent" : 123,
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "street" : "aeiou",
-  "street2" : "aeiou",
-  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
-  "cycleDate" : "2000-01-23T04:56:07.000+0000",
-  "email" : "aeiou",
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "manager" : "aeiou",
-  "externalId" : "aeiou",
-  "closeDate" : "2000-01-23T04:56:07.000+0000",
-  "residential" : "aeiou",
-  "attention" : "aeiou",
-  "truckCarrierId" : 123,
-  "openDate" : "2000-01-23T04:56:07.000+0000",
-  "csrBranch" : "aeiou",
-  "customerNo" : "aeiou"
+  "restrictionPercent" : 9,
+  "extrinsicDecimal2" : 1.231513536777255612975068288506008684635162353515625,
+  "street" : "street",
+  "street2" : "street2",
+  "massFactor" : 7.061401241503109105224211816675961017608642578125,
+  "cycleDate" : "2000-01-23T04:56:07.000+00:00",
+  "email" : "email",
+  "extrinsicDecimal1" : 7.3862819483858839220147274318151175975799560546875,
+  "manager" : "manager",
+  "externalId" : "externalId",
+  "closeDate" : "2000-01-23T04:56:07.000+00:00",
+  "residential" : "residential",
+  "attention" : "attention",
+  "truckCarrierId" : 5,
+  "openDate" : "2000-01-23T04:56:07.000+00:00",
+  "csrBranch" : "csrBranch",
+  "customerNo" : "customerNo"
 }}]
      
      - parameter lobId: (query) lobId of the customer to be returned. 
@@ -358,23 +353,25 @@ public class CustomerAPI: APIBase {
 
      - returns: RequestBuilder<Customer> 
      */
-    public class func getByCustomerNoWithRequestBuilder(lobId lobId: Int, customerNo: String) -> RequestBuilder<Customer> {
+    public class func getByCustomerNoWithRequestBuilder(lobId lobId: Int32, customerNo: String) -> RequestBuilder<Customer> {
         let path = "/beta/customer/getByCustomerNo"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
-            "lobId": lobId,
+            "lobId": lobId.encodeToJSON(),
             "customerNo": customerNo
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Customer>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Search customers by filter
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -383,7 +380,7 @@ public class CustomerAPI: APIBase {
      - parameter sort: (query) Sort results by specified field. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getCustomerByFilter(filter filter: String?, page: Int?, limit: Int?, sort: String?, completion: ((data: [Customer]?, error: ErrorType?) -> Void)) {
+    public class func getCustomerByFilter(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil, completion: ((data: [Customer]?, error: ErrorType?) -> Void)) {
         getCustomerByFilterWithRequestBuilder(filter: filter, page: page, limit: limit, sort: sort).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -391,66 +388,116 @@ public class CustomerAPI: APIBase {
 
 
     /**
-     
      Search customers by filter
-     
      - GET /beta/customer/search
      - Returns the list of customers that match the given filter.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "zipCode" : "aeiou",
-  "country" : "aeiou",
-  "packageCarrierId" : 123,
-  "county" : "aeiou",
-  "priceLevel" : "aeiou",
-  "omsCustomerId" : 123,
-  "massLevel" : "aeiou",
-  "division" : 123,
-  "customerType" : "aeiou",
-  "alternateInventory" : 123,
-  "pin" : "aeiou",
-  "id" : 123,
-  "state" : "aeiou",
-  "fax" : "aeiou",
-  "sector" : "aeiou",
-  "bossBranch" : "aeiou",
-  "lobId" : 123,
-  "area" : "aeiou",
-  "faxGone" : "aeiou",
-  "weightBreak" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "costCenter" : "aeiou",
-  "extrinsicNumber2" : 123,
-  "extrinsicNumber1" : 123,
-  "extrinsicText1" : "aeiou",
-  "extrinsicText3" : "aeiou",
-  "extrinsicText2" : "aeiou",
-  "phone" : "aeiou",
-  "name" : "aeiou",
-  "street3Province" : "aeiou",
-  "city" : "aeiou",
+  "zipCode" : "zipCode",
+  "country" : "country",
+  "packageCarrierId" : 1,
+  "county" : "county",
+  "priceLevel" : "priceLevel",
+  "omsCustomerId" : 1,
+  "massLevel" : "massLevel",
+  "division" : 2,
+  "customerType" : "customerType",
+  "alternateInventory" : 3,
+  "pin" : "pin",
+  "id" : 0,
+  "state" : "state",
+  "fax" : "fax",
+  "sector" : "sector",
+  "bossBranch" : "bossBranch",
+  "lobId" : 6,
+  "area" : "area",
+  "faxGone" : "faxGone",
+  "weightBreak" : 5,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "costCenter" : "costCenter",
+  "extrinsicNumber2" : 4,
+  "extrinsicNumber1" : 2,
+  "extrinsicText1" : "extrinsicText1",
+  "extrinsicText3" : "extrinsicText3",
+  "extrinsicText2" : "extrinsicText2",
+  "phone" : "phone",
+  "name" : "name",
+  "street3Province" : "street3Province",
+  "city" : "city",
   "customFields" : {
     "key" : "{}"
   },
-  "restrictionPercent" : 123,
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "street" : "aeiou",
-  "street2" : "aeiou",
-  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
-  "cycleDate" : "2000-01-23T04:56:07.000+0000",
-  "email" : "aeiou",
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "manager" : "aeiou",
-  "externalId" : "aeiou",
-  "closeDate" : "2000-01-23T04:56:07.000+0000",
-  "residential" : "aeiou",
-  "attention" : "aeiou",
-  "truckCarrierId" : 123,
-  "openDate" : "2000-01-23T04:56:07.000+0000",
-  "csrBranch" : "aeiou",
-  "customerNo" : "aeiou"
+  "restrictionPercent" : 9,
+  "extrinsicDecimal2" : 1.231513536777255612975068288506008684635162353515625,
+  "street" : "street",
+  "street2" : "street2",
+  "massFactor" : 7.061401241503109105224211816675961017608642578125,
+  "cycleDate" : "2000-01-23T04:56:07.000+00:00",
+  "email" : "email",
+  "extrinsicDecimal1" : 7.3862819483858839220147274318151175975799560546875,
+  "manager" : "manager",
+  "externalId" : "externalId",
+  "closeDate" : "2000-01-23T04:56:07.000+00:00",
+  "residential" : "residential",
+  "attention" : "attention",
+  "truckCarrierId" : 5,
+  "openDate" : "2000-01-23T04:56:07.000+00:00",
+  "csrBranch" : "csrBranch",
+  "customerNo" : "customerNo"
+}, {
+  "zipCode" : "zipCode",
+  "country" : "country",
+  "packageCarrierId" : 1,
+  "county" : "county",
+  "priceLevel" : "priceLevel",
+  "omsCustomerId" : 1,
+  "massLevel" : "massLevel",
+  "division" : 2,
+  "customerType" : "customerType",
+  "alternateInventory" : 3,
+  "pin" : "pin",
+  "id" : 0,
+  "state" : "state",
+  "fax" : "fax",
+  "sector" : "sector",
+  "bossBranch" : "bossBranch",
+  "lobId" : 6,
+  "area" : "area",
+  "faxGone" : "faxGone",
+  "weightBreak" : 5,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "costCenter" : "costCenter",
+  "extrinsicNumber2" : 4,
+  "extrinsicNumber1" : 2,
+  "extrinsicText1" : "extrinsicText1",
+  "extrinsicText3" : "extrinsicText3",
+  "extrinsicText2" : "extrinsicText2",
+  "phone" : "phone",
+  "name" : "name",
+  "street3Province" : "street3Province",
+  "city" : "city",
+  "customFields" : {
+    "key" : "{}"
+  },
+  "restrictionPercent" : 9,
+  "extrinsicDecimal2" : 1.231513536777255612975068288506008684635162353515625,
+  "street" : "street",
+  "street2" : "street2",
+  "massFactor" : 7.061401241503109105224211816675961017608642578125,
+  "cycleDate" : "2000-01-23T04:56:07.000+00:00",
+  "email" : "email",
+  "extrinsicDecimal1" : 7.3862819483858839220147274318151175975799560546875,
+  "manager" : "manager",
+  "externalId" : "externalId",
+  "closeDate" : "2000-01-23T04:56:07.000+00:00",
+  "residential" : "residential",
+  "attention" : "attention",
+  "truckCarrierId" : 5,
+  "openDate" : "2000-01-23T04:56:07.000+00:00",
+  "csrBranch" : "csrBranch",
+  "customerNo" : "customerNo"
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -460,31 +507,33 @@ public class CustomerAPI: APIBase {
 
      - returns: RequestBuilder<[Customer]> 
      */
-    public class func getCustomerByFilterWithRequestBuilder(filter filter: String?, page: Int?, limit: Int?, sort: String?) -> RequestBuilder<[Customer]> {
+    public class func getCustomerByFilterWithRequestBuilder(filter filter: String? = nil, page: Int32? = nil, limit: Int32? = nil, sort: String? = nil) -> RequestBuilder<[Customer]> {
         let path = "/beta/customer/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "filter": filter,
-            "page": page,
-            "limit": limit,
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON(),
             "sort": sort
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[Customer]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
     /**
-     
      Get a customer by id
      
      - parameter customerId: (path) Id of the customer to be returned. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getCustomerById(customerId customerId: Int, completion: ((data: Customer?, error: ErrorType?) -> Void)) {
+    public class func getCustomerById(customerId customerId: Int32, completion: ((data: Customer?, error: ErrorType?) -> Void)) {
         getCustomerByIdWithRequestBuilder(customerId: customerId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -492,93 +541,93 @@ public class CustomerAPI: APIBase {
 
 
     /**
-     
      Get a customer by id
-     
      - GET /beta/customer/{customerId}
      - Returns the customer identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "zipCode" : "aeiou",
-  "country" : "aeiou",
-  "packageCarrierId" : 123,
-  "county" : "aeiou",
-  "priceLevel" : "aeiou",
-  "omsCustomerId" : 123,
-  "massLevel" : "aeiou",
-  "division" : 123,
-  "customerType" : "aeiou",
-  "alternateInventory" : 123,
-  "pin" : "aeiou",
-  "id" : 123,
-  "state" : "aeiou",
-  "fax" : "aeiou",
-  "sector" : "aeiou",
-  "bossBranch" : "aeiou",
-  "lobId" : 123,
-  "area" : "aeiou",
-  "faxGone" : "aeiou",
-  "weightBreak" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "costCenter" : "aeiou",
-  "extrinsicNumber2" : 123,
-  "extrinsicNumber1" : 123,
-  "extrinsicText1" : "aeiou",
-  "extrinsicText3" : "aeiou",
-  "extrinsicText2" : "aeiou",
-  "phone" : "aeiou",
-  "name" : "aeiou",
-  "street3Province" : "aeiou",
-  "city" : "aeiou",
+  "zipCode" : "zipCode",
+  "country" : "country",
+  "packageCarrierId" : 1,
+  "county" : "county",
+  "priceLevel" : "priceLevel",
+  "omsCustomerId" : 1,
+  "massLevel" : "massLevel",
+  "division" : 2,
+  "customerType" : "customerType",
+  "alternateInventory" : 3,
+  "pin" : "pin",
+  "id" : 0,
+  "state" : "state",
+  "fax" : "fax",
+  "sector" : "sector",
+  "bossBranch" : "bossBranch",
+  "lobId" : 6,
+  "area" : "area",
+  "faxGone" : "faxGone",
+  "weightBreak" : 5,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "costCenter" : "costCenter",
+  "extrinsicNumber2" : 4,
+  "extrinsicNumber1" : 2,
+  "extrinsicText1" : "extrinsicText1",
+  "extrinsicText3" : "extrinsicText3",
+  "extrinsicText2" : "extrinsicText2",
+  "phone" : "phone",
+  "name" : "name",
+  "street3Province" : "street3Province",
+  "city" : "city",
   "customFields" : {
     "key" : "{}"
   },
-  "restrictionPercent" : 123,
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "street" : "aeiou",
-  "street2" : "aeiou",
-  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
-  "cycleDate" : "2000-01-23T04:56:07.000+0000",
-  "email" : "aeiou",
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "manager" : "aeiou",
-  "externalId" : "aeiou",
-  "closeDate" : "2000-01-23T04:56:07.000+0000",
-  "residential" : "aeiou",
-  "attention" : "aeiou",
-  "truckCarrierId" : 123,
-  "openDate" : "2000-01-23T04:56:07.000+0000",
-  "csrBranch" : "aeiou",
-  "customerNo" : "aeiou"
+  "restrictionPercent" : 9,
+  "extrinsicDecimal2" : 1.231513536777255612975068288506008684635162353515625,
+  "street" : "street",
+  "street2" : "street2",
+  "massFactor" : 7.061401241503109105224211816675961017608642578125,
+  "cycleDate" : "2000-01-23T04:56:07.000+00:00",
+  "email" : "email",
+  "extrinsicDecimal1" : 7.3862819483858839220147274318151175975799560546875,
+  "manager" : "manager",
+  "externalId" : "externalId",
+  "closeDate" : "2000-01-23T04:56:07.000+00:00",
+  "residential" : "residential",
+  "attention" : "attention",
+  "truckCarrierId" : 5,
+  "openDate" : "2000-01-23T04:56:07.000+00:00",
+  "csrBranch" : "csrBranch",
+  "customerNo" : "customerNo"
 }}]
      
      - parameter customerId: (path) Id of the customer to be returned. 
 
      - returns: RequestBuilder<Customer> 
      */
-    public class func getCustomerByIdWithRequestBuilder(customerId customerId: Int) -> RequestBuilder<Customer> {
+    public class func getCustomerByIdWithRequestBuilder(customerId customerId: Int32) -> RequestBuilder<Customer> {
         var path = "/beta/customer/{customerId}"
         path = path.stringByReplacingOccurrencesOfString("{customerId}", withString: "\(customerId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Customer>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get the tags for a customer.
      
      - parameter customerId: (path) Id of the customer to get tags for 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getCustomerTags(customerId customerId: Int, completion: ((error: ErrorType?) -> Void)) {
+    public class func getCustomerTags(customerId customerId: Int32, completion: ((error: ErrorType?) -> Void)) {
         getCustomerTagsWithRequestBuilder(customerId: customerId).execute { (response, error) -> Void in
             completion(error: error);
         }
@@ -586,9 +635,7 @@ public class CustomerAPI: APIBase {
 
 
     /**
-     
      Get the tags for a customer.
-     
      - GET /beta/customer/{customerId}/tag
      - Get all existing customer tags.
      - API Key:
@@ -599,27 +646,29 @@ public class CustomerAPI: APIBase {
 
      - returns: RequestBuilder<Void> 
      */
-    public class func getCustomerTagsWithRequestBuilder(customerId customerId: Int) -> RequestBuilder<Void> {
+    public class func getCustomerTagsWithRequestBuilder(customerId customerId: Int32) -> RequestBuilder<Void> {
         var path = "/beta/customer/{customerId}/tag"
         path = path.stringByReplacingOccurrencesOfString("{customerId}", withString: "\(customerId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Get a duplicated a customer by id
      
      - parameter customerId: (path) Id of the customer to be duplicated. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getDuplicateCustomerById(customerId customerId: Int, completion: ((data: Customer?, error: ErrorType?) -> Void)) {
+    public class func getDuplicateCustomerById(customerId customerId: Int32, completion: ((data: Customer?, error: ErrorType?) -> Void)) {
         getDuplicateCustomerByIdWithRequestBuilder(customerId: customerId).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -627,87 +676,87 @@ public class CustomerAPI: APIBase {
 
 
     /**
-     
      Get a duplicated a customer by id
-     
      - GET /beta/customer/duplicate/{customerId}
      - Returns a duplicated customer identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "zipCode" : "aeiou",
-  "country" : "aeiou",
-  "packageCarrierId" : 123,
-  "county" : "aeiou",
-  "priceLevel" : "aeiou",
-  "omsCustomerId" : 123,
-  "massLevel" : "aeiou",
-  "division" : 123,
-  "customerType" : "aeiou",
-  "alternateInventory" : 123,
-  "pin" : "aeiou",
-  "id" : 123,
-  "state" : "aeiou",
-  "fax" : "aeiou",
-  "sector" : "aeiou",
-  "bossBranch" : "aeiou",
-  "lobId" : 123,
-  "area" : "aeiou",
-  "faxGone" : "aeiou",
-  "weightBreak" : 123,
-  "modifyDate" : "2000-01-23T04:56:07.000+0000",
-  "costCenter" : "aeiou",
-  "extrinsicNumber2" : 123,
-  "extrinsicNumber1" : 123,
-  "extrinsicText1" : "aeiou",
-  "extrinsicText3" : "aeiou",
-  "extrinsicText2" : "aeiou",
-  "phone" : "aeiou",
-  "name" : "aeiou",
-  "street3Province" : "aeiou",
-  "city" : "aeiou",
+  "zipCode" : "zipCode",
+  "country" : "country",
+  "packageCarrierId" : 1,
+  "county" : "county",
+  "priceLevel" : "priceLevel",
+  "omsCustomerId" : 1,
+  "massLevel" : "massLevel",
+  "division" : 2,
+  "customerType" : "customerType",
+  "alternateInventory" : 3,
+  "pin" : "pin",
+  "id" : 0,
+  "state" : "state",
+  "fax" : "fax",
+  "sector" : "sector",
+  "bossBranch" : "bossBranch",
+  "lobId" : 6,
+  "area" : "area",
+  "faxGone" : "faxGone",
+  "weightBreak" : 5,
+  "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "costCenter" : "costCenter",
+  "extrinsicNumber2" : 4,
+  "extrinsicNumber1" : 2,
+  "extrinsicText1" : "extrinsicText1",
+  "extrinsicText3" : "extrinsicText3",
+  "extrinsicText2" : "extrinsicText2",
+  "phone" : "phone",
+  "name" : "name",
+  "street3Province" : "street3Province",
+  "city" : "city",
   "customFields" : {
     "key" : "{}"
   },
-  "restrictionPercent" : 123,
-  "extrinsicDecimal2" : 1.3579000000000001069366817318950779736042022705078125,
-  "street" : "aeiou",
-  "street2" : "aeiou",
-  "massFactor" : 1.3579000000000001069366817318950779736042022705078125,
-  "cycleDate" : "2000-01-23T04:56:07.000+0000",
-  "email" : "aeiou",
-  "extrinsicDecimal1" : 1.3579000000000001069366817318950779736042022705078125,
-  "manager" : "aeiou",
-  "externalId" : "aeiou",
-  "closeDate" : "2000-01-23T04:56:07.000+0000",
-  "residential" : "aeiou",
-  "attention" : "aeiou",
-  "truckCarrierId" : 123,
-  "openDate" : "2000-01-23T04:56:07.000+0000",
-  "csrBranch" : "aeiou",
-  "customerNo" : "aeiou"
+  "restrictionPercent" : 9,
+  "extrinsicDecimal2" : 1.231513536777255612975068288506008684635162353515625,
+  "street" : "street",
+  "street2" : "street2",
+  "massFactor" : 7.061401241503109105224211816675961017608642578125,
+  "cycleDate" : "2000-01-23T04:56:07.000+00:00",
+  "email" : "email",
+  "extrinsicDecimal1" : 7.3862819483858839220147274318151175975799560546875,
+  "manager" : "manager",
+  "externalId" : "externalId",
+  "closeDate" : "2000-01-23T04:56:07.000+00:00",
+  "residential" : "residential",
+  "attention" : "attention",
+  "truckCarrierId" : 5,
+  "openDate" : "2000-01-23T04:56:07.000+00:00",
+  "csrBranch" : "csrBranch",
+  "customerNo" : "customerNo"
 }}]
      
      - parameter customerId: (path) Id of the customer to be duplicated. 
 
      - returns: RequestBuilder<Customer> 
      */
-    public class func getDuplicateCustomerByIdWithRequestBuilder(customerId customerId: Int) -> RequestBuilder<Customer> {
+    public class func getDuplicateCustomerByIdWithRequestBuilder(customerId customerId: Int32) -> RequestBuilder<Customer> {
         var path = "/beta/customer/duplicate/{customerId}"
         path = path.stringByReplacingOccurrencesOfString("{customerId}", withString: "\(customerId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Customer>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a customer
      
      - parameter body: (body) Customer to be updated. 
@@ -721,9 +770,7 @@ public class CustomerAPI: APIBase {
 
 
     /**
-     
      Update a customer
-     
      - PUT /beta/customer
      - Updates an existing customer using the specified data.
      - API Key:
@@ -737,16 +784,16 @@ public class CustomerAPI: APIBase {
     public class func updateCustomerWithRequestBuilder(body body: Customer) -> RequestBuilder<Void> {
         let path = "/beta/customer"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Update a customer custom fields
      
      - parameter body: (body) Customer to be updated. 
@@ -760,9 +807,7 @@ public class CustomerAPI: APIBase {
 
 
     /**
-     
      Update a customer custom fields
-     
      - PUT /beta/customer/customFields
      - Updates an existing customer custom fields using the specified data.
      - API Key:
@@ -776,12 +821,13 @@ public class CustomerAPI: APIBase {
     public class func updateCustomerCustomFieldsWithRequestBuilder(body body: Customer) -> RequestBuilder<Void> {
         let path = "/beta/customer/customFields"
         let URLString = InfoplusAPI.basePath + path
-        
         let parameters = body.encodeToJSON() as? [String:AnyObject]
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
 }

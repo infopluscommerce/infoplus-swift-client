@@ -11,7 +11,6 @@ import Alamofire
 
 public class CarrierServiceAPI: APIBase {
     /**
-     
      Get a carrierService by id
      
      - parameter carrierServiceId: (path) Id of carrierService to be returned. 
@@ -25,18 +24,16 @@ public class CarrierServiceAPI: APIBase {
 
 
     /**
-     
      Get a carrierService by id
-     
      - GET /beta/carrierService/{carrierServiceId}
      - Returns the carrierService identified by the specified id.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "fullEntityClassName" : "aeiou",
-  "id" : 123,
-  "label" : "aeiou"
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : 0,
+  "label" : "label"
 }}]
      
      - parameter carrierServiceId: (path) Id of carrierService to be returned. 
@@ -47,17 +44,19 @@ public class CarrierServiceAPI: APIBase {
         var path = "/beta/carrierService/{carrierServiceId}"
         path = path.stringByReplacingOccurrencesOfString("{carrierServiceId}", withString: "\(carrierServiceId)", options: .LiteralSearch, range: nil)
         let URLString = InfoplusAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
 
+        let nillableParameters: [String:AnyObject?] = [:]
+ 
+        let parameters = APIHelper.rejectNil(nillableParameters)
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<CarrierService>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**
-     
      Search carrierServices
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
@@ -65,7 +64,7 @@ public class CarrierServiceAPI: APIBase {
      - parameter limit: (query) Maximum results per page.  Defaults to 20.  Max allowed value is 250. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func getCarrierServiceBySearchText(searchText searchText: String?, page: Int?, limit: Int?, completion: ((data: [CarrierService]?, error: ErrorType?) -> Void)) {
+    public class func getCarrierServiceBySearchText(searchText searchText: String? = nil, page: Int32? = nil, limit: Int32? = nil, completion: ((data: [CarrierService]?, error: ErrorType?) -> Void)) {
         getCarrierServiceBySearchTextWithRequestBuilder(searchText: searchText, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -73,18 +72,20 @@ public class CarrierServiceAPI: APIBase {
 
 
     /**
-     
      Search carrierServices
-     
      - GET /beta/carrierService/search
      - Returns the list of carrierServices that match the given searchText.
      - API Key:
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "fullEntityClassName" : "aeiou",
-  "id" : 123,
-  "label" : "aeiou"
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : 0,
+  "label" : "label"
+}, {
+  "fullEntityClassName" : "fullEntityClassName",
+  "id" : 0,
+  "label" : "label"
 } ]}]
      
      - parameter searchText: (query) Search text, used to filter results. (optional)
@@ -93,20 +94,23 @@ public class CarrierServiceAPI: APIBase {
 
      - returns: RequestBuilder<[CarrierService]> 
      */
-    public class func getCarrierServiceBySearchTextWithRequestBuilder(searchText searchText: String?, page: Int?, limit: Int?) -> RequestBuilder<[CarrierService]> {
+    public class func getCarrierServiceBySearchTextWithRequestBuilder(searchText searchText: String? = nil, page: Int32? = nil, limit: Int32? = nil) -> RequestBuilder<[CarrierService]> {
         let path = "/beta/carrierService/search"
         let URLString = InfoplusAPI.basePath + path
-        
+
         let nillableParameters: [String:AnyObject?] = [
             "searchText": searchText,
-            "page": page,
-            "limit": limit
+            "page": page?.encodeToJSON(),
+            "limit": limit?.encodeToJSON()
         ]
+ 
         let parameters = APIHelper.rejectNil(nillableParameters)
-
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
         let requestBuilder: RequestBuilder<[CarrierService]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
 
 }

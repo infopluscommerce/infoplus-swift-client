@@ -9,19 +9,18 @@ import Foundation
 
 
 public class ReceivingWorksheetLineItem: JSONEncodable {
-
     public var sku: String?
     public var sku2: String?
     public var fullDescription: String?
-    public var orderedQty: Int?
-    public var prevReceivedQty: Int?
-    public var unreceivedQty: Int?
-    public var receivingQty: Int?
+    public var orderedQty: Int32?
+    public var prevReceivedQty: Int32?
+    public var unreceivedQty: Int32?
+    public var receivingQty: Int32?
     public var unitCode: String?
     public var wrapCode: String?
-    public var unitsPerWrap: Int?
-    public var unitsPerCase: Int?
-    public var casesPerPallet: Int?
+    public var unitsPerWrap: Int32?
+    public var unitsPerCase: Int32?
+    public var casesPerPallet: Int32?
     public var weightPerWrap: Double?
     public var weightPerCase: Double?
     public var productionLot: String?
@@ -32,9 +31,8 @@ public class ReceivingWorksheetLineItem: JSONEncodable {
     public var cartonWidth: Double?
     public var cartonHeight: Double?
     public var putAwayPlans: [ReceivingWorksheetPutAwayPlan]?
-    public var quantity: Int?
+    public var quantity: Int32?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
@@ -44,15 +42,15 @@ public class ReceivingWorksheetLineItem: JSONEncodable {
         nillableDictionary["sku"] = self.sku
         nillableDictionary["sku2"] = self.sku2
         nillableDictionary["fullDescription"] = self.fullDescription
-        nillableDictionary["orderedQty"] = self.orderedQty
-        nillableDictionary["prevReceivedQty"] = self.prevReceivedQty
-        nillableDictionary["unreceivedQty"] = self.unreceivedQty
-        nillableDictionary["receivingQty"] = self.receivingQty
+        nillableDictionary["orderedQty"] = self.orderedQty?.encodeToJSON()
+        nillableDictionary["prevReceivedQty"] = self.prevReceivedQty?.encodeToJSON()
+        nillableDictionary["unreceivedQty"] = self.unreceivedQty?.encodeToJSON()
+        nillableDictionary["receivingQty"] = self.receivingQty?.encodeToJSON()
         nillableDictionary["unitCode"] = self.unitCode
         nillableDictionary["wrapCode"] = self.wrapCode
-        nillableDictionary["unitsPerWrap"] = self.unitsPerWrap
-        nillableDictionary["unitsPerCase"] = self.unitsPerCase
-        nillableDictionary["casesPerPallet"] = self.casesPerPallet
+        nillableDictionary["unitsPerWrap"] = self.unitsPerWrap?.encodeToJSON()
+        nillableDictionary["unitsPerCase"] = self.unitsPerCase?.encodeToJSON()
+        nillableDictionary["casesPerPallet"] = self.casesPerPallet?.encodeToJSON()
         nillableDictionary["weightPerWrap"] = self.weightPerWrap
         nillableDictionary["weightPerCase"] = self.weightPerCase
         nillableDictionary["productionLot"] = self.productionLot
@@ -63,7 +61,7 @@ public class ReceivingWorksheetLineItem: JSONEncodable {
         nillableDictionary["cartonWidth"] = self.cartonWidth
         nillableDictionary["cartonHeight"] = self.cartonHeight
         nillableDictionary["putAwayPlans"] = self.putAwayPlans?.encodeToJSON()
-        nillableDictionary["quantity"] = self.quantity
+        nillableDictionary["quantity"] = self.quantity?.encodeToJSON()
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

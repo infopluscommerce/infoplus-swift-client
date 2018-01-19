@@ -9,52 +9,50 @@ import Foundation
 
 
 public class Location: JSONEncodable {
-
-    public var id: Int?
-    public var warehouseId: Int?
-    public var buildingId: Int?
-    public var zoneId: Int?
-    public var aisleId: Int?
-    public var billingTypeId: Int?
+    public var id: Int32?
+    public var warehouseId: Int32?
+    public var buildingId: Int32?
+    public var zoneId: Int32?
+    public var aisleId: Int32?
+    public var billingTypeId: Int32?
     public var behaviorType: String?
-    public var footprintId: Int?
-    public var addressSchemeId: Int?
-    public var origin: Int?
+    public var footprintId: Int32?
+    public var addressSchemeId: Int32?
+    public var origin: Int32?
     public var address: String?
-    public var level: Int?
-    public var bay: Int?
-    public var number: Int?
+    public var level: Int32?
+    public var bay: Int32?
+    public var number: Int32?
     public var online: Bool?
-    public var priorityCode: Int?
-    public var cost: Int?
+    public var priorityCode: Int32?
+    public var cost: Int32?
     public var allowItemMixing: Bool?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
-        nillableDictionary["warehouseId"] = self.warehouseId
-        nillableDictionary["buildingId"] = self.buildingId
-        nillableDictionary["zoneId"] = self.zoneId
-        nillableDictionary["aisleId"] = self.aisleId
-        nillableDictionary["billingTypeId"] = self.billingTypeId
+        nillableDictionary["id"] = self.id?.encodeToJSON()
+        nillableDictionary["warehouseId"] = self.warehouseId?.encodeToJSON()
+        nillableDictionary["buildingId"] = self.buildingId?.encodeToJSON()
+        nillableDictionary["zoneId"] = self.zoneId?.encodeToJSON()
+        nillableDictionary["aisleId"] = self.aisleId?.encodeToJSON()
+        nillableDictionary["billingTypeId"] = self.billingTypeId?.encodeToJSON()
         nillableDictionary["behaviorType"] = self.behaviorType
-        nillableDictionary["footprintId"] = self.footprintId
-        nillableDictionary["addressSchemeId"] = self.addressSchemeId
-        nillableDictionary["origin"] = self.origin
+        nillableDictionary["footprintId"] = self.footprintId?.encodeToJSON()
+        nillableDictionary["addressSchemeId"] = self.addressSchemeId?.encodeToJSON()
+        nillableDictionary["origin"] = self.origin?.encodeToJSON()
         nillableDictionary["address"] = self.address
-        nillableDictionary["level"] = self.level
-        nillableDictionary["bay"] = self.bay
-        nillableDictionary["number"] = self.number
+        nillableDictionary["level"] = self.level?.encodeToJSON()
+        nillableDictionary["bay"] = self.bay?.encodeToJSON()
+        nillableDictionary["number"] = self.number?.encodeToJSON()
         nillableDictionary["online"] = self.online
-        nillableDictionary["priorityCode"] = self.priorityCode
-        nillableDictionary["cost"] = self.cost
+        nillableDictionary["priorityCode"] = self.priorityCode?.encodeToJSON()
+        nillableDictionary["cost"] = self.cost?.encodeToJSON()
         nillableDictionary["allowItemMixing"] = self.allowItemMixing
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()

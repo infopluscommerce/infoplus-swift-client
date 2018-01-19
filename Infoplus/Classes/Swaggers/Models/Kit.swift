@@ -9,13 +9,12 @@ import Foundation
 
 
 public class Kit: JSONEncodable {
-
-    public var lobId: Int?
-    public var id: Int?
+    public var lobId: Int32?
+    public var id: Int32?
     public var kitSKU: String?
     public var packagingType: String?
     public var other: String?
-    public var numberOfComponents: Int?
+    public var numberOfComponents: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var line1: String?
@@ -26,27 +25,26 @@ public class Kit: JSONEncodable {
     public var line6: String?
     public var line7: String?
     public var line8: String?
-    public var touches: Int?
-    public var minInvQty: Int?
-    public var midInvQty: Int?
-    public var maxInvQty: Int?
+    public var touches: Int32?
+    public var minInvQty: Int32?
+    public var midInvQty: Int32?
+    public var maxInvQty: Int32?
     public var isKOD: String?
     public var kodType: String?
     public var kitComponentList: [KitComponent]?
     public var customFields: [String:AnyObject]?
-    
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["lobId"] = self.lobId
-        nillableDictionary["id"] = self.id
+        nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
+        nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["kitSKU"] = self.kitSKU
         nillableDictionary["packagingType"] = self.packagingType
         nillableDictionary["other"] = self.other
-        nillableDictionary["numberOfComponents"] = self.numberOfComponents
+        nillableDictionary["numberOfComponents"] = self.numberOfComponents?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["line1"] = self.line1
@@ -57,10 +55,10 @@ public class Kit: JSONEncodable {
         nillableDictionary["line6"] = self.line6
         nillableDictionary["line7"] = self.line7
         nillableDictionary["line8"] = self.line8
-        nillableDictionary["touches"] = self.touches
-        nillableDictionary["minInvQty"] = self.minInvQty
-        nillableDictionary["midInvQty"] = self.midInvQty
-        nillableDictionary["maxInvQty"] = self.maxInvQty
+        nillableDictionary["touches"] = self.touches?.encodeToJSON()
+        nillableDictionary["minInvQty"] = self.minInvQty?.encodeToJSON()
+        nillableDictionary["midInvQty"] = self.midInvQty?.encodeToJSON()
+        nillableDictionary["maxInvQty"] = self.maxInvQty?.encodeToJSON()
         nillableDictionary["isKOD"] = self.isKOD
         nillableDictionary["kodType"] = self.kodType
         nillableDictionary["kitComponentList"] = self.kitComponentList?.encodeToJSON()
