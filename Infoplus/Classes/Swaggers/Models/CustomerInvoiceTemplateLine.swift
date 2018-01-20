@@ -24,6 +24,7 @@ public class CustomerInvoiceTemplateLine: JSONEncodable {
     public var billingRuleId: Int32?
     public var priceLevelMode: String?
     public var scriptId: Int32?
+    public var priceLevelList: [InvoiceTemplateLinePriceLevel]?
     public var customFields: [String:AnyObject]?
 
     public init() {}
@@ -46,6 +47,7 @@ public class CustomerInvoiceTemplateLine: JSONEncodable {
         nillableDictionary["billingRuleId"] = self.billingRuleId?.encodeToJSON()
         nillableDictionary["priceLevelMode"] = self.priceLevelMode
         nillableDictionary["scriptId"] = self.scriptId?.encodeToJSON()
+        nillableDictionary["priceLevelList"] = self.priceLevelList?.encodeToJSON()
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

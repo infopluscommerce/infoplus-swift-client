@@ -211,6 +211,21 @@ public class CustomerInvoiceTemplateLineAPI: APIBase {
   "accountCode" : "accountCode",
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "seqNo" : 1,
+  "priceLevelList" : [ {
+    "quantity" : 9,
+    "rate" : 3.61607674925191080461672754609026014804840087890625,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "id" : 7
+  }, {
+    "quantity" : 9,
+    "rate" : 3.61607674925191080461672754609026014804840087890625,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "id" : 7
+  } ],
   "customFields" : {
     "key" : "{}"
   },
@@ -230,6 +245,21 @@ public class CustomerInvoiceTemplateLineAPI: APIBase {
   "accountCode" : "accountCode",
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "seqNo" : 1,
+  "priceLevelList" : [ {
+    "quantity" : 9,
+    "rate" : 3.61607674925191080461672754609026014804840087890625,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "id" : 7
+  }, {
+    "quantity" : 9,
+    "rate" : 3.61607674925191080461672754609026014804840087890625,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "id" : 7
+  } ],
   "customFields" : {
     "key" : "{}"
   },
@@ -298,6 +328,21 @@ public class CustomerInvoiceTemplateLineAPI: APIBase {
   "accountCode" : "accountCode",
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "seqNo" : 1,
+  "priceLevelList" : [ {
+    "quantity" : 9,
+    "rate" : 3.61607674925191080461672754609026014804840087890625,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "id" : 7
+  }, {
+    "quantity" : 9,
+    "rate" : 3.61607674925191080461672754609026014804840087890625,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "id" : 7
+  } ],
   "customFields" : {
     "key" : "{}"
   },
@@ -400,6 +445,21 @@ public class CustomerInvoiceTemplateLineAPI: APIBase {
   "accountCode" : "accountCode",
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "seqNo" : 1,
+  "priceLevelList" : [ {
+    "quantity" : 9,
+    "rate" : 3.61607674925191080461672754609026014804840087890625,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "id" : 7
+  }, {
+    "quantity" : 9,
+    "rate" : 3.61607674925191080461672754609026014804840087890625,
+    "customFields" : {
+      "key" : "{}"
+    },
+    "id" : 7
+  } ],
   "customFields" : {
     "key" : "{}"
   },

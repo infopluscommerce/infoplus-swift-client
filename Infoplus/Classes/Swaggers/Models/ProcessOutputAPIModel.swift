@@ -11,6 +11,7 @@ import Foundation
 public class ProcessOutputAPIModel: JSONEncodable {
     public var id: AnyObject?
     public var status: String?
+    public var entity: AnyObject?
     public var messageList: [String]?
 
     public init() {}
@@ -20,6 +21,7 @@ public class ProcessOutputAPIModel: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["id"] = self.id
         nillableDictionary["status"] = self.status
+        nillableDictionary["entity"] = self.entity
         nillableDictionary["messageList"] = self.messageList?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

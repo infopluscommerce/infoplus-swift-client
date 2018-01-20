@@ -101,6 +101,7 @@ public class OrderActivity: JSONEncodable {
     public var shippingCharge: Double?
     public var totalDiscount: Double?
     public var parcelAccountId: Int32?
+    public var thirdPartyParcelAccountId: Int32?
     public var packingSlipTemplateId: Int32?
     public var giftMessage: String?
     public var branchSector: String?
@@ -220,6 +221,7 @@ public class OrderActivity: JSONEncodable {
         nillableDictionary["shippingCharge"] = self.shippingCharge
         nillableDictionary["totalDiscount"] = self.totalDiscount
         nillableDictionary["parcelAccountId"] = self.parcelAccountId?.encodeToJSON()
+        nillableDictionary["thirdPartyParcelAccountId"] = self.thirdPartyParcelAccountId?.encodeToJSON()
         nillableDictionary["packingSlipTemplateId"] = self.packingSlipTemplateId?.encodeToJSON()
         nillableDictionary["giftMessage"] = self.giftMessage
         nillableDictionary["branchSector"] = self.branchSector

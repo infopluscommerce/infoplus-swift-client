@@ -280,10 +280,12 @@ public class QuickReceiptAPI: APIBase {
      - examples: [{contentType=application/json, example=[ {
   "messageList" : [ "messageList", "messageList" ],
   "id" : "{}",
+  "entity" : "{}",
   "status" : "status"
 }, {
   "messageList" : [ "messageList", "messageList" ],
   "id" : "{}",
+  "entity" : "{}",
   "status" : "status"
 } ]}]
      

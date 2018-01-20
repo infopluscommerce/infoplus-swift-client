@@ -81,8 +81,11 @@ public class OrderAPI: APIBase {
   "orderAssemblyInstructions" : "orderAssemblyInstructions",
   "totalQty" : 7,
   "orderConfirmationEmailTemplateId" : 1,
+  "parcelLabelRef1" : "parcelLabelRef1",
   "billToState" : "billToState",
+  "parcelLabelRef3" : "parcelLabelRef3",
   "fulfillmentProcessId" : 6,
+  "parcelLabelRef2" : "parcelLabelRef2",
   "billToCity" : "billToCity",
   "lineItems" : [ {
     "itemSubGroupId" : 7,
@@ -417,8 +420,11 @@ public class OrderAPI: APIBase {
     "orderAssemblyInstructions" : "orderAssemblyInstructions",
     "totalQty" : 7,
     "orderConfirmationEmailTemplateId" : 1,
+    "parcelLabelRef1" : "parcelLabelRef1",
     "billToState" : "billToState",
+    "parcelLabelRef3" : "parcelLabelRef3",
     "fulfillmentProcessId" : 6,
+    "parcelLabelRef2" : "parcelLabelRef2",
     "billToCity" : "billToCity",
     "lineItems" : [ {
       "itemSubGroupId" : 7,
@@ -626,8 +632,11 @@ public class OrderAPI: APIBase {
     "orderAssemblyInstructions" : "orderAssemblyInstructions",
     "totalQty" : 7,
     "orderConfirmationEmailTemplateId" : 1,
+    "parcelLabelRef1" : "parcelLabelRef1",
     "billToState" : "billToState",
+    "parcelLabelRef3" : "parcelLabelRef3",
     "fulfillmentProcessId" : 6,
+    "parcelLabelRef2" : "parcelLabelRef2",
     "billToCity" : "billToCity",
     "lineItems" : [ {
       "itemSubGroupId" : 7,
@@ -959,8 +968,11 @@ public class OrderAPI: APIBase {
   "orderAssemblyInstructions" : "orderAssemblyInstructions",
   "totalQty" : 7,
   "orderConfirmationEmailTemplateId" : 1,
+  "parcelLabelRef1" : "parcelLabelRef1",
   "billToState" : "billToState",
+  "parcelLabelRef3" : "parcelLabelRef3",
   "fulfillmentProcessId" : 6,
+  "parcelLabelRef2" : "parcelLabelRef2",
   "billToCity" : "billToCity",
   "lineItems" : [ {
     "itemSubGroupId" : 7,
@@ -1213,8 +1225,11 @@ public class OrderAPI: APIBase {
   "orderAssemblyInstructions" : "orderAssemblyInstructions",
   "totalQty" : 7,
   "orderConfirmationEmailTemplateId" : 1,
+  "parcelLabelRef1" : "parcelLabelRef1",
   "billToState" : "billToState",
+  "parcelLabelRef3" : "parcelLabelRef3",
   "fulfillmentProcessId" : 6,
+  "parcelLabelRef2" : "parcelLabelRef2",
   "billToCity" : "billToCity",
   "lineItems" : [ {
     "itemSubGroupId" : 7,
@@ -1422,8 +1437,11 @@ public class OrderAPI: APIBase {
   "orderAssemblyInstructions" : "orderAssemblyInstructions",
   "totalQty" : 7,
   "orderConfirmationEmailTemplateId" : 1,
+  "parcelLabelRef1" : "parcelLabelRef1",
   "billToState" : "billToState",
+  "parcelLabelRef3" : "parcelLabelRef3",
   "fulfillmentProcessId" : 6,
+  "parcelLabelRef2" : "parcelLabelRef2",
   "billToCity" : "billToCity",
   "lineItems" : [ {
     "itemSubGroupId" : 7,
@@ -1680,8 +1698,11 @@ public class OrderAPI: APIBase {
   "orderAssemblyInstructions" : "orderAssemblyInstructions",
   "totalQty" : 7,
   "orderConfirmationEmailTemplateId" : 1,
+  "parcelLabelRef1" : "parcelLabelRef1",
   "billToState" : "billToState",
+  "parcelLabelRef3" : "parcelLabelRef3",
   "fulfillmentProcessId" : 6,
+  "parcelLabelRef2" : "parcelLabelRef2",
   "billToCity" : "billToCity",
   "lineItems" : [ {
     "itemSubGroupId" : 7,
@@ -1971,6 +1992,54 @@ public class OrderAPI: APIBase {
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
         let requestBuilder: RequestBuilder<GetOrderWarehouseFulfillmentDataOutput>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
+    }
+
+    /**
+     Run the RunFulfillmentPlan process.
+     
+     - parameter body: (body) Input data for RunFulfillmentPlan process. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func runFulfillmentPlan(body body: RunFulfillmentPlanInputAPIModel, completion: ((data: [ProcessOutputAPIModel]?, error: ErrorType?) -> Void)) {
+        runFulfillmentPlanWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     Run the RunFulfillmentPlan process.
+     - POST /beta/order/runFulfillmentPlan
+     - 
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example=[ {
+  "messageList" : [ "messageList", "messageList" ],
+  "id" : "{}",
+  "entity" : "{}",
+  "status" : "status"
+}, {
+  "messageList" : [ "messageList", "messageList" ],
+  "id" : "{}",
+  "entity" : "{}",
+  "status" : "status"
+} ]}]
+     
+     - parameter body: (body) Input data for RunFulfillmentPlan process. 
+
+     - returns: RequestBuilder<[ProcessOutputAPIModel]> 
+     */
+    public class func runFulfillmentPlanWithRequestBuilder(body body: RunFulfillmentPlanInputAPIModel) -> RequestBuilder<[ProcessOutputAPIModel]> {
+        let path = "/beta/order/runFulfillmentPlan"
+        let URLString = InfoplusAPI.basePath + path
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
+        let requestBuilder: RequestBuilder<[ProcessOutputAPIModel]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
     }

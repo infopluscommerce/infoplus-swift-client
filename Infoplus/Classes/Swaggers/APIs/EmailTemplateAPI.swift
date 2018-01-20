@@ -31,12 +31,19 @@ public class EmailTemplateAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "emailTemplateType" : "emailTemplateType",
-  "subjectText" : "subjectText",
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "subject" : "subject",
+  "recordType" : "recordType",
   "customFields" : {
     "key" : "{}"
   },
+  "bccAddress" : "bccAddress",
+  "toAddress" : "toAddress",
+  "ccAddress" : "ccAddress",
+  "emailTemplateType" : "emailTemplateType",
+  "scriptId" : 1,
+  "apiVersion" : "apiVersion",
+  "toName" : "toName",
   "name" : "name",
   "fromName" : "fromName",
   "fromAddress" : "fromAddress",
@@ -255,12 +262,19 @@ public class EmailTemplateAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "emailTemplateType" : "emailTemplateType",
-  "subjectText" : "subjectText",
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "subject" : "subject",
+  "recordType" : "recordType",
   "customFields" : {
     "key" : "{}"
   },
+  "bccAddress" : "bccAddress",
+  "toAddress" : "toAddress",
+  "ccAddress" : "ccAddress",
+  "emailTemplateType" : "emailTemplateType",
+  "scriptId" : 1,
+  "apiVersion" : "apiVersion",
+  "toName" : "toName",
   "name" : "name",
   "fromName" : "fromName",
   "fromAddress" : "fromAddress",
@@ -313,12 +327,19 @@ public class EmailTemplateAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "emailTemplateType" : "emailTemplateType",
-  "subjectText" : "subjectText",
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "subject" : "subject",
+  "recordType" : "recordType",
   "customFields" : {
     "key" : "{}"
   },
+  "bccAddress" : "bccAddress",
+  "toAddress" : "toAddress",
+  "ccAddress" : "ccAddress",
+  "emailTemplateType" : "emailTemplateType",
+  "scriptId" : 1,
+  "apiVersion" : "apiVersion",
+  "toName" : "toName",
   "name" : "name",
   "fromName" : "fromName",
   "fromAddress" : "fromAddress",
@@ -326,12 +347,19 @@ public class EmailTemplateAPI: APIBase {
   "lobId" : 6,
   "createDate" : "2000-01-23T04:56:07.000+00:00"
 }, {
-  "emailTemplateType" : "emailTemplateType",
-  "subjectText" : "subjectText",
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "subject" : "subject",
+  "recordType" : "recordType",
   "customFields" : {
     "key" : "{}"
   },
+  "bccAddress" : "bccAddress",
+  "toAddress" : "toAddress",
+  "ccAddress" : "ccAddress",
+  "emailTemplateType" : "emailTemplateType",
+  "scriptId" : 1,
+  "apiVersion" : "apiVersion",
+  "toName" : "toName",
   "name" : "name",
   "fromName" : "fromName",
   "fromAddress" : "fromAddress",
@@ -388,12 +416,19 @@ public class EmailTemplateAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "emailTemplateType" : "emailTemplateType",
-  "subjectText" : "subjectText",
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
+  "subject" : "subject",
+  "recordType" : "recordType",
   "customFields" : {
     "key" : "{}"
   },
+  "bccAddress" : "bccAddress",
+  "toAddress" : "toAddress",
+  "ccAddress" : "ccAddress",
+  "emailTemplateType" : "emailTemplateType",
+  "scriptId" : 1,
+  "apiVersion" : "apiVersion",
+  "toName" : "toName",
   "name" : "name",
   "fromName" : "fromName",
   "fromAddress" : "fromAddress",

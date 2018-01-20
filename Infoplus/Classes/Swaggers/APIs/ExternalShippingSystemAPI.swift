@@ -31,6 +31,7 @@ public class ExternalShippingSystemAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
+  "scriptId" : 6,
   "apiKey" : "apiKey",
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
@@ -253,6 +254,7 @@ public class ExternalShippingSystemAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
+  "scriptId" : 6,
   "apiKey" : "apiKey",
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
@@ -309,6 +311,7 @@ public class ExternalShippingSystemAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
+  "scriptId" : 6,
   "apiKey" : "apiKey",
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
@@ -320,6 +323,7 @@ public class ExternalShippingSystemAPI: APIBase {
   "id" : 0,
   "createDate" : "2000-01-23T04:56:07.000+00:00"
 }, {
+  "scriptId" : 6,
   "apiKey" : "apiKey",
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
@@ -380,6 +384,7 @@ public class ExternalShippingSystemAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
+  "scriptId" : 6,
   "apiKey" : "apiKey",
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {

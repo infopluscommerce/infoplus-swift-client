@@ -24,6 +24,7 @@ public class FulfillmentProcess: JSONEncodable {
     public var batchSize: Int32?
     public var version: String?
     public var fulfillmentProcessGroup: Int32?
+    public var isMassDistribution: Bool?
     public var numberOfOrders: Int32?
     public var numberOfLines: Int32?
     public var numberOfSKUs: Int32?
@@ -52,6 +53,7 @@ public class FulfillmentProcess: JSONEncodable {
     public var preGenerateParcelLabels: Bool?
     public var shipDate: NSDate?
     public var autoShipCasebreakCartons: Bool?
+    public var autoShipOrders: Bool?
     public var cartonizeOrders: Bool?
     public var createPackingSlip: String?
     public var overridePackingSlipTemplateId: Int32?
@@ -82,6 +84,7 @@ public class FulfillmentProcess: JSONEncodable {
         nillableDictionary["batchSize"] = self.batchSize?.encodeToJSON()
         nillableDictionary["version"] = self.version
         nillableDictionary["fulfillmentProcessGroup"] = self.fulfillmentProcessGroup?.encodeToJSON()
+        nillableDictionary["isMassDistribution"] = self.isMassDistribution
         nillableDictionary["numberOfOrders"] = self.numberOfOrders?.encodeToJSON()
         nillableDictionary["numberOfLines"] = self.numberOfLines?.encodeToJSON()
         nillableDictionary["numberOfSKUs"] = self.numberOfSKUs?.encodeToJSON()
@@ -110,6 +113,7 @@ public class FulfillmentProcess: JSONEncodable {
         nillableDictionary["preGenerateParcelLabels"] = self.preGenerateParcelLabels
         nillableDictionary["shipDate"] = self.shipDate?.encodeToJSON()
         nillableDictionary["autoShipCasebreakCartons"] = self.autoShipCasebreakCartons
+        nillableDictionary["autoShipOrders"] = self.autoShipOrders
         nillableDictionary["cartonizeOrders"] = self.cartonizeOrders
         nillableDictionary["createPackingSlip"] = self.createPackingSlip
         nillableDictionary["overridePackingSlipTemplateId"] = self.overridePackingSlipTemplateId?.encodeToJSON()

@@ -11,11 +11,18 @@ import Foundation
 public class EmailTemplate: JSONEncodable {
     public var id: Int32?
     public var lobId: Int32?
-    public var subjectText: String?
+    public var subject: String?
     public var name: String?
     public var fromName: String?
     public var fromAddress: String?
+    public var toName: String?
+    public var toAddress: String?
+    public var ccAddress: String?
+    public var bccAddress: String?
     public var emailTemplateType: String?
+    public var recordType: String?
+    public var apiVersion: String?
+    public var scriptId: Int32?
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var customFields: [String:AnyObject]?
@@ -27,11 +34,18 @@ public class EmailTemplate: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
-        nillableDictionary["subjectText"] = self.subjectText
+        nillableDictionary["subject"] = self.subject
         nillableDictionary["name"] = self.name
         nillableDictionary["fromName"] = self.fromName
         nillableDictionary["fromAddress"] = self.fromAddress
+        nillableDictionary["toName"] = self.toName
+        nillableDictionary["toAddress"] = self.toAddress
+        nillableDictionary["ccAddress"] = self.ccAddress
+        nillableDictionary["bccAddress"] = self.bccAddress
         nillableDictionary["emailTemplateType"] = self.emailTemplateType
+        nillableDictionary["recordType"] = self.recordType
+        nillableDictionary["apiVersion"] = self.apiVersion
+        nillableDictionary["scriptId"] = self.scriptId?.encodeToJSON()
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()

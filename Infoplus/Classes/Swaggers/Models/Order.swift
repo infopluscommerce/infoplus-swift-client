@@ -104,6 +104,9 @@ public class Order: JSONEncodable {
     public var totalQty: Int32?
     public var weightLbs: Double?
     public var orderAssemblyInstructions: String?
+    public var parcelLabelRef1: String?
+    public var parcelLabelRef2: String?
+    public var parcelLabelRef3: String?
     public var lineItems: [OrderLine]?
     public var extraOrderData: [OrderExtraOrderData]?
     public var extraLineItemData: [OrderExtraLineItemData]?
@@ -210,6 +213,9 @@ public class Order: JSONEncodable {
         nillableDictionary["totalQty"] = self.totalQty?.encodeToJSON()
         nillableDictionary["weightLbs"] = self.weightLbs
         nillableDictionary["orderAssemblyInstructions"] = self.orderAssemblyInstructions
+        nillableDictionary["parcelLabelRef1"] = self.parcelLabelRef1
+        nillableDictionary["parcelLabelRef2"] = self.parcelLabelRef2
+        nillableDictionary["parcelLabelRef3"] = self.parcelLabelRef3
         nillableDictionary["lineItems"] = self.lineItems?.encodeToJSON()
         nillableDictionary["extraOrderData"] = self.extraOrderData?.encodeToJSON()
         nillableDictionary["extraLineItemData"] = self.extraLineItemData?.encodeToJSON()

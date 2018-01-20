@@ -12,6 +12,7 @@ public class ExternalShippingSystem: JSONEncodable {
     public var id: Int32?
     public var name: String?
     public var systemType: String?
+    public var scriptId: Int32?
     public var apiKey: String?
     public var apiSecret: String?
     public var createDate: NSDate?
@@ -26,6 +27,7 @@ public class ExternalShippingSystem: JSONEncodable {
         nillableDictionary["id"] = self.id?.encodeToJSON()
         nillableDictionary["name"] = self.name
         nillableDictionary["systemType"] = self.systemType
+        nillableDictionary["scriptId"] = self.scriptId?.encodeToJSON()
         nillableDictionary["apiKey"] = self.apiKey
         nillableDictionary["apiSecret"] = self.apiSecret
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()

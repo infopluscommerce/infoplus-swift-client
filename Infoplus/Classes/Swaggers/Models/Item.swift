@@ -68,6 +68,8 @@ public class Item: JSONEncodable {
     public var vendorPrice: Double?
     public var vendorPer: String?
     public var modifyDate: NSDate?
+    public var primaryImage: String?
+    public var pickImage: String?
     public var behaviorType: String?
     public var forwardLotMixingRule: String?
     public var storageLotMixingRule: String?
@@ -174,6 +176,8 @@ public class Item: JSONEncodable {
         nillableDictionary["vendorPrice"] = self.vendorPrice
         nillableDictionary["vendorPer"] = self.vendorPer
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
+        nillableDictionary["primaryImage"] = self.primaryImage
+        nillableDictionary["pickImage"] = self.pickImage
         nillableDictionary["behaviorType"] = self.behaviorType
         nillableDictionary["forwardLotMixingRule"] = self.forwardLotMixingRule
         nillableDictionary["storageLotMixingRule"] = self.storageLotMixingRule
