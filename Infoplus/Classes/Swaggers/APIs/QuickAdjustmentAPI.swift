@@ -32,16 +32,17 @@ public class QuickAdjustmentAPI: APIBase {
        - name: api_key
      - examples: [{contentType=application/json, example={
   "adjustmentCode" : "adjustmentCode",
-  "totalQuantity" : 5,
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
-  "warehouseId" : 6,
-  "locationId" : 1,
   "customFields" : {
     "key" : "{}"
   },
-  "id" : 0,
   "productIdTag" : "productIdTag",
   "message" : "message",
+  "totalQuantity" : 5,
+  "warehouseId" : 6,
+  "locationId" : 1,
+  "changeQuantity" : 5,
+  "id" : 0,
   "sku" : "sku",
   "createDate" : "2000-01-23T04:56:07.000+00:00",
   "status" : "status"
@@ -306,16 +307,17 @@ public class QuickAdjustmentAPI: APIBase {
        - name: api_key
      - examples: [{contentType=application/json, example={
   "adjustmentCode" : "adjustmentCode",
-  "totalQuantity" : 5,
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
-  "warehouseId" : 6,
-  "locationId" : 1,
   "customFields" : {
     "key" : "{}"
   },
-  "id" : 0,
   "productIdTag" : "productIdTag",
   "message" : "message",
+  "totalQuantity" : 5,
+  "warehouseId" : 6,
+  "locationId" : 1,
+  "changeQuantity" : 5,
+  "id" : 0,
   "sku" : "sku",
   "createDate" : "2000-01-23T04:56:07.000+00:00",
   "status" : "status"
@@ -366,31 +368,33 @@ public class QuickAdjustmentAPI: APIBase {
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
   "adjustmentCode" : "adjustmentCode",
-  "totalQuantity" : 5,
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
-  "warehouseId" : 6,
-  "locationId" : 1,
   "customFields" : {
     "key" : "{}"
   },
-  "id" : 0,
   "productIdTag" : "productIdTag",
   "message" : "message",
+  "totalQuantity" : 5,
+  "warehouseId" : 6,
+  "locationId" : 1,
+  "changeQuantity" : 5,
+  "id" : 0,
   "sku" : "sku",
   "createDate" : "2000-01-23T04:56:07.000+00:00",
   "status" : "status"
 }, {
   "adjustmentCode" : "adjustmentCode",
-  "totalQuantity" : 5,
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
-  "warehouseId" : 6,
-  "locationId" : 1,
   "customFields" : {
     "key" : "{}"
   },
-  "id" : 0,
   "productIdTag" : "productIdTag",
   "message" : "message",
+  "totalQuantity" : 5,
+  "warehouseId" : 6,
+  "locationId" : 1,
+  "changeQuantity" : 5,
+  "id" : 0,
   "sku" : "sku",
   "createDate" : "2000-01-23T04:56:07.000+00:00",
   "status" : "status"
@@ -445,16 +449,17 @@ public class QuickAdjustmentAPI: APIBase {
        - name: api_key
      - examples: [{contentType=application/json, example={
   "adjustmentCode" : "adjustmentCode",
-  "totalQuantity" : 5,
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
-  "warehouseId" : 6,
-  "locationId" : 1,
   "customFields" : {
     "key" : "{}"
   },
-  "id" : 0,
   "productIdTag" : "productIdTag",
   "message" : "message",
+  "totalQuantity" : 5,
+  "warehouseId" : 6,
+  "locationId" : 1,
+  "changeQuantity" : 5,
+  "id" : 0,
   "sku" : "sku",
   "createDate" : "2000-01-23T04:56:07.000+00:00",
   "status" : "status"

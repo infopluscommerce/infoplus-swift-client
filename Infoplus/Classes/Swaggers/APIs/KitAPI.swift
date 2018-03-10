@@ -43,6 +43,7 @@ public class KitAPI: APIBase {
     "customFields" : {
       "key" : "{}"
     },
+    "invno" : "invno",
     "sku" : "sku"
   }, {
     "additionalServices" : "additionalServices",
@@ -52,6 +53,7 @@ public class KitAPI: APIBase {
     "customFields" : {
       "key" : "{}"
     },
+    "invno" : "invno",
     "sku" : "sku"
   } ],
   "line4" : "line4",
@@ -299,6 +301,7 @@ public class KitAPI: APIBase {
     "customFields" : {
       "key" : "{}"
     },
+    "invno" : "invno",
     "sku" : "sku"
   }, {
     "additionalServices" : "additionalServices",
@@ -308,6 +311,7 @@ public class KitAPI: APIBase {
     "customFields" : {
       "key" : "{}"
     },
+    "invno" : "invno",
     "sku" : "sku"
   } ],
   "line4" : "line4",
@@ -389,6 +393,7 @@ public class KitAPI: APIBase {
     "customFields" : {
       "key" : "{}"
     },
+    "invno" : "invno",
     "sku" : "sku"
   }, {
     "additionalServices" : "additionalServices",
@@ -398,6 +403,7 @@ public class KitAPI: APIBase {
     "customFields" : {
       "key" : "{}"
     },
+    "invno" : "invno",
     "sku" : "sku"
   } ],
   "line4" : "line4",
@@ -434,6 +440,7 @@ public class KitAPI: APIBase {
     "customFields" : {
       "key" : "{}"
     },
+    "invno" : "invno",
     "sku" : "sku"
   }, {
     "additionalServices" : "additionalServices",
@@ -443,6 +450,7 @@ public class KitAPI: APIBase {
     "customFields" : {
       "key" : "{}"
     },
+    "invno" : "invno",
     "sku" : "sku"
   } ],
   "line4" : "line4",
@@ -528,6 +536,7 @@ public class KitAPI: APIBase {
     "customFields" : {
       "key" : "{}"
     },
+    "invno" : "invno",
     "sku" : "sku"
   }, {
     "additionalServices" : "additionalServices",
@@ -537,6 +546,7 @@ public class KitAPI: APIBase {
     "customFields" : {
       "key" : "{}"
     },
+    "invno" : "invno",
     "sku" : "sku"
   } ],
   "line4" : "line4",

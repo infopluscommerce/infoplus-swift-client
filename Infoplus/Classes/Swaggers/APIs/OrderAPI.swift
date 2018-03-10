@@ -112,6 +112,7 @@ public class OrderAPI: APIBase {
     "itemWeight" : 7.26052126480210358039357743109576404094696044921875,
     "lobId" : 8,
     "shippedQty" : 7,
+    "expirationDate" : "2000-01-23T04:56:07.000+00:00",
     "itemSummaryCodeId" : 4,
     "orderNo" : 4.6523964329332461176136348512955009937286376953125,
     "extendedSell" : 4.258773108174356281097061582840979099273681640625,
@@ -119,6 +120,7 @@ public class OrderAPI: APIBase {
     "productionLot" : "productionLot",
     "orderedQty" : 3,
     "vendorSKU" : "vendorSKU",
+    "fulfillmentChannel" : "fulfillmentChannel",
     "unitCost" : 3.258856561904760695824734284542500972747802734375,
     "poNoId" : 7,
     "unitSell" : 4.078845849666752343409825698472559452056884765625,
@@ -149,6 +151,7 @@ public class OrderAPI: APIBase {
     "itemWeight" : 7.26052126480210358039357743109576404094696044921875,
     "lobId" : 8,
     "shippedQty" : 7,
+    "expirationDate" : "2000-01-23T04:56:07.000+00:00",
     "itemSummaryCodeId" : 4,
     "orderNo" : 4.6523964329332461176136348512955009937286376953125,
     "extendedSell" : 4.258773108174356281097061582840979099273681640625,
@@ -156,6 +159,7 @@ public class OrderAPI: APIBase {
     "productionLot" : "productionLot",
     "orderedQty" : 3,
     "vendorSKU" : "vendorSKU",
+    "fulfillmentChannel" : "fulfillmentChannel",
     "unitCost" : 3.258856561904760695824734284542500972747802734375,
     "poNoId" : 7,
     "unitSell" : 4.078845849666752343409825698472559452056884765625,
@@ -451,6 +455,7 @@ public class OrderAPI: APIBase {
       "itemWeight" : 7.26052126480210358039357743109576404094696044921875,
       "lobId" : 8,
       "shippedQty" : 7,
+      "expirationDate" : "2000-01-23T04:56:07.000+00:00",
       "itemSummaryCodeId" : 4,
       "orderNo" : 4.6523964329332461176136348512955009937286376953125,
       "extendedSell" : 4.258773108174356281097061582840979099273681640625,
@@ -458,6 +463,7 @@ public class OrderAPI: APIBase {
       "productionLot" : "productionLot",
       "orderedQty" : 3,
       "vendorSKU" : "vendorSKU",
+      "fulfillmentChannel" : "fulfillmentChannel",
       "unitCost" : 3.258856561904760695824734284542500972747802734375,
       "poNoId" : 7,
       "unitSell" : 4.078845849666752343409825698472559452056884765625,
@@ -488,6 +494,7 @@ public class OrderAPI: APIBase {
       "itemWeight" : 7.26052126480210358039357743109576404094696044921875,
       "lobId" : 8,
       "shippedQty" : 7,
+      "expirationDate" : "2000-01-23T04:56:07.000+00:00",
       "itemSummaryCodeId" : 4,
       "orderNo" : 4.6523964329332461176136348512955009937286376953125,
       "extendedSell" : 4.258773108174356281097061582840979099273681640625,
@@ -495,6 +502,7 @@ public class OrderAPI: APIBase {
       "productionLot" : "productionLot",
       "orderedQty" : 3,
       "vendorSKU" : "vendorSKU",
+      "fulfillmentChannel" : "fulfillmentChannel",
       "unitCost" : 3.258856561904760695824734284542500972747802734375,
       "poNoId" : 7,
       "unitSell" : 4.078845849666752343409825698472559452056884765625,
@@ -663,6 +671,7 @@ public class OrderAPI: APIBase {
       "itemWeight" : 7.26052126480210358039357743109576404094696044921875,
       "lobId" : 8,
       "shippedQty" : 7,
+      "expirationDate" : "2000-01-23T04:56:07.000+00:00",
       "itemSummaryCodeId" : 4,
       "orderNo" : 4.6523964329332461176136348512955009937286376953125,
       "extendedSell" : 4.258773108174356281097061582840979099273681640625,
@@ -670,6 +679,7 @@ public class OrderAPI: APIBase {
       "productionLot" : "productionLot",
       "orderedQty" : 3,
       "vendorSKU" : "vendorSKU",
+      "fulfillmentChannel" : "fulfillmentChannel",
       "unitCost" : 3.258856561904760695824734284542500972747802734375,
       "poNoId" : 7,
       "unitSell" : 4.078845849666752343409825698472559452056884765625,
@@ -700,6 +710,7 @@ public class OrderAPI: APIBase {
       "itemWeight" : 7.26052126480210358039357743109576404094696044921875,
       "lobId" : 8,
       "shippedQty" : 7,
+      "expirationDate" : "2000-01-23T04:56:07.000+00:00",
       "itemSummaryCodeId" : 4,
       "orderNo" : 4.6523964329332461176136348512955009937286376953125,
       "extendedSell" : 4.258773108174356281097061582840979099273681640625,
@@ -707,6 +718,7 @@ public class OrderAPI: APIBase {
       "productionLot" : "productionLot",
       "orderedQty" : 3,
       "vendorSKU" : "vendorSKU",
+      "fulfillmentChannel" : "fulfillmentChannel",
       "unitCost" : 3.258856561904760695824734284542500972747802734375,
       "poNoId" : 7,
       "unitSell" : 4.078845849666752343409825698472559452056884765625,
@@ -898,6 +910,102 @@ public class OrderAPI: APIBase {
     }
 
     /**
+     Run the EditLineItemFulfillmentStrategy process.
+     
+     - parameter body: (body) Input data for EditLineItemFulfillmentStrategy process. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func editFulfillmentChannel(body body: EditLineItemFulfillmentStrategyInputAPIModel, completion: ((data: [ProcessOutputAPIModel]?, error: ErrorType?) -> Void)) {
+        editFulfillmentChannelWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     Run the EditLineItemFulfillmentStrategy process.
+     - POST /beta/order/editFulfillmentChannel
+     - 
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example=[ {
+  "messageList" : [ "messageList", "messageList" ],
+  "id" : "{}",
+  "entity" : "{}",
+  "status" : "status"
+}, {
+  "messageList" : [ "messageList", "messageList" ],
+  "id" : "{}",
+  "entity" : "{}",
+  "status" : "status"
+} ]}]
+     
+     - parameter body: (body) Input data for EditLineItemFulfillmentStrategy process. 
+
+     - returns: RequestBuilder<[ProcessOutputAPIModel]> 
+     */
+    public class func editFulfillmentChannelWithRequestBuilder(body body: EditLineItemFulfillmentStrategyInputAPIModel) -> RequestBuilder<[ProcessOutputAPIModel]> {
+        let path = "/beta/order/editFulfillmentChannel"
+        let URLString = InfoplusAPI.basePath + path
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
+        let requestBuilder: RequestBuilder<[ProcessOutputAPIModel]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
+    }
+
+    /**
+     Run the ReqManualSubstitution process.
+     
+     - parameter body: (body) Input data for ReqManualSubstitution process. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func editLineItems(body body: ReqManualSubstitutionInputAPIModel, completion: ((data: [ProcessOutputAPIModel]?, error: ErrorType?) -> Void)) {
+        editLineItemsWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     Run the ReqManualSubstitution process.
+     - POST /beta/order/editLineItems
+     - 
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     - examples: [{contentType=application/json, example=[ {
+  "messageList" : [ "messageList", "messageList" ],
+  "id" : "{}",
+  "entity" : "{}",
+  "status" : "status"
+}, {
+  "messageList" : [ "messageList", "messageList" ],
+  "id" : "{}",
+  "entity" : "{}",
+  "status" : "status"
+} ]}]
+     
+     - parameter body: (body) Input data for ReqManualSubstitution process. 
+
+     - returns: RequestBuilder<[ProcessOutputAPIModel]> 
+     */
+    public class func editLineItemsWithRequestBuilder(body body: ReqManualSubstitutionInputAPIModel) -> RequestBuilder<[ProcessOutputAPIModel]> {
+        let path = "/beta/order/editLineItems"
+        let URLString = InfoplusAPI.basePath + path
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
+        let requestBuilder: RequestBuilder<[ProcessOutputAPIModel]>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
+    }
+
+    /**
      Get a duplicated an order by id
      
      - parameter orderId: (path) Id of the order to be duplicated. 
@@ -999,6 +1107,7 @@ public class OrderAPI: APIBase {
     "itemWeight" : 7.26052126480210358039357743109576404094696044921875,
     "lobId" : 8,
     "shippedQty" : 7,
+    "expirationDate" : "2000-01-23T04:56:07.000+00:00",
     "itemSummaryCodeId" : 4,
     "orderNo" : 4.6523964329332461176136348512955009937286376953125,
     "extendedSell" : 4.258773108174356281097061582840979099273681640625,
@@ -1006,6 +1115,7 @@ public class OrderAPI: APIBase {
     "productionLot" : "productionLot",
     "orderedQty" : 3,
     "vendorSKU" : "vendorSKU",
+    "fulfillmentChannel" : "fulfillmentChannel",
     "unitCost" : 3.258856561904760695824734284542500972747802734375,
     "poNoId" : 7,
     "unitSell" : 4.078845849666752343409825698472559452056884765625,
@@ -1036,6 +1146,7 @@ public class OrderAPI: APIBase {
     "itemWeight" : 7.26052126480210358039357743109576404094696044921875,
     "lobId" : 8,
     "shippedQty" : 7,
+    "expirationDate" : "2000-01-23T04:56:07.000+00:00",
     "itemSummaryCodeId" : 4,
     "orderNo" : 4.6523964329332461176136348512955009937286376953125,
     "extendedSell" : 4.258773108174356281097061582840979099273681640625,
@@ -1043,6 +1154,7 @@ public class OrderAPI: APIBase {
     "productionLot" : "productionLot",
     "orderedQty" : 3,
     "vendorSKU" : "vendorSKU",
+    "fulfillmentChannel" : "fulfillmentChannel",
     "unitCost" : 3.258856561904760695824734284542500972747802734375,
     "poNoId" : 7,
     "unitSell" : 4.078845849666752343409825698472559452056884765625,
@@ -1256,6 +1368,7 @@ public class OrderAPI: APIBase {
     "itemWeight" : 7.26052126480210358039357743109576404094696044921875,
     "lobId" : 8,
     "shippedQty" : 7,
+    "expirationDate" : "2000-01-23T04:56:07.000+00:00",
     "itemSummaryCodeId" : 4,
     "orderNo" : 4.6523964329332461176136348512955009937286376953125,
     "extendedSell" : 4.258773108174356281097061582840979099273681640625,
@@ -1263,6 +1376,7 @@ public class OrderAPI: APIBase {
     "productionLot" : "productionLot",
     "orderedQty" : 3,
     "vendorSKU" : "vendorSKU",
+    "fulfillmentChannel" : "fulfillmentChannel",
     "unitCost" : 3.258856561904760695824734284542500972747802734375,
     "poNoId" : 7,
     "unitSell" : 4.078845849666752343409825698472559452056884765625,
@@ -1293,6 +1407,7 @@ public class OrderAPI: APIBase {
     "itemWeight" : 7.26052126480210358039357743109576404094696044921875,
     "lobId" : 8,
     "shippedQty" : 7,
+    "expirationDate" : "2000-01-23T04:56:07.000+00:00",
     "itemSummaryCodeId" : 4,
     "orderNo" : 4.6523964329332461176136348512955009937286376953125,
     "extendedSell" : 4.258773108174356281097061582840979099273681640625,
@@ -1300,6 +1415,7 @@ public class OrderAPI: APIBase {
     "productionLot" : "productionLot",
     "orderedQty" : 3,
     "vendorSKU" : "vendorSKU",
+    "fulfillmentChannel" : "fulfillmentChannel",
     "unitCost" : 3.258856561904760695824734284542500972747802734375,
     "poNoId" : 7,
     "unitSell" : 4.078845849666752343409825698472559452056884765625,
@@ -1468,6 +1584,7 @@ public class OrderAPI: APIBase {
     "itemWeight" : 7.26052126480210358039357743109576404094696044921875,
     "lobId" : 8,
     "shippedQty" : 7,
+    "expirationDate" : "2000-01-23T04:56:07.000+00:00",
     "itemSummaryCodeId" : 4,
     "orderNo" : 4.6523964329332461176136348512955009937286376953125,
     "extendedSell" : 4.258773108174356281097061582840979099273681640625,
@@ -1475,6 +1592,7 @@ public class OrderAPI: APIBase {
     "productionLot" : "productionLot",
     "orderedQty" : 3,
     "vendorSKU" : "vendorSKU",
+    "fulfillmentChannel" : "fulfillmentChannel",
     "unitCost" : 3.258856561904760695824734284542500972747802734375,
     "poNoId" : 7,
     "unitSell" : 4.078845849666752343409825698472559452056884765625,
@@ -1505,6 +1623,7 @@ public class OrderAPI: APIBase {
     "itemWeight" : 7.26052126480210358039357743109576404094696044921875,
     "lobId" : 8,
     "shippedQty" : 7,
+    "expirationDate" : "2000-01-23T04:56:07.000+00:00",
     "itemSummaryCodeId" : 4,
     "orderNo" : 4.6523964329332461176136348512955009937286376953125,
     "extendedSell" : 4.258773108174356281097061582840979099273681640625,
@@ -1512,6 +1631,7 @@ public class OrderAPI: APIBase {
     "productionLot" : "productionLot",
     "orderedQty" : 3,
     "vendorSKU" : "vendorSKU",
+    "fulfillmentChannel" : "fulfillmentChannel",
     "unitCost" : 3.258856561904760695824734284542500972747802734375,
     "poNoId" : 7,
     "unitSell" : 4.078845849666752343409825698472559452056884765625,
@@ -1729,6 +1849,7 @@ public class OrderAPI: APIBase {
     "itemWeight" : 7.26052126480210358039357743109576404094696044921875,
     "lobId" : 8,
     "shippedQty" : 7,
+    "expirationDate" : "2000-01-23T04:56:07.000+00:00",
     "itemSummaryCodeId" : 4,
     "orderNo" : 4.6523964329332461176136348512955009937286376953125,
     "extendedSell" : 4.258773108174356281097061582840979099273681640625,
@@ -1736,6 +1857,7 @@ public class OrderAPI: APIBase {
     "productionLot" : "productionLot",
     "orderedQty" : 3,
     "vendorSKU" : "vendorSKU",
+    "fulfillmentChannel" : "fulfillmentChannel",
     "unitCost" : 3.258856561904760695824734284542500972747802734375,
     "poNoId" : 7,
     "unitSell" : 4.078845849666752343409825698472559452056884765625,
@@ -1766,6 +1888,7 @@ public class OrderAPI: APIBase {
     "itemWeight" : 7.26052126480210358039357743109576404094696044921875,
     "lobId" : 8,
     "shippedQty" : 7,
+    "expirationDate" : "2000-01-23T04:56:07.000+00:00",
     "itemSummaryCodeId" : 4,
     "orderNo" : 4.6523964329332461176136348512955009937286376953125,
     "extendedSell" : 4.258773108174356281097061582840979099273681640625,
@@ -1773,6 +1896,7 @@ public class OrderAPI: APIBase {
     "productionLot" : "productionLot",
     "orderedQty" : 3,
     "vendorSKU" : "vendorSKU",
+    "fulfillmentChannel" : "fulfillmentChannel",
     "unitCost" : 3.258856561904760695824734284542500972747802734375,
     "poNoId" : 7,
     "unitSell" : 4.078845849666752343409825698472559452056884765625,

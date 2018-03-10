@@ -24,8 +24,9 @@ public class QuickReceipt: JSONEncodable {
     public var wrapCode: String?
     public var weightPerWrap: Double?
     public var unitsPerWrap: Int32?
+    public var quantityPerInnerPack: Int32?
     public var unitsPerCase: Int32?
-    public var casesPerPallet: Int32?
+    public var quantityPerPallet: Int32?
     public var caseWeight: Double?
     public var productionLot: String?
     public var revisionDate: String?
@@ -40,6 +41,7 @@ public class QuickReceipt: JSONEncodable {
     public var generatedASNId: Int32?
     public var dockDate: NSDate?
     public var productIdTag: String?
+    public var expirationDate: NSDate?
     public var customFields: [String:AnyObject]?
     public var sku: String?
 
@@ -63,8 +65,9 @@ public class QuickReceipt: JSONEncodable {
         nillableDictionary["wrapCode"] = self.wrapCode
         nillableDictionary["weightPerWrap"] = self.weightPerWrap
         nillableDictionary["unitsPerWrap"] = self.unitsPerWrap?.encodeToJSON()
+        nillableDictionary["quantityPerInnerPack"] = self.quantityPerInnerPack?.encodeToJSON()
         nillableDictionary["unitsPerCase"] = self.unitsPerCase?.encodeToJSON()
-        nillableDictionary["casesPerPallet"] = self.casesPerPallet?.encodeToJSON()
+        nillableDictionary["quantityPerPallet"] = self.quantityPerPallet?.encodeToJSON()
         nillableDictionary["caseWeight"] = self.caseWeight
         nillableDictionary["productionLot"] = self.productionLot
         nillableDictionary["revisionDate"] = self.revisionDate
@@ -79,6 +82,7 @@ public class QuickReceipt: JSONEncodable {
         nillableDictionary["generatedASNId"] = self.generatedASNId?.encodeToJSON()
         nillableDictionary["dockDate"] = self.dockDate?.encodeToJSON()
         nillableDictionary["productIdTag"] = self.productIdTag
+        nillableDictionary["expirationDate"] = self.expirationDate?.encodeToJSON()
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         nillableDictionary["sku"] = self.sku
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

@@ -34,6 +34,7 @@ public class ItemReceipt: JSONEncodable {
     public var voidDate: NSDate?
     public var freezeAction: String?
     public var revDate: String?
+    public var expirationDate: NSDate?
     public var artBack: String?
     public var origin: String?
     public var sample: Int32?
@@ -71,7 +72,9 @@ public class ItemReceipt: JSONEncodable {
     public var lineNo: Int32?
     public var prodLot: String?
     public var productIdTag: String?
+    public var unitsPerInnerPack: Int32?
     public var unitsPerCase: Int32?
+    public var unitsPerPallet: Int32?
     public var caseWeight: Double?
     public var height: Double?
     public var width: Double?
@@ -114,6 +117,7 @@ public class ItemReceipt: JSONEncodable {
         nillableDictionary["voidDate"] = self.voidDate?.encodeToJSON()
         nillableDictionary["freezeAction"] = self.freezeAction
         nillableDictionary["revDate"] = self.revDate
+        nillableDictionary["expirationDate"] = self.expirationDate?.encodeToJSON()
         nillableDictionary["artBack"] = self.artBack
         nillableDictionary["origin"] = self.origin
         nillableDictionary["sample"] = self.sample?.encodeToJSON()
@@ -151,7 +155,9 @@ public class ItemReceipt: JSONEncodable {
         nillableDictionary["lineNo"] = self.lineNo?.encodeToJSON()
         nillableDictionary["prodLot"] = self.prodLot
         nillableDictionary["productIdTag"] = self.productIdTag
+        nillableDictionary["unitsPerInnerPack"] = self.unitsPerInnerPack?.encodeToJSON()
         nillableDictionary["unitsPerCase"] = self.unitsPerCase?.encodeToJSON()
+        nillableDictionary["unitsPerPallet"] = self.unitsPerPallet?.encodeToJSON()
         nillableDictionary["caseWeight"] = self.caseWeight
         nillableDictionary["height"] = self.height
         nillableDictionary["width"] = self.width

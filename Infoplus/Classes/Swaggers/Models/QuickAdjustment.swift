@@ -16,6 +16,7 @@ public class QuickAdjustment: JSONEncodable {
     public var locationId: Int32?
     public var adjustmentCode: String?
     public var totalQuantity: Int32?
+    public var changeQuantity: Int32?
     public var message: String?
     public var status: String?
     public var productIdTag: String?
@@ -34,6 +35,7 @@ public class QuickAdjustment: JSONEncodable {
         nillableDictionary["locationId"] = self.locationId?.encodeToJSON()
         nillableDictionary["adjustmentCode"] = self.adjustmentCode
         nillableDictionary["totalQuantity"] = self.totalQuantity?.encodeToJSON()
+        nillableDictionary["changeQuantity"] = self.changeQuantity?.encodeToJSON()
         nillableDictionary["message"] = self.message
         nillableDictionary["status"] = self.status
         nillableDictionary["productIdTag"] = self.productIdTag

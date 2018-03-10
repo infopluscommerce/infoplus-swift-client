@@ -41,7 +41,7 @@ public class Item: JSONEncodable {
     public var maxCycle: Int32?
     public var maxInterim: Int32?
     public var numericSortOrder: Int32?
-    public var outsideVendor: Int32?
+    public var outsideVendorId: Int32?
     public var pickNo: String?
     public var podOrderSuffix: Int32?
     public var podRevDate: String?
@@ -54,6 +54,9 @@ public class Item: JSONEncodable {
     public var unitCode: String?
     public var unitsPerWrap: Int32?
     public var weightPerWrap: Double?
+    public var quantityPerInnerPack: Int32?
+    public var quantityPerCase: Int32?
+    public var quantityPerPallet: Int32?
     public var voidDate: NSDate?
     public var wrapCode: String?
     public var extrinsicText1: String?
@@ -79,6 +82,7 @@ public class Item: JSONEncodable {
     public var barcodeField: String?
     public var warehouseDisplayField: String?
     public var productIdTagSchemeId: Int32?
+    public var itemSerialSchemeId: Int32?
     public var hazmat: String?
     public var isAlcohol: Bool?
     public var alcoholType: String?
@@ -149,7 +153,7 @@ public class Item: JSONEncodable {
         nillableDictionary["maxCycle"] = self.maxCycle?.encodeToJSON()
         nillableDictionary["maxInterim"] = self.maxInterim?.encodeToJSON()
         nillableDictionary["numericSortOrder"] = self.numericSortOrder?.encodeToJSON()
-        nillableDictionary["outsideVendor"] = self.outsideVendor?.encodeToJSON()
+        nillableDictionary["outsideVendorId"] = self.outsideVendorId?.encodeToJSON()
         nillableDictionary["pickNo"] = self.pickNo
         nillableDictionary["podOrderSuffix"] = self.podOrderSuffix?.encodeToJSON()
         nillableDictionary["podRevDate"] = self.podRevDate
@@ -162,6 +166,9 @@ public class Item: JSONEncodable {
         nillableDictionary["unitCode"] = self.unitCode
         nillableDictionary["unitsPerWrap"] = self.unitsPerWrap?.encodeToJSON()
         nillableDictionary["weightPerWrap"] = self.weightPerWrap
+        nillableDictionary["quantityPerInnerPack"] = self.quantityPerInnerPack?.encodeToJSON()
+        nillableDictionary["quantityPerCase"] = self.quantityPerCase?.encodeToJSON()
+        nillableDictionary["quantityPerPallet"] = self.quantityPerPallet?.encodeToJSON()
         nillableDictionary["voidDate"] = self.voidDate?.encodeToJSON()
         nillableDictionary["wrapCode"] = self.wrapCode
         nillableDictionary["extrinsicText1"] = self.extrinsicText1
@@ -187,6 +194,7 @@ public class Item: JSONEncodable {
         nillableDictionary["barcodeField"] = self.barcodeField
         nillableDictionary["warehouseDisplayField"] = self.warehouseDisplayField
         nillableDictionary["productIdTagSchemeId"] = self.productIdTagSchemeId?.encodeToJSON()
+        nillableDictionary["itemSerialSchemeId"] = self.itemSerialSchemeId?.encodeToJSON()
         nillableDictionary["hazmat"] = self.hazmat
         nillableDictionary["isAlcohol"] = self.isAlcohol
         nillableDictionary["alcoholType"] = self.alcoholType

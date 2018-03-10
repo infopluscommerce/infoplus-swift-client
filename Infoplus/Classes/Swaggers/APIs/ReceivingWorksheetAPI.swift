@@ -41,81 +41,85 @@ public class ReceivingWorksheetAPI: APIBase {
   "serviceLevel" : "serviceLevel",
   "lineItems" : [ {
     "sku2" : "sku2",
-    "unitsPerWrap" : 7,
     "unreceivedQty" : 2,
-    "quantity" : 9,
     "prevReceivedQty" : 3,
-    "weightPerWrap" : 1.489415909854170383397331534069962799549102783203125,
+    "weightPerWrap" : 6.8468526983526398765889098285697400569915771484375,
     "revisionDate" : "revisionDate",
     "customFields" : {
       "key" : "{}"
     },
-    "casesPerPallet" : 1,
     "origin" : "origin",
-    "weightPerCase" : 6.8468526983526398765889098285697400569915771484375,
+    "weightPerCase" : 7.4577447736837658709418974467553198337554931640625,
+    "fullDescription" : "fullDescription",
+    "cartonWidth" : 4.9652184929849543237878606305457651615142822265625,
+    "unitsPerCase" : 1,
+    "cartonLength" : 1.173074250955943309548956676735542714595794677734375,
+    "receivingQty" : 4,
+    "wrapCode" : "wrapCode",
+    "unitCode" : "unitCode",
+    "sku" : "sku",
+    "quantityPerInnerPack" : 1,
+    "expirationDate" : "2000-01-23T04:56:07.000+00:00",
+    "unitsPerWrap" : 7,
+    "quantity" : 9,
+    "quantityPerPallet" : 1,
     "productionLot" : "productionLot",
     "orderedQty" : 9,
     "productIdTag" : "productIdTag",
-    "fullDescription" : "fullDescription",
-    "cartonWidth" : 1.173074250955943309548956676735542714595794677734375,
-    "unitsPerCase" : 1,
     "putAwayPlans" : [ {
-      "quantity" : 5,
+      "quantity" : 9,
       "customFields" : {
         "key" : "{}"
       }
     }, {
-      "quantity" : 5,
+      "quantity" : 9,
       "customFields" : {
         "key" : "{}"
       }
     } ],
-    "cartonLength" : 7.4577447736837658709418974467553198337554931640625,
-    "receivingQty" : 4,
-    "wrapCode" : "wrapCode",
-    "unitCode" : "unitCode",
-    "cartonHeight" : 4.9652184929849543237878606305457651615142822265625,
-    "sku" : "sku"
+    "cartonHeight" : 5.02500479152029466689555192715488374233245849609375
   }, {
     "sku2" : "sku2",
-    "unitsPerWrap" : 7,
     "unreceivedQty" : 2,
-    "quantity" : 9,
     "prevReceivedQty" : 3,
-    "weightPerWrap" : 1.489415909854170383397331534069962799549102783203125,
+    "weightPerWrap" : 6.8468526983526398765889098285697400569915771484375,
     "revisionDate" : "revisionDate",
     "customFields" : {
       "key" : "{}"
     },
-    "casesPerPallet" : 1,
     "origin" : "origin",
-    "weightPerCase" : 6.8468526983526398765889098285697400569915771484375,
+    "weightPerCase" : 7.4577447736837658709418974467553198337554931640625,
+    "fullDescription" : "fullDescription",
+    "cartonWidth" : 4.9652184929849543237878606305457651615142822265625,
+    "unitsPerCase" : 1,
+    "cartonLength" : 1.173074250955943309548956676735542714595794677734375,
+    "receivingQty" : 4,
+    "wrapCode" : "wrapCode",
+    "unitCode" : "unitCode",
+    "sku" : "sku",
+    "quantityPerInnerPack" : 1,
+    "expirationDate" : "2000-01-23T04:56:07.000+00:00",
+    "unitsPerWrap" : 7,
+    "quantity" : 9,
+    "quantityPerPallet" : 1,
     "productionLot" : "productionLot",
     "orderedQty" : 9,
     "productIdTag" : "productIdTag",
-    "fullDescription" : "fullDescription",
-    "cartonWidth" : 1.173074250955943309548956676735542714595794677734375,
-    "unitsPerCase" : 1,
     "putAwayPlans" : [ {
-      "quantity" : 5,
+      "quantity" : 9,
       "customFields" : {
         "key" : "{}"
       }
     }, {
-      "quantity" : 5,
+      "quantity" : 9,
       "customFields" : {
         "key" : "{}"
       }
     } ],
-    "cartonLength" : 7.4577447736837658709418974467553198337554931640625,
-    "receivingQty" : 4,
-    "wrapCode" : "wrapCode",
-    "unitCode" : "unitCode",
-    "cartonHeight" : 4.9652184929849543237878606305457651615142822265625,
-    "sku" : "sku"
+    "cartonHeight" : 5.02500479152029466689555192715488374233245849609375
   } ],
   "carrier" : "carrier",
-  "workBatchId" : 9,
+  "workBatchId" : 6,
   "warehouseId" : 6,
   "createdBy" : 7,
   "id" : 0,
@@ -349,81 +353,85 @@ public class ReceivingWorksheetAPI: APIBase {
   "serviceLevel" : "serviceLevel",
   "lineItems" : [ {
     "sku2" : "sku2",
-    "unitsPerWrap" : 7,
     "unreceivedQty" : 2,
-    "quantity" : 9,
     "prevReceivedQty" : 3,
-    "weightPerWrap" : 1.489415909854170383397331534069962799549102783203125,
+    "weightPerWrap" : 6.8468526983526398765889098285697400569915771484375,
     "revisionDate" : "revisionDate",
     "customFields" : {
       "key" : "{}"
     },
-    "casesPerPallet" : 1,
     "origin" : "origin",
-    "weightPerCase" : 6.8468526983526398765889098285697400569915771484375,
+    "weightPerCase" : 7.4577447736837658709418974467553198337554931640625,
+    "fullDescription" : "fullDescription",
+    "cartonWidth" : 4.9652184929849543237878606305457651615142822265625,
+    "unitsPerCase" : 1,
+    "cartonLength" : 1.173074250955943309548956676735542714595794677734375,
+    "receivingQty" : 4,
+    "wrapCode" : "wrapCode",
+    "unitCode" : "unitCode",
+    "sku" : "sku",
+    "quantityPerInnerPack" : 1,
+    "expirationDate" : "2000-01-23T04:56:07.000+00:00",
+    "unitsPerWrap" : 7,
+    "quantity" : 9,
+    "quantityPerPallet" : 1,
     "productionLot" : "productionLot",
     "orderedQty" : 9,
     "productIdTag" : "productIdTag",
-    "fullDescription" : "fullDescription",
-    "cartonWidth" : 1.173074250955943309548956676735542714595794677734375,
-    "unitsPerCase" : 1,
     "putAwayPlans" : [ {
-      "quantity" : 5,
+      "quantity" : 9,
       "customFields" : {
         "key" : "{}"
       }
     }, {
-      "quantity" : 5,
+      "quantity" : 9,
       "customFields" : {
         "key" : "{}"
       }
     } ],
-    "cartonLength" : 7.4577447736837658709418974467553198337554931640625,
-    "receivingQty" : 4,
-    "wrapCode" : "wrapCode",
-    "unitCode" : "unitCode",
-    "cartonHeight" : 4.9652184929849543237878606305457651615142822265625,
-    "sku" : "sku"
+    "cartonHeight" : 5.02500479152029466689555192715488374233245849609375
   }, {
     "sku2" : "sku2",
-    "unitsPerWrap" : 7,
     "unreceivedQty" : 2,
-    "quantity" : 9,
     "prevReceivedQty" : 3,
-    "weightPerWrap" : 1.489415909854170383397331534069962799549102783203125,
+    "weightPerWrap" : 6.8468526983526398765889098285697400569915771484375,
     "revisionDate" : "revisionDate",
     "customFields" : {
       "key" : "{}"
     },
-    "casesPerPallet" : 1,
     "origin" : "origin",
-    "weightPerCase" : 6.8468526983526398765889098285697400569915771484375,
+    "weightPerCase" : 7.4577447736837658709418974467553198337554931640625,
+    "fullDescription" : "fullDescription",
+    "cartonWidth" : 4.9652184929849543237878606305457651615142822265625,
+    "unitsPerCase" : 1,
+    "cartonLength" : 1.173074250955943309548956676735542714595794677734375,
+    "receivingQty" : 4,
+    "wrapCode" : "wrapCode",
+    "unitCode" : "unitCode",
+    "sku" : "sku",
+    "quantityPerInnerPack" : 1,
+    "expirationDate" : "2000-01-23T04:56:07.000+00:00",
+    "unitsPerWrap" : 7,
+    "quantity" : 9,
+    "quantityPerPallet" : 1,
     "productionLot" : "productionLot",
     "orderedQty" : 9,
     "productIdTag" : "productIdTag",
-    "fullDescription" : "fullDescription",
-    "cartonWidth" : 1.173074250955943309548956676735542714595794677734375,
-    "unitsPerCase" : 1,
     "putAwayPlans" : [ {
-      "quantity" : 5,
+      "quantity" : 9,
       "customFields" : {
         "key" : "{}"
       }
     }, {
-      "quantity" : 5,
+      "quantity" : 9,
       "customFields" : {
         "key" : "{}"
       }
     } ],
-    "cartonLength" : 7.4577447736837658709418974467553198337554931640625,
-    "receivingQty" : 4,
-    "wrapCode" : "wrapCode",
-    "unitCode" : "unitCode",
-    "cartonHeight" : 4.9652184929849543237878606305457651615142822265625,
-    "sku" : "sku"
+    "cartonHeight" : 5.02500479152029466689555192715488374233245849609375
   } ],
   "carrier" : "carrier",
-  "workBatchId" : 9,
+  "workBatchId" : 6,
   "warehouseId" : 6,
   "createdBy" : 7,
   "id" : 0,
@@ -491,81 +499,85 @@ public class ReceivingWorksheetAPI: APIBase {
   "serviceLevel" : "serviceLevel",
   "lineItems" : [ {
     "sku2" : "sku2",
-    "unitsPerWrap" : 7,
     "unreceivedQty" : 2,
-    "quantity" : 9,
     "prevReceivedQty" : 3,
-    "weightPerWrap" : 1.489415909854170383397331534069962799549102783203125,
+    "weightPerWrap" : 6.8468526983526398765889098285697400569915771484375,
     "revisionDate" : "revisionDate",
     "customFields" : {
       "key" : "{}"
     },
-    "casesPerPallet" : 1,
     "origin" : "origin",
-    "weightPerCase" : 6.8468526983526398765889098285697400569915771484375,
+    "weightPerCase" : 7.4577447736837658709418974467553198337554931640625,
+    "fullDescription" : "fullDescription",
+    "cartonWidth" : 4.9652184929849543237878606305457651615142822265625,
+    "unitsPerCase" : 1,
+    "cartonLength" : 1.173074250955943309548956676735542714595794677734375,
+    "receivingQty" : 4,
+    "wrapCode" : "wrapCode",
+    "unitCode" : "unitCode",
+    "sku" : "sku",
+    "quantityPerInnerPack" : 1,
+    "expirationDate" : "2000-01-23T04:56:07.000+00:00",
+    "unitsPerWrap" : 7,
+    "quantity" : 9,
+    "quantityPerPallet" : 1,
     "productionLot" : "productionLot",
     "orderedQty" : 9,
     "productIdTag" : "productIdTag",
-    "fullDescription" : "fullDescription",
-    "cartonWidth" : 1.173074250955943309548956676735542714595794677734375,
-    "unitsPerCase" : 1,
     "putAwayPlans" : [ {
-      "quantity" : 5,
+      "quantity" : 9,
       "customFields" : {
         "key" : "{}"
       }
     }, {
-      "quantity" : 5,
+      "quantity" : 9,
       "customFields" : {
         "key" : "{}"
       }
     } ],
-    "cartonLength" : 7.4577447736837658709418974467553198337554931640625,
-    "receivingQty" : 4,
-    "wrapCode" : "wrapCode",
-    "unitCode" : "unitCode",
-    "cartonHeight" : 4.9652184929849543237878606305457651615142822265625,
-    "sku" : "sku"
+    "cartonHeight" : 5.02500479152029466689555192715488374233245849609375
   }, {
     "sku2" : "sku2",
-    "unitsPerWrap" : 7,
     "unreceivedQty" : 2,
-    "quantity" : 9,
     "prevReceivedQty" : 3,
-    "weightPerWrap" : 1.489415909854170383397331534069962799549102783203125,
+    "weightPerWrap" : 6.8468526983526398765889098285697400569915771484375,
     "revisionDate" : "revisionDate",
     "customFields" : {
       "key" : "{}"
     },
-    "casesPerPallet" : 1,
     "origin" : "origin",
-    "weightPerCase" : 6.8468526983526398765889098285697400569915771484375,
+    "weightPerCase" : 7.4577447736837658709418974467553198337554931640625,
+    "fullDescription" : "fullDescription",
+    "cartonWidth" : 4.9652184929849543237878606305457651615142822265625,
+    "unitsPerCase" : 1,
+    "cartonLength" : 1.173074250955943309548956676735542714595794677734375,
+    "receivingQty" : 4,
+    "wrapCode" : "wrapCode",
+    "unitCode" : "unitCode",
+    "sku" : "sku",
+    "quantityPerInnerPack" : 1,
+    "expirationDate" : "2000-01-23T04:56:07.000+00:00",
+    "unitsPerWrap" : 7,
+    "quantity" : 9,
+    "quantityPerPallet" : 1,
     "productionLot" : "productionLot",
     "orderedQty" : 9,
     "productIdTag" : "productIdTag",
-    "fullDescription" : "fullDescription",
-    "cartonWidth" : 1.173074250955943309548956676735542714595794677734375,
-    "unitsPerCase" : 1,
     "putAwayPlans" : [ {
-      "quantity" : 5,
+      "quantity" : 9,
       "customFields" : {
         "key" : "{}"
       }
     }, {
-      "quantity" : 5,
+      "quantity" : 9,
       "customFields" : {
         "key" : "{}"
       }
     } ],
-    "cartonLength" : 7.4577447736837658709418974467553198337554931640625,
-    "receivingQty" : 4,
-    "wrapCode" : "wrapCode",
-    "unitCode" : "unitCode",
-    "cartonHeight" : 4.9652184929849543237878606305457651615142822265625,
-    "sku" : "sku"
+    "cartonHeight" : 5.02500479152029466689555192715488374233245849609375
   } ],
   "carrier" : "carrier",
-  "workBatchId" : 9,
+  "workBatchId" : 6,
   "warehouseId" : 6,
   "createdBy" : 7,
   "id" : 0,
@@ -588,81 +600,85 @@ public class ReceivingWorksheetAPI: APIBase {
   "serviceLevel" : "serviceLevel",
   "lineItems" : [ {
     "sku2" : "sku2",
-    "unitsPerWrap" : 7,
     "unreceivedQty" : 2,
-    "quantity" : 9,
     "prevReceivedQty" : 3,
-    "weightPerWrap" : 1.489415909854170383397331534069962799549102783203125,
+    "weightPerWrap" : 6.8468526983526398765889098285697400569915771484375,
     "revisionDate" : "revisionDate",
     "customFields" : {
       "key" : "{}"
     },
-    "casesPerPallet" : 1,
     "origin" : "origin",
-    "weightPerCase" : 6.8468526983526398765889098285697400569915771484375,
+    "weightPerCase" : 7.4577447736837658709418974467553198337554931640625,
+    "fullDescription" : "fullDescription",
+    "cartonWidth" : 4.9652184929849543237878606305457651615142822265625,
+    "unitsPerCase" : 1,
+    "cartonLength" : 1.173074250955943309548956676735542714595794677734375,
+    "receivingQty" : 4,
+    "wrapCode" : "wrapCode",
+    "unitCode" : "unitCode",
+    "sku" : "sku",
+    "quantityPerInnerPack" : 1,
+    "expirationDate" : "2000-01-23T04:56:07.000+00:00",
+    "unitsPerWrap" : 7,
+    "quantity" : 9,
+    "quantityPerPallet" : 1,
     "productionLot" : "productionLot",
     "orderedQty" : 9,
     "productIdTag" : "productIdTag",
-    "fullDescription" : "fullDescription",
-    "cartonWidth" : 1.173074250955943309548956676735542714595794677734375,
-    "unitsPerCase" : 1,
     "putAwayPlans" : [ {
-      "quantity" : 5,
+      "quantity" : 9,
       "customFields" : {
         "key" : "{}"
       }
     }, {
-      "quantity" : 5,
+      "quantity" : 9,
       "customFields" : {
         "key" : "{}"
       }
     } ],
-    "cartonLength" : 7.4577447736837658709418974467553198337554931640625,
-    "receivingQty" : 4,
-    "wrapCode" : "wrapCode",
-    "unitCode" : "unitCode",
-    "cartonHeight" : 4.9652184929849543237878606305457651615142822265625,
-    "sku" : "sku"
+    "cartonHeight" : 5.02500479152029466689555192715488374233245849609375
   }, {
     "sku2" : "sku2",
-    "unitsPerWrap" : 7,
     "unreceivedQty" : 2,
-    "quantity" : 9,
     "prevReceivedQty" : 3,
-    "weightPerWrap" : 1.489415909854170383397331534069962799549102783203125,
+    "weightPerWrap" : 6.8468526983526398765889098285697400569915771484375,
     "revisionDate" : "revisionDate",
     "customFields" : {
       "key" : "{}"
     },
-    "casesPerPallet" : 1,
     "origin" : "origin",
-    "weightPerCase" : 6.8468526983526398765889098285697400569915771484375,
+    "weightPerCase" : 7.4577447736837658709418974467553198337554931640625,
+    "fullDescription" : "fullDescription",
+    "cartonWidth" : 4.9652184929849543237878606305457651615142822265625,
+    "unitsPerCase" : 1,
+    "cartonLength" : 1.173074250955943309548956676735542714595794677734375,
+    "receivingQty" : 4,
+    "wrapCode" : "wrapCode",
+    "unitCode" : "unitCode",
+    "sku" : "sku",
+    "quantityPerInnerPack" : 1,
+    "expirationDate" : "2000-01-23T04:56:07.000+00:00",
+    "unitsPerWrap" : 7,
+    "quantity" : 9,
+    "quantityPerPallet" : 1,
     "productionLot" : "productionLot",
     "orderedQty" : 9,
     "productIdTag" : "productIdTag",
-    "fullDescription" : "fullDescription",
-    "cartonWidth" : 1.173074250955943309548956676735542714595794677734375,
-    "unitsPerCase" : 1,
     "putAwayPlans" : [ {
-      "quantity" : 5,
+      "quantity" : 9,
       "customFields" : {
         "key" : "{}"
       }
     }, {
-      "quantity" : 5,
+      "quantity" : 9,
       "customFields" : {
         "key" : "{}"
       }
     } ],
-    "cartonLength" : 7.4577447736837658709418974467553198337554931640625,
-    "receivingQty" : 4,
-    "wrapCode" : "wrapCode",
-    "unitCode" : "unitCode",
-    "cartonHeight" : 4.9652184929849543237878606305457651615142822265625,
-    "sku" : "sku"
+    "cartonHeight" : 5.02500479152029466689555192715488374233245849609375
   } ],
   "carrier" : "carrier",
-  "workBatchId" : 9,
+  "workBatchId" : 6,
   "warehouseId" : 6,
   "createdBy" : 7,
   "id" : 0,
@@ -734,81 +750,85 @@ public class ReceivingWorksheetAPI: APIBase {
   "serviceLevel" : "serviceLevel",
   "lineItems" : [ {
     "sku2" : "sku2",
-    "unitsPerWrap" : 7,
     "unreceivedQty" : 2,
-    "quantity" : 9,
     "prevReceivedQty" : 3,
-    "weightPerWrap" : 1.489415909854170383397331534069962799549102783203125,
+    "weightPerWrap" : 6.8468526983526398765889098285697400569915771484375,
     "revisionDate" : "revisionDate",
     "customFields" : {
       "key" : "{}"
     },
-    "casesPerPallet" : 1,
     "origin" : "origin",
-    "weightPerCase" : 6.8468526983526398765889098285697400569915771484375,
+    "weightPerCase" : 7.4577447736837658709418974467553198337554931640625,
+    "fullDescription" : "fullDescription",
+    "cartonWidth" : 4.9652184929849543237878606305457651615142822265625,
+    "unitsPerCase" : 1,
+    "cartonLength" : 1.173074250955943309548956676735542714595794677734375,
+    "receivingQty" : 4,
+    "wrapCode" : "wrapCode",
+    "unitCode" : "unitCode",
+    "sku" : "sku",
+    "quantityPerInnerPack" : 1,
+    "expirationDate" : "2000-01-23T04:56:07.000+00:00",
+    "unitsPerWrap" : 7,
+    "quantity" : 9,
+    "quantityPerPallet" : 1,
     "productionLot" : "productionLot",
     "orderedQty" : 9,
     "productIdTag" : "productIdTag",
-    "fullDescription" : "fullDescription",
-    "cartonWidth" : 1.173074250955943309548956676735542714595794677734375,
-    "unitsPerCase" : 1,
     "putAwayPlans" : [ {
-      "quantity" : 5,
+      "quantity" : 9,
       "customFields" : {
         "key" : "{}"
       }
     }, {
-      "quantity" : 5,
+      "quantity" : 9,
       "customFields" : {
         "key" : "{}"
       }
     } ],
-    "cartonLength" : 7.4577447736837658709418974467553198337554931640625,
-    "receivingQty" : 4,
-    "wrapCode" : "wrapCode",
-    "unitCode" : "unitCode",
-    "cartonHeight" : 4.9652184929849543237878606305457651615142822265625,
-    "sku" : "sku"
+    "cartonHeight" : 5.02500479152029466689555192715488374233245849609375
   }, {
     "sku2" : "sku2",
-    "unitsPerWrap" : 7,
     "unreceivedQty" : 2,
-    "quantity" : 9,
     "prevReceivedQty" : 3,
-    "weightPerWrap" : 1.489415909854170383397331534069962799549102783203125,
+    "weightPerWrap" : 6.8468526983526398765889098285697400569915771484375,
     "revisionDate" : "revisionDate",
     "customFields" : {
       "key" : "{}"
     },
-    "casesPerPallet" : 1,
     "origin" : "origin",
-    "weightPerCase" : 6.8468526983526398765889098285697400569915771484375,
+    "weightPerCase" : 7.4577447736837658709418974467553198337554931640625,
+    "fullDescription" : "fullDescription",
+    "cartonWidth" : 4.9652184929849543237878606305457651615142822265625,
+    "unitsPerCase" : 1,
+    "cartonLength" : 1.173074250955943309548956676735542714595794677734375,
+    "receivingQty" : 4,
+    "wrapCode" : "wrapCode",
+    "unitCode" : "unitCode",
+    "sku" : "sku",
+    "quantityPerInnerPack" : 1,
+    "expirationDate" : "2000-01-23T04:56:07.000+00:00",
+    "unitsPerWrap" : 7,
+    "quantity" : 9,
+    "quantityPerPallet" : 1,
     "productionLot" : "productionLot",
     "orderedQty" : 9,
     "productIdTag" : "productIdTag",
-    "fullDescription" : "fullDescription",
-    "cartonWidth" : 1.173074250955943309548956676735542714595794677734375,
-    "unitsPerCase" : 1,
     "putAwayPlans" : [ {
-      "quantity" : 5,
+      "quantity" : 9,
       "customFields" : {
         "key" : "{}"
       }
     }, {
-      "quantity" : 5,
+      "quantity" : 9,
       "customFields" : {
         "key" : "{}"
       }
     } ],
-    "cartonLength" : 7.4577447736837658709418974467553198337554931640625,
-    "receivingQty" : 4,
-    "wrapCode" : "wrapCode",
-    "unitCode" : "unitCode",
-    "cartonHeight" : 4.9652184929849543237878606305457651615142822265625,
-    "sku" : "sku"
+    "cartonHeight" : 5.02500479152029466689555192715488374233245849609375
   } ],
   "carrier" : "carrier",
-  "workBatchId" : 9,
+  "workBatchId" : 6,
   "warehouseId" : 6,
   "createdBy" : 7,
   "id" : 0,

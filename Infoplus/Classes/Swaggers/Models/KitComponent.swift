@@ -9,6 +9,7 @@ import Foundation
 
 
 public class KitComponent: JSONEncodable {
+    public var invno: String?
     public var sku: String?
     public var quantity: Int32?
     public var instructions: String?
@@ -21,6 +22,7 @@ public class KitComponent: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
+        nillableDictionary["invno"] = self.invno
         nillableDictionary["sku"] = self.sku
         nillableDictionary["quantity"] = self.quantity?.encodeToJSON()
         nillableDictionary["instructions"] = self.instructions

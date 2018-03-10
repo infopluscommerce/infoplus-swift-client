@@ -33,6 +33,7 @@ public class OrderLine: JSONEncodable {
     public var ncExtendedSell: Double?
     public var itemWeight: Double?
     public var productionLot: String?
+    public var expirationDate: NSDate?
     public var weightPerWrap: Double?
     public var sector: String?
     public var orderAssemblyInstructions: String?
@@ -42,6 +43,7 @@ public class OrderLine: JSONEncodable {
     public var itemSubGroupId: Int32?
     public var itemProductCodeId: Int32?
     public var itemSummaryCodeId: Int32?
+    public var fulfillmentChannel: String?
     public var customFields: [String:AnyObject]?
 
     public init() {}
@@ -73,6 +75,7 @@ public class OrderLine: JSONEncodable {
         nillableDictionary["ncExtendedSell"] = self.ncExtendedSell
         nillableDictionary["itemWeight"] = self.itemWeight
         nillableDictionary["productionLot"] = self.productionLot
+        nillableDictionary["expirationDate"] = self.expirationDate?.encodeToJSON()
         nillableDictionary["weightPerWrap"] = self.weightPerWrap
         nillableDictionary["sector"] = self.sector
         nillableDictionary["orderAssemblyInstructions"] = self.orderAssemblyInstructions
@@ -82,6 +85,7 @@ public class OrderLine: JSONEncodable {
         nillableDictionary["itemSubGroupId"] = self.itemSubGroupId?.encodeToJSON()
         nillableDictionary["itemProductCodeId"] = self.itemProductCodeId?.encodeToJSON()
         nillableDictionary["itemSummaryCodeId"] = self.itemSummaryCodeId?.encodeToJSON()
+        nillableDictionary["fulfillmentChannel"] = self.fulfillmentChannel
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

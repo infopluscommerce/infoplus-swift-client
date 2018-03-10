@@ -20,12 +20,14 @@ public class ReceivingWorksheetLineItem: JSONEncodable {
     public var wrapCode: String?
     public var unitsPerWrap: Int32?
     public var unitsPerCase: Int32?
-    public var casesPerPallet: Int32?
+    public var quantityPerInnerPack: Int32?
+    public var quantityPerPallet: Int32?
     public var weightPerWrap: Double?
     public var weightPerCase: Double?
     public var productionLot: String?
     public var productIdTag: String?
     public var revisionDate: String?
+    public var expirationDate: NSDate?
     public var origin: String?
     public var cartonLength: Double?
     public var cartonWidth: Double?
@@ -50,12 +52,14 @@ public class ReceivingWorksheetLineItem: JSONEncodable {
         nillableDictionary["wrapCode"] = self.wrapCode
         nillableDictionary["unitsPerWrap"] = self.unitsPerWrap?.encodeToJSON()
         nillableDictionary["unitsPerCase"] = self.unitsPerCase?.encodeToJSON()
-        nillableDictionary["casesPerPallet"] = self.casesPerPallet?.encodeToJSON()
+        nillableDictionary["quantityPerInnerPack"] = self.quantityPerInnerPack?.encodeToJSON()
+        nillableDictionary["quantityPerPallet"] = self.quantityPerPallet?.encodeToJSON()
         nillableDictionary["weightPerWrap"] = self.weightPerWrap
         nillableDictionary["weightPerCase"] = self.weightPerCase
         nillableDictionary["productionLot"] = self.productionLot
         nillableDictionary["productIdTag"] = self.productIdTag
         nillableDictionary["revisionDate"] = self.revisionDate
+        nillableDictionary["expirationDate"] = self.expirationDate?.encodeToJSON()
         nillableDictionary["origin"] = self.origin
         nillableDictionary["cartonLength"] = self.cartonLength
         nillableDictionary["cartonWidth"] = self.cartonWidth
