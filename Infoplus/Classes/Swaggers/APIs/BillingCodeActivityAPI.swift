@@ -33,7 +33,7 @@ public class BillingCodeActivityAPI: APIBase {
      - examples: [{contentType=application/json, example={
   "date" : "2000-01-23T04:56:07.000+00:00",
   "note" : "note",
-  "quantity" : 1,
+  "quantity" : 1.46581298050294517310021547018550336360931396484375,
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
@@ -266,7 +266,7 @@ public class BillingCodeActivityAPI: APIBase {
      - examples: [{contentType=application/json, example=[ {
   "date" : "2000-01-23T04:56:07.000+00:00",
   "note" : "note",
-  "quantity" : 1,
+  "quantity" : 1.46581298050294517310021547018550336360931396484375,
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
@@ -285,7 +285,7 @@ public class BillingCodeActivityAPI: APIBase {
 }, {
   "date" : "2000-01-23T04:56:07.000+00:00",
   "note" : "note",
-  "quantity" : 1,
+  "quantity" : 1.46581298050294517310021547018550336360931396484375,
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
@@ -353,7 +353,7 @@ public class BillingCodeActivityAPI: APIBase {
      - examples: [{contentType=application/json, example={
   "date" : "2000-01-23T04:56:07.000+00:00",
   "note" : "note",
-  "quantity" : 1,
+  "quantity" : 1.46581298050294517310021547018550336360931396484375,
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"
@@ -455,7 +455,7 @@ public class BillingCodeActivityAPI: APIBase {
      - examples: [{contentType=application/json, example={
   "date" : "2000-01-23T04:56:07.000+00:00",
   "note" : "note",
-  "quantity" : 1,
+  "quantity" : 1.46581298050294517310021547018550336360931396484375,
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "customFields" : {
     "key" : "{}"

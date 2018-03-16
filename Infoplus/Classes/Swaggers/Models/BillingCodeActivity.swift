@@ -14,7 +14,7 @@ public class BillingCodeActivity: JSONEncodable {
     public var createDate: NSDate?
     public var modifyDate: NSDate?
     public var date: NSDate?
-    public var quantity: Int32?
+    public var quantity: Double?
     public var lobId: Int32?
     public var userId: Int32?
     public var email: String?
@@ -36,7 +36,7 @@ public class BillingCodeActivity: JSONEncodable {
         nillableDictionary["createDate"] = self.createDate?.encodeToJSON()
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["date"] = self.date?.encodeToJSON()
-        nillableDictionary["quantity"] = self.quantity?.encodeToJSON()
+        nillableDictionary["quantity"] = self.quantity
         nillableDictionary["lobId"] = self.lobId?.encodeToJSON()
         nillableDictionary["userId"] = self.userId?.encodeToJSON()
         nillableDictionary["email"] = self.email

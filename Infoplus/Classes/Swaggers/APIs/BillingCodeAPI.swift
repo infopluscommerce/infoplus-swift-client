@@ -34,7 +34,7 @@ public class BillingCodeAPI: APIBase {
   "date" : "2000-01-23T04:56:07.000+00:00",
   "recordId" : "recordId",
   "note" : "note",
-  "quantity" : 6,
+  "quantity" : 6.02745618307040320615897144307382404804229736328125,
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "recordType" : "recordType",
   "customFields" : {
@@ -263,7 +263,7 @@ public class BillingCodeAPI: APIBase {
   "date" : "2000-01-23T04:56:07.000+00:00",
   "recordId" : "recordId",
   "note" : "note",
-  "quantity" : 6,
+  "quantity" : 6.02745618307040320615897144307382404804229736328125,
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "recordType" : "recordType",
   "customFields" : {
@@ -278,7 +278,7 @@ public class BillingCodeAPI: APIBase {
   "date" : "2000-01-23T04:56:07.000+00:00",
   "recordId" : "recordId",
   "note" : "note",
-  "quantity" : 6,
+  "quantity" : 6.02745618307040320615897144307382404804229736328125,
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "recordType" : "recordType",
   "customFields" : {
@@ -342,7 +342,7 @@ public class BillingCodeAPI: APIBase {
   "date" : "2000-01-23T04:56:07.000+00:00",
   "recordId" : "recordId",
   "note" : "note",
-  "quantity" : 6,
+  "quantity" : 6.02745618307040320615897144307382404804229736328125,
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "recordType" : "recordType",
   "customFields" : {
@@ -440,7 +440,7 @@ public class BillingCodeAPI: APIBase {
   "date" : "2000-01-23T04:56:07.000+00:00",
   "recordId" : "recordId",
   "note" : "note",
-  "quantity" : 6,
+  "quantity" : 6.02745618307040320615897144307382404804229736328125,
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "recordType" : "recordType",
   "customFields" : {

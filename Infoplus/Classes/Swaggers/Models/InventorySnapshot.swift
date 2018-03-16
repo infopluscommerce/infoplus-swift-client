@@ -17,7 +17,9 @@ public class InventorySnapshot: JSONEncodable {
     public var isMixedReceipts: Bool?
     public var quantity: Int32?
     public var address: String?
-    public var numberOfCases: Int32?
+    public var estimatedInnerPacks: Int32?
+    public var estimatedCases: Int32?
+    public var estimatedPallets: Int32?
     public var inventoryValue: Double?
     public var inventoryAgeDays: Int32?
     public var warehouseId: Int32?
@@ -64,7 +66,9 @@ public class InventorySnapshot: JSONEncodable {
     public var poNo: String?
     public var receiptDistributionDate: NSDate?
     public var receiptUnitsPerWrap: Int32?
-    public var receiptUnitsPerCase: Int32?
+    public var receiptQuantityPerInnerPack: Int32?
+    public var receiptQuantityPerCase: Int32?
+    public var receiptQuantityPerPallet: Int32?
     public var receiptRevisionDate: String?
     public var receiptProductionLot: String?
     public var receiptReceiveDate: NSDate?
@@ -107,7 +111,9 @@ public class InventorySnapshot: JSONEncodable {
         nillableDictionary["isMixedReceipts"] = self.isMixedReceipts
         nillableDictionary["quantity"] = self.quantity?.encodeToJSON()
         nillableDictionary["address"] = self.address
-        nillableDictionary["numberOfCases"] = self.numberOfCases?.encodeToJSON()
+        nillableDictionary["estimatedInnerPacks"] = self.estimatedInnerPacks?.encodeToJSON()
+        nillableDictionary["estimatedCases"] = self.estimatedCases?.encodeToJSON()
+        nillableDictionary["estimatedPallets"] = self.estimatedPallets?.encodeToJSON()
         nillableDictionary["inventoryValue"] = self.inventoryValue
         nillableDictionary["inventoryAgeDays"] = self.inventoryAgeDays?.encodeToJSON()
         nillableDictionary["warehouseId"] = self.warehouseId?.encodeToJSON()
@@ -154,7 +160,9 @@ public class InventorySnapshot: JSONEncodable {
         nillableDictionary["poNo"] = self.poNo
         nillableDictionary["receiptDistributionDate"] = self.receiptDistributionDate?.encodeToJSON()
         nillableDictionary["receiptUnitsPerWrap"] = self.receiptUnitsPerWrap?.encodeToJSON()
-        nillableDictionary["receiptUnitsPerCase"] = self.receiptUnitsPerCase?.encodeToJSON()
+        nillableDictionary["receiptQuantityPerInnerPack"] = self.receiptQuantityPerInnerPack?.encodeToJSON()
+        nillableDictionary["receiptQuantityPerCase"] = self.receiptQuantityPerCase?.encodeToJSON()
+        nillableDictionary["receiptQuantityPerPallet"] = self.receiptQuantityPerPallet?.encodeToJSON()
         nillableDictionary["receiptRevisionDate"] = self.receiptRevisionDate
         nillableDictionary["receiptProductionLot"] = self.receiptProductionLot
         nillableDictionary["receiptReceiveDate"] = self.receiptReceiveDate?.encodeToJSON()

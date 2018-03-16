@@ -114,6 +114,24 @@ public class Item: JSONEncodable {
     public var unavailableQuantity: Int32?
     public var overallDaysOnHand: Int32?
     public var overallStockStatus: String?
+    public var estimatedPallets: Int32?
+    public var estimatedCases: Int32?
+    public var estimatedInnerPacks: Int32?
+    public var w1EstimatedPallets: Int32?
+    public var w1EstimatedCases: Int32?
+    public var w1EstimatedInnerPacks: Int32?
+    public var w2EstimatedPallets: Int32?
+    public var w2EstimatedCases: Int32?
+    public var w2EstimatedInnerPacks: Int32?
+    public var w3EstimatedPallets: Int32?
+    public var w3EstimatedCases: Int32?
+    public var w3EstimatedInnerPacks: Int32?
+    public var w4EstimatedPallets: Int32?
+    public var w4EstimatedCases: Int32?
+    public var w4EstimatedInnerPacks: Int32?
+    public var w5EstimatedPallets: Int32?
+    public var w5EstimatedCases: Int32?
+    public var w5EstimatedInnerPacks: Int32?
     public var customFields: [String:AnyObject]?
 
     public init() {}
@@ -226,6 +244,24 @@ public class Item: JSONEncodable {
         nillableDictionary["unavailableQuantity"] = self.unavailableQuantity?.encodeToJSON()
         nillableDictionary["overallDaysOnHand"] = self.overallDaysOnHand?.encodeToJSON()
         nillableDictionary["overallStockStatus"] = self.overallStockStatus
+        nillableDictionary["estimatedPallets"] = self.estimatedPallets?.encodeToJSON()
+        nillableDictionary["estimatedCases"] = self.estimatedCases?.encodeToJSON()
+        nillableDictionary["estimatedInnerPacks"] = self.estimatedInnerPacks?.encodeToJSON()
+        nillableDictionary["w1EstimatedPallets"] = self.w1EstimatedPallets?.encodeToJSON()
+        nillableDictionary["w1EstimatedCases"] = self.w1EstimatedCases?.encodeToJSON()
+        nillableDictionary["w1EstimatedInnerPacks"] = self.w1EstimatedInnerPacks?.encodeToJSON()
+        nillableDictionary["w2EstimatedPallets"] = self.w2EstimatedPallets?.encodeToJSON()
+        nillableDictionary["w2EstimatedCases"] = self.w2EstimatedCases?.encodeToJSON()
+        nillableDictionary["w2EstimatedInnerPacks"] = self.w2EstimatedInnerPacks?.encodeToJSON()
+        nillableDictionary["w3EstimatedPallets"] = self.w3EstimatedPallets?.encodeToJSON()
+        nillableDictionary["w3EstimatedCases"] = self.w3EstimatedCases?.encodeToJSON()
+        nillableDictionary["w3EstimatedInnerPacks"] = self.w3EstimatedInnerPacks?.encodeToJSON()
+        nillableDictionary["w4EstimatedPallets"] = self.w4EstimatedPallets?.encodeToJSON()
+        nillableDictionary["w4EstimatedCases"] = self.w4EstimatedCases?.encodeToJSON()
+        nillableDictionary["w4EstimatedInnerPacks"] = self.w4EstimatedInnerPacks?.encodeToJSON()
+        nillableDictionary["w5EstimatedPallets"] = self.w5EstimatedPallets?.encodeToJSON()
+        nillableDictionary["w5EstimatedCases"] = self.w5EstimatedCases?.encodeToJSON()
+        nillableDictionary["w5EstimatedInnerPacks"] = self.w5EstimatedInnerPacks?.encodeToJSON()
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

@@ -13,7 +13,12 @@ public class InventoryDetail: JSONEncodable {
     public var warehouseLocationId: Int32?
     public var quantity: Int32?
     public var distributionDate: NSDate?
-    public var unitsPerCase: Int32?
+    public var quantityPerInnerPack: Int32?
+    public var quantityPerCase: Int32?
+    public var quantityPerPallet: Int32?
+    public var estimatedInnerPacks: Int32?
+    public var estimatedCases: Int32?
+    public var estimatedPallets: Int32?
     public var unitsPerWrap: Int32?
     public var revisionDate: String?
     public var productionLot: String?
@@ -32,7 +37,12 @@ public class InventoryDetail: JSONEncodable {
         nillableDictionary["warehouseLocationId"] = self.warehouseLocationId?.encodeToJSON()
         nillableDictionary["quantity"] = self.quantity?.encodeToJSON()
         nillableDictionary["distributionDate"] = self.distributionDate?.encodeToJSON()
-        nillableDictionary["unitsPerCase"] = self.unitsPerCase?.encodeToJSON()
+        nillableDictionary["quantityPerInnerPack"] = self.quantityPerInnerPack?.encodeToJSON()
+        nillableDictionary["quantityPerCase"] = self.quantityPerCase?.encodeToJSON()
+        nillableDictionary["quantityPerPallet"] = self.quantityPerPallet?.encodeToJSON()
+        nillableDictionary["estimatedInnerPacks"] = self.estimatedInnerPacks?.encodeToJSON()
+        nillableDictionary["estimatedCases"] = self.estimatedCases?.encodeToJSON()
+        nillableDictionary["estimatedPallets"] = self.estimatedPallets?.encodeToJSON()
         nillableDictionary["unitsPerWrap"] = self.unitsPerWrap?.encodeToJSON()
         nillableDictionary["revisionDate"] = self.revisionDate
         nillableDictionary["productionLot"] = self.productionLot

@@ -163,21 +163,26 @@ public class InventoryDetailAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "unitsPerWrap" : 5,
+  "unitsPerWrap" : 2,
   "quantity" : 1,
   "revisionDate" : "revisionDate",
   "customFields" : {
     "key" : "{}"
   },
   "distributionDate" : "2000-01-23T04:56:07.000+00:00",
+  "quantityPerPallet" : 2,
   "warehouseLocationId" : 6,
+  "estimatedPallets" : 3,
   "productionLot" : "productionLot",
-  "unitsPerCase" : 5,
   "poNo" : "poNo",
+  "quantityPerCase" : 5,
   "id" : 0,
+  "estimatedInnerPacks" : 7,
+  "estimatedCases" : 9,
+  "quantityPerInnerPack" : 5,
   "sku" : "sku",
   "oldestReceiptDate" : "2000-01-23T04:56:07.000+00:00",
-  "lobId" : 2
+  "lobId" : 4
 }}]
      
      - parameter inventoryDetailId: (path) Id of the inventoryDetail to be duplicated. 
@@ -224,37 +229,47 @@ public class InventoryDetailAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example=[ {
-  "unitsPerWrap" : 5,
+  "unitsPerWrap" : 2,
   "quantity" : 1,
   "revisionDate" : "revisionDate",
   "customFields" : {
     "key" : "{}"
   },
   "distributionDate" : "2000-01-23T04:56:07.000+00:00",
+  "quantityPerPallet" : 2,
   "warehouseLocationId" : 6,
+  "estimatedPallets" : 3,
   "productionLot" : "productionLot",
-  "unitsPerCase" : 5,
   "poNo" : "poNo",
+  "quantityPerCase" : 5,
   "id" : 0,
+  "estimatedInnerPacks" : 7,
+  "estimatedCases" : 9,
+  "quantityPerInnerPack" : 5,
   "sku" : "sku",
   "oldestReceiptDate" : "2000-01-23T04:56:07.000+00:00",
-  "lobId" : 2
+  "lobId" : 4
 }, {
-  "unitsPerWrap" : 5,
+  "unitsPerWrap" : 2,
   "quantity" : 1,
   "revisionDate" : "revisionDate",
   "customFields" : {
     "key" : "{}"
   },
   "distributionDate" : "2000-01-23T04:56:07.000+00:00",
+  "quantityPerPallet" : 2,
   "warehouseLocationId" : 6,
+  "estimatedPallets" : 3,
   "productionLot" : "productionLot",
-  "unitsPerCase" : 5,
   "poNo" : "poNo",
+  "quantityPerCase" : 5,
   "id" : 0,
+  "estimatedInnerPacks" : 7,
+  "estimatedCases" : 9,
+  "quantityPerInnerPack" : 5,
   "sku" : "sku",
   "oldestReceiptDate" : "2000-01-23T04:56:07.000+00:00",
-  "lobId" : 2
+  "lobId" : 4
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -305,21 +320,26 @@ public class InventoryDetailAPI: APIBase {
        - type: apiKey API-Key 
        - name: api_key
      - examples: [{contentType=application/json, example={
-  "unitsPerWrap" : 5,
+  "unitsPerWrap" : 2,
   "quantity" : 1,
   "revisionDate" : "revisionDate",
   "customFields" : {
     "key" : "{}"
   },
   "distributionDate" : "2000-01-23T04:56:07.000+00:00",
+  "quantityPerPallet" : 2,
   "warehouseLocationId" : 6,
+  "estimatedPallets" : 3,
   "productionLot" : "productionLot",
-  "unitsPerCase" : 5,
   "poNo" : "poNo",
+  "quantityPerCase" : 5,
   "id" : 0,
+  "estimatedInnerPacks" : 7,
+  "estimatedCases" : 9,
+  "quantityPerInnerPack" : 5,
   "sku" : "sku",
   "oldestReceiptDate" : "2000-01-23T04:56:07.000+00:00",
-  "lobId" : 2
+  "lobId" : 4
 }}]
      
      - parameter inventoryDetailId: (path) Id of the inventoryDetail to be returned. 
