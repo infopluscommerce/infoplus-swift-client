@@ -16,6 +16,7 @@ public class OrderSource: JSONEncodable {
     public var modifyDate: NSDate?
     public var packingNotes: String?
     public var requireCartonizedASN: Bool?
+    public var usesReservations: Bool?
     public var requireGS1128Label: Bool?
     public var shippingNotes: String?
     public var packingSlipId: Int32?
@@ -36,6 +37,7 @@ public class OrderSource: JSONEncodable {
         nillableDictionary["modifyDate"] = self.modifyDate?.encodeToJSON()
         nillableDictionary["packingNotes"] = self.packingNotes
         nillableDictionary["requireCartonizedASN"] = self.requireCartonizedASN
+        nillableDictionary["usesReservations"] = self.usesReservations
         nillableDictionary["requireGS1128Label"] = self.requireGS1128Label
         nillableDictionary["shippingNotes"] = self.shippingNotes
         nillableDictionary["packingSlipId"] = self.packingSlipId?.encodeToJSON()

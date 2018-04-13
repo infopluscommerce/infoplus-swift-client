@@ -103,6 +103,21 @@ public class OrderAPI: APIBase {
     "backorderQty" : 5,
     "orderSourceSKU" : "orderSourceSKU",
     "extendedCost" : 6.6284642750877420525057459599338471889495849609375,
+    "dynamicKitComponentList" : [ {
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "sku",
+      "perKitQuantity" : 8,
+      "lobId" : 6
+    }, {
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "sku",
+      "perKitQuantity" : 8,
+      "lobId" : 6
+    } ],
     "id" : 0,
     "sku" : "sku",
     "unitDiscount" : 0.202532411323639305322785730822943150997161865234375,
@@ -142,6 +157,21 @@ public class OrderAPI: APIBase {
     "backorderQty" : 5,
     "orderSourceSKU" : "orderSourceSKU",
     "extendedCost" : 6.6284642750877420525057459599338471889495849609375,
+    "dynamicKitComponentList" : [ {
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "sku",
+      "perKitQuantity" : 8,
+      "lobId" : 6
+    }, {
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "sku",
+      "perKitQuantity" : 8,
+      "lobId" : 6
+    } ],
     "id" : 0,
     "sku" : "sku",
     "unitDiscount" : 0.202532411323639305322785730822943150997161865234375,
@@ -171,7 +201,7 @@ public class OrderAPI: APIBase {
   "shipBy" : "2000-01-23T04:56:07.000+00:00",
   "shippingCharge" : 5.94489560761401580890606055618263781070709228515625,
   "distributionChannel" : "distributionChannel",
-  "externalShippingSystemId" : 6,
+  "externalShippingSystemId" : 4,
   "lobId" : 6,
   "orderSourceId" : 6,
   "batchNo" : "batchNo",
@@ -182,6 +212,7 @@ public class OrderAPI: APIBase {
   "parentKODOrderId" : 1.173074250955943309548956676735542714595794677734375,
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "totalPaid" : 0.885137473901165261480628032586537301540374755859375,
+  "shippingMethod" : "shippingMethod",
   "tax" : 3.35319334701124294184637619764544069766998291015625,
   "groupOrderId" : 7.4577447736837658709418974467553198337554931640625,
   "orderInvoiceTemplateId" : 6,
@@ -446,6 +477,21 @@ public class OrderAPI: APIBase {
       "backorderQty" : 5,
       "orderSourceSKU" : "orderSourceSKU",
       "extendedCost" : 6.6284642750877420525057459599338471889495849609375,
+      "dynamicKitComponentList" : [ {
+        "customFields" : {
+          "key" : "{}"
+        },
+        "sku" : "sku",
+        "perKitQuantity" : 8,
+        "lobId" : 6
+      }, {
+        "customFields" : {
+          "key" : "{}"
+        },
+        "sku" : "sku",
+        "perKitQuantity" : 8,
+        "lobId" : 6
+      } ],
       "id" : 0,
       "sku" : "sku",
       "unitDiscount" : 0.202532411323639305322785730822943150997161865234375,
@@ -485,6 +531,21 @@ public class OrderAPI: APIBase {
       "backorderQty" : 5,
       "orderSourceSKU" : "orderSourceSKU",
       "extendedCost" : 6.6284642750877420525057459599338471889495849609375,
+      "dynamicKitComponentList" : [ {
+        "customFields" : {
+          "key" : "{}"
+        },
+        "sku" : "sku",
+        "perKitQuantity" : 8,
+        "lobId" : 6
+      }, {
+        "customFields" : {
+          "key" : "{}"
+        },
+        "sku" : "sku",
+        "perKitQuantity" : 8,
+        "lobId" : 6
+      } ],
       "id" : 0,
       "sku" : "sku",
       "unitDiscount" : 0.202532411323639305322785730822943150997161865234375,
@@ -514,7 +575,7 @@ public class OrderAPI: APIBase {
     "shipBy" : "2000-01-23T04:56:07.000+00:00",
     "shippingCharge" : 5.94489560761401580890606055618263781070709228515625,
     "distributionChannel" : "distributionChannel",
-    "externalShippingSystemId" : 6,
+    "externalShippingSystemId" : 4,
     "lobId" : 6,
     "orderSourceId" : 6,
     "batchNo" : "batchNo",
@@ -525,6 +586,7 @@ public class OrderAPI: APIBase {
     "parentKODOrderId" : 1.173074250955943309548956676735542714595794677734375,
     "modifyDate" : "2000-01-23T04:56:07.000+00:00",
     "totalPaid" : 0.885137473901165261480628032586537301540374755859375,
+    "shippingMethod" : "shippingMethod",
     "tax" : 3.35319334701124294184637619764544069766998291015625,
     "groupOrderId" : 7.4577447736837658709418974467553198337554931640625,
     "orderInvoiceTemplateId" : 6,
@@ -662,6 +724,21 @@ public class OrderAPI: APIBase {
       "backorderQty" : 5,
       "orderSourceSKU" : "orderSourceSKU",
       "extendedCost" : 6.6284642750877420525057459599338471889495849609375,
+      "dynamicKitComponentList" : [ {
+        "customFields" : {
+          "key" : "{}"
+        },
+        "sku" : "sku",
+        "perKitQuantity" : 8,
+        "lobId" : 6
+      }, {
+        "customFields" : {
+          "key" : "{}"
+        },
+        "sku" : "sku",
+        "perKitQuantity" : 8,
+        "lobId" : 6
+      } ],
       "id" : 0,
       "sku" : "sku",
       "unitDiscount" : 0.202532411323639305322785730822943150997161865234375,
@@ -701,6 +778,21 @@ public class OrderAPI: APIBase {
       "backorderQty" : 5,
       "orderSourceSKU" : "orderSourceSKU",
       "extendedCost" : 6.6284642750877420525057459599338471889495849609375,
+      "dynamicKitComponentList" : [ {
+        "customFields" : {
+          "key" : "{}"
+        },
+        "sku" : "sku",
+        "perKitQuantity" : 8,
+        "lobId" : 6
+      }, {
+        "customFields" : {
+          "key" : "{}"
+        },
+        "sku" : "sku",
+        "perKitQuantity" : 8,
+        "lobId" : 6
+      } ],
       "id" : 0,
       "sku" : "sku",
       "unitDiscount" : 0.202532411323639305322785730822943150997161865234375,
@@ -730,7 +822,7 @@ public class OrderAPI: APIBase {
     "shipBy" : "2000-01-23T04:56:07.000+00:00",
     "shippingCharge" : 5.94489560761401580890606055618263781070709228515625,
     "distributionChannel" : "distributionChannel",
-    "externalShippingSystemId" : 6,
+    "externalShippingSystemId" : 4,
     "lobId" : 6,
     "orderSourceId" : 6,
     "batchNo" : "batchNo",
@@ -741,6 +833,7 @@ public class OrderAPI: APIBase {
     "parentKODOrderId" : 1.173074250955943309548956676735542714595794677734375,
     "modifyDate" : "2000-01-23T04:56:07.000+00:00",
     "totalPaid" : 0.885137473901165261480628032586537301540374755859375,
+    "shippingMethod" : "shippingMethod",
     "tax" : 3.35319334701124294184637619764544069766998291015625,
     "groupOrderId" : 7.4577447736837658709418974467553198337554931640625,
     "orderInvoiceTemplateId" : 6,
@@ -1098,6 +1191,21 @@ public class OrderAPI: APIBase {
     "backorderQty" : 5,
     "orderSourceSKU" : "orderSourceSKU",
     "extendedCost" : 6.6284642750877420525057459599338471889495849609375,
+    "dynamicKitComponentList" : [ {
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "sku",
+      "perKitQuantity" : 8,
+      "lobId" : 6
+    }, {
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "sku",
+      "perKitQuantity" : 8,
+      "lobId" : 6
+    } ],
     "id" : 0,
     "sku" : "sku",
     "unitDiscount" : 0.202532411323639305322785730822943150997161865234375,
@@ -1137,6 +1245,21 @@ public class OrderAPI: APIBase {
     "backorderQty" : 5,
     "orderSourceSKU" : "orderSourceSKU",
     "extendedCost" : 6.6284642750877420525057459599338471889495849609375,
+    "dynamicKitComponentList" : [ {
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "sku",
+      "perKitQuantity" : 8,
+      "lobId" : 6
+    }, {
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "sku",
+      "perKitQuantity" : 8,
+      "lobId" : 6
+    } ],
     "id" : 0,
     "sku" : "sku",
     "unitDiscount" : 0.202532411323639305322785730822943150997161865234375,
@@ -1166,7 +1289,7 @@ public class OrderAPI: APIBase {
   "shipBy" : "2000-01-23T04:56:07.000+00:00",
   "shippingCharge" : 5.94489560761401580890606055618263781070709228515625,
   "distributionChannel" : "distributionChannel",
-  "externalShippingSystemId" : 6,
+  "externalShippingSystemId" : 4,
   "lobId" : 6,
   "orderSourceId" : 6,
   "batchNo" : "batchNo",
@@ -1177,6 +1300,7 @@ public class OrderAPI: APIBase {
   "parentKODOrderId" : 1.173074250955943309548956676735542714595794677734375,
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "totalPaid" : 0.885137473901165261480628032586537301540374755859375,
+  "shippingMethod" : "shippingMethod",
   "tax" : 3.35319334701124294184637619764544069766998291015625,
   "groupOrderId" : 7.4577447736837658709418974467553198337554931640625,
   "orderInvoiceTemplateId" : 6,
@@ -1359,6 +1483,21 @@ public class OrderAPI: APIBase {
     "backorderQty" : 5,
     "orderSourceSKU" : "orderSourceSKU",
     "extendedCost" : 6.6284642750877420525057459599338471889495849609375,
+    "dynamicKitComponentList" : [ {
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "sku",
+      "perKitQuantity" : 8,
+      "lobId" : 6
+    }, {
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "sku",
+      "perKitQuantity" : 8,
+      "lobId" : 6
+    } ],
     "id" : 0,
     "sku" : "sku",
     "unitDiscount" : 0.202532411323639305322785730822943150997161865234375,
@@ -1398,6 +1537,21 @@ public class OrderAPI: APIBase {
     "backorderQty" : 5,
     "orderSourceSKU" : "orderSourceSKU",
     "extendedCost" : 6.6284642750877420525057459599338471889495849609375,
+    "dynamicKitComponentList" : [ {
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "sku",
+      "perKitQuantity" : 8,
+      "lobId" : 6
+    }, {
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "sku",
+      "perKitQuantity" : 8,
+      "lobId" : 6
+    } ],
     "id" : 0,
     "sku" : "sku",
     "unitDiscount" : 0.202532411323639305322785730822943150997161865234375,
@@ -1427,7 +1581,7 @@ public class OrderAPI: APIBase {
   "shipBy" : "2000-01-23T04:56:07.000+00:00",
   "shippingCharge" : 5.94489560761401580890606055618263781070709228515625,
   "distributionChannel" : "distributionChannel",
-  "externalShippingSystemId" : 6,
+  "externalShippingSystemId" : 4,
   "lobId" : 6,
   "orderSourceId" : 6,
   "batchNo" : "batchNo",
@@ -1438,6 +1592,7 @@ public class OrderAPI: APIBase {
   "parentKODOrderId" : 1.173074250955943309548956676735542714595794677734375,
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "totalPaid" : 0.885137473901165261480628032586537301540374755859375,
+  "shippingMethod" : "shippingMethod",
   "tax" : 3.35319334701124294184637619764544069766998291015625,
   "groupOrderId" : 7.4577447736837658709418974467553198337554931640625,
   "orderInvoiceTemplateId" : 6,
@@ -1575,6 +1730,21 @@ public class OrderAPI: APIBase {
     "backorderQty" : 5,
     "orderSourceSKU" : "orderSourceSKU",
     "extendedCost" : 6.6284642750877420525057459599338471889495849609375,
+    "dynamicKitComponentList" : [ {
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "sku",
+      "perKitQuantity" : 8,
+      "lobId" : 6
+    }, {
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "sku",
+      "perKitQuantity" : 8,
+      "lobId" : 6
+    } ],
     "id" : 0,
     "sku" : "sku",
     "unitDiscount" : 0.202532411323639305322785730822943150997161865234375,
@@ -1614,6 +1784,21 @@ public class OrderAPI: APIBase {
     "backorderQty" : 5,
     "orderSourceSKU" : "orderSourceSKU",
     "extendedCost" : 6.6284642750877420525057459599338471889495849609375,
+    "dynamicKitComponentList" : [ {
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "sku",
+      "perKitQuantity" : 8,
+      "lobId" : 6
+    }, {
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "sku",
+      "perKitQuantity" : 8,
+      "lobId" : 6
+    } ],
     "id" : 0,
     "sku" : "sku",
     "unitDiscount" : 0.202532411323639305322785730822943150997161865234375,
@@ -1643,7 +1828,7 @@ public class OrderAPI: APIBase {
   "shipBy" : "2000-01-23T04:56:07.000+00:00",
   "shippingCharge" : 5.94489560761401580890606055618263781070709228515625,
   "distributionChannel" : "distributionChannel",
-  "externalShippingSystemId" : 6,
+  "externalShippingSystemId" : 4,
   "lobId" : 6,
   "orderSourceId" : 6,
   "batchNo" : "batchNo",
@@ -1654,6 +1839,7 @@ public class OrderAPI: APIBase {
   "parentKODOrderId" : 1.173074250955943309548956676735542714595794677734375,
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "totalPaid" : 0.885137473901165261480628032586537301540374755859375,
+  "shippingMethod" : "shippingMethod",
   "tax" : 3.35319334701124294184637619764544069766998291015625,
   "groupOrderId" : 7.4577447736837658709418974467553198337554931640625,
   "orderInvoiceTemplateId" : 6,
@@ -1840,6 +2026,21 @@ public class OrderAPI: APIBase {
     "backorderQty" : 5,
     "orderSourceSKU" : "orderSourceSKU",
     "extendedCost" : 6.6284642750877420525057459599338471889495849609375,
+    "dynamicKitComponentList" : [ {
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "sku",
+      "perKitQuantity" : 8,
+      "lobId" : 6
+    }, {
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "sku",
+      "perKitQuantity" : 8,
+      "lobId" : 6
+    } ],
     "id" : 0,
     "sku" : "sku",
     "unitDiscount" : 0.202532411323639305322785730822943150997161865234375,
@@ -1879,6 +2080,21 @@ public class OrderAPI: APIBase {
     "backorderQty" : 5,
     "orderSourceSKU" : "orderSourceSKU",
     "extendedCost" : 6.6284642750877420525057459599338471889495849609375,
+    "dynamicKitComponentList" : [ {
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "sku",
+      "perKitQuantity" : 8,
+      "lobId" : 6
+    }, {
+      "customFields" : {
+        "key" : "{}"
+      },
+      "sku" : "sku",
+      "perKitQuantity" : 8,
+      "lobId" : 6
+    } ],
     "id" : 0,
     "sku" : "sku",
     "unitDiscount" : 0.202532411323639305322785730822943150997161865234375,
@@ -1908,7 +2124,7 @@ public class OrderAPI: APIBase {
   "shipBy" : "2000-01-23T04:56:07.000+00:00",
   "shippingCharge" : 5.94489560761401580890606055618263781070709228515625,
   "distributionChannel" : "distributionChannel",
-  "externalShippingSystemId" : 6,
+  "externalShippingSystemId" : 4,
   "lobId" : 6,
   "orderSourceId" : 6,
   "batchNo" : "batchNo",
@@ -1919,6 +2135,7 @@ public class OrderAPI: APIBase {
   "parentKODOrderId" : 1.173074250955943309548956676735542714595794677734375,
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "totalPaid" : 0.885137473901165261480628032586537301540374755859375,
+  "shippingMethod" : "shippingMethod",
   "tax" : 3.35319334701124294184637619764544069766998291015625,
   "groupOrderId" : 7.4577447736837658709418974467553198337554931640625,
   "orderInvoiceTemplateId" : 6,

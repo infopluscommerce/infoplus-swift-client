@@ -16,6 +16,7 @@ public class Order: JSONEncodable {
     public var orderDate: NSDate?
     public var customerNo: String?
     public var useOrderNoRoot: Int32?
+    public var shippingMethod: String?
     public var firstShipDate: NSDate?
     public var lastShipDate: NSDate?
     public var deliverOnDate: NSDate?
@@ -125,6 +126,7 @@ public class Order: JSONEncodable {
         nillableDictionary["orderDate"] = self.orderDate?.encodeToJSON()
         nillableDictionary["customerNo"] = self.customerNo
         nillableDictionary["useOrderNoRoot"] = self.useOrderNoRoot?.encodeToJSON()
+        nillableDictionary["shippingMethod"] = self.shippingMethod
         nillableDictionary["firstShipDate"] = self.firstShipDate?.encodeToJSON()
         nillableDictionary["lastShipDate"] = self.lastShipDate?.encodeToJSON()
         nillableDictionary["deliverOnDate"] = self.deliverOnDate?.encodeToJSON()

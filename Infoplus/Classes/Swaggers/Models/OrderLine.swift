@@ -44,6 +44,7 @@ public class OrderLine: JSONEncodable {
     public var itemProductCodeId: Int32?
     public var itemSummaryCodeId: Int32?
     public var fulfillmentChannel: String?
+    public var dynamicKitComponentList: [DynamicKitComponentLine]?
     public var customFields: [String:AnyObject]?
 
     public init() {}
@@ -86,6 +87,7 @@ public class OrderLine: JSONEncodable {
         nillableDictionary["itemProductCodeId"] = self.itemProductCodeId?.encodeToJSON()
         nillableDictionary["itemSummaryCodeId"] = self.itemSummaryCodeId?.encodeToJSON()
         nillableDictionary["fulfillmentChannel"] = self.fulfillmentChannel
+        nillableDictionary["dynamicKitComponentList"] = self.dynamicKitComponentList?.encodeToJSON()
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

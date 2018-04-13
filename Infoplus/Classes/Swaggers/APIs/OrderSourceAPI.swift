@@ -35,6 +35,7 @@ public class OrderSourceAPI: APIBase {
   "shippingNotes" : "shippingNotes",
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "packingSlipId" : 1,
+  "usesReservations" : false,
   "customFields" : {
     "key" : "{}"
   },
@@ -263,6 +264,7 @@ public class OrderSourceAPI: APIBase {
   "shippingNotes" : "shippingNotes",
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "packingSlipId" : 1,
+  "usesReservations" : false,
   "customFields" : {
     "key" : "{}"
   },
@@ -325,6 +327,7 @@ public class OrderSourceAPI: APIBase {
   "shippingNotes" : "shippingNotes",
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "packingSlipId" : 1,
+  "usesReservations" : false,
   "customFields" : {
     "key" : "{}"
   },
@@ -342,6 +345,7 @@ public class OrderSourceAPI: APIBase {
   "shippingNotes" : "shippingNotes",
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "packingSlipId" : 1,
+  "usesReservations" : false,
   "customFields" : {
     "key" : "{}"
   },
@@ -408,6 +412,7 @@ public class OrderSourceAPI: APIBase {
   "shippingNotes" : "shippingNotes",
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "packingSlipId" : 1,
+  "usesReservations" : false,
   "customFields" : {
     "key" : "{}"
   },

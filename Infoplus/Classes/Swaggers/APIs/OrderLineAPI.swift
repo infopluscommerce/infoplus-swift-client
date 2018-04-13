@@ -178,6 +178,21 @@ public class OrderLineAPI: APIBase {
   "backorderQty" : 5,
   "orderSourceSKU" : "orderSourceSKU",
   "extendedCost" : 6.6284642750877420525057459599338471889495849609375,
+  "dynamicKitComponentList" : [ {
+    "customFields" : {
+      "key" : "{}"
+    },
+    "sku" : "sku",
+    "perKitQuantity" : 8,
+    "lobId" : 6
+  }, {
+    "customFields" : {
+      "key" : "{}"
+    },
+    "sku" : "sku",
+    "perKitQuantity" : 8,
+    "lobId" : 6
+  } ],
   "id" : 0,
   "sku" : "sku",
   "unitDiscount" : 0.202532411323639305322785730822943150997161865234375,
@@ -262,6 +277,21 @@ public class OrderLineAPI: APIBase {
   "backorderQty" : 5,
   "orderSourceSKU" : "orderSourceSKU",
   "extendedCost" : 6.6284642750877420525057459599338471889495849609375,
+  "dynamicKitComponentList" : [ {
+    "customFields" : {
+      "key" : "{}"
+    },
+    "sku" : "sku",
+    "perKitQuantity" : 8,
+    "lobId" : 6
+  }, {
+    "customFields" : {
+      "key" : "{}"
+    },
+    "sku" : "sku",
+    "perKitQuantity" : 8,
+    "lobId" : 6
+  } ],
   "id" : 0,
   "sku" : "sku",
   "unitDiscount" : 0.202532411323639305322785730822943150997161865234375,
@@ -301,6 +331,21 @@ public class OrderLineAPI: APIBase {
   "backorderQty" : 5,
   "orderSourceSKU" : "orderSourceSKU",
   "extendedCost" : 6.6284642750877420525057459599338471889495849609375,
+  "dynamicKitComponentList" : [ {
+    "customFields" : {
+      "key" : "{}"
+    },
+    "sku" : "sku",
+    "perKitQuantity" : 8,
+    "lobId" : 6
+  }, {
+    "customFields" : {
+      "key" : "{}"
+    },
+    "sku" : "sku",
+    "perKitQuantity" : 8,
+    "lobId" : 6
+  } ],
   "id" : 0,
   "sku" : "sku",
   "unitDiscount" : 0.202532411323639305322785730822943150997161865234375,
@@ -389,6 +434,21 @@ public class OrderLineAPI: APIBase {
   "backorderQty" : 5,
   "orderSourceSKU" : "orderSourceSKU",
   "extendedCost" : 6.6284642750877420525057459599338471889495849609375,
+  "dynamicKitComponentList" : [ {
+    "customFields" : {
+      "key" : "{}"
+    },
+    "sku" : "sku",
+    "perKitQuantity" : 8,
+    "lobId" : 6
+  }, {
+    "customFields" : {
+      "key" : "{}"
+    },
+    "sku" : "sku",
+    "perKitQuantity" : 8,
+    "lobId" : 6
+  } ],
   "id" : 0,
   "sku" : "sku",
   "unitDiscount" : 0.202532411323639305322785730822943150997161865234375,
