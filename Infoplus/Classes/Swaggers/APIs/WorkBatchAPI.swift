@@ -165,6 +165,7 @@ public class WorkBatchAPI: APIBase {
      - examples: [{contentType=application/json, example={
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "warehouseId" : 6,
+  "batchPriorityCode" : 1,
   "customFields" : {
     "key" : "{}"
   },
@@ -218,6 +219,7 @@ public class WorkBatchAPI: APIBase {
      - examples: [{contentType=application/json, example=[ {
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "warehouseId" : 6,
+  "batchPriorityCode" : 1,
   "customFields" : {
     "key" : "{}"
   },
@@ -226,6 +228,7 @@ public class WorkBatchAPI: APIBase {
 }, {
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "warehouseId" : 6,
+  "batchPriorityCode" : 1,
   "customFields" : {
     "key" : "{}"
   },
@@ -283,6 +286,7 @@ public class WorkBatchAPI: APIBase {
      - examples: [{contentType=application/json, example={
   "modifyDate" : "2000-01-23T04:56:07.000+00:00",
   "warehouseId" : 6,
+  "batchPriorityCode" : 1,
   "customFields" : {
     "key" : "{}"
   },
@@ -349,6 +353,43 @@ public class WorkBatchAPI: APIBase {
         let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
+    }
+
+    /**
+     Update a workBatch
+     
+     - parameter body: (body) WorkBatch to be updated. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func updateWorkBatch(body body: WorkBatch, completion: ((error: ErrorType?) -> Void)) {
+        updateWorkBatchWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(error: error);
+        }
+    }
+
+
+    /**
+     Update a workBatch
+     - PUT /beta/workBatch
+     - Updates an existing workBatch using the specified data.
+     - API Key:
+       - type: apiKey API-Key 
+       - name: api_key
+     
+     - parameter body: (body) WorkBatch to be updated. 
+
+     - returns: RequestBuilder<Void> 
+     */
+    public class func updateWorkBatchWithRequestBuilder(body body: WorkBatch) -> RequestBuilder<Void> {
+        let path = "/beta/workBatch"
+        let URLString = InfoplusAPI.basePath + path
+        let parameters = body.encodeToJSON() as? [String:AnyObject]
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
+        let requestBuilder: RequestBuilder<Void>.Type = InfoplusAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
 
     /**

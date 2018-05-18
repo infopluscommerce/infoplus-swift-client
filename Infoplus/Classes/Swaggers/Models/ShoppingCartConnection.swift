@@ -39,6 +39,8 @@ public class ShoppingCartConnection: JSONEncodable {
     public var syncOrdersLastRunTime: NSDate?
     public var inventoryLevelWarehouseControls: String?
     public var warehouseList: [Warehouse]?
+    public var inventoryLevelStoreControls: String?
+    public var storeList: [Store]?
     public var customFields: [String:AnyObject]?
 
     public init() {}
@@ -76,6 +78,8 @@ public class ShoppingCartConnection: JSONEncodable {
         nillableDictionary["syncOrdersLastRunTime"] = self.syncOrdersLastRunTime?.encodeToJSON()
         nillableDictionary["inventoryLevelWarehouseControls"] = self.inventoryLevelWarehouseControls
         nillableDictionary["warehouseList"] = self.warehouseList?.encodeToJSON()
+        nillableDictionary["inventoryLevelStoreControls"] = self.inventoryLevelStoreControls
+        nillableDictionary["storeList"] = self.storeList?.encodeToJSON()
         nillableDictionary["customFields"] = self.customFields?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

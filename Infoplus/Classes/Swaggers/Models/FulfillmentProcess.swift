@@ -21,10 +21,12 @@ public class FulfillmentProcess: JSONEncodable {
     public var orderSmartFilterId: Int32?
     public var locationSmartFilterId: Int32?
     public var maxOrders: Int32?
-    public var batchSize: Int32?
+    public var batchMaxSize: Int32?
+    public var batchMinSize: Int32?
     public var version: String?
     public var fulfillmentProcessGroup: Int32?
     public var isMassDistribution: Bool?
+    public var priorityCode: Int32?
     public var numberOfOrders: Int32?
     public var numberOfLines: Int32?
     public var numberOfSKUs: Int32?
@@ -81,10 +83,12 @@ public class FulfillmentProcess: JSONEncodable {
         nillableDictionary["orderSmartFilterId"] = self.orderSmartFilterId?.encodeToJSON()
         nillableDictionary["locationSmartFilterId"] = self.locationSmartFilterId?.encodeToJSON()
         nillableDictionary["maxOrders"] = self.maxOrders?.encodeToJSON()
-        nillableDictionary["batchSize"] = self.batchSize?.encodeToJSON()
+        nillableDictionary["batchMaxSize"] = self.batchMaxSize?.encodeToJSON()
+        nillableDictionary["batchMinSize"] = self.batchMinSize?.encodeToJSON()
         nillableDictionary["version"] = self.version
         nillableDictionary["fulfillmentProcessGroup"] = self.fulfillmentProcessGroup?.encodeToJSON()
         nillableDictionary["isMassDistribution"] = self.isMassDistribution
+        nillableDictionary["priorityCode"] = self.priorityCode?.encodeToJSON()
         nillableDictionary["numberOfOrders"] = self.numberOfOrders?.encodeToJSON()
         nillableDictionary["numberOfLines"] = self.numberOfLines?.encodeToJSON()
         nillableDictionary["numberOfSKUs"] = self.numberOfSKUs?.encodeToJSON()

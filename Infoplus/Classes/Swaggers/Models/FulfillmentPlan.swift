@@ -15,11 +15,13 @@ public class FulfillmentPlan: JSONEncodable {
     public var name: String?
     public var description: String?
     public var warehouseId: Int32?
+    public var priorityCode: Int32?
     public var lastRunTime: NSDate?
     public var orderSmartFilterId: Int32?
     public var locationSmartFilterId: Int32?
     public var maxOrders: Int32?
-    public var batchSize: Int32?
+    public var batchSizeMax: Int32?
+    public var batchSizeMin: Int32?
     public var version: String?
     public var isMassDistribution: Bool?
     public var createPickWork: Bool?
@@ -60,11 +62,13 @@ public class FulfillmentPlan: JSONEncodable {
         nillableDictionary["name"] = self.name
         nillableDictionary["description"] = self.description
         nillableDictionary["warehouseId"] = self.warehouseId?.encodeToJSON()
+        nillableDictionary["priorityCode"] = self.priorityCode?.encodeToJSON()
         nillableDictionary["lastRunTime"] = self.lastRunTime?.encodeToJSON()
         nillableDictionary["orderSmartFilterId"] = self.orderSmartFilterId?.encodeToJSON()
         nillableDictionary["locationSmartFilterId"] = self.locationSmartFilterId?.encodeToJSON()
         nillableDictionary["maxOrders"] = self.maxOrders?.encodeToJSON()
-        nillableDictionary["batchSize"] = self.batchSize?.encodeToJSON()
+        nillableDictionary["batchSizeMax"] = self.batchSizeMax?.encodeToJSON()
+        nillableDictionary["batchSizeMin"] = self.batchSizeMin?.encodeToJSON()
         nillableDictionary["version"] = self.version
         nillableDictionary["isMassDistribution"] = self.isMassDistribution
         nillableDictionary["createPickWork"] = self.createPickWork

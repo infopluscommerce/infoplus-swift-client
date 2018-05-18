@@ -1102,11 +1102,13 @@ class Decoders {
                 instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"])
                 instance.description = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["description"])
                 instance.warehouseId = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["warehouseId"])
+                instance.priorityCode = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["priorityCode"])
                 instance.lastRunTime = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["lastRunTime"])
                 instance.orderSmartFilterId = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["orderSmartFilterId"])
                 instance.locationSmartFilterId = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["locationSmartFilterId"])
                 instance.maxOrders = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["maxOrders"])
-                instance.batchSize = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["batchSize"])
+                instance.batchSizeMax = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["batchSizeMax"])
+                instance.batchSizeMin = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["batchSizeMin"])
                 instance.version = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["version"])
                 instance.isMassDistribution = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["isMassDistribution"])
                 instance.createPickWork = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["createPickWork"])
@@ -1159,10 +1161,12 @@ class Decoders {
                 instance.orderSmartFilterId = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["orderSmartFilterId"])
                 instance.locationSmartFilterId = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["locationSmartFilterId"])
                 instance.maxOrders = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["maxOrders"])
-                instance.batchSize = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["batchSize"])
+                instance.batchMaxSize = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["batchMaxSize"])
+                instance.batchMinSize = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["batchMinSize"])
                 instance.version = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["version"])
                 instance.fulfillmentProcessGroup = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["fulfillmentProcessGroup"])
                 instance.isMassDistribution = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["isMassDistribution"])
+                instance.priorityCode = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["priorityCode"])
                 instance.numberOfOrders = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["numberOfOrders"])
                 instance.numberOfLines = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["numberOfLines"])
                 instance.numberOfSKUs = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["numberOfSKUs"])
@@ -1741,6 +1745,33 @@ class Decoders {
                 instance.orderableQuantity = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["orderableQuantity"])
                 instance.unallocatableQuantity = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["unallocatableQuantity"])
                 instance.unavailableQuantity = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["unavailableQuantity"])
+                instance.availableQuantityInnerPacks = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["availableQuantityInnerPacks"])
+                instance.damagedQuantityInnerPacks = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["damagedQuantityInnerPacks"])
+                instance.inFulfillmentProcessQuantityInnerPacks = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["inFulfillmentProcessQuantityInnerPacks"])
+                instance.onHandQuantityInnerPacks = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["onHandQuantityInnerPacks"])
+                instance.openOrderQuantityInnerPacks = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["openOrderQuantityInnerPacks"])
+                instance.openPOQuantityInnerPacks = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["openPOQuantityInnerPacks"])
+                instance.orderableQuantityInnerPacks = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["orderableQuantityInnerPacks"])
+                instance.unallocatableQuantityInnerPacks = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["unallocatableQuantityInnerPacks"])
+                instance.unavailableQuantityInnerPacks = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["unavailableQuantityInnerPacks"])
+                instance.availableQuantityCases = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["availableQuantityCases"])
+                instance.damagedQuantityCases = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["damagedQuantityCases"])
+                instance.inFulfillmentProcessQuantityCases = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["inFulfillmentProcessQuantityCases"])
+                instance.onHandQuantityCases = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["onHandQuantityCases"])
+                instance.openOrderQuantityCases = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["openOrderQuantityCases"])
+                instance.openPOQuantityCases = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["openPOQuantityCases"])
+                instance.orderableQuantityCases = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["orderableQuantityCases"])
+                instance.unallocatableQuantityCases = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["unallocatableQuantityCases"])
+                instance.unavailableQuantityCases = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["unavailableQuantityCases"])
+                instance.availableQuantityPallets = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["availableQuantityPallets"])
+                instance.damagedQuantityPallets = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["damagedQuantityPallets"])
+                instance.inFulfillmentProcessQuantityPallets = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["inFulfillmentProcessQuantityPallets"])
+                instance.onHandQuantityPallets = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["onHandQuantityPallets"])
+                instance.openOrderQuantityPallets = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["openOrderQuantityPallets"])
+                instance.openPOQuantityPallets = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["openPOQuantityPallets"])
+                instance.orderableQuantityPallets = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["orderableQuantityPallets"])
+                instance.unallocatableQuantityPallets = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["unallocatableQuantityPallets"])
+                instance.unavailableQuantityPallets = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["unavailableQuantityPallets"])
                 instance.overallDaysOnHand = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["overallDaysOnHand"])
                 instance.overallStockStatus = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["overallStockStatus"])
                 instance.estimatedPallets = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["estimatedPallets"])
@@ -3088,6 +3119,30 @@ class Decoders {
             }
 
 
+            // Decoder for [OrderSourceStockStatus]
+            Decoders.addDecoder(clazz: [OrderSourceStockStatus].self) { (source: AnyObject) -> [OrderSourceStockStatus] in
+                return Decoders.decode(clazz: [OrderSourceStockStatus].self, source: source)
+            }
+            // Decoder for OrderSourceStockStatus
+            Decoders.addDecoder(clazz: OrderSourceStockStatus.self) { (source: AnyObject) -> OrderSourceStockStatus in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = OrderSourceStockStatus()
+                instance.id = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["id"])
+                instance.orderSourceId = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["orderSourceId"])
+                instance.lobId = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["lobId"])
+                instance.totalReservedQuantity = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["totalReservedQuantity"])
+                instance.demand = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["demand"])
+                instance.reservedQuantity = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["reservedQuantity"])
+                instance.quantityAvailable = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["quantityAvailable"])
+                instance.orderableQuantity = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["orderableQuantity"])
+                instance.unreservedQuantityAvailable = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["unreservedQuantityAvailable"])
+                instance.netReservation = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["netReservation"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                instance.sku = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sku"])
+                return instance
+            }
+
+
             // Decoder for [OrderWarehouseFulfillmentPlan]
             Decoders.addDecoder(clazz: [OrderWarehouseFulfillmentPlan].self) { (source: AnyObject) -> [OrderWarehouseFulfillmentPlan] in
                 return Decoders.decode(clazz: [OrderWarehouseFulfillmentPlan].self, source: source)
@@ -3950,6 +4005,8 @@ class Decoders {
                 instance.syncOrdersLastRunTime = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["syncOrdersLastRunTime"])
                 instance.inventoryLevelWarehouseControls = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["inventoryLevelWarehouseControls"])
                 instance.warehouseList = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["warehouseList"])
+                instance.inventoryLevelStoreControls = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["inventoryLevelStoreControls"])
+                instance.storeList = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["storeList"])
                 instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
             }
@@ -3974,6 +4031,21 @@ class Decoders {
                 instance.backorderServiceDays = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["backorderServiceDays"])
                 instance.backorderServiceCutoffHour = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["backorderServiceCutoffHour"])
                 instance.rushServiceCutoffHour = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["rushServiceCutoffHour"])
+                instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
+                return instance
+            }
+
+
+            // Decoder for [Store]
+            Decoders.addDecoder(clazz: [Store].self) { (source: AnyObject) -> [Store] in
+                return Decoders.decode(clazz: [Store].self, source: source)
+            }
+            // Decoder for Store
+            Decoders.addDecoder(clazz: Store.self) { (source: AnyObject) -> Store in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = Store()
+                instance.storeName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["storeName"])
+                instance.storeId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["storeId"])
                 instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])
                 return instance
             }
@@ -4411,6 +4483,7 @@ class Decoders {
                 let instance = WorkBatch()
                 instance.id = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["id"])
                 instance.warehouseId = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["warehouseId"])
+                instance.batchPriorityCode = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["batchPriorityCode"])
                 instance.createDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["createDate"])
                 instance.modifyDate = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["modifyDate"])
                 instance.customFields = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["customFields"])

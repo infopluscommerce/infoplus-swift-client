@@ -37,6 +37,19 @@ public class ShoppingCartConnectionAPI: APIBase {
   "customFields" : {
     "key" : "{}"
   },
+  "storeList" : [ {
+    "customFields" : {
+      "key" : "{}"
+    },
+    "storeName" : "storeName",
+    "storeId" : "storeId"
+  }, {
+    "customFields" : {
+      "key" : "{}"
+    },
+    "storeName" : "storeName",
+    "storeId" : "storeId"
+  } ],
   "integrationPartnerId" : 5,
   "connectionType" : "connectionType",
   "syncTrackingData" : false,
@@ -105,7 +118,8 @@ public class ShoppingCartConnectionAPI: APIBase {
   "name" : "name",
   "shoppingCartSKUFieldToMap" : "shoppingCartSKUFieldToMap",
   "inventoryLevelWarehouseControls" : "inventoryLevelWarehouseControls",
-  "username" : "username"
+  "username" : "username",
+  "inventoryLevelStoreControls" : "inventoryLevelStoreControls"
 }}]
      
      - parameter body: (body) ShoppingCartConnection to be inserted. 
@@ -324,6 +338,19 @@ public class ShoppingCartConnectionAPI: APIBase {
   "customFields" : {
     "key" : "{}"
   },
+  "storeList" : [ {
+    "customFields" : {
+      "key" : "{}"
+    },
+    "storeName" : "storeName",
+    "storeId" : "storeId"
+  }, {
+    "customFields" : {
+      "key" : "{}"
+    },
+    "storeName" : "storeName",
+    "storeId" : "storeId"
+  } ],
   "integrationPartnerId" : 5,
   "connectionType" : "connectionType",
   "syncTrackingData" : false,
@@ -392,7 +419,8 @@ public class ShoppingCartConnectionAPI: APIBase {
   "name" : "name",
   "shoppingCartSKUFieldToMap" : "shoppingCartSKUFieldToMap",
   "inventoryLevelWarehouseControls" : "inventoryLevelWarehouseControls",
-  "username" : "username"
+  "username" : "username",
+  "inventoryLevelStoreControls" : "inventoryLevelStoreControls"
 }}]
      
      - parameter shoppingCartConnectionId: (path) Id of the shoppingCartConnection to be duplicated. 
@@ -445,6 +473,19 @@ public class ShoppingCartConnectionAPI: APIBase {
   "customFields" : {
     "key" : "{}"
   },
+  "storeList" : [ {
+    "customFields" : {
+      "key" : "{}"
+    },
+    "storeName" : "storeName",
+    "storeId" : "storeId"
+  }, {
+    "customFields" : {
+      "key" : "{}"
+    },
+    "storeName" : "storeName",
+    "storeId" : "storeId"
+  } ],
   "integrationPartnerId" : 5,
   "connectionType" : "connectionType",
   "syncTrackingData" : false,
@@ -513,7 +554,8 @@ public class ShoppingCartConnectionAPI: APIBase {
   "name" : "name",
   "shoppingCartSKUFieldToMap" : "shoppingCartSKUFieldToMap",
   "inventoryLevelWarehouseControls" : "inventoryLevelWarehouseControls",
-  "username" : "username"
+  "username" : "username",
+  "inventoryLevelStoreControls" : "inventoryLevelStoreControls"
 }, {
   "syncInventory" : false,
   "syncInventoryLevelsLastRunTime" : "2000-01-23T04:56:07.000+00:00",
@@ -521,6 +563,19 @@ public class ShoppingCartConnectionAPI: APIBase {
   "customFields" : {
     "key" : "{}"
   },
+  "storeList" : [ {
+    "customFields" : {
+      "key" : "{}"
+    },
+    "storeName" : "storeName",
+    "storeId" : "storeId"
+  }, {
+    "customFields" : {
+      "key" : "{}"
+    },
+    "storeName" : "storeName",
+    "storeId" : "storeId"
+  } ],
   "integrationPartnerId" : 5,
   "connectionType" : "connectionType",
   "syncTrackingData" : false,
@@ -589,7 +644,8 @@ public class ShoppingCartConnectionAPI: APIBase {
   "name" : "name",
   "shoppingCartSKUFieldToMap" : "shoppingCartSKUFieldToMap",
   "inventoryLevelWarehouseControls" : "inventoryLevelWarehouseControls",
-  "username" : "username"
+  "username" : "username",
+  "inventoryLevelStoreControls" : "inventoryLevelStoreControls"
 } ]}]
      
      - parameter filter: (query) Query string, used to filter results. (optional)
@@ -646,6 +702,19 @@ public class ShoppingCartConnectionAPI: APIBase {
   "customFields" : {
     "key" : "{}"
   },
+  "storeList" : [ {
+    "customFields" : {
+      "key" : "{}"
+    },
+    "storeName" : "storeName",
+    "storeId" : "storeId"
+  }, {
+    "customFields" : {
+      "key" : "{}"
+    },
+    "storeName" : "storeName",
+    "storeId" : "storeId"
+  } ],
   "integrationPartnerId" : 5,
   "connectionType" : "connectionType",
   "syncTrackingData" : false,
@@ -714,7 +783,8 @@ public class ShoppingCartConnectionAPI: APIBase {
   "name" : "name",
   "shoppingCartSKUFieldToMap" : "shoppingCartSKUFieldToMap",
   "inventoryLevelWarehouseControls" : "inventoryLevelWarehouseControls",
-  "username" : "username"
+  "username" : "username",
+  "inventoryLevelStoreControls" : "inventoryLevelStoreControls"
 }}]
      
      - parameter shoppingCartConnectionId: (path) Id of the shoppingCartConnection to be returned. 

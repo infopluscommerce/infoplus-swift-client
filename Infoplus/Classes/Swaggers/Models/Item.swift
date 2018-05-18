@@ -112,6 +112,33 @@ public class Item: JSONEncodable {
     public var orderableQuantity: Int32?
     public var unallocatableQuantity: Int32?
     public var unavailableQuantity: Int32?
+    public var availableQuantityInnerPacks: Int32?
+    public var damagedQuantityInnerPacks: Int32?
+    public var inFulfillmentProcessQuantityInnerPacks: Int32?
+    public var onHandQuantityInnerPacks: Int32?
+    public var openOrderQuantityInnerPacks: Int32?
+    public var openPOQuantityInnerPacks: Int32?
+    public var orderableQuantityInnerPacks: Int32?
+    public var unallocatableQuantityInnerPacks: Int32?
+    public var unavailableQuantityInnerPacks: Int32?
+    public var availableQuantityCases: Int32?
+    public var damagedQuantityCases: Int32?
+    public var inFulfillmentProcessQuantityCases: Int32?
+    public var onHandQuantityCases: Int32?
+    public var openOrderQuantityCases: Int32?
+    public var openPOQuantityCases: Int32?
+    public var orderableQuantityCases: Int32?
+    public var unallocatableQuantityCases: Int32?
+    public var unavailableQuantityCases: Int32?
+    public var availableQuantityPallets: Int32?
+    public var damagedQuantityPallets: Int32?
+    public var inFulfillmentProcessQuantityPallets: Int32?
+    public var onHandQuantityPallets: Int32?
+    public var openOrderQuantityPallets: Int32?
+    public var openPOQuantityPallets: Int32?
+    public var orderableQuantityPallets: Int32?
+    public var unallocatableQuantityPallets: Int32?
+    public var unavailableQuantityPallets: Int32?
     public var overallDaysOnHand: Int32?
     public var overallStockStatus: String?
     public var estimatedPallets: Int32?
@@ -242,6 +269,33 @@ public class Item: JSONEncodable {
         nillableDictionary["orderableQuantity"] = self.orderableQuantity?.encodeToJSON()
         nillableDictionary["unallocatableQuantity"] = self.unallocatableQuantity?.encodeToJSON()
         nillableDictionary["unavailableQuantity"] = self.unavailableQuantity?.encodeToJSON()
+        nillableDictionary["availableQuantityInnerPacks"] = self.availableQuantityInnerPacks?.encodeToJSON()
+        nillableDictionary["damagedQuantityInnerPacks"] = self.damagedQuantityInnerPacks?.encodeToJSON()
+        nillableDictionary["inFulfillmentProcessQuantityInnerPacks"] = self.inFulfillmentProcessQuantityInnerPacks?.encodeToJSON()
+        nillableDictionary["onHandQuantityInnerPacks"] = self.onHandQuantityInnerPacks?.encodeToJSON()
+        nillableDictionary["openOrderQuantityInnerPacks"] = self.openOrderQuantityInnerPacks?.encodeToJSON()
+        nillableDictionary["openPOQuantityInnerPacks"] = self.openPOQuantityInnerPacks?.encodeToJSON()
+        nillableDictionary["orderableQuantityInnerPacks"] = self.orderableQuantityInnerPacks?.encodeToJSON()
+        nillableDictionary["unallocatableQuantityInnerPacks"] = self.unallocatableQuantityInnerPacks?.encodeToJSON()
+        nillableDictionary["unavailableQuantityInnerPacks"] = self.unavailableQuantityInnerPacks?.encodeToJSON()
+        nillableDictionary["availableQuantityCases"] = self.availableQuantityCases?.encodeToJSON()
+        nillableDictionary["damagedQuantityCases"] = self.damagedQuantityCases?.encodeToJSON()
+        nillableDictionary["inFulfillmentProcessQuantityCases"] = self.inFulfillmentProcessQuantityCases?.encodeToJSON()
+        nillableDictionary["onHandQuantityCases"] = self.onHandQuantityCases?.encodeToJSON()
+        nillableDictionary["openOrderQuantityCases"] = self.openOrderQuantityCases?.encodeToJSON()
+        nillableDictionary["openPOQuantityCases"] = self.openPOQuantityCases?.encodeToJSON()
+        nillableDictionary["orderableQuantityCases"] = self.orderableQuantityCases?.encodeToJSON()
+        nillableDictionary["unallocatableQuantityCases"] = self.unallocatableQuantityCases?.encodeToJSON()
+        nillableDictionary["unavailableQuantityCases"] = self.unavailableQuantityCases?.encodeToJSON()
+        nillableDictionary["availableQuantityPallets"] = self.availableQuantityPallets?.encodeToJSON()
+        nillableDictionary["damagedQuantityPallets"] = self.damagedQuantityPallets?.encodeToJSON()
+        nillableDictionary["inFulfillmentProcessQuantityPallets"] = self.inFulfillmentProcessQuantityPallets?.encodeToJSON()
+        nillableDictionary["onHandQuantityPallets"] = self.onHandQuantityPallets?.encodeToJSON()
+        nillableDictionary["openOrderQuantityPallets"] = self.openOrderQuantityPallets?.encodeToJSON()
+        nillableDictionary["openPOQuantityPallets"] = self.openPOQuantityPallets?.encodeToJSON()
+        nillableDictionary["orderableQuantityPallets"] = self.orderableQuantityPallets?.encodeToJSON()
+        nillableDictionary["unallocatableQuantityPallets"] = self.unallocatableQuantityPallets?.encodeToJSON()
+        nillableDictionary["unavailableQuantityPallets"] = self.unavailableQuantityPallets?.encodeToJSON()
         nillableDictionary["overallDaysOnHand"] = self.overallDaysOnHand?.encodeToJSON()
         nillableDictionary["overallStockStatus"] = self.overallStockStatus
         nillableDictionary["estimatedPallets"] = self.estimatedPallets?.encodeToJSON()
